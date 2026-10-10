@@ -1,8 +1,8 @@
 {
   "meta": {
     "id": "thomas-berthier",
-    "version": 1,
-    "description": "Personnage d'étude n°1 : fiche complète servant de base à la génération de sa timeline sur une semaine.",
+    "version": 2,
+    "description": "Personnage d'étude n°1 : fiche complète servant de base à la génération de sa timeline sur une semaine, vécue seul.",
     "periode": {
       "debut": "2010-03-08T00:00",
       "fin": "2010-03-14T23:55",
@@ -11,16 +11,24 @@
       "fuseau_horaire": "Europe/Paris"
     },
     "deterministe": true,
+    "contraintes_du_test": [
+      "Aucun autre personnage n'apparaît ni n'est rencontré.",
+      "Aucun contact à distance : ni téléphone, ni SMS, ni e-mail, ni réseau social.",
+      "Thomas reste chez lui, sauf pour ses sorties de course à pied, qu'il fait seul.",
+      "Les passants éventuels pendant la course ne sont pas simulés.",
+      "Aucun élément perturbateur ni paradoxe n'est prévu : ce que Thomas croit correspond toujours à la réalité.",
+      "Les autres personnes n'existent que dans sa mémoire et sa vie intérieure."
+    ],
     "echelles": {
       "besoins": "0 à 100 (100 = pleinement satisfait, 0 = critique)",
-      "emotions_traits_relations": "0 à 1",
+      "emotions_traits_souvenirs": "0 à 1",
       "heures": "HH:MM, toujours multiple de 5 minutes"
     },
     "faits_reels_utilises": [
-      "Mercredi 10 mars 2010, 20h45 : Real Madrid – Olympique Lyonnais, 8e de finale retour de Ligue des champions.",
-      "Dimanche 14 mars 2010 : premier tour des élections régionales en France."
+      "Mercredi 10 mars 2010, 20h45 : Real Madrid – Olympique Lyonnais, 8e de finale retour de Ligue des champions, retransmis à la télévision.",
+      "Régime de l'auto-entrepreneur, créé en France le 1er janvier 2009."
     ],
-    "elements_fictifs": "Les personnes, commerces, numéros de rue et cabinets sont fictifs. Les rues, quartiers et lignes de transport de Lyon sont réels."
+    "elements_fictifs": "Thomas, son entourage et son adresse précise sont fictifs. Les rues, quartiers et lieux de Lyon sont réels."
   },
 
   "identite": {
@@ -35,10 +43,9 @@
       { "langue": "français", "niveau": "maternelle" },
       { "langue": "anglais", "niveau": "scolaire, lit des documentations techniques" }
     ],
-    "situation_familiale": "célibataire, sans enfant",
-    "metier": "horloger-rhabilleur (réparation et restauration de montres)",
-    "religion": "baptisé catholique, non pratiquant, agnostique",
-    "orientation_politique": "centre gauche, vote à chaque élection par principe"
+    "situation_familiale": "célibataire, sans enfant, vit seul",
+    "metier": "horloger-rhabilleur indépendant (auto-entrepreneur), atelier à domicile",
+    "religion": "baptisé catholique, non pratiquant, agnostique"
   },
 
   "apparence": {
@@ -52,8 +59,12 @@
       "petite cicatrice sur le pouce gauche (tournevis, 1997)",
       "porte des lunettes demi-lunes pour le travail de précision"
     ],
-    "style_vestimentaire": "chemises unies, pulls col rond, veste en velours côtelé marron, jean brut, chaussures en cuir usées",
-    "voix_et_attitude": "voix posée, parle peu et lentement, regarde souvent les mains de ses interlocuteurs"
+    "tenues": {
+      "travail": "chemise unie, pull col rond, jean, chaussons en feutre",
+      "course": "collant, tee-shirt technique, coupe-vent, bonnet, chaussures de course",
+      "nuit": "tee-shirt et caleçon"
+    },
+    "attitude": "gestes lents et précis, se parle parfois à voix basse quand il travaille"
   },
 
   "sante": {
@@ -68,18 +79,19 @@
     },
     "conditions": [
       { "nom": "presbytie précoce légère", "effet": "lunettes demi-lunes pour le travail fin et la lecture" },
-      { "nom": "lombalgies occasionnelles", "effet": "douleur en fin de journée si plus de 3 h penché sans pause" }
+      { "nom": "lombalgies occasionnelles", "effet": "douleur si plus de 3 h penché sans pause ; soulagée par 5 minutes d'étirements" }
     ],
     "allergies": [],
     "consommations": {
-      "cafe": "3 tasses par jour (matin, 10h30, après le déjeuner), jamais après 16h",
-      "alcool": "1 à 2 verres de vin ou de bière le week-end ou lors de sorties",
+      "cafe": "3 tasses par jour (petit-déjeuner, 10h30, après le déjeuner), jamais après 16h",
+      "alcool": "1 verre de vin ou 1 bière le week-end ou un soir de match",
       "tabac": "ancien fumeur, arrêté en septembre 2007 ; envie de fumer quand l'anxiété dépasse 0.75",
-      "sucre": "carré de chocolat noir le soir"
+      "sucre": "deux carrés de chocolat noir le soir"
     },
     "activite_physique": [
-      { "activite": "natation", "frequence": "mardi soir", "duree_minutes": 45 },
-      { "activite": "course à pied le long de la Saône", "frequence": "dimanche matin", "duree_minutes": 45 }
+      { "activite": "course à pied le long des quais de Saône", "jours": ["mardi", "jeudi"], "duree_minutes": 45 },
+      { "activite": "sortie longue de course à pied", "jours": ["dimanche"], "duree_minutes": 75 },
+      { "activite": "étirements du dos", "jours": "tous les jours travaillés", "duree_minutes": 10 }
     ]
   },
 
@@ -91,44 +103,40 @@
       "agreabilite": 0.68,
       "nevrosisme": 0.52
     },
-    "traits": ["minutieux", "patient", "ponctuel", "réservé", "loyal", "indécis face aux grands choix", "humour pince-sans-rire"],
-    "qualites": ["fiable", "attentif aux autres", "habile de ses mains", "tient ses engagements"],
-    "defauts": ["rumine", "évite les conflits", "repousse les décisions émotionnelles", "a du mal à demander de l'aide"],
-    "ponctualite": { "avance_habituelle_minutes": 10, "stress_si_retard": 0.3 }
+    "traits": ["minutieux", "patient", "ponctuel", "réservé", "méthodique", "indécis face aux grands choix", "humour pince-sans-rire"],
+    "qualites": ["fiable", "habile de ses mains", "endurant", "tient ses engagements envers lui-même"],
+    "defauts": ["rumine", "perfectionniste au point de perdre du temps", "a du mal à s'arrêter de travailler", "néglige ses besoins quand il est concentré"],
+    "ponctualite": { "respect_de_son_planning": 0.85, "stress_si_retard_sur_planning": 0.3 }
   },
 
   "vie_interieure": {
     "valeurs": [
       { "valeur": "le travail bien fait", "importance": 0.95 },
       { "valeur": "la transmission (le geste appris de son grand-père)", "importance": 0.9 },
-      { "valeur": "la loyauté envers sa famille et Henri", "importance": 0.85 },
-      { "valeur": "la sécurité matérielle", "importance": 0.6 },
-      { "valeur": "la liberté", "importance": 0.55 }
+      { "valeur": "l'indépendance", "importance": 0.75 },
+      { "valeur": "la régularité et l'ordre", "importance": 0.7 },
+      { "valeur": "la sécurité matérielle", "importance": 0.6 }
     ],
     "croyances": [
       "Une chose réparée avec soin peut durer plus longtemps que celui qui l'a réparée.",
-      "On ne doit pas d'argent à une banque si on peut l'éviter (héritage de son père).",
+      "Un mouvement d'horlogerie ne ment pas : s'il s'arrête, c'est qu'on a mal fait quelque chose.",
       "Les décisions importantes se prennent à tête reposée, jamais le soir.",
-      "Il a laissé partir Sophie par peur du changement, pas par manque d'amour."
+      "On ne doit pas d'argent à personne si on peut l'éviter (héritage de son père)."
     ],
     "peurs": [
-      { "peur": "l'endettement et la faillite", "intensite": 0.75 },
-      { "peur": "perdre son père", "intensite": 0.7 },
-      { "peur": "décevoir Henri", "intensite": 0.6 },
+      { "peur": "manquer de commandes et ne plus pouvoir payer son loyer", "intensite": 0.6 },
+      { "peur": "perdre son père", "intensite": 0.55 },
+      { "peur": "abîmer une pièce irremplaçable", "intensite": 0.5 },
       { "peur": "finir seul", "intensite": 0.45 }
     ],
     "desirs": [
-      { "desir": "avoir sa propre boutique-atelier", "intensite": 0.7 },
-      { "desir": "faire revivre la montre de son grand-père", "intensite": 0.8 },
+      { "desir": "faire repartir la montre de son grand-père", "intensite": 0.85 },
+      { "desir": "ouvrir un jour une boutique-atelier avec vitrine", "intensite": 0.55 },
       { "desir": "retrouver une vie de couple", "intensite": 0.4 },
       { "desir": "voyager au Japon pour visiter les ateliers de Seiko", "intensite": 0.3 }
     ],
-    "secrets": [
-      "Il n'a pas ouvert la lettre de Sophie reçue le 22 janvier 2010 ; personne ne le sait.",
-      "Il a déjà rédigé dans son carnet une lettre de refus à Henri, jamais montrée."
-    ],
     "style_de_pensee": {
-      "mode": "analytique, procède par listes de pour et de contre",
+      "mode": "analytique, procède par listes et par étapes",
       "rumination": "forte le soir et au coucher",
       "autocritique": 0.6,
       "optimisme": 0.45,
@@ -136,33 +144,36 @@
     },
     "voix_interieure": "Se parle à lui-même au tutoiement, sur un ton calme mais exigeant, avec des comparaisons tirées de l'horlogerie (« chaque rouage à sa place »).",
     "pensees_recurrentes": [
-      { "sujet": "reprise", "texte": "Soixante mille euros. Il faudrait douze ans pour rembourser. Et si personne ne pousse plus la porte ?" },
-      { "sujet": "pere", "texte": "Il faut que j'appelle papa. Il dit que ça va, il dit toujours que ça va." },
-      { "sujet": "sophie", "texte": "Tant qu'elle reste fermée, la lettre ne peut rien dire de mal." },
-      { "sujet": "montre", "texte": "Il manque juste l'axe de balancier. Après, elle repartira." },
-      { "sujet": "solitude", "texte": "L'appartement est trop calme le dimanche." }
+      { "sujet": "travail", "texte": "Si la Rolex est terminée jeudi, la semaine sera bonne. Il faut que ce mois-ci tienne." },
+      { "sujet": "montre", "texte": "Un pivot de quelques dixièmes de millimètre. Pas le droit à l'erreur, il n'y a pas d'autre balancier." },
+      { "sujet": "grand-pere", "texte": "Le 20 mars, ça fera six ans. Elle doit marcher avant." },
+      { "sujet": "pere", "texte": "Papa doit être devant les informations. Il dit toujours que ça va." },
+      { "sujet": "solitude", "texte": "L'appartement est trop calme le dimanche." },
+      { "sujet": "sophie", "texte": "Elle aurait aimé la lumière de l'atelier le matin." }
     ],
     "preoccupations_semaine": [
-      { "id": "pre-reprise", "sujet": "Reprendre ou non l'Horlogerie Fournier", "intensite_initiale": 0.85, "valence": "ambivalente" },
-      { "id": "pre-pere", "sujet": "La santé de son père depuis l'infarctus", "intensite_initiale": 0.6, "valence": "négative" },
-      { "id": "pre-sophie", "sujet": "La lettre fermée de Sophie", "intensite_initiale": 0.5, "valence": "négative" },
-      { "id": "pre-montre", "sujet": "Finir la montre de son grand-père avant le 20 mars", "intensite_initiale": 0.4, "valence": "positive" },
-      { "id": "pre-solitude", "sujet": "Un sentiment de solitude diffus", "intensite_initiale": 0.35, "valence": "négative" }
+      { "id": "pre-commandes", "sujet": "Terminer les réparations en cours pour être payé", "intensite_initiale": 0.6, "valence": "négative" },
+      { "id": "pre-montre", "sujet": "Fabriquer l'axe de balancier et faire repartir la montre du grand-père avant le 20 mars", "intensite_initiale": 0.6, "valence": "positive" },
+      { "id": "pre-pere", "sujet": "La santé de son père depuis son infarctus de janvier", "intensite_initiale": 0.4, "valence": "négative" },
+      { "id": "pre-solitude", "sujet": "Un sentiment de solitude diffus", "intensite_initiale": 0.35, "valence": "négative" },
+      { "id": "pre-sophie", "sujet": "Le souvenir de Sophie", "intensite_initiale": 0.2, "valence": "nostalgique" }
     ],
     "humeur_de_base": { "valence": 0.55, "activation": 0.45 },
     "declencheurs": [
       { "situation": "un objet n'est pas à sa place habituelle", "reaction": "agacement puis inquiétude", "effet": { "anxiete": 0.15, "colere": 0.05 } },
-      { "situation": "entendre parler d'argent ou de crédit", "reaction": "tension", "effet": { "anxiete": 0.2 } },
-      { "situation": "voir ou entendre le nom de Sophie", "reaction": "pincement, distraction", "effet": { "tristesse": 0.2, "concentration": -0.2 } },
-      { "situation": "un appel ou SMS de Besançon à une heure inhabituelle", "reaction": "peur immédiate pour son père", "effet": { "anxiete": 0.4 } },
-      { "situation": "réussir une réparation difficile", "reaction": "satisfaction silencieuse", "effet": { "joie": 0.2, "fierte": 0.25, "anxiete": -0.1 } },
-      { "situation": "être en retard", "reaction": "stress, marche plus vite", "effet": { "anxiete": 0.15 } }
+      { "situation": "réussir une opération délicate", "reaction": "satisfaction silencieuse", "effet": { "joie": 0.2, "fierte": 0.25, "anxiete": -0.1 } },
+      { "situation": "rater une opération ou casser une pièce", "reaction": "frustration, arrêt du travail pendant 15 minutes", "effet": { "colere": 0.25, "anxiete": 0.15, "fierte": -0.2 } },
+      { "situation": "prendre du retard sur son planning", "reaction": "tension, raccourcit ses pauses", "effet": { "anxiete": 0.15 } },
+      { "situation": "regarder la photo de son grand-père", "reaction": "émotion douce, motivation", "effet": { "tristesse": 0.1, "concentration": 0.1 } },
+      { "situation": "écouter Leonard Cohen", "reaction": "nostalgie, pense à Sophie", "effet": { "tristesse": 0.15, "solitude": 0.1 } },
+      { "situation": "fin d'une sortie de course", "reaction": "apaisement", "effet": { "anxiete": -0.2, "joie": 0.1 } }
     ],
     "mecanismes_adaptation": [
       { "condition": "anxiete > 0.6", "comportement": "range et nettoie ses outils, ou travaille sur la montre de son grand-père" },
-      { "condition": "tristesse > 0.5", "comportement": "écoute de la musique (Leonard Cohen, Radiohead) sur son iPod" },
+      { "condition": "tristesse > 0.5", "comportement": "écoute de la musique (Radiohead, Bach) sur la chaîne hi-fi" },
       { "condition": "rumination au coucher", "comportement": "écrit quelques lignes dans son carnet noir" },
-      { "condition": "anxiete > 0.75", "comportement": "envie de cigarette, sort marcher 15 minutes à la place" }
+      { "condition": "anxiete > 0.75", "comportement": "envie de cigarette ; ouvre la fenêtre et respire 5 minutes à la place" },
+      { "condition": "solitude > 0.6", "comportement": "allume la radio (France Inter) pour entendre des voix" }
     ]
   },
 
@@ -171,7 +182,7 @@
     "lieu": "domicile",
     "piece": "chambre",
     "activite": "dort (couché à 23:15 le dimanche soir)",
-    "tenue": "tee-shirt et caleçon",
+    "tenue": "nuit",
     "objets_portes": [],
     "besoins": {
       "faim": 60,
@@ -179,23 +190,23 @@
       "energie": 35,
       "hygiene": 70,
       "toilettes": 75,
-      "social": 50,
+      "social": 70,
       "detente": 60
     },
     "emotions": {
-      "joie": 0.35,
-      "tristesse": 0.25,
-      "anxiete": 0.45,
+      "joie": 0.4,
+      "tristesse": 0.2,
+      "anxiete": 0.35,
       "colere": 0.05,
-      "solitude": 0.4,
-      "fierte": 0.3,
+      "solitude": 0.35,
+      "fierte": 0.35,
       "concentration": 0.5
     }
   },
 
   "besoins": {
     "faim": {
-      "variation_par_pas": { "eveille": -0.5, "endormi": -0.2 },
+      "variation_par_pas": { "eveille": -0.5, "endormi": -0.2, "effort_physique": -0.9 },
       "seuil_alerte": 35,
       "satisfaction": { "repas_complet": 55, "petit_dejeuner": 40, "collation": 15 }
     },
@@ -220,24 +231,25 @@
       "satisfaction": { "passage_toilettes": 100 }
     },
     "social": {
-      "variation_par_pas": { "eveille_seul": -0.15, "endormi": 0 },
+      "variation_par_pas": { "eveille": -0.04, "endormi": 0 },
       "seuil_alerte": 30,
-      "satisfaction": { "conversation_par_pas": 1.0, "conversation_proche_par_pas": 2.0, "sms_recu": 3 }
+      "satisfaction": { "radio_par_pas": 0.15, "television_par_pas": 0.2, "match_televise_par_pas": 0.3 },
+      "notes": "Aucune interaction réelle pendant la semaine : la radio et la télévision n'atténuent que faiblement le manque, qui augmente lentement."
     },
     "detente": {
       "variation_par_pas": { "travail": -0.25, "eveille_autre": -0.05 },
       "seuil_alerte": 30,
-      "satisfaction": { "loisir_par_pas": 1.2, "lecture_par_pas": 1.0, "musique_par_pas": 0.8 }
+      "satisfaction": { "loisir_par_pas": 1.2, "lecture_par_pas": 1.0, "musique_par_pas": 0.8, "course_par_pas": 0.6 }
     }
   },
 
   "competences": [
     { "competence": "horlogerie mécanique", "niveau": 0.9 },
     { "competence": "restauration de montres anciennes", "niveau": 0.8 },
-    { "competence": "relation client", "niveau": 0.55 },
-    { "competence": "gestion et comptabilité", "niveau": 0.25 },
+    { "competence": "tournage de pièces au tour d'horloger", "niveau": 0.7 },
+    { "competence": "gestion et comptabilité", "niveau": 0.35 },
     { "competence": "cuisine", "niveau": 0.45 },
-    { "competence": "natation", "niveau": 0.6 },
+    { "competence": "course à pied", "niveau": 0.6 },
     { "competence": "informatique", "niveau": 0.45 },
     { "competence": "anglais", "niveau": 0.4 }
   ],
@@ -250,539 +262,371 @@
     { "date": "1996-09", "evenement": "Entre au lycée Edgar-Faure de Morteau en formation horlogerie." },
     { "date": "1997-03", "evenement": "Se blesse le pouce gauche avec un tournevis en atelier." },
     { "date": "1999-06", "evenement": "Obtient son diplôme d'horloger." },
-    { "date": "2001-04", "evenement": "S'installe à Lyon, embauché par Henri Fournier à l'Horlogerie Fournier." },
+    { "date": "2001-04", "evenement": "S'installe à Lyon, embauché par Henri Fournier à l'Horlogerie Fournier, rue de la Charité." },
     { "date": "2004-03-20", "evenement": "Mort de son grand-père René. Hérite de sa montre de gousset LIP, arrêtée depuis des années." },
     { "date": "2005-10", "evenement": "Rencontre Sophie Lambert lors d'un vernissage aux Pentes de la Croix-Rousse." },
-    { "date": "2006-05", "evenement": "Emménage avec Sophie rue d'Austerlitz." },
+    { "date": "2006-05", "evenement": "Emménage avec Sophie rue d'Austerlitz, dans un trois-pièces." },
     { "date": "2007-09", "evenement": "Arrête de fumer." },
-    { "date": "2009-07-12", "evenement": "Rupture avec Sophie : elle veut partir vivre à Montréal, il refuse de quitter Lyon. Elle déménage dans le 7e arrondissement." },
+    { "date": "2009-06-30", "evenement": "Henri Fournier part à la retraite et vend sa boutique à une bijouterie. Thomas décide de se mettre à son compte." },
+    { "date": "2009-07-12", "evenement": "Rupture avec Sophie : elle part vivre à Montréal, il refuse de quitter Lyon. Il garde l'appartement et transforme la deuxième chambre en atelier." },
+    { "date": "2009-09-01", "evenement": "Se déclare auto-entrepreneur. Ses clients lui sont envoyés par d'anciens clients de la boutique et par deux bijoutiers lyonnais." },
     { "date": "2009-11", "evenement": "Commence la restauration de la montre de son grand-père." },
     { "date": "2010-01-14", "evenement": "Infarctus de son père, pose d'un stent à Besançon. Thomas passe trois jours là-bas." },
-    { "date": "2010-01-22", "evenement": "Reçoit une lettre de Sophie. Il ne l'ouvre pas et la range dans le tiroir de son établi." },
-    { "date": "2010-02-14", "evenement": "Élodie lui annonce qu'elle est enceinte (terme prévu en août 2010)." },
-    { "date": "2010-02-26", "evenement": "Henri lui propose de reprendre la boutique au 1er juillet 2010 pour 60 000 euros. Réponse attendue le samedi 13 mars." },
-    { "date": "2010-03-02", "evenement": "Commande un axe de balancier pour la montre de son grand-père chez un fournisseur de pièces ; livraison prévue à la boutique le jeudi 11 mars." }
+    { "date": "2010-03-06", "evenement": "Fait les grosses courses de la semaine et reçoit les dernières montres à réparer. Il ne prévoit aucune sortie la semaine suivante, hors course à pied." }
   ],
 
-  "relations": [
-    {
-      "id": "henri-fournier",
-      "nom": "Henri Fournier",
-      "age": 67,
-      "lien": "patron et mentor",
-      "intimite": 0.7,
-      "confiance": 0.9,
-      "frequence_contact": "du mardi au samedi",
-      "etat_actuel": "Attend la réponse de Thomas sur la reprise d'ici samedi 13 mars à la fermeture.",
-      "ce_que_thomas_pense": "Un second père dans le métier ; il ne veut pas le décevoir mais redoute le poids de l'héritage."
-    },
-    {
-      "id": "nadia-benali",
-      "nom": "Nadia Benali",
-      "age": 26,
-      "lien": "collègue, vendeuse à temps partiel (mercredi, vendredi, samedi)",
-      "intimite": 0.4,
-      "confiance": 0.65,
-      "frequence_contact": "trois jours par semaine",
-      "etat_actuel": "Ignore la proposition de reprise ; s'inquiète pour son emploi après le départ d'Henri.",
-      "ce_que_thomas_pense": "Sympathique et efficace ; il se sent responsable de son poste si la boutique ferme."
-    },
-    {
-      "id": "gerard-berthier",
-      "nom": "Gérard Berthier",
-      "age": 62,
-      "lien": "père",
-      "ville": "Besançon",
-      "intimite": 0.6,
-      "confiance": 0.8,
-      "frequence_contact": "appel tous les dimanches vers 19:00",
-      "etat_actuel": "Convalescent après son infarctus de janvier, ancien cheminot à la retraite, minimise sa santé.",
-      "ce_que_thomas_pense": "Pudique et têtu ; Thomas recherche son approbation sans oser la demander."
-    },
-    {
-      "id": "monique-berthier",
-      "nom": "Monique Berthier",
-      "age": 60,
-      "lien": "mère",
-      "ville": "Besançon",
-      "intimite": 0.75,
-      "confiance": 0.85,
-      "frequence_contact": "appel du dimanche, SMS dans la semaine",
-      "etat_actuel": "Fatiguée par la convalescence de son mari ; demande souvent à Thomas s'il « voit quelqu'un ».",
-      "ce_que_thomas_pense": "Aimante et inquiète ; il lui cache ses doutes pour ne pas l'alarmer."
-    },
-    {
-      "id": "elodie-berthier",
-      "nom": "Élodie Berthier",
-      "age": 27,
-      "lien": "sœur",
-      "ville": "Villeurbanne",
-      "metier": "infirmière à l'hôpital Édouard-Herriot",
-      "intimite": 0.85,
-      "confiance": 0.9,
-      "frequence_contact": "SMS plusieurs fois par semaine, dîner un vendredi sur deux",
-      "etat_actuel": "Enceinte de 4 mois ; l'a invité à dîner vendredi 12 mars à 20:00.",
-      "ce_que_thomas_pense": "La seule personne à qui il dit vraiment les choses ; il pense lui demander conseil sur la reprise."
-    },
-    {
-      "id": "karim-haddad",
-      "nom": "Karim Haddad",
-      "age": 30,
-      "lien": "compagnon d'Élodie",
-      "metier": "professeur de mathématiques en collège",
-      "intimite": 0.5,
-      "confiance": 0.7,
-      "frequence_contact": "lors des dîners chez Élodie",
-      "etat_actuel": "Amateur de vin ; Thomas veut lui apporter une bonne bouteille vendredi.",
-      "ce_que_thomas_pense": "Sympathique, très rationnel ; un bon interlocuteur pour les questions d'argent."
-    },
-    {
-      "id": "julien-marchetti",
-      "nom": "Julien Marchetti",
-      "age": 32,
-      "lien": "meilleur ami depuis le collège",
-      "ville": "Lyon 1er",
-      "metier": "commercial dans une société de logiciels",
-      "intimite": 0.8,
-      "confiance": 0.85,
-      "frequence_contact": "une à deux fois par semaine",
-      "etat_actuel": "Ont prévu de regarder Real Madrid – Lyon ensemble mercredi soir au bar.",
-      "ce_que_thomas_pense": "Extraverti, le pousse à prendre des risques ; Thomas sait qu'il lui dira de reprendre la boutique."
-    },
-    {
-      "id": "sophie-lambert",
-      "nom": "Sophie Lambert",
-      "age": 30,
-      "lien": "ex-compagne (2005-2009)",
-      "ville": "Lyon 7e",
-      "metier": "graphiste indépendante",
-      "intimite": 0.3,
-      "confiance": 0.5,
-      "frequence_contact": "aucun contact depuis la lettre de janvier",
-      "etat_actuel": "Prépare son départ pour Montréal le 2 avril 2010 (inconnu de Thomas).",
-      "ce_que_thomas_pense": "Il pense encore à elle plus qu'il ne l'admet."
-    },
-    {
-      "id": "odette-ravier",
-      "nom": "Odette Ravier",
-      "age": 81,
-      "lien": "voisine de palier, veuve",
-      "intimite": 0.45,
-      "confiance": 0.9,
-      "frequence_contact": "le samedi matin et en se croisant dans l'escalier",
-      "etat_actuel": "Garde un double des clés de Thomas ; il l'accompagne au marché le samedi matin et porte ses courses.",
-      "ce_que_thomas_pense": "Lui rappelle sa grand-mère ; il ne manquerait le samedi matin pour rien."
-    },
-    {
-      "id": "rene-berthier",
-      "nom": "René Berthier",
-      "age": null,
-      "lien": "grand-père paternel, décédé le 20 mars 2004",
-      "intimite": 0.9,
-      "confiance": 1.0,
-      "frequence_contact": "aucune (souvenir)",
-      "etat_actuel": "Présent à travers la montre de gousset et une photo sur l'établi.",
-      "ce_que_thomas_pense": "Son modèle ; il a participé à la grève des LIP en 1973 et en parlait avec fierté."
-    },
-    {
-      "id": "laurent-royer",
-      "nom": "Laurent Royer",
-      "age": 41,
-      "lien": "conseiller bancaire",
-      "intimite": 0.1,
-      "confiance": 0.4,
-      "frequence_contact": "rendez-vous jeudi 11 mars",
-      "etat_actuel": "Doit étudier la faisabilité d'un prêt pour la reprise.",
-      "ce_que_thomas_pense": "Poli mais intimidant ; Thomas redoute de paraître incompétent en gestion."
-    },
-    {
-      "id": "dr-pelletier",
-      "nom": "Dr Anne Pelletier",
-      "age": 52,
-      "lien": "dentiste",
-      "intimite": 0.05,
-      "confiance": 0.6,
-      "frequence_contact": "contrôle annuel",
-      "etat_actuel": "Rendez-vous lundi 8 mars à 10:30.",
-      "ce_que_thomas_pense": "Aucun avis particulier ; il n'aime pas le bruit de la fraise."
-    }
+  "personnes_en_memoire": [
+    { "id": "rene-berthier", "nom": "René Berthier", "lien": "grand-père paternel, décédé le 20 mars 2004", "attachement": 0.95, "souvenir_dominant": "ses mains sur l'établi, l'odeur d'huile d'horlogerie, ses récits de la grève des LIP en 1973", "sentiment": "admiration, manque" },
+    { "id": "gerard-berthier", "nom": "Gérard Berthier", "lien": "père, 62 ans, Besançon, cheminot retraité", "attachement": 0.75, "souvenir_dominant": "les trajets en train le dimanche quand il était enfant ; l'hôpital en janvier", "sentiment": "inquiétude, pudeur" },
+    { "id": "monique-berthier", "nom": "Monique Berthier", "lien": "mère, 60 ans, Besançon", "attachement": 0.8, "souvenir_dominant": "sa question rituelle : « Tu manges bien, au moins ? »", "sentiment": "tendresse" },
+    { "id": "elodie-berthier", "nom": "Élodie Berthier", "lien": "sœur, 27 ans, infirmière, Villeurbanne", "attachement": 0.85, "souvenir_dominant": "leurs fous rires d'enfants dans la cuisine de la grand-mère", "sentiment": "complicité" },
+    { "id": "julien-marchetti", "nom": "Julien Marchetti", "lien": "meilleur ami depuis le collège, vit à Lyon", "attachement": 0.8, "souvenir_dominant": "les matchs de l'OL regardés ensemble", "sentiment": "affection, un peu d'envie pour son aisance" },
+    { "id": "henri-fournier", "nom": "Henri Fournier", "lien": "ancien patron et mentor, retraité", "attachement": 0.7, "souvenir_dominant": "« Une montre, ça se respecte, même une à quartz. »", "sentiment": "reconnaissance" },
+    { "id": "sophie-lambert", "nom": "Sophie Lambert", "lien": "ex-compagne (2005-2009), partie à Montréal", "attachement": 0.5, "souvenir_dominant": "les dimanches matin au marché de la Croix-Rousse", "sentiment": "nostalgie, regret discret" }
   ],
 
   "economie": {
     "devise": "EUR",
-    "salaire_net_mensuel": 1650,
-    "date_versement_salaire": "le 28 de chaque mois",
-    "compte_courant_au_debut": 1180,
-    "epargne_livret_a": 9400,
-    "especes_au_debut": 45,
+    "statut": "auto-entrepreneur (artisan)",
+    "chiffre_affaires_mensuel_moyen": 1900,
+    "revenu_net_estime_mensuel": 1450,
+    "compte_courant_au_debut": 940,
+    "epargne_livret_a": 6200,
+    "especes_au_debut": 35,
     "charges_mensuelles": {
-      "loyer_charges_comprises": 560,
-      "electricite": 35,
-      "internet_adsl_et_telephone_fixe": 30,
-      "forfait_mobile": 25,
-      "abonnement_tcl": 47,
+      "loyer_charges_comprises": 690,
+      "electricite": 45,
+      "internet_adsl": 30,
       "mutuelle": 38,
-      "piscine_carte_10_entrees_amortie": 8
+      "fournitures_atelier": 60
     },
-    "budget_hebdomadaire_courses": 60,
-    "projet_reprise": {
-      "prix_fonds_de_commerce": 60000,
-      "apport_possible": 9000,
-      "pret_necessaire": 51000,
-      "duree_envisagee_annees": 12
-    }
+    "paiements_attendus": [
+      { "travail": "tr-omega", "montant": 280 },
+      { "travail": "tr-rolex", "montant": 350 },
+      { "travail": "tr-pendule", "montant": 220 },
+      { "travail": "tr-quartz", "montant": 90 }
+    ]
   },
 
   "travail": {
-    "employeur": "Horlogerie Fournier (Henri Fournier)",
-    "lieu_id": "horlogerie-fournier",
-    "poste": "horloger-rhabilleur, seul technicien de l'atelier",
-    "contrat": "CDI, 39 heures par semaine",
-    "horaires": {
-      "lundi": null,
+    "statut": "indépendant, travaille seul dans l'atelier de son appartement",
+    "lieu": { "lieu": "domicile", "piece": "atelier" },
+    "horaires_qu_il_s_impose": {
+      "lundi": [["09:00", "12:30"], ["14:00", "18:00"]],
       "mardi": [["09:00", "12:30"], ["14:00", "18:00"]],
       "mercredi": [["09:00", "12:30"], ["14:00", "18:00"]],
       "jeudi": [["09:00", "12:30"], ["14:00", "18:00"]],
       "vendredi": [["09:00", "12:30"], ["14:00", "18:00"]],
-      "samedi": [["09:00", "12:30"], ["13:30", "19:00"]],
+      "samedi": null,
       "dimanche": null
     },
-    "ouverture_boutique": "du mardi au samedi, 09:30-12:30 et 14:00-19:00",
-    "taches_habituelles": [
-      "révisions complètes de montres mécaniques",
-      "changements de piles et de bracelets",
-      "réglages et étanchéité",
-      "devis et accueil des clients à l'atelier",
-      "commande de pièces auprès des fournisseurs"
-    ],
     "travaux_en_cours_au_debut": [
-      { "id": "tr-omega", "description": "Révision d'une Omega Seamaster 1962 d'un client", "temps_restant_minutes": 240, "a_rendre": "2010-03-12" },
-      { "id": "tr-pendule", "description": "Réparation du mécanisme de sonnerie d'une pendule de cheminée", "temps_restant_minutes": 180, "a_rendre": "2010-03-13" },
-      { "id": "tr-piles", "description": "Changements de piles et bracelets en attente", "temps_restant_minutes": 60, "a_rendre": "au fil de l'eau" }
+      { "id": "tr-omega", "description": "Révision complète d'une Omega Seamaster de 1962 (démontage, nettoyage, huilage, réglage)", "temps_restant_minutes": 360, "objectif_de_fin": "2010-03-09T18:00", "objet": "obj-omega" },
+      { "id": "tr-rolex", "description": "Révision d'une Rolex Oyster Date de 1975, remplacement du ressort de barillet", "temps_restant_minutes": 420, "objectif_de_fin": "2010-03-11T18:00", "objet": "obj-rolex" },
+      { "id": "tr-pendule", "description": "Réparation du mécanisme de sonnerie d'une pendule de cheminée", "temps_restant_minutes": 300, "objectif_de_fin": "2010-03-12T16:50", "objet": "obj-pendule" },
+      { "id": "tr-quartz", "description": "Lot de six montres à quartz : piles, joints, test d'étanchéité", "temps_restant_minutes": 180, "objectif_de_fin": "2010-03-12T16:50", "objet": "obj-lot-quartz" },
+      { "id": "tr-zenith", "description": "Révision d'un chronographe Zenith (à terminer la semaine suivante)", "temps_restant_minutes": 600, "objectif_de_fin": "2010-03-19T18:00", "objet": "obj-zenith" },
+      { "id": "tr-gestion", "description": "Tenue du livre des recettes, préparation des factures et des colis d'expédition du lundi suivant", "temps_restant_minutes": 90, "objectif_de_fin": "2010-03-12T17:50", "objet": "obj-classeur-compta" }
     ],
-    "collegues": ["henri-fournier", "nadia-benali"]
+    "ordre_de_priorite": ["tr-omega", "tr-rolex", "tr-pendule", "tr-quartz", "tr-gestion", "tr-zenith"],
+    "regles": [
+      "Ne commence jamais une opération délicate s'il reste moins de 30 minutes avant une pause.",
+      "Fait une pause de 10 minutes avec étirements toutes les 90 minutes environ.",
+      "Les montres terminées sont rangées dans le coffre, étiquetées, prêtes à être expédiées le lundi 15 mars."
+    ]
   },
 
   "lieux": [
     {
       "id": "domicile",
       "nom": "Appartement de Thomas",
-      "type": "logement",
-      "adresse": "14 rue d'Austerlitz, 69004 Lyon (Croix-Rousse)",
-      "description": "Deux-pièces de 42 m² au 3e étage sans ascenseur d'un ancien immeuble de canuts, plafonds de 3,80 m, parquet qui grince devant la chambre."
-    },
-    {
-      "id": "appartement-odette-ravier",
-      "nom": "Appartement de Mme Ravier",
-      "type": "logement",
-      "adresse": "14 rue d'Austerlitz, 69004 Lyon, 3e étage, porte en face"
-    },
-    {
-      "id": "horlogerie-fournier",
-      "nom": "Horlogerie Fournier",
-      "type": "lieu de travail",
-      "adresse": "27 rue de la Charité, 69002 Lyon",
-      "description": "Petite boutique ancienne avec vitrine, atelier à l'arrière et réserve.",
-      "pieces": ["boutique", "atelier", "arriere-boutique"]
-    },
-    {
-      "id": "cabinet-dentaire",
-      "nom": "Cabinet du Dr Pelletier",
-      "type": "santé",
-      "adresse": "boulevard de la Croix-Rousse, 69004 Lyon"
-    },
-    {
-      "id": "laverie",
-      "nom": "Laverie automatique du Gros Caillou",
-      "type": "service",
-      "adresse": "près du Gros Caillou, 69004 Lyon",
-      "horaires": "tous les jours 07:00-21:00"
-    },
-    {
-      "id": "superette",
-      "nom": "Supérette de la Grande Rue",
-      "type": "commerce",
-      "adresse": "Grande Rue de la Croix-Rousse, 69004 Lyon",
-      "horaires": "lundi-samedi 08:30-20:00, dimanche 09:00-12:30"
-    },
-    {
-      "id": "marche-croix-rousse",
-      "nom": "Marché de la Croix-Rousse",
-      "type": "marché",
-      "adresse": "boulevard de la Croix-Rousse, 69004 Lyon",
-      "horaires": "du mardi au dimanche, matin"
-    },
-    {
-      "id": "piscine",
-      "nom": "Piscine municipale du quartier",
-      "type": "sport",
-      "adresse": "Lyon 4e",
-      "horaires": "mardi soir 19:00-21:30"
-    },
-    {
-      "id": "bar-du-plateau",
-      "nom": "Le Comptoir du Plateau",
-      "type": "bar",
-      "adresse": "place de la Croix-Rousse, 69004 Lyon",
-      "description": "Bar de quartier avec grand écran les soirs de match."
-    },
-    {
-      "id": "banque",
-      "nom": "Agence bancaire de Thomas",
-      "type": "banque",
-      "adresse": "près de la place Bellecour, 69002 Lyon"
-    },
-    {
-      "id": "caviste",
-      "nom": "Cave de la rue Victor-Hugo",
-      "type": "commerce",
-      "adresse": "rue Victor-Hugo, 69002 Lyon",
-      "horaires": "mardi-samedi 10:00-19:30"
-    },
-    {
-      "id": "boulangerie-charite",
-      "nom": "Boulangerie près de la boutique",
-      "type": "commerce",
-      "adresse": "rue de la Charité, 69002 Lyon"
-    },
-    {
-      "id": "appartement-elodie",
-      "nom": "Appartement d'Élodie et Karim",
-      "type": "logement",
-      "adresse": "cours Émile-Zola, 69100 Villeurbanne"
-    },
-    {
-      "id": "bureau-de-vote",
-      "nom": "Bureau de vote n°4 (école élémentaire)",
-      "type": "civique",
-      "adresse": "Lyon 4e",
-      "horaires": "dimanche 14 mars 2010, 08:00-18:00"
+      "type": "logement et atelier",
+      "adresse": "rue d'Austerlitz, 69004 Lyon (Croix-Rousse), 3e étage sans ascenseur",
+      "description": "Trois-pièces de 58 m² dans un ancien immeuble de canuts, plafonds de 3,80 m, grandes fenêtres, parquet qui grince devant la chambre."
     },
     {
       "id": "quais-de-saone",
-      "nom": "Quais de Saône",
+      "nom": "Parcours de course des quais de Saône",
       "type": "extérieur",
-      "description": "Parcours de course de 7 km aller-retour depuis le bas des pentes."
+      "description": "Descente des pentes de la Croix-Rousse, puis bord de Saône vers le nord. Boucle courte de 7 km, boucle longue de 12 km."
     }
   ],
 
   "trajets": [
-    { "de": "domicile", "a": "horlogerie-fournier", "moyen": "marche + métro C (Croix-Rousse → Hôtel de Ville) + métro A (→ Bellecour) + marche", "duree_minutes": 30 },
-    { "de": "domicile", "a": "cabinet-dentaire", "moyen": "marche", "duree_minutes": 10 },
-    { "de": "domicile", "a": "laverie", "moyen": "marche", "duree_minutes": 10 },
-    { "de": "domicile", "a": "superette", "moyen": "marche", "duree_minutes": 5 },
-    { "de": "domicile", "a": "marche-croix-rousse", "moyen": "marche", "duree_minutes": 5 },
-    { "de": "domicile", "a": "piscine", "moyen": "marche", "duree_minutes": 15 },
-    { "de": "domicile", "a": "bar-du-plateau", "moyen": "marche", "duree_minutes": 10 },
-    { "de": "domicile", "a": "bureau-de-vote", "moyen": "marche", "duree_minutes": 5 },
-    { "de": "domicile", "a": "quais-de-saone", "moyen": "course à pied", "duree_minutes": 10 },
-    { "de": "domicile", "a": "appartement-elodie", "moyen": "métro C + métro A (→ Gratte-Ciel) + marche", "duree_minutes": 40 },
-    { "de": "horlogerie-fournier", "a": "banque", "moyen": "marche", "duree_minutes": 10 },
-    { "de": "horlogerie-fournier", "a": "caviste", "moyen": "marche", "duree_minutes": 5 },
-    { "de": "horlogerie-fournier", "a": "boulangerie-charite", "moyen": "marche", "duree_minutes": 5 },
-    { "de": "horlogerie-fournier", "a": "appartement-elodie", "moyen": "métro A (Bellecour → Gratte-Ciel) + marche", "duree_minutes": 30 }
+    { "de": "domicile", "a": "quais-de-saone", "moyen": "course à pied (descente des pentes)", "duree_minutes": 10 },
+    { "de": "quais-de-saone", "a": "domicile", "moyen": "course à pied puis marche dans la montée", "duree_minutes": 15 }
   ],
 
   "domicile": {
     "lieu_id": "domicile",
     "pieces": [
-      { "id": "entree", "nom": "Entrée", "surface_m2": 3, "mobilier": ["porte-manteau", "commode basse avec vide-poche", "tiroir de la commode", "porte-parapluie"] },
-      { "id": "sejour", "nom": "Séjour", "surface_m2": 18, "mobilier": ["établi d'horloger devant la fenêtre", "tiroir de l'établi", "table ronde", "canapé", "bibliothèque", "chaîne hi-fi"] },
-      { "id": "cuisine", "nom": "Cuisine", "surface_m2": 6, "mobilier": ["plaques électriques", "réfrigérateur", "placard à provisions", "évier", "égouttoir"] },
-      { "id": "chambre", "nom": "Chambre", "surface_m2": 11, "mobilier": ["lit double", "table de chevet", "armoire", "boîte à papiers sur l'armoire"] },
-      { "id": "salle-de-bain", "nom": "Salle de bain", "surface_m2": 3, "mobilier": ["douche", "lavabo", "étagère", "panier à linge"] },
+      { "id": "entree", "nom": "Entrée", "surface_m2": 4, "mobilier": ["porte-manteau", "commode basse avec vide-poche", "tiroir de la commode", "meuble à chaussures"] },
+      { "id": "sejour", "nom": "Séjour", "surface_m2": 20, "mobilier": ["canapé", "table basse", "table à manger et deux chaises", "bibliothèque", "chaîne hi-fi avec radio", "petit téléviseur"] },
+      { "id": "atelier", "nom": "Atelier (ancienne deuxième chambre)", "surface_m2": 10, "mobilier": ["établi d'horloger devant la fenêtre", "tiroir de l'établi", "tour d'horloger", "lampe d'établi", "petit coffre-fort pour les montres des clients", "étagère de fournitures", "machine à nettoyer à ultrasons"] },
+      { "id": "cuisine", "nom": "Cuisine", "surface_m2": 7, "mobilier": ["plaques électriques", "four", "réfrigérateur avec petit congélateur", "placard à provisions", "évier", "égouttoir", "machine à laver"] },
+      { "id": "chambre", "nom": "Chambre", "surface_m2": 12, "mobilier": ["lit double", "table de chevet", "armoire", "étendoir pliant"] },
+      { "id": "salle-de-bain", "nom": "Salle de bain", "surface_m2": 4, "mobilier": ["douche", "lavabo", "étagère", "panier à linge"] },
       { "id": "wc", "nom": "WC", "surface_m2": 1, "mobilier": [] }
     ],
     "equipements": {
-      "machine_a_laver": false,
-      "television": "petit téléviseur cathodique, rarement allumé",
-      "internet": "ADSL avec box",
-      "chauffage": "radiateurs électriques, réglés sur 19 °C"
+      "chauffage": "radiateurs électriques, réglés sur 19 °C, 17 °C la nuit",
+      "television": "petit téléviseur, allumé seulement pour les matchs et parfois le journal",
+      "radio": "chaîne hi-fi réglée sur France Inter",
+      "internet": "ADSL, utilisé uniquement pour consulter de la documentation technique pendant le test"
     },
     "provisions_au_debut": [
-      { "produit": "café moulu", "quantite": "1/3 de paquet (environ 6 cafés)" },
-      { "produit": "lait", "quantite": "0,5 L" },
-      { "produit": "pain", "quantite": "1/2 baguette rassie" },
-      { "produit": "beurre", "quantite": "1/2 plaquette" },
-      { "produit": "confiture d'abricot", "quantite": "1/2 pot" },
-      { "produit": "œufs", "quantite": 3 },
-      { "produit": "pâtes", "quantite": "300 g" },
-      { "produit": "riz", "quantite": "500 g" },
-      { "produit": "boîte de thon", "quantite": 1 },
-      { "produit": "tomates", "quantite": 2 },
-      { "produit": "fromage (comté)", "quantite": "150 g" },
-      { "produit": "pommes", "quantite": 2 },
-      { "produit": "chocolat noir", "quantite": "1/2 tablette" }
+      { "produit": "café moulu", "quantite": "1 paquet de 250 g + 1/3 de paquet entamé", "rangement": "placard à provisions" },
+      { "produit": "pain de campagne en tranches", "quantite": "1 kg", "rangement": "congélateur" },
+      { "produit": "biscottes", "quantite": "1 paquet", "rangement": "placard à provisions" },
+      { "produit": "beurre", "quantite": "250 g", "rangement": "réfrigérateur" },
+      { "produit": "confiture d'abricot", "quantite": "1 pot + 1/2 pot entamé", "rangement": "placard à provisions" },
+      { "produit": "lait UHT", "quantite": "2 L", "rangement": "placard à provisions" },
+      { "produit": "yaourts nature", "quantite": 8, "rangement": "réfrigérateur" },
+      { "produit": "œufs", "quantite": 12, "rangement": "réfrigérateur" },
+      { "produit": "cuisses de poulet", "quantite": 2, "rangement": "réfrigérateur", "a_consommer_avant": "2010-03-10" },
+      { "produit": "lardons", "quantite": "1 barquette de 200 g", "rangement": "réfrigérateur" },
+      { "produit": "saucisse de Morteau", "quantite": 1, "rangement": "réfrigérateur" },
+      { "produit": "comté", "quantite": "400 g", "rangement": "réfrigérateur" },
+      { "produit": "steaks hachés surgelés", "quantite": 2, "rangement": "congélateur" },
+      { "produit": "poisson pané surgelé", "quantite": "1 boîte de 10", "rangement": "congélateur" },
+      { "produit": "pâtes", "quantite": "1 kg", "rangement": "placard à provisions" },
+      { "produit": "riz", "quantite": "1 kg", "rangement": "placard à provisions" },
+      { "produit": "thon en conserve", "quantite": 2, "rangement": "placard à provisions" },
+      { "produit": "lentilles cuisinées en bocal", "quantite": 1, "rangement": "placard à provisions" },
+      { "produit": "haricots verts en conserve", "quantite": 2, "rangement": "placard à provisions" },
+      { "produit": "ratatouille en conserve", "quantite": 1, "rangement": "placard à provisions" },
+      { "produit": "pommes de terre", "quantite": "2 kg", "rangement": "placard à provisions" },
+      { "produit": "poireaux", "quantite": 6, "rangement": "réfrigérateur" },
+      { "produit": "carottes", "quantite": "1 kg", "rangement": "réfrigérateur" },
+      { "produit": "oignons", "quantite": 4, "rangement": "placard à provisions" },
+      { "produit": "pommes", "quantite": 6, "rangement": "corbeille de la cuisine" },
+      { "produit": "oranges", "quantite": 6, "rangement": "corbeille de la cuisine" },
+      { "produit": "bananes", "quantite": 4, "rangement": "corbeille de la cuisine" },
+      { "produit": "chocolat noir", "quantite": "2 tablettes", "rangement": "placard à provisions" },
+      { "produit": "bière", "quantite": "4 bouteilles", "rangement": "réfrigérateur" },
+      { "produit": "vin rouge (Côtes-du-Rhône)", "quantite": "3/4 de bouteille", "rangement": "cuisine, sur le plan de travail" },
+      { "produit": "condiments de base (huile, sel, poivre, herbes, moutarde)", "quantite": "suffisante", "rangement": "placard à provisions" },
+      { "produit": "lessive liquide", "quantite": "1/2 bidon", "rangement": "sous l'évier" }
     ],
-    "linge_sale_au_debut": "panier plein (une machine)"
+    "linge_sale_au_debut": "panier à moitié plein"
+  },
+
+  "menus_prevus": {
+    "regle": "Thomas planifie ses menus le dimanche soir et les suit. Petit-déjeuner identique chaque jour : café, deux tartines grillées beurre-confiture ; les jours de course, il ajoute un yaourt et une banane.",
+    "lundi": { "dejeuner": "cuisses de poulet rôties et pommes de terre au four", "diner": "soupe poireaux-pommes de terre (marmite de 4 portions) et comté" },
+    "mardi": { "dejeuner": "reste de poulet et riz", "diner": "soupe (2e portion) et omelette de 2 œufs" },
+    "mercredi": { "dejeuner": "pâtes au thon", "diner": "steak haché et pâtes devant le match, une bière" },
+    "jeudi": { "dejeuner": "saucisse de Morteau et lentilles", "diner": "soupe (3e portion) et tartines de comté" },
+    "vendredi": { "dejeuner": "poisson pané, riz et haricots verts", "diner": "omelette de 3 œufs et carottes râpées" },
+    "samedi": { "dejeuner": "pâtes à la carbonara (lardons, 2 œufs)", "diner": "soupe (4e portion) et un verre de vin" },
+    "dimanche": { "brunch": "œufs au plat, tartines, comté, orange", "diner": "ratatouille et riz" }
   },
 
   "objets": [
-    { "id": "obj-cles", "nom": "Trousseau de clés", "description": "Clé de l'appartement, clé de la boîte aux lettres, clé de la porte arrière de la boutique, porte-clés en laiton fait main.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "vide-poche de la commode" }, "importance": 0.95, "usage": "indispensable pour fermer l'appartement et ouvrir l'atelier avant Henri" },
-    { "id": "obj-double-cles", "nom": "Double des clés de l'appartement", "emplacement_initial": { "lieu": "appartement-odette-ravier", "piece": "cuisine", "support": "crochet près de la porte" }, "importance": 0.6 },
-    { "id": "obj-telephone", "nom": "Téléphone portable Nokia 6300", "description": "Appels et SMS, appareil photo médiocre, pas d'internet utilisé.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet, en charge" }, "batterie_pourcentage": 100, "importance": 0.85 },
-    { "id": "obj-chargeur", "nom": "Chargeur du téléphone", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "prise près de la table de chevet" }, "importance": 0.4 },
+    { "id": "obj-cles", "nom": "Trousseau de clés", "description": "Clé de l'appartement et clé de la boîte aux lettres, porte-clés en laiton fait main.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "vide-poche de la commode" }, "importance": 0.9, "usage": "fermer l'appartement pendant les sorties de course" },
     { "id": "obj-montre-poignet", "nom": "Montre mécanique LIP Himalaya des années 1970", "description": "Remontage manuel ; Thomas la remonte chaque matin. Réserve de marche : 40 h.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.8 },
-    { "id": "obj-reveil", "nom": "Réveil à aiguilles", "description": "Sonnerie réglée sur 07:15, activée du mardi au samedi.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.6 },
-    { "id": "obj-portefeuille", "nom": "Portefeuille en cuir", "contenu": ["45 € en espèces", "carte bancaire", "carte Vitale", "carte d'identité", "carte Técély (abonnement TCL)", "carte de la piscine (4 entrées restantes)"], "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "poche intérieure de la veste en velours" }, "importance": 0.9 },
-    { "id": "obj-veste", "nom": "Veste en velours côtelé marron", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-manteau" }, "importance": 0.5 },
-    { "id": "obj-parapluie", "nom": "Parapluie noir", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-parapluie" }, "importance": 0.3 },
-    { "id": "obj-sac", "nom": "Sacoche en toile", "contenu": ["loupe d'horloger personnelle", "stylo", "lunettes demi-lunes dans leur étui", "boîte à déjeuner vide"], "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "au sol, contre la commode" }, "importance": 0.7 },
-    { "id": "obj-carnet", "nom": "Carnet noir", "description": "Journal personnel et listes de pour et de contre ; contient le brouillon de refus à Henri.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet, sous le livre" }, "importance": 0.75, "secret": true },
-    { "id": "obj-livre", "nom": "Livre « La Route » de Cormac McCarthy", "description": "Marque-page à la page 112.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.2 },
-    { "id": "obj-montre-gousset", "nom": "Montre de gousset LIP du grand-père René", "description": "Démontée, pièces rangées dans un plateau compartimenté ; il manque l'axe de balancier.", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "établi, sous une cloche en verre" }, "etat": "en restauration", "importance": 1.0 },
-    { "id": "obj-axe-balancier", "nom": "Axe de balancier de rechange", "description": "Pièce commandée le 2 mars, livraison prévue à la boutique le jeudi 11 mars au courrier du matin.", "emplacement_initial": { "lieu": "en transit", "piece": null, "support": "colis postal" }, "importance": 0.85 },
-    { "id": "obj-photo-grand-pere", "nom": "Photo encadrée de René Berthier à son établi (1971)", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "établi, à gauche de la lampe" }, "importance": 0.8 },
-    { "id": "obj-outils", "nom": "Outils d'horlogerie personnels", "description": "Tournevis, brucelles, potence, huilier ; toujours alignés dans le même ordre.", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "établi" }, "importance": 0.7 },
-    { "id": "obj-lettre-sophie", "nom": "Lettre de Sophie (fermée)", "description": "Enveloppe crème, écriture manuscrite de Sophie, cachet du 20 janvier 2010.", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "tiroir de l'établi, sous le cahier de pièces" }, "importance": 0.9, "secret": true,
-      "contenu_reel": "Sophie annonce qu'elle part vivre à Montréal le 2 avril 2010. Elle dit qu'elle ne lui en veut plus, qu'elle aimerait le revoir une fois avant de partir, et propose un café n'importe quel samedi après-midi de mars.",
-      "contenu_connu_de_thomas": false },
-    { "id": "obj-dossier-reprise", "nom": "Chemise cartonnée « Reprise »", "contenu": ["trois derniers bilans de la boutique", "trois dernières fiches de paie", "avis d'imposition 2009", "relevé du livret A"], "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "table ronde" }, "importance": 0.85, "usage": "à apporter au rendez-vous bancaire du jeudi 11 mars" },
-    { "id": "obj-carte-electeur", "nom": "Carte d'électeur", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "boîte à papiers sur l'armoire" }, "importance": 0.5, "usage": "vote du dimanche 14 mars" },
-    { "id": "obj-netbook", "nom": "Ordinateur portable Asus Eee PC", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "bibliothèque, étagère du bas" }, "importance": 0.4 },
-    { "id": "obj-ipod", "nom": "iPod nano", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "table ronde" }, "batterie_pourcentage": 60, "importance": 0.35 },
+    { "id": "obj-reveil", "nom": "Réveil radio-piloté", "description": "Se règle seul sur le signal horaire officiel ; sert de référence pour régler les montres. Sonnerie à 07:00 du lundi au vendredi.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.7 },
+    { "id": "obj-portefeuille", "nom": "Portefeuille en cuir", "contenu": ["35 € en espèces", "carte bancaire", "carte Vitale", "carte d'identité"], "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "tiroir de la commode" }, "importance": 0.6, "usage": "aucun pendant la semaine" },
+    { "id": "obj-carnet", "nom": "Carnet noir", "description": "Journal personnel, listes et réflexions du soir.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet, sous le livre" }, "importance": 0.7 },
+    { "id": "obj-livre", "nom": "Livre « La Route » de Cormac McCarthy", "description": "Marque-page à la page 112 sur 252 ; lit environ 20 pages par séance.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.2 },
+    { "id": "obj-montre-gousset", "nom": "Montre de gousset LIP du grand-père René", "description": "Démontée, pièces rangées dans un plateau compartimenté ; l'axe de balancier est cassé et doit être refait au tour.", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "établi, sous une cloche en verre" }, "etat": "en restauration", "importance": 1.0 },
+    { "id": "obj-acier-axe", "nom": "Barreau d'acier trempable", "description": "Matière brute pour tourner le nouvel axe de balancier.", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "tiroir de l'établi" }, "importance": 0.7 },
+    { "id": "obj-photo-grand-pere", "nom": "Photo encadrée de René Berthier à son établi (1971)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "établi, à gauche de la lampe" }, "importance": 0.8 },
+    { "id": "obj-outils", "nom": "Outils d'horlogerie", "description": "Tournevis, brucelles, potence, huilier, loupes ; toujours alignés dans le même ordre.", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "établi" }, "importance": 0.85 },
+    { "id": "obj-lunettes", "nom": "Lunettes demi-lunes", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "établi, dans leur étui" }, "importance": 0.6 },
+    { "id": "obj-omega", "nom": "Omega Seamaster 1962 (client)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "établi, démontée dans un plateau" }, "etat": "révision en cours", "importance": 0.8 },
+    { "id": "obj-rolex", "nom": "Rolex Oyster Date 1975 (client)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "coffre-fort" }, "etat": "à réviser", "importance": 0.9 },
+    { "id": "obj-pendule", "nom": "Pendule de cheminée (client)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "étagère de fournitures, étage du bas" }, "etat": "sonnerie défectueuse", "importance": 0.6 },
+    { "id": "obj-lot-quartz", "nom": "Lot de six montres à quartz (clients)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "coffre-fort, dans une boîte étiquetée" }, "etat": "à traiter", "importance": 0.4 },
+    { "id": "obj-zenith", "nom": "Chronographe Zenith (client)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "coffre-fort" }, "etat": "à réviser", "importance": 0.85 },
+    { "id": "obj-cles-coffre", "nom": "Clé du coffre-fort de l'atelier", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "tiroir de l'établi, à droite" }, "importance": 0.85 },
+    { "id": "obj-classeur-compta", "nom": "Classeur de comptabilité et carnet de commandes", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "étagère de fournitures, étage du haut" }, "importance": 0.6 },
+    { "id": "obj-netbook", "nom": "Ordinateur portable Asus Eee PC", "description": "Documentation technique et tableur de comptabilité.", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "bibliothèque, étagère du bas" }, "importance": 0.4 },
+    { "id": "obj-telecommande", "nom": "Télécommande du téléviseur", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "table basse" }, "importance": 0.2 },
     { "id": "obj-cafetiere", "nom": "Cafetière italienne", "emplacement_initial": { "lieu": "domicile", "piece": "cuisine", "support": "égouttoir" }, "importance": 0.5 },
-    { "id": "obj-sac-sport", "nom": "Sac de sport", "contenu": ["maillot de bain", "bonnet", "lunettes de natation", "serviette", "gel douche"], "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "bas de l'armoire" }, "importance": 0.4 },
-    { "id": "obj-chaussures-course", "nom": "Chaussures de course", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "sous la commode" }, "importance": 0.3 },
-    { "id": "obj-panier-linge", "nom": "Panier à linge (plein)", "emplacement_initial": { "lieu": "domicile", "piece": "salle-de-bain", "support": "sol" }, "importance": 0.3 }
+    { "id": "obj-tasse", "nom": "Tasse bleue de Besançon", "description": "Sa tasse habituelle, cadeau de sa mère.", "emplacement_initial": { "lieu": "domicile", "piece": "cuisine", "support": "égouttoir" }, "importance": 0.35 },
+    { "id": "obj-marmite", "nom": "Marmite en fonte", "emplacement_initial": { "lieu": "domicile", "piece": "cuisine", "support": "placard sous les plaques" }, "importance": 0.3 },
+    { "id": "obj-tenue-course", "nom": "Tenue de course (collant, tee-shirt technique, coupe-vent, bonnet)", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "armoire, étagère du bas" }, "importance": 0.4 },
+    { "id": "obj-chaussures-course", "nom": "Chaussures de course", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "meuble à chaussures" }, "importance": 0.5 },
+    { "id": "obj-panier-linge", "nom": "Panier à linge", "emplacement_initial": { "lieu": "domicile", "piece": "salle-de-bain", "support": "sol" }, "importance": 0.3 },
+    { "id": "obj-etendoir", "nom": "Étendoir pliant", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "replié derrière la porte" }, "importance": 0.2 }
   ],
 
   "connaissances": {
-    "emplacements_crus": {
-      "obj-cles": { "lieu": "domicile", "piece": "entree", "support": "vide-poche de la commode" },
-      "obj-double-cles": { "lieu": "appartement-odette-ravier", "piece": "cuisine", "support": "crochet près de la porte" },
-      "obj-telephone": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" },
-      "obj-montre-poignet": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" },
-      "obj-portefeuille": { "lieu": "domicile", "piece": "entree", "support": "poche intérieure de la veste en velours" },
-      "obj-lettre-sophie": { "lieu": "domicile", "piece": "sejour", "support": "tiroir de l'établi" },
-      "obj-dossier-reprise": { "lieu": "domicile", "piece": "sejour", "support": "table ronde" },
-      "obj-axe-balancier": { "lieu": "horlogerie-fournier", "piece": "boutique", "support": "livraison attendue jeudi matin" },
-      "obj-carte-electeur": { "lieu": "domicile", "piece": "entree", "support": "tiroir de la commode" }
-    },
-    "ecarts_croyance_realite": [
-      "Thomas croit que sa carte d'électeur est dans le tiroir de la commode de l'entrée ; elle est en réalité dans la boîte à papiers de la chambre."
-    ],
+    "regle": "Au départ, Thomas connaît exactement l'emplacement réel de chacun de ses objets. Ses croyances ne changent que par ce qu'il fait ou observe lui-même.",
+    "emplacements_crus": "identiques à objets[].emplacement_initial",
     "informations_connues": [
-      "Henri attend sa réponse samedi 13 mars à la fermeture.",
-      "Le rendez-vous bancaire est jeudi 11 mars à 12:45.",
-      "Le match Real Madrid – Lyon est mercredi 10 mars à 20:45 (Lyon a gagné le match aller 1-0).",
-      "Élodie est enceinte, le terme est prévu en août.",
-      "Son père a des contrôles cardiaques réguliers ; prochain contrôle le 25 mars.",
-      "Les élections régionales ont lieu dimanche 14 mars.",
-      "Mme Ravier a le double de ses clés.",
-      "L'axe de balancier doit arriver jeudi à la boutique.",
-      "Le grand-père est mort le 20 mars 2004."
-    ],
-    "informations_ignorees": [
-      "Le contenu de la lettre de Sophie et son départ pour Montréal le 2 avril.",
-      "Nadia a déjà reçu une offre d'emploi dans une bijouterie de la Part-Dieu.",
-      "Henri a un second repreneur potentiel s'il refuse."
+      "La liste et l'ordre de ses travaux en cours, avec leurs objectifs de fin.",
+      "Ses menus de la semaine et l'état de ses provisions.",
+      "Le match Real Madrid – Lyon est mercredi 10 mars à 20:45 à la télévision (Lyon a gagné le match aller 1-0).",
+      "Son grand-père est mort le 20 mars 2004.",
+      "Les montres terminées seront expédiées le lundi 15 mars."
     ]
   },
 
   "habitudes": {
     "automatismes": [
       { "id": "aut-cles", "description": "Pose toujours ses clés dans le vide-poche de l'entrée en rentrant.", "objets": ["obj-cles"] },
-      { "id": "aut-montre", "description": "Remonte sa montre chaque matin juste après le petit-déjeuner, puis la règle sur l'heure du téléphone.", "objets": ["obj-montre-poignet", "obj-telephone"] },
-      { "id": "aut-porte", "description": "Vérifie deux fois que la porte est fermée à clé en partant.", "duree_minutes": 5 },
-      { "id": "aut-outils", "description": "Aligne ses outils dans le même ordre avant et après chaque séance de travail.", "objets": ["obj-outils"] },
+      { "id": "aut-montre", "description": "Remonte sa montre chaque matin juste après le petit-déjeuner et la règle sur le réveil radio-piloté.", "objets": ["obj-montre-poignet", "obj-reveil"] },
+      { "id": "aut-porte", "description": "Vérifie deux fois que la porte est fermée à clé quand il part courir." },
+      { "id": "aut-outils", "description": "Aligne ses outils dans le même ordre avant et après chaque séance à l'établi.", "objets": ["obj-outils"] },
+      { "id": "aut-coffre", "description": "Remet les montres des clients dans le coffre chaque soir et range la clé dans le tiroir de l'établi.", "objets": ["obj-cles-coffre", "obj-rolex", "obj-zenith", "obj-lot-quartz"] },
       { "id": "aut-vaisselle", "description": "Ne laisse jamais de vaisselle dans l'évier le soir, sauf si l'anxiété dépasse 0.7.", "condition": "anxiete <= 0.7" },
-      { "id": "aut-telephone", "description": "Met son téléphone en charge sur la table de chevet en se couchant.", "objets": ["obj-telephone", "obj-chargeur"] }
+      { "id": "aut-tasse", "description": "Boit toujours son café dans la tasse bleue, puis la rince et la pose sur l'égouttoir.", "objets": ["obj-tasse", "obj-cafetiere"] },
+      { "id": "aut-eau", "description": "Boit un verre d'eau à chaque pause et en se levant." }
     ],
     "routines": [
       {
-        "id": "rt-matin-travail",
-        "nom": "Matin d'un jour travaillé",
-        "jours": ["mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+        "id": "rt-matin-course",
+        "nom": "Matin avec course à pied",
+        "jours": ["mardi", "jeudi"],
         "etapes": [
-          { "debut": "07:15", "fin": "07:20", "lieu": "chambre", "action": "Réveil par la sonnerie, reste allongé et lit ses SMS" },
-          { "debut": "07:20", "fin": "07:25", "lieu": "wc", "action": "Passage aux toilettes" },
-          { "debut": "07:25", "fin": "07:40", "lieu": "salle-de-bain", "action": "Douche ; rasage les mardis, jeudis et samedis" },
-          { "debut": "07:40", "fin": "07:45", "lieu": "chambre", "action": "S'habille" },
-          { "debut": "07:45", "fin": "08:00", "lieu": "cuisine", "action": "Prépare un café à l'italienne, mange des tartines beurre-confiture" },
-          { "debut": "08:00", "fin": "08:05", "lieu": "cuisine", "action": "Rince la tasse, remonte et règle sa montre" },
-          { "debut": "08:05", "fin": "08:15", "lieu": "cuisine", "action": "Prépare sa boîte à déjeuner avec les restes ou un sandwich" },
-          { "debut": "08:15", "fin": "08:20", "lieu": "entree", "action": "Vérifie sa sacoche, prend ses clés et son téléphone, enfile sa veste, ferme la porte et vérifie deux fois" },
-          { "debut": "08:20", "fin": "08:50", "lieu": "trajet", "action": "Trajet vers la boutique ; feuillette le journal gratuit dans le métro" }
+          { "debut": "07:00", "fin": "07:05", "lieu": "chambre", "action": "Réveil par la sonnerie, se lève, boit un verre d'eau" },
+          { "debut": "07:05", "fin": "07:10", "lieu": "wc", "action": "Passage aux toilettes" },
+          { "debut": "07:10", "fin": "07:15", "lieu": "chambre", "action": "Enfile sa tenue de course" },
+          { "debut": "07:15", "fin": "07:20", "lieu": "entree", "action": "Chausse ses chaussures, prend ses clés, ferme la porte et vérifie deux fois" },
+          { "debut": "07:20", "fin": "07:30", "lieu": "trajet", "action": "Descend les pentes en courant doucement" },
+          { "debut": "07:30", "fin": "07:55", "lieu": "quais-de-saone", "action": "Course le long de la Saône" },
+          { "debut": "07:55", "fin": "08:10", "lieu": "trajet", "action": "Remonte vers la Croix-Rousse, termine en marchant" },
+          { "debut": "08:10", "fin": "08:15", "lieu": "entree", "action": "Pose ses clés dans le vide-poche, retire ses chaussures" },
+          { "debut": "08:15", "fin": "08:30", "lieu": "salle-de-bain", "action": "Étirements puis douche ; rasage le mardi et le jeudi" },
+          { "debut": "08:30", "fin": "08:35", "lieu": "chambre", "action": "S'habille pour l'atelier" },
+          { "debut": "08:35", "fin": "08:50", "lieu": "cuisine", "action": "Petit-déjeuner avec yaourt et banane" },
+          { "debut": "08:50", "fin": "08:55", "lieu": "cuisine", "action": "Rince la tasse, remonte et règle sa montre" },
+          { "debut": "08:55", "fin": "09:00", "lieu": "atelier", "action": "Allume la lampe d'établi, aligne ses outils, ouvre le coffre" }
         ]
       },
       {
-        "id": "rt-journee-travail",
-        "nom": "Journée à l'atelier",
-        "jours": ["mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+        "id": "rt-matin-simple",
+        "nom": "Matin sans course",
+        "jours": ["lundi", "mercredi", "vendredi"],
         "etapes": [
-          { "debut": "08:50", "fin": "09:00", "lieu": "atelier", "action": "Arrive avant Henri, aligne ses outils, allume la lampe d'établi" },
-          { "debut": "09:00", "fin": "10:30", "lieu": "atelier", "action": "Travail de précision sur les réparations en cours" },
-          { "debut": "10:30", "fin": "10:40", "lieu": "arriere-boutique", "action": "Pause café avec Henri" },
-          { "debut": "10:40", "fin": "12:30", "lieu": "atelier", "action": "Réparations, accueil des clients pour l'atelier" },
-          { "debut": "12:30", "fin": "13:00", "lieu": "arriere-boutique", "action": "Déjeuner de sa boîte à déjeuner" },
-          { "debut": "13:00", "fin": "13:50", "lieu": "quais du Rhône", "action": "Marche digestive, souvent seul (sauf samedi : pause raccourcie)" },
-          { "debut": "14:00", "fin": "18:00", "lieu": "atelier", "action": "Réparations ; le samedi, présence en boutique jusqu'à 19:00" },
-          { "debut": "18:00", "fin": "18:05", "lieu": "atelier", "action": "Range et aligne ses outils, éteint la lampe" },
-          { "debut": "18:05", "fin": "18:35", "lieu": "trajet", "action": "Retour à la maison" }
+          { "debut": "07:00", "fin": "07:05", "lieu": "chambre", "action": "Réveil par la sonnerie, reste allongé quelques minutes" },
+          { "debut": "07:05", "fin": "07:10", "lieu": "wc", "action": "Passage aux toilettes" },
+          { "debut": "07:10", "fin": "07:25", "lieu": "salle-de-bain", "action": "Douche ; rasage le lundi et le vendredi" },
+          { "debut": "07:25", "fin": "07:30", "lieu": "chambre", "action": "S'habille" },
+          { "debut": "07:30", "fin": "07:50", "lieu": "cuisine", "action": "Prépare un café, petit-déjeuner en écoutant la radio" },
+          { "debut": "07:50", "fin": "07:55", "lieu": "cuisine", "action": "Rince la tasse, remonte et règle sa montre" },
+          { "debut": "07:55", "fin": "08:45", "lieu": "sejour", "action": "Lecture ou documentation technique, radio en fond" },
+          { "debut": "08:45", "fin": "08:55", "lieu": "salle-de-bain", "action": "Étirements du dos" },
+          { "debut": "08:55", "fin": "09:00", "lieu": "atelier", "action": "Allume la lampe d'établi, aligne ses outils, ouvre le coffre" }
+        ]
+      },
+      {
+        "id": "rt-atelier",
+        "nom": "Journée à l'atelier",
+        "jours": ["lundi", "mardi", "mercredi", "jeudi", "vendredi"],
+        "etapes": [
+          { "debut": "09:00", "fin": "10:30", "lieu": "atelier", "action": "Travail de précision selon l'ordre de priorité" },
+          { "debut": "10:30", "fin": "10:45", "lieu": "cuisine", "action": "Pause café, verre d'eau, étirements" },
+          { "debut": "10:45", "fin": "12:30", "lieu": "atelier", "action": "Travail" },
+          { "debut": "12:30", "fin": "13:15", "lieu": "cuisine", "action": "Prépare et mange le déjeuner prévu" },
+          { "debut": "13:15", "fin": "13:30", "lieu": "cuisine", "action": "Café, vaisselle" },
+          { "debut": "13:30", "fin": "14:00", "lieu": "sejour", "action": "Repos sur le canapé, lecture ou courte sieste" },
+          { "debut": "14:00", "fin": "15:30", "lieu": "atelier", "action": "Travail" },
+          { "debut": "15:30", "fin": "15:40", "lieu": "cuisine", "action": "Pause, verre d'eau, un fruit, étirements" },
+          { "debut": "15:40", "fin": "17:50", "lieu": "atelier", "action": "Travail (jusqu'à 16:50 le vendredi, puis gestion)" },
+          { "debut": "17:50", "fin": "18:00", "lieu": "atelier", "action": "Range les montres dans le coffre, aligne les outils, éteint la lampe" }
         ]
       },
       {
         "id": "rt-soir",
         "nom": "Soirée ordinaire",
-        "jours": ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"],
+        "jours": ["lundi", "mardi", "jeudi", "vendredi", "samedi", "dimanche"],
         "etapes": [
-          { "debut": "18:35", "fin": "18:40", "lieu": "entree", "action": "Pose ses clés dans le vide-poche, accroche sa veste" },
-          { "debut": "18:40", "fin": "19:30", "lieu": "sejour", "action": "Temps libre : musique, courrier, netbook" },
-          { "debut": "19:30", "fin": "20:15", "lieu": "cuisine", "action": "Prépare et mange son dîner" },
-          { "debut": "20:15", "fin": "20:30", "lieu": "cuisine", "action": "Vaisselle" },
-          { "debut": "20:30", "fin": "22:30", "lieu": "sejour", "action": "Restauration de la montre du grand-père ou lecture" },
-          { "debut": "22:30", "fin": "22:45", "lieu": "salle-de-bain", "action": "Toilette du soir" },
-          { "debut": "22:45", "fin": "23:00", "lieu": "chambre", "action": "Lecture au lit ou écriture dans le carnet" },
+          { "debut": "18:00", "fin": "19:00", "lieu": "sejour", "action": "Temps libre : musique, radio, lecture" },
+          { "debut": "19:00", "fin": "19:45", "lieu": "cuisine", "action": "Prépare et mange le dîner prévu" },
+          { "debut": "19:45", "fin": "20:00", "lieu": "cuisine", "action": "Vaisselle" },
+          { "debut": "20:00", "fin": "22:00", "lieu": "atelier", "action": "Travail personnel sur la montre du grand-père (axe de balancier)" },
+          { "debut": "22:00", "fin": "22:15", "lieu": "atelier", "action": "Range ses outils, recouvre la montre de la cloche" },
+          { "debut": "22:15", "fin": "22:30", "lieu": "salle-de-bain", "action": "Toilette du soir" },
+          { "debut": "22:30", "fin": "23:00", "lieu": "chambre", "action": "Lecture au lit, écrit quelques lignes dans son carnet" },
           { "debut": "23:00", "fin": null, "lieu": "chambre", "action": "Éteint la lumière, s'endort" }
         ]
       },
       {
-        "id": "rt-samedi-matin",
-        "nom": "Marché avec Mme Ravier",
-        "jours": ["samedi"],
-        "remplace": "décale la routine du matin : réveil 06:45",
+        "id": "rt-mercredi-soir",
+        "nom": "Mercredi soir : lessive et match",
+        "jours": ["mercredi"],
         "etapes": [
-          { "debut": "07:45", "fin": "08:15", "lieu": "marche-croix-rousse", "action": "Accompagne Mme Ravier au marché, porte son cabas" },
-          { "debut": "08:15", "fin": "08:20", "lieu": "domicile", "action": "Monte les courses de Mme Ravier au 3e étage" }
+          { "debut": "18:00", "fin": "18:15", "lieu": "cuisine", "action": "Trie le linge et lance la machine à laver (cycle de 90 minutes)" },
+          { "debut": "18:15", "fin": "19:45", "lieu": "atelier", "action": "Travail sur la montre du grand-père" },
+          { "debut": "19:45", "fin": "20:15", "lieu": "chambre", "action": "Déplie l'étendoir et étend le linge" },
+          { "debut": "20:15", "fin": "20:45", "lieu": "cuisine", "action": "Prépare le dîner, sort une bière" },
+          { "debut": "20:45", "fin": "22:40", "lieu": "sejour", "action": "Regarde Real Madrid – Lyon à la télévision en dînant" },
+          { "debut": "22:40", "fin": "23:00", "lieu": "cuisine", "action": "Vaisselle, toilette rapide" },
+          { "debut": "23:00", "fin": "23:30", "lieu": "chambre", "action": "Repense au match, a du mal à s'endormir" },
+          { "debut": "23:30", "fin": null, "lieu": "chambre", "action": "S'endort" }
+        ]
+      },
+      {
+        "id": "rt-samedi",
+        "nom": "Samedi à la maison",
+        "jours": ["samedi"],
+        "etapes": [
+          { "debut": "08:30", "fin": "08:40", "lieu": "chambre", "action": "Réveil naturel, verre d'eau" },
+          { "debut": "08:40", "fin": "08:45", "lieu": "wc", "action": "Passage aux toilettes" },
+          { "debut": "08:45", "fin": "09:30", "lieu": "cuisine", "action": "Petit-déjeuner long avec la radio" },
+          { "debut": "09:30", "fin": "09:35", "lieu": "cuisine", "action": "Remonte et règle sa montre" },
+          { "debut": "09:35", "fin": "09:55", "lieu": "salle-de-bain", "action": "Douche, rasage" },
+          { "debut": "09:55", "fin": "10:00", "lieu": "chambre", "action": "S'habille" },
+          { "debut": "10:00", "fin": "11:30", "lieu": "domicile", "action": "Ménage : aspirateur, salle de bain, cuisine ; plie et range le linge sec" },
+          { "debut": "11:30", "fin": "12:30", "lieu": "sejour", "action": "Lecture" },
+          { "debut": "12:30", "fin": "13:30", "lieu": "cuisine", "action": "Prépare et mange le déjeuner prévu, vaisselle" },
+          { "debut": "13:30", "fin": "14:30", "lieu": "sejour", "action": "Sieste sur le canapé" },
+          { "debut": "14:30", "fin": "17:30", "lieu": "atelier", "action": "Longue séance sur la montre du grand-père" },
+          { "debut": "17:30", "fin": "18:00", "lieu": "sejour", "action": "Musique, lecture" }
+        ]
+      },
+      {
+        "id": "rt-dimanche",
+        "nom": "Dimanche",
+        "jours": ["dimanche"],
+        "etapes": [
+          { "debut": "08:30", "fin": "08:40", "lieu": "chambre", "action": "Réveil naturel, verre d'eau, une banane" },
+          { "debut": "08:40", "fin": "08:45", "lieu": "wc", "action": "Passage aux toilettes" },
+          { "debut": "08:45", "fin": "08:55", "lieu": "chambre", "action": "Enfile sa tenue de course" },
+          { "debut": "08:55", "fin": "09:00", "lieu": "entree", "action": "Chausse ses chaussures, prend ses clés, ferme la porte et vérifie deux fois" },
+          { "debut": "09:00", "fin": "09:10", "lieu": "trajet", "action": "Descend les pentes" },
+          { "debut": "09:10", "fin": "10:15", "lieu": "quais-de-saone", "action": "Sortie longue le long de la Saône" },
+          { "debut": "10:15", "fin": "10:30", "lieu": "trajet", "action": "Remonte vers la Croix-Rousse en marchant" },
+          { "debut": "10:30", "fin": "10:35", "lieu": "entree", "action": "Pose ses clés dans le vide-poche, retire ses chaussures" },
+          { "debut": "10:35", "fin": "10:55", "lieu": "salle-de-bain", "action": "Étirements et douche" },
+          { "debut": "10:55", "fin": "11:00", "lieu": "chambre", "action": "S'habille" },
+          { "debut": "11:00", "fin": "12:00", "lieu": "cuisine", "action": "Brunch, remonte et règle sa montre" },
+          { "debut": "12:00", "fin": "15:00", "lieu": "sejour", "action": "Lecture, musique, sieste" },
+          { "debut": "15:00", "fin": "17:00", "lieu": "atelier", "action": "Montre du grand-père" },
+          { "debut": "17:00", "fin": "17:30", "lieu": "sejour", "action": "Planifie les menus et le travail de la semaine suivante dans son carnet" },
+          { "debut": "17:30", "fin": "18:00", "lieu": "sejour", "action": "Écoute un disque" }
         ]
       }
     ]
   },
 
   "agenda_semaine": [
-    { "id": "ag-dentiste", "debut": "2010-03-08T10:30", "fin": "2010-03-08T11:00", "lieu": "cabinet-dentaire", "quoi": "Contrôle annuel et détartrage", "avec": ["dr-pelletier"], "engagement": "ferme", "objets_necessaires": ["obj-portefeuille"] },
-    { "id": "ag-laverie", "debut": "2010-03-08T14:00", "fin": "2010-03-08T15:30", "lieu": "laverie", "quoi": "Lessive de la semaine", "avec": [], "engagement": "souple", "objets_necessaires": ["obj-panier-linge"] },
-    { "id": "ag-courses", "debut": "2010-03-08T17:00", "fin": "2010-03-08T17:40", "lieu": "superette", "quoi": "Courses de la semaine", "avec": [], "engagement": "souple", "objets_necessaires": ["obj-portefeuille"] },
-    { "id": "ag-piscine", "debut": "2010-03-09T19:30", "fin": "2010-03-09T20:30", "lieu": "piscine", "quoi": "Natation (45 min de nage)", "avec": [], "engagement": "souple", "objets_necessaires": ["obj-sac-sport", "obj-portefeuille"] },
-    { "id": "ag-match", "debut": "2010-03-10T20:30", "fin": "2010-03-10T22:45", "lieu": "bar-du-plateau", "quoi": "Regarder Real Madrid – Lyon", "avec": ["julien-marchetti"], "engagement": "ferme", "objets_necessaires": ["obj-portefeuille"] },
-    { "id": "ag-colis", "debut": "2010-03-11T10:00", "fin": "2010-03-11T10:05", "lieu": "horlogerie-fournier", "quoi": "Réception du colis contenant l'axe de balancier", "avec": [], "engagement": "attendu", "objets_necessaires": [] },
-    { "id": "ag-banque", "debut": "2010-03-11T12:45", "fin": "2010-03-11T13:30", "lieu": "banque", "quoi": "Rendez-vous pour le prêt de reprise", "avec": ["laurent-royer"], "engagement": "ferme", "objets_necessaires": ["obj-dossier-reprise"] },
-    { "id": "ag-vin", "debut": "2010-03-11T18:05", "fin": "2010-03-11T18:20", "lieu": "caviste", "quoi": "Acheter une bouteille de vin pour Karim", "avec": [], "engagement": "souple", "objets_necessaires": ["obj-portefeuille"] },
-    { "id": "ag-diner-elodie", "debut": "2010-03-12T20:00", "fin": "2010-03-12T23:00", "lieu": "appartement-elodie", "quoi": "Dîner chez Élodie et Karim", "avec": ["elodie-berthier", "karim-haddad"], "engagement": "ferme", "objets_necessaires": [] },
-    { "id": "ag-marche-odette", "debut": "2010-03-13T07:45", "fin": "2010-03-13T08:20", "lieu": "marche-croix-rousse", "quoi": "Accompagner Mme Ravier au marché", "avec": ["odette-ravier"], "engagement": "ferme", "objets_necessaires": [] },
-    { "id": "ag-reponse-henri", "debut": "2010-03-13T19:00", "fin": "2010-03-13T19:30", "lieu": "horlogerie-fournier", "quoi": "Donner sa réponse à Henri sur la reprise", "avec": ["henri-fournier"], "engagement": "ferme", "objets_necessaires": [] },
-    { "id": "ag-course", "debut": "2010-03-14T09:00", "fin": "2010-03-14T09:50", "lieu": "quais-de-saone", "quoi": "Course à pied", "avec": [], "engagement": "souple", "objets_necessaires": ["obj-chaussures-course"] },
-    { "id": "ag-vote", "debut": "2010-03-14T11:00", "fin": "2010-03-14T11:20", "lieu": "bureau-de-vote", "quoi": "Voter au premier tour des élections régionales", "avec": [], "engagement": "ferme", "objets_necessaires": ["obj-carte-electeur", "obj-portefeuille"] },
-    { "id": "ag-appel-parents", "debut": "2010-03-14T19:00", "fin": "2010-03-14T19:30", "lieu": "domicile", "quoi": "Appel hebdomadaire aux parents", "avec": ["gerard-berthier", "monique-berthier"], "engagement": "ferme", "objets_necessaires": ["obj-telephone"] }
+    { "id": "ag-course-mardi", "debut": "2010-03-09T07:15", "fin": "2010-03-09T08:15", "lieu": "quais-de-saone", "quoi": "Course à pied, boucle courte", "engagement": "souple", "objets_necessaires": ["obj-tenue-course", "obj-chaussures-course", "obj-cles"] },
+    { "id": "ag-lessive", "debut": "2010-03-10T18:00", "fin": "2010-03-10T20:15", "lieu": "domicile", "quoi": "Lessive et étendage", "engagement": "souple", "objets_necessaires": ["obj-panier-linge", "obj-etendoir"] },
+    { "id": "ag-match", "debut": "2010-03-10T20:45", "fin": "2010-03-10T22:40", "lieu": "domicile", "quoi": "Regarder Real Madrid – Lyon à la télévision", "engagement": "ferme", "objets_necessaires": ["obj-telecommande"] },
+    { "id": "ag-course-jeudi", "debut": "2010-03-11T07:15", "fin": "2010-03-11T08:15", "lieu": "quais-de-saone", "quoi": "Course à pied, boucle courte", "engagement": "souple", "objets_necessaires": ["obj-tenue-course", "obj-chaussures-course", "obj-cles"] },
+    { "id": "ag-gestion", "debut": "2010-03-12T16:50", "fin": "2010-03-12T17:50", "lieu": "domicile", "quoi": "Livre des recettes, factures, préparation des colis", "engagement": "ferme", "objets_necessaires": ["obj-classeur-compta", "obj-netbook"] },
+    { "id": "ag-menage", "debut": "2010-03-13T10:00", "fin": "2010-03-13T11:30", "lieu": "domicile", "quoi": "Ménage de la semaine", "engagement": "souple", "objets_necessaires": [] },
+    { "id": "ag-course-dimanche", "debut": "2010-03-14T08:55", "fin": "2010-03-14T10:35", "lieu": "quais-de-saone", "quoi": "Sortie longue de course à pied", "engagement": "souple", "objets_necessaires": ["obj-tenue-course", "obj-chaussures-course", "obj-cles"] },
+    { "id": "ag-planification", "debut": "2010-03-14T17:00", "fin": "2010-03-14T17:30", "lieu": "domicile", "quoi": "Planifier la semaine suivante", "engagement": "souple", "objets_necessaires": ["obj-carnet"] }
   ],
 
   "objectifs": [
-    { "id": "ob-reprise", "description": "Décider s'il reprend l'Horlogerie Fournier", "echeance": "2010-03-13T19:00", "priorite": 1.0, "etapes": ["obtenir l'avis de la banque", "en parler à Élodie et Karim", "relire sa liste de pour et de contre", "répondre à Henri"], "motivation": "désir d'indépendance et loyauté envers Henri, freinés par la peur de l'endettement" },
-    { "id": "ob-banque", "description": "Obtenir un premier avis de la banque sur le prêt", "echeance": "2010-03-11T13:30", "priorite": 0.9, "etapes": ["ne pas oublier le dossier", "préparer ses questions la veille"], "motivation": "savoir si la reprise est seulement possible" },
-    { "id": "ob-montre", "description": "Faire repartir la montre de son grand-père avant le 20 mars", "echeance": "2010-03-20T00:00", "priorite": 0.7, "etapes": ["récupérer l'axe de balancier jeudi", "monter l'axe", "remonter le mouvement", "régler la marche"], "motivation": "hommage au grand-père, besoin de terminer quelque chose de beau" },
-    { "id": "ob-pere", "description": "Prendre des nouvelles de son père", "echeance": "2010-03-14T19:30", "priorite": 0.75, "etapes": ["appel du dimanche", "éventuel SMS à sa mère dans la semaine"], "motivation": "inquiétude depuis l'infarctus" },
-    { "id": "ob-intendance", "description": "Lessive et courses du lundi", "echeance": "2010-03-08T18:00", "priorite": 0.5, "etapes": ["laverie", "supérette"], "motivation": "plus de linge propre ni de café" },
-    { "id": "ob-vin", "description": "Acheter une bonne bouteille pour Karim", "echeance": "2010-03-12T19:20", "priorite": 0.4, "etapes": ["passer chez le caviste jeudi après le travail"], "motivation": "faire plaisir, entretenir le lien" },
-    { "id": "ob-vote", "description": "Voter au premier tour des régionales", "echeance": "2010-03-14T18:00", "priorite": 0.6, "etapes": ["retrouver sa carte d'électeur", "aller au bureau de vote"], "motivation": "devoir civique, principe hérité de son grand-père" },
-    { "id": "ob-lettre", "description": "Ouvrir ou non la lettre de Sophie", "echeance": null, "priorite": 0.3, "etapes": [], "motivation": "conflit intérieur non résolu ; aucune intention consciente de l'ouvrir cette semaine" }
+    { "id": "ob-travaux", "description": "Terminer l'Omega, la Rolex, la pendule et le lot de montres à quartz", "echeance": "2010-03-12T16:50", "priorite": 1.0, "etapes": ["Omega mardi", "Rolex jeudi", "pendule et quartz vendredi"], "motivation": "être payé et tenir son budget du mois" },
+    { "id": "ob-montre", "description": "Faire repartir la montre de son grand-père avant le 20 mars", "echeance": "2010-03-20T00:00", "priorite": 0.85, "etapes": ["tourner le nouvel axe de balancier (environ 4 séances de 90 min)", "tremper et revenir l'acier", "polir les pivots", "monter l'axe sur le balancier", "remonter le mouvement", "régler la marche"], "motivation": "hommage au grand-père, besoin de terminer quelque chose de beau" },
+    { "id": "ob-gestion", "description": "Mettre à jour la comptabilité et préparer les expéditions", "echeance": "2010-03-12T17:50", "priorite": 0.6, "etapes": ["livre des recettes", "factures", "colis"], "motivation": "rigueur administrative" },
+    { "id": "ob-course", "description": "Courir trois fois dans la semaine", "echeance": "2010-03-14T12:00", "priorite": 0.5, "etapes": ["mardi", "jeudi", "dimanche"], "motivation": "soulager le dos et l'anxiété" },
+    { "id": "ob-maison", "description": "Lessive mercredi, ménage samedi", "echeance": "2010-03-13T12:00", "priorite": 0.4, "etapes": ["lessive", "ménage"], "motivation": "ordre et régularité" },
+    { "id": "ob-lecture", "description": "Finir « La Route »", "echeance": "2010-03-14T23:00", "priorite": 0.25, "etapes": ["environ 7 séances de 20 pages"], "motivation": "plaisir, habitude du soir" }
   ],
 
   "technologie_2010": {
-    "telephone": "Nokia 6300 (appels, SMS)",
-    "ordinateur": "Asus Eee PC (Windows XP), utilisé pour les e-mails, les forums d'horlogerie et Facebook",
-    "musique": "iPod nano, CD sur la chaîne hi-fi",
-    "information": "journal gratuit dans le métro, France Inter le matin le week-end",
-    "remarque": "Pas de smartphone : l'heure de référence est celle du téléphone ou de l'horloge parlante."
+    "ordinateur": "Asus Eee PC (Windows XP) : documentation technique et tableur, sans e-mail ni réseau social pendant le test",
+    "musique": "CD et radio sur la chaîne hi-fi",
+    "television": "petit téléviseur, chaînes de la TNT",
+    "heure_de_reference": "réveil radio-piloté"
   }
 }
