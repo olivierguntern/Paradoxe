@@ -43,6 +43,16 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 | `agenda_semaine` | Activités datées de la semaine |
 | `objectifs` | Buts de la semaine, échéances, priorités |
 
+## Timelines
+
+Les journées vécues sont stockées dans `data/timelines/<personnage>/<date>.json`, avec une version lisible `<date>.md`.
+
+Chaque pas de 5 minutes contient : heure, pièce, routine suivie, activité, action, pensée (voix intérieure), rêve et phase de sommeil la nuit, objets déplacés, provisions consommées, besoins et émotions à la fin du pas.
+
+| Fichier | Contenu |
+|---|---|
+| `timelines/thomas-berthier/2010-03-08.json` | Lundi 8 mars 2010, journée de référence rédigée à la main |
+
 ## Personnages
 
 | Fichier | Personnage |

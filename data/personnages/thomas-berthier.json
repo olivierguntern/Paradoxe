@@ -1,7 +1,7 @@
 {
   "meta": {
     "id": "thomas-berthier",
-    "version": 2,
+    "version": 3,
     "description": "Personnage d'étude n°1 : fiche complète servant de base à la génération de sa timeline sur une semaine, vécue seul.",
     "periode": {
       "debut": "2010-03-08T00:00",
@@ -216,9 +216,9 @@
       "satisfaction": { "verre_eau": 20, "boisson_chaude": 15 }
     },
     "energie": {
-      "variation_par_pas": { "eveille": -0.45, "effort_physique": -1.2, "endormi": 1.0, "sieste": 0.8 },
+      "variation_par_pas": { "eveille": -0.4, "effort_physique": -1.2, "endormi": 1.0, "sieste": 0.8 },
       "seuil_alerte": 25,
-      "notes": "Le café donne +8 d'énergie ressentie pendant 2 h (24 pas), puis -4."
+      "notes": "Le café donne +8 d'énergie ressentie pendant 2 h (24 pas), puis -4 pendant 1 h (12 pas). Taux d'éveil ajusté de -0.45 à -0.4 après l'écriture du lundi : avec -0.45, Thomas finissait une journée ordinaire épuisé (énergie 14)."
     },
     "hygiene": {
       "variation_par_pas": { "eveille": -0.12, "endormi": -0.05, "effort_physique": -0.8 },
@@ -362,8 +362,8 @@
     "pieces": [
       { "id": "entree", "nom": "Entrée", "surface_m2": 4, "mobilier": ["porte-manteau", "commode basse avec vide-poche", "tiroir de la commode", "meuble à chaussures"] },
       { "id": "sejour", "nom": "Séjour", "surface_m2": 20, "mobilier": ["canapé", "table basse", "table à manger et deux chaises", "bibliothèque", "chaîne hi-fi avec radio", "petit téléviseur"] },
-      { "id": "atelier", "nom": "Atelier (ancienne deuxième chambre)", "surface_m2": 10, "mobilier": ["établi d'horloger devant la fenêtre", "tiroir de l'établi", "tour d'horloger", "lampe d'établi", "petit coffre-fort pour les montres des clients", "étagère de fournitures", "machine à nettoyer à ultrasons"] },
-      { "id": "cuisine", "nom": "Cuisine", "surface_m2": 7, "mobilier": ["plaques électriques", "four", "réfrigérateur avec petit congélateur", "placard à provisions", "évier", "égouttoir", "machine à laver"] },
+      { "id": "atelier", "nom": "Atelier (ancienne deuxième chambre)", "surface_m2": 10, "mobilier": ["établi d'horloger devant la fenêtre", "tiroir de l'établi", "tour d'horloger", "lampe d'établi", "chronocomparateur", "contrôleur d'étanchéité", "petit coffre-fort pour les montres des clients", "étagère de fournitures", "machine à nettoyer à ultrasons"] },
+      { "id": "cuisine", "nom": "Cuisine", "surface_m2": 7, "mobilier": ["plaques électriques", "four", "poêle", "mixeur plongeant", "réfrigérateur avec petit congélateur", "placard à provisions", "évier", "égouttoir", "machine à laver"] },
       { "id": "chambre", "nom": "Chambre", "surface_m2": 12, "mobilier": ["lit double", "table de chevet", "armoire", "étendoir pliant"] },
       { "id": "salle-de-bain", "nom": "Salle de bain", "surface_m2": 4, "mobilier": ["douche", "lavabo", "étagère", "panier à linge"] },
       { "id": "wc", "nom": "WC", "surface_m2": 1, "mobilier": [] }
@@ -413,7 +413,7 @@
 
   "menus_prevus": {
     "regle": "Thomas planifie ses menus le dimanche soir et les suit. Petit-déjeuner identique chaque jour : café, deux tartines grillées beurre-confiture ; les jours de course, il ajoute un yaourt et une banane.",
-    "lundi": { "dejeuner": "cuisses de poulet rôties et pommes de terre au four", "diner": "soupe poireaux-pommes de terre (marmite de 4 portions) et comté" },
+    "lundi": { "dejeuner": "cuisses de poulet rôties et pommes de terre au four (les deux cuisses cuisent ensemble ; enfourner à 11:50, 45 min à 200 °C)", "diner": "soupe poireaux-pommes de terre (marmite de 4 portions) et comté (commencer à 18:20, 25 min de préparation et 30 min de cuisson)" },
     "mardi": { "dejeuner": "reste de poulet et riz", "diner": "soupe (2e portion) et omelette de 2 œufs" },
     "mercredi": { "dejeuner": "pâtes au thon", "diner": "steak haché et pâtes devant le match, une bière" },
     "jeudi": { "dejeuner": "saucisse de Morteau et lentilles", "diner": "soupe (3e portion) et tartines de comté" },
@@ -439,6 +439,7 @@
     { "id": "obj-pendule", "nom": "Pendule de cheminée (client)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "étagère de fournitures, étage du bas" }, "etat": "sonnerie défectueuse", "importance": 0.6 },
     { "id": "obj-lot-quartz", "nom": "Lot de six montres à quartz (clients)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "coffre-fort, dans une boîte étiquetée" }, "etat": "à traiter", "importance": 0.4 },
     { "id": "obj-zenith", "nom": "Chronographe Zenith (client)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "coffre-fort" }, "etat": "à réviser", "importance": 0.85 },
+    { "id": "obj-ressort-rolex", "nom": "Ressort de barillet neuf pour la Rolex", "description": "Reçu le samedi 6 mars avec les montres, dans son sachet.", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "tiroir de l'établi" }, "importance": 0.7 },
     { "id": "obj-cles-coffre", "nom": "Clé du coffre-fort de l'atelier", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "tiroir de l'établi, à droite" }, "importance": 0.85 },
     { "id": "obj-classeur-compta", "nom": "Classeur de comptabilité et carnet de commandes", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "étagère de fournitures, étage du haut" }, "importance": 0.6 },
     { "id": "obj-netbook", "nom": "Ordinateur portable Asus Eee PC", "description": "Documentation technique et tableur de comptabilité.", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "bibliothèque, étagère du bas" }, "importance": 0.4 },
