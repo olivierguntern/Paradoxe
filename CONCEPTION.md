@@ -57,7 +57,7 @@ Certains **événements-clés** (importants pour le futur) pourront compter plus
 | Étape | Contenu | État |
 |---|---|---|
 | 1 | Un habitant (Thomas Berthier), semaine de référence rédigée et vérifiée par le moteur | Lundi à mercredi faits |
-| 2 | Thomas autonome : le moteur décide de ses actions et reproduit la semaine de référence | À faire |
+| 2 | Thomas autonome : le moteur décide de ses actions et reproduit la semaine de référence | Lundi à mercredi reproduits (voir `data/simulations/thomas-berthier/VALIDATION.md`) ; jeudi généré seul |
 | 3 | Perception : ce que Thomas voit, entend, remarque | À faire |
 | 4 | Le voyageur dans le monde de Thomas ; mesure de la divergence entre les deux mondes | À faire |
 | 5 | Plusieurs habitants et lieux partagés (rue, bar, commerces) | À faire |

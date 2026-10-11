@@ -1,0 +1,2354 @@
+{
+ "reveil_sonnerie": {
+  "titre": "Réveil",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "La sonnerie du réveil retentit. Il l'éteint du plat de la main, allume la lampe de chevet et reste allongé.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé",
+    "ev": [
+     "reveil_sonnerie"
+    ],
+    "app": {
+     "allume": [
+      "lumiere-chambre"
+     ]
+    }
+   }
+  ]
+ },
+ "eveil_naturel": {
+  "titre": "Éveil avant la sonnerie",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Se réveille seul, avant la sonnerie. Reste allongé dans la pénombre.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé",
+    "ev": [
+     "plaisir_simple"
+    ]
+   }
+  ]
+ },
+ "lever_avant_sonnerie": {
+  "titre": "Lever",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Coupe le réveil avant qu'il ne sonne et se lève.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   }
+  ]
+ },
+ "toilettes_matin": {
+  "titre": "Toilettes",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Se lève, passe aux toilettes.",
+    "piece": "wc",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "effets": {
+     "toilettes": "vide"
+    }
+   }
+  ]
+ },
+ "douche_rasage": {
+  "titre": "Douche et rasage",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Boit un verre d'eau au lavabo, se déshabille et met son tee-shirt de nuit dans le panier à linge.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "effets": {
+     "soif": 20
+    }
+   },
+   {
+    "action": "Prend sa douche, l'eau un peu trop chaude.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "effets": {
+     "hygiene": 75
+    }
+   },
+   {
+    "action": "Se rase de près devant le miroir.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   }
+  ]
+ },
+ "douche": {
+  "titre": "Douche",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Boit un verre d'eau au lavabo, se déshabille.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "effets": {
+     "soif": 20
+    }
+   },
+   {
+    "action": "Prend sa douche.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "effets": {
+     "hygiene": 75
+    }
+   },
+   {
+    "action": "Se sèche, se coiffe.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   }
+  ]
+ },
+ "habillage": {
+  "titre": "S'habille",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "S'habille et attache sa montre.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-montre-poignet",
+      "de": "chambre / table de chevet",
+      "vers": "poignet gauche"
+     }
+    ]
+   }
+  ]
+ },
+ "petit_dejeuner_radio": {
+  "titre": "Petit-déjeuner",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Passe par le séjour allumer la radio. Prépare le café.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-cafetiere",
+      "de": "cuisine / égouttoir",
+      "vers": "cuisine / plaque électrique"
+     }
+    ],
+    "consommation": [
+     {
+      "produit": "cafe_moulu",
+      "quantite": 7
+     }
+    ],
+    "app": {
+     "allume": [
+      "radio",
+      "plaque-1"
+     ]
+    },
+    "radio": true,
+    "via": [
+     "sejour"
+    ]
+   },
+   {
+    "action": "Fait griller deux tranches de pain.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "consommation": [
+     {
+      "produit": "pain_tranches",
+      "quantite": 2
+     }
+    ],
+    "radio": true
+   },
+   {
+    "action": "Éteint la plaque, beurre ses tartines, se sert un café dans la tasse bleue.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "objets": [
+     {
+      "objet": "obj-tasse",
+      "de": "cuisine / égouttoir",
+      "vers": "cuisine / plan de travail"
+     }
+    ],
+    "consommation": [
+     {
+      "produit": "beurre",
+      "quantite": 10
+     },
+     {
+      "produit": "confiture_abricot",
+      "quantite": 2
+     }
+    ],
+    "effets": {
+     "faim": 40,
+     "soif": 15,
+     "cafe": true
+    },
+    "app": {
+     "eteint": [
+      "plaque-1"
+     ]
+    },
+    "radio": true
+   },
+   {
+    "action": "Mange près de la fenêtre.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "radio": true
+   }
+  ]
+ },
+ "rangement_montre_radio": {
+  "titre": "Rangement et montre",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Rince la tasse et la cafetière. Remonte sa montre.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-tasse",
+      "de": "cuisine / plan de travail",
+      "vers": "cuisine / égouttoir"
+     },
+     {
+      "objet": "obj-cafetiere",
+      "de": "cuisine / plaque électrique",
+      "vers": "cuisine / égouttoir"
+     }
+    ],
+    "radio": true
+   }
+  ]
+ },
+ "reglage_montre": {
+  "titre": "Réglage de la montre",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Règle sa montre sur le réveil.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "ev": [
+     "controle_conforme"
+    ],
+    "radio": true
+   }
+  ]
+ },
+ "lecture_technique_ordinateur": {
+  "titre": "Lecture technique",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Prend l'ordinateur portable dans la bibliothèque, s'installe sur le canapé et ouvre la documentation technique du calibre de la {travail}.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "objets": [
+     {
+      "objet": "obj-netbook",
+      "de": "sejour / bibliothèque, étagère du bas",
+      "vers": "sejour / table basse"
+     }
+    ],
+    "app": {
+     "allume": [
+      "ordinateur"
+     ]
+    },
+    "radio": true
+   },
+   {
+    "action": "Lit la procédure de démontage du mécanisme automatique.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Lit la page sur le barillet et le ressort de remplacement.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Note mentalement l'ordre des huiles à utiliser.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Regarde les vues éclatées du mouvement.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Lit la partie sur le réglage du spiral.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Éteint l'ordinateur et regarde la cour par la fenêtre.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "app": {
+     "eteint": [
+      "ordinateur"
+     ]
+    },
+    "radio": true
+   },
+   {
+    "action": "Range l'ordinateur sur l'étagère du bas de la bibliothèque.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-netbook",
+      "de": "sejour / table basse",
+      "vers": "sejour / bibliothèque, étagère du bas"
+     }
+    ],
+    "radio": true
+   },
+   {
+    "action": "Reste assis quelques minutes à écouter la radio.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   }
+  ]
+ },
+ "lecture_technique_manuel": {
+  "titre": "Lecture technique : la trempe",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Sort de la bibliothèque son vieux manuel d'horlogerie du lycée et cherche le chapitre sur la trempe.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Relit la température de trempe : rouge cerise, environ 800 degrés.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Relit le revenu : le bleu, autour de 300 degrés.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Relit la protection au savon contre l'oxydation.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Note les étapes sur une fiche.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Écoute la radio, le manuel sur les genoux.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Range le manuel dans la bibliothèque.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "debout",
+    "radio": true
+   },
+   {
+    "action": "Regarde la cour.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Reste assis à écouter la radio.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "lecture",
+    "posture": "assis",
+    "radio": true
+   }
+  ]
+ },
+ "etirements": {
+  "titre": "Étirements",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Éteint la radio en quittant le séjour. Fait ses étirements du dos devant le miroir.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "app": {
+     "eteint": [
+      "radio"
+     ]
+    }
+   },
+   {
+    "action": "Termine les étirements, se lave les mains.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   }
+  ]
+ },
+ "ouverture_atelier": {
+  "titre": "Ouverture de l'atelier",
+  "routine": "rt-matin-simple",
+  "pas": [
+   {
+    "action": "Allume la lampe d'établi, aligne ses outils, prend la clé dans le tiroir et ouvre le coffre-fort. Regarde un instant la photo de son grand-père.",
+    "piece": "atelier",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "ev": [
+     "souvenir_grand_pere"
+    ],
+    "objets": [
+     {
+      "objet": "obj-cles-coffre",
+      "de": "atelier / tiroir de l'établi, à droite",
+      "vers": "atelier / serrure du coffre"
+     }
+    ],
+    "app": {
+     "allume": [
+      "lampe-etabli"
+     ]
+    }
+   }
+  ]
+ },
+ "reveil_sonnerie_course": {
+  "titre": "Réveil",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "La sonnerie retentit. Il l'éteint, allume la lampe de chevet et s'assoit au bord du lit.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé",
+    "ev": [
+     "reveil_sonnerie"
+    ],
+    "app": {
+     "allume": [
+      "lumiere-chambre"
+     ]
+    }
+   }
+  ]
+ },
+ "toilettes_eau": {
+  "titre": "Toilettes et verre d'eau",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Passe aux toilettes, puis boit un grand verre d'eau au lavabo.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "effets": {
+     "toilettes": "vide",
+     "soif": 20
+    },
+    "via": [
+     "wc"
+    ]
+   }
+  ]
+ },
+ "tenue_course": {
+  "titre": "Tenue de course",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Enfile son collant, son tee-shirt technique, son coupe-vent et son bonnet.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-tenue-course",
+      "de": "chambre / armoire, étagère du bas",
+      "vers": "porté"
+     }
+    ]
+   }
+  ]
+ },
+ "depart_course": {
+  "titre": "Départ",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Passe à la cuisine prendre le sac-poubelle et en remet un neuf. Chausse ses chaussures de course, prend ses clés, sort, ferme la porte à clé et vérifie deux fois.",
+    "piece": "entree",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "nouveaux_objets": [
+     {
+      "id": "obj-poubelle-2",
+      "nom": "Sac-poubelle de la cuisine (neuf)",
+      "position": "cuisine / poubelle sous l'évier"
+     }
+    ],
+    "objets": [
+     {
+      "objet": "obj-poubelle",
+      "de": "cuisine / poubelle sous l'évier",
+      "vers": "dans sa main"
+     },
+     {
+      "objet": "obj-chaussures-course",
+      "de": "entree / meuble à chaussures",
+      "vers": "aux pieds"
+     },
+     {
+      "objet": "obj-cles",
+      "de": "entree / vide-poche de la commode",
+      "vers": "poche du coupe-vent"
+     }
+    ],
+    "via": [
+     "cuisine"
+    ]
+   }
+  ]
+ },
+ "descente_saone": {
+  "titre": "Descente vers la Saône",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Appuie sur la minuterie de l'escalier, descend les trois étages, dépose le sac au local poubelles et sort. Commence à courir doucement dans la descente.",
+    "piece": "pentes de la Croix-Rousse",
+    "lieu": "exterieur",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "en course",
+    "ev": [
+     "effort_physique"
+    ],
+    "objets": [
+     {
+      "objet": "obj-poubelle",
+      "de": "dans sa main",
+      "vers": "local poubelles de l'immeuble"
+     }
+    ],
+    "sortie": true,
+    "escalier": {
+     "sens": "descente"
+    },
+    "parcours": [
+     {
+      "moyen": "course",
+      "distance_m": 600,
+      "denivele_m": -35
+     }
+    ]
+   },
+   {
+    "action": "Descend les pentes en retenant ses foulées.",
+    "piece": "pentes de la Croix-Rousse",
+    "lieu": "exterieur",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "en course",
+    "ev": [
+     "effort_physique"
+    ],
+    "parcours": [
+     {
+      "moyen": "course",
+      "distance_m": 900,
+      "denivele_m": -50
+     }
+    ]
+   }
+  ]
+ },
+ "quais_saone": {
+  "titre": "Course le long de la Saône",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Rejoint le bord de l'eau et prend son rythme vers le nord.",
+    "piece": "quais de Saône",
+    "lieu": "exterieur",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "en course",
+    "ev": [
+     "effort_physique"
+    ],
+    "parcours": [
+     {
+      "moyen": "course",
+      "distance_m": 800,
+      "denivele_m": 0
+     }
+    ]
+   },
+   {
+    "action": "Court en cadence régulière.",
+    "piece": "quais de Saône",
+    "lieu": "exterieur",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "en course",
+    "ev": [
+     "effort_physique"
+    ],
+    "parcours": [
+     {
+      "moyen": "course",
+      "distance_m": 800,
+      "denivele_m": 0
+     }
+    ]
+   },
+   {
+    "action": "Continue le long du quai.",
+    "piece": "quais de Saône",
+    "lieu": "exterieur",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "en course",
+    "ev": [
+     "effort_physique"
+    ],
+    "parcours": [
+     {
+      "moyen": "course",
+      "distance_m": 800,
+      "denivele_m": 0
+     }
+    ]
+   },
+   {
+    "action": "Fait demi-tour au repère habituel.",
+    "piece": "quais de Saône",
+    "lieu": "exterieur",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "en course",
+    "ev": [
+     "effort_physique"
+    ],
+    "parcours": [
+     {
+      "moyen": "course",
+      "distance_m": 800,
+      "denivele_m": 0
+     }
+    ]
+   },
+   {
+    "action": "Revient vers le sud, le souffle installé.",
+    "piece": "quais de Saône",
+    "lieu": "exterieur",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "en course",
+    "ev": [
+     "effort_physique"
+    ],
+    "parcours": [
+     {
+      "moyen": "course",
+      "distance_m": 800,
+      "denivele_m": 0
+     }
+    ]
+   }
+  ]
+ },
+ "remontee_pentes": {
+  "titre": "Remontée des pentes",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Attaque la montée en courant.",
+    "piece": "pentes de la Croix-Rousse",
+    "lieu": "exterieur",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "en course",
+    "ev": [
+     "effort_physique"
+    ],
+    "parcours": [
+     {
+      "moyen": "course",
+      "distance_m": 600,
+      "denivele_m": 35
+     }
+    ]
+   },
+   {
+    "action": "Passe à la marche dans la partie la plus raide.",
+    "piece": "pentes de la Croix-Rousse",
+    "lieu": "exterieur",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "en marche",
+    "ev": [
+     "effort_physique"
+    ],
+    "parcours": [
+     {
+      "moyen": "marche",
+      "distance_m": 500,
+      "denivele_m": 30
+     }
+    ]
+   },
+   {
+    "action": "Termine la montée en marchant, reprend son souffle.",
+    "piece": "pentes de la Croix-Rousse",
+    "lieu": "exterieur",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "en marche",
+    "ev": [
+     "effort_physique"
+    ],
+    "parcours": [
+     {
+      "moyen": "marche",
+      "distance_m": 400,
+      "denivele_m": 20
+     }
+    ]
+   }
+  ]
+ },
+ "retour_course": {
+  "titre": "Retour",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Compose le code, monte les trois étages, ouvre la porte. Pose ses clés dans le vide-poche et range ses chaussures.",
+    "piece": "entree",
+    "lieu": "domicile",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "debout",
+    "ev": [
+     "fin_de_course"
+    ],
+    "objets": [
+     {
+      "objet": "obj-cles",
+      "de": "poche du coupe-vent",
+      "vers": "entree / vide-poche de la commode"
+     },
+     {
+      "objet": "obj-chaussures-course",
+      "de": "aux pieds",
+      "vers": "entree / meuble à chaussures"
+     }
+    ],
+    "retour": true,
+    "escalier": {
+     "sens": "montee",
+     "apres_course": true
+    }
+   }
+  ]
+ },
+ "douche_course": {
+  "titre": "Étirements, douche et rasage",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Boit un grand verre d'eau, s'étire, retire sa tenue et la met dans le panier à linge.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-tenue-course",
+      "de": "porté",
+      "vers": "salle-de-bain / panier à linge"
+     }
+    ],
+    "effets": {
+     "soif": 20
+    }
+   },
+   {
+    "action": "Prend une douche chaude.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "effets": {
+     "hygiene": 75
+    }
+   },
+   {
+    "action": "Se rase.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   }
+  ]
+ },
+ "habillage_course": {
+  "titre": "S'habille",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "S'habille pour l'atelier et attache sa montre.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-montre-poignet",
+      "de": "chambre / table de chevet",
+      "vers": "poignet gauche"
+     }
+    ]
+   }
+  ]
+ },
+ "petit_dejeuner_course": {
+  "titre": "Petit-déjeuner",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Prépare le café.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-cafetiere",
+      "de": "cuisine / égouttoir",
+      "vers": "cuisine / plaque électrique"
+     }
+    ],
+    "consommation": [
+     {
+      "produit": "cafe_moulu",
+      "quantite": 7
+     }
+    ],
+    "app": {
+     "allume": [
+      "plaque-1"
+     ]
+    }
+   },
+   {
+    "action": "Grille deux tranches de pain, éteint la plaque, se sert un café dans la tasse bleue.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-tasse",
+      "de": "cuisine / égouttoir",
+      "vers": "cuisine / plan de travail"
+     }
+    ],
+    "consommation": [
+     {
+      "produit": "pain_tranches",
+      "quantite": 2
+     },
+     {
+      "produit": "beurre",
+      "quantite": 10
+     },
+     {
+      "produit": "confiture_abricot",
+      "quantite": 2
+     }
+    ],
+    "app": {
+     "eteint": [
+      "plaque-1"
+     ]
+    }
+   },
+   {
+    "action": "Mange ses tartines, un yaourt et une banane, avec un verre d'eau.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "assis",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "consommation": [
+     {
+      "produit": "yaourts",
+      "quantite": 1
+     },
+     {
+      "produit": "bananes",
+      "quantite": 1
+     }
+    ],
+    "effets": {
+     "faim": 55,
+     "soif": 35,
+     "cafe": true
+    }
+   }
+  ]
+ },
+ "rangement_montre": {
+  "titre": "Rangement et montre",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Rince la tasse et la cafetière. Remonte sa montre : vingt tours de couronne.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-tasse",
+      "de": "cuisine / plan de travail",
+      "vers": "cuisine / égouttoir"
+     },
+     {
+      "objet": "obj-cafetiere",
+      "de": "cuisine / plaque électrique",
+      "vers": "cuisine / égouttoir"
+     }
+    ]
+   }
+  ]
+ },
+ "ouverture_atelier_reglage": {
+  "titre": "Réglage de la montre et ouverture de l'atelier",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Passe par la chambre régler sa montre sur le réveil. Puis allume la lampe d'établi, aligne ses outils et ouvre le coffre.",
+    "piece": "atelier",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "ev": [
+     "controle_conforme"
+    ],
+    "objets": [
+     {
+      "objet": "obj-cles-coffre",
+      "de": "atelier / tiroir de l'établi, à droite",
+      "vers": "atelier / serrure du coffre"
+     }
+    ],
+    "app": {
+     "allume": [
+      "lampe-etabli"
+     ]
+    },
+    "via": [
+     "chambre"
+    ]
+   }
+  ]
+ },
+ "pause_wc": {
+  "titre": "Pause",
+  "routine": "rt-atelier",
+  "pas": [
+   {
+    "action": "Pose ses lunettes, passe aux toilettes.",
+    "piece": "wc",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "effets": {
+     "toilettes": "vide"
+    }
+   }
+  ]
+ },
+ "pause_cafe": {
+  "titre": "Pause café",
+  "routine": "rt-atelier",
+  "pas": [
+   {
+    "action": "Se fait un café et boit un verre d'eau.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "consommation": [
+     {
+      "produit": "cafe_moulu",
+      "quantite": 7
+     }
+    ],
+    "effets": {
+     "soif": 35,
+     "cafe": true
+    },
+    "app": {
+     "allume": [
+      "plaque-1"
+     ],
+     "eteint": [
+      "plaque-1"
+     ]
+    }
+   },
+   {
+    "action": "Rince la tasse, fait quelques étirements en regardant par la fenêtre.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout"
+   }
+  ]
+ },
+ "pause_pomme": {
+  "titre": "Pause",
+  "routine": "rt-atelier",
+  "pas": [
+   {
+    "action": "Boit un verre d'eau, mange une pomme, étire son dos contre le chambranle.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "consommation": [
+     {
+      "produit": "pommes",
+      "quantite": 1
+     }
+    ],
+    "effets": {
+     "soif": 20,
+     "faim": 15
+    }
+   }
+  ]
+ },
+ "pause_orange": {
+  "titre": "Pause",
+  "routine": "rt-atelier",
+  "pas": [
+   {
+    "action": "Boit un verre d'eau et mange une orange en regardant par la fenêtre.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "consommation": [
+     {
+      "produit": "oranges",
+      "quantite": 1
+     }
+    ],
+    "effets": {
+     "soif": 20,
+     "faim": 15
+    }
+   }
+  ]
+ },
+ "cafe_vaisselle": {
+  "titre": "Café et vaisselle",
+  "routine": "rt-atelier",
+  "pas": [
+   {
+    "action": "Se fait un café.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "consommation": [
+     {
+      "produit": "cafe_moulu",
+      "quantite": 7
+     }
+    ],
+    "effets": {
+     "soif": 15,
+     "cafe": true
+    },
+    "app": {
+     "allume": [
+      "plaque-1"
+     ],
+     "eteint": [
+      "plaque-1"
+     ]
+    }
+   },
+   {
+    "action": "Lave la casserole et l'assiette.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout"
+   },
+   {
+    "action": "Essuie et range.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout"
+   },
+   {
+    "action": "Rince la tasse et la cafetière.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout"
+   },
+   {
+    "action": "Boit un verre d'eau.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "effets": {
+     "soif": 20
+    }
+   },
+   {
+    "action": "Regarde la cour par la fenêtre.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout"
+   }
+  ]
+ },
+ "repos_chambre": {
+  "titre": "Repos",
+  "routine": "rt-atelier",
+  "pas": [
+   {
+    "action": "Va chercher son livre sur la table de chevet.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-livre",
+      "de": "chambre / table de chevet",
+      "vers": "dans sa main"
+     }
+    ]
+   }
+  ]
+ },
+ "lecture_sieste": {
+  "titre": "Lecture et courte sieste",
+  "routine": "rt-atelier",
+  "pas": [
+   {
+    "action": "S'allonge sur le canapé et lit « La Route ».",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "lecture",
+    "charge": "lecture",
+    "posture": "allongé"
+   },
+   {
+    "action": "Continue sa lecture (page {page}).",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "lecture",
+    "charge": "lecture",
+    "posture": "allongé"
+   },
+   {
+    "action": "Pose le livre ouvert sur son ventre et s'assoupit.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "sieste",
+    "charge": "sommeil",
+    "posture": "allongé"
+   },
+   {
+    "action": "Somnole.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "sieste",
+    "charge": "sommeil",
+    "posture": "allongé"
+   },
+   {
+    "action": "Se réveille, referme le livre et le pose sur la table basse.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "objets": [
+     {
+      "objet": "obj-livre",
+      "de": "dans sa main",
+      "vers": "sejour / table basse"
+     }
+    ]
+   }
+  ]
+ },
+ "lecture_courte": {
+  "titre": "Lecture",
+  "routine": "rt-atelier",
+  "pas": [
+   {
+    "action": "S'allonge sur le canapé et lit.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "lecture",
+    "charge": "lecture",
+    "posture": "allongé"
+   },
+   {
+    "action": "Lit (page {page}).",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "lecture",
+    "charge": "lecture",
+    "posture": "allongé"
+   },
+   {
+    "action": "Lit (page {page}).",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "lecture",
+    "charge": "lecture",
+    "posture": "allongé"
+   },
+   {
+    "action": "Ferme les yeux quelques minutes.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "sieste",
+    "charge": "sommeil",
+    "posture": "allongé"
+   }
+  ]
+ },
+ "rangement_livre": {
+  "titre": "Rangement du livre",
+  "routine": "rt-atelier",
+  "pas": [
+   {
+    "action": "Rapporte tout de suite le livre sur la table de chevet.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "ev": [
+     "controle_conforme"
+    ],
+    "objets": [
+     {
+      "objet": "obj-livre",
+      "de": "dans sa main",
+      "vers": "chambre / table de chevet"
+     }
+    ]
+   }
+  ]
+ },
+ "temps_libre": {
+  "titre": "Temps libre",
+  "routine": "rt-soir",
+  "pas": [
+   {
+    "action": "S'assoit dans le canapé et allume la radio.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "app": {
+     "allume": [
+      "radio"
+     ]
+    },
+    "radio": true
+   },
+   {
+    "action": "Écoute la radio.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Écoute un reportage sans vraiment le suivre.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Écoute la radio.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Éteint la radio et met un disque : les Variations Goldberg.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "app": {
+     "allume": [
+      "lecteur-cd"
+     ],
+     "eteint": [
+      "radio"
+     ]
+    },
+    "musique": true
+   },
+   {
+    "action": "Écoute, les yeux fermés.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "musique": true
+   },
+   {
+    "action": "Écoute.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé",
+    "musique": true
+   },
+   {
+    "action": "Écoute la variation la plus lente.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé",
+    "musique": true
+   },
+   {
+    "action": "La nuit tombe : il se lève allumer le séjour, puis se rallonge.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé",
+    "musique": true
+   },
+   {
+    "action": "Le disque continue.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé",
+    "musique": true
+   },
+   {
+    "action": "Le disque continue.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé",
+    "musique": true
+   },
+   {
+    "action": "Arrête le disque.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "app": {
+     "eteint": [
+      "lecteur-cd"
+     ]
+    }
+   }
+  ]
+ },
+ "rangement_seance": {
+  "titre": "Rangement",
+  "routine": "rt-soir",
+  "pas": [
+   {
+    "action": "Repose la cloche de verre sur la montre de gousset.",
+    "piece": "atelier",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Éteint la lampe, range ses lunettes.",
+    "piece": "atelier",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "app": {
+     "eteint": [
+      "lampe-etabli"
+     ]
+    }
+   }
+  ]
+ },
+ "chocolat": {
+  "titre": "Chocolat",
+  "routine": "rt-soir",
+  "pas": [
+   {
+    "action": "Mange deux carrés de chocolat noir et boit un verre d'eau.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "consommation": [
+     {
+      "produit": "chocolat_noir",
+      "quantite": 2
+     }
+    ],
+    "effets": {
+     "faim": 5,
+     "soif": 20
+    }
+   }
+  ]
+ },
+ "toilette_soir": {
+  "titre": "Toilette du soir",
+  "routine": "rt-soir",
+  "pas": [
+   {
+    "action": "Passe aux toilettes.",
+    "piece": "wc",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "effets": {
+     "toilettes": "vide"
+    }
+   },
+   {
+    "action": "Se brosse les dents, se lave le visage.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "effets": {
+     "hygiene": 10
+    }
+   },
+   {
+    "action": "Range sa brosse à dents.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   }
+  ]
+ },
+ "lessive": {
+  "titre": "Lessive",
+  "routine": "rt-mercredi-soir",
+  "pas": [
+   {
+    "action": "Va chercher le panier à linge dans la salle de bain.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-panier-linge",
+      "de": "salle-de-bain / sol",
+      "vers": "dans ses bras"
+     }
+    ]
+   },
+   {
+    "action": "Trie le linge sur le carrelage de la cuisine et remplit la machine.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-panier-linge",
+      "de": "dans ses bras",
+      "vers": "cuisine / sol, devant la machine"
+     },
+     {
+      "objet": "obj-tenue-course",
+      "de": "salle-de-bain / panier à linge",
+      "vers": "cuisine / machine à laver"
+     }
+    ]
+   },
+   {
+    "action": "Verse une dose de lessive et lance un cycle de 90 minutes à 40 degrés.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "consommation": [
+     {
+      "produit": "lessive",
+      "quantite": 1
+     }
+    ],
+    "app": {
+     "allume": [
+      "machine-a-laver"
+     ]
+    }
+   }
+  ]
+ },
+ "etendage": {
+  "titre": "Étendage",
+  "routine": "rt-mercredi-soir",
+  "pas": [
+   {
+    "action": "La machine s'arrête. Il sort le linge et le met dans le panier.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-panier-linge",
+      "de": "cuisine / sol, devant la machine",
+      "vers": "dans ses bras"
+     },
+     {
+      "objet": "obj-tenue-course",
+      "de": "cuisine / machine à laver",
+      "vers": "panier à linge, mouillée"
+     }
+    ],
+    "app": {
+     "eteint": [
+      "machine-a-laver"
+     ]
+    }
+   },
+   {
+    "action": "Déplie l'étendoir près du radiateur de la chambre.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-etendoir",
+      "de": "chambre / replié derrière la porte",
+      "vers": "chambre / déplié près du radiateur"
+     },
+     {
+      "objet": "obj-panier-linge",
+      "de": "dans ses bras",
+      "vers": "chambre / sol"
+     }
+    ]
+   },
+   {
+    "action": "Étend les chemises et les tee-shirts.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Étend la tenue de course et les chaussettes.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-tenue-course",
+      "de": "panier à linge, mouillée",
+      "vers": "chambre / étendoir"
+     }
+    ]
+   },
+   {
+    "action": "Étend le reste.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Rapporte le panier vide dans la salle de bain.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-panier-linge",
+      "de": "chambre / sol",
+      "vers": "salle-de-bain / sol"
+     }
+    ]
+   }
+  ]
+ },
+ "diner_match": {
+  "titre": "Dîner de match",
+  "routine": "rt-mercredi-soir",
+  "pas": [
+   {
+    "action": "Sort un steak haché du congélateur.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "consommation": [
+     {
+      "produit": "steaks_haches",
+      "quantite": 1
+     }
+    ]
+   },
+   {
+    "action": "Met l'eau des pâtes à bouillir.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "app": {
+     "allume": [
+      "plaque-1"
+     ]
+    }
+   },
+   {
+    "action": "Verse les pâtes, met le steak à cuire à la poêle.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "consommation": [
+     {
+      "produit": "pates",
+      "quantite": 125
+     }
+    ],
+    "app": {
+     "allume": [
+      "plaque-2"
+     ]
+    }
+   },
+   {
+    "action": "Retourne le steak.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout"
+   },
+   {
+    "action": "Égoutte les pâtes, sert l'assiette, éteint les plaques.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "consommation": [
+     {
+      "produit": "condiments",
+      "quantite": 1
+     }
+    ],
+    "app": {
+     "eteint": [
+      "plaque-1",
+      "plaque-2"
+     ]
+    }
+   },
+   {
+    "action": "Sort une bière du réfrigérateur et la décapsule.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "consommation": [
+     {
+      "produit": "biere",
+      "quantite": 1
+     }
+    ]
+   }
+  ]
+ },
+ "match_premiere_mi_temps": {
+  "titre": "Real Madrid – Lyon : première mi-temps",
+  "routine": "rt-mercredi-soir",
+  "pas": [
+   {
+    "action": "Allume la télévision, s'installe sur le canapé avec son assiette. Coup d'envoi au stade Santiago-Bernabéu.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "app": {
+     "allume": [
+      "television"
+     ]
+    },
+    "tele": "match",
+    "pensee": "Un à zéro à l'aller. Il faut tenir."
+   },
+   {
+    "action": "Cristiano Ronaldo ouvre le score pour le Real dès la sixième minute. Thomas mange sans quitter l'écran.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "but_adverse"
+    ],
+    "effets": {
+     "faim": 55,
+     "soif": 20
+    },
+    "tele": "match",
+    "pensee": "Déjà. Six minutes."
+   },
+   {
+    "action": "Le Real presse, Lyon recule.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match",
+    "pensee": "Ils vont en prendre un deuxième."
+   },
+   {
+    "action": "Pose son assiette vide sur la table basse.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension",
+     "pensee_ami"
+    ],
+    "tele": "match",
+    "pensee": "Julien doit hurler devant sa télé."
+   },
+   {
+    "action": "Lyon subit. Il ne quitte pas l'écran.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match"
+   },
+   {
+    "action": "Le gardien lyonnais sauve encore.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match",
+    "pensee": "Lloris. Heureusement qu'il est là."
+   },
+   {
+    "action": "Boit une gorgée de bière.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match",
+    "pensee": "Un partout sur les deux matchs. Si ça reste comme ça, prolongation."
+   },
+   {
+    "action": "Le Real domine toujours.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match",
+    "pensee": "Envie pressante. J'attendrai la mi-temps."
+   },
+   {
+    "action": "Fin de la première mi-temps qui approche.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match"
+   }
+  ]
+ },
+ "mi_temps": {
+  "titre": "Mi-temps",
+  "routine": "rt-mercredi-soir",
+  "pas": [
+   {
+    "action": "Mi-temps. Rapporte l'assiette à la cuisine.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "tele": "match"
+   },
+   {
+    "action": "Passe aux toilettes.",
+    "piece": "wc",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "effets": {
+     "toilettes": "vide"
+    }
+   },
+   {
+    "action": "Se rassoit sur le canapé.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "ev": [
+     "pensee_pere"
+    ],
+    "tele": "match",
+    "pensee": "Papa doit regarder aussi. Il est pour Sochaux, mais ce soir il est lyonnais."
+   }
+  ]
+ },
+ "match_seconde_mi_temps": {
+  "titre": "Real Madrid – Lyon : seconde mi-temps",
+  "routine": "rt-mercredi-soir",
+  "pas": [
+   {
+    "action": "Reprise. Le Real attaque d'emblée.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match"
+   },
+   {
+    "action": "Les occasions s'enchaînent devant le but lyonnais.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match"
+   },
+   {
+    "action": "Lyon ressort un peu.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match",
+    "pensee": "Ils respirent."
+   },
+   {
+    "action": "Se penche en avant, les coudes sur les genoux.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match"
+   },
+   {
+    "action": "Le match se tend.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match"
+   },
+   {
+    "action": "Lyon pousse enfin.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match"
+   },
+   {
+    "action": "Miralem Pjanić égalise à la 75e minute. Thomas se lève d'un bond.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "debout",
+    "ev": [
+     "but_equipe"
+    ],
+    "tele": "match",
+    "pensee": "Pjanić ! Un partout !"
+   },
+   {
+    "action": "Se rassoit. Le Real doit maintenant marquer deux fois.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match",
+    "pensee": "Ils doivent en mettre deux. Tenir. Juste tenir."
+   },
+   {
+    "action": "Les dernières minutes défilent.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match"
+   },
+   {
+    "action": "Arrêts de jeu. Il ne respire plus.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "lecture",
+    "posture": "assis",
+    "ev": [
+     "match_tension"
+    ],
+    "tele": "match"
+   }
+  ]
+ },
+ "qualification": {
+  "titre": "Qualification",
+  "routine": "rt-mercredi-soir",
+  "pas": [
+   {
+    "action": "Coup de sifflet final : 1-1. Lyon est qualifié pour les quarts de finale. Il éteint la télévision.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "ev": [
+     "qualification_equipe",
+     "pensee_ami"
+    ],
+    "app": {
+     "eteint": [
+      "television"
+     ]
+    },
+    "tele": "match",
+    "pensee": "Qualifiés, au Bernabéu. Julien doit être dans la rue."
+   }
+  ]
+ },
+ "avant_coucher_match": {
+  "titre": "Avant de se coucher",
+  "routine": "rt-mercredi-soir",
+  "pas": [
+   {
+    "action": "Rapporte la bouteille vide, rince le verre.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Passe aux toilettes.",
+    "piece": "wc",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "effets": {
+     "toilettes": "vide"
+    }
+   },
+   {
+    "action": "Se brosse les dents.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "effets": {
+     "hygiene": 10
+    }
+   },
+   {
+    "action": "Se lave le visage, range sa brosse à dents.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   }
+  ]
+ },
+ "depart_course_sans_poubelle": {
+  "titre": "Départ",
+  "routine": "rt-matin-course",
+  "pas": [
+   {
+    "action": "Chausse ses chaussures de course, prend ses clés, sort, ferme la porte à clé et vérifie deux fois.",
+    "piece": "entree",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-chaussures-course",
+      "de": "entree / meuble à chaussures",
+      "vers": "aux pieds"
+     },
+     {
+      "objet": "obj-cles",
+      "de": "entree / vide-poche de la commode",
+      "vers": "poche du coupe-vent"
+     }
+    ]
+   }
+  ]
+ },
+ "ouverture_seance": {
+  "titre": "Ouverture de la séance",
+  "routine": "rt-soir",
+  "pas": [
+   {
+    "action": "Allume la lampe d'établi, remet ses lunettes, regarde la photo de René.",
+    "piece": "atelier",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "precision",
+    "posture": "assis",
+    "ev": [
+     "souvenir_grand_pere"
+    ],
+    "app": {
+     "allume": [
+      "lampe-etabli"
+     ]
+    }
+   }
+  ]
+ }
+}

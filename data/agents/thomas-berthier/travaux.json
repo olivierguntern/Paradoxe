@@ -1,0 +1,2858 @@
+{
+ "principe": "Les travaux sont pris dans l'ordre de priorité. Chaque opération dure un pas de 5 minutes. Une opération « machine » lance un cycle de n pas ; les opérations « pendant_machine » se font pendant le cycle, puis, si le cycle n'est pas fini, un groupe « intercalable » d'un autre travail est fait en entier. Une attente « observation » bloque le travail 24 h ; la validation qui suit passe avant tout le reste. Une attente « lendemain » bloque le travail jusqu'au lendemain matin. Dans la dernière heure de la journée, il ne commence que des opérations « leger ».",
+ "derniere_heure": "16:50",
+ "liste": [
+  {
+   "id": "omega",
+   "objet": "obj-omega",
+   "titre": "Omega",
+   "rangement": {
+    "en_cours": "atelier / coffre-fort",
+    "observation": "atelier / coffre-fort, remontée, en observation"
+   },
+   "phases": [
+    {
+     "ops": [
+      {
+       "action": "Examine le plateau de l'Omega démontée.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Dispose les pièces dans les paniers de la machine à ultrasons, le balancier dans le petit panier séparé.",
+       "charge": "precision",
+       "posture": "debout"
+      },
+      {
+       "action": "Lance le cycle : nettoyage, deux rinçages, séchage. Quarante minutes.",
+       "charge": "precision",
+       "posture": "debout",
+       "app": {
+        "allume": [
+         "machine-ultrasons"
+        ]
+       },
+       "machine": 8
+      },
+      {
+       "action": "Retire les vieux joints du fond et de la couronne.",
+       "charge": "precision",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Nettoie la carrure et le fond au pinceau, sans polir.",
+       "charge": "precision",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Polit la glace en plexiglas avec un peu de pâte.",
+       "charge": "precision",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Dépoussière le cadran et les aiguilles à la poire soufflante.",
+       "charge": "precision",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Prépare les joints neufs dans une petite boîte.",
+       "charge": "precision",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Note l'état de la boîte sur la fiche de travail.",
+       "charge": "precision",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Surveille la machine en rangeant le pinceau et la pâte.",
+       "charge": "precision",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "La machine s'arrête. Sort les paniers et laisse sécher les pièces sous une cloche.",
+       "charge": "precision",
+       "posture": "debout",
+       "app": {
+        "eteint": [
+         "machine-ultrasons"
+        ]
+       }
+      },
+      {
+       "action": "Contrôle à la loupe les pivots du rouage, un par un.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Contrôle les dents de la roue d'échappement et les levées de l'ancre.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Graisse le ressort, referme le barillet et huile son arbre.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le barillet sur la platine.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Monte la roue de centre et la roue moyenne.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Monte la roue de seconde et la roue d'échappement, puis le pont de rouage.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Souffle doucement sur le rouage : il tourne librement.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Huile les pivots du rouage à l'huilier.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Termine l'huilage des pivots côté cadran.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose l'ancre.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le pont d'ancre et vérifie les ébats.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Huile les levées de l'ancre.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le balancier-spiral.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Visse le pont de balancier.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Donne quelques tours de remontoir : le balancier ne part pas encore, il manque l'huile des pierres de balancier.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Huile les pierres de balancier.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Le balancier oscille. Il écoute le tic-tac à la loupe.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Monte la minuterie et le mécanisme de mise à l'heure.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Contrôle le passage de la mise à l'heure.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Vérifie l'ensemble une dernière fois avant de s'arrêter.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose le mouvement sur le chronocomparateur.",
+       "charge": "precision",
+       "posture": "assis",
+       "app": {
+        "allume": [
+         "chronocomparateur"
+        ]
+       }
+      },
+      {
+       "action": "Lit le premier résultat : avance de quarante secondes par jour, amplitude correcte.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Note les mesures sur la fiche de travail.",
+       "charge": "precision",
+       "posture": "assis",
+       "app": {
+        "eteint": [
+         "chronocomparateur"
+        ]
+       }
+      },
+      {
+       "action": "Range le mouvement dans un boîtier de protection.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Nettoie ses brucelles et les aligne.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "plaisir_simple"
+       ]
+      },
+      {
+       "action": "Démonte le mécanisme automatique déjà nettoyé pour l'huiler.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Huile les roues d'inverseur.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Remonte le pont d'automatique.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose la masse oscillante.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Fait tourner la masse à la main : le remontage s'entend.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Contrôle le remontage automatique.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose le cadran.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Chasse l'aiguille des heures et celle des minutes.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose l'aiguille des secondes.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Vérifie le parallélisme des aiguilles sur un tour complet.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Remet le mouvement sur le chronocomparateur, cadran en haut.",
+       "charge": "precision",
+       "posture": "assis",
+       "app": {
+        "allume": [
+         "chronocomparateur"
+        ]
+       }
+      },
+      {
+       "action": "Mesure cadran en haut : plus 6 secondes par jour.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Mesure couronne en bas : plus 9.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Déplace très légèrement la raquette.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Nouvelle mesure : plus 3 cadran en haut.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Mesure couronne en bas : plus 5.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Mesure les autres positions pour vérifier l'écart.",
+       "charge": "precision",
+       "posture": "assis",
+       "app": {
+        "eteint": [
+         "chronocomparateur"
+        ]
+       }
+      },
+      {
+       "action": "Note les résultats sur la fiche de travail.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose le mouvement dans la boîte et serre les vis de fixation.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Remet la tige et la couronne.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose les joints neufs du fond et de la couronne.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Graisse légèrement les joints.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Ferme le fond à la clé.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Place la montre dans le contrôleur d'étanchéité.",
+       "charge": "precision",
+       "posture": "debout",
+       "app": {
+        "allume": [
+         "controleur-etancheite"
+        ]
+       }
+      },
+      {
+       "action": "Lance le test de pression.",
+       "charge": "precision",
+       "posture": "debout"
+      },
+      {
+       "action": "Lit le résultat : aucune fuite.",
+       "charge": "precision",
+       "posture": "debout",
+       "ev": [
+        "controle_conforme"
+       ],
+       "app": {
+        "eteint": [
+         "controleur-etancheite"
+        ]
+       }
+      },
+      {
+       "action": "Remet le bracelet d'origine, nettoyé ce matin.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Fait tourner la montre dans sa main pour vérifier le remontage automatique.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "La met à l'heure d'après sa propre montre.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Remplit la fiche de travail : opérations, mesures, joints changés.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Nettoie l'établi.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Vide et rince les bacs de la machine à ultrasons.",
+       "charge": "simple",
+       "posture": "debout"
+      },
+      {
+       "action": "Range les huiles et les joints restants.",
+       "charge": "simple",
+       "posture": "debout"
+      },
+      {
+       "action": "Essuie la montre avec une peau de chamois.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose l'Omega cadran en haut sur un coussin pour vingt-quatre heures d'observation.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "tache_terminee"
+       ]
+      }
+     ]
+    },
+    {
+     "attente": "observation"
+    },
+    {
+     "ops": [
+      {
+       "action": "Sort l'Omega du coffre et compare son heure à celle de sa montre réglée ce matin.",
+       "charge": "simple",
+       "posture": "assis",
+       "objets": [
+        {
+         "objet": "obj-omega",
+         "de": "atelier / coffre-fort, remontée, en observation",
+         "vers": "atelier / établi"
+        }
+       ],
+       "leger": true
+      },
+      {
+       "action": "Vingt-quatre heures d'observation : plus 4 secondes. Conforme.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "leger": true
+      },
+      {
+       "action": "Glisse l'Omega dans sa pochette avec la fiche de travail et la range au coffre, avec les montres prêtes.",
+       "charge": "simple",
+       "posture": "assis",
+       "objets": [
+        {
+         "objet": "obj-omega",
+         "de": "atelier / établi",
+         "vers": "atelier / coffre-fort, terminée, prête à expédier"
+        }
+       ],
+       "leger": true
+      }
+     ],
+     "validation": true
+    }
+   ]
+  },
+  {
+   "id": "rolex",
+   "objet": "obj-rolex",
+   "titre": "Rolex",
+   "rangement": {
+    "en_cours": "atelier / coffre-fort",
+    "observation": "atelier / coffre-fort, terminée, en observation"
+   },
+   "phases": [
+    {
+     "ops": [
+      {
+       "action": "Sort la Rolex du coffre et l'examine sous la lampe.",
+       "charge": "precision",
+       "posture": "assis",
+       "objets": [
+        {
+         "objet": "obj-rolex",
+         "de": "atelier / coffre-fort",
+         "vers": "atelier / établi"
+        }
+       ],
+       "leger": true
+      },
+      {
+       "action": "Remplit la fiche d'état initial : boîte, verre, couronne, marche.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Ouvre le fond avec la clé adaptée.",
+       "charge": "precision",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Observe le mouvement à la loupe.",
+       "charge": "precision",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Vérifie dans le tiroir de l'établi le ressort de barillet neuf, dans son sachet.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "leger": true
+      },
+      {
+       "action": "Démonte la masse oscillante.",
+       "charge": "precision",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Sort le mouvement de la boîte.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ],
+       "leger": true
+      },
+      {
+       "action": "Retire les aiguilles avec un protège-cadran.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ],
+       "leger": true
+      },
+      {
+       "action": "Retire le cadran et range les pièces dans un plateau compartimenté.",
+       "charge": "precision",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Chausse ses lunettes, sort la Rolex du coffre et pose le mouvement sur un porte-mouvement.",
+       "charge": "precision",
+       "posture": "assis",
+       "objets": [
+        {
+         "objet": "obj-rolex",
+         "de": "atelier / coffre-fort",
+         "vers": "atelier / établi"
+        }
+       ]
+      },
+      {
+       "action": "Laisse le ressort se désarmer en retenant le rochet.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Démonte le mécanisme de date : disque, sautoir, roue de quantième.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Range les pièces de date dans un compartiment du plateau.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Retire le coq et le balancier-spiral.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Démonte le pont d'ancre et l'ancre.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Démonte le pont de rouage.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Sort la roue d'échappement, la roue de seconde, la roue moyenne.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Dépose la roue de centre.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Démonte le pont de barillet.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Sort le barillet et l'ouvre.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Extrait l'ancien ressort : il est cassé en bout.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Démonte la minuterie côté cadran.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Démonte le mécanisme de remontage : tige, pignon coulant, bascule.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Inspecte la platine nue à la loupe.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Note sur la fiche : ressort cassé, huiles sèches, aucune usure anormale.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Compte les pièces dans le plateau : tout y est.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Recouvre le plateau d'une cloche.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Dispose les pièces dans les paniers, le balancier à part.",
+       "charge": "simple",
+       "posture": "debout"
+      },
+      {
+       "action": "Lance la machine à ultrasons : quarante minutes.",
+       "charge": "simple",
+       "posture": "debout",
+       "app": {
+        "allume": [
+         "machine-ultrasons"
+        ]
+       },
+       "machine": 8
+      },
+      {
+       "action": "Sort les paniers de la machine et laisse sécher les pièces sous une cloche.",
+       "charge": "precision",
+       "posture": "debout"
+      },
+      {
+       "action": "Contrôle les pivots du rouage à la loupe.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Contrôle les dentures.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Contrôle l'ancre et les levées.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Examine le balancier et le spiral : spiral plat, bien centré.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Nettoie le barillet et son couvercle au bois de sureau.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Sort le ressort neuf de son sachet et le compare à l'ancien.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "objets": [
+        {
+         "objet": "obj-ressort-rolex",
+         "de": "atelier / tiroir de l'établi",
+         "vers": "atelier / établi"
+        }
+       ]
+      },
+      {
+       "action": "Prépare la graisse de barillet et les huiles.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Range les pièces propres dans le plateau couvert.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Graisse les parois du barillet.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Enroule le ressort neuf dans le barillet avec l'enrouloir.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ],
+       "objets": [
+        {
+         "objet": "obj-ressort-rolex",
+         "de": "atelier / établi",
+         "vers": "atelier / établi, monté dans le barillet de la Rolex"
+        }
+       ]
+      },
+      {
+       "action": "Pose l'arbre de barillet, huile, ferme le couvercle.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Vérifie le jeu de l'arbre : correct.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Remonte le mécanisme de remontage et de mise à l'heure.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose le barillet sur la platine et son pont.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose la roue de centre.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose la roue moyenne et la roue de seconde.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose la roue d'échappement.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le pont de rouage et guide les pivots un par un.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Les pivots trouvent leurs trous. Il serre les vis.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Souffle sur le rouage : il tourne librement.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Huile les pivots côté pont.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Retourne le mouvement et huile les pivots côté cadran.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Monte la minuterie.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Remonte le mécanisme de date.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Fait passer la date à la main sur deux jours : correct.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Note l'avancement sur la fiche.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose l'ancre.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le pont d'ancre, vérifie les ébats.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Huile les levées de l'ancre avec la pointe la plus fine de l'huilier.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le balancier-spiral.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Visse le pont de balancier.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Huile les pierres de balancier.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Donne trois tours de couronne : le balancier part.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Écoute le battement à la loupe : régulier.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose le mouvement sur le chronocomparateur.",
+       "charge": "precision",
+       "posture": "assis",
+       "app": {
+        "allume": [
+         "chronocomparateur"
+        ]
+       }
+      },
+      {
+       "action": "Premier relevé : plus 12 secondes par jour, amplitude excellente.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Relevé couronne en bas : plus 15.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Laisse tourner pour que l'huilage se répartisse.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Range ses huiles.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Note les mesures. Le réglage fin se fera demain matin, les huiles reposées.",
+       "charge": "simple",
+       "posture": "assis",
+       "app": {
+        "eteint": [
+         "chronocomparateur"
+        ]
+       }
+      },
+      {
+       "action": "Range le mouvement dans un boîtier de protection.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Nettoie l'établi.",
+       "charge": "simple",
+       "posture": "assis"
+      }
+     ]
+    },
+    {
+     "attente": "lendemain"
+    },
+    {
+     "ops": [
+      {
+       "action": "Chausse ses lunettes, sort la Rolex et pose le mouvement sur le chronocomparateur.",
+       "charge": "precision",
+       "posture": "assis",
+       "objets": [
+        {
+         "objet": "obj-rolex",
+         "de": "atelier / coffre-fort",
+         "vers": "atelier / établi"
+        }
+       ],
+       "app": {
+        "allume": [
+         "chronocomparateur"
+        ]
+       }
+      },
+      {
+       "action": "Relevé : plus 10 secondes par jour cadran en haut, plus 13 couronne en bas.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Déplace l'index de réglage d'un cheveu.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Nouveau relevé : plus 2, plus 4.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ],
+       "app": {
+        "eteint": [
+         "chronocomparateur"
+        ]
+       }
+      },
+      {
+       "action": "Pose le cadran et les aiguilles, contrôle le passage de la date à minuit.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Emboîte le mouvement et remonte la masse oscillante.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Change les joints du fond et de la couronne, ferme le fond.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Teste l'étanchéité : elle tient la pression.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "app": {
+        "allume": [
+         "controleur-etancheite"
+        ],
+        "eteint": [
+         "controleur-etancheite"
+        ]
+       }
+      },
+      {
+       "action": "Remplit la fiche de travail.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Range la Rolex au coffre, cadran en haut, pour vingt-quatre heures d'observation.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "tache_terminee"
+       ],
+       "objets": [
+        {
+         "objet": "obj-rolex",
+         "de": "atelier / établi",
+         "vers": "atelier / coffre-fort, terminée, en observation"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "attente": "observation"
+    },
+    {
+     "ops": [
+      {
+       "action": "Sort la Rolex du coffre et compare son heure à celle de sa montre.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true,
+       "objets": [
+        {
+         "objet": "obj-rolex",
+         "de": "atelier / coffre-fort, terminée, en observation",
+         "vers": "atelier / établi"
+        }
+       ]
+      },
+      {
+       "action": "Vingt-quatre heures d'observation : plus 3 secondes. Conforme.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "leger": true
+      },
+      {
+       "action": "Glisse la Rolex dans sa pochette avec sa fiche et la range avec les montres prêtes.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true,
+       "objets": [
+        {
+         "objet": "obj-rolex",
+         "de": "atelier / établi",
+         "vers": "atelier / coffre-fort, terminée, prête à expédier"
+        }
+       ]
+      }
+     ],
+     "validation": true
+    }
+   ]
+  },
+  {
+   "id": "pendule",
+   "objet": "obj-pendule",
+   "titre": "Pendule",
+   "rangement": {
+    "en_cours": "atelier / étagère de fournitures, étage du bas"
+   },
+   "ouverture_si_observation": "Remet la sonnerie de la pendule en marche.",
+   "phases": [
+    {
+     "ops": [
+      {
+       "action": "Descend la pendule de l'étagère et la pose sur un tapis de protection.",
+       "charge": "simple",
+       "posture": "debout",
+       "objets": [
+        {
+         "objet": "obj-pendule",
+         "de": "atelier / étagère de fournitures, étage du bas",
+         "vers": "atelier / établi"
+        }
+       ]
+      },
+      {
+       "action": "Ouvre la porte arrière, décroche le balancier.",
+       "charge": "simple",
+       "posture": "debout"
+      },
+      {
+       "action": "Laisse descendre les ressorts des deux barillets avec la clé de remontage.",
+       "charge": "simple",
+       "posture": "debout",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Dévisse les pieds du mouvement et le sort de la caisse avec le cadran.",
+       "charge": "simple",
+       "posture": "debout",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Fait sonner la pendule à la main : douze coups au lieu de trois.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Examine la roue de compte et son loquet à la loupe : le bout du loquet est usé.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Retire le cadran et les aiguilles.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Démonte la cadrature côté cadran.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Sépare les platines : rouage de mouvement d'un côté, rouage de sonnerie de l'autre.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Sort les deux barillets.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Démonte les mobiles du rouage de sonnerie.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Démonte le rouage de mouvement.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Ouvre les barillets et nettoie les ressorts.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Met les petites pièces dans le grand panier de la machine à ultrasons et la lance.",
+       "charge": "precision",
+       "posture": "debout",
+       "app": {
+        "allume": [
+         "machine-ultrasons"
+        ]
+       },
+       "machine": 7
+      },
+      {
+       "action": "Lave les platines au pinceau.",
+       "charge": "simple",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Sèche les platines.",
+       "charge": "simple",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Polit les pivots usés au brunissoir.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ],
+       "pendant_machine": true
+      },
+      {
+       "action": "Contrôle les trous des platines : un trou ovalisé côté sonnerie.",
+       "charge": "precision",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Alèse le trou ovalisé.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ],
+       "pendant_machine": true
+      },
+      {
+       "action": "Ajuste un bouchon en laiton et le chasse dans la platine.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ],
+       "pendant_machine": true
+      },
+      {
+       "action": "La machine s'arrête. Alèse le bouchon au diamètre du pivot.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ],
+       "app": {
+        "eteint": [
+         "machine-ultrasons"
+        ]
+       }
+      },
+      {
+       "action": "Contrôle l'ébat du pivot dans son nouveau trou : juste ce qu'il faut.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Sort les petites pièces de la machine et les sèche.",
+       "charge": "precision",
+       "posture": "debout"
+      },
+      {
+       "action": "Contrôle les dents de la roue de compte.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Reprend le bout du loquet usé à la lime fine.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Polit le loquet à la pierre.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Essaie le loquet sur la roue de compte, à la main : il accroche net.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Range les pièces propres sous une cloche.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Huile les ressorts et referme les barillets.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose les mobiles du rouage de mouvement sur la platine arrière.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose les mobiles du rouage de sonnerie.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Présente la platine avant et guide les pivots un à un.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Continue de guider les pivots.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Les pivots entrent. Il goupille les platines.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Vérifie la liberté des deux rouages.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Huile les pivots du rouage de mouvement.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Huile les pivots du rouage de sonnerie.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose l'ancre et son pont, huile les levées.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Remonte la cadrature.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose la roue de compte et son loquet repris.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Règle l'avertissement : la sonnerie doit se préparer juste avant l'heure.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Accroche le mouvement sur un support d'essai, remonte un peu les deux ressorts.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Accroche le balancier et le lance : la pendule bat.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Écoute le battement : il boite légèrement.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Tord délicatement la fourchette pour égaliser le battement.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Le battement est égal.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Fait tourner les aiguilles pour déclencher la sonnerie : un coup à la demie.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Continue jusqu'à l'heure suivante : quatre coups au lieu de trois.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Soulève le loquet et fait tourner la roue de compte pour la caler sur les aiguilles.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Nouvel essai : trois coups pour trois heures.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Fait passer les heures une à une jusqu'à midi : le compte est juste à chaque fois.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Remet le cadran et les aiguilles, à l'heure de sa montre.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Replace le mouvement dans la caisse en marbre et serre les pieds.",
+       "charge": "precision",
+       "posture": "debout",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Raccroche le balancier.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Met la pendule d'aplomb sur l'établi.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Remonte les deux ressorts à fond.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Referme la porte arrière.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Remplit la fiche : nettoyage, bouchon, loquet repris, sonnerie recalée.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Repose la pendule sur l'étagère, en marche, pour l'observation.",
+       "charge": "simple",
+       "posture": "debout",
+       "ev": [
+        "tache_terminee"
+       ],
+       "objets": [
+        {
+         "objet": "obj-pendule",
+         "de": "atelier / établi",
+         "vers": "atelier / étagère de fournitures, étage du bas, réparée, en observation"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "attente": "observation"
+    },
+    {
+     "ops": [
+      {
+       "action": "Compare l'heure de la pendule à celle de sa montre : vingt secondes d'avance en vingt-quatre heures.",
+       "charge": "simple",
+       "posture": "debout",
+       "leger": true
+      },
+      {
+       "action": "Descend la lentille du balancier d'un demi-tour d'écrou pour la ralentir.",
+       "charge": "precision",
+       "posture": "debout",
+       "ev": [
+        "operation_delicate"
+       ],
+       "leger": true
+      },
+      {
+       "action": "La pendule sonne la demie à l'instant prévu. Il la note prête à rendre.",
+       "charge": "simple",
+       "posture": "debout",
+       "ev": [
+        "controle_conforme"
+       ],
+       "leger": true,
+       "objets": [
+        {
+         "objet": "obj-pendule",
+         "de": "atelier / étagère de fournitures, étage du bas, réparée, en observation",
+         "vers": "atelier / étagère de fournitures, étage du bas, réparée, prête à rendre"
+        }
+       ]
+      }
+     ],
+     "validation": true
+    }
+   ]
+  },
+  {
+   "id": "quartz",
+   "objet": "obj-lot-quartz",
+   "titre": "Montres à quartz",
+   "rangement": {
+    "en_cours": "atelier / coffre-fort, dans une boîte étiquetée"
+   },
+   "phases": [
+    {
+     "ops": [
+      {
+       "action": "Sort du coffre la boîte des six montres à quartz.",
+       "charge": "simple",
+       "posture": "debout",
+       "objets": [
+        {
+         "objet": "obj-lot-quartz",
+         "de": "atelier / coffre-fort, dans une boîte étiquetée",
+         "vers": "atelier / établi"
+        }
+       ]
+      },
+      {
+       "action": "Ouvre la première montre : pile changée, joint graissé, fond refermé.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Deuxième montre, même opération.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Troisième, une montre de dame plaquée or : le joint est fendu, il le remplace.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Quatrième et cinquième : piles seulement.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Sixième : la pile a coulé. Il nettoie les contacts à l'alcool.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Teste les six montres au contrôleur d'étanchéité, l'une après l'autre.",
+       "charge": "simple",
+       "posture": "assis",
+       "app": {
+        "allume": [
+         "controleur-etancheite"
+        ]
+       }
+      },
+      {
+       "action": "Les six tiennent la pression. La machine à ultrasons s'arrête.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "app": {
+        "eteint": [
+         "controleur-etancheite",
+         "machine-ultrasons"
+        ]
+       }
+      },
+      {
+       "action": "Note les six interventions sur les fiches.",
+       "charge": "simple",
+       "posture": "assis"
+      }
+     ],
+     "intercalable": true,
+     "titre": "piles et joints"
+    },
+    {
+     "ops": [
+      {
+       "action": "Démonte les bracelets métalliques de trois montres.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Les passe à la machine à ultrasons, cycle court.",
+       "charge": "simple",
+       "posture": "debout",
+       "app": {
+        "allume": [
+         "machine-ultrasons"
+        ]
+       },
+       "leger": true
+      },
+      {
+       "action": "Pendant ce temps, contrôle la marche des six montres au chronocomparateur, une par une.",
+       "charge": "simple",
+       "posture": "assis",
+       "app": {
+        "allume": [
+         "chronocomparateur"
+        ]
+       },
+       "leger": true
+      },
+      {
+       "action": "Toutes dans les tolérances.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "app": {
+        "eteint": [
+         "chronocomparateur"
+        ]
+       },
+       "leger": true
+      },
+      {
+       "action": "Sort les bracelets et les sèche au chiffon.",
+       "charge": "simple",
+       "posture": "debout",
+       "app": {
+        "eteint": [
+         "machine-ultrasons"
+        ]
+       },
+       "leger": true
+      },
+      {
+       "action": "Remonte les bracelets.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Range les six montres dans leur boîte.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      }
+     ],
+     "titre": "bracelets et marche"
+    },
+    {
+     "ops": [
+      {
+       "action": "Sort la boîte des montres à quartz du coffre.",
+       "charge": "simple",
+       "posture": "assis",
+       "objets": [
+        {
+         "objet": "obj-lot-quartz",
+         "de": "atelier / coffre-fort, dans une boîte étiquetée",
+         "vers": "atelier / établi"
+        }
+       ],
+       "leger": true
+      },
+      {
+       "action": "Polit à la pâte la boîte de la première montre.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Polit la deuxième.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "La pendule sonne cinq coups, au même instant que sa montre.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ],
+       "leger": true
+      },
+      {
+       "action": "Polit la troisième, la montre de dame plaquée or, sans appuyer.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Polit la quatrième.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Polit la cinquième.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Nettoie les traces de pâte au chiffon.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Polit la sixième.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "La pendule sonne un coup pour la demie.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "leger": true
+      },
+      {
+       "action": "Contrôle les six boîtes sous la lampe.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Range les six montres dans leur boîte.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Nettoie l'établi.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      }
+     ],
+     "titre": "polissage des boîtes"
+    },
+    {
+     "ops": [
+      {
+       "action": "Sort la boîte des montres à quartz du coffre.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true,
+       "objets": [
+        {
+         "objet": "obj-lot-quartz",
+         "de": "atelier / coffre-fort, dans une boîte étiquetée",
+         "vers": "atelier / établi"
+        }
+       ]
+      },
+      {
+       "action": "Contrôle l'heure et la date de chaque montre.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "leger": true
+      },
+      {
+       "action": "Remplit les fiches de travail des six montres.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Calcule les prix : piles, joints, polissage.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Emballe chaque montre dans du papier de soie avec sa fiche.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Range les six montres dans une boîte d'expédition.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Écrit les étiquettes d'expédition.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Range la boîte au coffre, prête à partir lundi.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "tache_terminee"
+       ],
+       "leger": true,
+       "objets": [
+        {
+         "objet": "obj-lot-quartz",
+         "de": "atelier / établi",
+         "vers": "atelier / coffre-fort, prêtes à expédier"
+        }
+       ]
+      }
+     ],
+     "titre": "fiches et expédition"
+    }
+   ]
+  },
+  {
+   "id": "zenith",
+   "objet": "obj-zenith",
+   "titre": "Zenith",
+   "rangement": {
+    "en_cours": "atelier / coffre-fort"
+   },
+   "phases": [
+    {
+     "ops": [
+      {
+       "action": "Sort le chronographe Zenith du coffre et l'examine sous la lampe.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true,
+       "objets": [
+        {
+         "objet": "obj-zenith",
+         "de": "atelier / coffre-fort",
+         "vers": "atelier / établi"
+        }
+       ]
+      },
+      {
+       "action": "Teste les poussoirs : le départ accroche, la remise à zéro ne ramène pas l'aiguille à midi.",
+       "charge": "precision",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Remplit la fiche d'état initial.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Ouvre le fond vissé.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Laisse le ressort se désarmer en retenant le rochet.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Retire la masse oscillante.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Sort le mouvement de la boîte.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Retire les aiguilles avec un protège-cadran.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Retire le cadran et le range dans une boîte à part.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Repère la position des pièces du chronographe avant de démonter.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Dépose le ressort de la bascule d'embrayage.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Dépose la bascule d'embrayage.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Dépose le marteau de remise à zéro.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Dépose le ressort de marteau, sans le laisser sauter.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Dépose la roue à colonnes.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Dépose le pont de chronographe.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Sort la roue de chronographe.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Sort le compteur des minutes et son sautoir.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Dépose le levier de commande.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Range les pièces du chronographe dans un plateau à part.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Contrôle la roue à colonnes : un pied légèrement marqué.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Note le défaut : réglage du marteau de remise à zéro.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Contrôle le cœur de la roue de chronographe à la loupe : il est sain.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Retourne le mouvement et démonte le pont de balancier.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Sort le balancier-spiral.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Démonte le pont d'ancre et l'ancre.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Démonte le pont de rouage.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Sort les mobiles du rouage.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Démonte le pont de barillet et sort le barillet.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Ouvre le barillet : le ressort est en bon état.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Démonte le mécanisme de remontage automatique.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Démonte la minuterie et le mécanisme de date.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Démonte le mécanisme de remontage et de mise à l'heure.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Inspecte la platine nue.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Compte les pièces dans les plateaux : tout y est.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Dispose les pièces dans les paniers, balancier et chronographe à part.",
+       "charge": "simple",
+       "posture": "debout"
+      },
+      {
+       "action": "Lance la machine à ultrasons : quarante minutes.",
+       "charge": "simple",
+       "posture": "debout",
+       "machine": 8,
+       "app": {
+        "allume": [
+         "machine-ultrasons"
+        ]
+       }
+      },
+      {
+       "action": "Démonte et nettoie les poussoirs.",
+       "charge": "simple",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Change les joints des poussoirs.",
+       "charge": "simple",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Nettoie la carrure au pinceau.",
+       "charge": "simple",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Nettoie le fond et sa gravure.",
+       "charge": "simple",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Nettoie le bracelet à l'eau savonneuse.",
+       "charge": "simple",
+       "posture": "debout",
+       "pendant_machine": true
+      },
+      {
+       "action": "Sèche le bracelet.",
+       "charge": "simple",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Nettoie la glace.",
+       "charge": "simple",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "Prépare les joints neufs.",
+       "charge": "simple",
+       "posture": "assis",
+       "pendant_machine": true
+      },
+      {
+       "action": "La machine s'arrête. Sort les paniers et laisse sécher les pièces sous une cloche.",
+       "charge": "simple",
+       "posture": "debout",
+       "app": {
+        "eteint": [
+         "machine-ultrasons"
+        ]
+       }
+      },
+      {
+       "action": "Contrôle les pivots du rouage.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Contrôle les dentures.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Contrôle l'ancre et ses levées.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Contrôle le balancier et le spiral : spiral plat.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Contrôle les pièces du chronographe.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Reprend légèrement le bec du marteau à la pierre.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Essaie le marteau sur le cœur, à la main : il appuie franchement.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Range les pièces propres sous la cloche.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Graisse le ressort et referme le barillet.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le barillet et son pont.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Remonte le mécanisme de remontage et de mise à l'heure.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose la roue de centre.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose les autres mobiles du rouage.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le pont de rouage et guide les pivots.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Les pivots entrent. Il serre les vis.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Vérifie la liberté du rouage.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Pose l'ancre et son pont.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le balancier-spiral.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Visse le pont de balancier.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Donne quelques tours de remontoir : le balancier part.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Écoute le battement à la loupe : régulier.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Remonte la minuterie et la date.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Huile les pivots côté pont.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Huile les pivots côté cadran.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Huile les levées de l'ancre.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Huile les pierres de balancier.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Huile le mécanisme de date.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Remonte le mécanisme automatique.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose le mouvement sur le chronocomparateur.",
+       "charge": "precision",
+       "posture": "assis",
+       "app": {
+        "allume": [
+         "chronocomparateur"
+        ]
+       }
+      },
+      {
+       "action": "Premier relevé : plus 15 secondes par jour, bonne amplitude.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Note les mesures. Le chronographe se remontera demain, huiles reposées.",
+       "charge": "simple",
+       "posture": "assis",
+       "app": {
+        "eteint": [
+         "chronocomparateur"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "attente": "lendemain"
+    },
+    {
+     "ops": [
+      {
+       "action": "Pose la roue de chronographe.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le pont de chronographe.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose la roue à colonnes.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le levier de commande.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Pose la bascule d'embrayage.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le ressort de bascule.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le compteur des minutes et son sautoir.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le marteau de remise à zéro.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose le ressort de marteau.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Huile la roue à colonnes et les pivots du chronographe.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Règle l'engrènement de l'embrayage à l'excentrique.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Teste le départ : l'aiguille part sans saut.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Teste l'arrêt.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Teste la remise à zéro : l'aiguille revient à midi.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Répète départ, arrêt et remise à zéro vingt fois.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Contrôle le compteur des minutes sur un tour complet.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Pose le mouvement sur le chronocomparateur.",
+       "charge": "precision",
+       "posture": "assis",
+       "app": {
+        "allume": [
+         "chronocomparateur"
+        ]
+       }
+      },
+      {
+       "action": "Relevé : plus 9 cadran en haut, plus 12 couronne en bas.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Déplace l'index de réglage d'un cheveu.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Nouveau relevé : plus 3, plus 5, chronographe en marche ou arrêté.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "geste_reussi"
+       ]
+      },
+      {
+       "action": "Note les mesures.",
+       "charge": "simple",
+       "posture": "assis",
+       "app": {
+        "eteint": [
+         "chronocomparateur"
+        ]
+       }
+      },
+      {
+       "action": "Pose le cadran.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Chasse les aiguilles des heures et des minutes.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose les aiguilles des compteurs.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Pose l'aiguille de chronographe, exactement sur midi.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Vérifie le parallélisme et la remise à zéro, aiguilles posées.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ]
+      },
+      {
+       "action": "Emboîte le mouvement et serre les vis.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "operation_delicate"
+       ]
+      },
+      {
+       "action": "Remonte la masse oscillante.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Remonte les poussoirs avec leurs joints neufs.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Ferme le fond vissé.",
+       "charge": "precision",
+       "posture": "assis"
+      },
+      {
+       "action": "Teste l'étanchéité : elle tient la pression.",
+       "charge": "precision",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "app": {
+        "allume": [
+         "controleur-etancheite"
+        ],
+        "eteint": [
+         "controleur-etancheite"
+        ]
+       }
+      },
+      {
+       "action": "Remet le bracelet et remplit la fiche de travail.",
+       "charge": "simple",
+       "posture": "assis"
+      },
+      {
+       "action": "Range le Zenith au coffre pour vingt-quatre heures d'observation.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "tache_terminee"
+       ],
+       "objets": [
+        {
+         "objet": "obj-zenith",
+         "de": "atelier / établi",
+         "vers": "atelier / coffre-fort, terminée, en observation"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "attente": "observation"
+    },
+    {
+     "ops": [
+      {
+       "action": "Sort le Zenith du coffre et compare son heure à celle de sa montre.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true,
+       "objets": [
+        {
+         "objet": "obj-zenith",
+         "de": "atelier / coffre-fort, terminée, en observation",
+         "vers": "atelier / établi"
+        }
+       ]
+      },
+      {
+       "action": "Vingt-quatre heures : plus 4 secondes, chronographe fidèle.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "leger": true
+      },
+      {
+       "action": "Range le Zenith avec les montres prêtes.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true,
+       "objets": [
+        {
+         "objet": "obj-zenith",
+         "de": "atelier / établi",
+         "vers": "atelier / coffre-fort, terminée, prête à expédier"
+        }
+       ]
+      }
+     ],
+     "validation": true
+    }
+   ]
+  }
+ ],
+ "entretien": [
+  {
+   "action": "Affûte ses tournevis sur la pierre.",
+   "charge": "simple",
+   "posture": "assis",
+   "leger": true
+  },
+  {
+   "action": "Range l'étagère de fournitures.",
+   "charge": "simple",
+   "posture": "debout",
+   "leger": true
+  },
+  {
+   "action": "Nettoie ses brucelles et ses loupes.",
+   "charge": "simple",
+   "posture": "assis",
+   "leger": true
+  },
+  {
+   "action": "Fait l'inventaire de ses huiles.",
+   "charge": "simple",
+   "posture": "assis",
+   "leger": true
+  }
+ ]
+}

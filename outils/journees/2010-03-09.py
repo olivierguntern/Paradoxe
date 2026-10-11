@@ -55,6 +55,7 @@ def rediger():
     j.seg("07:15", "Départ", "entree", "rt-matin-course", "eveille", "simple", "debout", [
         p("Passe à la cuisine prendre le sac-poubelle et en remet un neuf. Chausse ses chaussures de course, prend ses clés, sort, ferme la porte à clé et vérifie deux fois.",
           "La poubelle sent le poulet d'hier. Elle descend avec moi.", via=["cuisine"],
+          nouveaux_objets=[{"id": "obj-poubelle-2", "nom": "Sac-poubelle de la cuisine (neuf)", "position": "cuisine / poubelle sous l'évier"}],
           objets=[mv("obj-poubelle", "cuisine / poubelle sous l'évier", "dans sa main"),
                   mv("obj-chaussures-course", "entree / meuble à chaussures", "aux pieds"),
                   mv("obj-cles", "entree / vide-poche de la commode", "poche du coupe-vent")]),

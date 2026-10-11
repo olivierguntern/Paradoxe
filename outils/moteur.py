@@ -25,7 +25,7 @@ def idx(h):
 
 # ---------------------------------------------------------------- rédaction
 def p(action, pensee=None, **kw):
-    """Un pas de 5 minutes. Options : ev, objets, consommation, production,
+    """Un pas de 5 minutes. Options : ev, objets, nouveaux_objets, consommation, production,
     effets, app, radio, musique, tele, mode, charge, posture, piece, lieu, via,
     via_apres, sortie, retour, escalier, parcours, phase_sommeil, reve."""
     d = {"action": action, "pensee": pensee}
@@ -106,33 +106,60 @@ class Incoherence(Exception):
     pass
 
 
-def simuler(fiche, j, etat):
-    B = fiche["besoins"]
-    M = fiche["modele_emotionnel"]
-    EV = M["evenements"]
-    NEVRO = fiche["personnalite"]["big_five"]["nevrosisme"]
-    PIECES = {pc["id"]: pc for pc in fiche["domicile"]["pieces"]}
-    PLAN = fiche["domicile"]["plan"]
-    IMM = fiche["immeuble"]
-    eph = fiche["meta"]["ephemerides_lyon_approximatives"][j.date]
-    LEVER, COUCHER = idx(eph["lever_soleil"]), idx(eph["coucher_soleil"])
-    HL = M["demi_vie_pas"]
-    CIBLES = M["concentration"]["cibles"]
-    DP = PLAN["deplacements_dans_la_piece"]
-    PRODUITS = {x["id"]: x for x in fiche["domicile"]["provisions_au_debut"] + fiche["domicile"]["produits_prepares"]}
+def _clamp(v, hi=100.0):
+    return max(0.0, min(hi, v))
 
-    graph = {}
-    for l in PLAN["liaisons"]:
-        graph.setdefault(l["a"], []).append((l["b"], l["distance_m"]))
-        graph.setdefault(l["b"], []).append((l["a"], l["distance_m"]))
 
-    def chemin(a, b):
+class Simulation:
+    """Applique les règles de la fiche pas à pas.
+
+    Utilisée de deux façons : pour une journée rédigée (simuler) et par
+    l'agent autonome, qui consulte l'état avant de décider de chaque pas.
+    """
+
+    def __init__(self, fiche, date, etat):
+        self.fiche = fiche
+        self.date = date
+        self.B = fiche["besoins"]
+        M = fiche["modele_emotionnel"]
+        self.EV = M["evenements"]
+        self.NEVRO = fiche["personnalite"]["big_five"]["nevrosisme"]
+        self.PIECES = {pc["id"]: pc for pc in fiche["domicile"]["pieces"]}
+        self.PLAN = fiche["domicile"]["plan"]
+        self.IMM = fiche["immeuble"]
+        eph = fiche["meta"]["ephemerides_lyon_approximatives"][date]
+        self.LEVER, self.COUCHER = idx(eph["lever_soleil"]), idx(eph["coucher_soleil"])
+        self.HL = M["demi_vie_pas"]
+        self.CIBLES = M["concentration"]["cibles"]
+        self.DP = self.PLAN["deplacements_dans_la_piece"]
+        self.PRODUITS = {x["id"]: x for x in fiche["domicile"]["provisions_au_debut"] + fiche["domicile"]["produits_prepares"]}
+        self.graph = {}
+        for l in self.PLAN["liaisons"]:
+            self.graph.setdefault(l["a"], []).append((l["b"], l["distance_m"]))
+            self.graph.setdefault(l["b"], []).append((l["a"], l["distance_m"]))
+
+        self.besoins = dict(etat["besoins"])
+        self.emo = dict(etat["emotions"])
+        self.conc = etat["concentration"]
+        self.lumieres = {pc: bool(etat["lumieres"].get(pc)) for pc in self.PIECES}
+        self.appareils = set(etat["appareils"])
+        self.positions = dict(etat["positions"])
+        self.cafe = list(etat["cafe"])
+        self.stock = dict(etat["stock"])
+        self.base = {k: v for k, v in M["etat_de_base"].items() if k != "solitude"}
+        self.piece = etat["piece"]
+        self.stats = {"entre_pieces_m": 0.0, "dans_les_pieces_m": 0.0, "exterieur_m": 0.0, "foulees": 0.0,
+                      "passages_de_piece": 0, "marches": 0, "denivele_positif_m": 0, "denivele_negatif_m": 0, "lumiere_allumages": 0}
+        self.steps = []
+
+    # ------------------------------------------------------------ outils
+    def chemin(self, a, b):
         dist, prev, q = {a: 0}, {}, [(0, a)]
         while q:
             d, u = heapq.heappop(q)
             if u == b:
                 break
-            for v, w in graph[u]:
+            for v, w in self.graph[u]:
                 if d + w < dist.get(v, 1e9):
                     dist[v], prev[v] = d + w, u
                     heapq.heappush(q, (d + w, v))
@@ -141,279 +168,286 @@ def simuler(fiche, j, etat):
             path.append(prev[path[-1]])
         return path[::-1], dist[b]
 
-    def besoin_lumiere(piece, i):
-        return piece in PIECES and (not PIECES[piece]["fenetre"] or i < LEVER or i >= COUCHER)
+    def besoin_lumiere(self, piece, i):
+        return piece in self.PIECES and (not self.PIECES[piece]["fenetre"] or i < self.LEVER or i >= self.COUCHER)
 
+    @staticmethod
     def negatif(e, d):
         return (d > 0 and e in ("tristesse", "anxiete", "colere", "solitude")) or (d < 0 and e in ("joie", "fierte"))
 
-    def clamp(v, hi=100.0):
-        return max(0.0, min(hi, v))
+    def latence_endormissement(self, emotions):
+        """Durée d'endormissement (minutes) selon l'état émotionnel au moment d'éteindre."""
+        SOM = self.fiche["sante"]["sommeil"]
+        trop = emotions["anxiete"] > SOM["seuil_anxiete_insomnie"] or emotions["excitation"] > SOM["seuil_excitation_insomnie"]
+        return SOM["endormissement_minutes_si_anxieux"] if trop else SOM["endormissement_minutes_normal"]
 
-    besoins = dict(etat["besoins"])
-    emo = dict(etat["emotions"])
-    conc = etat["concentration"]
-    lumieres = {pc: bool(etat["lumieres"].get(pc)) for pc in PIECES}
-    appareils = set(etat["appareils"])
-    positions = dict(etat["positions"])
-    cafe = list(etat["cafe"])
-    stock = dict(etat["stock"])
-    base = {k: v for k, v in M["etat_de_base"].items() if k != "solitude"}
-    piece_prec = etat["piece"]
-    st_ = {"entre_pieces_m": 0.0, "dans_les_pieces_m": 0.0, "exterieur_m": 0.0, "foulees": 0.0,
-           "passages_de_piece": 0, "marches": 0, "denivele_positif_m": 0, "denivele_negatif_m": 0, "lumiere_allumages": 0}
-    steps = []
-    attendu = 0
+    # ------------------------------------------------------------ un pas
+    def pas(self, st, s):
+        """Applique un pas rédigé (st) dans son segment (s) et renvoie l'entrée de la timeline."""
+        B, PLAN, IMM, PIECES = self.B, self.PLAN, self.IMM, self.PIECES
+        besoins, emo, lumieres, appareils, st_ = self.besoins, self.emo, self.lumieres, self.appareils, self.stats
+        i = len(self.steps)
+        piece = st.get("piece", s["piece"])
+        lieu = st.get("lieu", s["lieu"])
+        mode = st.get("mode", s["mode"])
+        charge = st.get("charge", s["charge"])
+        posture = st.get("posture", s["posture"])
+        radio = st.get("radio", False)
+        endormi = mode == "sommeil"
+        lum = []
 
-    for s in j.segments:
-        if idx(s["debut"]) != attendu:
-            raise Incoherence(f"segment « {s['titre']} » commence à {s['debut']} au lieu de {hm(attendu)}")
-        for k, st in enumerate(s["pas"]):
-            i = attendu + k
-            piece = st.get("piece", s["piece"])
-            lieu = st.get("lieu", s["lieu"])
-            mode = st.get("mode", s["mode"])
-            charge = st.get("charge", s["charge"])
-            posture = st.get("posture", s["posture"])
-            radio = st.get("radio", False)
-            endormi = mode == "sommeil"
-            lum = []
+        # ---- déplacements dans l'appartement
+        depart = self.piece
+        arrivee = piece
+        if st.get("sortie"):
+            arrivee = "palier"
+        if st.get("retour"):
+            depart = "palier"
+        etapes = [depart] + st.get("via", []) + [arrivee] + st.get("via_apres", [])
+        if st.get("via_apres"):
+            etapes.append(arrivee)
+        parcours_app = [depart]
+        dist = 0.0
+        for a, b in zip(etapes, etapes[1:]):
+            if a == b or a not in self.graph or b not in self.graph:
+                continue
+            pth, d = self.chemin(a, b)
+            parcours_app += pth[1:]
+            dist += d
+        dep = {}
+        if len(parcours_app) > 1:
+            dep.update({"chemin": parcours_app, "distance_m": round(dist, 1),
+                        "duree_s": round(dist / PLAN["vitesse_marche_m_s"]),
+                        "foulees": round(dist / PLAN["longueur_foulee_m"])})
+            st_["entre_pieces_m"] += dist
+            st_["foulees"] += dist / PLAN["longueur_foulee_m"]
+            st_["passages_de_piece"] += len(parcours_app) - 1
+            aller_retour = parcours_app[-1] == parcours_app[0]
+            for a, b in zip(parcours_app, parcours_app[1:]):
+                if lumieres.get(a) and not (aller_retour and a == parcours_app[0]):
+                    lumieres[a] = False
+                    lum.append(f"éteint la lumière ({a})")
+                if self.besoin_lumiere(b, i) and not lumieres[b] and not (aller_retour and b == parcours_app[0]):
+                    lumieres[b] = True
+                    st_["lumiere_allumages"] += 1
+                    lum.append(f"allume la lumière ({b})")
+        elif not endormi and i == self.COUCHER and self.besoin_lumiere(piece, i) and not lumieres[piece]:
+            lumieres[piece] = True
+            st_["lumiere_allumages"] += 1
+            lum.append(f"allume la lumière ({piece}) : la nuit tombe")
 
-            # ---- déplacements dans l'appartement
-            depart = piece_prec
-            arrivee = piece
-            if st.get("sortie"):
-                arrivee = "palier"
-            if st.get("retour"):
-                depart = "palier"
-            etapes = [depart] + st.get("via", []) + [arrivee] + st.get("via_apres", [])
-            if st.get("via_apres"):
-                etapes.append(arrivee)
-            parcours_app = [depart]
-            dist = 0.0
-            for a, b in zip(etapes, etapes[1:]):
-                if a == b or a not in graph or b not in graph:
-                    continue
-                pth, d = chemin(a, b)
-                parcours_app += pth[1:]
-                dist += d
-            dep = {}
-            if len(parcours_app) > 1:
-                dep.update({"chemin": parcours_app, "distance_m": round(dist, 1),
-                            "duree_s": round(dist / PLAN["vitesse_marche_m_s"]),
-                            "foulees": round(dist / PLAN["longueur_foulee_m"])})
-                st_["entre_pieces_m"] += dist
-                st_["foulees"] += dist / PLAN["longueur_foulee_m"]
-                st_["passages_de_piece"] += len(parcours_app) - 1
-                aller_retour = parcours_app[-1] == parcours_app[0]
-                for a, b in zip(parcours_app, parcours_app[1:]):
-                    if lumieres.get(a) and not (aller_retour and a == parcours_app[0]):
-                        lumieres[a] = False
-                        lum.append(f"éteint la lumière ({a})")
-                    if besoin_lumiere(b, i) and not lumieres[b] and not (aller_retour and b == parcours_app[0]):
-                        lumieres[b] = True
-                        st_["lumiere_allumages"] += 1
-                        lum.append(f"allume la lumière ({b})")
-            elif not endormi and i == COUCHER and besoin_lumiere(piece, i) and not lumieres[piece]:
-                lumieres[piece] = True
-                st_["lumiere_allumages"] += 1
-                lum.append(f"allume la lumière ({piece}) : la nuit tombe")
-
-            # ---- escalier et parcours extérieur
-            effets_escalier = {}
-            if "escalier" in st:
-                sens = st["escalier"]["sens"]
-                dimm = IMM["deplacement"]
-                duree = dimm["descente_secondes"] if sens == "descente" else (
-                    dimm["montee_secondes_apres_course"] if st["escalier"].get("apres_course") else dimm["montee_secondes_marche"])
-                dep["escalier"] = {"sens": sens, "etages": IMM["etage_appartement"], "marches": IMM["marches_total"], "duree_s": duree}
-                st_["marches"] += IMM["marches_total"]
-                st_["foulees"] += IMM["marches_total"]
-                effets_escalier = dimm["effets_descente"] if sens == "descente" else dimm["effets_montee"]
-            if "parcours" in st:
-                dep["parcours"] = st["parcours"]
-                for seg_ in st["parcours"]:
-                    st_["exterieur_m"] += seg_["distance_m"]
-                    st_["foulees"] += seg_["distance_m"] / (PLAN["longueur_foulee_course_m"] if seg_["moyen"] == "course" else PLAN["longueur_foulee_m"])
-                    if seg_["denivele_m"] > 0:
-                        st_["denivele_positif_m"] += seg_["denivele_m"]
-                    else:
-                        st_["denivele_negatif_m"] += -seg_["denivele_m"]
-                dep["foulees_exterieur"] = round(sum(
-                    x["distance_m"] / (PLAN["longueur_foulee_course_m"] if x["moyen"] == "course" else PLAN["longueur_foulee_m"])
-                    for x in st["parcours"]))
-
-            # ---- appareils et lumières commandés explicitement
-            for a in st.get("app", {}).get("allume", []):
-                if a.startswith("lumiere-"):
-                    if not lumieres[a[8:]]:
-                        lumieres[a[8:]] = True
-                        st_["lumiere_allumages"] += 1
-                        lum.append(f"allume la lumière ({a[8:]})")
+        # ---- escalier et parcours extérieur
+        effets_escalier = {}
+        if "escalier" in st:
+            sens = st["escalier"]["sens"]
+            dimm = IMM["deplacement"]
+            duree = dimm["descente_secondes"] if sens == "descente" else (
+                dimm["montee_secondes_apres_course"] if st["escalier"].get("apres_course") else dimm["montee_secondes_marche"])
+            dep["escalier"] = {"sens": sens, "etages": IMM["etage_appartement"], "marches": IMM["marches_total"], "duree_s": duree}
+            st_["marches"] += IMM["marches_total"]
+            st_["foulees"] += IMM["marches_total"]
+            effets_escalier = dimm["effets_descente"] if sens == "descente" else dimm["effets_montee"]
+        if "parcours" in st:
+            dep["parcours"] = st["parcours"]
+            for seg_ in st["parcours"]:
+                st_["exterieur_m"] += seg_["distance_m"]
+                st_["foulees"] += seg_["distance_m"] / (PLAN["longueur_foulee_course_m"] if seg_["moyen"] == "course" else PLAN["longueur_foulee_m"])
+                if seg_["denivele_m"] > 0:
+                    st_["denivele_positif_m"] += seg_["denivele_m"]
                 else:
-                    appareils.add(a)
-            for a in st.get("app", {}).get("eteint", []):
-                if a.startswith("lumiere-"):
-                    if lumieres[a[8:]]:
-                        lumieres[a[8:]] = False
-                        lum.append(f"éteint la lumière ({a[8:]})")
-                else:
-                    appareils.discard(a)
-            piece_prec = piece
+                    st_["denivele_negatif_m"] += -seg_["denivele_m"]
+            dep["foulees_exterieur"] = round(sum(
+                x["distance_m"] / (PLAN["longueur_foulee_course_m"] if x["moyen"] == "course" else PLAN["longueur_foulee_m"])
+                for x in st["parcours"]))
 
-            # ---- petits déplacements dans la pièce
-            if piece in PIECES:
-                intra = DP["metres_par_pas"][charge] * (DP["facteur_assis_ou_allonge"] if posture in ("assis", "allongé") else 1.0)
-                st_["dans_les_pieces_m"] += intra
-                st_["foulees"] += intra / PLAN["longueur_foulee_m"]
-
-            # ---- objets : chaque déplacement doit partir de la position connue
-            for o in st.get("objets", []):
-                if o["objet"] not in positions:
-                    raise Incoherence(f"{hm(i)} : objet inconnu {o['objet']}")
-                if positions[o["objet"]] != o["de"]:
-                    raise Incoherence(f"{hm(i)} : {o['objet']} est à « {positions[o['objet']]} », pas à « {o['de']} »")
-                positions[o["objet"]] = o["vers"]
-
-            # ---- provisions : production puis consommation, jamais en dessous de zéro
-            mouvements = {}
-            for sens, cle in ((1, "production"), (-1, "consommation")):
-                for x in st.get(cle, []):
-                    pid, q = x["produit"], x["quantite"]
-                    if pid not in PRODUITS:
-                        raise Incoherence(f"{hm(i)} : produit inconnu {pid}")
-                    spec = PRODUITS[pid]
-                    ligne = {"produit": pid, "nom": spec["produit"], "quantite": q, "unite": spec["unite"]}
-                    if spec.get("suivi", True):
-                        stock[pid] = stock.get(pid, 0) + sens * q
-                        if stock[pid] < 0:
-                            raise Incoherence(f"{hm(i)} : il ne reste pas assez de « {spec['produit']} » ({stock[pid] + q} {spec['unite']} pour {q} demandés)")
-                        ligne["reste"] = stock[pid]
-                    mouvements.setdefault(cle, []).append(ligne)
-
-            # ---- besoins
-            def var(n, cle):
-                return B[n]["variation_par_pas"].get(cle, B[n]["variation_par_pas"]["eveille"])
-            if endormi:
-                for n in ("faim", "soif", "energie", "hygiene", "toilettes"):
-                    besoins[n] += B[n]["variation_par_pas"]["endormi"]
+        # ---- appareils et lumières commandés explicitement
+        for a in st.get("app", {}).get("allume", []):
+            if a.startswith("lumiere-"):
+                if not lumieres[a[8:]]:
+                    lumieres[a[8:]] = True
+                    st_["lumiere_allumages"] += 1
+                    lum.append(f"allume la lumière ({a[8:]})")
             else:
-                effort = mode == "effort"
-                besoins["faim"] += var("faim", "effort_physique" if effort else "eveille")
-                besoins["soif"] += var("soif", "effort_physique" if effort else "eveille")
-                besoins["energie"] += B["energie"]["variation_par_pas"]["sieste" if mode == "sieste" else ("effort_physique" if effort else "eveille")]
-                besoins["hygiene"] += var("hygiene", "effort_physique" if effort else "eveille")
-                besoins["toilettes"] += B["toilettes"]["variation_par_pas"]["eveille"]
-                if mode != "sieste":
-                    tele = st.get("tele")
-                    besoins["social"] += B["social"]["variation_par_pas"]["eveille"] + (B["social"]["satisfaction"]["radio_par_pas"] if radio else 0) + (
-                        B["social"]["satisfaction"]["match_televise_par_pas"] if tele == "match" else (B["social"]["satisfaction"]["television_par_pas"] if tele else 0))
-                    if mode == "travail":
-                        besoins["detente"] += B["detente"]["variation_par_pas"]["travail"]
-                    elif mode == "loisir":
-                        besoins["detente"] += B["detente"]["satisfaction"]["loisir_par_pas"]
-                    elif mode == "lecture":
-                        besoins["detente"] += B["detente"]["satisfaction"]["lecture_par_pas"]
-                    elif effort:
-                        besoins["detente"] += B["detente"]["satisfaction"]["course_par_pas"]
-                    else:
-                        musique = radio or st.get("musique", False)
-                        besoins["detente"] += B["detente"]["variation_par_pas"]["eveille_autre"] + (B["detente"]["satisfaction"]["musique_par_pas"] if musique else 0)
-            for n, v in effets_escalier.items():
-                besoins[n] += v
-            for n, v in st.get("effets", {}).items():
-                if n == "cafe":
-                    cafe.append(i)
-                elif v == "vide":
-                    besoins[n] = 100
+                appareils.add(a)
+        for a in st.get("app", {}).get("eteint", []):
+            if a.startswith("lumiere-"):
+                if lumieres[a[8:]]:
+                    lumieres[a[8:]] = False
+                    lum.append(f"éteint la lumière ({a[8:]})")
+            else:
+                appareils.discard(a)
+        self.piece = piece
+
+        # ---- petits déplacements dans la pièce
+        if piece in PIECES:
+            intra = self.DP["metres_par_pas"][charge] * (self.DP["facteur_assis_ou_allonge"] if posture in ("assis", "allongé") else 1.0)
+            st_["dans_les_pieces_m"] += intra
+            st_["foulees"] += intra / PLAN["longueur_foulee_m"]
+
+        # ---- objets : création éventuelle, puis chaque déplacement doit partir de la position connue
+        for o in st.get("nouveaux_objets", []):
+            if o["id"] in self.positions:
+                raise Incoherence(f"{hm(i)} : l'objet {o['id']} existe déjà")
+            self.positions[o["id"]] = o["position"]
+        for o in st.get("objets", []):
+            if o["objet"] not in self.positions:
+                raise Incoherence(f"{hm(i)} : objet inconnu {o['objet']}")
+            if self.positions[o["objet"]] != o["de"]:
+                raise Incoherence(f"{hm(i)} : {o['objet']} est à « {self.positions[o['objet']]} », pas à « {o['de']} »")
+            self.positions[o["objet"]] = o["vers"]
+
+        # ---- provisions : production puis consommation, jamais en dessous de zéro
+        mouvements = {}
+        for sens, cle in ((1, "production"), (-1, "consommation")):
+            for x in st.get(cle, []):
+                pid, q = x["produit"], x["quantite"]
+                if pid not in self.PRODUITS:
+                    raise Incoherence(f"{hm(i)} : produit inconnu {pid}")
+                spec = self.PRODUITS[pid]
+                ligne = {"produit": pid, "nom": spec["produit"], "quantite": q, "unite": spec["unite"]}
+                if spec.get("suivi", True):
+                    self.stock[pid] = self.stock.get(pid, 0) + sens * q
+                    if self.stock[pid] < 0:
+                        raise Incoherence(f"{hm(i)} : il ne reste pas assez de « {spec['produit']} » ({self.stock[pid] + q} {spec['unite']} pour {q} demandés)")
+                    ligne["reste"] = self.stock[pid]
+                mouvements.setdefault(cle, []).append(ligne)
+
+        # ---- besoins
+        def var(n, cle):
+            return B[n]["variation_par_pas"].get(cle, B[n]["variation_par_pas"]["eveille"])
+        if endormi:
+            for n in ("faim", "soif", "energie", "hygiene", "toilettes"):
+                besoins[n] += B[n]["variation_par_pas"]["endormi"]
+        else:
+            effort = mode == "effort"
+            besoins["faim"] += var("faim", "effort_physique" if effort else "eveille")
+            besoins["soif"] += var("soif", "effort_physique" if effort else "eveille")
+            besoins["energie"] += B["energie"]["variation_par_pas"]["sieste" if mode == "sieste" else ("effort_physique" if effort else "eveille")]
+            besoins["hygiene"] += var("hygiene", "effort_physique" if effort else "eveille")
+            besoins["toilettes"] += B["toilettes"]["variation_par_pas"]["eveille"]
+            if mode != "sieste":
+                tele = st.get("tele")
+                besoins["social"] += B["social"]["variation_par_pas"]["eveille"] + (B["social"]["satisfaction"]["radio_par_pas"] if radio else 0) + (
+                    B["social"]["satisfaction"]["match_televise_par_pas"] if tele == "match" else (B["social"]["satisfaction"]["television_par_pas"] if tele else 0))
+                if mode == "travail":
+                    besoins["detente"] += B["detente"]["variation_par_pas"]["travail"]
+                elif mode == "loisir":
+                    besoins["detente"] += B["detente"]["satisfaction"]["loisir_par_pas"]
+                elif mode == "lecture":
+                    besoins["detente"] += B["detente"]["satisfaction"]["lecture_par_pas"]
+                elif effort:
+                    besoins["detente"] += B["detente"]["satisfaction"]["course_par_pas"]
                 else:
-                    besoins[n] += v
-            for n in besoins:
-                besoins[n] = clamp(besoins[n])
-            bonus = sum(8 if c <= i < c + 24 else (-4 if c + 24 <= i < c + 36 else 0) for c in cafe)
+                    musique = radio or st.get("musique", False)
+                    besoins["detente"] += B["detente"]["variation_par_pas"]["eveille_autre"] + (B["detente"]["satisfaction"]["musique_par_pas"] if musique else 0)
+        for n, v in effets_escalier.items():
+            besoins[n] += v
+        for n, v in st.get("effets", {}).items():
+            if n == "cafe":
+                self.cafe.append(i)
+            elif v == "vide":
+                besoins[n] = 100
+            else:
+                besoins[n] += v
+        for n in besoins:
+            besoins[n] = _clamp(besoins[n])
+        bonus = sum(8 if c <= i < c + 24 else (-4 if c + 24 <= i < c + 36 else 0) for c in self.cafe)
 
-            # ---- émotions : retour vers la base, événements, besoins
-            base["solitude"] = 0.25 + 0.01 * max(0.0, 75 - besoins["social"])
-            for e in emo:
-                hl = HL[e] / (2 if endormi else 1)
-                emo[e] = base[e] + (emo[e] - base[e]) * 0.5 ** (1 / hl)
-            ev_out = []
-            bonus_conc = 0.0
-            for ev in st.get("ev", []):
-                if ev not in EV:
-                    raise Incoherence(f"{hm(i)} : événement inconnu {ev}")
-                spec = EV[ev]
-                pensee = ev.startswith("pensee") or ev.startswith("souvenir") or ev == "anticipation_delicate"
-                rum = 1.5 if pensee and i >= idx("22:30") and posture == "allongé" else 1.0
-                appl = {}
-                for e, d in spec["effets"].items():
-                    dd = d * rum * ((0.5 + NEVRO) if negatif(e, d) else 1.0)
-                    emo[e] += dd
-                    appl[e] = round(dd, 3)
-                bonus_conc += spec.get("concentration", 0)
-                ev_out.append({"id": ev, "effets": appl} | ({"rumination": True} if rum > 1 else {}))
-            if not endormi:
-                if besoins["faim"] < 35:
-                    emo["colere"] += 0.01
-                    emo["joie"] -= 0.005
-                if besoins["energie"] < 30:
-                    emo["joie"] -= 0.005
-                    emo["colere"] += 0.005
-                if besoins["toilettes"] < 25:
-                    emo["anxiete"] += 0.01
-                if besoins["detente"] < 30:
-                    emo["colere"] += 0.005
-            for e in emo:
-                emo[e] = clamp(emo[e], 1.0)
-            cible = CIBLES[charge]
+        # ---- émotions : retour vers la base, événements, besoins
+        self.base["solitude"] = 0.25 + 0.01 * max(0.0, 75 - besoins["social"])
+        for e in emo:
+            hl = self.HL[e] / (2 if endormi else 1)
+            emo[e] = self.base[e] + (emo[e] - self.base[e]) * 0.5 ** (1 / hl)
+        ev_out = []
+        bonus_conc = 0.0
+        for ev in st.get("ev", []):
+            if ev not in self.EV:
+                raise Incoherence(f"{hm(i)} : événement inconnu {ev}")
+            spec = self.EV[ev]
+            pensee = ev.startswith("pensee") or ev.startswith("souvenir") or ev == "anticipation_delicate"
+            rum = 1.5 if pensee and i >= idx("22:30") and posture == "allongé" else 1.0
+            appl = {}
+            for e, d in spec["effets"].items():
+                dd = d * rum * ((0.5 + self.NEVRO) if self.negatif(e, d) else 1.0)
+                emo[e] += dd
+                appl[e] = round(dd, 3)
+            bonus_conc += spec.get("concentration", 0)
+            ev_out.append({"id": ev, "effets": appl} | ({"rumination": True} if rum > 1 else {}))
+        if not endormi:
+            if besoins["faim"] < 35:
+                emo["colere"] += 0.01
+                emo["joie"] -= 0.005
             if besoins["energie"] < 30:
-                cible -= 0.15
-            if emo["anxiete"] > 0.5 or emo["tristesse"] > 0.5:
-                cible -= 0.1
+                emo["joie"] -= 0.005
+                emo["colere"] += 0.005
             if besoins["toilettes"] < 25:
-                cible -= 0.1
-            conc = clamp(conc + (max(0, cible) - conc) * 0.5 + bonus_conc, 1.0)
+                emo["anxiete"] += 0.01
+            if besoins["detente"] < 30:
+                emo["colere"] += 0.005
+        for e in emo:
+            emo[e] = _clamp(emo[e], 1.0)
+        cible = self.CIBLES[charge]
+        if besoins["energie"] < 30:
+            cible -= 0.15
+        if emo["anxiete"] > 0.5 or emo["tristesse"] > 0.5:
+            cible -= 0.1
+        if besoins["toilettes"] < 25:
+            cible -= 0.1
+        self.conc = _clamp(self.conc + (max(0, cible) - self.conc) * 0.5 + bonus_conc, 1.0)
 
-            entry = {"pas": i, "heure": hm(i), "lieu": lieu, "piece": piece, "posture": posture,
-                     "routine": s["routine"], "activite": s["titre"], "action": st["action"], "pensee": st["pensee"]}
-            if dep:
-                entry["deplacement"] = dep
-            for opt in ("phase_sommeil", "reve", "objets"):
-                if st.get(opt):
-                    entry[opt] = st[opt]
-            entry.update(mouvements)
-            if lum:
-                entry["lumiere"] = lum
-            entry["appareils_allumes"] = sorted(appareils) + [f"lumiere-{pc}" for pc, v in lumieres.items() if v]
-            if ev_out:
-                entry["evenements"] = ev_out
-            entry["besoins"] = {n: round(v, 1) for n, v in besoins.items()} | {"energie_ressentie": round(clamp(besoins["energie"] + bonus), 1)}
-            entry["emotions"] = {e: round(v, 3) for e, v in emo.items()} | {"concentration": round(conc, 3)}
-            steps.append(entry)
-        attendu += len(s["pas"])
-    if attendu != PAS_PAR_JOUR:
-        raise Incoherence(f"la journée compte {attendu} pas au lieu de {PAS_PAR_JOUR}")
+        entry = {"pas": i, "heure": hm(i), "lieu": lieu, "piece": piece, "posture": posture,
+                 "routine": s["routine"], "activite": s["titre"], "action": st["action"], "pensee": st["pensee"]}
+        if dep:
+            entry["deplacement"] = dep
+        for opt in ("phase_sommeil", "reve", "nouveaux_objets", "objets"):
+            if st.get(opt):
+                entry[opt] = st[opt]
+        entry.update(mouvements)
+        if lum:
+            entry["lumiere"] = lum
+        entry["appareils_allumes"] = sorted(appareils) + [f"lumiere-{pc}" for pc, v in lumieres.items() if v]
+        if ev_out:
+            entry["evenements"] = ev_out
+        entry["besoins"] = {n: round(v, 1) for n, v in besoins.items()} | {"energie_ressentie": round(_clamp(besoins["energie"] + bonus), 1)}
+        entry["emotions"] = {e: round(v, 3) for e, v in emo.items()} | {"concentration": round(self.conc, 3)}
+        self.steps.append(entry)
+        return entry
 
-    SOM = fiche["sante"]["sommeil"]
-    seuil, seuil_exc = SOM["seuil_anxiete_insomnie"], SOM["seuil_excitation_insomnie"]
-    emo_ext = steps[idx(j.extinction)]["emotions"]
-    anx, exc = emo_ext["anxiete"], emo_ext["excitation"]
-    attendu_min = SOM["endormissement_minutes_si_anxieux"] if (anx > seuil or exc > seuil_exc) else SOM["endormissement_minutes_normal"]
-    if j.endormissement != attendu_min:
-        raise Incoherence(f"à l'extinction ({j.extinction}), anxiété {anx} et excitation {exc} : l'endormissement devrait durer "
-                          f"{attendu_min} minutes, la journée en prévoit {j.endormissement}")
+    # ------------------------------------------------------------ fin de journée
+    def terminer(self, extinction, endormissement):
+        st_ = self.stats
+        if len(self.steps) != PAS_PAR_JOUR:
+            raise Incoherence(f"la journée compte {len(self.steps)} pas au lieu de {PAS_PAR_JOUR}")
+        SOM = self.fiche["sante"]["sommeil"]
+        seuil, seuil_exc = SOM["seuil_anxiete_insomnie"], SOM["seuil_excitation_insomnie"]
+        emo_ext = self.steps[idx(extinction)]["emotions"]
+        attendu_min = self.latence_endormissement(emo_ext)
+        if endormissement != attendu_min:
+            raise Incoherence(f"à l'extinction ({extinction}), anxiété {emo_ext['anxiete']} et excitation {emo_ext['excitation']} : "
+                              f"l'endormissement devrait durer {attendu_min} minutes, la journée en prévoit {endormissement}")
+        etat_final = {"piece": self.piece, "besoins": {n: round(v, 4) for n, v in self.besoins.items()},
+                      "emotions": {e: round(v, 4) for e, v in self.emo.items()}, "concentration": round(self.conc, 4),
+                      "lumieres": {pc: v for pc, v in self.lumieres.items() if v}, "appareils": sorted(self.appareils),
+                      "positions": self.positions, "cafe": [c - PAS_PAR_JOUR for c in self.cafe if c + 36 > PAS_PAR_JOUR],
+                      "stock": self.stock}
+        st_["anxiete_extinction"] = emo_ext["anxiete"]
+        st_["excitation_extinction"] = emo_ext["excitation"]
+        st_["seuil_insomnie"] = seuil
+        st_["seuil_excitation"] = seuil_exc
+        st_["endormissement_min"] = attendu_min
+        return etat_final, st_
 
-    etat_final = {"piece": piece_prec, "besoins": {n: round(v, 4) for n, v in besoins.items()},
-                  "emotions": {e: round(v, 4) for e, v in emo.items()}, "concentration": round(conc, 4),
-                  "lumieres": {pc: v for pc, v in lumieres.items() if v}, "appareils": sorted(appareils),
-                  "positions": positions, "cafe": [c - PAS_PAR_JOUR for c in cafe if c + 36 > PAS_PAR_JOUR],
-                  "stock": stock}
-    st_["anxiete_extinction"] = anx
-    st_["excitation_extinction"] = exc
-    st_["seuil_insomnie"] = seuil
-    st_["seuil_excitation"] = seuil_exc
-    st_["endormissement_min"] = attendu_min
-    return steps, etat_final, st_
+
+def simuler(fiche, j, etat):
+    """Calcule une journée rédigée à la main."""
+    sim = Simulation(fiche, j.date, etat)
+    for s in j.segments:
+        if idx(s["debut"]) != len(sim.steps):
+            raise Incoherence(f"segment « {s['titre']} » commence à {s['debut']} au lieu de {hm(len(sim.steps))}")
+        for st in s["pas"]:
+            sim.pas(st, s)
+    etat_final, stats = sim.terminer(j.extinction, j.endormissement)
+    return sim.steps, etat_final, stats
 
 
 # ---------------------------------------------------------------- sorties
@@ -456,7 +490,7 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
         "meta": {
             "personnage": fiche["meta"]["id"], "fiche_version": fiche["meta"]["version"],
             "date": j.date, "jour": j.jour, "pas_minutes": 5, "nombre_de_pas": PAS_PAR_JOUR,
-            "methode": [
+            "methode": getattr(j, "methode", None) or [
                 f"Rédigé à la main dans outils/journees/{j.date}.py : actions, pensées, rêves, événements vécus, objets déplacés, appareils utilisés.",
                 "Calculé par outils/moteur.py avec les règles de la fiche : déplacements, lumière, besoins, émotions et concentration.",
                 "Aucune émotion n'est fixée à la main : chaque variation provient d'un événement listé, d'un besoin ou du retour à l'état de base.",
@@ -494,7 +528,8 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
     mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
     an, mo, jr = map(int, j.date.split("-"))
     L = [f"# {fiche['identite']['prenom']} {fiche['identite']['nom']} — {j.jour} {jr} {mois[mo - 1]} {an}\n",
-         f"Journée rédigée pas à pas (5 minutes). Les déplacements, la lumière, les besoins et les émotions sont calculés avec les règles de la fiche. Données complètes : `{j.date}.json`.\n",
+         (f"Journée générée par l'agent autonome, pas à pas (5 minutes). Données complètes : `{j.date}.json`.\n" if getattr(j, "methode", None) else
+          f"Journée rédigée pas à pas (5 minutes). Les déplacements, la lumière, les besoins et les émotions sont calculés avec les règles de la fiche. Données complètes : `{j.date}.json`.\n"),
          "## Déroulé\n", "| Heure | Lieu | Activité | Ce qu'il fait / pense | Événements vécus |", "|---|---|---|---|---|"]
     pos = 0
     for s in j.segments:
@@ -502,7 +537,7 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
         bloc = steps[pos:pos + n]
         pos += n
         fin_h = hm(bloc[-1]["pas"] + 1) if bloc[-1]["pas"] < PAS_PAR_JOUR - 1 else "24:00"
-        pens = [b["pensee"] for b in bloc if b.get("pensee")]
+        pens = list(dict.fromkeys(b["pensee"] for b in bloc if b.get("pensee")))
         reves = []
         for b in bloc:
             if b.get("reve") and b["reve"] not in reves:

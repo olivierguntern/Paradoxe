@@ -1,0 +1,61 @@
+"""Fait vivre le personnage par l'agent autonome, jour après jour.
+
+Usage :
+  python3 outils/simuler_agent.py 2010-03-08 2010-03-10 --dossier data/simulations/thomas-berthier
+  python3 outils/simuler_agent.py 2010-03-11 2010-03-11 --dossier data/timelines/thomas-berthier \\
+      --memoire data/simulations/thomas-berthier
+
+Chaque jour part de l'état final de la veille, lu dans --dossier (ou de la
+fiche pour le premier jour de la période). Avec --memoire, l'état physique
+vient de --dossier et la mémoire de l'agent (avancement des travaux,
+habitudes…) vient de la veille simulée dans --memoire.
+"""
+import argparse
+import datetime
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import moteur
+from agent import Agent
+
+RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("debut")
+    ap.add_argument("fin")
+    ap.add_argument("--personnage", default="thomas-berthier")
+    ap.add_argument("--dossier", required=True)
+    ap.add_argument("--memoire")
+    a = ap.parse_args()
+    fiche = json.load(open(os.path.join(RACINE, "data", "personnages", f"{a.personnage}.json")))
+    dossier_agent = os.path.join(RACINE, "data", "agents", a.personnage)
+    os.makedirs(a.dossier, exist_ok=True)
+    d = datetime.date.fromisoformat(a.debut)
+    fin = datetime.date.fromisoformat(a.fin)
+    while d <= fin:
+        date = d.isoformat()
+        veille = (d - datetime.timedelta(days=1)).isoformat()
+        if date == fiche["meta"]["periode"]["debut"][:10]:
+            etat = moteur.etat_initial_depuis_fiche(fiche)
+        else:
+            etat = moteur.etat_depuis_veille(os.path.join(a.dossier, f"{veille}.json"))
+            if a.memoire:
+                etat["agent"] = moteur.etat_depuis_veille(os.path.join(a.memoire, f"{veille}.json"))["agent"]
+        agent = Agent(fiche, dossier_agent, date, etat)
+        try:
+            steps, etat_final, stats = agent.vivre()
+        except moteur.Incoherence as e:
+            sys.exit(f"{date} : incohérence : {e}")
+        moteur.ecrire(fiche, agent.j, steps, etat, etat_final, stats,
+                      os.path.join(a.dossier, f"{date}.json"), os.path.join(a.dossier, f"{date}.md"))
+        print(f"{date} : {len(steps)} pas ; extinction {agent.j.extinction}, endormissement {agent.j.endormissement} min ; "
+              f"{len(agent.decisions)} décisions notables")
+        d += datetime.timedelta(days=1)
+
+
+if __name__ == "__main__":
+    main()

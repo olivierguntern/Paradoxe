@@ -1,0 +1,698 @@
+{
+ "principe": "Une séance par soirée, de 20:00 à 22:00 (de 18:15 à 19:45 les soirs de lessive). Les opérations obligatoires sont faites dans l'ordre ; les facultatives remplissent le temps restant, sauf si l'énergie passe sous le seuil de fatigue : il s'arrête alors avec l'opération de fatigue.",
+ "seuil_fatigue": 27,
+ "liste": [
+  {
+   "numero": 1,
+   "titre": "Montre du grand-père : tournage de l'axe (séance 1)",
+   "delicate": true,
+   "ops": [
+    {
+     "action": "Prend l'ancien axe cassé dans le plateau de la montre de gousset et mesure sa hauteur totale au micromètre.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Mesure les diamètres des portées et des pivots.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "mesure_incertaine"
+     ]
+    },
+    {
+     "action": "Reporte toutes les cotes sur une feuille.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Sort le barreau d'acier du tiroir.",
+     "charge": "precision",
+     "posture": "assis",
+     "objets": [
+      {
+       "objet": "obj-acier-axe",
+       "de": "atelier / tiroir de l'établi",
+       "vers": "atelier / tour d'horloger"
+      }
+     ]
+    },
+    {
+     "action": "Serre le barreau dans la pince du tour et le centre.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Affûte le burin sur la pierre.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Met le tour en marche et dégrossit le barreau au burin.",
+     "charge": "precision",
+     "posture": "assis",
+     "app": {
+      "allume": [
+       "tour"
+      ]
+     }
+    },
+    {
+     "action": "Continue le dégrossissage.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Contrôle le diamètre au micromètre.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Commence la portée du balancier.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Travaille la portée du balancier.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "beaute_du_geste",
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Termine la portée du balancier.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Contrôle la cote : dans la tolérance.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Commence la portée du plateau.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Travaille la portée du plateau.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Termine la portée du plateau et arrête le tour.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ],
+     "app": {
+      "eteint": [
+       "tour"
+      ]
+     }
+    },
+    {
+     "action": "Contrôle les cotes. Il reste les pivots, trop délicats pour être commencés si tard.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Note les cotes atteintes sur la feuille.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Regarde l'ébauche sous la loupe.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Balaie les copeaux du tour.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Repense à son grand-père qui tournait ses axes à l'œil.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Sort l'ébauche de la pince et la range dans une petite boîte.",
+     "charge": "simple",
+     "posture": "assis",
+     "objets": [
+      {
+       "objet": "obj-acier-axe",
+       "de": "atelier / tour d'horloger",
+       "vers": "atelier / établi, boîte à côté de la montre de gousset (ébauche d'axe)"
+      }
+     ]
+    },
+    {
+     "action": "Aligne ses outils.",
+     "charge": "simple",
+     "posture": "assis"
+    }
+   ],
+   "facultatifs": []
+  },
+  {
+   "numero": 2,
+   "titre": "Montre du grand-père : les pivots (séance 2)",
+   "delicate": true,
+   "ops": [
+    {
+     "action": "Sort l'ébauche de sa boîte et la remet dans la pince du tour.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ],
+     "objets": [
+      {
+       "objet": "obj-acier-axe",
+       "de": "atelier / établi, boîte à côté de la montre de gousset (ébauche d'axe)",
+       "vers": "atelier / tour d'horloger"
+      }
+     ]
+    },
+    {
+     "action": "Vérifie le centrage au comparateur et affûte le burin, plus fin qu'hier.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Met le tour en marche et attaque le pivot côté balancier.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ],
+     "app": {
+      "allume": [
+       "tour"
+      ]
+     }
+    },
+    {
+     "action": "Réduit le diamètre par passes d'un centième.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Contrôle au micromètre : 0,14 mm, puis 0,12 après une dernière passe.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Forme la portée conique du pivot.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Contrôle sous la loupe : pivot droit, sans bavure.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "geste_reussi"
+     ]
+    },
+    {
+     "action": "Retourne la pièce dans la pince et la recentre au comparateur.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Attaque le second pivot.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Réduit par passes d'un centième.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Mesure : 0,13 ? Il remesure : 0,12.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "mesure_incertaine"
+     ]
+    },
+    {
+     "action": "Forme la portée conique.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Contrôle sous la loupe : droit, propre.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "geste_reussi"
+     ]
+    },
+    {
+     "action": "Tronçonne l'axe du barreau, d'un seul geste.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Arrête le tour. L'axe tient sur le bout de son doigt.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "beaute_du_geste"
+     ],
+     "app": {
+      "eteint": [
+       "tour"
+      ]
+     }
+    },
+    {
+     "action": "Le range dans sa boîte, sur un lit de papier de soie.",
+     "charge": "precision",
+     "posture": "assis",
+     "objets": [
+      {
+       "objet": "obj-acier-axe",
+       "de": "atelier / tour d'horloger",
+       "vers": "atelier / établi, boîte à côté de la montre de gousset (axe ébauché, avant trempe)"
+      }
+     ]
+    }
+   ],
+   "facultatifs": [
+    {
+     "action": "Prépare pour demain la lampe à alcool et le pot d'huile de trempe.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Note les cotes atteintes.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Balaie les copeaux du tour.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Aligne ses outils.",
+     "charge": "simple",
+     "posture": "assis"
+    }
+   ],
+   "fatigue": {
+    "action": "Sent la fatigue lui tomber dessus. Remet à demain la préparation de la trempe, note les cotes et aligne ses outils.",
+    "charge": "simple",
+    "posture": "assis"
+   }
+  },
+  {
+   "numero": 3,
+   "titre": "Montre du grand-père : trempe et revenu (séance 3)",
+   "delicate": true,
+   "preparer_lecture": true,
+   "ops": [
+    {
+     "action": "Ouvre la fenêtre de l'atelier en grand.",
+     "charge": "precision",
+     "posture": "debout"
+    },
+    {
+     "action": "Prépare la lampe à alcool, le pot d'huile, une pince fine et une plaque de laiton.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Enrobe l'axe de savon contre l'oxydation et le saisit dans la pince.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ],
+     "objets": [
+      {
+       "objet": "obj-acier-axe",
+       "de": "atelier / établi, boîte à côté de la montre de gousset (axe ébauché, avant trempe)",
+       "vers": "dans la pince de trempe"
+      }
+     ]
+    },
+    {
+     "action": "Allume la lampe à alcool.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ],
+     "app": {
+      "allume": [
+       "lampe-alcool"
+      ]
+     }
+    },
+    {
+     "action": "Chauffe l'axe dans la flamme. Il passe au rouge sombre.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Rouge cerise. Il le plonge d'un coup dans l'huile.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Sort l'axe de l'huile, l'essuie. Teste à la lime : elle glisse sans mordre.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "geste_reussi"
+     ]
+    },
+    {
+     "action": "Blanchit une face de l'axe à la pierre pour voir monter les couleurs.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Pose l'axe sur la plaque de laiton au-dessus de la flamme.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Regarde la couleur monter : paille, puis brun.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "beaute_du_geste"
+     ]
+    },
+    {
+     "action": "Pourpre, puis bleu. Il retire la plaque du feu.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "geste_reussi"
+     ]
+    },
+    {
+     "action": "Éteint la lampe à alcool et laisse refroidir l'axe sur la plaque.",
+     "charge": "precision",
+     "posture": "assis",
+     "objets": [
+      {
+       "objet": "obj-acier-axe",
+       "de": "dans la pince de trempe",
+       "vers": "atelier / établi, sur la plaque de laiton"
+      }
+     ],
+     "app": {
+      "eteint": [
+       "lampe-alcool"
+      ]
+     }
+    },
+    {
+     "action": "Nettoie l'axe à l'essence et l'examine à la loupe : aucune fissure.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Ferme la fenêtre.",
+     "charge": "precision",
+     "posture": "debout"
+    },
+    {
+     "action": "Range l'axe dans sa boîte : trempé et revenu.",
+     "charge": "precision",
+     "posture": "assis",
+     "objets": [
+      {
+       "objet": "obj-acier-axe",
+       "de": "atelier / établi, sur la plaque de laiton",
+       "vers": "atelier / établi, boîte à côté de la montre de gousset (axe trempé et revenu)"
+      }
+     ]
+    }
+   ],
+   "facultatifs": [
+    {
+     "action": "Range la lampe à alcool et le pot d'huile.",
+     "charge": "simple",
+     "posture": "assis"
+    }
+   ]
+  },
+  {
+   "numero": 4,
+   "titre": "Montre du grand-père : polissage des pivots (séance 4)",
+   "delicate": true,
+   "ops": [
+    {
+     "action": "Sort l'axe trempé de sa boîte et l'examine à la loupe.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Installe l'outil à rouler les pivots et choisit la lunette du bon diamètre.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Place l'axe dans l'outil, pivot côté balancier.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ],
+     "objets": [
+      {
+       "objet": "obj-acier-axe",
+       "de": "atelier / établi, boîte à côté de la montre de gousset (axe trempé et revenu)",
+       "vers": "atelier / outil à rouler les pivots"
+      }
+     ]
+    },
+    {
+     "action": "Roule le pivot au brunissoir, d'un mouvement régulier.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Continue le roulage.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Mesure : 0,105. Encore une passe.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "mesure_incertaine"
+     ]
+    },
+    {
+     "action": "Dernière passe. Mesure : 0,10.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Examine le pivot à la loupe forte : poli miroir.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "geste_reussi"
+     ]
+    },
+    {
+     "action": "Retourne l'axe dans l'outil.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Roule le second pivot.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Continue le roulage.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Mesure : 0,10 juste.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Examine le second pivot : poli miroir.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "geste_reussi"
+     ]
+    },
+    {
+     "action": "Arrondit le bout des deux pivots.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Nettoie l'axe à l'essence.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "L'examine une dernière fois sous la loupe.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "beaute_du_geste"
+     ]
+    },
+    {
+     "action": "Le range dans sa boîte : l'axe est terminé.",
+     "charge": "precision",
+     "posture": "assis",
+     "objets": [
+      {
+       "objet": "obj-acier-axe",
+       "de": "atelier / outil à rouler les pivots",
+       "vers": "atelier / établi, boîte à côté de la montre de gousset (axe terminé)"
+      }
+     ]
+    }
+   ],
+   "facultatifs": [
+    {
+     "action": "Nettoie l'outil à rouler et le range.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Relit ses notes pour le montage.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Prépare la potence et les tasseaux pour chasser l'ancien axe du balancier.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Aligne ses outils.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Regarde le balancier qui attend son axe.",
+     "charge": "simple",
+     "posture": "assis"
+    }
+   ],
+   "fatigue": {
+    "action": "Sent la fatigue. Laisse le reste pour demain et aligne ses outils.",
+    "charge": "simple",
+    "posture": "assis"
+   }
+  }
+ ]
+}

@@ -60,8 +60,16 @@ Les émotions ne sont jamais fixées à la main : elles sont calculées à parti
 | `timelines/thomas-berthier/2010-03-08.json` | Lundi 8 mars 2010 : atelier, cuisine, première séance sur l'axe |
 | `timelines/thomas-berthier/2010-03-09.json` | Mardi 9 mars 2010 : course à pied (escaliers, quais de Saône), Rolex, les pivots |
 | `timelines/thomas-berthier/2010-03-10.json` | Mercredi 10 mars 2010 : fin de la Rolex, pendule, lessive, trempe de l'axe, Real Madrid – Lyon |
+| `timelines/thomas-berthier/2010-03-11.json` | Jeudi 11 mars 2010 : **généré par l'agent autonome** (course, validations, Zenith, polissage des pivots) |
 
-Ces fichiers sont générés par `outils/generer_journee.py` (voir `outils/README.md`).
+Lundi à mercredi sont rédigés à la main et calculés par `outils/generer_journee.py` ; à partir du jeudi, les journées sont vécues par l'agent autonome (`outils/simuler_agent.py`). Voir `outils/README.md`.
+
+## Agents et simulations
+
+| Dossier | Contenu |
+|---|---|
+| `agents/<personnage>/` | Connaissances de l'agent autonome : plan, recettes, travaux, séances, repas, modèles de pensées |
+| `simulations/<personnage>/` | Journées vécues par l'agent à partir de la fiche, pour les comparer à la référence, et rapport `VALIDATION.md` |
 
 ## Personnages
 

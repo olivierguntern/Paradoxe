@@ -1,0 +1,29 @@
+{
+ "principe": "Règles qui organisent la journée de Thomas. L'agent suit ce plan et ses routines, mais adapte chaque pas à son état : besoins, émotions, objets, provisions, avancement des travaux.",
+ "jours_sonnerie": ["lundi", "mardi", "mercredi", "jeudi", "vendredi"],
+ "heure_sonnerie": "07:00",
+ "jours_course": ["mardi", "jeudi"],
+ "jours_rasage_sans_course": ["lundi", "vendredi"],
+ "endormi_la_veille_du_premier_jour": "23:30",
+ "reveil_naturel": {"sommeil_minimum_minutes": 505, "pas_avant": "06:00"},
+ "matin_simple": ["reveil", "toilettes_matin", "douche", "habillage", "petit_dejeuner_radio", "rangement_montre_radio", "reglage_montre",
+                  "lecture_technique", "etirements", "ouverture_atelier"],
+ "matin_course": ["reveil_course", "toilettes_eau", "tenue_course", "depart_course", "descente_saone", "quais_saone", "remontee_pentes",
+                  "retour_course", "douche_course", "habillage_course", "petit_dejeuner_course", "rangement_montre", "ouverture_atelier_reglage"],
+ "fin_lecture_technique": "08:45",
+ "atelier": [
+  {"debut": "09:00", "fin": "10:30"},
+  {"debut": "10:45", "fin": "12:30", "fin_de_seance": true},
+  {"debut": "14:00", "fin": "15:30"},
+  {"debut": "15:40", "fin": "17:50"}
+ ],
+ "fruits_de_l_apres_midi": ["pause_pomme", "pause_orange"],
+ "poubelle": {"repas_avant_descente": 3, "repas_au_depart": 2},
+ "lecture": {"page_au_depart": 112, "pages_par_pas": 5, "pages_total": 252},
+ "diner_fini_a": "20:00",
+ "seance": {"debut": "20:00", "fin": "22:00"},
+ "extinction_cible": "23:00",
+ "soirees_speciales": {
+  "2010-03-10": {"type": "lessive_match", "seance_debut": "18:15", "seance_fin_operations": "19:35"}
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "principe": "Les pensées sont choisies dans ces modèles de façon déterministe (même jour, même heure, même choix). Elles accompagnent les événements vécus, et à certains moments (repas, radio, lecture, course), Thomas pense à l'une de ses préoccupations : celle qui a le plus de poids, compte tenu de son intensité et du temps écoulé depuis qu'il y a pensé.",
+ "frequence_evenements": 0.5,
+ "evenements": {
+  "geste_reussi": ["Voilà. Du premier coup.", "C'est entré seul. C'est ça, le métier.", "Propre.", "Bien. Très bien.", "Exactement comme il faut."],
+  "controle_conforme": ["Conforme.", "Rien à redire.", "Tout est en ordre.", "C'est juste.", "Bien."],
+  "operation_delicate": ["Doucement.", "Ne pas trembler.", "Lentement. C'est la pièce qui décide.", "Respirer, puis le geste.", "Un cheveu de trop, et c'est fini."],
+  "tache_terminee": ["Terminée. Une de plus.", "Fini. Elle peut repartir vivre au poignet de quelqu'un.", "Voilà un travail fait."],
+  "plaisir_simple": ["Ça fait du bien.", "Le petit plaisir du jour.", "Bon."],
+  "effort_physique": ["Respirer. Trois foulées, deux foulées.", "Les jambes répondent.", "Le froid réveille."],
+  "fin_de_course": ["Bonne fatigue.", "La tête est vide, enfin.", "Le corps a fait son travail."],
+  "repas_seul": ["Manger seul, on s'y fait. Presque.", "La chaise d'en face est vide.", "Un repas pour un."],
+  "mesure_incertaine": ["On mesure trois fois. Toujours.", "Un doute. On remesure."],
+  "beaute_du_geste": ["C'est beau.", "Grand-père aurait aimé voir ça."],
+  "repos_merite": ["La journée est faite.", "Rien n'a résisté aujourd'hui.", "Bonne journée de travail."],
+  "reveil_sonnerie": ["Déjà.", "Encore cinq minutes. Non.", "Allez."]
+ },
+ "preoccupations": {
+  "pre-commandes": {"evenement": null, "textes": ["Il faut que ce mois-ci tienne.", "Les montres prêtes partiront lundi. Ce sera ça de payé.", "Encore deux commandes et le loyer est assuré."]},
+  "pre-montre": {"evenement": "souvenir_grand_pere", "textes": ["Le 20 mars, ça fera six ans. Elle doit marcher avant.", "Grand-père savait tout faire avec ses mains.", "Bientôt, elle repartira."]},
+  "pre-pere": {"evenement": "pensee_pere", "textes": ["Papa dit toujours que ça va.", "Le contrôle de papa, c'est le 25.", "Papa doit être devant les informations."]},
+  "pre-solitude": {"evenement": "constat_isolement", "max_par_jour": 1, "si_social_sous": 66, "textes": ["Pas un mot à quelqu'un aujourd'hui.", "L'appartement est bien calme.", "Personne ne sait ce que je fais de mes journées."]},
+  "pre-sophie": {"evenement": "pensee_sophie", "textes": ["Sophie aimait la lumière de l'atelier.", "Sophie à Montréal. Je ne sais même pas à quoi ressemble sa rue.", "Elle aurait ri de me voir parler à une pendule."]}
+ },
+ "moments": [
+  {"bloc": "petit_dejeuner_radio", "pas": 3},
+  {"bloc": "petit_dejeuner_course", "pas": 2},
+  {"bloc": "quais_saone", "pas": 2},
+  {"bloc": "temps_libre", "pas": 3},
+  {"bloc": "lecture_sieste", "pas": 0},
+  {"bloc": "lecture_courte", "pas": 0},
+  {"bloc": "pause_cafe", "pas": 1}
+ ],
+ "fin_de_seance_travail": ["Faim.", "On reprendra après manger.", "Pause. Les yeux fatiguent."],
+ "extinction": {
+  "course": ["Demain, la course. Le réveil est sur sept heures.", "Demain matin, les quais."],
+  "seance": ["Demain soir, {seance}.", "{seance}, demain. Ne pas la rater."],
+  "neutre": ["Bonne nuit.", "Dormir, maintenant."]
+ },
+ "endormissement": {
+  "excitation": ["Je revois la soirée. Impossible de dormir.", "La tête tourne encore."],
+  "anticipation": ["Demain soir : {seance}.", "{seance}. Pas le droit à l'erreur."],
+  "neutre": ["Le silence de l'immeuble.", "Les pensées ralentissent."]
+ },
+ "carnet": "« {jour} {date}. {faits} »",
+ "reves": {
+  "travail": ["Des rouages tournent lentement dans le noir, sans aucun bruit.", "Une montre démontée se remonte toute seule sous ses yeux.", "Il cherche une vis minuscule tombée entre les lames du parquet."],
+  "grand_pere": ["L'atelier de son grand-père à Besançon. René lui tend une loupe et dit quelque chose qu'il n'entend pas.", "Grand-père regarde une montre et sourit sans rien dire."],
+  "course": ["Il court le long d'un quai qui ne finit pas.", "Les quais de Saône sous la neige ; il court sans laisser de traces."],
+  "pere": ["Un train vers Besançon. Son père est assis en face de lui et regarde par la fenêtre sans parler.", "Son père répare quelque chose dans la cuisine et ne veut pas d'aide."],
+  "sophie": ["Sophie dans le séjour cherche ses clés ; il ne sait pas lui dire où elles sont.", "Une lettre arrive, mais l'enveloppe est vide."],
+  "neutre": ["Une pièce immense et vide, éclairée par une seule lampe.", "Il marche dans une rue de Lyon qu'il ne reconnaît pas."]
+ },
+ "ordre_des_reves": ["travail", "neutre", "pere", "grand_pere", "course", "sophie"],
+ "evenements_des_reves": {"grand_pere": "reve_grand_pere", "pere": "reve_inquiet", "sophie": "reve_inquiet"}
+}
