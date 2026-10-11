@@ -1,7 +1,7 @@
 {
   "meta": {
     "id": "thomas-berthier",
-    "version": 5,
+    "version": 6,
     "description": "Personnage d'étude n°1 : fiche complète servant de base à la génération de sa timeline sur une semaine, vécue seul.",
     "periode": {
       "debut": "2010-03-08T00:00",
@@ -84,6 +84,7 @@
       "endormissement_minutes_normal": 15,
       "endormissement_minutes_si_anxieux": 45,
       "seuil_anxiete_insomnie": 0.65,
+      "seuil_excitation_insomnie": 0.5,
       "reveil_naturel_jour_libre": "08:30"
     },
     "conditions": [
@@ -204,9 +205,10 @@
       "anxiete": 0.28,
       "colere": 0.03,
       "fierte": 0.35,
+      "excitation": 0.2,
       "solitude": "0,25 + 0,01 x max(0, 75 - besoin social)"
     },
-    "demi_vie_pas": { "joie": 6, "tristesse": 12, "anxiete": 12, "colere": 4, "fierte": 24, "solitude": 12 },
+    "demi_vie_pas": { "joie": 6, "tristesse": 12, "anxiete": 12, "colere": 4, "fierte": 24, "solitude": 12, "excitation": 6 },
     "couplages_besoins": [
       { "condition": "faim < 35", "effet_par_pas": { "colere": 0.01, "joie": -0.005 } },
       { "condition": "energie < 30", "effet_par_pas": { "joie": -0.005, "colere": 0.005 } },
@@ -222,9 +224,9 @@
         { "condition": "toilettes < 25", "effet_sur_cible": -0.1 }
       ]
     },
-    "seuil_insomnie": "si anxiete > 0,65 au moment d'éteindre, l'endormissement passe de 15 à 45 minutes",
+    "seuil_insomnie": "si anxiete > 0,65 ou excitation > 0,5 au moment d'éteindre, l'endormissement passe de 15 à 45 minutes",
     "evenements": {
-      "reveil_sonnerie": { "description": "réveil brusque par la sonnerie", "effets": { "anxiete": 0.02 } },
+      "reveil_sonnerie": { "description": "réveil brusque par la sonnerie", "effets": { "anxiete": 0.02, "excitation": 0.05 } },
       "plaisir_simple": { "description": "café, chocolat, douche chaude, bonne odeur, bon repas", "effets": { "joie": 0.04 } },
       "controle_conforme": { "description": "une vérification montre que tout est en ordre", "effets": { "joie": 0.04, "fierte": 0.03 } },
       "geste_reussi": { "description": "un geste délicat réussi", "effets": { "joie": 0.08, "fierte": 0.08, "anxiete": -0.03 } },
@@ -250,7 +252,14 @@
       "oubli_mineur": { "description": "constater un petit oubli de sa part", "effets": { "colere": 0.04 } },
       "objet_deplace": { "description": "un objet n'est pas là où il le croyait", "effets": { "anxiete": 0.15, "colere": 0.05 } },
       "ecriture_carnet": { "description": "écrire dans son carnet", "effets": { "anxiete": -0.08, "tristesse": -0.03 } },
-      "effort_physique": { "description": "effort soutenu (course, escaliers)", "effets": { "anxiete": -0.02 } },
+      "effort_physique": { "description": "effort soutenu (course, escaliers)", "effets": { "anxiete": -0.02, "excitation": 0.03 } },
+      "match_tension": { "description": "moment tendu d'un match de son équipe", "effets": { "anxiete": 0.015, "excitation": 0.06 } },
+      "anticipation_plaisir": { "description": "attendre un moment agréable", "effets": { "excitation": 0.05, "joie": 0.03 } },
+      "but_adverse": { "description": "but encaissé par son équipe", "effets": { "anxiete": 0.1, "colere": 0.05, "joie": -0.05, "excitation": 0.1 } },
+      "but_equipe": { "description": "but marqué par son équipe", "effets": { "joie": 0.25, "anxiete": -0.1, "excitation": 0.25 } },
+      "qualification_equipe": { "description": "son équipe se qualifie", "effets": { "joie": 0.2, "anxiete": -0.15, "excitation": 0.2 } },
+      "pensee_ami": { "description": "pensée pour un ami absent", "effets": { "solitude": 0.05, "joie": 0.02 } },
+      "souvenir_excitant": { "description": "repenser à un moment fort de la journée", "effets": { "excitation": 0.05, "joie": 0.02 } },
       "fin_de_course": { "description": "fin d'une sortie de course", "effets": { "anxiete": -0.2, "joie": 0.1 } }
     }
   },
@@ -278,6 +287,7 @@
       "colere": 0.05,
       "solitude": 0.35,
       "fierte": 0.35,
+      "excitation": 0.2,
       "concentration": 0.5
     }
   },
@@ -516,38 +526,43 @@
       "internet": "ADSL, utilisé uniquement pour consulter de la documentation technique pendant le test"
     },
     "provisions_au_debut": [
-      { "produit": "café moulu", "quantite": "1 paquet de 250 g + 1/3 de paquet entamé", "rangement": "placard à provisions" },
-      { "produit": "pain de campagne en tranches", "quantite": "1 kg", "rangement": "congélateur" },
-      { "produit": "biscottes", "quantite": "1 paquet", "rangement": "placard à provisions" },
-      { "produit": "beurre", "quantite": "250 g", "rangement": "réfrigérateur" },
-      { "produit": "confiture d'abricot", "quantite": "1 pot + 1/2 pot entamé", "rangement": "placard à provisions" },
-      { "produit": "lait UHT", "quantite": "2 L", "rangement": "placard à provisions" },
-      { "produit": "yaourts nature", "quantite": 8, "rangement": "réfrigérateur" },
-      { "produit": "œufs", "quantite": 12, "rangement": "réfrigérateur" },
-      { "produit": "cuisses de poulet", "quantite": 2, "rangement": "réfrigérateur", "a_consommer_avant": "2010-03-10" },
-      { "produit": "lardons", "quantite": "1 barquette de 200 g", "rangement": "réfrigérateur" },
-      { "produit": "saucisse de Morteau", "quantite": 1, "rangement": "réfrigérateur" },
-      { "produit": "comté", "quantite": "400 g", "rangement": "réfrigérateur" },
-      { "produit": "steaks hachés surgelés", "quantite": 2, "rangement": "congélateur" },
-      { "produit": "poisson pané surgelé", "quantite": "1 boîte de 10", "rangement": "congélateur" },
-      { "produit": "pâtes", "quantite": "1 kg", "rangement": "placard à provisions" },
-      { "produit": "riz", "quantite": "1 kg", "rangement": "placard à provisions" },
-      { "produit": "thon en conserve", "quantite": 2, "rangement": "placard à provisions" },
-      { "produit": "lentilles cuisinées en bocal", "quantite": 1, "rangement": "placard à provisions" },
-      { "produit": "haricots verts en conserve", "quantite": 2, "rangement": "placard à provisions" },
-      { "produit": "ratatouille en conserve", "quantite": 1, "rangement": "placard à provisions" },
-      { "produit": "pommes de terre", "quantite": "2 kg", "rangement": "placard à provisions" },
-      { "produit": "poireaux", "quantite": 6, "rangement": "réfrigérateur" },
-      { "produit": "carottes", "quantite": "1 kg", "rangement": "réfrigérateur" },
-      { "produit": "oignons", "quantite": 4, "rangement": "placard à provisions" },
-      { "produit": "pommes", "quantite": 6, "rangement": "corbeille de la cuisine" },
-      { "produit": "oranges", "quantite": 6, "rangement": "corbeille de la cuisine" },
-      { "produit": "bananes", "quantite": 4, "rangement": "corbeille de la cuisine" },
-      { "produit": "chocolat noir", "quantite": "2 tablettes", "rangement": "placard à provisions" },
-      { "produit": "bière", "quantite": "4 bouteilles", "rangement": "réfrigérateur" },
-      { "produit": "vin rouge (Côtes-du-Rhône)", "quantite": "3/4 de bouteille", "rangement": "cuisine, sur le plan de travail" },
-      { "produit": "condiments de base (huile, sel, poivre, herbes, moutarde)", "quantite": "suffisante", "rangement": "placard à provisions" },
-      { "produit": "lessive liquide", "quantite": "1/2 bidon", "rangement": "sous l'évier" }
+      { "id": "cafe_moulu", "produit": "café moulu", "quantite": 278, "unite": "g", "description": "1 paquet neuf de 250 g + 28 g dans le paquet entamé (4 doses de 7 g)", "rangement": "placard à provisions" },
+      { "id": "pain_tranches", "produit": "pain de campagne en tranches", "quantite": 24, "unite": "tranches", "rangement": "congélateur" },
+      { "id": "biscottes", "produit": "biscottes", "quantite": 30, "unite": "biscottes", "rangement": "placard à provisions" },
+      { "id": "beurre", "produit": "beurre", "quantite": 250, "unite": "g", "rangement": "réfrigérateur" },
+      { "id": "confiture_abricot", "produit": "confiture d'abricot", "quantite": 37, "unite": "cuillères", "description": "1 pot + 1/2 pot entamé", "rangement": "placard à provisions" },
+      { "id": "lait_uht", "produit": "lait UHT", "quantite": 2000, "unite": "ml", "rangement": "placard à provisions" },
+      { "id": "yaourts", "produit": "yaourts nature", "quantite": 8, "unite": "pots", "rangement": "réfrigérateur" },
+      { "id": "oeufs", "produit": "œufs", "quantite": 12, "unite": "œufs", "rangement": "réfrigérateur" },
+      { "id": "cuisses_poulet", "produit": "cuisses de poulet crues", "quantite": 2, "unite": "cuisses", "rangement": "réfrigérateur", "a_consommer_avant": "2010-03-10" },
+      { "id": "lardons", "produit": "lardons", "quantite": 200, "unite": "g", "rangement": "réfrigérateur" },
+      { "id": "saucisse_morteau", "produit": "saucisse de Morteau", "quantite": 1, "unite": "saucisse", "rangement": "réfrigérateur" },
+      { "id": "comte", "produit": "comté", "quantite": 400, "unite": "g", "rangement": "réfrigérateur" },
+      { "id": "steaks_haches", "produit": "steaks hachés surgelés", "quantite": 2, "unite": "steaks", "rangement": "congélateur" },
+      { "id": "poisson_pane", "produit": "poisson pané surgelé", "quantite": 10, "unite": "pièces", "rangement": "congélateur" },
+      { "id": "pates", "produit": "pâtes", "quantite": 1000, "unite": "g", "rangement": "placard à provisions" },
+      { "id": "riz", "produit": "riz", "quantite": 1000, "unite": "g", "rangement": "placard à provisions" },
+      { "id": "thon", "produit": "thon en conserve", "quantite": 2, "unite": "boîtes", "rangement": "placard à provisions" },
+      { "id": "lentilles", "produit": "lentilles cuisinées en bocal", "quantite": 1, "unite": "bocal", "rangement": "placard à provisions" },
+      { "id": "haricots_verts", "produit": "haricots verts en conserve", "quantite": 2, "unite": "boîtes", "rangement": "placard à provisions" },
+      { "id": "ratatouille", "produit": "ratatouille en conserve", "quantite": 1, "unite": "boîte", "rangement": "placard à provisions" },
+      { "id": "pommes_de_terre", "produit": "pommes de terre", "quantite": 2000, "unite": "g", "rangement": "placard à provisions" },
+      { "id": "poireaux", "produit": "poireaux", "quantite": 6, "unite": "poireaux", "rangement": "réfrigérateur" },
+      { "id": "carottes", "produit": "carottes", "quantite": 1000, "unite": "g", "rangement": "réfrigérateur" },
+      { "id": "oignons", "produit": "oignons", "quantite": 4, "unite": "oignons", "rangement": "placard à provisions" },
+      { "id": "pommes", "produit": "pommes", "quantite": 6, "unite": "pommes", "rangement": "corbeille de la cuisine" },
+      { "id": "oranges", "produit": "oranges", "quantite": 6, "unite": "oranges", "rangement": "corbeille de la cuisine" },
+      { "id": "bananes", "produit": "bananes", "quantite": 4, "unite": "bananes", "rangement": "corbeille de la cuisine" },
+      { "id": "chocolat_noir", "produit": "chocolat noir", "quantite": 40, "unite": "carrés", "description": "2 tablettes de 20 carrés", "rangement": "placard à provisions" },
+      { "id": "biere", "produit": "bière", "quantite": 4, "unite": "bouteilles", "rangement": "réfrigérateur" },
+      { "id": "vin_rouge", "produit": "vin rouge (Côtes-du-Rhône)", "quantite": 56, "unite": "cl", "description": "3/4 de bouteille", "rangement": "cuisine, sur le plan de travail" },
+      { "id": "lessive", "produit": "lessive liquide", "quantite": 10, "unite": "doses", "description": "1/2 bidon", "rangement": "sous l'évier" },
+      { "id": "condiments", "produit": "condiments de base (huile, sel, poivre, herbes, moutarde)", "quantite": null, "unite": null, "suivi": false, "rangement": "placard à provisions" }
+    ],
+    "produits_prepares": [
+      { "id": "poulet_roti", "produit": "cuisses de poulet rôties", "unite": "cuisses", "conservation": "réfrigérateur, 3 jours" },
+      { "id": "pommes_de_terre_roties", "produit": "pommes de terre rôties", "unite": "portions", "conservation": "réfrigérateur, 3 jours" },
+      { "id": "soupe_poireaux", "produit": "soupe poireaux-pommes de terre", "unite": "portions", "conservation": "réfrigérateur, dans la marmite, 4 jours" }
     ],
     "linge_sale_au_debut": "panier à moitié plein"
   },

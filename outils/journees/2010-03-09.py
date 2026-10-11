@@ -4,7 +4,7 @@ Course à pied le matin (escalier, pentes, quais de Saône), révision de la
 Rolex, montres à quartz, validation de l'Omega, puis deuxième séance sur
 l'axe de la montre de son grand-père : les pivots.
 """
-from moteur import Journee, course, idx, marche, mv, off, on, onoff, p
+from moteur import Journee, c, pr, course, idx, marche, mv, off, on, onoff, p
 
 
 def rediger():
@@ -103,14 +103,13 @@ def rediger():
     j.seg("08:35", "Petit-déjeuner", "cuisine", "rt-matin-course", "eveille", "cuisine", "debout", [
         p("Prépare le café avec la dernière dose du paquet entamé.", "Le paquet a tenu jusqu'à ce matin. Comme prévu.",
           app=on("plaque-1"), objets=[mv("obj-cafetiere", "cuisine / égouttoir", "cuisine / plaque électrique")],
-          consommation=[{"produit": "café moulu", "quantite": "dernière dose du paquet entamé"}]),
+          consommation=[c("cafe_moulu", 7)]),
         p("Grille deux tranches de pain, éteint la plaque, se sert un café dans la tasse bleue.", None,
           app=off("plaque-1"), objets=[mv("obj-tasse", "cuisine / égouttoir", "cuisine / plan de travail")],
-          consommation=[{"produit": "pain de campagne en tranches", "quantite": "2 tranches"}, {"produit": "beurre", "quantite": "10 g"},
-                        {"produit": "confiture d'abricot", "quantite": "2 cuillères (pot entamé)"}]),
+          consommation=[c("pain_tranches", 2), c("beurre", 10), c("confiture_abricot", 2)]),
         p("Mange ses tartines, un yaourt et une banane, avec un verre d'eau.", "Faim de loup, les jours de course.",
           effets={"faim": 55, "soif": 35, "cafe": True}, ev=["plaisir_simple"], posture="assis",
-          consommation=[{"produit": "yaourts nature", "quantite": 1}, {"produit": "bananes", "quantite": 1}]),
+          consommation=[c("yaourts", 1), c("bananes", 1)]),
     ])
     j.seg("08:50", "Rangement et montre", "cuisine", "rt-matin-course", "eveille", "simple", "debout", [
         p("Rince la tasse et la cafetière. Remonte sa montre : vingt tours de couronne.", None,
@@ -151,7 +150,7 @@ def rediger():
     ])
     j.seg("10:35", "Pause café", "cuisine", "rt-atelier", "eveille", "repos", "debout", [
         p("Ouvre le paquet de café neuf et se fait un café.", None, app=onoff(allume=["plaque-1"], eteint=["plaque-1"]),
-          consommation=[{"produit": "café moulu", "quantite": "ouverture du paquet de 250 g, 1 dose"}],
+          consommation=[c("cafe_moulu", 7)],
           effets={"soif": 15, "cafe": True}, ev=["plaisir_simple"]),
         p("Boit un verre d'eau, s'étire.", "Le dos va bien. La course l'a délié.", effets={"soif": 20}),
     ])
@@ -192,8 +191,7 @@ def rediger():
     j.seg("12:30", "Déjeuner", "cuisine", "rt-atelier", "eveille", "cuisine", "debout", [
         p("Met de l'eau à bouillir pour le riz.", None, app=on("plaque-1")),
         p("Verse le riz. Réchauffe à la poêle la cuisse de poulet et les pommes de terre d'hier.", None, app=on("plaque-2"),
-          consommation=[{"produit": "riz", "quantite": "80 g"}, {"produit": "cuisse de poulet cuite (reste de lundi)", "quantite": 1},
-                        {"produit": "pommes de terre cuites (reste de lundi)", "quantite": "1 portion"}]),
+          consommation=[c("riz", 80), c("poulet_roti", 1), c("pommes_de_terre_roties", 1), c("condiments", 1)]),
         p("Égoutte le riz, sert son assiette, éteint les plaques.", None, app=off("plaque-1", "plaque-2")),
         p("Déjeune à la table du séjour avec un verre d'eau.", "Le poulet est meilleur réchauffé. Grand-mère le disait.",
           piece="sejour", posture="assis", effets={"faim": 55, "soif": 20}, ev=["repas_seul", "souvenir_tendre"], charge="repos"),
@@ -202,7 +200,7 @@ def rediger():
     ])
     j.seg("13:00", "Café et vaisselle", "cuisine", "rt-atelier", "eveille", "cuisine", "debout", [
         p("Se fait un café.", app=onoff(allume=["plaque-1"], eteint=["plaque-1"]),
-          consommation=[{"produit": "café moulu", "quantite": "1 dose"}], effets={"soif": 15, "cafe": True}, ev=["plaisir_simple"]),
+          consommation=[c("cafe_moulu", 7)], effets={"soif": 15, "cafe": True}, ev=["plaisir_simple"]),
         p("Lave la casserole, la poêle et l'assiette."),
         p("Essuie et range."),
         p("Rince la tasse et la cafetière."),
@@ -252,7 +250,7 @@ def rediger():
     ])
     j.seg("15:35", "Pause", "cuisine", "rt-atelier", "eveille", "repos", "debout", [
         p("Boit un verre d'eau et mange une orange en regardant par la fenêtre.", None,
-          consommation=[{"produit": "oranges", "quantite": 1}], effets={"soif": 20, "faim": 15}, ev=["plaisir_simple"]),
+          consommation=[c("oranges", 1)], effets={"soif": 20, "faim": 15}, ev=["plaisir_simple"]),
     ])
     j.seg("15:40", "Rolex : échappement et balancier", "atelier", "rt-atelier", "travail", "precision", "assis", [
         p("Remet ses lunettes. Pose l'ancre.", ev=["operation_delicate"],
@@ -317,9 +315,9 @@ def rediger():
     j.seg("19:00", "Préparation du dîner", "cuisine", "rt-soir", "eveille", "cuisine", "debout", [
         p("Sort la marmite du réfrigérateur et met la soupe à réchauffer.", None, app=on("plaque-1"),
           objets=[mv("obj-marmite", "cuisine / réfrigérateur", "cuisine / plaque électrique")],
-          consommation=[{"produit": "soupe poireaux-pommes de terre", "quantite": "portion 2 sur 4"}]),
+          consommation=[c("soupe_poireaux", 1)]),
         p("Bat deux œufs et fait une omelette.", None, app=on("plaque-2"),
-          consommation=[{"produit": "œufs", "quantite": 2}, {"produit": "beurre", "quantite": "10 g"}]),
+          consommation=[c("oeufs", 2), c("beurre", 10)]),
         p("Sert un bol de soupe et l'omelette, éteint les plaques.", None, app=off("plaque-1", "plaque-2")),
     ])
     j.seg("19:15", "Dîner", "sejour", "rt-soir", "eveille", "repos", "assis", [
@@ -372,7 +370,7 @@ def rediger():
     ])
     j.seg("21:40", "Chocolat", "cuisine", "rt-soir", "eveille", "repos", "debout", [
         p("Mange deux carrés de chocolat noir et boit un verre d'eau.", "Au lit tôt, ce soir.",
-          consommation=[{"produit": "chocolat noir", "quantite": "2 carrés"}], effets={"faim": 5, "soif": 20}, ev=["plaisir_simple"]),
+          consommation=[c("chocolat_noir", 2)], effets={"faim": 5, "soif": 20}, ev=["plaisir_simple"]),
     ])
     j.seg("21:45", "Toilette du soir", "salle-de-bain", "rt-soir", "eveille", "simple", "debout", [
         p("Passe aux toilettes.", piece="wc", effets={"toilettes": "vide"}),

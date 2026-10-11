@@ -32,8 +32,9 @@ Chaque génération écrit `data/timelines/<personnage>/<date>.json` (données c
 La génération s'arrête avec un message « Incohérence » si :
 - une journée ne compte pas exactement 288 pas, ou si deux activités se chevauchent ou laissent un trou ;
 - un objet est déplacé depuis un endroit où il ne se trouve pas (sa position est suivie d'un jour à l'autre) ;
-- un événement n'existe pas dans le catalogue de la fiche ;
-- l'anxiété au moment d'éteindre dépasse le seuil d'insomnie, alors que la journée le fait s'endormir en 15 minutes.
+- un événement ou un produit n'existe pas dans la fiche ;
+- une provision est consommée alors qu'il n'en reste pas assez (le stock est suivi d'un jour à l'autre) ;
+- la durée d'endormissement prévue par la journée ne correspond pas à l'état émotionnel au moment d'éteindre (45 minutes si l'anxiété ou l'excitation dépasse son seuil, 15 sinon).
 
 Les besoins passés sous leur seuil d'alerte sont listés dans le résumé de chaque journée.
 

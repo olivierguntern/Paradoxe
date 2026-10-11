@@ -53,7 +53,7 @@ def main():
                   os.path.join(dossier, f"{a.date}.json"), os.path.join(dossier, f"{a.date}.md"))
     d = stats
     print(f"{a.date} : {len(steps)} pas ; {round(d['entre_pieces_m'] + d['dans_les_pieces_m'] + d['exterieur_m'])} m parcourus, "
-          f"{d['marches']} marches ; anxiété à l'extinction {d['anxiete_extinction']}")
+          f"{d['marches']} marches ; endormissement en {d['endormissement_min']} min (anxiété {d['anxiete_extinction']}, excitation {d['excitation_extinction']})")
 
 
 if __name__ == "__main__":

@@ -25,9 +25,9 @@ def idx(h):
 
 # ---------------------------------------------------------------- rédaction
 def p(action, pensee=None, **kw):
-    """Un pas de 5 minutes. Options : ev, objets, consommation, effets, app,
-    radio, musique, mode, charge, posture, piece, lieu, via, via_apres, sortie,
-    retour, escalier, parcours, phase_sommeil, reve."""
+    """Un pas de 5 minutes. Options : ev, objets, consommation, production,
+    effets, app, radio, musique, tele, mode, charge, posture, piece, lieu, via,
+    via_apres, sortie, retour, escalier, parcours, phase_sommeil, reve."""
     d = {"action": action, "pensee": pensee}
     d.update(kw)
     return d
@@ -35,6 +35,16 @@ def p(action, pensee=None, **kw):
 
 def mv(objet, de, vers):
     return {"objet": objet, "de": de, "vers": vers}
+
+
+def c(produit, quantite):
+    """Consommation d'une provision (identifiant de la fiche, quantité dans son unité)."""
+    return {"produit": produit, "quantite": quantite}
+
+
+def pr(produit, quantite):
+    """Production d'un plat préparé (identifiant de produits_prepares)."""
+    return {"produit": produit, "quantite": quantite}
 
 
 def on(*a):
@@ -58,10 +68,11 @@ def marche(distance_m, denivele_m=0):
 
 
 class Journee:
-    def __init__(self, date, jour, extinction):
+    def __init__(self, date, jour, extinction, endormissement=15):
         self.date = date
         self.jour = jour
         self.extinction = extinction  # heure où il éteint pour dormir
+        self.endormissement = endormissement  # minutes entre l'extinction et le sommeil
         self.segments = []
         self.ecarts = []
         self.bilan = []
@@ -80,8 +91,10 @@ def etat_initial_depuis_fiche(fiche):
         positions[o["id"]] = f"{e['piece']} / {e['support']}" if e["lieu"] == "domicile" else f"{e['lieu']} / {e['piece']} / {e['support']}"
     emo = dict(fiche["etat_initial"]["emotions"])
     conc = emo.pop("concentration")
+    stock = {x["id"]: x["quantite"] for x in fiche["domicile"]["provisions_au_debut"] if x.get("suivi", True)}
     return {"piece": fiche["etat_initial"]["piece"], "besoins": dict(fiche["etat_initial"]["besoins"]),
-            "emotions": emo, "concentration": conc, "lumieres": {}, "appareils": [], "positions": positions, "cafe": []}
+            "emotions": emo, "concentration": conc, "lumieres": {}, "appareils": [], "positions": positions, "cafe": [],
+            "stock": stock}
 
 
 def etat_depuis_veille(chemin_json):
@@ -106,6 +119,7 @@ def simuler(fiche, j, etat):
     HL = M["demi_vie_pas"]
     CIBLES = M["concentration"]["cibles"]
     DP = PLAN["deplacements_dans_la_piece"]
+    PRODUITS = {x["id"]: x for x in fiche["domicile"]["provisions_au_debut"] + fiche["domicile"]["produits_prepares"]}
 
     graph = {}
     for l in PLAN["liaisons"]:
@@ -143,6 +157,7 @@ def simuler(fiche, j, etat):
     appareils = set(etat["appareils"])
     positions = dict(etat["positions"])
     cafe = list(etat["cafe"])
+    stock = dict(etat["stock"])
     base = {k: v for k, v in M["etat_de_base"].items() if k != "solitude"}
     piece_prec = etat["piece"]
     st_ = {"entre_pieces_m": 0.0, "dans_les_pieces_m": 0.0, "exterieur_m": 0.0, "foulees": 0.0,
@@ -260,6 +275,22 @@ def simuler(fiche, j, etat):
                     raise Incoherence(f"{hm(i)} : {o['objet']} est à « {positions[o['objet']]} », pas à « {o['de']} »")
                 positions[o["objet"]] = o["vers"]
 
+            # ---- provisions : production puis consommation, jamais en dessous de zéro
+            mouvements = {}
+            for sens, cle in ((1, "production"), (-1, "consommation")):
+                for x in st.get(cle, []):
+                    pid, q = x["produit"], x["quantite"]
+                    if pid not in PRODUITS:
+                        raise Incoherence(f"{hm(i)} : produit inconnu {pid}")
+                    spec = PRODUITS[pid]
+                    ligne = {"produit": pid, "nom": spec["produit"], "quantite": q, "unite": spec["unite"]}
+                    if spec.get("suivi", True):
+                        stock[pid] = stock.get(pid, 0) + sens * q
+                        if stock[pid] < 0:
+                            raise Incoherence(f"{hm(i)} : il ne reste pas assez de « {spec['produit']} » ({stock[pid] + q} {spec['unite']} pour {q} demandés)")
+                        ligne["reste"] = stock[pid]
+                    mouvements.setdefault(cle, []).append(ligne)
+
             # ---- besoins
             def var(n, cle):
                 return B[n]["variation_par_pas"].get(cle, B[n]["variation_par_pas"]["eveille"])
@@ -274,7 +305,9 @@ def simuler(fiche, j, etat):
                 besoins["hygiene"] += var("hygiene", "effort_physique" if effort else "eveille")
                 besoins["toilettes"] += B["toilettes"]["variation_par_pas"]["eveille"]
                 if mode != "sieste":
-                    besoins["social"] += B["social"]["variation_par_pas"]["eveille"] + (B["social"]["satisfaction"]["radio_par_pas"] if radio else 0)
+                    tele = st.get("tele")
+                    besoins["social"] += B["social"]["variation_par_pas"]["eveille"] + (B["social"]["satisfaction"]["radio_par_pas"] if radio else 0) + (
+                        B["social"]["satisfaction"]["match_televise_par_pas"] if tele == "match" else (B["social"]["satisfaction"]["television_par_pas"] if tele else 0))
                     if mode == "travail":
                         besoins["detente"] += B["detente"]["variation_par_pas"]["travail"]
                     elif mode == "loisir":
@@ -345,9 +378,10 @@ def simuler(fiche, j, etat):
                      "routine": s["routine"], "activite": s["titre"], "action": st["action"], "pensee": st["pensee"]}
             if dep:
                 entry["deplacement"] = dep
-            for opt in ("phase_sommeil", "reve", "objets", "consommation"):
+            for opt in ("phase_sommeil", "reve", "objets"):
                 if st.get(opt):
                     entry[opt] = st[opt]
+            entry.update(mouvements)
             if lum:
                 entry["lumiere"] = lum
             entry["appareils_allumes"] = sorted(appareils) + [f"lumiere-{pc}" for pc, v in lumieres.items() if v]
@@ -360,29 +394,50 @@ def simuler(fiche, j, etat):
     if attendu != PAS_PAR_JOUR:
         raise Incoherence(f"la journée compte {attendu} pas au lieu de {PAS_PAR_JOUR}")
 
-    seuil = fiche["sante"]["sommeil"]["seuil_anxiete_insomnie"]
-    anx = steps[idx(j.extinction)]["emotions"]["anxiete"]
-    if anx > seuil:
-        raise Incoherence(f"anxiété à l'extinction {anx} > {seuil} : l'endormissement devrait durer 45 minutes")
+    SOM = fiche["sante"]["sommeil"]
+    seuil, seuil_exc = SOM["seuil_anxiete_insomnie"], SOM["seuil_excitation_insomnie"]
+    emo_ext = steps[idx(j.extinction)]["emotions"]
+    anx, exc = emo_ext["anxiete"], emo_ext["excitation"]
+    attendu_min = SOM["endormissement_minutes_si_anxieux"] if (anx > seuil or exc > seuil_exc) else SOM["endormissement_minutes_normal"]
+    if j.endormissement != attendu_min:
+        raise Incoherence(f"à l'extinction ({j.extinction}), anxiété {anx} et excitation {exc} : l'endormissement devrait durer "
+                          f"{attendu_min} minutes, la journée en prévoit {j.endormissement}")
 
     etat_final = {"piece": piece_prec, "besoins": {n: round(v, 4) for n, v in besoins.items()},
                   "emotions": {e: round(v, 4) for e, v in emo.items()}, "concentration": round(conc, 4),
                   "lumieres": {pc: v for pc, v in lumieres.items() if v}, "appareils": sorted(appareils),
-                  "positions": positions, "cafe": [c - PAS_PAR_JOUR for c in cafe if c + 36 > PAS_PAR_JOUR]}
+                  "positions": positions, "cafe": [c - PAS_PAR_JOUR for c in cafe if c + 36 > PAS_PAR_JOUR],
+                  "stock": stock}
     st_["anxiete_extinction"] = anx
+    st_["excitation_extinction"] = exc
     st_["seuil_insomnie"] = seuil
+    st_["seuil_excitation"] = seuil_exc
+    st_["endormissement_min"] = attendu_min
     return steps, etat_final, st_
 
 
 # ---------------------------------------------------------------- sorties
+def quantite(q, unite):
+    """« 1 steak », « 0 cuisse », « 3 steaks » : 0 et 1 au singulier, comme en français."""
+    if unite is None:
+        return "non suivi"
+    if q in (0, 1) and unite.endswith("s") and unite not in ("g",):
+        unite = unite[:-1]
+    return f"{q} {unite}"
+
+
 def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_md):
     B = fiche["besoins"]
     alertes = [f"{s['heure']} {n} = {v} (seuil {B[n]['seuil_alerte']})"
                for s in steps for n, v in s["besoins"].items() if n in B and v < B[n]["seuil_alerte"]]
-    conso = {}
+    conso, prod = {}, {}
     for s in steps:
-        for c in s.get("consommation", []):
-            conso.setdefault(c["produit"], []).append(str(c["quantite"]))
+        for x in s.get("consommation", []):
+            conso.setdefault(x["nom"], [0, x["unite"]])[0] += x["quantite"]
+        for x in s.get("production", []):
+            prod.setdefault(x["nom"], [0, x["unite"]])[0] += x["quantite"]
+    noms = {x["id"]: x for x in fiche["domicile"]["provisions_au_debut"] + fiche["domicile"]["produits_prepares"]}
+    stock_fin = {noms[k]["produit"]: quantite(v, noms[k]["unite"]) for k, v in etat_final["stock"].items()}
     nb_ev = {}
     for s in steps:
         for e in s.get("evenements", []):
@@ -422,9 +477,12 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
             "evenements_vecus": nb_ev,
             **j.resume,
             "objets_deplaces_position_finale": deplaces,
-            "provisions_consommees": conso,
+            "provisions_consommees": {k: (quantite(v[0], v[1]) if v[1] else "utilisés (non suivis)") for k, v in conso.items()},
+            "plats_prepares": {k: quantite(v[0], v[1]) for k, v in prod.items()},
+            "stock_en_fin_de_journee": stock_fin,
             "besoins_sous_le_seuil_d_alerte": alertes,
-            "endormissement": f"anxiété à l'extinction ({j.extinction}) : {st_['anxiete_extinction']} pour un seuil d'insomnie de {st_['seuil_insomnie']}",
+            "endormissement": (f"extinction à {j.extinction} ; anxiété {st_['anxiete_extinction']} (seuil {st_['seuil_insomnie']}), "
+                               f"excitation {st_['excitation_extinction']} (seuil {st_['seuil_excitation']}) : endormissement en {st_['endormissement_min']} minutes"),
             "ecarts_a_la_routine": j.ecarts,
         },
         "etat_initial": etat_initial,
@@ -486,21 +544,33 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
             L.append(f"- {s['heure']} : " + " ; ".join(parts))
 
     L += ["\n## Émotions au fil de la journée (calculées)\n",
-          "| Heure | Joie | Tristesse | Anxiété | Colère | Solitude | Fierté | Concentration | Événements du pas |",
-          "|---|---|---|---|---|---|---|---|---|"]
+          "| Heure | Joie | Tristesse | Anxiété | Colère | Solitude | Fierté | Excitation | Concentration | Événements du pas |",
+          "|---|---|---|---|---|---|---|---|---|---|"]
     for s in steps:
         if s.get("evenements") or s["heure"] in ("00:00", "12:00", "23:55"):
             if not s.get("evenements") and s["heure"] not in ("00:00", "12:00", "23:55"):
                 continue
             e = s["emotions"]
             cause = ", ".join(x["id"] for x in s.get("evenements", [])) or "—"
-            L.append(f"| {s['heure']} | {e['joie']:.2f} | {e['tristesse']:.2f} | {e['anxiete']:.2f} | {e['colere']:.2f} | {e['solitude']:.2f} | {e['fierte']:.2f} | {e['concentration']:.2f} | {cause} |")
+            L.append(f"| {s['heure']} | {e['joie']:.2f} | {e['tristesse']:.2f} | {e['anxiete']:.2f} | {e['colere']:.2f} | {e['solitude']:.2f} | {e['fierte']:.2f} | {e['excitation']:.2f} | {e['concentration']:.2f} | {cause} |")
 
     L += ["\n## Besoins au fil de la journée\n",
           "| Heure | Faim | Soif | Énergie | Énergie ressentie | Hygiène | Toilettes | Social | Détente |", "|---|---|---|---|---|---|---|---|---|"]
     for h in ["00:00", "07:00", "09:00", "12:30", "14:00", "17:00", "19:00", "22:00", "23:55"]:
         b = steps[idx(h)]["besoins"]
         L.append(f"| {h} | {b['faim']} | {b['soif']} | {b['energie']} | {b['energie_ressentie']} | {b['hygiene']} | {b['toilettes']} | {b['social']} | {b['detente']} |")
+
+    L += ["\n## Provisions\n", "| Produit | Consommé aujourd'hui | Reste |", "|---|---|---|"]
+    for k, v in conso.items():
+        pid = next((x for x in noms if noms[x]["produit"] == k), None)
+        reste = etat_final["stock"].get(pid) if pid else None
+        if v[1] is None:
+            L.append(f"| {k} | utilisés | non suivis |")
+        else:
+            L.append(f"| {k} | {quantite(v[0], v[1])} | {'—' if reste is None else quantite(reste, v[1])} |")
+    for k, v in prod.items():
+        pid = next((x for x in noms if noms[x]["produit"] == k), None)
+        L.append(f"| {k} (préparé : {quantite(v[0], v[1])}) | — | {quantite(etat_final['stock'].get(pid), v[1])} |")
 
     L += ["\n## Bilan\n"] + [f"- {x}" for x in j.bilan]
     L.append(f"- **Endormissement** : {out['resume']['endormissement']}.")

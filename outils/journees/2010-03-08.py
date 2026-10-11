@@ -3,7 +3,7 @@
 Thomas reste chez lui : atelier (Omega, début de la Rolex), cuisine, lecture,
 première séance de tournage de l'axe de la montre de son grand-père.
 """
-from moteur import Journee, idx, mv, off, on, onoff, p
+from moteur import Journee, c, pr, idx, mv, off, on, onoff, p
 
 
 def rediger():
@@ -65,13 +65,13 @@ def rediger():
           "Le paquet entamé suffira pour aujourd'hui et demain matin.", via=["sejour"],
           app=on("radio", "plaque-1"),
           objets=[mv("obj-cafetiere", "cuisine / égouttoir", "cuisine / plaque électrique")],
-          consommation=[{"produit": "café moulu", "quantite": "1 dose (paquet entamé)"}], radio=True),
+          consommation=[c("cafe_moulu", 7)], radio=True),
         p("Sort deux tranches de pain du congélateur et les fait griller à la poêle pendant que le café monte.",
           "Journée des femmes, dit la radio. Maman doit déjà être debout depuis une heure.", ev=["souvenir_tendre"],
-          consommation=[{"produit": "pain de campagne en tranches", "quantite": "2 tranches"}], radio=True),
+          consommation=[c("pain_tranches", 2)], radio=True),
         p("Éteint la plaque. Beurre ses tartines, met de la confiture d'abricot et se sert un café dans la tasse bleue.",
           None, app=off("plaque-1"), objets=[mv("obj-tasse", "cuisine / égouttoir", "cuisine / plan de travail")],
-          consommation=[{"produit": "beurre", "quantite": "10 g"}, {"produit": "confiture d'abricot", "quantite": "2 cuillères (pot entamé)"}],
+          consommation=[c("beurre", 10), c("confiture_abricot", 2)],
           effets={"faim": 40, "soif": 15, "cafe": True}, ev=["plaisir_simple"], radio=True),
         p("Mange debout près de la fenêtre en écoutant le journal.",
           "Papa écoute la même radio, à Besançon. Il fait sûrement semblant d'aller bien.", ev=["pensee_pere"], radio=True),
@@ -138,7 +138,7 @@ def rediger():
     ])
     j.seg("10:35", "Pause café", "cuisine", "rt-atelier", "eveille", "repos", "debout", [
         p("Se fait un café et boit un verre d'eau.", "Une heure et demie, et le rouage tourne déjà.", app=onoff(allume=["plaque-1"], eteint=["plaque-1"]),
-          consommation=[{"produit": "café moulu", "quantite": "1 dose (paquet entamé)"}],
+          consommation=[c("cafe_moulu", 7)],
           effets={"soif": 35, "cafe": True}, ev=["plaisir_simple"]),
         p("Rince la tasse, fait quelques étirements en regardant par la fenêtre.", "Les pigeons sur le toit d'en face. Toujours les mêmes, on dirait."),
     ])
@@ -162,10 +162,9 @@ def rediger():
         p("Pose ses lunettes. Allume le four à 200 °C. Dispose les deux cuisses de poulet dans un plat : une pour aujourd'hui, une pour demain.",
           "Quarante-cinq minutes de four. Il fallait y penser avant midi.", ev=["oubli_mineur"], app=on("four"),
           objets=[mv("obj-lunettes", "sur son nez", "atelier / établi, dans leur étui")],
-          consommation=[{"produit": "cuisses de poulet", "quantite": 2}]),
+          consommation=[c("cuisses_poulet", 2)]),
         p("Épluche quatre pommes de terre, les coupe en quartiers, ajoute huile, sel et herbes, et enfourne le tout.",
-          consommation=[{"produit": "pommes de terre", "quantite": "500 g"},
-                        {"produit": "condiments de base (huile, sel, poivre, herbes, moutarde)", "quantite": "une pincée d'herbes, un filet d'huile"}]),
+          consommation=[c("pommes_de_terre", 500), c("condiments", 1)]),
     ])
     j.seg("12:00", "Omega : premier contrôle de marche", "atelier", "rt-atelier", "travail", "precision", "assis", [
         p("Remet ses lunettes, pose le mouvement sur le chronocomparateur.", app=on("chronocomparateur"),
@@ -180,16 +179,18 @@ def rediger():
     j.seg("12:30", "Déjeuner", "sejour", "rt-atelier", "eveille", "repos", "debout", [
         p("Met une assiette et des couverts sur la table du séjour."),
         p("Retourne à la cuisine surveiller le four.", piece="cuisine"),
-        p("Éteint le four, sort le plat, sert une cuisse et la moitié des pommes de terre.", piece="cuisine", app=off("four")),
+        p("Éteint le four, sort le plat, sert une cuisse et la moitié des pommes de terre.", piece="cuisine", app=off("four"),
+          production=[pr("poulet_roti", 2), pr("pommes_de_terre_roties", 2)]),
         p("Déjeune seul à la table du séjour, avec un grand verre d'eau.", "Un poulet pour deux jours. Un poulet pour un.",
-          effets={"faim": 55, "soif": 20}, ev=["repas_seul", "plaisir_simple"], posture="assis"),
+          effets={"faim": 55, "soif": 20}, ev=["repas_seul", "plaisir_simple"], posture="assis",
+      consommation=[c("poulet_roti", 1), c("pommes_de_terre_roties", 1)]),
         p("Termine son assiette.", "Sophie aurait mis du thym. Elle mettait du thym partout.", ev=["pensee_sophie"], posture="assis"),
         p("Allume la radio pour le journal de 13 heures, débarrasse.", app=on("radio"), radio=True),
     ])
     j.seg("13:00", "Café et vaisselle", "cuisine", "rt-atelier", "eveille", "cuisine", "debout", [
         p("Laisse refroidir le plat.", radio=True),
         p("Met la cuisse restante et les pommes de terre dans une boîte au réfrigérateur.", "Demain midi, avec du riz.", radio=True),
-        p("Se fait un café.", app=onoff(allume=["plaque-1"], eteint=["plaque-1"]), consommation=[{"produit": "café moulu", "quantite": "1 dose (paquet entamé)"}],
+        p("Se fait un café.", app=onoff(allume=["plaque-1"], eteint=["plaque-1"]), consommation=[c("cafe_moulu", 7)],
           effets={"soif": 15, "cafe": True}, ev=["plaisir_simple"], radio=True),
         p("Lave le plat, l'assiette et les couverts.", radio=True),
         p("Essuie et range, rince la tasse et la cafetière. Passe au séjour éteindre la radio.", via_apres=["sejour"], app=off("radio")),
@@ -233,7 +234,7 @@ def rediger():
     ])
     j.seg("15:35", "Pause", "cuisine", "rt-atelier", "eveille", "repos", "debout", [
         p("Boit un verre d'eau, mange une pomme, étire son dos contre le chambranle.", "Plus de café après seize heures.",
-          consommation=[{"produit": "pommes", "quantite": 1}], effets={"soif": 20, "faim": 15}),
+          consommation=[c("pommes", 1)], effets={"soif": 20, "faim": 15}),
     ])
     j.seg("15:40", "Omega : emboîtage et contrôle final", "atelier", "rt-atelier", "travail", "precision", "assis", [
         p("Remet ses lunettes. Pose le mouvement dans la boîte et serre les vis de fixation.", ev=["operation_delicate"],
@@ -287,12 +288,12 @@ def rediger():
     j.seg("18:20", "Préparation de la soupe", "cuisine", "écart : préparation anticipée", "eveille", "cuisine", "debout", [
         p("Sort la marmite en fonte du placard. Épluche trois poireaux.",
           objets=[mv("obj-marmite", "cuisine / placard sous les plaques", "cuisine / plaque électrique")],
-          consommation=[{"produit": "poireaux", "quantite": 3}], radio=True),
-        p("Épluche les pommes de terre.", consommation=[{"produit": "pommes de terre", "quantite": "500 g"}], radio=True),
+          consommation=[c("poireaux", 3)], radio=True),
+        p("Épluche les pommes de terre.", consommation=[c("pommes_de_terre", 500)], radio=True),
         p("Coupe les légumes et un oignon.", "Une soupe pour quatre soirs. Maman faisait pareil.", ev=["souvenir_tendre"],
-          consommation=[{"produit": "oignons", "quantite": 1}], radio=True),
+          consommation=[c("oignons", 1)], radio=True),
         p("Allume la plaque et fait suer les poireaux et l'oignon dans un peu de beurre.", app=on("plaque-1"),
-          consommation=[{"produit": "beurre", "quantite": "20 g"}], radio=True),
+          consommation=[c("beurre", 20)], radio=True),
         p("Ajoute l'eau, les pommes de terre et le sel. Couvre, laisse cuire trente minutes.", radio=True),
     ])
     j.seg("18:45", "Lecture pendant la cuisson", "sejour", "rt-soir", "lecture", "lecture", "allongé", [
@@ -303,9 +304,10 @@ def rediger():
     ])
     j.seg("19:05", "Fin de la soupe", "cuisine", "rt-soir", "eveille", "cuisine", "debout", [
         p("Vérifie la cuisson à la pointe du couteau."),
-        p("Éteint la plaque, mixe la soupe au mixeur plongeant.", app=onoff(allume=["mixeur"], eteint=["plaque-1", "mixeur"])),
+        p("Éteint la plaque, mixe la soupe au mixeur plongeant.", app=onoff(allume=["mixeur"], eteint=["plaque-1", "mixeur"]),
+          production=[pr("soupe_poireaux", 4)]),
         p("Sert un bol, coupe un morceau de comté et une tranche de pain.",
-          consommation=[{"produit": "comté", "quantite": "50 g"}, {"produit": "pain de campagne en tranches", "quantite": "1 tranche"}]),
+          consommation=[c("soupe_poireaux", 1), c("comte", 50), c("pain_tranches", 1)]),
     ])
     j.seg("19:20", "Dîner", "sejour", "rt-soir", "eveille", "repos", "assis", [
         p("Dîne à la table du séjour, avec un verre d'eau.", "Bonne soupe. Il manque quelqu'un pour le dire.",
@@ -358,7 +360,7 @@ def rediger():
           objets=[mv("obj-lunettes", "sur son nez", "atelier / établi, dans leur étui")]),
     ])
     j.seg("22:10", "Chocolat", "cuisine", "rt-soir", "eveille", "repos", "debout", [
-        p("Mange deux carrés de chocolat noir et boit un verre d'eau.", consommation=[{"produit": "chocolat noir", "quantite": "2 carrés"}],
+        p("Mange deux carrés de chocolat noir et boit un verre d'eau.", consommation=[c("chocolat_noir", 2)],
           effets={"faim": 5, "soif": 20}, ev=["plaisir_simple"]),
     ])
     j.seg("22:15", "Toilette du soir", "salle-de-bain", "rt-soir", "eveille", "simple", "debout", [

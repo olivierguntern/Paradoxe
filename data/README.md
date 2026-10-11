@@ -37,7 +37,7 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 | `economie`, `travail` | Argent, charges, horaires, travaux en cours et ordre de priorité |
 | `lieux`, `trajets` | Domicile et parcours de course détaillés par segments (distance, dénivelé, durée) |
 | `immeuble` | Étage, escalier (66 marches), durées et efforts de montée et de descente |
-| `domicile` | Pièces (avec ou sans fenêtre), plan des liaisons et distances, petits déplacements par activité, mobilier, équipements, provisions |
+| `domicile` | Pièces (avec ou sans fenêtre), plan des liaisons et distances, petits déplacements par activité, mobilier, équipements, provisions chiffrées et plats préparés |
 | `menus_prevus` | Repas planifiés pour chaque jour |
 | `objets` | Objets avec leur emplacement réel au départ |
 | `connaissances` | Ce que le personnage sait ; ses croyances sur l'emplacement des objets |
@@ -49,7 +49,9 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 
 Les journées vécues sont stockées dans `data/timelines/<personnage>/<date>.json`, avec une version lisible `<date>.md`.
 
-Chaque pas de 5 minutes contient : heure, pièce, posture, routine suivie, activité, action, pensée (voix intérieure), rêve et phase de sommeil la nuit, déplacement (chemin, distance, durée, foulées), interrupteurs actionnés, appareils allumés, objets déplacés, provisions consommées, événements vécus avec leur effet sur chaque émotion, besoins et émotions à la fin du pas.
+Chaque pas de 5 minutes contient : heure, pièce, posture, routine suivie, activité, action, pensée (voix intérieure), rêve et phase de sommeil la nuit, déplacement (chemin, distance, durée, foulées, escalier, parcours extérieur), interrupteurs actionnés, appareils allumés, objets déplacés, provisions consommées ou plats préparés avec le stock restant, événements vécus avec leur effet sur chaque émotion, besoins et émotions à la fin du pas.
+
+Le stock de provisions est suivi d'un jour à l'autre : une journée qui consomme ce qui n'existe plus est refusée.
 
 Les émotions ne sont jamais fixées à la main : elles sont calculées à partir des événements, des besoins et du retour à l'état de base, selon `modele_emotionnel`.
 
@@ -57,6 +59,7 @@ Les émotions ne sont jamais fixées à la main : elles sont calculées à parti
 |---|---|
 | `timelines/thomas-berthier/2010-03-08.json` | Lundi 8 mars 2010 : atelier, cuisine, première séance sur l'axe |
 | `timelines/thomas-berthier/2010-03-09.json` | Mardi 9 mars 2010 : course à pied (escaliers, quais de Saône), Rolex, les pivots |
+| `timelines/thomas-berthier/2010-03-10.json` | Mercredi 10 mars 2010 : fin de la Rolex, pendule, lessive, trempe de l'axe, Real Madrid – Lyon |
 
 Ces fichiers sont générés par `outils/generer_journee.py` (voir `outils/README.md`).
 
