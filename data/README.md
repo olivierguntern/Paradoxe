@@ -29,13 +29,15 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 | `identite`, `apparence`, `sante` | Qui est le personnage, son corps, son sommeil, ses consommations, son activité physique |
 | `personnalite` | Big Five, traits, qualités, défauts |
 | `vie_interieure` | Valeurs, croyances, peurs, désirs, pensées récurrentes, préoccupations, déclencheurs émotionnels, mécanismes d'adaptation |
+| `modele_emotionnel` | Règles qui font découler les émotions des événements : état de base, demi-vies, catalogue d'événements, influence des besoins, concentration |
 | `etat_initial` | Lieu, activité, besoins et émotions au premier pas de la semaine |
 | `besoins` | Évolution de chaque besoin par pas de 5 minutes et ce qui le satisfait |
 | `competences`, `biographie` | Savoir-faire et passé daté |
 | `personnes_en_memoire` | Personnes qui existent seulement dans ses souvenirs et ses pensées |
 | `economie`, `travail` | Argent, charges, horaires, travaux en cours et ordre de priorité |
-| `lieux`, `trajets` | Domicile et parcours de course |
-| `domicile` | Pièces, mobilier, équipements, provisions |
+| `lieux`, `trajets` | Domicile et parcours de course détaillés par segments (distance, dénivelé, durée) |
+| `immeuble` | Étage, escalier (66 marches), durées et efforts de montée et de descente |
+| `domicile` | Pièces (avec ou sans fenêtre), plan des liaisons et distances, petits déplacements par activité, mobilier, équipements, provisions |
 | `menus_prevus` | Repas planifiés pour chaque jour |
 | `objets` | Objets avec leur emplacement réel au départ |
 | `connaissances` | Ce que le personnage sait ; ses croyances sur l'emplacement des objets |
@@ -47,7 +49,9 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 
 Les journées vécues sont stockées dans `data/timelines/<personnage>/<date>.json`, avec une version lisible `<date>.md`.
 
-Chaque pas de 5 minutes contient : heure, pièce, routine suivie, activité, action, pensée (voix intérieure), rêve et phase de sommeil la nuit, objets déplacés, provisions consommées, besoins et émotions à la fin du pas.
+Chaque pas de 5 minutes contient : heure, pièce, posture, routine suivie, activité, action, pensée (voix intérieure), rêve et phase de sommeil la nuit, déplacement (chemin, distance, durée, foulées), interrupteurs actionnés, appareils allumés, objets déplacés, provisions consommées, événements vécus avec leur effet sur chaque émotion, besoins et émotions à la fin du pas.
+
+Les émotions ne sont jamais fixées à la main : elles sont calculées à partir des événements, des besoins et du retour à l'état de base, selon `modele_emotionnel`.
 
 | Fichier | Contenu |
 |---|---|

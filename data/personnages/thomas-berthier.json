@@ -1,7 +1,7 @@
 {
   "meta": {
     "id": "thomas-berthier",
-    "version": 3,
+    "version": 4,
     "description": "Personnage d'étude n°1 : fiche complète servant de base à la génération de sa timeline sur une semaine, vécue seul.",
     "periode": {
       "debut": "2010-03-08T00:00",
@@ -23,6 +23,15 @@
       "besoins": "0 à 100 (100 = pleinement satisfait, 0 = critique)",
       "emotions_traits_souvenirs": "0 à 1",
       "heures": "HH:MM, toujours multiple de 5 minutes"
+    },
+    "ephemerides_lyon_approximatives": {
+      "2010-03-08": { "lever_soleil": "07:05", "coucher_soleil": "18:40" },
+      "2010-03-09": { "lever_soleil": "07:05", "coucher_soleil": "18:40" },
+      "2010-03-10": { "lever_soleil": "07:00", "coucher_soleil": "18:45" },
+      "2010-03-11": { "lever_soleil": "07:00", "coucher_soleil": "18:45" },
+      "2010-03-12": { "lever_soleil": "06:55", "coucher_soleil": "18:45" },
+      "2010-03-13": { "lever_soleil": "06:55", "coucher_soleil": "18:50" },
+      "2010-03-14": { "lever_soleil": "06:55", "coucher_soleil": "18:50" }
     },
     "faits_reels_utilises": [
       "Mercredi 10 mars 2010, 20h45 : Real Madrid – Olympique Lyonnais, 8e de finale retour de Ligue des champions, retransmis à la télévision.",
@@ -160,13 +169,17 @@
     ],
     "humeur_de_base": { "valence": 0.55, "activation": 0.45 },
     "declencheurs": [
-      { "situation": "un objet n'est pas à sa place habituelle", "reaction": "agacement puis inquiétude", "effet": { "anxiete": 0.15, "colere": 0.05 } },
-      { "situation": "réussir une opération délicate", "reaction": "satisfaction silencieuse", "effet": { "joie": 0.2, "fierte": 0.25, "anxiete": -0.1 } },
-      { "situation": "rater une opération ou casser une pièce", "reaction": "frustration, arrêt du travail pendant 15 minutes", "effet": { "colere": 0.25, "anxiete": 0.15, "fierte": -0.2 } },
-      { "situation": "prendre du retard sur son planning", "reaction": "tension, raccourcit ses pauses", "effet": { "anxiete": 0.15 } },
-      { "situation": "regarder la photo de son grand-père", "reaction": "émotion douce, motivation", "effet": { "tristesse": 0.1, "concentration": 0.1 } },
-      { "situation": "écouter Leonard Cohen", "reaction": "nostalgie, pense à Sophie", "effet": { "tristesse": 0.15, "solitude": 0.1 } },
-      { "situation": "fin d'une sortie de course", "reaction": "apaisement", "effet": { "anxiete": -0.2, "joie": 0.1 } }
+      { "situation": "un objet n'est pas à sa place habituelle", "reaction": "agacement puis inquiétude", "evenement": "objet_deplace" },
+      { "situation": "oublier lui-même un objet ailleurs", "reaction": "léger agacement contre lui-même", "evenement": "oubli_mineur" },
+      { "situation": "réussir un geste délicat", "reaction": "satisfaction silencieuse", "evenement": "geste_reussi" },
+      { "situation": "terminer un travail", "reaction": "fierté, soulagement", "evenement": "tache_terminee" },
+      { "situation": "rater une opération ou casser une pièce", "reaction": "frustration, arrêt du travail pendant 15 minutes", "evenement": "echec_operation" },
+      { "situation": "prendre du retard sur son planning", "reaction": "tension, raccourcit ses pauses", "evenement": "retard_planning" },
+      { "situation": "regarder la photo de son grand-père ou penser à lui", "reaction": "émotion douce, motivation", "evenement": "souvenir_grand_pere" },
+      { "situation": "penser à son père", "reaction": "inquiétude sourde", "evenement": "pensee_pere" },
+      { "situation": "penser à Sophie", "reaction": "nostalgie", "evenement": "pensee_sophie" },
+      { "situation": "manger seul", "reaction": "sentiment de vide léger", "evenement": "repas_seul" },
+      { "situation": "fin d'une sortie de course", "reaction": "apaisement", "evenement": "fin_de_course" }
     ],
     "mecanismes_adaptation": [
       { "condition": "anxiete > 0.6", "comportement": "range et nettoie ses outils, ou travaille sur la montre de son grand-père" },
@@ -175,6 +188,70 @@
       { "condition": "anxiete > 0.75", "comportement": "envie de cigarette ; ouvre la fenêtre et respire 5 minutes à la place" },
       { "condition": "solitude > 0.6", "comportement": "allume la radio (France Inter) pour entendre des voix" }
     ]
+  },
+
+  "modele_emotionnel": {
+    "principe": "Les émotions ne sont jamais fixées à la main : elles découlent des événements vécus, des besoins et du retour progressif à l'état de base. Chaque pas de 5 minutes applique les règles ci-dessous dans l'ordre.",
+    "etapes_de_calcul": [
+      "1. Retour vers l'état de base : e = base + (e - base) x 0,5^(1 / demi_vie). Pendant le sommeil, la demi-vie est divisée par deux.",
+      "2. Événements du pas : chaque événement ajoute ses effets. Les effets négatifs (hausse de tristesse, anxiété, colère, solitude ; baisse de joie ou de fierté) sont multipliés par (0,5 + névrosisme). Une pensée qui survient au lit le soir est multipliée par 1,5 (rumination).",
+      "3. Influence des besoins (éveillé seulement), voir couplages_besoins.",
+      "4. Valeurs bornées entre 0 et 1."
+    ],
+    "etat_de_base": {
+      "joie": 0.4,
+      "tristesse": 0.2,
+      "anxiete": 0.28,
+      "colere": 0.03,
+      "fierte": 0.35,
+      "solitude": "0,25 + 0,01 x max(0, 75 - besoin social)"
+    },
+    "demi_vie_pas": { "joie": 6, "tristesse": 12, "anxiete": 12, "colere": 4, "fierte": 24, "solitude": 12 },
+    "couplages_besoins": [
+      { "condition": "faim < 35", "effet_par_pas": { "colere": 0.01, "joie": -0.005 } },
+      { "condition": "energie < 30", "effet_par_pas": { "joie": -0.005, "colere": 0.005 } },
+      { "condition": "toilettes < 25", "effet_par_pas": { "anxiete": 0.01 } },
+      { "condition": "detente < 30", "effet_par_pas": { "colere": 0.005 } }
+    ],
+    "concentration": {
+      "principe": "Converge à chaque pas vers une cible qui dépend de l'activité : c = c + (cible - c) x 0,5.",
+      "cibles": { "precision": 0.85, "simple": 0.65, "lecture": 0.6, "cuisine": 0.45, "repos": 0.25, "sommeil": 0.0 },
+      "penalites": [
+        { "condition": "energie < 30", "effet_sur_cible": -0.15 },
+        { "condition": "anxiete > 0,5 ou tristesse > 0,5", "effet_sur_cible": -0.1 },
+        { "condition": "toilettes < 25", "effet_sur_cible": -0.1 }
+      ]
+    },
+    "seuil_insomnie": "si anxiete > 0,65 au moment d'éteindre, l'endormissement passe de 15 à 45 minutes",
+    "evenements": {
+      "reveil_sonnerie": { "description": "réveil brusque par la sonnerie", "effets": { "anxiete": 0.02 } },
+      "plaisir_simple": { "description": "café, chocolat, douche chaude, bonne odeur, bon repas", "effets": { "joie": 0.04 } },
+      "controle_conforme": { "description": "une vérification montre que tout est en ordre", "effets": { "joie": 0.04, "fierte": 0.03 } },
+      "geste_reussi": { "description": "un geste délicat réussi", "effets": { "joie": 0.08, "fierte": 0.08, "anxiete": -0.03 } },
+      "tache_terminee": { "description": "un travail terminé", "effets": { "joie": 0.2, "fierte": 0.25, "anxiete": -0.1 } },
+      "avance_planning": { "description": "constat d'avance sur le planning", "effets": { "anxiete": -0.08, "joie": 0.04 } },
+      "retard_planning": { "description": "constat de retard sur le planning", "effets": { "anxiete": 0.15 } },
+      "echec_operation": { "description": "opération ratée ou pièce cassée", "effets": { "colere": 0.25, "anxiete": 0.15, "fierte": -0.2 } },
+      "operation_delicate": { "description": "pas consacré à une opération délicate", "effets": { "anxiete": 0.03 } },
+      "mesure_incertaine": { "description": "doute sur une mesure", "effets": { "anxiete": 0.04 } },
+      "anticipation_delicate": { "description": "penser à une opération délicate à venir", "effets": { "anxiete": 0.04 } },
+      "beaute_du_geste": { "description": "plaisir esthétique du travail", "effets": { "joie": 0.1 } },
+      "repos_merite": { "description": "la journée de travail est finie", "effets": { "joie": 0.05, "anxiete": -0.05 } },
+      "jours_rallongent": { "description": "remarquer la lumière du soir", "effets": { "joie": 0.03 } },
+      "souvenir_grand_pere": { "description": "photo, souvenir ou pensée du grand-père", "effets": { "tristesse": 0.05, "joie": 0.03 }, "concentration": 0.05 },
+      "reve_grand_pere": { "description": "rêve de l'atelier du grand-père", "effets": { "tristesse": 0.04 } },
+      "souvenir_tendre": { "description": "souvenir affectueux de sa mère ou de l'enfance", "effets": { "joie": 0.03, "tristesse": 0.02 } },
+      "pensee_pere": { "description": "pensée pour son père malade", "effets": { "anxiete": 0.07, "tristesse": 0.04 } },
+      "pensee_sophie": { "description": "pensée pour Sophie", "effets": { "tristesse": 0.07, "solitude": 0.04 } },
+      "lecture_emouvante": { "description": "passage de livre qui touche", "effets": { "tristesse": 0.04 } },
+      "repas_seul": { "description": "manger seul", "effets": { "solitude": 0.05, "tristesse": 0.02 } },
+      "constat_isolement": { "description": "prendre conscience de son isolement", "effets": { "solitude": 0.08, "tristesse": 0.04 } },
+      "oubli_mineur": { "description": "constater un petit oubli de sa part", "effets": { "colere": 0.04 } },
+      "objet_deplace": { "description": "un objet n'est pas là où il le croyait", "effets": { "anxiete": 0.15, "colere": 0.05 } },
+      "ecriture_carnet": { "description": "écrire dans son carnet", "effets": { "anxiete": -0.08, "tristesse": -0.03 } },
+      "effort_physique": { "description": "effort soutenu (course, escaliers)", "effets": { "anxiete": -0.02 } },
+      "fin_de_course": { "description": "fin d'une sortie de course", "effets": { "anxiete": -0.2, "joie": 0.1 } }
+    }
   },
 
   "etat_initial": {
@@ -353,21 +430,82 @@
   ],
 
   "trajets": [
-    { "de": "domicile", "a": "quais-de-saone", "moyen": "course à pied (descente des pentes)", "duree_minutes": 10 },
-    { "de": "quais-de-saone", "a": "domicile", "moyen": "course à pied puis marche dans la montée", "duree_minutes": 15 }
+    {
+      "id": "trajet-course-courte",
+      "nom": "Boucle courte de course à pied (environ 7 km)",
+      "valeurs": "approximatives",
+      "segments": [
+        { "de": "appartement", "a": "rue", "moyen": "escalier (descente de 3 étages)", "duree_minutes": 1 },
+        { "de": "rue", "a": "bord de Saône", "moyen": "course, descente des pentes de la Croix-Rousse", "distance_m": 1500, "denivele_m": -85, "duree_minutes": 9 },
+        { "de": "bord de Saône", "a": "bord de Saône", "moyen": "course le long des quais, aller-retour vers le nord", "distance_m": 4000, "denivele_m": 0, "duree_minutes": 25 },
+        { "de": "bord de Saône", "a": "rue", "moyen": "course puis marche dans la montée des pentes", "distance_m": 1500, "denivele_m": 85, "duree_minutes": 14 },
+        { "de": "rue", "a": "appartement", "moyen": "escalier (montée de 3 étages)", "duree_minutes": 1 }
+      ]
+    },
+    {
+      "id": "trajet-course-longue",
+      "nom": "Boucle longue de course à pied (environ 12 km)",
+      "valeurs": "approximatives",
+      "segments": [
+        { "de": "appartement", "a": "rue", "moyen": "escalier (descente de 3 étages)", "duree_minutes": 1 },
+        { "de": "rue", "a": "bord de Saône", "moyen": "course, descente des pentes", "distance_m": 1500, "denivele_m": -85, "duree_minutes": 9 },
+        { "de": "bord de Saône", "a": "bord de Saône", "moyen": "course le long des quais, aller-retour vers le nord", "distance_m": 9000, "denivele_m": 0, "duree_minutes": 65 },
+        { "de": "bord de Saône", "a": "rue", "moyen": "marche dans la montée des pentes", "distance_m": 1500, "denivele_m": 85, "duree_minutes": 14 },
+        { "de": "rue", "a": "appartement", "moyen": "escalier (montée de 3 étages)", "duree_minutes": 1 }
+      ]
+    }
   ],
+
+  "immeuble": {
+    "description": "Ancien immeuble de canuts, cage d'escalier en pierre, sans ascenseur.",
+    "etage_appartement": 3,
+    "ascenseur": false,
+    "marches_par_etage": 22,
+    "hauteur_marche_cm": 17,
+    "marches_total": 66,
+    "eclairage_escalier": "minuterie de 2 minutes, interrupteur à chaque palier",
+    "porte_immeuble": "porte en bois à digicode donnant sur la rue",
+    "deplacement": {
+      "descente_secondes": 45,
+      "montee_secondes_marche": 70,
+      "montee_secondes_apres_course": 90,
+      "effets_montee": { "energie": -1.0, "soif": -0.5 },
+      "effets_descente": { "energie": -0.3 }
+    }
+  },
 
   "domicile": {
     "lieu_id": "domicile",
     "pieces": [
-      { "id": "entree", "nom": "Entrée", "surface_m2": 4, "mobilier": ["porte-manteau", "commode basse avec vide-poche", "tiroir de la commode", "meuble à chaussures"] },
-      { "id": "sejour", "nom": "Séjour", "surface_m2": 20, "mobilier": ["canapé", "table basse", "table à manger et deux chaises", "bibliothèque", "chaîne hi-fi avec radio", "petit téléviseur"] },
-      { "id": "atelier", "nom": "Atelier (ancienne deuxième chambre)", "surface_m2": 10, "mobilier": ["établi d'horloger devant la fenêtre", "tiroir de l'établi", "tour d'horloger", "lampe d'établi", "chronocomparateur", "contrôleur d'étanchéité", "petit coffre-fort pour les montres des clients", "étagère de fournitures", "machine à nettoyer à ultrasons"] },
-      { "id": "cuisine", "nom": "Cuisine", "surface_m2": 7, "mobilier": ["plaques électriques", "four", "poêle", "mixeur plongeant", "réfrigérateur avec petit congélateur", "placard à provisions", "évier", "égouttoir", "machine à laver"] },
-      { "id": "chambre", "nom": "Chambre", "surface_m2": 12, "mobilier": ["lit double", "table de chevet", "armoire", "étendoir pliant"] },
-      { "id": "salle-de-bain", "nom": "Salle de bain", "surface_m2": 4, "mobilier": ["douche", "lavabo", "étagère", "panier à linge"] },
-      { "id": "wc", "nom": "WC", "surface_m2": 1, "mobilier": [] }
+      { "id": "entree", "nom": "Entrée", "surface_m2": 4, "fenetre": false, "mobilier": ["porte-manteau", "commode basse avec vide-poche", "tiroir de la commode", "meuble à chaussures"] },
+      { "id": "couloir", "nom": "Couloir", "surface_m2": 3, "fenetre": false, "mobilier": ["interrupteur à chaque extrémité"] },
+      { "id": "sejour", "nom": "Séjour", "surface_m2": 20, "fenetre": true, "mobilier": ["canapé", "table basse", "table à manger et deux chaises", "bibliothèque", "chaîne hi-fi avec radio", "petit téléviseur"] },
+      { "id": "atelier", "nom": "Atelier (ancienne deuxième chambre)", "surface_m2": 10, "fenetre": true, "mobilier": ["établi d'horloger devant la fenêtre", "tiroir de l'établi", "tour d'horloger", "lampe d'établi", "chronocomparateur", "contrôleur d'étanchéité", "petit coffre-fort pour les montres des clients", "étagère de fournitures", "machine à nettoyer à ultrasons"] },
+      { "id": "cuisine", "nom": "Cuisine", "surface_m2": 7, "fenetre": true, "mobilier": ["plaques électriques", "four", "poêle", "mixeur plongeant", "réfrigérateur avec petit congélateur", "placard à provisions", "évier", "égouttoir", "machine à laver"] },
+      { "id": "chambre", "nom": "Chambre", "surface_m2": 12, "fenetre": true, "mobilier": ["lit double", "table de chevet avec lampe de chevet", "armoire", "étendoir pliant"] },
+      { "id": "salle-de-bain", "nom": "Salle de bain", "surface_m2": 4, "fenetre": false, "mobilier": ["douche", "lavabo", "étagère", "panier à linge"] },
+      { "id": "wc", "nom": "WC", "surface_m2": 1, "fenetre": false, "mobilier": [] }
     ],
+    "plan": {
+      "principe": "Graphe des pièces : chaque liaison passe par une porte. Les déplacements suivent le chemin le plus court.",
+      "vitesse_marche_m_s": 1.0,
+      "longueur_foulee_m": 0.72,
+      "deplacements_dans_la_piece": {
+        "principe": "Petits déplacements à l'intérieur d'une pièce (aller au placard, à l'évier, à l'étagère), estimés par pas de 5 minutes selon l'activité ; divisés par 3 quand il est assis ou allongé.",
+        "metres_par_pas": { "precision": 1.0, "simple": 5.0, "cuisine": 10.0, "lecture": 0.5, "repos": 2.0, "sommeil": 0.0 },
+        "facteur_assis_ou_allonge": 0.3
+      },
+      "liaisons": [
+        { "a": "palier", "b": "entree", "distance_m": 1.5, "porte": "porte d'entrée (fermée à clé en son absence)" },
+        { "a": "entree", "b": "sejour", "distance_m": 4.0 },
+        { "a": "entree", "b": "couloir", "distance_m": 2.0 },
+        { "a": "couloir", "b": "chambre", "distance_m": 3.5 },
+        { "a": "couloir", "b": "salle-de-bain", "distance_m": 2.5 },
+        { "a": "couloir", "b": "wc", "distance_m": 2.0 },
+        { "a": "sejour", "b": "cuisine", "distance_m": 4.5 },
+        { "a": "sejour", "b": "atelier", "distance_m": 5.0 }
+      ]
+    },
     "equipements": {
       "chauffage": "radiateurs électriques, réglés sur 19 °C, 17 °C la nuit",
       "television": "petit téléviseur, allumé seulement pour les matchs et parfois le journal",
@@ -474,7 +612,8 @@
       { "id": "aut-coffre", "description": "Remet les montres des clients dans le coffre chaque soir et range la clé dans le tiroir de l'établi.", "objets": ["obj-cles-coffre", "obj-rolex", "obj-zenith", "obj-lot-quartz"] },
       { "id": "aut-vaisselle", "description": "Ne laisse jamais de vaisselle dans l'évier le soir, sauf si l'anxiété dépasse 0.7.", "condition": "anxiete <= 0.7" },
       { "id": "aut-tasse", "description": "Boit toujours son café dans la tasse bleue, puis la rince et la pose sur l'égouttoir.", "objets": ["obj-tasse", "obj-cafetiere"] },
-      { "id": "aut-eau", "description": "Boit un verre d'eau à chaque pause et en se levant." }
+      { "id": "aut-eau", "description": "Boit un verre d'eau à chaque pause et en se levant." },
+      { "id": "aut-lumiere", "description": "Allume en entrant dans une pièce sans fenêtre ou quand il fait nuit, éteint toujours en sortant, sauf pour un aller-retour de quelques secondes." }
     ],
     "routines": [
       {
