@@ -1,7 +1,7 @@
 {
   "meta": {
     "id": "thomas-berthier",
-    "version": 4,
+    "version": 5,
     "description": "Personnage d'étude n°1 : fiche complète servant de base à la génération de sa timeline sur une semaine, vécue seul.",
     "periode": {
       "debut": "2010-03-08T00:00",
@@ -240,6 +240,7 @@
       "jours_rallongent": { "description": "remarquer la lumière du soir", "effets": { "joie": 0.03 } },
       "souvenir_grand_pere": { "description": "photo, souvenir ou pensée du grand-père", "effets": { "tristesse": 0.05, "joie": 0.03 }, "concentration": 0.05 },
       "reve_grand_pere": { "description": "rêve de l'atelier du grand-père", "effets": { "tristesse": 0.04 } },
+      "reve_inquiet": { "description": "rêve teinté d'inquiétude", "effets": { "anxiete": 0.03 } },
       "souvenir_tendre": { "description": "souvenir affectueux de sa mère ou de l'enfance", "effets": { "joie": 0.03, "tristesse": 0.02 } },
       "pensee_pere": { "description": "pensée pour son père malade", "effets": { "anxiete": 0.07, "tristesse": 0.04 } },
       "pensee_sophie": { "description": "pensée pour Sophie", "effets": { "tristesse": 0.07, "solitude": 0.04 } },
@@ -293,9 +294,9 @@
       "satisfaction": { "verre_eau": 20, "boisson_chaude": 15 }
     },
     "energie": {
-      "variation_par_pas": { "eveille": -0.4, "effort_physique": -1.2, "endormi": 1.0, "sieste": 0.8 },
+      "variation_par_pas": { "eveille": -0.4, "effort_physique": -0.8, "endormi": 1.0, "sieste": 0.8 },
       "seuil_alerte": 25,
-      "notes": "Le café donne +8 d'énergie ressentie pendant 2 h (24 pas), puis -4 pendant 1 h (12 pas). Taux d'éveil ajusté de -0.45 à -0.4 après l'écriture du lundi : avec -0.45, Thomas finissait une journée ordinaire épuisé (énergie 14)."
+      "notes": "Le café donne +8 d'énergie ressentie pendant 2 h (24 pas), puis -4 pendant 1 h (12 pas). Taux d'éveil ajusté de -0.45 à -0.4 après l'écriture du lundi : avec -0.45, Thomas finissait une journée ordinaire épuisé (énergie 14). Coût de l'effort ajusté de -1.2 à -0.8 après l'écriture du mardi : une course de 50 minutes à allure modérée lui coûtait autant que trois heures d'éveil."
     },
     "hygiene": {
       "variation_par_pas": { "eveille": -0.12, "endormi": -0.05, "effort_physique": -0.8 },
@@ -465,6 +466,7 @@
     "marches_total": 66,
     "eclairage_escalier": "minuterie de 2 minutes, interrupteur à chaque palier",
     "porte_immeuble": "porte en bois à digicode donnant sur la rue",
+    "local_poubelles": "au rez-de-chaussée, sur la cour, à côté de la porte d'entrée",
     "deplacement": {
       "descente_secondes": 45,
       "montee_secondes_marche": 70,
@@ -480,7 +482,7 @@
       { "id": "entree", "nom": "Entrée", "surface_m2": 4, "fenetre": false, "mobilier": ["porte-manteau", "commode basse avec vide-poche", "tiroir de la commode", "meuble à chaussures"] },
       { "id": "couloir", "nom": "Couloir", "surface_m2": 3, "fenetre": false, "mobilier": ["interrupteur à chaque extrémité"] },
       { "id": "sejour", "nom": "Séjour", "surface_m2": 20, "fenetre": true, "mobilier": ["canapé", "table basse", "table à manger et deux chaises", "bibliothèque", "chaîne hi-fi avec radio", "petit téléviseur"] },
-      { "id": "atelier", "nom": "Atelier (ancienne deuxième chambre)", "surface_m2": 10, "fenetre": true, "mobilier": ["établi d'horloger devant la fenêtre", "tiroir de l'établi", "tour d'horloger", "lampe d'établi", "chronocomparateur", "contrôleur d'étanchéité", "petit coffre-fort pour les montres des clients", "étagère de fournitures", "machine à nettoyer à ultrasons"] },
+      { "id": "atelier", "nom": "Atelier (ancienne deuxième chambre)", "surface_m2": 10, "fenetre": true, "mobilier": ["établi d'horloger devant la fenêtre", "tiroir de l'établi", "tour d'horloger", "lampe d'établi", "chronocomparateur", "contrôleur d'étanchéité", "lampe à alcool", "petit pot d'huile de trempe", "petit coffre-fort pour les montres des clients", "étagère de fournitures", "machine à nettoyer à ultrasons"] },
       { "id": "cuisine", "nom": "Cuisine", "surface_m2": 7, "fenetre": true, "mobilier": ["plaques électriques", "four", "poêle", "mixeur plongeant", "réfrigérateur avec petit congélateur", "placard à provisions", "évier", "égouttoir", "machine à laver"] },
       { "id": "chambre", "nom": "Chambre", "surface_m2": 12, "fenetre": true, "mobilier": ["lit double", "table de chevet avec lampe de chevet", "armoire", "étendoir pliant"] },
       { "id": "salle-de-bain", "nom": "Salle de bain", "surface_m2": 4, "fenetre": false, "mobilier": ["douche", "lavabo", "étagère", "panier à linge"] },
@@ -490,6 +492,7 @@
       "principe": "Graphe des pièces : chaque liaison passe par une porte. Les déplacements suivent le chemin le plus court.",
       "vitesse_marche_m_s": 1.0,
       "longueur_foulee_m": 0.72,
+      "longueur_foulee_course_m": 1.05,
       "deplacements_dans_la_piece": {
         "principe": "Petits déplacements à l'intérieur d'une pièce (aller au placard, à l'évier, à l'étagère), estimés par pas de 5 minutes selon l'activité ; divisés par 3 quand il est assis ou allongé.",
         "metres_par_pas": { "precision": 1.0, "simple": 5.0, "cuisine": 10.0, "lecture": 0.5, "repos": 2.0, "sommeil": 0.0 },
@@ -587,6 +590,7 @@
     { "id": "obj-marmite", "nom": "Marmite en fonte", "emplacement_initial": { "lieu": "domicile", "piece": "cuisine", "support": "placard sous les plaques" }, "importance": 0.3 },
     { "id": "obj-tenue-course", "nom": "Tenue de course (collant, tee-shirt technique, coupe-vent, bonnet)", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "armoire, étagère du bas" }, "importance": 0.4 },
     { "id": "obj-chaussures-course", "nom": "Chaussures de course", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "meuble à chaussures" }, "importance": 0.5 },
+    { "id": "obj-poubelle", "nom": "Sac-poubelle de la cuisine", "description": "Plein aux trois quarts (épluchures, os de poulet, emballages).", "emplacement_initial": { "lieu": "domicile", "piece": "cuisine", "support": "poubelle sous l'évier" }, "importance": 0.1 },
     { "id": "obj-panier-linge", "nom": "Panier à linge", "emplacement_initial": { "lieu": "domicile", "piece": "salle-de-bain", "support": "sol" }, "importance": 0.3 },
     { "id": "obj-etendoir", "nom": "Étendoir pliant", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "replié derrière la porte" }, "importance": 0.2 }
   ],
@@ -613,6 +617,8 @@
       { "id": "aut-vaisselle", "description": "Ne laisse jamais de vaisselle dans l'évier le soir, sauf si l'anxiété dépasse 0.7.", "condition": "anxiete <= 0.7" },
       { "id": "aut-tasse", "description": "Boit toujours son café dans la tasse bleue, puis la rince et la pose sur l'égouttoir.", "objets": ["obj-tasse", "obj-cafetiere"] },
       { "id": "aut-eau", "description": "Boit un verre d'eau à chaque pause et en se levant." },
+      { "id": "aut-fatigue", "description": "Quand son énergie passe sous le seuil d'alerte (25) le soir, il écourte ce qu'il fait, remet au lendemain ce qui peut attendre et se couche plus tôt.", "condition": "energie < 25 après 20:00" },
+      { "id": "aut-poubelle", "description": "Descend la poubelle quand il part courir, si elle est plus qu'à moitié pleine.", "objets": ["obj-poubelle"] },
       { "id": "aut-lumiere", "description": "Allume en entrant dans une pièce sans fenêtre ou quand il fait nuit, éteint toujours en sortant, sauf pour un aller-retour de quelques secondes." }
     ],
     "routines": [

@@ -55,7 +55,10 @@ Les émotions ne sont jamais fixées à la main : elles sont calculées à parti
 
 | Fichier | Contenu |
 |---|---|
-| `timelines/thomas-berthier/2010-03-08.json` | Lundi 8 mars 2010, journée de référence rédigée à la main |
+| `timelines/thomas-berthier/2010-03-08.json` | Lundi 8 mars 2010 : atelier, cuisine, première séance sur l'axe |
+| `timelines/thomas-berthier/2010-03-09.json` | Mardi 9 mars 2010 : course à pied (escaliers, quais de Saône), Rolex, les pivots |
+
+Ces fichiers sont générés par `outils/generer_journee.py` (voir `outils/README.md`).
 
 ## Personnages
 

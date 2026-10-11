@@ -1,22 +1,23 @@
 {
  "meta": {
   "personnage": "thomas-berthier",
-  "fiche_version": 4,
+  "fiche_version": 5,
   "date": "2010-03-08",
   "jour": "lundi",
   "pas_minutes": 5,
   "nombre_de_pas": 288,
   "methode": [
-   "Rédigé à la main : actions, pensées, rêves, événements vécus, objets déplacés, appareils utilisés.",
-   "Calculé avec les règles de la fiche : déplacements (plan de l'appartement), lumière (éphémérides et automatisme), besoins, émotions (modele_emotionnel) et concentration.",
-   "Aucune émotion n'est fixée à la main : chaque variation provient d'un événement listé, d'un besoin ou du retour à l'état de base."
+   "Rédigé à la main dans outils/journees/2010-03-08.py : actions, pensées, rêves, événements vécus, objets déplacés, appareils utilisés.",
+   "Calculé par outils/moteur.py avec les règles de la fiche : déplacements, lumière, besoins, émotions et concentration.",
+   "Aucune émotion n'est fixée à la main : chaque variation provient d'un événement listé, d'un besoin ou du retour à l'état de base.",
+   "La journée part de l'état exact de la fin de la veille (etat_initial), ou de la fiche pour le premier jour."
   ],
   "champs": {
    "besoins, emotions": "valeurs à la fin du pas",
-   "deplacement": "chemin parcouru au début du pas, distance, durée et nombre de foulées",
+   "deplacement": "chemin dans l'appartement (distance, durée, foulées), escalier, parcours extérieur",
    "lumiere": "interrupteurs actionnés pendant le pas",
    "appareils_allumes": "appareils et lumières allumés à la fin du pas",
-   "evenements": "événements vécus pendant le pas et effet appliqué sur chaque émotion (après modulation par la personnalité)",
+   "evenements": "événements vécus et effet appliqué sur chaque émotion (après modulation par la personnalité)",
    "besoins.energie_ressentie": "énergie corrigée de l'effet du café"
   }
  },
@@ -24,11 +25,13 @@
   "deplacements": {
    "entre_pieces_m": 325,
    "dans_les_pieces_m_estimes": 410,
+   "exterieur_m": 0,
    "total_m": 735,
-   "foulees_total": 1021,
+   "foulees_et_marches": 1021,
    "passages_de_piece": 92,
    "marches_d_escalier": 0,
-   "remarque": "Thomas ne sort pas le lundi : aucun escalier ni trajet extérieur. Les escaliers apparaissent le mardi (course à pied)."
+   "denivele_positif_m": 0,
+   "denivele_negatif_m": 0
   },
   "lumiere": {
    "allumages": 59
@@ -69,7 +72,7 @@
    "obj-montre-poignet": "chambre / table de chevet",
    "obj-cafetiere": "cuisine / égouttoir",
    "obj-tasse": "cuisine / égouttoir",
-   "obj-netbook": "séjour / bibliothèque, étagère du bas",
+   "obj-netbook": "sejour / bibliothèque, étagère du bas",
    "obj-cles-coffre": "atelier / tiroir de l'établi, à droite",
    "obj-lunettes": "atelier / établi, dans leur étui",
    "obj-livre": "chambre / table de chevet",
@@ -126,34 +129,123 @@
    "23:05 energie = 24.8 (seuil 25)",
    "23:10 energie = 24.4 (seuil 25)"
   ],
-  "endormissement": "anxiété à l'extinction : 0.274 (seuil d'insomnie 0.65) → endormissement en 15 minutes",
+  "endormissement": "anxiété à l'extinction (23:00) : 0.274 pour un seuil d'insomnie de 0.65",
   "ecarts_a_la_routine": [
    "11:50-12:00 : mise au four du poulet avant le déjeuner (45 min de cuisson), pris sur le temps de travail.",
    "18:20-18:45 : préparation de la soupe pendant le temps libre (cuisson de 30 min).",
    "19:20 : dîner plus tardif que la routine (19:00) à cause de la cuisson.",
    "22:35 : aller-retour au séjour pour chercher le livre oublié sur la table basse."
-  ],
-  "etat_a_23h55": {
-   "besoins": {
-    "faim": 80.2,
-    "soif": 70.2,
-    "energie": 33.4,
-    "hygiene": 86.6,
-    "toilettes": 84.8,
-    "social": 66.6,
-    "detente": 96.4,
-    "energie_ressentie": 33.4
-   },
-   "emotions": {
-    "joie": 0.399,
-    "tristesse": 0.205,
-    "anxiete": 0.299,
-    "colere": 0.032,
-    "solitude": 0.336,
-    "fierte": 0.405,
-    "concentration": 0.0
-   }
-  }
+  ]
+ },
+ "etat_initial": {
+  "piece": "chambre",
+  "besoins": {
+   "faim": 60,
+   "soif": 65,
+   "energie": 35,
+   "hygiene": 70,
+   "toilettes": 75,
+   "social": 70,
+   "detente": 60
+  },
+  "emotions": {
+   "joie": 0.4,
+   "tristesse": 0.2,
+   "anxiete": 0.35,
+   "colere": 0.05,
+   "solitude": 0.35,
+   "fierte": 0.35
+  },
+  "concentration": 0.5,
+  "lumieres": {},
+  "appareils": [],
+  "positions": {
+   "obj-cles": "entree / vide-poche de la commode",
+   "obj-montre-poignet": "chambre / table de chevet",
+   "obj-reveil": "chambre / table de chevet",
+   "obj-portefeuille": "entree / tiroir de la commode",
+   "obj-carnet": "chambre / table de chevet, sous le livre",
+   "obj-livre": "chambre / table de chevet",
+   "obj-montre-gousset": "atelier / établi, sous une cloche en verre",
+   "obj-acier-axe": "atelier / tiroir de l'établi",
+   "obj-photo-grand-pere": "atelier / établi, à gauche de la lampe",
+   "obj-outils": "atelier / établi",
+   "obj-lunettes": "atelier / établi, dans leur étui",
+   "obj-omega": "atelier / établi, démontée dans un plateau",
+   "obj-rolex": "atelier / coffre-fort",
+   "obj-pendule": "atelier / étagère de fournitures, étage du bas",
+   "obj-lot-quartz": "atelier / coffre-fort, dans une boîte étiquetée",
+   "obj-zenith": "atelier / coffre-fort",
+   "obj-ressort-rolex": "atelier / tiroir de l'établi",
+   "obj-cles-coffre": "atelier / tiroir de l'établi, à droite",
+   "obj-classeur-compta": "atelier / étagère de fournitures, étage du haut",
+   "obj-netbook": "sejour / bibliothèque, étagère du bas",
+   "obj-telecommande": "sejour / table basse",
+   "obj-cafetiere": "cuisine / égouttoir",
+   "obj-tasse": "cuisine / égouttoir",
+   "obj-marmite": "cuisine / placard sous les plaques",
+   "obj-tenue-course": "chambre / armoire, étagère du bas",
+   "obj-chaussures-course": "entree / meuble à chaussures",
+   "obj-poubelle": "cuisine / poubelle sous l'évier",
+   "obj-panier-linge": "salle-de-bain / sol",
+   "obj-etendoir": "chambre / replié derrière la porte"
+  },
+  "cafe": []
+ },
+ "etat_final": {
+  "piece": "chambre",
+  "besoins": {
+   "faim": 80.2,
+   "soif": 70.25,
+   "energie": 33.4,
+   "hygiene": 86.63,
+   "toilettes": 84.75,
+   "social": 66.63,
+   "detente": 96.4
+  },
+  "emotions": {
+   "joie": 0.3986,
+   "tristesse": 0.2045,
+   "anxiete": 0.2987,
+   "colere": 0.0318,
+   "solitude": 0.3356,
+   "fierte": 0.4046
+  },
+  "concentration": 0.0002,
+  "lumieres": {},
+  "appareils": [],
+  "positions": {
+   "obj-cles": "entree / vide-poche de la commode",
+   "obj-montre-poignet": "chambre / table de chevet",
+   "obj-reveil": "chambre / table de chevet",
+   "obj-portefeuille": "entree / tiroir de la commode",
+   "obj-carnet": "chambre / table de chevet, sous le livre",
+   "obj-livre": "chambre / table de chevet",
+   "obj-montre-gousset": "atelier / établi, sous une cloche en verre",
+   "obj-acier-axe": "atelier / établi, boîte à côté de la montre de gousset (ébauche d'axe)",
+   "obj-photo-grand-pere": "atelier / établi, à gauche de la lampe",
+   "obj-outils": "atelier / établi",
+   "obj-lunettes": "atelier / établi, dans leur étui",
+   "obj-omega": "atelier / coffre-fort, remontée, en observation",
+   "obj-rolex": "atelier / coffre-fort",
+   "obj-pendule": "atelier / étagère de fournitures, étage du bas",
+   "obj-lot-quartz": "atelier / coffre-fort, dans une boîte étiquetée",
+   "obj-zenith": "atelier / coffre-fort",
+   "obj-ressort-rolex": "atelier / tiroir de l'établi",
+   "obj-cles-coffre": "atelier / tiroir de l'établi, à droite",
+   "obj-classeur-compta": "atelier / étagère de fournitures, étage du haut",
+   "obj-netbook": "sejour / bibliothèque, étagère du bas",
+   "obj-telecommande": "sejour / table basse",
+   "obj-cafetiere": "cuisine / égouttoir",
+   "obj-tasse": "cuisine / égouttoir",
+   "obj-marmite": "cuisine / réfrigérateur",
+   "obj-tenue-course": "chambre / armoire, étagère du bas",
+   "obj-chaussures-course": "entree / meuble à chaussures",
+   "obj-poubelle": "cuisine / poubelle sous l'évier",
+   "obj-panier-linge": "salle-de-bain / sol",
+   "obj-etendoir": "chambre / replié derrière la porte"
+  },
+  "cafe": []
  },
  "pas": [
   {
@@ -3504,8 +3596,8 @@
    "objets": [
     {
      "objet": "obj-netbook",
-     "de": "séjour / bibliothèque, étagère du bas",
-     "vers": "séjour / table basse"
+     "de": "sejour / bibliothèque, étagère du bas",
+     "vers": "sejour / table basse"
     }
    ],
    "lumiere": [
@@ -3754,8 +3846,8 @@
    "objets": [
     {
      "objet": "obj-netbook",
-     "de": "séjour / table basse",
-     "vers": "séjour / bibliothèque, étagère du bas"
+     "de": "sejour / table basse",
+     "vers": "sejour / bibliothèque, étagère du bas"
     }
    ],
    "appareils_allumes": [
@@ -3923,7 +4015,7 @@
    "objets": [
     {
      "objet": "obj-cles-coffre",
-     "de": "atelier / tiroir de l'établi",
+     "de": "atelier / tiroir de l'établi, à droite",
      "vers": "atelier / serrure du coffre"
     }
    ],
@@ -6342,7 +6434,7 @@
     {
      "objet": "obj-livre",
      "de": "dans sa main",
-     "vers": "séjour / table basse"
+     "vers": "sejour / table basse"
     }
    ],
    "appareils_allumes": [],
@@ -10555,7 +10647,7 @@
    "objets": [
     {
      "objet": "obj-livre",
-     "de": "séjour / table basse",
+     "de": "sejour / table basse",
      "vers": "chambre / table de chevet"
     }
    ],
