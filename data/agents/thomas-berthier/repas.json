@@ -1,5 +1,5 @@
 {
- "principe": "Le déjeuner commence à 12:30 et le café-vaisselle à 13:00. Un plat long à cuire est mis en route avant midi (avance_minutes avant 12:30). Le dîner, vaisselle comprise, se termine à 20:00 ; il commence donc plus ou moins tôt selon sa durée. Pendant une cuisson longue, il lit.",
+ "principe": "Le déjeuner commence à 12:30 et le café-vaisselle à 13:00. Un plat long à cuire est mis en route avant midi (avance_minutes avant 12:30). Le dîner, vaisselle comprise, se termine à 20:00 ; il commence donc plus ou moins tôt selon sa durée. Pendant une cuisson longue, il lit. Le samedi et le dimanche ont leurs propres horaires (voir regles.json).",
  "midi": {
   "lundi": {
    "plat": "cuisses de poulet rôties et pommes de terre au four",
@@ -500,6 +500,268 @@
      "lieu": "domicile",
      "mode": "eveille",
      "charge": "repos",
+     "posture": "debout"
+    }
+   ]
+  },
+  "vendredi": {
+   "plat": "poisson pané, riz et haricots verts",
+   "repas": [
+    {
+     "action": "Met l'eau du riz à bouillir et fait chauffer la poêle.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "allume": [
+       "plaque-1",
+       "plaque-2"
+      ]
+     },
+     "consommation": [
+      {
+       "produit": "riz",
+       "quantite": 80
+      }
+     ]
+    },
+    {
+     "action": "Fait dorer trois poissons panés, réchauffe les haricots verts.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "consommation": [
+      {
+       "produit": "poisson_pane",
+       "quantite": 3
+      },
+      {
+       "produit": "haricots_verts",
+       "quantite": 1
+      },
+      {
+       "produit": "condiments",
+       "quantite": 1
+      }
+     ]
+    },
+    {
+     "action": "Égoutte le riz, sert l'assiette, éteint les plaques.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "eteint": [
+       "plaque-1",
+       "plaque-2"
+      ]
+     }
+    },
+    {
+     "action": "Déjeune à la table du séjour avec un verre d'eau.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis",
+     "ev": [
+      "repas_seul"
+     ],
+     "effets": {
+      "faim": 55,
+      "soif": 20
+     },
+     "moment": true
+    },
+    {
+     "action": "Termine son assiette.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis"
+    },
+    {
+     "action": "Débarrasse.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "debout"
+    }
+   ]
+  },
+  "samedi": {
+   "plat": "pâtes à la carbonara",
+   "repas": [
+    {
+     "action": "Met l'eau des pâtes à bouillir.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "allume": [
+       "plaque-1"
+      ]
+     }
+    },
+    {
+     "action": "Verse les pâtes, fait revenir les lardons.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "allume": [
+       "plaque-2"
+      ]
+     },
+     "consommation": [
+      {
+       "produit": "pates",
+       "quantite": 125
+      },
+      {
+       "produit": "lardons",
+       "quantite": 100
+      }
+     ]
+    },
+    {
+     "action": "Bat deux œufs avec du poivre.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "consommation": [
+      {
+       "produit": "oeufs",
+       "quantite": 2
+      },
+      {
+       "produit": "condiments",
+       "quantite": 1
+      }
+     ]
+    },
+    {
+     "action": "Égoutte les pâtes, mélange aux lardons et aux œufs hors du feu, éteint les plaques.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "eteint": [
+       "plaque-1",
+       "plaque-2"
+      ]
+     }
+    },
+    {
+     "action": "Déjeune à la table du séjour.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis",
+     "ev": [
+      "repas_seul",
+      "plaisir_simple"
+     ],
+     "effets": {
+      "faim": 55,
+      "soif": 20
+     },
+     "moment": true
+    },
+    {
+     "action": "Termine son assiette.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis"
+    },
+    {
+     "action": "Reste à table un moment.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis"
+    }
+   ],
+   "apres": [
+    {
+     "action": "Se fait un café.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "ev": [
+      "plaisir_simple"
+     ],
+     "app": {
+      "allume": [
+       "plaque-1"
+      ],
+      "eteint": [
+       "plaque-1"
+      ]
+     },
+     "consommation": [
+      {
+       "produit": "cafe_moulu",
+       "quantite": 7
+      }
+     ],
+     "effets": {
+      "soif": 15,
+      "cafe": true
+     }
+    },
+    {
+     "action": "Lave la casserole et la poêle.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Lave l'assiette et les couverts.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Essuie et range.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Rince la tasse et la cafetière.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
      "posture": "debout"
     }
    ]
@@ -1070,6 +1332,452 @@
     },
     {
      "action": "Essuie et range.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Passe aux toilettes.",
+     "piece": "wc",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout",
+     "effets": {
+      "toilettes": "vide"
+     }
+    }
+   ]
+  },
+  "vendredi": {
+   "plat": "omelette de trois œufs et carottes râpées",
+   "preparation": [
+    {
+     "action": "Râpe deux carottes, les assaisonne.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "consommation": [
+      {
+       "produit": "carottes",
+       "quantite": 200
+      },
+      {
+       "produit": "condiments",
+       "quantite": 1
+      }
+     ]
+    },
+    {
+     "action": "Bat trois œufs et fait une omelette.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "allume": [
+       "plaque-1"
+      ]
+     },
+     "consommation": [
+      {
+       "produit": "oeufs",
+       "quantite": 3
+      },
+      {
+       "produit": "beurre",
+       "quantite": 10
+      }
+     ]
+    },
+    {
+     "action": "Sert l'omelette et les carottes, éteint la plaque.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "eteint": [
+       "plaque-1"
+      ]
+     }
+    }
+   ],
+   "repas": [
+    {
+     "action": "Dîne à la table du séjour avec un verre d'eau.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis",
+     "ev": [
+      "repas_seul"
+     ],
+     "effets": {
+      "faim": 55,
+      "soif": 20
+     },
+     "moment": true
+    },
+    {
+     "action": "Termine son assiette.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis"
+    },
+    {
+     "action": "Reste assis un moment.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis"
+    }
+   ],
+   "apres": [
+    {
+     "action": "Rapporte la vaisselle.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Lave la poêle et l'assiette.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Lave le bol des carottes.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Essuie et range.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Passe un coup d'éponge.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Passe aux toilettes.",
+     "piece": "wc",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout",
+     "effets": {
+      "toilettes": "vide"
+     }
+    }
+   ]
+  },
+  "samedi": {
+   "plat": "soupe (dernière portion) et un verre de vin",
+   "preparation": [
+    {
+     "action": "Sort la marmite et réchauffe la dernière portion de soupe.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "allume": [
+       "plaque-1"
+      ]
+     },
+     "objets": [
+      {
+       "objet": "obj-marmite",
+       "de": "cuisine / réfrigérateur",
+       "vers": "cuisine / plaque électrique"
+      }
+     ],
+     "consommation": [
+      {
+       "produit": "soupe_poireaux",
+       "quantite": 1
+      }
+     ]
+    },
+    {
+     "action": "Sert la soupe, une tranche de pain et un verre de vin rouge, éteint la plaque.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "eteint": [
+       "plaque-1"
+      ]
+     },
+     "consommation": [
+      {
+       "produit": "pain_tranches",
+       "quantite": 1
+      },
+      {
+       "produit": "vin_rouge",
+       "quantite": 15
+      }
+     ]
+    }
+   ],
+   "repas": [
+    {
+     "action": "Dîne à la table du séjour.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis",
+     "ev": [
+      "repas_seul",
+      "plaisir_simple"
+     ],
+     "effets": {
+      "faim": 55,
+      "soif": 20
+     },
+     "moment": true
+    },
+    {
+     "action": "Boit son vin lentement.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis"
+    },
+    {
+     "action": "Reste à table un moment.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis"
+    }
+   ],
+   "apres": [
+    {
+     "action": "Rapporte la vaisselle.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Lave la marmite vide.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout",
+     "objets": [
+      {
+       "objet": "obj-marmite",
+       "de": "cuisine / plaque électrique",
+       "vers": "cuisine / égouttoir"
+      }
+     ]
+    },
+    {
+     "action": "Lave le bol et le verre.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Essuie et range la marmite.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout",
+     "objets": [
+      {
+       "objet": "obj-marmite",
+       "de": "cuisine / égouttoir",
+       "vers": "cuisine / placard sous les plaques"
+      }
+     ]
+    },
+    {
+     "action": "Passe un coup d'éponge.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Passe aux toilettes.",
+     "piece": "wc",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout",
+     "effets": {
+      "toilettes": "vide"
+     }
+    }
+   ]
+  },
+  "dimanche": {
+   "plat": "ratatouille et riz",
+   "preparation": [
+    {
+     "action": "Met le riz à cuire.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "allume": [
+       "plaque-1"
+      ]
+     },
+     "consommation": [
+      {
+       "produit": "riz",
+       "quantite": 80
+      }
+     ]
+    },
+    {
+     "action": "Réchauffe la ratatouille.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "allume": [
+       "plaque-2"
+      ]
+     },
+     "consommation": [
+      {
+       "produit": "ratatouille",
+       "quantite": 1
+      }
+     ]
+    },
+    {
+     "action": "Égoutte le riz, sert l'assiette, éteint les plaques.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "cuisine",
+     "posture": "debout",
+     "app": {
+      "eteint": [
+       "plaque-1",
+       "plaque-2"
+      ]
+     }
+    }
+   ],
+   "repas": [
+    {
+     "action": "Dîne à la table du séjour avec un verre d'eau.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis",
+     "ev": [
+      "repas_seul"
+     ],
+     "effets": {
+      "faim": 55,
+      "soif": 20
+     },
+     "moment": true
+    },
+    {
+     "action": "Termine son assiette.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis"
+    },
+    {
+     "action": "Reste assis un moment.",
+     "piece": "sejour",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "repos",
+     "posture": "assis"
+    }
+   ],
+   "apres": [
+    {
+     "action": "Rapporte la vaisselle.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Lave la casserole et la poêle.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Lave l'assiette.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Essuie et range.",
+     "piece": "cuisine",
+     "lieu": "domicile",
+     "mode": "eveille",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Passe un coup d'éponge.",
      "piece": "cuisine",
      "lieu": "domicile",
      "mode": "eveille",

@@ -118,12 +118,26 @@ class Agent:
             prochain = next((t["titre"] for t in self.TRAVAUX["liste"] if not self.mem["travaux"][t["id"]]["termine"]
                              and self.op_suivante(t) is not None), "montre en cours")
             st["action"] = st["action"].replace("{travail}", prochain)
+        L = self.R["lecture"]
+        deja_fini = self.mem.get("livre_termine", False)
+        if s["mode"] == "lecture" and not deja_fini:
+            self.mem["page"] = min(L["pages_total"], self.mem["page"] + L["pages_par_pas"])
+            if self.mem["page"] >= L["pages_total"]:
+                self.mem["livre_termine"] = True
+                st.setdefault("ev", []).append("livre_termine")
+                st["pensee"] = st.get("pensee") or choix(self.PENSEES["evenements"]["livre_termine"], self.date, self.i)
+                self.faits.append(self.PENSEES["livre_termine"])
+                self.decisions.append(f"{hm(self.i)} : termine « La Route ».")
         if "{page}" in st["action"]:
-            if s["mode"] == "lecture" or st.get("mode") == "lecture":
-                self.mem["page"] = min(self.R["lecture"]["pages_total"], self.mem["page"] + self.R["lecture"]["pages_par_pas"])
+            if deja_fini:
+                st["action"] = st["action"].replace("(page {page})", "(relit les dernières pages)")
             st["action"] = st["action"].replace("{page}", str(self.mem["page"]))
-        elif s["mode"] == "lecture":
-            self.mem["page"] = min(self.R["lecture"]["pages_total"], self.mem["page"] + self.R["lecture"]["pages_par_pas"])
+        # très assoiffé, il boit un deuxième verre
+        eau = st.get("effets", {}).get("soif")
+        if isinstance(eau, (int, float)) and eau >= 20 and s["mode"] != "sommeil" and self.sim.besoins["soif"] - 0.7 + eau < 45:
+            st["effets"] = dict(st["effets"], soif=eau + 20)
+            st["action"] = st["action"].rstrip() + " Boit un deuxième verre d'eau."
+            self.decisions.append(f"{hm(self.i)} : très assoiffé ({round(self.sim.besoins['soif'], 1)}) ; boit un deuxième verre.")
         st.setdefault("pensee", None)
         if pensee is not None:
             st["pensee"] = pensee
@@ -171,6 +185,46 @@ class Agent:
         self.mem["evocations"][meilleur] = self.abs()
         self.mem["evocations_du_jour"][meilleur] = self.mem["evocations_du_jour"].get(meilleur, 0) + 1
 
+    # ------------------------------------------------------------ interruptions par les besoins
+    def prochain_repas(self):
+        if self.jour == "dimanche" and self.i < idx("11:00"):
+            return idx("11:00")
+        if self.i < idx("12:30"):
+            return idx("12:30")
+        if self.i < idx("19:00"):
+            return idx("19:00")
+        return None
+
+    def interruption(self, fin=None):
+        """Si un besoin passe sous son seuil d'alerte, l'agent s'interrompt pour y répondre (un pas), puis reprend."""
+        if fin is not None and fin - self.i <= 2:
+            return False
+        B, seuil = self.sim.besoins, {n: self.fiche["besoins"][n]["seuil_alerte"] for n in ("toilettes", "soif", "faim")}
+        p = None
+        if B["toilettes"] < seuil["toilettes"]:
+            p = {"action": "S'interrompt pour passer aux toilettes.", "piece": "wc", "effets": {"toilettes": "vide"}}
+            quoi = "toilettes"
+        elif B["soif"] < seuil["soif"]:
+            p = {"action": "S'interrompt pour boire un grand verre d'eau à la cuisine.", "piece": "cuisine", "effets": {"soif": 25},
+                 "pensee": "Soif."}
+            quoi = "soif"
+        elif B["faim"] < seuil["faim"]:
+            repas = self.prochain_repas()
+            if repas is None or repas - self.i > 9:
+                for pid, txt, q in (("pommes", "une pomme", 1), ("oranges", "une orange", 1), ("bananes", "une banane", 1),
+                                    ("biscottes", "deux biscottes", 2)):
+                    if self.sim.stock.get(pid, 0) >= q:
+                        p = {"action": f"S'interrompt pour manger {txt} à la cuisine.", "piece": "cuisine", "effets": {"faim": 15},
+                             "consommation": [{"produit": pid, "quantite": q}], "pensee": "Un petit creux."}
+                        quoi = "faim"
+                        break
+        if not p:
+            return False
+        p.update({"charge": "simple", "posture": "debout"})
+        self.decisions.append(f"{hm(self.i)} : {quoi} sous le seuil d'alerte ({round(B[quoi], 1)}) ; s'interrompt.")
+        self.emettre(p, "Besoin pressant", "interruption", bloc="interruption")
+        return True
+
     def bloc(self, bid, titre=None, remplace=None, limite=None):
         b = self.BLOCS[bid]
         for k, pas in enumerate(b["pas"][:limite]):
@@ -207,10 +261,13 @@ class Agent:
             phase = phase_sommeil(m)
             if sonnerie is not None and i >= sonnerie:
                 return "sonnerie"
-            if m >= self.R["reveil_naturel"]["sommeil_minimum_minutes"] and phase == "léger" and i >= idx(self.R["reveil_naturel"]["pas_avant"]):
+            if sonnerie is not None and m >= self.R["reveil_naturel"]["sommeil_minimum_minutes"] and phase == "léger" \
+                    and i >= idx(self.R["reveil_naturel"]["pas_avant"]):
                 return "naturel"
-            if sonnerie is None and i >= idx(self.fiche["sante"]["sommeil"]["reveil_naturel_jour_libre"]):
-                return "naturel"
+            if sonnerie is None:
+                W = self.R["reveil_week_end"]
+                if i >= idx(W["heure_max"]) or (m >= self.R["reveil_naturel"]["sommeil_minimum_minutes"] and phase == "léger" and i >= idx(W["pas_avant"])):
+                    return "naturel"
             ev = []
             if phase == "paradoxal" and ancien != "paradoxal":
                 theme = self.PENSEES["ordre_des_reves"][(n_rem + self.mem["jour_index"]) % len(self.PENSEES["ordre_des_reves"])]
@@ -267,22 +324,38 @@ class Agent:
                             pas["action"] = pas["action"].replace(", dépose le sac au local poubelles", "")
                 self.bloc("descente_saone", remplace=sac)
                 pb.pop("en_main", None)
+            elif etape == "toilettes_eau":
+                def boire(k, pas):
+                    if self.sim.besoins["soif"] - 0.7 + 20 < 60:
+                        pas["effets"]["soif"] = 40
+                        pas["action"] = "Passe aux toilettes, puis boit deux grands verres d'eau au lavabo."
+                        pas["pensee"] = "Soif. Deux verres, avant de courir."
+                        self.decisions.append(f"{hm(self.i)} : soif au réveil ({round(self.sim.besoins['soif'], 1)}) ; boit deux verres avant de courir.")
+                self.bloc("toilettes_eau", remplace=boire)
             elif etape == "tenue_course":
-                ou = self.sim.positions["obj-tenue-course"]
-                def tenue(k, pas):
-                    if ou != pas["objets"][0]["de"]:
-                        support = ou.split(" / ", 1)[1]
-                        pas["objets"][0]["de"] = ou
-                        pas["action"] = f"Prend sa tenue de course sur l'{support}, sèche juste à temps, et l'enfile avec son bonnet." \
-                            if support == "étendoir" else f"Prend sa tenue de course ({support}) et l'enfile."
-                        self.decisions.append(f"{hm(self.i)} : la tenue de course n'est pas dans l'armoire ({ou}) ; il la prend où elle est.")
-                self.bloc("tenue_course", remplace=tenue)
+                self.tenue_course()
             elif etape in ("ouverture_atelier", "ouverture_atelier_reglage"):
                 self.ouverture_atelier(etape)
             else:
                 self.bloc(etape)
         if course:
             self.faits.append("7 km")
+
+    def tenue_course(self):
+        ou = self.sim.positions["obj-tenue-course"]
+        def tenue(k, pas):
+            if ou != pas["objets"][0]["de"]:
+                support = ou.split(" / ", 1)[1]
+                pas["objets"][0]["de"] = ou
+                if support == "étendoir":
+                    pas["action"] = "Prend sa tenue de course sur l'étendoir, sèche juste à temps, et l'enfile avec son bonnet."
+                elif support == "panier à linge":
+                    pas["action"] = "Reprend sa tenue de course dans le panier à linge : elle a déjà servi, elle fera l'affaire."
+                    pas["pensee"] = "Mercredi prochain, la machine."
+                else:
+                    pas["action"] = f"Prend sa tenue de course ({support}) et l'enfile."
+                self.decisions.append(f"{hm(self.i)} : la tenue de course n'est pas dans l'armoire ({ou}) ; il la prend où elle est.")
+        self.bloc("tenue_course", remplace=tenue)
 
     def depart_course(self):
         pb = self.mem["poubelle"]
@@ -305,6 +378,8 @@ class Agent:
         pas = self.BLOCS[bid]["pas"]
         k = 0
         while self.i < fin:
+            if self.interruption(fin):
+                continue
             self.emettre(copy.deepcopy(pas[min(k, len(pas) - 1)]), self.BLOCS[bid]["titre"], self.BLOCS[bid]["routine"], bloc=bid, k=k)
             k += 1
 
@@ -326,6 +401,8 @@ class Agent:
         return t["phases"][m["phase"]] if m["phase"] < len(t["phases"]) else None
 
     def op_suivante(self, t):
+        if t.get("jours") and self.jour not in t["jours"]:
+            return None
         ph = self.phase(t)
         if not ph or "ops" not in ph:
             return None
@@ -349,11 +426,13 @@ class Agent:
             if "attente" in suiv:
                 if suiv["attente"] == "observation":
                     m["dispo"] = self.abs() - 1 + PAS_PAR_JOUR
+                elif suiv["attente"] == "pas":
+                    m["dispo"] = self.abs() - 1 + suiv["pas"]
                 else:
                     m["dispo"] = (self.mem["jour_index"] + 1) * PAS_PAR_JOUR + idx(self.R["atelier"][0]["debut"])
                 m["phase"] += 1
                 if suiv["attente"] == "observation":
-                    self.faits.append(f"{t['titre']} terminée")
+                    self.faits.append(f"{t['titre']} terminée, en observation")
                 return "attente"
             return "phase"
         return None
@@ -415,6 +494,8 @@ class Agent:
                 self.poser_lunettes(p)
                 self.emettre(p, self.titre_atelier(), "rt-atelier", bloc="atelier")
                 break
+            if self.interruption(fin):
+                continue
             tid = self.choisir_operation()
             if tid in (None, "attente_machine"):
                 k = self.mem["entretien"]
@@ -441,6 +522,13 @@ class Agent:
                         op["app"]["eteint"].append("machine-ultrasons")
                     m["machine_fin"] = None
             if tid not in (None, "attente_machine"):
+                t = T[tid]
+                pos = self.sim.positions.get(t["objet"], "")
+                ph = self.phase(t)
+                if t.get("a_sortir") and not pos.startswith("atelier / établi") and not (ph and ph.get("validation")) \
+                        and not any(o["objet"] == t["objet"] and o["de"] == pos for o in op.get("objets", [])):
+                    op.setdefault("objets", []).append({"objet": t["objet"], "de": pos, "vers": "atelier / établi"})
+                    op["action"] = f"Sort {t['designation']} du coffre. " + op["action"]
                 brut = self.op_suivante(T[tid])
                 if brut.get("machine"):
                     self.mem["travaux"][tid]["machine_fin"] = self.abs() + brut["machine"]
@@ -535,6 +623,9 @@ class Agent:
             ecoute = [T[5 + (k % 6)] for k in range(n - 6)]
             suite = [(T[k], k) for k in range(4)] + [(T[4], 4)] + [(p, 5) for p in ecoute] + [(T[11], 11)]
         for p, k in suite:
+            if self.interruption(jusqua):
+                if self.i >= jusqua:
+                    break
             p = copy.deepcopy(p)
             p["action"] = p["action"].replace("La nuit tombe : il se lève allumer le séjour, puis se rallonge.", "Le disque continue.")
             self.emettre(p, "Temps libre", "rt-soir", bloc="temps_libre", k=k)
@@ -563,6 +654,8 @@ class Agent:
         k = self.mem["seance"]["op"]
         f = 0
         while self.i < fin_ops:
+            if self.interruption(fin_ops):
+                continue
             if k < len(s["ops"]):
                 op = copy.deepcopy(s["ops"][k])
                 k += 1
@@ -701,11 +794,171 @@ class Agent:
         self.coucher()
         self.endormissement()
 
+    # ------------------------------------------------------------ outils du week-end
+    def remplir(self, jusqua, pas, titre, routine):
+        """Répète une activité tranquille jusqu'à l'heure indiquée."""
+        jusqua = idx(jusqua) if isinstance(jusqua, str) else jusqua
+        while self.i < jusqua:
+            if self.interruption(jusqua):
+                continue
+            self.emettre(copy.deepcopy(pas), titre, routine, bloc="remplir_" + titre)
+
+    def lecture_session(self, fin, routine):
+        """Va chercher le livre, lit au séjour, et le rapporte (habitude apprise)."""
+        fin = idx(fin) if isinstance(fin, str) else fin
+        if self.mem.get("livre_termine"):
+            return self.musique_session(fin, routine)
+        self.bloc("repos_chambre")
+        while self.i < fin - 1:
+            if self.interruption(fin - 1):
+                continue
+            if self.mem.get("livre_termine"):
+                p = {"action": "Reste allongé, le livre refermé sur la poitrine.", "piece": "sejour", "charge": "repos", "posture": "allongé"}
+            else:
+                p = {"action": "Lit sur le canapé (page {page}).", "piece": "sejour", "mode": "lecture", "charge": "lecture", "posture": "allongé"}
+            self.emettre(p, "Lecture", routine, bloc="lecture_session")
+        self.bloc("rangement_livre")
+
+    def musique_session(self, fin, routine):
+        fin = idx(fin) if isinstance(fin, str) else fin
+        M = self.BLOCS["musique"]["pas"]
+        if fin - self.i < 3:
+            return self.remplir(fin, {"action": "Reste assis sur le canapé.", "piece": "sejour", "charge": "repos", "posture": "assis"}, "Repos", routine)
+        self.emettre(copy.deepcopy(M[0]), "Musique", routine, bloc="musique")
+        while self.i < fin - 1:
+            if self.interruption(fin - 1):
+                continue
+            self.emettre(copy.deepcopy(M[1]), "Musique", routine, bloc="musique")
+        self.emettre(copy.deepcopy(M[2]), "Musique", routine, bloc="musique")
+
+    def sieste_session(self, fin, routine):
+        fin = idx(fin) if isinstance(fin, str) else fin
+        S = self.BLOCS["sieste"]["pas"]
+        self.emettre(copy.deepcopy(S[0]), "Sieste", routine, bloc="sieste")
+        while self.i < fin - 1:
+            self.emettre(copy.deepcopy(S[1]), "Sieste", routine, bloc="sieste")
+        self.emettre(copy.deepcopy(S[2]), "Sieste", routine, bloc="sieste")
+
+    def lever_weekend(self, bid):
+        while self.i < idx(self.R["reveil_week_end"]["heure_max"]):
+            if self.interruption(idx(self.R["reveil_week_end"]["heure_max"])):
+                continue
+            self.emettre({"action": "Somnole, sans se presser de se lever.", "piece": "chambre", "charge": "repos", "posture": "allongé"},
+                         "Grasse matinée", "rt-samedi", bloc="grasse_matinee")
+        self.bloc(bid)
+
+    def repas_midi_weekend(self):
+        r = self.REPAS["midi"][self.jour]
+        for k, p in enumerate(r["repas"]):
+            self.emettre(copy.deepcopy(p), "Déjeuner", "rt-samedi", bloc="dejeuner", k=k)
+        for k, p in enumerate(r.get("apres") or []):
+            self.emettre(copy.deepcopy(p), "Café et vaisselle", "rt-samedi", bloc="apres_dejeuner", k=k)
+        self.mem["poubelle"]["repas"] += 1
+
+    def soiree_weekend(self, moment_montre=None):
+        debut_diner = idx(self.R["diner_fini_a"]) - self.longueur_diner()
+        self.temps_libre(debut_diner)
+        self.diner()
+        fin = idx(self.R[self.jour]["soiree_libre_jusqua"])
+        if moment_montre:
+            self.lecture_session(moment_montre, "rt-soir") if not self.mem.get("livre_termine") else self.musique_session(moment_montre, "rt-soir")
+            self.emettre({"action": "Va voir la montre de gousset à l'atelier : elle tourne toujours. Il l'écoute un moment.", "piece": "atelier",
+                          "charge": "repos", "posture": "debout", "ev": ["souvenir_grand_pere"]}, "La montre tourne", "rt-soir", bloc="montre")
+        R = self.BLOCS["radio_soir"]["pas"]
+        self.emettre(copy.deepcopy(R[0]), "Radio", "rt-soir", bloc="radio")
+        while self.i < fin - 1:
+            if self.interruption(fin - 1):
+                continue
+            self.emettre(copy.deepcopy(R[1]), "Radio", "rt-soir", bloc="radio")
+        self.emettre(copy.deepcopy(R[2]), "Radio", "rt-soir", bloc="radio")
+        self.bloc("chocolat")
+        self.bloc("toilette_soir")
+        self.coucher()
+        self.endormissement()
+
+    # ------------------------------------------------------------ samedi et dimanche
+    def samedi(self, reveil):
+        S = self.R["samedi"]
+        self.lever_weekend("reveil_weekend")
+        self.bloc("toilettes_matin")
+        self.bloc("petit_dejeuner_long")
+        self.remplir(S["douche"], {"action": "Écoute la radio au séjour.", "piece": "sejour", "charge": "repos", "posture": "assis", "radio": True},
+                     "Radio", "rt-samedi")
+        self.bloc("douche_rasage_weekend")
+        self.bloc("habillage_weekend")
+        self.bloc("menage")
+        self.lecture_session(S["lecture"][1], "rt-samedi")
+        self.repas_midi_weekend()
+        self.sieste_session(S["sieste"][1], "rt-samedi")
+        self.seance(hm(idx(S["seance"][1]) - 2))
+        self.musique_session(S["musique"][1], "rt-samedi")
+        self.soiree_weekend(moment_montre=idx(S["regarder_la_montre"]))
+
+    def dimanche(self, reveil):
+        D = self.R["dimanche"]
+        self.lever_weekend("reveil_dimanche")
+        self.bloc("toilettes_matin")
+        self.tenue_course()
+        def boire(k, pas):
+            if self.sim.besoins["soif"] - 0.7 < 60:
+                pas["effets"] = {"soif": 20}
+                pas["action"] += " Boit encore un verre d'eau."
+        self.bloc("etirements_course", remplace=boire)
+        self.depart_course()
+        pb = self.mem["poubelle"]
+        def sac(k, pas):
+            if k == 0:
+                if pb.get("en_main"):
+                    pas["objets"] = [{"objet": pb["en_main"], "de": "dans sa main", "vers": "local poubelles de l'immeuble"}]
+                else:
+                    pas.pop("objets", None)
+                    pas["action"] = pas["action"].replace(", dépose le sac au local poubelles", "")
+        self.bloc("descente_saone", remplace=sac)
+        pb.pop("en_main", None)
+        Q = self.BLOCS["quais_saone"]
+        for k in range(D["quais_pas"]):
+            p = copy.deepcopy(Q["pas"][k % len(Q["pas"])])
+            p["parcours"] = [{"moyen": "course", "distance_m": D["quais_distance_m"], "denivele_m": 0}]
+            p["action"] = "Fait demi-tour au bout de la boucle longue." if k == D["quais_pas"] // 2 else \
+                ("Rejoint le bord de l'eau et prend son rythme vers le nord." if k == 0 else "Court le long de la Saône, sortie longue.")
+            self.emettre(p, "Sortie longue le long de la Saône", "rt-dimanche", bloc="quais_saone", k=k)
+        R = self.BLOCS["remontee_pentes"]
+        for k, dist in enumerate(D["remontee_marche"]):
+            p = copy.deepcopy(R["pas"][min(k, len(R["pas"]) - 1)])
+            p["parcours"] = [{"moyen": "marche", "distance_m": dist, "denivele_m": [28, 28, 29][k]}]
+            p["posture"] = "en marche"
+            p["action"] = ["Remonte les pentes en marchant, les jambes lourdes.", "Continue la montée à pied.", "Termine la montée et reprend son souffle."][k]
+            self.emettre(p, "Remontée à pied", "rt-dimanche", bloc="remontee", k=k)
+        self.bloc("retour_course")
+        self.faits.append("Sortie longue : 12 km")
+        def sans_rasage(k, pas):
+            if k == 2:
+                pas["action"] = "Se sèche et se masse les mollets."
+        self.bloc("douche_course", remplace=sans_rasage)
+        self.bloc("habillage")
+        self.remplir(D["brunch"], {"action": "S'assoit un moment, les jambes lourdes, un verre d'eau à la main.", "piece": "sejour",
+                                   "charge": "repos", "posture": "assis", "effets": {"soif": 10}}, "Repos", "rt-dimanche")
+        self.bloc("brunch")
+        self.mem["poubelle"]["repas"] += 1
+        self.lecture_session(D["sieste"][0], "rt-dimanche")
+        self.sieste_session(D["sieste"][1], "rt-dimanche")
+        self.musique_session(D["seance"][0], "rt-dimanche")
+        self.seance(hm(idx(D["seance"][1]) - 2))
+        self.bloc("planification")
+        self.musique_session(D["musique"][1], "rt-dimanche")
+        self.soiree_weekend()
+
     # ------------------------------------------------------------ journée
     def vivre(self):
         self.mem["courant"] = None
         self.mem["intercale"] = None
         reveil = self.nuit()
+        if self.jour == "samedi":
+            self.samedi(reveil)
+            return self.terminer()
+        if self.jour == "dimanche":
+            self.dimanche(reveil)
+            return self.terminer()
         self.matin(reveil)
         A = self.R["atelier"]
         def lunettes(k, pas):
@@ -722,6 +975,9 @@ class Agent:
         self.atelier(A[3]["debut"], A[3]["fin"])
         self.rangement_atelier()
         self.soiree()
+        return self.terminer()
+
+    def terminer(self):
         if self.i != PAS_PAR_JOUR:
             raise Incoherence(f"la journée de l'agent compte {self.i} pas")
         etat_final, stats = self.sim.terminer(self.j.extinction, self.j.endormissement)

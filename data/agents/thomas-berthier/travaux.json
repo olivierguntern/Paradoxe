@@ -1,5 +1,5 @@
 {
- "principe": "Les travaux sont pris dans l'ordre de priorité. Chaque opération dure un pas de 5 minutes. Une opération « machine » lance un cycle de n pas ; les opérations « pendant_machine » se font pendant le cycle, puis, si le cycle n'est pas fini, un groupe « intercalable » d'un autre travail est fait en entier. Une attente « observation » bloque le travail 24 h ; la validation qui suit passe avant tout le reste. Une attente « lendemain » bloque le travail jusqu'au lendemain matin. Dans la dernière heure de la journée, il ne commence que des opérations « leger ».",
+ "principe": "Les travaux sont pris dans l'ordre de priorité. Chaque opération dure un pas de 5 minutes. Une opération « machine » lance un cycle de n pas ; les opérations « pendant_machine » se font pendant le cycle, puis, si le cycle n'est pas fini, un groupe « intercalable » d'un autre travail est fait en entier. Une attente « observation » bloque le travail 24 h ; la validation qui suit passe avant tout le reste. Une attente « lendemain » bloque le travail jusqu'au lendemain matin. Dans la dernière heure de la journée, il ne commence que des opérations « leger ». Une attente « pas » bloque le travail pendant le nombre de pas indiqué (repos des huiles de quelques heures). Avant de reprendre une montre rangée au coffre, il la sort (« a_sortir »).",
  "derniere_heure": "16:50",
  "liste": [
   {
@@ -536,7 +536,9 @@
      ],
      "validation": true
     }
-   ]
+   ],
+   "a_sortir": true,
+   "designation": "l'Omega"
   },
   {
    "id": "rolex",
@@ -1198,7 +1200,9 @@
      ],
      "validation": true
     }
-   ]
+   ],
+   "a_sortir": true,
+   "designation": "la Rolex"
   },
   {
    "id": "pendule",
@@ -1986,7 +1990,9 @@
      ],
      "titre": "fiches et expédition"
     }
-   ]
+   ],
+   "a_sortir": true,
+   "designation": "la boîte des montres à quartz"
   },
   {
    "id": "zenith",
@@ -2506,7 +2512,7 @@
        "posture": "assis"
       },
       {
-       "action": "Note les mesures. Le chronographe se remontera demain, huiles reposées.",
+       "action": "Note les mesures. Le chronographe se remontera cet après-midi, une fois les huiles reposées.",
        "charge": "simple",
        "posture": "assis",
        "app": {
@@ -2518,7 +2524,8 @@
      ]
     },
     {
-     "attente": "lendemain"
+     "attente": "pas",
+     "pas": 36
     },
     {
      "ops": [
@@ -2826,6 +2833,184 @@
      ],
      "validation": true
     }
+   ],
+   "a_sortir": true,
+   "designation": "le Zenith"
+  },
+  {
+   "id": "gestion",
+   "objet": "obj-classeur-compta",
+   "titre": "Gestion",
+   "jours": [
+    "vendredi"
+   ],
+   "rangement": {
+    "en_cours": "atelier / étagère de fournitures, étage du haut"
+   },
+   "phases": [
+    {
+     "ops": [
+      {
+       "action": "Va chercher l'ordinateur portable au séjour et l'installe sur l'établi.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true,
+       "via": [
+        "sejour"
+       ],
+       "objets": [
+        {
+         "objet": "obj-netbook",
+         "de": "sejour / bibliothèque, étagère du bas",
+         "vers": "atelier / établi"
+        }
+       ],
+       "app": {
+        "allume": [
+         "ordinateur"
+        ]
+       }
+      },
+      {
+       "action": "Sort le classeur de comptabilité de l'étagère.",
+       "charge": "simple",
+       "posture": "debout",
+       "leger": true,
+       "objets": [
+        {
+         "objet": "obj-classeur-compta",
+         "de": "atelier / étagère de fournitures, étage du haut",
+         "vers": "atelier / établi"
+        }
+       ]
+      },
+      {
+       "action": "Ouvre le tableur du livre des recettes.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Saisit la révision de l'Omega : 280 euros.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Saisit la révision de la Rolex : 350 euros.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Saisit la réparation de la pendule : 220 euros.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Saisit le lot de montres à quartz : 90 euros.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Fait le total de la semaine : 940 euros.",
+       "charge": "simple",
+       "posture": "assis",
+       "ev": [
+        "controle_conforme"
+       ],
+       "leger": true
+      },
+      {
+       "action": "Met de côté la part des cotisations sociales.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Rédige la facture de l'Omega.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Rédige la facture de la Rolex.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Rédige la facture de la pendule.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Rédige la facture des montres à quartz.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Classe les factures et les fiches de travail.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Prépare les étiquettes des colis de lundi.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true
+      },
+      {
+       "action": "Prépare le carton et le papier de calage pour les expéditions.",
+       "charge": "simple",
+       "posture": "debout",
+       "leger": true
+      },
+      {
+       "action": "Range le classeur sur l'étagère.",
+       "charge": "simple",
+       "posture": "debout",
+       "ev": [
+        "repos_merite"
+       ],
+       "leger": true,
+       "objets": [
+        {
+         "objet": "obj-classeur-compta",
+         "de": "atelier / établi",
+         "vers": "atelier / étagère de fournitures, étage du haut"
+        }
+       ]
+      },
+      {
+       "action": "Éteint l'ordinateur et le rapporte au séjour.",
+       "charge": "simple",
+       "posture": "assis",
+       "leger": true,
+       "via_apres": [
+        "sejour"
+       ],
+       "objets": [
+        {
+         "objet": "obj-netbook",
+         "de": "atelier / établi",
+         "vers": "sejour / bibliothèque, étagère du bas"
+        }
+       ],
+       "app": {
+        "eteint": [
+         "ordinateur"
+        ]
+       }
+      }
+     ],
+     "titre": "livre des recettes, factures, expéditions"
+    }
    ]
   }
  ],
@@ -2837,9 +3022,33 @@
    "leger": true
   },
   {
-   "action": "Range l'étagère de fournitures.",
+   "action": "Change les bains de la machine à ultrasons.",
    "charge": "simple",
    "posture": "debout",
+   "leger": true
+  },
+  {
+   "action": "Huile les glissières du tour.",
+   "charge": "simple",
+   "posture": "assis",
+   "leger": true
+  },
+  {
+   "action": "Trie les fournitures : joints, piles, ressorts.",
+   "charge": "simple",
+   "posture": "debout",
+   "leger": true
+  },
+  {
+   "action": "Fait l'inventaire de ses huiles et de ses graisses.",
+   "charge": "simple",
+   "posture": "assis",
+   "leger": true
+  },
+  {
+   "action": "Note les fournitures à recommander.",
+   "charge": "simple",
+   "posture": "assis",
    "leger": true
   },
   {
@@ -2849,7 +3058,31 @@
    "leger": true
   },
   {
-   "action": "Fait l'inventaire de ses huiles.",
+   "action": "Polit la tête de ses tournevis.",
+   "charge": "simple",
+   "posture": "assis",
+   "leger": true
+  },
+  {
+   "action": "Range les tiroirs de l'établi.",
+   "charge": "simple",
+   "posture": "assis",
+   "leger": true
+  },
+  {
+   "action": "Nettoie l'établi en profondeur.",
+   "charge": "simple",
+   "posture": "debout",
+   "leger": true
+  },
+  {
+   "action": "Classe les anciennes fiches de clients.",
+   "charge": "simple",
+   "posture": "assis",
+   "leger": true
+  },
+  {
+   "action": "Vérifie l'étalonnage du chronocomparateur sur sa propre montre.",
    "charge": "simple",
    "posture": "assis",
    "leger": true

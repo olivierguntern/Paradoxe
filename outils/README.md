@@ -72,4 +72,27 @@ python3 outils/comparer_journees.py data/timelines/thomas-berthier/2010-03-09.js
 python3 outils/simuler_agent.py 2010-03-11 2010-03-11 --dossier data/timelines/thomas-berthier --memoire data/simulations/thomas-berthier
 ```
 
+```bash
+# Vivre la fin de semaine (vendredi à dimanche) à la suite du jeudi
+python3 outils/simuler_agent.py 2010-03-12 2010-03-14 --dossier data/timelines/thomas-berthier
+```
+
 Le résultat de la validation est dans `data/simulations/thomas-berthier/VALIDATION.md`.
+
+### Interruptions par les besoins
+
+Pendant l'atelier, une séance, la lecture, la musique, le temps libre ou la grasse matinée, l'agent vérifie ses besoins à chaque pas. Si l'un d'eux passe sous son seuil d'alerte (fiche, section `besoins`), il s'interrompt un pas, puis reprend son activité :
+
+| Besoin | Seuil | Réponse |
+|---|---|---|
+| Toilettes | 25 | Passe aux toilettes |
+| Soif | 40 | Boit un grand verre d'eau à la cuisine |
+| Faim | 35 | Mange un fruit ou deux biscottes, selon le stock ; pas dans les 45 minutes qui précèdent un repas |
+
+Il ne s'interrompt pas si l'activité se termine dans les 10 minutes. Chaque interruption figure dans les « écarts à la routine » du résumé de la journée.
+
+### Fin de semaine
+
+Le samedi et le dimanche n'ont pas de sonnerie : réveil naturel entre 07:30 et 08:30. Le plan de ces journées (ménage, sieste, sortie longue du dimanche, séances sur la montre du grand-père, planification de la semaine) est dans `regles.json`, sections `samedi` et `dimanche`.
+
+Le résumé de chaque journée distingue les besoins passés sous le seuil d'alerte **éveillé** (à examiner) et **pendant le sommeil** (durée par besoin, attendu pour la soif la nuit).

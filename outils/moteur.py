@@ -463,7 +463,13 @@ def quantite(q, unite):
 def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_md):
     B = fiche["besoins"]
     alertes = [f"{s['heure']} {n} = {v} (seuil {B[n]['seuil_alerte']})"
-               for s in steps for n, v in s["besoins"].items() if n in B and v < B[n]["seuil_alerte"]]
+               for s in steps for n, v in s["besoins"].items() if n in B and v < B[n]["seuil_alerte"] and not s.get("phase_sommeil")]
+    alertes_sommeil = {}
+    for s in steps:
+        if s.get("phase_sommeil"):
+            for n, v in s["besoins"].items():
+                if n in B and v < B[n]["seuil_alerte"]:
+                    alertes_sommeil[n] = alertes_sommeil.get(n, 0) + 1
     conso, prod = {}, {}
     for s in steps:
         for x in s.get("consommation", []):
@@ -515,6 +521,7 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
             "plats_prepares": {k: quantite(v[0], v[1]) for k, v in prod.items()},
             "stock_en_fin_de_journee": stock_fin,
             "besoins_sous_le_seuil_d_alerte": alertes,
+            "besoins_sous_le_seuil_pendant_le_sommeil_pas": alertes_sommeil,
             "endormissement": (f"extinction à {j.extinction} ; anxiété {st_['anxiete_extinction']} (seuil {st_['seuil_insomnie']}), "
                                f"excitation {st_['excitation_extinction']} (seuil {st_['seuil_excitation']}) : endormissement en {st_['endormissement_min']} minutes"),
             "ecarts_a_la_routine": j.ecarts,
@@ -611,6 +618,8 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
     L.append(f"- **Endormissement** : {out['resume']['endormissement']}.")
     L.append("- **Écarts à la routine** :")
     L += [f"  - {e}" for e in j.ecarts]
-    L.append("- **Besoins passés sous le seuil d'alerte** : " + (", ".join(alertes) if alertes else "aucun."))
+    L.append("- **Besoins passés sous le seuil d'alerte (éveillé)** : " + (", ".join(alertes) if alertes else "aucun."))
+    if alertes_sommeil:
+        L.append("- **Pendant le sommeil** : " + ", ".join(f"{n} sous le seuil pendant {k * 5} minutes" for n, k in alertes_sommeil.items()) + ".")
     open(chemin_md, "w").write("\n".join(L) + "\n")
     return out

@@ -693,6 +693,546 @@
     "charge": "simple",
     "posture": "assis"
    }
+  },
+  {
+   "numero": 5,
+   "titre": "Montre du grand-père : dépose de l'ancien axe (séance 5)",
+   "delicate": true,
+   "ops": [
+    {
+     "action": "Soulève la cloche et sort le balancier de la montre de gousset.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Examine le balancier et son spiral à la loupe.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Repère la position de la virole du spiral sur l'ancien axe.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Retire délicatement le spiral avec un levier fin.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Range le spiral sous une petite cloche.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Chasse le plateau hors de l'ancien axe avec l'arrache-plateau.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Pose le balancier sur la potence, sur le bon tasseau.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Chasse l'ancien axe cassé hors du balancier, d'un coup sec.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Contrôle le trou du balancier : rond, net.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Nettoie le balancier à l'essence.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Nettoie le plateau et sa cheville d'ellipse.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Présente le nouvel axe dans le trou du balancier, sans le chasser : il entre juste ce qu'il faut.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "geste_reussi"
+     ]
+    },
+    {
+     "action": "Range l'ancien axe cassé dans une petite boîte, en souvenir.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "souvenir_grand_pere"
+     ]
+    },
+    {
+     "action": "Range le balancier et le plateau sous la cloche, prêts pour demain.",
+     "charge": "precision",
+     "posture": "assis"
+    }
+   ],
+   "facultatifs": [
+    {
+     "action": "Relit la procédure de chassage.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Prépare les tasseaux pour demain.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Nettoie la potence.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Aligne ses outils.",
+     "charge": "simple",
+     "posture": "assis"
+    }
+   ],
+   "fatigue": {
+    "action": "Sent la fatigue. Range tout pour demain.",
+    "charge": "simple",
+    "posture": "assis"
+   }
+  },
+  {
+   "numero": 6,
+   "titre": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
+   "delicate": true,
+   "ops": [
+    {
+     "action": "Sort le balancier, le plateau et l'axe terminé.",
+     "charge": "precision",
+     "posture": "assis",
+     "objets": [
+      {
+       "objet": "obj-acier-axe",
+       "de": "atelier / établi, boîte à côté de la montre de gousset (axe terminé)",
+       "vers": "atelier / potence"
+      }
+     ]
+    },
+    {
+     "action": "Pose le balancier sur la potence et présente l'axe.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Chasse l'axe dans le balancier, petit coup par petit coup.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Contrôle : l'axe est droit, le balancier bien assis.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Chasse le plateau sur l'axe, la cheville d'ellipse à sa place.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Met le balancier sur le compas d'équilibrage : un léger voile.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "mesure_incertaine"
+     ]
+    },
+    {
+     "action": "Reprend le voile du bout des doigts.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Plus de voile. Le balancier tourne rond.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Contrôle l'équilibre : le balancier s'arrête n'importe où.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Remet le spiral, la virole à la position repérée hier.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ],
+     "objets": [
+      {
+       "objet": "obj-acier-axe",
+       "de": "atelier / potence",
+       "vers": "monté dans le balancier de la montre de gousset"
+      }
+     ]
+    },
+    {
+     "action": "Centre le spiral et vérifie qu'il est plat.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Présente le balancier dans le mouvement.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Pose le coq et serre sa vis.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Contrôle les ébats de l'axe entre les pierres : libre, sans jeu excessif.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Huile les pierres de balancier.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Donne trois tours de remontoir. Le balancier hésite, puis s'arrête.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "mesure_incertaine"
+     ]
+    },
+    {
+     "action": "Contrôle la mise d'échappement : la cheville est un peu décalée.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Tourne la virole d'un cheveu pour corriger.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Remonte. Le balancier part.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "geste_reussi",
+      "accomplissement_intime"
+     ],
+     "pensee": "Elle bat. Grand-père, elle bat."
+    },
+    {
+     "action": "Écoute le tic-tac, l'oreille contre le mouvement, les yeux fermés.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "beaute_du_geste",
+      "souvenir_grand_pere"
+     ]
+    },
+    {
+     "action": "Pose le mouvement sur le chronocomparateur.",
+     "charge": "precision",
+     "posture": "assis",
+     "app": {
+      "allume": [
+       "chronocomparateur"
+      ]
+     }
+    },
+    {
+     "action": "Premier relevé : moins 40 secondes par jour, amplitude correcte pour son âge.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Déplace la raquette vers l'avance.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Nouveau relevé : plus 8 secondes.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Corrige encore d'un cheveu.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Plus 2 secondes cadran en haut. Elle marche comme au premier jour.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "geste_reussi"
+     ],
+     "app": {
+      "eteint": [
+       "chronocomparateur"
+      ]
+     }
+    },
+    {
+     "action": "Remet le cadran émaillé et les aiguilles bleuies.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Remet le mouvement dans son boîtier d'argent.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Remonte la montre et la met à l'heure de sa propre montre.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "tache_terminee"
+     ],
+     "objets": [
+      {
+       "objet": "obj-montre-gousset",
+       "de": "atelier / établi, sous une cloche en verre",
+       "vers": "atelier / établi, sur un support, en marche"
+      }
+     ]
+    }
+   ],
+   "facultatifs": [
+    {
+     "action": "Regarde l'aiguille des secondes tourner.",
+     "charge": "repos",
+     "posture": "assis",
+     "ev": [
+      "souvenir_grand_pere"
+     ]
+    },
+    {
+     "action": "Pose la photo de René à côté de la montre.",
+     "charge": "repos",
+     "posture": "assis"
+    },
+    {
+     "action": "Écoute la montre, sans rien faire.",
+     "charge": "repos",
+     "posture": "assis"
+    },
+    {
+     "action": "Nettoie et range ses outils.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Regarde la montre tourner.",
+     "charge": "repos",
+     "posture": "assis"
+    }
+   ],
+   "fatigue": {
+    "action": "Sent la fatigue. Laisse la montre tourner et range ses outils.",
+    "charge": "simple",
+    "posture": "assis"
+   }
+  },
+  {
+   "numero": 7,
+   "titre": "Montre du grand-père : réglage après vingt-quatre heures (séance 7)",
+   "delicate": false,
+   "ops": [
+    {
+     "action": "Compare la montre de gousset au réveil radio-piloté : moins 12 secondes en vingt-quatre heures.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Note la marche dans son carnet d'atelier.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Ouvre le fond et déplace la raquette d'un cheveu vers l'avance.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "operation_delicate"
+     ]
+    },
+    {
+     "action": "Remet la montre à l'heure.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Contrôle sur le chronocomparateur : plus 1 seconde cadran en haut.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "geste_reussi"
+     ],
+     "app": {
+      "allume": [
+       "chronocomparateur"
+      ]
+     }
+    },
+    {
+     "action": "Contrôle couronne en haut : moins 3.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Contrôle cadran en bas : plus 2. Pour une montre de cette époque, c'est remarquable.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ],
+     "app": {
+      "eteint": [
+       "chronocomparateur"
+      ]
+     }
+    },
+    {
+     "action": "Referme le fond.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Nettoie le boîtier d'argent au chiffon doux.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Graisse légèrement la tige de remontoir.",
+     "charge": "precision",
+     "posture": "assis"
+    },
+    {
+     "action": "Remonte la montre et la repose sur son support.",
+     "charge": "precision",
+     "posture": "assis",
+     "ev": [
+      "controle_conforme"
+     ]
+    },
+    {
+     "action": "Prend la montre dans sa main et la regarde longtemps.",
+     "charge": "repos",
+     "posture": "assis",
+     "ev": [
+      "souvenir_grand_pere"
+     ],
+     "pensee": "Le 20 mars, elle marchera. Elle marche déjà."
+    },
+    {
+     "action": "Décide de la porter le 20 mars, dans la poche de sa veste.",
+     "charge": "repos",
+     "posture": "assis"
+    }
+   ],
+   "facultatifs": [
+    {
+     "action": "Range l'atelier pour la semaine.",
+     "charge": "simple",
+     "posture": "debout"
+    },
+    {
+     "action": "Prépare l'établi pour le Zenith de lundi.",
+     "charge": "simple",
+     "posture": "assis"
+    },
+    {
+     "action": "Écoute la montre tourner.",
+     "charge": "repos",
+     "posture": "assis"
+    },
+    {
+     "action": "Relit ses notes de la semaine.",
+     "charge": "simple",
+     "posture": "assis"
+    }
+   ],
+   "fatigue": {
+    "action": "Sent la fatigue. Range l'atelier.",
+    "charge": "simple",
+    "posture": "assis"
+   }
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
   "meta": {
     "id": "thomas-berthier",
-    "version": 6,
+    "version": 7,
     "description": "Personnage d'étude n°1 : fiche complète servant de base à la génération de sa timeline sur une semaine, vécue seul.",
     "periode": {
       "debut": "2010-03-08T00:00",
@@ -260,6 +260,8 @@
       "qualification_equipe": { "description": "son équipe se qualifie", "effets": { "joie": 0.2, "anxiete": -0.15, "excitation": 0.2 } },
       "pensee_ami": { "description": "pensée pour un ami absent", "effets": { "solitude": 0.05, "joie": 0.02 } },
       "souvenir_excitant": { "description": "repenser à un moment fort de la journée", "effets": { "excitation": 0.05, "joie": 0.02 } },
+      "accomplissement_intime": { "description": "réussir quelque chose qui compte profondément pour lui", "effets": { "joie": 0.3, "fierte": 0.3, "tristesse": 0.08, "excitation": 0.15 } },
+      "livre_termine": { "description": "finir un livre", "effets": { "tristesse": 0.05, "joie": 0.05 } },
       "fin_de_course": { "description": "fin d'une sortie de course", "effets": { "anxiete": -0.2, "joie": 0.1 } }
     }
   },
@@ -492,7 +494,7 @@
       { "id": "entree", "nom": "Entrée", "surface_m2": 4, "fenetre": false, "mobilier": ["porte-manteau", "commode basse avec vide-poche", "tiroir de la commode", "meuble à chaussures"] },
       { "id": "couloir", "nom": "Couloir", "surface_m2": 3, "fenetre": false, "mobilier": ["interrupteur à chaque extrémité"] },
       { "id": "sejour", "nom": "Séjour", "surface_m2": 20, "fenetre": true, "mobilier": ["canapé", "table basse", "table à manger et deux chaises", "bibliothèque", "chaîne hi-fi avec radio", "petit téléviseur"] },
-      { "id": "atelier", "nom": "Atelier (ancienne deuxième chambre)", "surface_m2": 10, "fenetre": true, "mobilier": ["établi d'horloger devant la fenêtre", "tiroir de l'établi", "tour d'horloger", "lampe d'établi", "chronocomparateur", "contrôleur d'étanchéité", "lampe à alcool", "petit pot d'huile de trempe", "petit coffre-fort pour les montres des clients", "étagère de fournitures", "machine à nettoyer à ultrasons"] },
+      { "id": "atelier", "nom": "Atelier (ancienne deuxième chambre)", "surface_m2": 10, "fenetre": true, "mobilier": ["établi d'horloger devant la fenêtre", "tiroir de l'établi", "tour d'horloger", "lampe d'établi", "chronocomparateur", "contrôleur d'étanchéité", "lampe à alcool", "petit pot d'huile de trempe", "outil à rouler les pivots", "potence et tasseaux", "compas d'équilibrage", "petit coffre-fort pour les montres des clients", "étagère de fournitures", "machine à nettoyer à ultrasons"] },
       { "id": "cuisine", "nom": "Cuisine", "surface_m2": 7, "fenetre": true, "mobilier": ["plaques électriques", "four", "poêle", "mixeur plongeant", "réfrigérateur avec petit congélateur", "placard à provisions", "évier", "égouttoir", "machine à laver"] },
       { "id": "chambre", "nom": "Chambre", "surface_m2": 12, "fenetre": true, "mobilier": ["lit double", "table de chevet avec lampe de chevet", "armoire", "étendoir pliant"] },
       { "id": "salle-de-bain", "nom": "Salle de bain", "surface_m2": 4, "fenetre": false, "mobilier": ["douche", "lavabo", "étagère", "panier à linge"] },
@@ -523,7 +525,8 @@
       "chauffage": "radiateurs électriques, réglés sur 19 °C, 17 °C la nuit",
       "television": "petit téléviseur, allumé seulement pour les matchs et parfois le journal",
       "radio": "chaîne hi-fi réglée sur France Inter",
-      "internet": "ADSL, utilisé uniquement pour consulter de la documentation technique pendant le test"
+      "internet": "ADSL, utilisé uniquement pour consulter de la documentation technique pendant le test",
+      "aspirateur": "rangé dans le placard de l'entrée"
     },
     "provisions_au_debut": [
       { "id": "cafe_moulu", "produit": "café moulu", "quantite": 278, "unite": "g", "description": "1 paquet neuf de 250 g + 28 g dans le paquet entamé (4 doses de 7 g)", "rangement": "placard à provisions" },

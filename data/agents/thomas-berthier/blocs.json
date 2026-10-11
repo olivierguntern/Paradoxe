@@ -2350,5 +2350,880 @@
     }
    }
   ]
+ },
+ "reveil_weekend": {
+  "titre": "Réveil sans sonnerie",
+  "routine": "rt-samedi",
+  "pas": [
+   {
+    "action": "Se réveille sans sonnerie. Reste un moment allongé dans la lumière du matin.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé"
+   },
+   {
+    "action": "Se lève et boit un grand verre d'eau au lavabo.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "effets": {
+     "soif": 20
+    }
+   }
+  ]
+ },
+ "petit_dejeuner_long": {
+  "titre": "Petit-déjeuner du samedi",
+  "routine": "rt-samedi",
+  "pas": [
+   {
+    "action": "Passe par le séjour allumer la radio. Prépare le café.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "via": [
+     "sejour"
+    ],
+    "radio": true,
+    "app": {
+     "allume": [
+      "radio",
+      "plaque-1"
+     ]
+    },
+    "objets": [
+     {
+      "objet": "obj-cafetiere",
+      "de": "cuisine / égouttoir",
+      "vers": "cuisine / plaque électrique"
+     }
+    ],
+    "consommation": [
+     {
+      "produit": "cafe_moulu",
+      "quantite": 7
+     }
+    ]
+   },
+   {
+    "action": "Fait griller deux tranches de pain.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "radio": true,
+    "consommation": [
+     {
+      "produit": "pain_tranches",
+      "quantite": 2
+     }
+    ]
+   },
+   {
+    "action": "Éteint la plaque, se sert un café dans la tasse bleue et s'assoit à la table de la cuisine.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "assis",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "radio": true,
+    "app": {
+     "eteint": [
+      "plaque-1"
+     ]
+    },
+    "objets": [
+     {
+      "objet": "obj-tasse",
+      "de": "cuisine / égouttoir",
+      "vers": "cuisine / plan de travail"
+     }
+    ],
+    "consommation": [
+     {
+      "produit": "beurre",
+      "quantite": 10
+     },
+     {
+      "produit": "confiture_abricot",
+      "quantite": 2
+     }
+    ],
+    "effets": {
+     "faim": 40,
+     "soif": 15,
+     "cafe": true
+    }
+   },
+   {
+    "action": "Déjeune sans se presser, en écoutant la radio.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "radio": true,
+    "moment": true
+   },
+   {
+    "action": "Écoute les informations.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Écoute une chronique, la tasse entre les mains.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Regarde la cour par la fenêtre.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "radio": true
+   },
+   {
+    "action": "Rince la tasse et la cafetière.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "radio": true,
+    "objets": [
+     {
+      "objet": "obj-tasse",
+      "de": "cuisine / plan de travail",
+      "vers": "cuisine / égouttoir"
+     },
+     {
+      "objet": "obj-cafetiere",
+      "de": "cuisine / plaque électrique",
+      "vers": "cuisine / égouttoir"
+     }
+    ]
+   },
+   {
+    "action": "Remonte sa montre, la règle sur le réveil et l'attache à son poignet.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "ev": [
+     "controle_conforme"
+    ],
+    "radio": true,
+    "objets": [
+     {
+      "objet": "obj-montre-poignet",
+      "de": "chambre / table de chevet",
+      "vers": "poignet gauche"
+     }
+    ]
+   }
+  ]
+ },
+ "douche_rasage_weekend": {
+  "titre": "Douche et rasage",
+  "routine": "rt-samedi",
+  "pas": [
+   {
+    "action": "Éteint la radio en passant. Se déshabille.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "via": [
+     "sejour"
+    ],
+    "app": {
+     "eteint": [
+      "radio"
+     ]
+    }
+   },
+   {
+    "action": "Prend une longue douche chaude.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "effets": {
+     "hygiene": 75
+    }
+   },
+   {
+    "action": "Se rase de près.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Se coupe les ongles, prend son temps.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   }
+  ]
+ },
+ "habillage_weekend": {
+  "titre": "S'habille",
+  "routine": "rt-samedi",
+  "pas": [
+   {
+    "action": "S'habille : un vieux pull et un jean.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   }
+  ]
+ },
+ "menage": {
+  "titre": "Ménage",
+  "routine": "rt-samedi",
+  "pas": [
+   {
+    "action": "Sort l'aspirateur du placard et commence par l'entrée.",
+    "piece": "entree",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "app": {
+     "allume": [
+      "aspirateur"
+     ]
+    }
+   },
+   {
+    "action": "Passe l'aspirateur dans le séjour, sous le canapé et la table.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Termine le séjour.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Passe l'aspirateur dans la chambre.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Passe l'aspirateur dans le couloir.",
+    "piece": "couloir",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Passe l'aspirateur dans l'atelier en évitant l'établi, qu'il balaie à la main.",
+    "piece": "atelier",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Range l'aspirateur.",
+    "piece": "entree",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "app": {
+     "eteint": [
+      "aspirateur"
+     ]
+    }
+   },
+   {
+    "action": "Nettoie le lavabo et la douche.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Lave le miroir et le sol de la salle de bain.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Nettoie les toilettes.",
+    "piece": "wc",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Nettoie les plaques et le plan de travail.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Nettoie l'évier.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Lave le sol de la cuisine.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Plie le linge sec sur l'étendoir.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Range le linge dans l'armoire et replie l'étendoir.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-etendoir",
+      "de": "chambre / déplié près du radiateur",
+      "vers": "chambre / replié derrière la porte"
+     }
+    ]
+   },
+   {
+    "action": "Change les draps.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Met les draps sales dans le panier à linge.",
+    "piece": "salle-de-bain",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Se lave les mains et boit un verre d'eau. L'appartement sent le propre.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "ev": [
+     "plaisir_simple",
+     "repos_merite"
+    ],
+    "effets": {
+     "soif": 20
+    }
+   }
+  ]
+ },
+ "sieste": {
+  "titre": "Sieste",
+  "routine": "rt-samedi",
+  "pas": [
+   {
+    "action": "S'allonge sur le canapé.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé"
+   },
+   {
+    "action": "Dort sur le canapé.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "sieste",
+    "charge": "sommeil",
+    "posture": "allongé"
+   },
+   {
+    "action": "Se réveille et s'étire.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis"
+   }
+  ]
+ },
+ "musique": {
+  "titre": "Musique",
+  "routine": "rt-samedi",
+  "pas": [
+   {
+    "action": "Met un disque.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "musique": true,
+    "app": {
+     "allume": [
+      "lecteur-cd"
+     ]
+    }
+   },
+   {
+    "action": "Écoute, allongé sur le canapé.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé",
+    "musique": true
+   },
+   {
+    "action": "Arrête le disque.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "app": {
+     "eteint": [
+      "lecteur-cd"
+     ]
+    }
+   }
+  ]
+ },
+ "radio_soir": {
+  "titre": "Radio",
+  "routine": "rt-soir",
+  "pas": [
+   {
+    "action": "Allume la radio.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "radio": true,
+    "app": {
+     "allume": [
+      "radio"
+     ]
+    }
+   },
+   {
+    "action": "Écoute la radio.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Éteint la radio.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "app": {
+     "eteint": [
+      "radio"
+     ]
+    }
+   }
+  ]
+ },
+ "reveil_dimanche": {
+  "titre": "Réveil sans sonnerie",
+  "routine": "rt-dimanche",
+  "pas": [
+   {
+    "action": "Se réveille sans sonnerie. Reste un moment allongé.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "allongé"
+   },
+   {
+    "action": "Se lève, boit un verre d'eau et mange une banane dans la cuisine.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "effets": {
+     "soif": 20,
+     "faim": 15
+    },
+    "consommation": [
+     {
+      "produit": "bananes",
+      "quantite": 1
+     }
+    ]
+   }
+  ]
+ },
+ "etirements_course": {
+  "titre": "Échauffement",
+  "routine": "rt-dimanche",
+  "pas": [
+   {
+    "action": "S'échauffe doucement dans la chambre.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   }
+  ]
+ },
+ "brunch": {
+  "titre": "Brunch",
+  "routine": "rt-dimanche",
+  "pas": [
+   {
+    "action": "Passe par le séjour allumer la radio. Prépare le café.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "via": [
+     "sejour"
+    ],
+    "radio": true,
+    "app": {
+     "allume": [
+      "radio",
+      "plaque-1"
+     ]
+    },
+    "objets": [
+     {
+      "objet": "obj-cafetiere",
+      "de": "cuisine / égouttoir",
+      "vers": "cuisine / plaque électrique"
+     }
+    ],
+    "consommation": [
+     {
+      "produit": "cafe_moulu",
+      "quantite": 7
+     }
+    ]
+   },
+   {
+    "action": "Fait cuire deux œufs au plat dans la poêle.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "radio": true,
+    "app": {
+     "allume": [
+      "plaque-2"
+     ]
+    },
+    "consommation": [
+     {
+      "produit": "oeufs",
+      "quantite": 2
+     },
+     {
+      "produit": "beurre",
+      "quantite": 10
+     }
+    ]
+   },
+   {
+    "action": "Fait griller deux tranches de pain, coupe du comté et une orange.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "radio": true,
+    "consommation": [
+     {
+      "produit": "pain_tranches",
+      "quantite": 2
+     },
+     {
+      "produit": "comte",
+      "quantite": 50
+     },
+     {
+      "produit": "oranges",
+      "quantite": 1
+     }
+    ]
+   },
+   {
+    "action": "Éteint les plaques, se sert un café dans la tasse bleue.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "radio": true,
+    "app": {
+     "eteint": [
+      "plaque-1",
+      "plaque-2"
+     ]
+    },
+    "objets": [
+     {
+      "objet": "obj-tasse",
+      "de": "cuisine / égouttoir",
+      "vers": "cuisine / plan de travail"
+     }
+    ]
+   },
+   {
+    "action": "Brunche à la table du séjour en écoutant la radio.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "ev": [
+     "repas_seul",
+     "plaisir_simple"
+    ],
+    "radio": true,
+    "effets": {
+     "faim": 55,
+     "soif": 15,
+     "cafe": true
+    },
+    "moment": true
+   },
+   {
+    "action": "Termine son assiette.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Mange l'orange, quartier par quartier.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "radio": true,
+    "effets": {
+     "faim": 10,
+     "soif": 10
+    }
+   },
+   {
+    "action": "Reste à table, la radio en fond.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "radio": true
+   },
+   {
+    "action": "Rapporte la vaisselle à la cuisine.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "radio": true
+   },
+   {
+    "action": "Fait la vaisselle.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "radio": true
+   },
+   {
+    "action": "Rince la tasse et la cafetière.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "radio": true,
+    "objets": [
+     {
+      "objet": "obj-tasse",
+      "de": "cuisine / plan de travail",
+      "vers": "cuisine / égouttoir"
+     },
+     {
+      "objet": "obj-cafetiere",
+      "de": "cuisine / plaque électrique",
+      "vers": "cuisine / égouttoir"
+     }
+    ]
+   },
+   {
+    "action": "Remonte sa montre : vingt tours de couronne. Éteint la radio.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "app": {
+     "eteint": [
+      "radio"
+     ]
+    }
+   }
+  ]
+ },
+ "planification": {
+  "titre": "Planification de la semaine",
+  "routine": "rt-dimanche",
+  "pas": [
+   {
+    "action": "Va chercher son carnet dans la chambre et s'installe à la table du séjour.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "assis",
+    "via": [
+     "chambre"
+    ],
+    "objets": [
+     {
+      "objet": "obj-carnet",
+      "de": "chambre / table de chevet, sous le livre",
+      "vers": "sejour / table à manger"
+     }
+    ]
+   },
+   {
+    "action": "Note le travail de la semaine : finir le Zenith, expédier les montres prêtes.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "assis",
+    "ev": [
+     "ecriture_carnet"
+    ]
+   },
+   {
+    "action": "Fait l'inventaire de ce qui reste dans les placards.",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout"
+   },
+   {
+    "action": "Écrit la liste des courses de samedi prochain.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "assis"
+   },
+   {
+    "action": "Planifie les menus de la semaine.",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "assis"
+   },
+   {
+    "action": "Rapporte le carnet sur la table de chevet.",
+    "piece": "chambre",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "objets": [
+     {
+      "objet": "obj-carnet",
+      "de": "sejour / table à manger",
+      "vers": "chambre / table de chevet, sous le livre"
+     }
+    ]
+   }
+  ]
  }
 }

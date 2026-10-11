@@ -61,8 +61,11 @@ Les émotions ne sont jamais fixées à la main : elles sont calculées à parti
 | `timelines/thomas-berthier/2010-03-09.json` | Mardi 9 mars 2010 : course à pied (escaliers, quais de Saône), Rolex, les pivots |
 | `timelines/thomas-berthier/2010-03-10.json` | Mercredi 10 mars 2010 : fin de la Rolex, pendule, lessive, trempe de l'axe, Real Madrid – Lyon |
 | `timelines/thomas-berthier/2010-03-11.json` | Jeudi 11 mars 2010 : **généré par l'agent autonome** (course, validations, Zenith, polissage des pivots) |
+| `timelines/thomas-berthier/2010-03-12.json` | Vendredi 12 mars 2010 : **généré par l'agent autonome** (Zenith en observation, gestion, dépose de l'ancien axe, fin du livre) |
+| `timelines/thomas-berthier/2010-03-13.json` | Samedi 13 mars 2010 : **généré par l'agent autonome** (ménage, sieste, montage de l'axe : la montre du grand-père bat de nouveau) |
+| `timelines/thomas-berthier/2010-03-14.json` | Dimanche 14 mars 2010 : **généré par l'agent autonome** (sortie longue de 12 km, réglage après 24 h, planification de la semaine) |
 
-Lundi à mercredi sont rédigés à la main et calculés par `outils/generer_journee.py` ; à partir du jeudi, les journées sont vécues par l'agent autonome (`outils/simuler_agent.py`). Voir `outils/README.md`.
+Lundi à mercredi sont rédigés à la main et calculés par `outils/generer_journee.py` ; de jeudi à dimanche, les journées sont vécues par l'agent autonome (`outils/simuler_agent.py`). La semaine complète (2016 pas) est donc disponible. Voir `outils/README.md`.
 
 ## Agents et simulations
 

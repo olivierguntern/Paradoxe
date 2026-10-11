@@ -1,7 +1,7 @@
 {
  "meta": {
   "personnage": "thomas-berthier",
-  "fiche_version": 6,
+  "fiche_version": 7,
   "date": "2010-03-10",
   "jour": "mercredi",
   "pas_minutes": 5,
@@ -63,7 +63,8 @@
    "rolex": "en attente jusqu'au pas 117 (09:45) du jour 4 ; 3 opérations restantes",
    "pendule": "en attente jusqu'au pas 200 (16:40) du jour 4 ; 3 opérations restantes",
    "quartz": "8 opérations restantes",
-   "zenith": "113 opérations restantes"
+   "zenith": "113 opérations restantes",
+   "gestion": "18 opérations restantes"
   },
   "objets_deplaces_position_finale": {
    "obj-montre-poignet": "chambre / table de chevet",
@@ -149,9 +150,11 @@
    "23:35 energie = 20.8 (seuil 25)",
    "23:40 energie = 20.4 (seuil 25)",
    "23:45 energie = 20.0 (seuil 25)",
-   "23:50 energie = 19.6 (seuil 25)",
-   "23:55 energie = 20.6 (seuil 25)"
+   "23:50 energie = 19.6 (seuil 25)"
   ],
+  "besoins_sous_le_seuil_pendant_le_sommeil_pas": {
+   "energie": 1
+  },
   "endormissement": "extinction à 23:10 ; anxiété 0.209 (seuil 0.65), excitation 0.6 (seuil 0.5) : endormissement en 45 minutes",
   "ecarts_a_la_routine": [
    "06:55 : réveil naturel avant la sonnerie (sommeil long).",
@@ -291,6 +294,13 @@
      "termine": false
     },
     "zenith": {
+     "phase": 0,
+     "op": 0,
+     "dispo": null,
+     "machine_fin": null,
+     "termine": false
+    },
+    "gestion": {
      "phase": 0,
      "op": 0,
      "dispo": null,
@@ -448,6 +458,13 @@
      "termine": false
     },
     "zenith": {
+     "phase": 0,
+     "op": 0,
+     "dispo": null,
+     "machine_fin": null,
+     "termine": false
+    },
+    "gestion": {
      "phase": 0,
      "op": 0,
      "dispo": null,
@@ -11599,7 +11616,7 @@
    "routine": "rt-soir",
    "activite": "Coucher",
    "action": "Se couche, écrit dans son carnet et le repose sous le livre.",
-   "pensee": "« Mercredi 10 mars. Rolex terminée. Pendule terminée. Séance 3 sur l'axe : trempe et revenu. Real 1, Lyon 1 : qualifiés. »",
+   "pensee": "« Mercredi 10 mars. Rolex terminée, en observation. Pendule terminée, en observation. Séance 3 sur l'axe : trempe et revenu. Real 1, Lyon 1 : qualifiés. »",
    "objets": [
     {
      "objet": "obj-carnet",

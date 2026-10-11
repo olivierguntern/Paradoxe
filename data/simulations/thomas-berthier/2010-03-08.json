@@ -1,7 +1,7 @@
 {
  "meta": {
   "personnage": "thomas-berthier",
-  "fiche_version": 6,
+  "fiche_version": 7,
   "date": "2010-03-08",
   "jour": "lundi",
   "pas_minutes": 5,
@@ -61,7 +61,8 @@
    "rolex": "76 opérations restantes",
    "pendule": "62 opérations restantes",
    "quartz": "37 opérations restantes",
-   "zenith": "113 opérations restantes"
+   "zenith": "113 opérations restantes",
+   "gestion": "18 opérations restantes"
   },
   "objets_deplaces_position_finale": {
    "obj-montre-poignet": "chambre / table de chevet",
@@ -139,6 +140,7 @@
    "23:05 energie = 24.8 (seuil 25)",
    "23:10 energie = 24.4 (seuil 25)"
   ],
+  "besoins_sous_le_seuil_pendant_le_sommeil_pas": {},
   "endormissement": "extinction à 23:00 ; anxiété 0.272 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
   "ecarts_a_la_routine": [
    "11:50 : met le déjeuner en route avant midi (cuisson longue).",
@@ -366,6 +368,13 @@
      "termine": false
     },
     "zenith": {
+     "phase": 0,
+     "op": 0,
+     "dispo": null,
+     "machine_fin": null,
+     "termine": false
+    },
+    "gestion": {
      "phase": 0,
      "op": 0,
      "dispo": null,
@@ -8634,7 +8643,7 @@
    "routine": "rt-atelier",
    "activite": "Rangement de l'atelier",
    "action": "Aligne ses outils, éteint la lampe, range ses lunettes.",
-   "pensee": "La journée est faite.",
+   "pensee": "Ça, c'est fait.",
    "objets": [
     {
      "objet": "obj-lunettes",
@@ -11154,7 +11163,7 @@
    "routine": "rt-soir",
    "activite": "Coucher",
    "action": "Prend son carnet noir et écrit.",
-   "pensee": "« Lundi 8 mars. Omega terminée. Séance 1 sur l'axe : tournage de l'axe. »",
+   "pensee": "« Lundi 8 mars. Omega terminée, en observation. Séance 1 sur l'axe : tournage de l'axe. »",
    "objets": [
     {
      "objet": "obj-carnet",
@@ -11314,7 +11323,7 @@
    "routine": "rt-soir",
    "activite": "Endormissement",
    "action": "Les yeux ouverts dans le noir.",
-   "pensee": "Les pivots. Pas le droit à l'erreur.",
+   "pensee": "Pas le droit à l'erreur.",
    "appareils_allumes": [],
    "evenements": [
     {

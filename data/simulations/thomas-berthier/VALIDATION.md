@@ -45,3 +45,16 @@ python3 outils/comparer_journees.py data/timelines/thomas-berthier/2010-03-09.js
 | Séance arrêtée à 21:25 et coucher à 22:15 (mardi) | Fatigue : énergie sous le seuil |
 | Réveil à 06:55 avant la sonnerie (mercredi) | Réveil naturel après plus de 8 h 25 de sommeil |
 | Endormissement en 45 minutes (mercredi) | Excitation du match au-dessus du seuil |
+
+## Règles ajoutées après la validation
+
+Ces règles ne changent rien à la reproduction de lundi à mercredi (mêmes taux de concordance) ; elles servent aux journées que l'agent vit seul, de jeudi à dimanche.
+
+| Règle | Effet |
+|---|---|
+| Interruption par un besoin | Si les toilettes (seuil 25), la soif (seuil 40) ou la faim (seuil 35) passent sous leur seuil d'alerte pendant l'atelier, une séance, la lecture, la musique, le temps libre ou la grasse matinée, l'agent s'interrompt un pas pour y répondre, puis reprend. Pas d'interruption si l'activité se termine dans les 10 minutes, ni pour la faim dans les 45 minutes qui précèdent un repas. |
+| Hydratation avant la course | Un verre d'eau avant de partir ; un second si la soif prévue au départ est sous 45 |
+| Tenue de course | Prise là où elle se trouve réellement (armoire, étendoir, panier à linge) |
+| Montre à sortir du coffre | Une montre rangée au coffre est sortie avant sa première opération du jour |
+| Réveil du week-end | Sans sonnerie : pas avant 07:30, au plus tard 08:30 |
+| Livre terminé | Quand la dernière page est atteinte, l'événement `livre_termine` est vécu ; les plages de lecture suivantes deviennent de la musique |
