@@ -26,7 +26,7 @@ def idx(h):
 # ---------------------------------------------------------------- rédaction
 def p(action, pensee=None, **kw):
     """Un pas de 5 minutes. Options : ev, objets, nouveaux_objets, consommation, production,
-    effets, app, radio, musique, tele, mode, charge, posture, piece, lieu, via,
+    achats, argent, effets, app, radio, musique, tele, mode, charge, posture, piece, lieu, via,
     via_apres, sortie, retour, escalier, parcours, phase_sommeil, reve."""
     d = {"action": action, "pensee": pensee}
     d.update(kw)
@@ -84,6 +84,15 @@ class Journee:
 
 
 # ---------------------------------------------------------------- état
+def argent_initial(fiche):
+    """Espèces, compte courant et, pour un commerçant, caisse du magasin au premier pas."""
+    E = fiche.get("economie", {})
+    out = {"especes": E.get("especes_au_debut", 0), "compte": E.get("compte_courant_au_debut", 0)}
+    if "caisse_au_debut" in E:
+        out["caisse"] = E["caisse_au_debut"]
+    return out
+
+
 def etat_initial_depuis_fiche(fiche):
     positions = {}
     for o in fiche["objets"]:
@@ -94,7 +103,7 @@ def etat_initial_depuis_fiche(fiche):
     stock = {x["id"]: x["quantite"] for x in fiche["domicile"]["provisions_au_debut"] if x.get("suivi", True)}
     return {"piece": fiche["etat_initial"]["piece"], "besoins": dict(fiche["etat_initial"]["besoins"]),
             "emotions": emo, "concentration": conc, "lumieres": {}, "appareils": [], "positions": positions, "cafe": [],
-            "stock": stock}
+            "stock": stock, "argent": argent_initial(fiche)}
 
 
 def etat_depuis_veille(chemin_json):
@@ -146,6 +155,7 @@ class Simulation:
         self.positions = dict(etat["positions"])
         self.cafe = list(etat["cafe"])
         self.stock = dict(etat["stock"])
+        self.argent = dict(etat.get("argent") or argent_initial(fiche))
         self.base = {k: v for k, v in M["etat_de_base"].items() if k != "solitude"}
         self.piece = etat["piece"]
         self.stats = {"entre_pieces_m": 0.0, "dans_les_pieces_m": 0.0, "exterieur_m": 0.0, "foulees": 0.0,
@@ -296,21 +306,31 @@ class Simulation:
                 raise Incoherence(f"{hm(i)} : {o['objet']} est à « {self.positions[o['objet']]} », pas à « {o['de']} »")
             self.positions[o["objet"]] = o["vers"]
 
-        # ---- provisions : production puis consommation, jamais en dessous de zéro
+        # ---- provisions : achats et production, puis consommation, jamais en dessous de zéro
         mouvements = {}
-        for sens, cle in ((1, "production"), (-1, "consommation")):
+        for sens, cle in ((1, "achats"), (1, "production"), (-1, "consommation")):
             for x in st.get(cle, []):
                 pid, q = x["produit"], x["quantite"]
                 if pid not in self.PRODUITS:
                     raise Incoherence(f"{hm(i)} : produit inconnu {pid}")
                 spec = self.PRODUITS[pid]
                 ligne = {"produit": pid, "nom": spec["produit"], "quantite": q, "unite": spec["unite"]}
+                if "prix" in x:
+                    ligne["prix"] = x["prix"]
                 if spec.get("suivi", True):
                     self.stock[pid] = self.stock.get(pid, 0) + sens * q
                     if self.stock[pid] < 0:
                         raise Incoherence(f"{hm(i)} : il ne reste pas assez de « {spec['produit']} » ({self.stock[pid] + q} {spec['unite']} pour {q} demandés)")
                     ligne["reste"] = self.stock[pid]
                 mouvements.setdefault(cle, []).append(ligne)
+
+        # ---- argent : espèces, compte, caisse ; jamais en dessous de zéro en espèces ni en caisse
+        if st.get("argent"):
+            for compte, montant in st["argent"].items():
+                self.argent[compte] = round(self.argent.get(compte, 0) + montant, 2)
+                if compte in ("especes", "caisse") and self.argent[compte] < 0:
+                    raise Incoherence(f"{hm(i)} : pas assez d'argent ({compte}) pour {-montant} €")
+            mouvements["argent"] = {"mouvements": st["argent"], "soldes": dict(self.argent)}
 
         # ---- besoins
         def var(n, cle):
@@ -429,7 +449,7 @@ class Simulation:
                       "emotions": {e: round(v, 4) for e, v in self.emo.items()}, "concentration": round(self.conc, 4),
                       "lumieres": {pc: v for pc, v in self.lumieres.items() if v}, "appareils": sorted(self.appareils),
                       "positions": self.positions, "cafe": [c - PAS_PAR_JOUR for c in self.cafe if c + 36 > PAS_PAR_JOUR],
-                      "stock": self.stock}
+                      "stock": self.stock, "argent": self.argent}
         st_["anxiete_extinction"] = emo_ext["anxiete"]
         st_["excitation_extinction"] = emo_ext["excitation"]
         st_["seuil_insomnie"] = seuil
@@ -470,7 +490,14 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
             for n, v in s["besoins"].items():
                 if n in B and v < B[n]["seuil_alerte"]:
                     alertes_sommeil[n] = alertes_sommeil.get(n, 0) + 1
-    conso, prod = {}, {}
+    conso, prod, achats, depenses = {}, {}, {}, {}
+    for s in steps:
+        for x in s.get("achats", []):
+            achats.setdefault(x["nom"], [0, x["unite"], 0.0])
+            achats[x["nom"]][0] += x["quantite"]
+            achats[x["nom"]][2] += x.get("prix", 0)
+        for compte, m in s.get("argent", {}).get("mouvements", {}).items():
+            depenses[compte] = round(depenses.get(compte, 0) + m, 2)
     for s in steps:
         for x in s.get("consommation", []):
             conso.setdefault(x["nom"], [0, x["unite"]])[0] += x["quantite"]
@@ -519,6 +546,8 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
             "objets_deplaces_position_finale": deplaces,
             "provisions_consommees": {k: (quantite(v[0], v[1]) if v[1] else "utilisés (non suivis)") for k, v in conso.items()},
             "plats_prepares": {k: quantite(v[0], v[1]) for k, v in prod.items()},
+            "achats": {k: f"{quantite(v[0], v[1])} ({v[2]:.2f} €)" for k, v in achats.items()},
+            "argent": {"mouvements_du_jour": depenses, "soldes_en_fin_de_journee": etat_final.get("argent", {})},
             "stock_en_fin_de_journee": stock_fin,
             "besoins_sous_le_seuil_d_alerte": alertes,
             "besoins_sous_le_seuil_pendant_le_sommeil_pas": alertes_sommeil,
@@ -614,6 +643,13 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
         pid = next((x for x in noms if noms[x]["produit"] == k), None)
         L.append(f"| {k} (préparé : {quantite(v[0], v[1])}) | — | {quantite(etat_final['stock'].get(pid), v[1])} |")
 
+    if achats:
+        L += ["\n## Achats\n", "| Produit | Quantité | Prix |", "|---|---|---|"]
+        L += [f"| {k} | {quantite(v[0], v[1])} | {v[2]:.2f} € |" for k, v in achats.items()]
+    if depenses:
+        noms_comptes = {"especes": "espèces", "compte": "compte courant", "caisse": "caisse du magasin"}
+        L.append("\nArgent : " + " ; ".join(f"{noms_comptes.get(c, c)} {m:+.2f} € (reste {etat_final['argent'].get(c, 0):.2f} €)"
+                                            for c, m in depenses.items()) + ".")
     L += ["\n## Bilan\n"] + [f"- {x}" for x in j.bilan]
     L.append(f"- **Endormissement** : {out['resume']['endormissement']}.")
     L.append("- **Écarts à la routine** :")

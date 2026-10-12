@@ -1,0 +1,42 @@
+{
+ "frequence_preoccupations": 0.12,
+ "service": {
+  "vide": [
+   "Remet de l'ordre dans l'étal de fruits.",
+   "Regarde passer la Grande-Rue par la vitrine.",
+   "Refait le plein du rayon des conserves.",
+   "Essuie le comptoir d'un coup de chiffon.",
+   "Écrit deux prix à la craie sur l'ardoise.",
+   "Range les bocaux de bonbons près de la caisse."
+  ],
+  "un": [
+   "Sert une cliente : une baguette et un litre de lait.",
+   "Sert un client pressé : un paquet de café, la monnaie, au revoir.",
+   "Sert une dame âgée du quartier, qui prend son temps pour choisir ses pommes.",
+   "Sert un étudiant : des pâtes, du thon, une bière.",
+   "Sert une mère de famille : des yaourts, du jambon, des biscuits.",
+   "Sert un habitué qui lui parle du temps qu'il fait.",
+   "Sert un ouvrier du chantier d'en face : un sandwich et une bouteille d'eau."
+  ],
+  "plusieurs": [
+   "Sert {n} clients à la suite, rend la monnaie sans regarder la caisse.",
+   "Petite file au comptoir : {n} clients, des baguettes surtout.",
+   "{n} clients en même temps ; il plaisante avec l'un pendant qu'il pèse les tomates de l'autre."
+  ]
+ },
+ "preoccupations": {
+  "pre-chiffre": {"evenement": "constat_chiffre", "textes": ["La supérette du boulevard me prend mes clients du soir.", "Il faudrait trois cents euros par jour. On y sera pas."]},
+  "pre-josiane": {"evenement": "souvenir_josiane", "textes": ["Le 16, ça fera trente-quatre ans. Josiane aurait fait un gâteau.", "Josiane aurait déjà changé la vitrine pour Pâques."]},
+  "pre-claire": {"evenement": "pensee_claire", "textes": ["Claire doit être de garde. Les petits chez leur père.", "Emma a dû grandir encore. Pâques, ils viendront peut-être."]},
+  "pre-match": {"evenement": "anticipation_plaisir", "textes": ["Mercredi, Madrid. S'ils tiennent le 1-0…", "Lyon au Bernabéu. Faudra pas fermer en retard."], "jusqua": "2010-03-10"},
+  "pre-dos": {"evenement": "mal_de_dos", "textes": ["Le dos. Encore quatre ans à porter des cagettes.", "Faudra que je m'assoie un peu, ce dos."]}
+ },
+ "apres_client_connu": ["Toujours seul, ce garçon.", "Un bon petit, l'horloger. Il parle à ses montres plus qu'aux gens.", "Il a l'air fatigué, l'horloger."],
+ "reves": [
+  {"texte": "Josiane derrière la caisse, qui rend la monnaie en francs.", "ev": "reve_souvenir"},
+  {"texte": "La boutique est vide, les rayons aussi, et la porte ne ferme plus.", "ev": "reve_inquiet"},
+  {"texte": "La plage de Sète, l'été 1985. Claire construit un château de sable.", "ev": "reve_souvenir"},
+  {"texte": "Un camion de livraison qui ne s'arrête pas devant la boutique.", "ev": "reve_inquiet"},
+  {"texte": "Le bal de la Croix-Rousse, la musique, mais il ne trouve pas Josiane.", "ev": "reve_souvenir"}
+ ]
+}

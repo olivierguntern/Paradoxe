@@ -1,10 +1,10 @@
 # Validation de l'agent autonome
 
-L'agent autonome (`outils/agent.py`) a vécu seul la semaine de Thomas du lundi 8 au mercredi 10 mars 2010, à partir de la fiche. Ses journées, dans ce dossier, sont comparées pas à pas aux journées de référence rédigées à la main (`data/timelines/thomas-berthier/`).
+L'agent autonome (`outils/agent.py`) a vécu seul la semaine de Thomas du lundi 8 au mercredi 10 mars 2010, à partir de la fiche, sans les courses à l'épicerie (ajoutées après la rédaction des références). Ses journées, dans ce dossier, sont comparées pas à pas aux journées de référence rédigées à la main (`data/references/thomas-berthier/`).
 
 ```bash
-python3 outils/simuler_agent.py 2010-03-08 2010-03-10 --dossier data/simulations/thomas-berthier
-python3 outils/comparer_journees.py data/timelines/thomas-berthier/2010-03-09.json data/simulations/thomas-berthier/2010-03-09.json
+python3 outils/simuler_agent.py 2010-03-08 2010-03-10 --dossier data/simulations/thomas-berthier --sans-courses
+python3 outils/comparer_journees.py data/references/thomas-berthier/2010-03-09.json data/simulations/thomas-berthier/2010-03-09.json
 ```
 
 ## Concordance des faits (288 pas par jour)
@@ -60,3 +60,4 @@ Ces règles ne changent rien à la reproduction de lundi à mercredi (mêmes tau
 | Anticipation avant une séance | Avant une séance sur la montre du grand-père, il passe aux toilettes ou boit un verre d'eau si le besoin passerait sous son seuil d'alerte avant la fin prévue |
 | Livre terminé | Quand la dernière page est atteinte, l'événement `livre_termine` est vécu. Le livre est rangé et le reste de la plage de lecture devient de la musique |
 | Livre suivant | À la séance de lecture suivante au séjour, il range le livre fini dans la bibliothèque et prend le suivant (`regles.json`, `lecture.livres`) ; sans livre suivant, la plage devient de la musique |
+| Courses à l'épicerie | Mardi, jeudi et samedi : liste d'après le stock, trajet de 500 m, achats au prix du catalogue de l'épicier, paiement, rangement ; désactivées par `--sans-courses` pour cette validation |

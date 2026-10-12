@@ -1,15 +1,21 @@
 """Prépare les données de la vue fil de fer (vue/donnees.js).
 
-Usage : python3 outils/exporter_vue.py [--personnage thomas-berthier] [--monde data/monde/croix-rousse.json]
+Usage : python3 outils/exporter_vue.py [--monde data/monde/croix-rousse.json]
 
-Lit la fiche du personnage, la géométrie du monde et toutes les journées de
-data/timelines/<personnage>/, puis calcule pour chaque pas :
-- le trajet de Thomas dans l'immeuble (portes franchies, escalier, allée) ;
-- son trajet sur le parcours de course quand il est dehors ;
-- sa pose (debout, assis, allongé, en course, en marche) ;
+Lit la géométrie du monde, les fiches des personnages qui y ont un logement et
+toutes leurs journées (data/timelines/<personnage>/). Tout est exprimé dans un
+seul repère (mètres) : x vers l'est, y vers le nord, z vers le haut.
+
+Pour chaque pas de chaque personnage, l'export calcule :
+- le trajet, porte par porte dans son logement, par les escaliers, puis dans
+  les rues (courses à l'épicerie, parcours de course) ;
+- sa pose (debout, assis, allongé, en marche, en course) et sa direction ;
 - la position en 3D de chaque emplacement d'objet.
 
-Contrôles : chaque liaison du plan de la fiche doit avoir une porte, chaque
+Il génère aussi, de façon déterministe, les immeubles ordinaires le long des
+rues, les arbres du boulevard et des quais.
+
+Contrôles : chaque liaison du plan d'une fiche doit avoir une porte, chaque
 pièce un rectangle, chaque emplacement d'objet un point. Les distances entre
 pièces mesurées sur le plan sont comparées à celles de la fiche.
 """
@@ -19,21 +25,22 @@ import json
 import math
 import os
 import sys
+import zlib
 from collections import deque
 
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BESOINS = ["faim", "soif", "energie", "hygiene", "toilettes", "social", "detente"]
 EMOTIONS = ["joie", "tristesse", "anxiete", "colere", "solitude", "fierte", "excitation", "concentration"]
 POSES = {"debout": "debout", "assis": "assis", "allongé": "allonge", "en course": "course", "en marche": "marche"}
-APPROCHE = 0.45  # distance du point de passage devant une porte (m)
+APPROCHE = 0.45
 
 
-def dist(a, b):
-    return math.dist(a[:2], b[:2])
+def r2(v):
+    return round(v, 2) + 0.0
 
 
-def centre(r):
-    return [(r[0] + r[2]) / 2, (r[1] + r[3]) / 2]
+def h01(*cle):
+    return (zlib.crc32("|".join(map(str, cle)).encode()) % 10000) / 10000
 
 
 def longueur(pts):
@@ -41,19 +48,17 @@ def longueur(pts):
 
 
 def point_a(pts, s):
-    """Point d'une polyligne à l'abscisse curviligne s."""
     cumul = 0.0
     for p, q in zip(pts, pts[1:]):
         l = math.dist(p, q)
         if cumul + l >= s:
             u = 0.0 if l == 0 else max(0.0, (s - cumul) / l)
-            return [p[i] + (q[i] - p[i]) * u for i in range(3)]
+            return [p[i] + (q[i] - p[i]) * u for i in range(len(p))]
         cumul += l
     return list(pts[-1])
 
 
 def sous_chemin(pts, a, b):
-    """Points d'une polyligne entre les abscisses curvilignes a et b (b peut être avant a)."""
     lo, hi = min(a, b), max(a, b)
     out, cumul = [point_a(pts, lo)], 0.0
     for p, q in zip(pts, pts[1:]):
@@ -61,60 +66,97 @@ def sous_chemin(pts, a, b):
         if lo < cumul < hi:
             out.append(list(q))
     out.append(point_a(pts, hi))
-    out = [[round(v, 1) for v in p] for p in out]
+    out = [[r2(v) for v in p] for p in out]
     return out[::-1] if b < a else out
 
 
-class Monde:
-    def __init__(self, fiche, geo):
-        self.fiche, self.geo = fiche, geo
-        self.im = geo["immeuble"]
-        self.lg = geo["logement"]
-        self.H = self.im["hauteur_etage"]
-        self.Z = self.im["etage_logement"] * self.H
-        self.pieces = self.lg["pieces"]
-        self.portes = {}
-        for p in self.lg["portes"]:
-            a, b = p["entre"]
-            m = [(p["segment"][0][0] + p["segment"][1][0]) / 2, (p["segment"][0][1] + p["segment"][1][1]) / 2]
-            self.portes[(a, b)] = self.portes[(b, a)] = {"milieu": m, "segment": p["segment"]}
-        self.voisins = {}
-        for a, b in self.portes:
-            self.voisins.setdefault(a, set()).add(b)
+class Repere:
+    """Passage du repère local d'un bâtiment au repère du monde (rotations par quarts de tour)."""
 
-    # ---------------------------------------------------------------- points
-    def a3(self, p, z=0.0):
-        """Point du logement vers le repère de l'immeuble."""
-        return [round(p[0], 2), round(p[1], 2), round(self.Z + z, 2)]
+    def __init__(self, origine, rotation):
+        self.o, self.r = origine, rotation % 360
+
+    def p(self, x, y):
+        ox, oy = self.o
+        return {0: (ox + x, oy + y), 270: (ox + y, oy - x), 90: (ox - y, oy + x), 180: (ox - x, oy - y)}[self.r]
+
+    def v(self, dx, dy):
+        return {0: (dx, dy), 270: (dy, -dx), 90: (-dy, dx), 180: (-dx, -dy)}[self.r]
+
+    def rect(self, r):
+        a, b = self.p(r[0], r[1]), self.p(r[2], r[3])
+        return [min(a[0], b[0]), min(a[1], b[1]), max(a[0], b[0]), max(a[1], b[1])]
+
+
+class Terrain:
+    def __init__(self, T):
+        self.T = T
+
+    def z(self, x, y):
+        T = self.T
+        fx = min(1.0, max(0.0, (T["bord_ouest_x"] - x) / T["largeur_pente_ouest"]))
+        fy = min(1.0, max(0.0, (T["bord_sud_y"] - y) / T["largeur_pente_sud"]))
+        return T["z_bas"] * max(fx, fy)
+
+    def p3(self, pts):
+        return [[r2(x), r2(y), r2(self.z(x, y))] for x, y in pts]
+
+
+class Logement:
+    def __init__(self, L, bat, fiche):
+        self.L, self.bat, self.fiche = L, bat, fiche
+        self.R = Repere(bat["origine"], bat["rotation"])
+        self.H = bat["hauteur_etage"]
+        self.base = L["niveau"]
+        self.pieces = L["pieces"]
+        self.portes, self.voisins = {}, {}
+        for p in L["portes"]:
+            a, b = p["entre"]
+            if p.get("escalier"):
+                e = {"escalier": True}
+            else:
+                (x0, y0), (x1, y1) = p["segment"]
+                e = {"milieu": [(x0 + x1) / 2, (y0 + y1) / 2], "segment": p["segment"]}
+            self.portes[(a, b)] = self.portes[(b, a)] = e
+            self.voisins.setdefault(a, set()).add(b)
+            self.voisins.setdefault(b, set()).add(a)
+
+    def niveau(self, piece):
+        return self.base + self.pieces.get(piece, {}).get("niveau", 0)
+
+    def pt(self, piece, xy, dz=0.0):
+        x, y = self.R.p(*xy)
+        return [r2(x), r2(y), r2(self.niveau(piece) * self.H + dz)]
+
+    def centre(self, piece):
+        r = self.pieces[piece]["rect"]
+        return [(r[0] + r[2]) / 2, (r[1] + r[3]) / 2]
 
     def approche(self, piece, porte):
-        """Point situé devant la porte, à l'intérieur de la pièce."""
         (x0, y0), (x1, y1) = porte["segment"]
-        m = porte["milieu"]
+        m, c = porte["milieu"], self.centre(piece)
         if y0 == y1:
-            c = centre(self.pieces[piece])
-            s = 1 if c[1] > y0 else -1
-            return [m[0], m[1] + s * APPROCHE]
-        c = centre(self.pieces[piece])
-        s = 1 if c[0] > x0 else -1
-        return [m[0] + s * APPROCHE, m[1]]
+            return [m[0], m[1] + (APPROCHE if c[1] > y0 else -APPROCHE)]
+        return [m[0] + (APPROCHE if c[0] > x0 else -APPROCHE), m[1]]
 
     def poste(self, piece, posture, activite):
-        P = self.lg["postes"].get(piece)
+        """Point, direction et hauteur de siège dans le repère du monde."""
+        P = self.L["postes"].get(piece)
         if not P:
-            return centre(self.pieces[piece]) + [0.0, 1.0]
-        if posture == "allongé" and "allongé" in P:
-            return P["allongé"]
-        if posture == "assis":
-            if piece == "sejour" and any(k in activite for k in self.lg["activites_a_table"]):
-                return P["assis_a_table"]
-            if "assis" in P:
-                return P["assis"]
-        if piece == "salle-de-bain" and "ouche" in activite:
-            return P["douche"]
-        return P["debout"]
+            po = self.centre(piece) + [0.0, 1.0]
+        elif posture == "allongé" and "allongé" in P:
+            po = P["allongé"]
+        elif posture == "assis" and piece == "sejour" and "assis_a_table" in P and any(k in activite for k in self.L.get("activites_a_table", [])):
+            po = P["assis_a_table"]
+        elif posture == "assis" and "assis" in P:
+            po = P["assis"]
+        elif "ouche" in activite and "douche" in P:
+            po = P["douche"]
+        else:
+            po = P.get("debout") or next(iter(v for k, v in P.items() if k != "principe"))
+        d = self.R.v(po[2], po[3]) if len(po) > 3 else (0.0, 1.0)
+        return self.pt(piece, po[:2]), [r2(d[0]), r2(d[1]), po[4] if len(po) > 4 else 0.0]
 
-    # ---------------------------------------------------------------- chemins
     def chemin_pieces(self, a, b):
         if a == b:
             return [a]
@@ -132,105 +174,139 @@ class Monde:
             out.append(vu[out[-1]])
         return out[::-1]
 
+    def escalier_pts(self, de, vers):
+        E = self.bat["escalier"]
+        bas = self.R.p(*E["bas"])
+        haut = self.R.p(*E["haut"])
+        zb, zh = (self.base + E["depuis_niveau"]) * self.H, (self.base + E["jusqua_niveau"]) * self.H
+        pts = [[r2(bas[0]), r2(bas[1]), r2(zb)], [r2(haut[0]), r2(haut[1]), r2(zh)]]
+        return pts if self.niveau(de) <= self.niveau(vers) else pts[::-1]
+
     def traversee(self, pieces):
-        """Points de passage (logement) pour une suite de pièces voisines."""
         pts = []
         for a, b in zip(pieces, pieces[1:]):
             if a == b:
                 continue
             porte = self.portes.get((a, b))
             if not porte:
-                pts.append(centre(self.pieces[b]))
-                continue
-            pts += [self.approche(a, porte), porte["milieu"], self.approche(b, porte)]
+                pts.append(self.pt(b, self.centre(b)))
+            elif porte.get("escalier"):
+                pts += self.escalier_pts(a, b)
+            else:
+                pts += [self.pt(a, self.approche(a, porte)), self.pt(a, porte["milieu"]), self.pt(b, self.approche(b, porte))]
         return pts
 
-    def escalier(self, sens):
-        """Points de l'escalier entre le palier du logement et la rue (descente) ou l'inverse."""
-        E, H = self.im["escalier"], self.H
-        xa = sum(E["volee_montante"]["x"]) / 2
-        xd = sum(E["volee_descendante"]["x"]) / 2
-        y0, y1 = E["volee_montante"]["y"]
-        ym = (E["palier_intermediaire"][1] + E["palier_intermediaire"][3]) / 2
-        pts = []
-        for k in range(self.im["etage_logement"], 0, -1):
-            z = k * H
-            pts += [[xd, y0, z], [xd, y1, z - H / 2], [(xa + xd) / 2, ym, z - H / 2], [xa, y1, z - H / 2], [xa, y0, z - H]]
-        porte = self.im["porte_immeuble"]
-        xp = (porte[0][0] + porte[1][0]) / 2
-        pts += [[xp, 5.0, 0.0], [xp, 0.0, 0.0], [xp, self.im["rue"]["trottoir"] + 0.6, 0.0]]
-        pts = [[round(v, 2) for v in p] for p in pts]
-        return pts if sens == "descente" else pts[::-1]
-
-    def detour_poubelles(self):
-        lp = self.im["local_poubelles"]
-        E = self.im["escalier"]
-        xa = sum(E["volee_montante"]["x"]) / 2
-        return [[xa + 1.2, 6.8, 0.0], [lp[0] + 1.0, 6.8, 0.0], [lp[0] + 1.0, lp[1] + 0.6, 0.0], [lp[0] + 1.0, 6.8, 0.0]]
-
-    # ---------------------------------------------------------------- murs
-    def murs(self):
-        lignes = {}
-        for pid, (x0, y0, x1, y1) in self.pieces.items():
-            if pid == "palier":
+    # ---------------------------------------------------------------- dessin
+    def dessin(self, coupe=1.1):
+        """Sols, murs coupés, portes, fenêtres et mobilier dans le repère du monde."""
+        sols, murs, cadres, vitres, meubles, noms = [], [], [], [], [], []
+        par_niveau = {}
+        for pid, pc in self.pieces.items():
+            if pc.get("exterieur"):
                 continue
-            for cle, a, b in ((("h", y0), x0, x1), (("h", y1), x0, x1), (("v", x0), y0, y1), (("v", x1), y0, y1)):
-                lignes.setdefault(cle, []).append([a, b])
-        ouvertures = {}
-        for p in self.lg["portes"]:
-            (x0, y0), (x1, y1) = p["segment"]
-            if y0 == y1:
-                ouvertures.setdefault(("h", y0), []).append(sorted([x0, x1]))
-            else:
-                ouvertures.setdefault(("v", x0), []).append(sorted([y0, y1]))
-        out = []
-        for (sens, c), ivs in lignes.items():
-            ivs.sort()
-            fus = []
-            for a, b in ivs:
-                if fus and a <= fus[-1][1] + 1e-9:
-                    fus[-1][1] = max(fus[-1][1], b)
+            z = self.niveau(pid) * self.H
+            r = self.R.rect(pc["rect"])
+            if pid != "palier":
+                sols.append({"piece": pid, "rect": [r2(v) for v in r], "z": r2(z), "escalier": bool(pc.get("escalier"))})
+            if pid != "palier":
+                par_niveau.setdefault(z, []).append((pid, pc["rect"]))
+        for z, rects in par_niveau.items():
+            lignes = {}
+            for pid, (x0, y0, x1, y1) in rects:
+                for cle, a, b in ((("h", y0), x0, x1), (("h", y1), x0, x1), (("v", x0), y0, y1), (("v", x1), y0, y1)):
+                    lignes.setdefault(cle, []).append([a, b])
+            ouvertures = {}
+            for p in self.L["portes"]:
+                if p.get("escalier"):
+                    continue
+                if self.niveau(p["entre"][0]) * self.H != z and self.niveau(p["entre"][1]) * self.H != z:
+                    continue
+                (x0, y0), (x1, y1) = p["segment"]
+                if y0 == y1:
+                    ouvertures.setdefault(("h", y0), []).append(sorted([x0, x1]))
                 else:
-                    fus.append([a, b])
-            for a, b in fus:
-                morceaux = [[a, b]]
-                for oa, ob in ouvertures.get((sens, c), []):
-                    nouveaux = []
+                    ouvertures.setdefault(("v", x0), []).append(sorted([y0, y1]))
+            for (sens, c), ivs in lignes.items():
+                ivs.sort()
+                fus = []
+                for a, b in ivs:
+                    if fus and a <= fus[-1][1] + 1e-9:
+                        fus[-1][1] = max(fus[-1][1], b)
+                    else:
+                        fus.append([a, b])
+                for a, b in fus:
+                    morceaux = [[a, b]]
+                    for oa, ob in ouvertures.get((sens, c), []):
+                        nouveaux = []
+                        for ma, mb in morceaux:
+                            if ob <= ma or oa >= mb:
+                                nouveaux.append([ma, mb])
+                                continue
+                            if oa > ma:
+                                nouveaux.append([ma, oa])
+                            if ob < mb:
+                                nouveaux.append([ob, mb])
+                        morceaux = nouveaux
                     for ma, mb in morceaux:
-                        if ob <= ma or oa >= mb:
-                            nouveaux.append([ma, mb])
-                            continue
-                        if oa > ma:
-                            nouveaux.append([ma, oa])
-                        if ob < mb:
-                            nouveaux.append([ob, mb])
-                    morceaux = nouveaux
-                for ma, mb in morceaux:
-                    out.append([[ma, c], [mb, c]] if sens == "h" else [[c, ma], [c, mb]])
-        return [[[round(v, 2) for v in p] for p in s] for s in out]
+                        p0, p1 = ((ma, c), (mb, c)) if sens == "h" else ((c, ma), (c, mb))
+                        w0, w1 = self.R.p(*p0), self.R.p(*p1)
+                        murs.append([[r2(w0[0]), r2(w0[1])], [r2(w1[0]), r2(w1[1])], r2(z)])
+        for p in self.L["portes"]:
+            if p.get("escalier"):
+                continue
+            a = p["entre"][0] if not self.pieces.get(p["entre"][0], {}).get("exterieur") else p["entre"][1]
+            z = self.niveau(a) * self.H
+            w0, w1 = (self.R.p(*q) for q in p["segment"])
+            cadres.append([[r2(w0[0]), r2(w0[1])], [r2(w1[0]), r2(w1[1])], r2(z)])
+        for f in self.L["fenetres"]:
+            z = self.niveau(f["piece"]) * self.H
+            w0, w1 = (self.R.p(*q) for q in f["segment"])
+            vitres.append([[r2(w0[0]), r2(w0[1])], [r2(w1[0]), r2(w1[1])], r2(z), 1 if f.get("vitrine") else 0])
+        for m in self.L["mobilier"]:
+            z0 = m.get("z", 0)
+            if z0 >= coupe:
+                continue
+            b = m["boite"]
+            r = self.R.rect(b[:4])
+            meubles.append({"nom": m["nom"], "rect": [r2(v) for v in r], "z": r2(self.niveau(m["piece"]) * self.H + z0), "h": r2(min(b[4], coupe - z0))})
+        for pid, pc in self.pieces.items():
+            if pid == "palier" or pc.get("exterieur") or pc.get("escalier"):
+                continue
+            noms.append([pid, self.pt(pid, self.centre(pid))])
+        return {"sols": sols, "murs": murs, "cadres": cadres, "vitres": vitres, "meubles": meubles, "noms": noms}
 
-    # ---------------------------------------------------------------- emplacements d'objets
-    def emplacement(self, texte):
-        S = self.lg["supports"]
-        if any(texte.startswith(k) for k in S["porte_par_thomas"]):
+    def appareils(self):
+        out = {}
+        for k, v in self.L["appareils"].items():
+            if isinstance(v, str):
+                out[k] = v
+            else:
+                piece = next((pid for pid, pc in self.pieces.items() if not pc.get("exterieur") and
+                              pc["rect"][0] <= v[0] <= pc["rect"][2] and pc["rect"][1] <= v[1] <= pc["rect"][3]), None)
+                out[k] = self.pt(piece or next(iter(self.pieces)), v[:2], v[2])
+        return out
+
+    def emplacement(self, texte, monde):
+        S = self.L["supports"]
+        if any(texte.startswith(k) for k in S["porte_par_thomas"]) or texte.startswith("poche"):
             return {"porte": True}
         if "local poubelles" in texte:
-            lp = self.im["local_poubelles"]
-            return {"p": [lp[0] + 1.0, lp[1] + 1.0, 0.3], "piece": "local-poubelles"}
+            b = monde.batiments["immeuble-austerlitz"]
+            lp = Repere(b["origine"], b["rotation"]).rect(b["local_poubelles"])
+            return {"p": [r2(lp[0] + 1.0), r2(lp[1] + 1.0), 0.3], "piece": "local-poubelles"}
         if " / " in texte:
             piece, reste = texte.split(" / ", 1)
             for motif, pt in S.get(piece, []):
                 if motif in reste:
-                    return {"p": self.a3(pt[:2], pt[2]), "piece": piece}
+                    return {"p": self.pt(piece, pt[:2], pt[2]), "piece": piece}
             if piece in self.pieces:
-                return {"p": self.a3(centre(self.pieces[piece]), 0.0), "piece": piece, "approche": True}
-        for motif, piece, pt in S["sans_piece"]:
+                return {"p": self.pt(piece, self.centre(piece)), "piece": piece, "approche": True}
+        for motif, piece, pt in S.get("sans_piece", []):
             if motif in texte:
-                return {"p": self.a3(pt[:2], pt[2]), "piece": piece}
+                return {"p": self.pt(piece, pt[:2], pt[2]), "piece": piece}
         return None
 
     def distances_plan(self):
-        """Distance centre à centre par la porte, pour chaque liaison de la fiche."""
         out = []
         for l in self.fiche["domicile"]["plan"]["liaisons"]:
             a, b = l["a"], l["b"]
@@ -238,18 +314,182 @@ class Monde:
             if not porte:
                 out.append((a, b, l["distance_m"], None))
                 continue
-            ca = self.lg["postes"]["palier"]["debout"][:2] if a == "palier" else centre(self.pieces[a])
-            cb = centre(self.pieces[b])
-            out.append((a, b, l["distance_m"], round(dist(ca, porte["milieu"]) + dist(porte["milieu"], cb), 1)))
+            if porte.get("escalier"):
+                out.append((a, b, l["distance_m"], r2(longueur(self.escalier_pts(a, b)))))
+                continue
+            ca, cb = self.centre(a), self.centre(b)
+            out.append((a, b, l["distance_m"], round(math.dist(ca, porte["milieu"]) + math.dist(porte["milieu"], cb), 1)))
         return out
 
 
-# -------------------------------------------------------------------- parcours extérieur
-def trajets_exterieurs(pas, Q):
-    """Points du parcours (repère du quartier) pour chaque pas passé dehors."""
-    desc, quai = Q["descente"], Q["quai"]
+class Monde:
+    def __init__(self, geo):
+        self.geo = geo
+        self.terrain = Terrain(geo["terrain"])
+        self.batiments = {b["id"]: b for b in geo["batiments"]}
+        self.logements = {}
+        self.fiches = {}
+        for L in geo["logements"]:
+            fiche = json.load(open(os.path.join(RACINE, "data", "personnages", f"{L['personnage']}.json"), encoding="utf-8"))
+            self.fiches[L["personnage"]] = fiche
+            self.logements[L["personnage"]] = Logement(L, self.batiments[L["batiment"]], fiche)
+        Q = geo["quartier"]
+        self.descente = self.terrain.p3(Q["parcours_course"]["descente"])
+        self.quai = [[x, y, geo["terrain"]["z_bas"]] for x, y in Q["quai"]]
+        self.trajet_epicerie = self.terrain.p3(Q["trajet_epicerie"]["points"])
+
+    # ---------------------------------------------------------------- escalier de l'immeuble de Thomas
+    def escalier_volees(self, bat, sens, niveau_haut):
+        E, H = bat["escalier"], bat["hauteur_etage"]
+        xa, xd = sum(E["volee_montante"]["x"]) / 2, sum(E["volee_descendante"]["x"]) / 2
+        y0, y1 = E["volee_montante"]["y"]
+        ym = (E["palier_intermediaire"][1] + E["palier_intermediaire"][3]) / 2
+        pts = []
+        for k in range(niveau_haut, 0, -1):
+            z = k * H
+            pts += [[xd, y0, z], [xd, y1, z - H / 2], [(xa + xd) / 2, ym, z - H / 2], [xa, y1, z - H / 2], [xa, y0, z - H]]
+        porte = bat["porte"]
+        xp = (porte[0][0] + porte[1][0]) / 2
+        pts += [[xp, 5.0, 0.0], [xp, 0.0, 0.0], [xp, -0.9, 0.0]]
+        pts = [[r2(v) for v in p] for p in pts]
+        return pts if sens == "descente" else pts[::-1]
+
+    def detour_poubelles(self, bat):
+        lp = bat["local_poubelles"]
+        xa = sum(bat["escalier"]["volee_montante"]["x"]) / 2
+        return [[xa + 1.2, 6.8, 0.0], [lp[0] + 1.0, 6.8, 0.0], [lp[0] + 1.0, lp[1] + 0.6, 0.0], [lp[0] + 1.0, 6.8, 0.0]]
+
+    # ---------------------------------------------------------------- bâti généré
+    def bati_genere(self):
+        G = self.geo
+        exclus = []
+        for b in G["batiments"]:
+            r = Repere(b["origine"], b["rotation"]).rect(b["emprise"])
+            exclus.append([r[0] - 1, r[1] - 1, r[2] + 1, r[3] + 1])
+            if "cour" in b:
+                exclus.append(Repere(b["origine"], b["rotation"]).rect(b["cour"]))
+        places = [p["contour"] for p in G.get("places", [])]
+
+        def dans_poly(x, y, poly):
+            xs, ys = [p[0] for p in poly], [p[1] for p in poly]
+            return min(xs) <= x <= max(xs) and min(ys) <= y <= max(ys)
+
+        def dist_seg(p, a, b):
+            ax, ay = a
+            bx, by = b
+            dx, dy = bx - ax, by - ay
+            l2 = dx * dx + dy * dy
+            t = 0 if l2 == 0 else max(0, min(1, ((p[0] - ax) * dx + (p[1] - ay) * dy) / l2))
+            return math.dist(p, (ax + t * dx, ay + t * dy))
+
+        def libre(coins, rue_id):
+            for x, y in coins + [[sum(c[0] for c in coins) / 4, sum(c[1] for c in coins) / 4]]:
+                for e in exclus:
+                    if e[0] <= x <= e[2] and e[1] <= y <= e[3]:
+                        return False
+                for poly in places:
+                    if dans_poly(x, y, poly):
+                        return False
+                for r in G["rues"]:
+                    if r["id"] == rue_id:
+                        continue
+                    for a, b in zip(r["axe"], r["axe"][1:]):
+                        if dist_seg((x, y), a, b) < r["facade_a_facade"] / 2 + 0.5:
+                            return False
+            return True
+
+        out = []
+        sources = [(r["id"], r["axe"], r["facade_a_facade"] / 2, (1, -1)) for r in G["rues"] if r.get("bati")]
+        Q = G["quartier"]
+        sources.append(("quai-est", Q["quai"], 22, (-1,)))
+        sources.append(("rive-droite", [[x + Q["saone"]["rive_lointaine"], y] for x, y in Q["quai"]], 12, (1,)))
+        for rid, axe, demi, cotes in sources:
+            for a, b in zip(axe, axe[1:]):
+                l = math.dist(a, b)
+                ux, uy = (b[0] - a[0]) / l, (b[1] - a[1]) / l
+                nx, ny = -uy, ux
+                for cote in cotes:
+                    s = 0.0
+                    while s < l - 4:
+                        w = 7 + 9 * h01(rid, s, cote)
+                        w = min(w, l - s)
+                        d = 10 + 5 * h01(rid, s, cote, "p")
+                        hgt = 14 + 9 * h01(rid, s, cote, "h")
+                        o0, o1 = demi, demi + d
+                        coins = [[a[0] + ux * s + nx * cote * o0, a[1] + uy * s + ny * cote * o0],
+                                 [a[0] + ux * (s + w) + nx * cote * o0, a[1] + uy * (s + w) + ny * cote * o0],
+                                 [a[0] + ux * (s + w) + nx * cote * o1, a[1] + uy * (s + w) + ny * cote * o1],
+                                 [a[0] + ux * s + nx * cote * o1, a[1] + uy * s + ny * cote * o1]]
+                        if libre(coins, rid):
+                            z0 = self.terrain.z((coins[0][0] + coins[1][0]) / 2, (coins[0][1] + coins[1][1]) / 2)
+                            out.append([[[r2(x), r2(y)] for x, y in coins], r2(z0), r2(hgt)])
+                        s += w + 0.0
+        return out
+
+    def arbres(self):
+        G, out = self.geo, []
+        for r in G["rues"]:
+            pas = r.get("arbres_tous_les_m")
+            if not pas:
+                continue
+            pts = r["axe"]
+            L = longueur(pts)
+            s = pas / 2
+            while s < L:
+                x, y = point_a(pts, s)
+                out.append([r2(x), r2(y), r2(self.terrain.z(x, y))])
+                s += pas
+        for p in G.get("places", []):
+            for x, y in p.get("arbres", []):
+                out.append([x, y, r2(self.terrain.z(x, y))])
+        Q = G["quartier"]
+        pas = Q["arbres_quai_tous_les_m"]
+        L = longueur(Q["quai"])
+        s = 10
+        while s < L:
+            x, y = point_a(Q["quai"], s)
+            out.append([r2(x + 12), r2(y), G["terrain"]["z_bas"]])
+            s += pas
+        return out
+
+    def saone(self):
+        Q, z = self.geo["quartier"], self.geo["terrain"]["z_bas"] - 1
+        proche = [[x + Q["saone"]["rive_proche"], y, z] for x, y in Q["quai"]]
+        loin = [[x + Q["saone"]["rive_lointaine"], y, z] for x, y in Q["quai"]]
+        return {"proche": proche, "loin": loin}
+
+    def batiments_dessin(self):
+        out = []
+        for b in self.geo["batiments"]:
+            R = Repere(b["origine"], b["rotation"])
+            d = {"id": b["id"], "emprise": [r2(v) for v in R.rect(b["emprise"])], "niveaux": b["niveaux"], "H": b["hauteur_etage"]}
+            w0, w1 = (R.p(*q) for q in b["porte"])
+            d["porte"] = [[r2(w0[0]), r2(w0[1])], [r2(w1[0]), r2(w1[1])]]
+            E = b["escalier"]
+            if E["type"] == "volees":
+                d["cage"] = R.rect(b["cage_escalier"])
+                d["allee"] = R.rect(b["allee"])
+                d["local_poubelles"] = R.rect(b["local_poubelles"])
+                d["cour"] = R.rect(b["cour"])
+                d["volees"] = {"montante": E["volee_montante"], "descendante": E["volee_descendante"], "palier": E["palier_intermediaire"],
+                               "palier_niveau": E["palier_niveau"], "marches": E["marches_par_volee"], "jusqua": E["jusqua_niveau"]}
+            else:
+                bas, haut = R.p(*E["bas"]), R.p(*E["haut"])
+                d["escalier_droit"] = {"bas": [r2(bas[0]), r2(bas[1]), E["depuis_niveau"] * b["hauteur_etage"]],
+                                       "haut": [r2(haut[0]), r2(haut[1]), E["jusqua_niveau"] * b["hauteur_etage"]],
+                                       "marches": E["marches"], "largeur": E["largeur"], "dir_largeur": [r2(v) for v in R.v(1, 0)]}
+            if b.get("enseigne"):
+                d["enseigne"] = b["enseigne"]
+            out.append(d)
+        return out
+
+
+# -------------------------------------------------------------------- trajets d'un personnage
+def trajets_course(pas, M):
+    """Points du parcours de course pour chaque pas passé dehors en courant."""
+    desc, quai = M.descente, M.quai
     L_desc, L_quai = longueur(desc), longueur(quai)
-    ext = [k for k, s in enumerate(pas) if s["lieu"] == "exterieur"]
+    ext = [k for k, s in enumerate(pas) if s["lieu"] == "exterieur" and s["activite"] != "Courses à l'épicerie"]
     out = {}
     if not ext:
         return out
@@ -276,193 +516,214 @@ def trajets_exterieurs(pas, Q):
             demi = total[ph] / 2
             a0 = c0 if c0 <= demi else total[ph] - c0
             a1 = c1 if c1 <= demi else total[ph] - c1
-            if c0 < demi < c1:
-                pts = sous_chemin(quai, a0, demi) + sous_chemin(quai, demi, a1)[1:]
-            else:
-                pts = sous_chemin(quai, a0, a1)
-        out[k] = {"pts": pts, "phase": ph}
+            pts = sous_chemin(quai, a0, demi) + sous_chemin(quai, demi, a1)[1:] if c0 < demi < c1 else sous_chemin(quai, a0, a1)
+        out[k] = pts
     return out
 
 
-# -------------------------------------------------------------------- export
-def exporter(perso, chemin_monde, sortie):
-    fiche = json.load(open(os.path.join(RACINE, "data", "personnages", f"{perso}.json"), encoding="utf-8"))
-    geo = json.load(open(chemin_monde, encoding="utf-8"))
-    M = Monde(fiche, geo)
-    erreurs, avertissements = [], []
-
-    # contrôles du plan
-    for p in fiche["domicile"]["pieces"]:
-        if p["id"] not in M.pieces:
-            erreurs.append(f"pièce sans rectangle : {p['id']}")
-        else:
-            x0, y0, x1, y1 = M.pieces[p["id"]]
-            surf = round((x1 - x0) * (y1 - y0), 2)
-            if abs(surf - p["surface_m2"]) > 0.05:
-                avertissements.append(f"{p['id']} : {surf} m² sur le plan, {p['surface_m2']} m² dans la fiche")
-    for l in fiche["domicile"]["plan"]["liaisons"]:
-        if (l["a"], l["b"]) not in M.portes:
-            erreurs.append(f"liaison sans porte : {l['a']} – {l['b']}")
-
+def exporter_personnage(perso, M, emplacements, noms, avertissements):
+    LG = M.logements[perso]
+    fiche = M.fiches[perso]
+    bat = LG.bat
     fichiers = sorted(glob.glob(os.path.join(RACINE, "data", "timelines", perso, "*.json")))
-    jours, emplacements, noms = [], {}, {o["id"]: o["nom"] for o in fiche["objets"]}
-    precedent, hors = None, False
+    jours, precedent, hors = [], None, False
 
-    def note_emplacement(t):
+    def note(t):
         if t not in emplacements:
-            e = M.emplacement(t)
+            e = LG.emplacement(t, M)
             if e is None:
-                avertissements.append(f"emplacement inconnu : « {t} »")
-                e = {"p": M.a3(centre(M.pieces["sejour"]), 0.0), "piece": "sejour", "approche": True}
-            if e.get("approche"):
-                avertissements.append(f"emplacement placé au centre de la pièce : « {t} »")
+                avertissements.append(f"{perso} : emplacement inconnu « {t} »")
+                e = {"p": LG.pt(next(iter(LG.pieces)), LG.centre(next(iter(LG.pieces)))), "approche": True}
+            elif e.get("approche"):
+                avertissements.append(f"{perso} : emplacement placé au centre de la pièce « {t} »")
             emplacements[t] = e
 
+    lp = M.geo.get("lieux_publics", {})
     for fn in fichiers:
         J = json.load(open(fn, encoding="utf-8"))
         pas = J["pas"]
         for t in J["etat_initial"]["positions"].values():
-            note_emplacement(t)
-        exterieur = trajets_exterieurs(pas, geo["quartier"])
+            note(t)
+        course = trajets_course(pas, M)
         if precedent is None:
-            p0 = M.poste(J["etat_initial"]["piece"], "allongé", "")
-            precedent = {"pt": M.a3(p0[:2], p0[4] if len(p0) > 4 else 0), "piece": J["etat_initial"]["piece"]}
-        sortie_pas = []
+            pt, _ = LG.poste(J["etat_initial"]["piece"], "allongé", "")
+            precedent = {"pt": pt, "piece": J["etat_initial"]["piece"]}
+        traj, s_epi, alle = M.trajet_epicerie, 0.0, False
+        L_epi = longueur(traj)
+        sortie = []
         for k, s in enumerate(pas):
             dep = s.get("deplacement", {})
             esc = dep.get("escalier", {}).get("sens")
             chemin = dep.get("chemin") or []
+            dist = sum(p["distance_m"] for p in dep.get("parcours", []))
+            courses = s["activite"] == "Courses à l'épicerie"
             poubelles = any("local poubelles" in o["vers"] for o in s.get("objets", []))
-            w = None
-            if s["lieu"] == "domicile":
-                po = M.poste(s["piece"], s["posture"], s["activite"])
-                cible = M.a3(po[:2], 0.0)
-                if esc == "montee":
+            w, cont, d = None, False, None
+            if s["lieu"] in lp:
+                # dans un lieu public : le poste prévu dans le logement d'un autre habitant
+                P = lp[s["lieu"]]
+                autre = next(l for l in M.logements.values() if l.L["id"] == P["logement"])
+                po = autre.L["postes"][P["piece"]][P["poste"]]
+                cible = autre.pt(P["piece"], po[:2])
+                dd = autre.R.v(po[2], po[3])
+                d = [r2(dd[0]), r2(dd[1]), 0.0]
+                w = [precedent["pt"], traj[-1], cible] if precedent["pt"] != cible else None
+                precedent = {"pt": cible, "piece": s["piece"]}
+                alle, hors, s_epi = True, True, L_epi
+            elif s["lieu"] == "domicile" or s["piece"] in LG.pieces:
+                po_pt, d = LG.poste(s["piece"], s["posture"], s["activite"])
+                if esc == "montee" and bat["escalier"]["type"] == "volees":
+                    rue = []
+                    if courses and dist:
+                        rue = sous_chemin(traj, min(L_epi, s_epi), max(0.0, s_epi - dist))
+                        s_epi = 0.0
+                        cont = True
                     pieces = chemin if chemin else ["palier", s["piece"]]
-                    w = M.escalier("montee") + [M.a3(p) for p in M.traversee(pieces)] + [cible]
+                    w = rue + M.escalier_volees(bat, "montee", LG.base) + LG.traversee(pieces) + [po_pt]
                 else:
                     depart = precedent["piece"]
-                    pieces = chemin if chemin else M.chemin_pieces(depart, s["piece"])
-                    if pieces and pieces[0] != depart and not hors:
-                        pieces = M.chemin_pieces(depart, pieces[0]) + pieces[1:]
-                    w = [precedent["pt"]] + [M.a3(p) for p in M.traversee(pieces)] + [cible]
+                    pieces = chemin if chemin else LG.chemin_pieces(depart, s["piece"])
+                    if pieces and pieces[0] != depart and not hors and depart in LG.pieces:
+                        pieces = LG.chemin_pieces(depart, pieces[0]) + pieces[1:]
+                    w = [precedent["pt"]] + LG.traversee(pieces) + [po_pt]
                 hors = False
-                precedent = {"pt": cible, "piece": s["piece"]}
+                precedent = {"pt": po_pt, "piece": s["piece"]}
             else:
                 if esc == "descente":
                     pieces = chemin if chemin else [precedent["piece"], "palier"]
-                    if pieces[0] != precedent["piece"]:
-                        pieces = M.chemin_pieces(precedent["piece"], pieces[0]) + pieces[1:]
-                    pal = M.lg["postes"]["palier"]["debout"]
-                    descente = M.escalier("descente")
+                    if pieces[0] != precedent["piece"] and precedent["piece"] in LG.pieces:
+                        pieces = LG.chemin_pieces(precedent["piece"], pieces[0]) + pieces[1:]
+                    descente = M.escalier_volees(bat, "descente", LG.base)
                     if poubelles:
-                        descente = descente[:-3] + M.detour_poubelles() + descente[-3:]
-                    w = [precedent["pt"]] + [M.a3(p) for p in M.traversee(pieces)] + [M.a3(pal[:2])] + descente
-                    precedent = {"pt": descente[-1], "piece": "palier"}
+                        descente = descente[:-3] + M.detour_poubelles(bat) + descente[-3:]
+                    w = [precedent["pt"]] + LG.traversee(pieces) + descente
+                    precedent = {"pt": descente[-1], "piece": "rue"}
+                if courses:
+                    fin_seg = max(0.0, s_epi - dist) if alle else min(L_epi, s_epi + dist)
+                    seg = sous_chemin(traj, s_epi, fin_seg)
+                    s_epi = fin_seg
+                    w = (w or [precedent["pt"]]) + seg
+                    cont = True
+                elif k in course:
+                    w = (w or []) + course[k]
+                    cont = True
+                if w:
+                    precedent = {"pt": w[-1], "piece": "rue"}
                 hors = True
-            # suppression des points répétés
+            if not courses:
+                alle, s_epi = False, 0.0
             if w:
                 propre = [w[0]]
                 for p in w[1:]:
                     if math.dist(p, propre[-1]) > 0.01:
                         propre.append(p)
                 w = propre
-            pose = POSES.get(s["posture"], "debout")
-            d = None
-            if s["lieu"] == "domicile":
-                po = M.poste(s["piece"], s["posture"], s["activite"])
-                d = [po[2], po[3], po[4] if len(po) > 4 else 0.0] if len(po) > 3 else [0.0, 1.0, 0.0]
             for o in s.get("objets", []):
-                note_emplacement(o["de"])
-                note_emplacement(o["vers"])
+                note(o["de"])
+                note(o["vers"])
             nouveaux = []
             for o in s.get("nouveaux_objets", []):
                 noms[o["id"]] = o["nom"]
-                note_emplacement(o["position"])
+                note(o["position"])
                 nouveaux.append([o["id"], o["position"]])
-            e = {
-                "h": s["heure"], "pc": s["piece"], "l": "d" if s["lieu"] == "domicile" else "e",
-                "po": pose, "a": s["activite"], "x": s["action"],
-                "b": [round(s["besoins"][n], 1) for n in BESOINS],
-                "em": [round(s["emotions"][n], 3) for n in EMOTIONS],
-                "ap": s.get("appareils_allumes", []),
-            }
-            if s.get("pensee"):
-                e["pe"] = s["pensee"]
-            if s.get("reve"):
-                e["r"] = s["reve"]
-            if s.get("phase_sommeil"):
-                e["ps"] = s["phase_sommeil"]
+            e = {"h": s["heure"], "pc": s["piece"], "l": "d" if s["lieu"] == "domicile" else ("p" if s["lieu"] in lp else "e"),
+                 "po": POSES.get(s["posture"], "debout"), "a": s["activite"], "x": s["action"],
+                 "b": [round(s["besoins"][n], 1) for n in BESOINS], "em": [round(s["emotions"][n], 3) for n in EMOTIONS],
+                 "ap": s.get("appareils_allumes", [])}
+            for cle, src in (("pe", "pensee"), ("r", "reve"), ("ps", "phase_sommeil")):
+                if s.get(src):
+                    e[cle] = s[src]
             if s.get("evenements"):
                 e["ev"] = [v["id"] for v in s["evenements"]]
             if s.get("objets"):
                 e["ob"] = [[o["objet"], o["de"], o["vers"]] for o in s["objets"]]
             if nouveaux:
                 e["no"] = nouveaux
-            if s.get("consommation"):
-                e["co"] = [[c.get("produit"), c.get("quantite")] for c in s["consommation"] if isinstance(c, dict)]
+            if s.get("achats"):
+                e["ac"] = [[a["nom"], a["quantite"], a["unite"], a.get("prix", 0)] for a in s["achats"]]
+            if s.get("argent"):
+                e["ar"] = s["argent"]["soldes"]
             if w and len(w) > 1:
                 e["w"] = w
+            if cont:
+                e["cont"] = 1
             if esc:
                 e["esc"] = esc
             if d:
-                e["d"] = [round(v, 2) for v in d]
+                e["d"] = [r2(v) for v in d]
             if hors:
                 e["hors"] = 1
-            if k in exterieur:
-                e["q"] = exterieur[k]["pts"]
-                e["qp"] = exterieur[k]["phase"]
-            sortie_pas.append(e)
+            sortie.append(e)
         eph = fiche["meta"]["ephemerides_lyon_approximatives"].get(J["meta"]["date"], {})
-        jours.append({
-            "date": J["meta"]["date"], "jour": J["meta"]["jour"],
-            "methode": "agent" if any("agent autonome" in m for m in J["meta"].get("methode", [])) else "reference",
-            "lever": eph.get("lever_soleil"), "coucher": eph.get("coucher_soleil"),
-            "positions": J["etat_initial"]["positions"],
-            "pas": sortie_pas,
-        })
+        jours.append({"date": J["meta"]["date"], "jour": J["meta"]["jour"],
+                      "methode": "agent" if any("agent" in m for m in J["meta"].get("methode", [])) else "reference",
+                      "lever": eph.get("lever_soleil"), "coucher": eph.get("coucher_soleil"),
+                      "positions": J["etat_initial"]["positions"], "pas": sortie})
+    p0, _ = LG.poste(json.load(open(fichiers[0], encoding="utf-8"))["etat_initial"]["piece"], "allongé", "")
+    return {"id": perso, "nom": f"{fiche['identite']['prenom']} {fiche['identite']['nom']}", "prenom": fiche["identite"]["prenom"],
+            "logement": LG.L["id"], "batiment": bat["id"], "depart": p0,
+            "noms_pieces": {p["id"]: p["nom"] for p in fiche["domicile"]["pieces"]},
+            "evenements": {k: v["description"] for k, v in fiche["modele_emotionnel"]["evenements"].items()},
+            "besoins": [{"id": n, "seuil": fiche["besoins"][n]["seuil_alerte"]} for n in BESOINS],
+            "appareils": LG.appareils(), "jours": jours}
 
-    # point de départ de Thomas le premier jour
-    p0 = M.poste(json.load(open(fichiers[0], encoding="utf-8"))["etat_initial"]["piece"], "allongé", "")
+
+def exporter(chemin_monde, sortie):
+    geo = json.load(open(chemin_monde, encoding="utf-8"))
+    M = Monde(geo)
+    erreurs, avertissements = [], []
+    for perso, LG in M.logements.items():
+        fiche = M.fiches[perso]
+        for p in fiche["domicile"]["pieces"]:
+            if p["id"] not in LG.pieces:
+                erreurs.append(f"{perso} : pièce sans rectangle {p['id']}")
+            else:
+                x0, y0, x1, y1 = LG.pieces[p["id"]]["rect"]
+                if abs((x1 - x0) * (y1 - y0) - p["surface_m2"]) > 0.05:
+                    avertissements.append(f"{perso} : {p['id']} fait {round((x1 - x0) * (y1 - y0), 2)} m² sur le plan, {p['surface_m2']} m² dans la fiche")
+        for l in fiche["domicile"]["plan"]["liaisons"]:
+            if (l["a"], l["b"]) not in LG.portes:
+                erreurs.append(f"{perso} : liaison sans porte {l['a']} – {l['b']}")
+    if erreurs:
+        for e in erreurs:
+            print("ERREUR : " + e)
+        sys.exit(1)
+
+    personnages, emplacements, objets = [], {}, {}
+    for perso in M.logements:
+        emplacements[perso], objets[perso] = {}, {o["id"]: o["nom"] for o in M.fiches[perso]["objets"]}
+        if not glob.glob(os.path.join(RACINE, "data", "timelines", perso, "*.json")):
+            avertissements.append(f"{perso} : aucune journée générée")
+            continue
+        personnages.append(exporter_personnage(perso, M, emplacements[perso], objets[perso], avertissements))
+
     donnees = {
-        "personnage": {"id": perso, "nom": f"{fiche['identite']['prenom']} {fiche['identite']['nom']}"},
         "monde": {
-            "immeuble": geo["immeuble"], "logement": {k: geo["logement"][k] for k in ("pieces", "portes", "fenetres", "mobilier")},
-            "murs": M.murs(), "z_logement": M.Z, "appareils": geo["logement"]["appareils"],
-            "quartier": geo["quartier"], "statut": geo["meta"]["statut"],
+            "statut": geo["meta"]["statut"], "terrain": geo["terrain"], "rues": geo["rues"], "places": geo.get("places", []),
+            "batiments": M.batiments_dessin(), "logements": {LG.L["id"]: LG.dessin() for LG in M.logements.values()},
+            "bati": M.bati_genere(), "arbres": M.arbres(), "saone": M.saone(), "quai": M.quai, "descente": M.descente,
+            "trajet_epicerie": M.trajet_epicerie, "reperes": geo["quartier"]["reperes"],
         },
-        "noms_pieces": {p["id"]: p["nom"] for p in fiche["domicile"]["pieces"]} | {"palier": "Palier", "quais de Saône": "Quais de Saône",
-                                                                              "pentes de la Croix-Rousse": "Pentes de la Croix-Rousse"},
-        "objets": noms,
-        "emplacements": emplacements,
-        "evenements": {k: v["description"] for k, v in fiche["modele_emotionnel"]["evenements"].items()},
-        "besoins": [{"id": n, "seuil": fiche["besoins"][n]["seuil_alerte"]} for n in BESOINS],
-        "emotions": EMOTIONS,
-        "depart": M.a3(p0[:2], 0.0),
-        "jours": jours,
+        "personnages": personnages, "emplacements": emplacements, "objets": objets, "emotions": EMOTIONS,
     }
     os.makedirs(os.path.dirname(sortie), exist_ok=True)
     with open(sortie, "w", encoding="utf-8") as f:
         f.write("window.PARADOXE = ")
         json.dump(donnees, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")
-
-    print(f"{len(jours)} journées, {sum(len(j['pas']) for j in jours)} pas, {len(emplacements)} emplacements d'objets → {os.path.relpath(sortie, RACINE)}")
-    print("Distances entre pièces (fiche / plan) :")
-    for a, b, f_, p_ in M.distances_plan():
-        print(f"  {a:>13} – {b:<13} {f_:>4} m / {p_} m")
+    print(f"{len(personnages)} personnages, {sum(len(j['pas']) for p in personnages for j in p['jours'])} pas, "
+          f"{len(donnees['monde']['bati'])} immeubles générés, {len(donnees['monde']['arbres'])} arbres → {os.path.relpath(sortie, RACINE)}")
+    for perso, LG in M.logements.items():
+        print(f"Distances entre pièces, {perso} (fiche / plan) :")
+        for a, b, f_, p_ in LG.distances_plan():
+            print(f"  {a:>16} – {b:<16} {f_:>4} m / {p_} m")
     for a in avertissements:
         print("  ! " + a)
-    if erreurs:
-        for e in erreurs:
-            print("ERREUR : " + e)
-        sys.exit(1)
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--personnage", default="thomas-berthier")
     ap.add_argument("--monde", default=os.path.join(RACINE, "data", "monde", "croix-rousse.json"))
     ap.add_argument("--sortie", default=os.path.join(RACINE, "vue", "donnees.js"))
     a = ap.parse_args()
-    exporter(a.personnage, a.monde, a.sortie)
+    exporter(a.monde, a.sortie)

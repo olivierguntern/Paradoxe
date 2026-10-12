@@ -1,204 +1,2669 @@
 {
  "meta": {
-  "version": 1,
-  "statut": "Proposition à valider : disposition des pièces, du mobilier, de l'immeuble et du parcours.",
-  "principe": "Géométrie du monde, partagée par les habitants et le voyageur. Sert à la représentation graphique ; les distances de la fiche seront recalculées à partir de ce plan une fois validé.",
+  "version": 2,
+  "statut": "Proposition à valider : disposition des logements, de l'épicerie, des rues et du parcours. Géométrie du quartier approximative.",
+  "principe": "Géométrie du monde, partagée par tous les habitants et, plus tard, par le voyageur. Sert au calcul des trajets dans la vue graphique.",
   "unites": "mètres",
-  "axes": "x le long de la façade sur rue, y de la rue vers la cour, z vers le haut. Logement : origine au coin rue / mur gauche de l'atelier, z = 0 au sol de l'appartement.",
+  "repere": "Un seul repère pour tout le quartier : origine au coin rue / mur gauche de l'immeuble de Thomas ; x vers l'est, le long de la rue d'Austerlitz ; y vers le nord ; z vers le haut, 0 au niveau des rues du plateau.",
+  "bati_genere": "Les immeubles ordinaires le long des rues sont générés de façon déterministe (largeur, profondeur, hauteur) ; seuls les immeubles de Thomas et de l'épicerie sont détaillés.",
   "points_a_trancher": [
-   "La somme des surfaces des pièces de la fiche fait 61 m², la fiche annonce 58 m².",
-   "22 marches de 17 cm font 3,74 m d'un étage à l'autre, la fiche annonce 3,80 m sous plafond."
+   "La somme des surfaces des pièces de Thomas fait 61 m², sa fiche annonce 58 m².",
+   "Chez Thomas, 22 marches de 17 cm font 3,74 m d'un étage à l'autre, la fiche annonce 3,80 m sous plafond.",
+   "Les rues du plateau et le tracé du parcours sont schématiques : la topologie est respectée (rue d'Austerlitz, place et Grande-Rue de la Croix-Rousse, boulevard, pentes, quais de Saône), pas le tracé exact."
   ]
  },
- "immeuble": {
-  "id": "immeuble-austerlitz",
-  "adresse": "rue d'Austerlitz, 69004 Lyon",
-  "hauteur_etage": 3.74,
-  "niveaux": 4,
-  "etage_logement": 3,
-  "emprise": [-3.0, 0.0, 13.5, 7.0],
-  "cage_escalier": [5.3, 6.5, 7.9, 9.6],
-  "allee": [5.3, 0.0, 7.9, 6.5],
-  "porte_immeuble": [[6.1, 0.0], [7.1, 0.0]],
-  "local_poubelles": [7.9, 7.0, 9.9, 9.0],
-  "cour": [-3.0, 7.0, 13.5, 14.0],
-  "rue": {"nom": "rue d'Austerlitz", "trottoir": -1.5, "chaussee": [-1.5, -7.5], "trottoir_en_face": -9.0},
-  "escalier": {
-   "marches_par_volee": 11,
-   "volee_montante": {"x": [5.4, 6.5], "y": [7.05, 9.25]},
-   "volee_descendante": {"x": [6.7, 7.8], "y": [9.25, 7.05]},
-   "palier_intermediaire": [5.4, 9.25, 7.8, 9.55]
-  }
+ "terrain": {
+  "principe": "Plateau plat à z = 0 ; pente vers l'ouest jusqu'aux quais de Saône (z = -85) ; pente vers le sud (pentes de la Croix-Rousse). z = -85 x max(fx, fy), fx = (bord_ouest - x) / largeur_pente_ouest, fy = (bord_sud - y) / largeur_pente_sud, bornés entre 0 et 1.",
+  "z_bas": -85,
+  "bord_ouest_x": -720,
+  "largeur_pente_ouest": 450,
+  "bord_sud_y": -150,
+  "largeur_pente_sud": 600
  },
- "logement": {
-  "id": "domicile",
-  "habitant": "thomas-berthier",
-  "origine_dans_immeuble": [0.0, 0.0],
-  "pieces": {
-   "atelier": [0.0, 0.0, 2.5, 4.0],
-   "sejour": [2.5, 0.0, 7.5, 4.0],
-   "chambre": [7.5, 0.0, 10.5, 4.0],
-   "cuisine": [2.5, 4.0, 5.3, 6.5],
-   "entree": [5.3, 4.0, 6.9, 6.5],
-   "couloir": [6.9, 4.0, 9.9, 5.0],
-   "wc": [6.9, 5.0, 7.9, 6.0],
-   "salle-de-bain": [7.9, 5.0, 9.9, 7.0],
-   "palier": [5.3, 6.5, 7.9, 7.05]
+ "rues": [
+  {
+   "id": "rue-austerlitz",
+   "nom": "rue d'Austerlitz",
+   "axe": [
+    [
+     -158,
+     -4.5
+    ],
+    [
+     262,
+     -4.5
+    ]
+   ],
+   "facade_a_facade": 9,
+   "chaussee": 6,
+   "bati": true
   },
-  "portes": [
-   {"entre": ["palier", "entree"], "segment": [[5.95, 6.5], [6.85, 6.5]], "nom": "porte d'entrée"},
-   {"entre": ["entree", "sejour"], "segment": [[5.6, 4.0], [6.4, 4.0]]},
-   {"entre": ["entree", "couloir"], "segment": [[6.9, 4.1], [6.9, 4.9]]},
-   {"entre": ["couloir", "chambre"], "segment": [[8.5, 4.0], [9.3, 4.0]]},
-   {"entre": ["couloir", "salle-de-bain"], "segment": [[8.4, 5.0], [9.1, 5.0]]},
-   {"entre": ["couloir", "wc"], "segment": [[7.05, 5.0], [7.75, 5.0]]},
-   {"entre": ["sejour", "cuisine"], "segment": [[3.0, 4.0], [3.8, 4.0]]},
-   {"entre": ["sejour", "atelier"], "segment": [[2.5, 2.5], [2.5, 3.3]]}
-  ],
-  "fenetres": [
-   {"piece": "atelier", "segment": [[0.5, 0.0], [2.0, 0.0]]},
-   {"piece": "sejour", "segment": [[3.3, 0.0], [4.5, 0.0]]},
-   {"piece": "sejour", "segment": [[5.5, 0.0], [6.7, 0.0]]},
-   {"piece": "chambre", "segment": [[8.4, 0.0], [9.6, 0.0]]},
-   {"piece": "cuisine", "segment": [[3.3, 6.5], [4.5, 6.5]], "vue": "cour"}
-  ],
-  "mobilier": [
-   {"nom": "établi d'horloger", "piece": "atelier", "boite": [0.25, 0.1, 2.25, 0.75, 0.95]},
-   {"nom": "tabouret", "piece": "atelier", "boite": [1.05, 0.95, 1.45, 1.35, 0.6]},
-   {"nom": "tour d'horloger", "piece": "atelier", "boite": [0.4, 0.2, 0.75, 0.45, 0.15], "z": 0.95},
-   {"nom": "lampe d'établi", "piece": "atelier", "boite": [1.7, 0.2, 1.85, 0.35, 0.45], "z": 0.95},
-   {"nom": "étagère de fournitures", "piece": "atelier", "boite": [0.0, 1.6, 0.35, 3.0, 1.9]},
-   {"nom": "petit coffre-fort", "piece": "atelier", "boite": [0.1, 3.35, 0.6, 3.9, 0.55]},
-   {"nom": "desserte (ultrasons, chronocomparateur)", "piece": "atelier", "boite": [1.5, 3.3, 2.4, 3.9, 0.8]},
-   {"nom": "canapé", "piece": "sejour", "boite": [6.6, 0.9, 7.4, 2.9, 0.8]},
-   {"nom": "table basse", "piece": "sejour", "boite": [5.6, 1.4, 6.3, 2.4, 0.4]},
-   {"nom": "meuble du téléviseur", "piece": "sejour", "boite": [2.6, 1.0, 3.05, 2.2, 0.55]},
-   {"nom": "petit téléviseur", "piece": "sejour", "boite": [2.65, 1.3, 2.95, 1.9, 0.35], "z": 0.55},
-   {"nom": "chaîne hi-fi avec radio", "piece": "sejour", "boite": [2.6, 0.3, 3.0, 0.9, 0.95]},
-   {"nom": "table à manger", "piece": "sejour", "boite": [4.0, 0.5, 5.2, 1.3, 0.75]},
-   {"nom": "chaise", "piece": "sejour", "boite": [4.25, 1.35, 4.65, 1.75, 0.45]},
-   {"nom": "chaise", "piece": "sejour", "boite": [4.55, 0.05, 4.95, 0.45, 0.45]},
-   {"nom": "bibliothèque", "piece": "sejour", "boite": [3.9, 3.6, 5.5, 3.95, 2.0]},
-   {"nom": "plan de travail", "piece": "cuisine", "boite": [2.6, 5.9, 5.2, 6.45, 0.9]},
-   {"nom": "évier", "piece": "cuisine", "boite": [3.5, 5.95, 4.2, 6.4, 0.02], "z": 0.9},
-   {"nom": "plaques électriques", "piece": "cuisine", "boite": [4.45, 5.95, 5.0, 6.4, 0.02], "z": 0.9},
-   {"nom": "réfrigérateur", "piece": "cuisine", "boite": [4.7, 4.1, 5.25, 4.7, 1.5]},
-   {"nom": "placard à provisions", "piece": "cuisine", "boite": [2.55, 4.1, 2.95, 5.3, 2.1]},
-   {"nom": "machine à laver", "piece": "cuisine", "boite": [2.65, 5.9, 3.25, 6.45, 0.85]},
-   {"nom": "lit double", "piece": "chambre", "boite": [8.6, 1.1, 10.45, 2.5, 0.5]},
-   {"nom": "table de chevet", "piece": "chambre", "boite": [10.0, 0.6, 10.45, 1.05, 0.55]},
-   {"nom": "armoire", "piece": "chambre", "boite": [7.55, 2.6, 8.15, 3.95, 2.0]},
-   {"nom": "douche", "piece": "salle-de-bain", "boite": [9.05, 6.1, 9.9, 6.95, 2.0]},
-   {"nom": "lavabo", "piece": "salle-de-bain", "boite": [8.0, 6.5, 8.6, 6.95, 0.85]},
-   {"nom": "étagère", "piece": "salle-de-bain", "boite": [9.5, 5.05, 9.9, 5.75, 1.6]},
-   {"nom": "panier à linge", "piece": "salle-de-bain", "boite": [7.95, 5.1, 8.35, 5.5, 0.6]},
-   {"nom": "cuvette", "piece": "wc", "boite": [7.15, 5.45, 7.65, 5.95, 0.4]},
-   {"nom": "commode basse avec vide-poche", "piece": "entree", "boite": [5.35, 4.5, 5.75, 5.6, 0.8]},
-   {"nom": "meuble à chaussures", "piece": "entree", "boite": [6.5, 5.0, 6.85, 5.6, 0.5]},
-   {"nom": "porte-manteau", "piece": "entree", "boite": [6.6, 5.75, 6.85, 6.2, 1.8]},
-   {"nom": "placard de l'entrée", "piece": "entree", "boite": [5.35, 5.7, 5.85, 6.45, 2.2]}
-  ],
-  "supports": {
-   "atelier": [
-    ["serrure du coffre", [0.35, 3.36, 0.4]],
-    ["coffre-fort", [0.35, 3.62, 0.55]],
-    ["tiroir de l'établi", [1.6, 0.42, 0.8]],
-    ["tour d'horloger", [0.57, 0.33, 1.1]],
-    ["outil à rouler", [0.9, 0.35, 0.95]],
-    ["potence", [1.1, 0.3, 0.95]],
-    ["étage du haut", [0.18, 2.3, 1.7]],
-    ["étagère de fournitures", [0.18, 2.3, 0.4]],
-    ["établi", [1.25, 0.45, 0.95]]
+  {
+   "id": "rue-liaison",
+   "nom": null,
+   "axe": [
+    [
+     -150,
+     -9
+    ],
+    [
+     -150,
+     -94
+    ]
    ],
-   "sejour": [
-    ["étagère du bas", [4.7, 3.78, 0.3]],
-    ["bibliothèque", [4.7, 3.78, 1.2]],
-    ["table basse", [5.95, 1.9, 0.4]],
-    ["table à manger", [4.6, 0.9, 0.75]]
-   ],
-   "cuisine": [
-    ["devant la machine", [2.95, 5.6, 0.0]],
-    ["machine à laver", [2.95, 6.17, 0.85]],
-    ["placard sous les plaques", [4.75, 6.1, 0.3]],
-    ["plaque électrique", [4.72, 6.17, 0.92]],
-    ["poubelle sous l'évier", [3.85, 6.15, 0.2]],
-    ["égouttoir", [4.3, 6.2, 0.95]],
-    ["réfrigérateur", [4.97, 4.4, 1.0]],
-    ["plan de travail", [3.35, 6.15, 0.9]],
-    ["placard", [2.75, 4.7, 1.0]]
-   ],
-   "chambre": [
-    ["table de chevet", [10.22, 0.82, 0.55]],
-    ["armoire", [7.85, 3.3, 0.3]],
-    ["derrière la porte", [9.45, 3.75, 0.0]],
-    ["près du radiateur", [8.9, 0.5, 0.0]],
-    ["étendoir", [8.9, 0.5, 1.0]],
-    ["sol", [8.2, 2.0, 0.0]]
-   ],
-   "entree": [
-    ["meuble à chaussures", [6.67, 5.3, 0.5]],
-    ["vide-poche", [5.55, 4.8, 0.8]],
-    ["tiroir de la commode", [5.55, 5.2, 0.6]],
-    ["commode", [5.55, 5.0, 0.8]]
-   ],
-   "salle-de-bain": [
-    ["panier à linge", [8.15, 5.3, 0.6]],
-    ["sol", [8.6, 5.8, 0.0]]
-   ],
-   "sans_piece": [
-    ["panier à linge", "salle-de-bain", [8.15, 5.3, 0.6]],
-    ["pince de trempe", "atelier", [0.9, 0.5, 1.0]],
-    ["balancier de la montre de gousset", "atelier", [1.25, 0.45, 0.95]]
-   ],
-   "porte_par_thomas": ["dans sa main", "dans ses bras", "sur son nez", "poignet gauche", "porté", "aux pieds", "poche du coupe-vent"]
+   "facade_a_facade": 8,
+   "chaussee": 5,
+   "bati": true
   },
-  "postes": {
-   "principe": "x, y, direction du regard (ou de la tête si allongé), hauteur du siège ou de la couche",
-   "atelier": {"assis": [1.25, 1.15, 0.0, -1.0, 0.6], "debout": [1.0, 2.2, 0.0, -1.0]},
-   "sejour": {"allongé": [7.0, 1.9, 0.0, 1.0, 0.45], "assis": [7.0, 1.6, -1.0, 0.0, 0.42], "debout": [5.5, 2.8, -1.0, 0.0],
-              "assis_a_table": [4.45, 1.55, 0.0, -1.0, 0.45]},
-   "cuisine": {"debout": [3.9, 5.5, 0.0, 1.0], "assis": [4.0, 4.9, 0.0, 1.0, 0.45]},
-   "chambre": {"allongé": [9.55, 1.8, 1.0, 0.0, 0.5], "assis": [9.2, 2.65, 0.0, 1.0, 0.5], "debout": [8.6, 3.2, 0.0, -1.0]},
-   "salle-de-bain": {"debout": [8.5, 6.1, 0.0, 1.0], "douche": [9.45, 6.5, 0.0, 1.0]},
-   "wc": {"debout": [7.4, 5.55, 0.0, 1.0], "assis": [7.4, 5.7, 0.0, -1.0, 0.4]},
-   "entree": {"debout": [6.1, 5.3]},
-   "couloir": {"debout": [8.4, 4.5]},
-   "palier": {"debout": [6.4, 6.78]}
+  {
+   "id": "boulevard",
+   "nom": "boulevard de la Croix-Rousse",
+   "axe": [
+    [
+     -760,
+     -110
+    ],
+    [
+     700,
+     -110
+    ]
+   ],
+   "facade_a_facade": 32,
+   "chaussee": 24,
+   "terre_plein": 6,
+   "bati": true,
+   "arbres_tous_les_m": 12
   },
-  "activites_a_table": ["Dîner", "Déjeuner", "Brunch", "Planification", "Petit-déjeuner"],
-  "appareils": {
-   "lampe-etabli": [1.77, 0.27, 1.4],
-   "tour": [0.57, 0.33, 1.1],
-   "lampe-alcool": [0.9, 0.5, 1.0],
-   "chronocomparateur": [2.05, 3.6, 0.85],
-   "machine-ultrasons": [1.7, 3.6, 0.85],
-   "controleur-etancheite": [2.3, 3.6, 0.85],
-   "radio": [2.8, 0.6, 0.95],
-   "lecteur-cd": [2.8, 0.45, 0.95],
-   "television": [2.8, 1.6, 0.9],
-   "plaque-1": [4.6, 6.1, 0.92],
-   "plaque-2": [4.85, 6.25, 0.92],
-   "four": [4.75, 6.0, 0.4],
-   "machine-a-laver": [2.95, 6.17, 0.85],
-   "ordinateur": "obj-netbook",
-   "aspirateur": "thomas"
+  {
+   "id": "grande-rue",
+   "nom": "Grande-Rue de la Croix-Rousse",
+   "axe": [
+    [
+     332,
+     25
+    ],
+    [
+     332,
+     700
+    ]
+   ],
+   "facade_a_facade": 12,
+   "chaussee": 7,
+   "bati": true
   }
- },
+ ],
+ "places": [
+  {
+   "id": "place-croix-rousse",
+   "nom": "place de la Croix-Rousse",
+   "contour": [
+    [
+     262,
+     -94
+    ],
+    [
+     405,
+     -94
+    ],
+    [
+     405,
+     25
+    ],
+    [
+     262,
+     25
+    ]
+   ],
+   "arbres": [
+    [
+     290,
+     -60
+    ],
+    [
+     320,
+     -60
+    ],
+    [
+     350,
+     -60
+    ],
+    [
+     380,
+     -60
+    ],
+    [
+     290,
+     -20
+    ],
+    [
+     380,
+     -20
+    ]
+   ]
+  }
+ ],
+ "batiments": [
+  {
+   "id": "immeuble-austerlitz",
+   "nom": "Immeuble de Thomas, rue d'Austerlitz",
+   "origine": [
+    0,
+    0
+   ],
+   "rotation": 0,
+   "emprise": [
+    -3.0,
+    0.0,
+    13.5,
+    7.0
+   ],
+   "niveaux": 4,
+   "hauteur_etage": 3.74,
+   "cage_escalier": [
+    5.3,
+    6.5,
+    7.9,
+    9.6
+   ],
+   "allee": [
+    5.3,
+    0.0,
+    7.9,
+    6.5
+   ],
+   "porte": [
+    [
+     6.1,
+     0.0
+    ],
+    [
+     7.1,
+     0.0
+    ]
+   ],
+   "local_poubelles": [
+    7.9,
+    7.0,
+    9.9,
+    9.0
+   ],
+   "cour": [
+    -3.0,
+    7.0,
+    13.5,
+    14.0
+   ],
+   "escalier": {
+    "marches_par_volee": 11,
+    "volee_montante": {
+     "x": [
+      5.4,
+      6.5
+     ],
+     "y": [
+      7.05,
+      9.25
+     ]
+    },
+    "volee_descendante": {
+     "x": [
+      6.7,
+      7.8
+     ],
+     "y": [
+      9.25,
+      7.05
+     ]
+    },
+    "palier_intermediaire": [
+     5.4,
+     9.25,
+     7.8,
+     9.55
+    ],
+    "type": "volees",
+    "palier_niveau": [
+     5.3,
+     6.5,
+     7.9,
+     7.05
+    ],
+    "depuis_niveau": 0,
+    "jusqua_niveau": 3
+   }
+  },
+  {
+   "id": "immeuble-epicerie",
+   "nom": "Immeuble de l'Épicerie Chazal, Grande-Rue",
+   "origine": [
+    338,
+    176
+   ],
+   "rotation": -90,
+   "emprise": [
+    0,
+    0,
+    8,
+    10
+   ],
+   "niveaux": 4,
+   "hauteur_etage": 3.4,
+   "porte": [
+    [
+     3.5,
+     0
+    ],
+    [
+     4.5,
+     0
+    ]
+   ],
+   "rideau_de_fer": true,
+   "enseigne": "Épicerie Chazal",
+   "escalier": {
+    "type": "droit",
+    "bas": [
+     7.5,
+     8.2
+    ],
+    "haut": [
+     7.5,
+     4.7
+    ],
+    "depuis_niveau": 0,
+    "jusqua_niveau": 1,
+    "marches": 20,
+    "largeur": 0.9
+   }
+  }
+ ],
+ "logements": [
+  {
+   "id": "domicile-thomas",
+   "personnage": "thomas-berthier",
+   "batiment": "immeuble-austerlitz",
+   "niveau": 3,
+   "pieces": {
+    "atelier": {
+     "rect": [
+      0.0,
+      0.0,
+      2.5,
+      4.0
+     ],
+     "niveau": 0
+    },
+    "sejour": {
+     "rect": [
+      2.5,
+      0.0,
+      7.5,
+      4.0
+     ],
+     "niveau": 0
+    },
+    "chambre": {
+     "rect": [
+      7.5,
+      0.0,
+      10.5,
+      4.0
+     ],
+     "niveau": 0
+    },
+    "cuisine": {
+     "rect": [
+      2.5,
+      4.0,
+      5.3,
+      6.5
+     ],
+     "niveau": 0
+    },
+    "entree": {
+     "rect": [
+      5.3,
+      4.0,
+      6.9,
+      6.5
+     ],
+     "niveau": 0
+    },
+    "couloir": {
+     "rect": [
+      6.9,
+      4.0,
+      9.9,
+      5.0
+     ],
+     "niveau": 0
+    },
+    "wc": {
+     "rect": [
+      6.9,
+      5.0,
+      7.9,
+      6.0
+     ],
+     "niveau": 0
+    },
+    "salle-de-bain": {
+     "rect": [
+      7.9,
+      5.0,
+      9.9,
+      7.0
+     ],
+     "niveau": 0
+    },
+    "palier": {
+     "rect": [
+      5.3,
+      6.5,
+      7.9,
+      7.05
+     ],
+     "niveau": 0
+    }
+   },
+   "portes": [
+    {
+     "entre": [
+      "palier",
+      "entree"
+     ],
+     "segment": [
+      [
+       5.95,
+       6.5
+      ],
+      [
+       6.85,
+       6.5
+      ]
+     ],
+     "nom": "porte d'entrée"
+    },
+    {
+     "entre": [
+      "entree",
+      "sejour"
+     ],
+     "segment": [
+      [
+       5.6,
+       4.0
+      ],
+      [
+       6.4,
+       4.0
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "entree",
+      "couloir"
+     ],
+     "segment": [
+      [
+       6.9,
+       4.1
+      ],
+      [
+       6.9,
+       4.9
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "couloir",
+      "chambre"
+     ],
+     "segment": [
+      [
+       8.5,
+       4.0
+      ],
+      [
+       9.3,
+       4.0
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "couloir",
+      "salle-de-bain"
+     ],
+     "segment": [
+      [
+       8.4,
+       5.0
+      ],
+      [
+       9.1,
+       5.0
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "couloir",
+      "wc"
+     ],
+     "segment": [
+      [
+       7.05,
+       5.0
+      ],
+      [
+       7.75,
+       5.0
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "sejour",
+      "cuisine"
+     ],
+     "segment": [
+      [
+       3.0,
+       4.0
+      ],
+      [
+       3.8,
+       4.0
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "sejour",
+      "atelier"
+     ],
+     "segment": [
+      [
+       2.5,
+       2.5
+      ],
+      [
+       2.5,
+       3.3
+      ]
+     ]
+    }
+   ],
+   "fenetres": [
+    {
+     "piece": "atelier",
+     "segment": [
+      [
+       0.5,
+       0.0
+      ],
+      [
+       2.0,
+       0.0
+      ]
+     ]
+    },
+    {
+     "piece": "sejour",
+     "segment": [
+      [
+       3.3,
+       0.0
+      ],
+      [
+       4.5,
+       0.0
+      ]
+     ]
+    },
+    {
+     "piece": "sejour",
+     "segment": [
+      [
+       5.5,
+       0.0
+      ],
+      [
+       6.7,
+       0.0
+      ]
+     ]
+    },
+    {
+     "piece": "chambre",
+     "segment": [
+      [
+       8.4,
+       0.0
+      ],
+      [
+       9.6,
+       0.0
+      ]
+     ]
+    },
+    {
+     "piece": "cuisine",
+     "segment": [
+      [
+       3.3,
+       6.5
+      ],
+      [
+       4.5,
+       6.5
+      ]
+     ],
+     "vue": "cour"
+    }
+   ],
+   "mobilier": [
+    {
+     "nom": "établi d'horloger",
+     "piece": "atelier",
+     "boite": [
+      0.25,
+      0.1,
+      2.25,
+      0.75,
+      0.95
+     ]
+    },
+    {
+     "nom": "tabouret",
+     "piece": "atelier",
+     "boite": [
+      1.05,
+      0.95,
+      1.45,
+      1.35,
+      0.6
+     ]
+    },
+    {
+     "nom": "tour d'horloger",
+     "piece": "atelier",
+     "boite": [
+      0.4,
+      0.2,
+      0.75,
+      0.45,
+      0.15
+     ],
+     "z": 0.95
+    },
+    {
+     "nom": "lampe d'établi",
+     "piece": "atelier",
+     "boite": [
+      1.7,
+      0.2,
+      1.85,
+      0.35,
+      0.45
+     ],
+     "z": 0.95
+    },
+    {
+     "nom": "étagère de fournitures",
+     "piece": "atelier",
+     "boite": [
+      0.0,
+      1.6,
+      0.35,
+      3.0,
+      1.9
+     ]
+    },
+    {
+     "nom": "petit coffre-fort",
+     "piece": "atelier",
+     "boite": [
+      0.1,
+      3.35,
+      0.6,
+      3.9,
+      0.55
+     ]
+    },
+    {
+     "nom": "desserte (ultrasons, chronocomparateur)",
+     "piece": "atelier",
+     "boite": [
+      1.5,
+      3.3,
+      2.4,
+      3.9,
+      0.8
+     ]
+    },
+    {
+     "nom": "canapé",
+     "piece": "sejour",
+     "boite": [
+      6.6,
+      0.9,
+      7.4,
+      2.9,
+      0.8
+     ]
+    },
+    {
+     "nom": "table basse",
+     "piece": "sejour",
+     "boite": [
+      5.6,
+      1.4,
+      6.3,
+      2.4,
+      0.4
+     ]
+    },
+    {
+     "nom": "meuble du téléviseur",
+     "piece": "sejour",
+     "boite": [
+      2.6,
+      1.0,
+      3.05,
+      2.2,
+      0.55
+     ]
+    },
+    {
+     "nom": "petit téléviseur",
+     "piece": "sejour",
+     "boite": [
+      2.65,
+      1.3,
+      2.95,
+      1.9,
+      0.35
+     ],
+     "z": 0.55
+    },
+    {
+     "nom": "chaîne hi-fi avec radio",
+     "piece": "sejour",
+     "boite": [
+      2.6,
+      0.3,
+      3.0,
+      0.9,
+      0.95
+     ]
+    },
+    {
+     "nom": "table à manger",
+     "piece": "sejour",
+     "boite": [
+      4.0,
+      0.5,
+      5.2,
+      1.3,
+      0.75
+     ]
+    },
+    {
+     "nom": "chaise",
+     "piece": "sejour",
+     "boite": [
+      4.25,
+      1.35,
+      4.65,
+      1.75,
+      0.45
+     ]
+    },
+    {
+     "nom": "chaise",
+     "piece": "sejour",
+     "boite": [
+      4.55,
+      0.05,
+      4.95,
+      0.45,
+      0.45
+     ]
+    },
+    {
+     "nom": "bibliothèque",
+     "piece": "sejour",
+     "boite": [
+      3.9,
+      3.6,
+      5.5,
+      3.95,
+      2.0
+     ]
+    },
+    {
+     "nom": "plan de travail",
+     "piece": "cuisine",
+     "boite": [
+      2.6,
+      5.9,
+      5.2,
+      6.45,
+      0.9
+     ]
+    },
+    {
+     "nom": "évier",
+     "piece": "cuisine",
+     "boite": [
+      3.5,
+      5.95,
+      4.2,
+      6.4,
+      0.02
+     ],
+     "z": 0.9
+    },
+    {
+     "nom": "plaques électriques",
+     "piece": "cuisine",
+     "boite": [
+      4.45,
+      5.95,
+      5.0,
+      6.4,
+      0.02
+     ],
+     "z": 0.9
+    },
+    {
+     "nom": "réfrigérateur",
+     "piece": "cuisine",
+     "boite": [
+      4.7,
+      4.1,
+      5.25,
+      4.7,
+      1.5
+     ]
+    },
+    {
+     "nom": "placard à provisions",
+     "piece": "cuisine",
+     "boite": [
+      2.55,
+      4.1,
+      2.95,
+      5.3,
+      2.1
+     ]
+    },
+    {
+     "nom": "machine à laver",
+     "piece": "cuisine",
+     "boite": [
+      2.65,
+      5.9,
+      3.25,
+      6.45,
+      0.85
+     ]
+    },
+    {
+     "nom": "lit double",
+     "piece": "chambre",
+     "boite": [
+      8.6,
+      1.1,
+      10.45,
+      2.5,
+      0.5
+     ]
+    },
+    {
+     "nom": "table de chevet",
+     "piece": "chambre",
+     "boite": [
+      10.0,
+      0.6,
+      10.45,
+      1.05,
+      0.55
+     ]
+    },
+    {
+     "nom": "armoire",
+     "piece": "chambre",
+     "boite": [
+      7.55,
+      2.6,
+      8.15,
+      3.95,
+      2.0
+     ]
+    },
+    {
+     "nom": "douche",
+     "piece": "salle-de-bain",
+     "boite": [
+      9.05,
+      6.1,
+      9.9,
+      6.95,
+      2.0
+     ]
+    },
+    {
+     "nom": "lavabo",
+     "piece": "salle-de-bain",
+     "boite": [
+      8.0,
+      6.5,
+      8.6,
+      6.95,
+      0.85
+     ]
+    },
+    {
+     "nom": "étagère",
+     "piece": "salle-de-bain",
+     "boite": [
+      9.5,
+      5.05,
+      9.9,
+      5.75,
+      1.6
+     ]
+    },
+    {
+     "nom": "panier à linge",
+     "piece": "salle-de-bain",
+     "boite": [
+      7.95,
+      5.1,
+      8.35,
+      5.5,
+      0.6
+     ]
+    },
+    {
+     "nom": "cuvette",
+     "piece": "wc",
+     "boite": [
+      7.15,
+      5.45,
+      7.65,
+      5.95,
+      0.4
+     ]
+    },
+    {
+     "nom": "commode basse avec vide-poche",
+     "piece": "entree",
+     "boite": [
+      5.35,
+      4.5,
+      5.75,
+      5.6,
+      0.8
+     ]
+    },
+    {
+     "nom": "meuble à chaussures",
+     "piece": "entree",
+     "boite": [
+      6.5,
+      5.0,
+      6.85,
+      5.6,
+      0.5
+     ]
+    },
+    {
+     "nom": "porte-manteau",
+     "piece": "entree",
+     "boite": [
+      6.6,
+      5.75,
+      6.85,
+      6.2,
+      1.8
+     ]
+    },
+    {
+     "nom": "placard de l'entrée",
+     "piece": "entree",
+     "boite": [
+      5.35,
+      5.7,
+      5.85,
+      6.45,
+      2.2
+     ]
+    }
+   ],
+   "supports": {
+    "atelier": [
+     [
+      "serrure du coffre",
+      [
+       0.35,
+       3.36,
+       0.4
+      ]
+     ],
+     [
+      "coffre-fort",
+      [
+       0.35,
+       3.62,
+       0.55
+      ]
+     ],
+     [
+      "tiroir de l'établi",
+      [
+       1.6,
+       0.42,
+       0.8
+      ]
+     ],
+     [
+      "tour d'horloger",
+      [
+       0.57,
+       0.33,
+       1.1
+      ]
+     ],
+     [
+      "outil à rouler",
+      [
+       0.9,
+       0.35,
+       0.95
+      ]
+     ],
+     [
+      "potence",
+      [
+       1.1,
+       0.3,
+       0.95
+      ]
+     ],
+     [
+      "étage du haut",
+      [
+       0.18,
+       2.3,
+       1.7
+      ]
+     ],
+     [
+      "étagère de fournitures",
+      [
+       0.18,
+       2.3,
+       0.4
+      ]
+     ],
+     [
+      "établi",
+      [
+       1.25,
+       0.45,
+       0.95
+      ]
+     ]
+    ],
+    "sejour": [
+     [
+      "étagère du bas",
+      [
+       4.7,
+       3.78,
+       0.3
+      ]
+     ],
+     [
+      "bibliothèque",
+      [
+       4.7,
+       3.78,
+       1.2
+      ]
+     ],
+     [
+      "table basse",
+      [
+       5.95,
+       1.9,
+       0.4
+      ]
+     ],
+     [
+      "table à manger",
+      [
+       4.6,
+       0.9,
+       0.75
+      ]
+     ]
+    ],
+    "cuisine": [
+     [
+      "devant la machine",
+      [
+       2.95,
+       5.6,
+       0.0
+      ]
+     ],
+     [
+      "machine à laver",
+      [
+       2.95,
+       6.17,
+       0.85
+      ]
+     ],
+     [
+      "placard sous les plaques",
+      [
+       4.75,
+       6.1,
+       0.3
+      ]
+     ],
+     [
+      "plaque électrique",
+      [
+       4.72,
+       6.17,
+       0.92
+      ]
+     ],
+     [
+      "poubelle sous l'évier",
+      [
+       3.85,
+       6.15,
+       0.2
+      ]
+     ],
+     [
+      "égouttoir",
+      [
+       4.3,
+       6.2,
+       0.95
+      ]
+     ],
+     [
+      "réfrigérateur",
+      [
+       4.97,
+       4.4,
+       1.0
+      ]
+     ],
+     [
+      "plan de travail",
+      [
+       3.35,
+       6.15,
+       0.9
+      ]
+     ],
+     [
+      "placard",
+      [
+       2.75,
+       4.7,
+       1.0
+      ]
+     ]
+    ],
+    "chambre": [
+     [
+      "table de chevet",
+      [
+       10.22,
+       0.82,
+       0.55
+      ]
+     ],
+     [
+      "armoire",
+      [
+       7.85,
+       3.3,
+       0.3
+      ]
+     ],
+     [
+      "derrière la porte",
+      [
+       9.45,
+       3.75,
+       0.0
+      ]
+     ],
+     [
+      "près du radiateur",
+      [
+       8.9,
+       0.5,
+       0.0
+      ]
+     ],
+     [
+      "étendoir",
+      [
+       8.9,
+       0.5,
+       1.0
+      ]
+     ],
+     [
+      "sol",
+      [
+       8.2,
+       2.0,
+       0.0
+      ]
+     ]
+    ],
+    "entree": [
+     [
+      "porte-manteau",
+      [
+       6.72,
+       5.97,
+       1.5
+      ]
+     ],
+     [
+      "meuble à chaussures",
+      [
+       6.67,
+       5.3,
+       0.5
+      ]
+     ],
+     [
+      "vide-poche",
+      [
+       5.55,
+       4.8,
+       0.8
+      ]
+     ],
+     [
+      "tiroir de la commode",
+      [
+       5.55,
+       5.2,
+       0.6
+      ]
+     ],
+     [
+      "commode",
+      [
+       5.55,
+       5.0,
+       0.8
+      ]
+     ]
+    ],
+    "salle-de-bain": [
+     [
+      "panier à linge",
+      [
+       8.15,
+       5.3,
+       0.6
+      ]
+     ],
+     [
+      "sol",
+      [
+       8.6,
+       5.8,
+       0.0
+      ]
+     ]
+    ],
+    "sans_piece": [
+     [
+      "panier à linge",
+      "salle-de-bain",
+      [
+       8.15,
+       5.3,
+       0.6
+      ]
+     ],
+     [
+      "pince de trempe",
+      "atelier",
+      [
+       0.9,
+       0.5,
+       1.0
+      ]
+     ],
+     [
+      "balancier de la montre de gousset",
+      "atelier",
+      [
+       1.25,
+       0.45,
+       0.95
+      ]
+     ]
+    ],
+    "porte_par_thomas": [
+     "dans sa main",
+     "dans ses bras",
+     "sur son nez",
+     "poignet gauche",
+     "porté",
+     "aux pieds",
+     "poche du coupe-vent"
+    ]
+   },
+   "postes": {
+    "principe": "x, y, direction du regard (ou de la tête si allongé), hauteur du siège ou de la couche",
+    "atelier": {
+     "assis": [
+      1.25,
+      1.15,
+      0.0,
+      -1.0,
+      0.6
+     ],
+     "debout": [
+      1.0,
+      2.2,
+      0.0,
+      -1.0
+     ]
+    },
+    "sejour": {
+     "allongé": [
+      7.0,
+      1.9,
+      0.0,
+      1.0,
+      0.45
+     ],
+     "assis": [
+      7.0,
+      1.6,
+      -1.0,
+      0.0,
+      0.42
+     ],
+     "debout": [
+      5.5,
+      2.8,
+      -1.0,
+      0.0
+     ],
+     "assis_a_table": [
+      4.45,
+      1.55,
+      0.0,
+      -1.0,
+      0.45
+     ]
+    },
+    "cuisine": {
+     "debout": [
+      3.9,
+      5.5,
+      0.0,
+      1.0
+     ],
+     "assis": [
+      4.0,
+      4.9,
+      0.0,
+      1.0,
+      0.45
+     ]
+    },
+    "chambre": {
+     "allongé": [
+      9.55,
+      1.8,
+      1.0,
+      0.0,
+      0.5
+     ],
+     "assis": [
+      9.2,
+      2.65,
+      0.0,
+      1.0,
+      0.5
+     ],
+     "debout": [
+      8.6,
+      3.2,
+      0.0,
+      -1.0
+     ]
+    },
+    "salle-de-bain": {
+     "debout": [
+      8.5,
+      6.1,
+      0.0,
+      1.0
+     ],
+     "douche": [
+      9.45,
+      6.5,
+      0.0,
+      1.0
+     ]
+    },
+    "wc": {
+     "debout": [
+      7.4,
+      5.55,
+      0.0,
+      1.0
+     ],
+     "assis": [
+      7.4,
+      5.7,
+      0.0,
+      -1.0,
+      0.4
+     ]
+    },
+    "entree": {
+     "debout": [
+      6.1,
+      5.3
+     ]
+    },
+    "couloir": {
+     "debout": [
+      8.4,
+      4.5
+     ]
+    },
+    "palier": {
+     "debout": [
+      6.4,
+      6.78
+     ]
+    }
+   },
+   "activites_a_table": [
+    "Dîner",
+    "Déjeuner",
+    "Brunch",
+    "Planification",
+    "Petit-déjeuner"
+   ],
+   "appareils": {
+    "lampe-etabli": [
+     1.77,
+     0.27,
+     1.4
+    ],
+    "tour": [
+     0.57,
+     0.33,
+     1.1
+    ],
+    "lampe-alcool": [
+     0.9,
+     0.5,
+     1.0
+    ],
+    "chronocomparateur": [
+     2.05,
+     3.6,
+     0.85
+    ],
+    "machine-ultrasons": [
+     1.7,
+     3.6,
+     0.85
+    ],
+    "controleur-etancheite": [
+     2.3,
+     3.6,
+     0.85
+    ],
+    "radio": [
+     2.8,
+     0.6,
+     0.95
+    ],
+    "lecteur-cd": [
+     2.8,
+     0.45,
+     0.95
+    ],
+    "television": [
+     2.8,
+     1.6,
+     0.9
+    ],
+    "plaque-1": [
+     4.6,
+     6.1,
+     0.92
+    ],
+    "plaque-2": [
+     4.85,
+     6.25,
+     0.92
+    ],
+    "four": [
+     4.75,
+     6.0,
+     0.4
+    ],
+    "machine-a-laver": [
+     2.95,
+     6.17,
+     0.85
+    ],
+    "ordinateur": "obj-netbook",
+    "aspirateur": "thomas"
+   },
+   "sortie": {
+    "piece": "palier",
+    "vers": "escalier-immeuble"
+   }
+  },
+  {
+   "id": "domicile-robert",
+   "personnage": "robert-chazal",
+   "batiment": "immeuble-epicerie",
+   "niveau": 0,
+   "pieces": {
+    "boutique": {
+     "rect": [
+      0,
+      0,
+      8,
+      4.5
+     ],
+     "niveau": 0
+    },
+    "reserve": {
+     "rect": [
+      0,
+      4.5,
+      4,
+      8.5
+     ],
+     "niveau": 0
+    },
+    "arriere-boutique": {
+     "rect": [
+      4,
+      4.5,
+      7,
+      8.5
+     ],
+     "niveau": 0
+    },
+    "wc-boutique": {
+     "rect": [
+      4,
+      8.5,
+      5.2,
+      9.5
+     ],
+     "niveau": 0
+    },
+    "escalier": {
+     "rect": [
+      7,
+      4.5,
+      8,
+      8.5
+     ],
+     "niveau": 0,
+     "escalier": true
+    },
+    "couloir": {
+     "rect": [
+      3,
+      4,
+      8,
+      5
+     ],
+     "niveau": 1
+    },
+    "sejour": {
+     "rect": [
+      0,
+      0,
+      4.5,
+      4
+     ],
+     "niveau": 1
+    },
+    "chambre": {
+     "rect": [
+      4.5,
+      0,
+      8,
+      4
+     ],
+     "niveau": 1
+    },
+    "cuisine": {
+     "rect": [
+      0,
+      4,
+      3,
+      8.5
+     ],
+     "niveau": 1
+    },
+    "salle-de-bain": {
+     "rect": [
+      3,
+      5,
+      5,
+      8.5
+     ],
+     "niveau": 1
+    },
+    "wc": {
+     "rect": [
+      5,
+      5,
+      6.2,
+      6.5
+     ],
+     "niveau": 1
+    },
+    "trottoir": {
+     "rect": [
+      0,
+      -3,
+      8,
+      0
+     ],
+     "niveau": 0,
+     "exterieur": true
+    }
+   },
+   "portes": [
+    {
+     "entre": [
+      "trottoir",
+      "boutique"
+     ],
+     "segment": [
+      [
+       3.5,
+       0
+      ],
+      [
+       4.5,
+       0
+      ]
+     ],
+     "nom": "porte vitrée"
+    },
+    {
+     "entre": [
+      "boutique",
+      "reserve"
+     ],
+     "segment": [
+      [
+       1.5,
+       4.5
+      ],
+      [
+       2.3,
+       4.5
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "boutique",
+      "arriere-boutique"
+     ],
+     "segment": [
+      [
+       5.1,
+       4.5
+      ],
+      [
+       5.9,
+       4.5
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "reserve",
+      "arriere-boutique"
+     ],
+     "segment": [
+      [
+       4,
+       6.5
+      ],
+      [
+       4,
+       7.3
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "arriere-boutique",
+      "wc-boutique"
+     ],
+     "segment": [
+      [
+       4.2,
+       8.5
+      ],
+      [
+       4.9,
+       8.5
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "arriere-boutique",
+      "escalier"
+     ],
+     "segment": [
+      [
+       7,
+       7.6
+      ],
+      [
+       7,
+       8.4
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "escalier",
+      "couloir"
+     ],
+     "escalier": true
+    },
+    {
+     "entre": [
+      "couloir",
+      "sejour"
+     ],
+     "segment": [
+      [
+       3.3,
+       4
+      ],
+      [
+       4.1,
+       4
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "couloir",
+      "chambre"
+     ],
+     "segment": [
+      [
+       5.5,
+       4
+      ],
+      [
+       6.3,
+       4
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "couloir",
+      "cuisine"
+     ],
+     "segment": [
+      [
+       3,
+       4.1
+      ],
+      [
+       3,
+       4.9
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "couloir",
+      "salle-de-bain"
+     ],
+     "segment": [
+      [
+       3.5,
+       5
+      ],
+      [
+       4.3,
+       5
+      ]
+     ]
+    },
+    {
+     "entre": [
+      "couloir",
+      "wc"
+     ],
+     "segment": [
+      [
+       5.2,
+       5
+      ],
+      [
+       5.9,
+       5
+      ]
+     ]
+    }
+   ],
+   "fenetres": [
+    {
+     "piece": "boutique",
+     "segment": [
+      [
+       0.4,
+       0
+      ],
+      [
+       3.3,
+       0
+      ]
+     ],
+     "vitrine": true
+    },
+    {
+     "piece": "boutique",
+     "segment": [
+      [
+       4.7,
+       0
+      ],
+      [
+       7.6,
+       0
+      ]
+     ],
+     "vitrine": true
+    },
+    {
+     "piece": "sejour",
+     "segment": [
+      [
+       1,
+       0
+      ],
+      [
+       3.5,
+       0
+      ]
+     ]
+    },
+    {
+     "piece": "chambre",
+     "segment": [
+      [
+       5,
+       0
+      ],
+      [
+       7,
+       0
+      ]
+     ]
+    },
+    {
+     "piece": "cuisine",
+     "segment": [
+      [
+       0.8,
+       8.5
+      ],
+      [
+       2.2,
+       8.5
+      ]
+     ],
+     "vue": "cour"
+    }
+   ],
+   "mobilier": [
+    {
+     "nom": "comptoir et caisse enregistreuse",
+     "piece": "boutique",
+     "boite": [
+      5.6,
+      1.0,
+      7.6,
+      1.7,
+      1.0
+     ]
+    },
+    {
+     "nom": "rayons d'épicerie",
+     "piece": "boutique",
+     "boite": [
+      0.1,
+      1.2,
+      0.6,
+      4.3,
+      1.8
+     ]
+    },
+    {
+     "nom": "rayon central",
+     "piece": "boutique",
+     "boite": [
+      2.0,
+      1.9,
+      3.8,
+      2.6,
+      1.5
+     ]
+    },
+    {
+     "nom": "étal de fruits et légumes",
+     "piece": "boutique",
+     "boite": [
+      0.7,
+      0.3,
+      3.1,
+      0.9,
+      0.8
+     ]
+    },
+    {
+     "nom": "vitrine réfrigérée",
+     "piece": "boutique",
+     "boite": [
+      4.3,
+      3.8,
+      7.9,
+      4.4,
+      1.2
+     ]
+    },
+    {
+     "nom": "panière à pain",
+     "piece": "boutique",
+     "boite": [
+      7.55,
+      1.9,
+      7.95,
+      2.8,
+      1.0
+     ]
+    },
+    {
+     "nom": "étagères métalliques",
+     "piece": "reserve",
+     "boite": [
+      0.1,
+      4.7,
+      0.6,
+      8.3,
+      2.0
+     ]
+    },
+    {
+     "nom": "étagères métalliques",
+     "piece": "reserve",
+     "boite": [
+      1.2,
+      7.8,
+      3.9,
+      8.4,
+      2.0
+     ]
+    },
+    {
+     "nom": "cagettes",
+     "piece": "reserve",
+     "boite": [
+      1.2,
+      5.1,
+      2.4,
+      6.0,
+      0.6
+     ]
+    },
+    {
+     "nom": "chambre froide",
+     "piece": "reserve",
+     "boite": [
+      2.6,
+      4.7,
+      3.9,
+      6.2,
+      2.2
+     ]
+    },
+    {
+     "nom": "bureau",
+     "piece": "arriere-boutique",
+     "boite": [
+      4.2,
+      6.4,
+      5.4,
+      7.2,
+      0.75
+     ]
+    },
+    {
+     "nom": "coffre",
+     "piece": "arriere-boutique",
+     "boite": [
+      6.3,
+      5.5,
+      6.9,
+      6.1,
+      0.7
+     ]
+    },
+    {
+     "nom": "évier et cafetière",
+     "piece": "arriere-boutique",
+     "boite": [
+      4.2,
+      4.7,
+      5.0,
+      5.2,
+      0.9
+     ]
+    },
+    {
+     "nom": "fauteuil",
+     "piece": "sejour",
+     "boite": [
+      0.4,
+      2.2,
+      1.2,
+      3.0,
+      0.9
+     ]
+    },
+    {
+     "nom": "canapé",
+     "piece": "sejour",
+     "boite": [
+      0.2,
+      0.4,
+      0.9,
+      2.0,
+      0.8
+     ]
+    },
+    {
+     "nom": "télévision",
+     "piece": "sejour",
+     "boite": [
+      3.7,
+      2.2,
+      4.4,
+      3.0,
+      1.0
+     ]
+    },
+    {
+     "nom": "buffet avec les photos",
+     "piece": "sejour",
+     "boite": [
+      1.6,
+      3.5,
+      3.4,
+      3.95,
+      0.9
+     ]
+    },
+    {
+     "nom": "table basse",
+     "piece": "sejour",
+     "boite": [
+      1.6,
+      1.4,
+      2.6,
+      2.2,
+      0.4
+     ]
+    },
+    {
+     "nom": "lit",
+     "piece": "chambre",
+     "boite": [
+      6.0,
+      0.8,
+      7.95,
+      2.4,
+      0.5
+     ]
+    },
+    {
+     "nom": "table de chevet",
+     "piece": "chambre",
+     "boite": [
+      7.5,
+      2.45,
+      7.95,
+      2.9,
+      0.55
+     ]
+    },
+    {
+     "nom": "armoire",
+     "piece": "chambre",
+     "boite": [
+      4.6,
+      3.3,
+      6.0,
+      3.95,
+      2.0
+     ]
+    },
+    {
+     "nom": "commode",
+     "piece": "chambre",
+     "boite": [
+      4.6,
+      0.1,
+      5.6,
+      0.6,
+      0.9
+     ]
+    },
+    {
+     "nom": "table et deux chaises",
+     "piece": "cuisine",
+     "boite": [
+      0.8,
+      5.6,
+      2.0,
+      6.6,
+      0.75
+     ]
+    },
+    {
+     "nom": "cuisinière à gaz",
+     "piece": "cuisine",
+     "boite": [
+      0.05,
+      7.6,
+      0.65,
+      8.4,
+      0.9
+     ]
+    },
+    {
+     "nom": "réfrigérateur",
+     "piece": "cuisine",
+     "boite": [
+      2.4,
+      7.8,
+      2.95,
+      8.4,
+      1.6
+     ]
+    },
+    {
+     "nom": "buffet",
+     "piece": "cuisine",
+     "boite": [
+      0.05,
+      4.6,
+      0.5,
+      6.2,
+      1.0
+     ]
+    },
+    {
+     "nom": "évier",
+     "piece": "cuisine",
+     "boite": [
+      0.8,
+      7.95,
+      1.9,
+      8.45,
+      0.9
+     ]
+    },
+    {
+     "nom": "baignoire avec douche",
+     "piece": "salle-de-bain",
+     "boite": [
+      3.1,
+      7.0,
+      4.9,
+      7.75,
+      0.55
+     ]
+    },
+    {
+     "nom": "lavabo",
+     "piece": "salle-de-bain",
+     "boite": [
+      4.3,
+      5.1,
+      4.9,
+      5.5,
+      0.85
+     ]
+    },
+    {
+     "nom": "cuvette",
+     "piece": "wc",
+     "boite": [
+      5.3,
+      5.8,
+      5.9,
+      6.4,
+      0.4
+     ]
+    },
+    {
+     "nom": "cuvette",
+     "piece": "wc-boutique",
+     "boite": [
+      4.3,
+      8.9,
+      4.9,
+      9.4,
+      0.4
+     ]
+    }
+   ],
+   "supports": {
+    "couloir": [
+     [
+      "portemanteau",
+      [
+       3.3,
+       4.5,
+       1.6
+      ]
+     ]
+    ],
+    "arriere-boutique": [
+     [
+      "patère",
+      [
+       6.8,
+       7.0,
+       1.6
+      ]
+     ],
+     [
+      "bureau",
+      [
+       4.8,
+       6.8,
+       0.75
+      ]
+     ],
+     [
+      "coffre",
+      [
+       6.6,
+       5.8,
+       0.7
+      ]
+     ]
+    ],
+    "chambre": [
+     [
+      "table de chevet",
+      [
+       7.72,
+       2.67,
+       0.55
+      ]
+     ]
+    ],
+    "boutique": [
+     [
+      "comptoir",
+      [
+       6.6,
+       1.35,
+       1.0
+      ]
+     ]
+    ],
+    "sejour": [
+     [
+      "buffet",
+      [
+       2.5,
+       3.7,
+       0.9
+      ]
+     ],
+     [
+      "accoudoir",
+      [
+       1.2,
+       2.6,
+       0.6
+      ]
+     ]
+    ],
+    "cuisine": [
+     [
+      "buffet",
+      [
+       0.3,
+       5.4,
+       1.0
+      ]
+     ]
+    ],
+    "reserve": [
+     [
+      "derrière la porte",
+      [
+       1.0,
+       4.8,
+       0.0
+      ]
+     ]
+    ],
+    "sans_piece": [],
+    "porte_par_thomas": [
+     "dans sa main",
+     "dans ses bras",
+     "sur son nez",
+     "sur son front",
+     "poignet gauche",
+     "porté",
+     "aux pieds",
+     "poche du pantalon"
+    ]
+   },
+   "postes": {
+    "principe": "x, y, direction du regard (ou de la tête si allongé), hauteur du siège ou de la couche",
+    "boutique": {
+     "debout": [
+      6.6,
+      2.0,
+      0.0,
+      -1.0
+     ],
+     "client": [
+      6.6,
+      0.55,
+      0.0,
+      1.0
+     ]
+    },
+    "trottoir": {
+     "debout": [
+      4.0,
+      -1.2,
+      0.0,
+      -1.0
+     ]
+    },
+    "reserve": {
+     "debout": [
+      2.0,
+      6.6,
+      0.0,
+      1.0
+     ]
+    },
+    "arriere-boutique": {
+     "debout": [
+      5.6,
+      6.0,
+      1.0,
+      0.0
+     ],
+     "assis": [
+      4.8,
+      7.6,
+      0.0,
+      -1.0,
+      0.45
+     ]
+    },
+    "wc-boutique": {
+     "debout": [
+      4.6,
+      9.0,
+      0.0,
+      -1.0
+     ]
+    },
+    "escalier": {
+     "debout": [
+      7.5,
+      6.5,
+      0.0,
+      -1.0
+     ]
+    },
+    "couloir": {
+     "debout": [
+      5.0,
+      4.5,
+      -1.0,
+      0.0
+     ]
+    },
+    "cuisine": {
+     "debout": [
+      1.3,
+      7.3,
+      0.0,
+      1.0
+     ],
+     "assis": [
+      1.4,
+      7.0,
+      0.0,
+      -1.0,
+      0.45
+     ]
+    },
+    "sejour": {
+     "assis": [
+      0.8,
+      2.6,
+      1.0,
+      0.0,
+      0.45
+     ],
+     "debout": [
+      2.6,
+      2.6,
+      0.0,
+      1.0
+     ]
+    },
+    "chambre": {
+     "allongé": [
+      7.0,
+      1.6,
+      1.0,
+      0.0,
+      0.5
+     ],
+     "assis": [
+      6.6,
+      2.65,
+      0.0,
+      1.0,
+      0.5
+     ],
+     "debout": [
+      5.3,
+      2.5,
+      1.0,
+      0.0
+     ]
+    },
+    "salle-de-bain": {
+     "debout": [
+      4.0,
+      6.0,
+      0.0,
+      1.0
+     ],
+     "douche": [
+      4.0,
+      7.35,
+      0.0,
+      1.0
+     ]
+    },
+    "wc": {
+     "debout": [
+      5.6,
+      6.0,
+      0.0,
+      1.0
+     ],
+     "assis": [
+      5.6,
+      6.1,
+      0.0,
+      -1.0,
+      0.4
+     ]
+    }
+   },
+   "activites_a_table": [
+    "Déjeuner",
+    "Dîner",
+    "Petit-déjeuner"
+   ],
+   "appareils": {
+    "radio-cuisine": [
+     2.6,
+     4.6,
+     1.2
+    ],
+    "radio-boutique": [
+     7.3,
+     1.4,
+     1.4
+    ],
+    "television": [
+     4.0,
+     2.6,
+     1.0
+    ]
+   }
+  }
+ ],
  "quartier": {
-  "principe": "Schéma du parcours de course : plateau, pentes, Saône et quais. Altitudes relatives au niveau des quais ; distances approximatives.",
-  "exageration_verticale": 10,
-  "plateau": {"altitude": 85, "bord_x": -150},
-  "bas_des_pentes_x": -1150,
-  "descente": [[0, 0, 85], [-180, -60, 82], [-330, -210, 68], [-520, -160, 52], [-700, -330, 36], [-900, -280, 22], [-1080, -430, 9], [-1250, -480, 0]],
-  "descente_m": 1500,
-  "quai": [[-1250, -480, 0], [-1330, 300, 0], [-1310, 1200, 0], [-1230, 2100, 0], [-1260, 3000, 0], [-1350, 3900, 0], [-1420, 4700, 0]],
-  "saone": {"rive_proche": -40, "rive_lointaine": -210},
+  "saone": {
+   "rive_proche": -40,
+   "rive_lointaine": -210
+  },
+  "quai": [
+   [
+    -1250,
+    -480
+   ],
+   [
+    -1330,
+    300
+   ],
+   [
+    -1310,
+    1200
+   ],
+   [
+    -1230,
+    2100
+   ],
+   [
+    -1260,
+    3000
+   ],
+   [
+    -1350,
+    3900
+   ],
+   [
+    -1420,
+    4700
+   ]
+  ],
+  "arbres_quai_tous_les_m": 35,
+  "parcours_course": {
+   "principe": "Trajet de Thomas : rue d'Austerlitz, petite rue, boulevard, descente des pentes jusqu'aux quais, puis aller-retour le long de la Saône vers le nord ; même chemin au retour.",
+   "descente": [
+    [
+     6.6,
+     -4.5
+    ],
+    [
+     -150,
+     -4.5
+    ],
+    [
+     -150,
+     -110
+    ],
+    [
+     -720,
+     -110
+    ],
+    [
+     -760,
+     -150
+    ],
+    [
+     -850,
+     -125
+    ],
+    [
+     -930,
+     -220
+    ],
+    [
+     -1020,
+     -195
+    ],
+    [
+     -1110,
+     -310
+    ],
+    [
+     -1190,
+     -390
+    ],
+    [
+     -1250,
+     -480
+    ]
+   ]
+  },
+  "trajet_epicerie": {
+   "principe": "Trajet de Thomas à l'épicerie : rue d'Austerlitz, place de la Croix-Rousse, Grande-Rue.",
+   "points": [
+    [
+     6.6,
+     -4.5
+    ],
+    [
+     262,
+     -4.5
+    ],
+    [
+     300,
+     0
+    ],
+    [
+     326,
+     20
+    ],
+    [
+     332,
+     30
+    ],
+    [
+     332,
+     172
+    ],
+    [
+     338,
+     172
+    ]
+   ]
+  },
   "reperes": [
-   {"nom": "Immeuble", "point": [0, -900, 85]},
-   {"nom": "Plateau de la Croix-Rousse", "point": [300, 2400, 85]},
-   {"nom": "Pentes", "point": [-650, -1100, 42]},
-   {"nom": "Quais de Saône", "point": [-1150, 2500, 0]},
-   {"nom": "Saône", "point": [-1600, 3400, 0]}
+   {
+    "nom": "Thomas",
+    "point": [
+     5,
+     10,
+     18
+    ]
+   },
+   {
+    "nom": "Épicerie Chazal",
+    "point": [
+     345,
+     172,
+     16
+    ]
+   },
+   {
+    "nom": "place de la Croix-Rousse",
+    "point": [
+     334,
+     -40,
+     0
+    ]
+   },
+   {
+    "nom": "Pentes",
+    "point": [
+     -900,
+     -260,
+     -40
+    ]
+   },
+   {
+    "nom": "Quais de Saône",
+    "point": [
+     -1200,
+     1800,
+     -85
+    ]
+   },
+   {
+    "nom": "Saône",
+    "point": [
+     -1470,
+     2600,
+     -85
+    ]
+   }
   ]
+ },
+ "lieux_publics": {
+  "epicerie-chazal": {
+   "logement": "domicile-robert",
+   "piece": "boutique",
+   "poste": "client"
+  }
  }
 }

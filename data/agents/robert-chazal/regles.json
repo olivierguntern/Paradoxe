@@ -1,0 +1,191 @@
+{
+ "type": "commerce",
+ "principe": "Règles qui organisent la journée de Robert Chazal autour des horaires de son épicerie (fiche, section commerce). L'agent sert les clients anonymes selon l'affluence, reçoit les livraisons, et sert Thomas Berthier aux heures où la journée de Thomas le fait entrer dans la boutique.",
+ "sonnerie": {
+  "commerce": "05:45",
+  "dimanche": "06:45"
+ },
+ "reveil_naturel_lundi": "07:30",
+ "endormi_la_veille_du_premier_jour": "22:30",
+ "livraison_pain_avant_ouverture_minutes": 30,
+ "livraison_grossiste": {
+  "jours": [
+   "mardi",
+   "vendredi"
+  ],
+  "heure": "07:05",
+  "pas": 4
+ },
+ "pauses_cafe": [
+  "10:00",
+  "16:30"
+ ],
+ "seuils": {
+  "toilettes": 30,
+  "soif": 40
+ },
+ "dejeuner": {
+  "commerce": [
+   "12:40",
+   "13:20"
+  ],
+  "dimanche": [
+   "12:45",
+   "13:30"
+  ],
+  "lundi": [
+   "12:15",
+   "13:00"
+  ]
+ },
+ "sieste": {
+  "commerce": [
+   "13:20",
+   "14:00"
+  ],
+  "dimanche": [
+   "13:30",
+   "15:00"
+  ],
+  "lundi": [
+   "13:00",
+   "14:00"
+  ]
+ },
+ "apres_midi_boutique": [
+  "14:00",
+  "15:20"
+ ],
+ "diner": {
+  "commerce": [
+   "19:50",
+   "20:40"
+  ],
+  "dimanche": [
+   "19:00",
+   "19:45"
+  ],
+  "lundi": [
+   "19:00",
+   "19:45"
+  ]
+ },
+ "toilette_soir": {
+  "defaut": "22:15",
+  "mercredi": "22:45",
+  "dimanche": "22:00"
+ },
+ "extinction": {
+  "defaut": "22:30",
+  "mercredi": "23:00",
+  "dimanche": "22:15"
+ },
+ "objectif_recette_eur": 300,
+ "client": "thomas-berthier",
+ "consommations": {
+  "petit_dejeuner": [
+   [
+    "cafe_moulu",
+    7
+   ],
+   [
+    "pain",
+    0.25
+   ],
+   [
+    "beurre",
+    10
+   ],
+   [
+    "confiture",
+    2
+   ]
+  ],
+  "dejeuner": [
+   [
+    "plats_cuisines",
+    1
+   ],
+   [
+    "pain",
+    0.25
+   ],
+   [
+    "fromage",
+    40
+   ],
+   [
+    "fruits",
+    1
+   ],
+   [
+    "cafe_moulu",
+    7
+   ]
+  ],
+  "diner": [
+   [
+    "plats_cuisines",
+    1
+   ],
+   [
+    "pain",
+    0.25
+   ],
+   [
+    "fromage",
+    40
+   ],
+   [
+    "vin_rouge",
+    12
+   ]
+  ],
+  "cafe": [
+   [
+    "cafe_moulu",
+    7
+   ]
+  ]
+ },
+ "reassort_maison": {
+  "principe": "Quand une provision de l'appartement passe sous son seuil, il en remonte du magasin en montant à midi ou le soir (prélèvement de l'exploitant, non encaissé).",
+  "produits": {
+   "fromage": [
+    100,
+    250,
+    "un morceau de fromage"
+   ],
+   "fruits": [
+    3,
+    6,
+    "six fruits"
+   ],
+   "plats_cuisines": [
+    3,
+    6,
+    "six plats cuisinés"
+   ],
+   "vin_rouge": [
+    24,
+    75,
+    "une bouteille de vin"
+   ],
+   "beurre": [
+    30,
+    250,
+    "une plaquette de beurre"
+   ],
+   "cafe_moulu": [
+    50,
+    250,
+    "un paquet de café"
+   ],
+   "confiture": [
+    6,
+    20,
+    "un pot de confiture"
+   ]
+  }
+ }
+}

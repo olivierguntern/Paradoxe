@@ -3,8 +3,8 @@
 Génération des timelines des personnages, pas de 5 minutes par pas de 5 minutes.
 
 Deux façons de produire une journée :
-- **rédigée à la main** (`journees/<date>.py`), puis calculée par le moteur : c'est ainsi qu'ont été écrits les jours de référence ;
-- **vécue par l'agent autonome** (`agent.py`), qui décide seul de chaque pas à partir de ses recettes et de ses règles.
+- **rédigée à la main** (`journees/<date>.py`), puis calculée par le moteur : c'est ainsi qu'ont été écrites les journées de référence (lundi à mercredi), qui servent à valider l'agent ;
+- **vécue par un agent autonome**, qui décide seul de chaque pas à partir de ses recettes et de ses règles : `agent.py` pour Thomas, `agent_epicier.py` pour Robert Chazal. La semaine officielle des deux personnages est vécue ainsi.
 
 ## Principe
 
@@ -24,12 +24,12 @@ Chaque journée part de l'**état exact de la fin de la veille** (besoins, émot
 # Vérifier la fiche du personnage
 python3 outils/verifier_fiche.py data/personnages/thomas-berthier.json
 
-# Générer une journée (la veille doit déjà être générée)
+# Calculer une journée de référence rédigée à la main (la veille doit déjà être calculée)
 python3 outils/generer_journee.py 2010-03-08
 python3 outils/generer_journee.py 2010-03-09
 ```
 
-Chaque génération écrit `data/timelines/<personnage>/<date>.json` (données complètes) et `<date>.md` (version lisible).
+Chaque journée de référence est écrite dans `data/references/<personnage>/<date>.json` (données complètes) et `<date>.md` (version lisible).
 
 ## Contrôles de cohérence
 
@@ -62,20 +62,24 @@ L'agent suit le plan de sa journée et ses routines, mais décide chaque pas sel
 | `pensees.json` | Modèles de pensées, préoccupations, carnet du soir et rêves |
 
 ```bash
-# Faire vivre la semaine par l'agent, à partir de la fiche
-python3 outils/simuler_agent.py 2010-03-08 2010-03-10 --dossier data/simulations/thomas-berthier
+# Semaine officielle : Thomas d'abord, puis l'épicier, qui lit les visites de Thomas dans sa journée
+python3 outils/simuler_agent.py 2010-03-08 2010-03-14 --dossier data/timelines/thomas-berthier
+python3 outils/simuler_agent.py 2010-03-08 2010-03-14 --personnage robert-chazal --dossier data/timelines/robert-chazal
 
-# Comparer une journée de l'agent à la journée de référence
-python3 outils/comparer_journees.py data/timelines/thomas-berthier/2010-03-09.json data/simulations/thomas-berthier/2010-03-09.json
-
-# Prolonger la semaine officielle : état physique de la référence, mémoire de l'agent simulé
-python3 outils/simuler_agent.py 2010-03-11 2010-03-11 --dossier data/timelines/thomas-berthier --memoire data/simulations/thomas-berthier
+# Validation : l'agent revit lundi à mercredi sans les courses, puis on compare à la référence
+python3 outils/simuler_agent.py 2010-03-08 2010-03-10 --dossier data/simulations/thomas-berthier --sans-courses
+python3 outils/comparer_journees.py data/references/thomas-berthier/2010-03-09.json data/simulations/thomas-berthier/2010-03-09.json
 ```
 
-```bash
-# Vivre la fin de semaine (vendredi à dimanche) à la suite du jeudi
-python3 outils/simuler_agent.py 2010-03-12 2010-03-14 --dossier data/timelines/thomas-berthier
-```
+`simuler_agent.py` choisit l'agent d'après `data/agents/<personnage>/regles.json` : `"type": "commerce"` désigne l'agent de commerçant.
+
+### Courses à l'épicerie
+
+Le mardi, le jeudi et le samedi, Thomas descend à l'épicerie de Robert Chazal (`regles.json`, section `courses`) : en semaine après la fermeture de l'atelier, le samedi après le ménage. Il fait d'abord sa liste d'après son stock (fruits à compléter, produits sous leur seuil), vérifie que l'épicerie est ouverte (horaires de la fiche de Robert), descend la poubelle si elle est pleine, marche 500 m, achète au prix du catalogue de l'épicerie, paie en espèces ou par carte, rentre et range. Les achats augmentent son stock ; l'argent est suivi (espèces, compte).
+
+### L'épicier
+
+`agent_epicier.py` fait vivre Robert Chazal selon les horaires de sa boutique : lever, livraison du pain chaque matin, du grossiste le mardi et le vendredi, service, pauses, fermeture, caisse, soirée. Les clients anonymes ne sont pas simulés : leur nombre à chaque pas est tiré de façon déterministe autour de l'affluence de l'heure, et chacun laisse un panier moyen dans la caisse. Aux pas où la journée de Thomas le fait entrer dans la boutique, Robert le sert : mêmes répliques (`data/monde/echanges.json`), mêmes achats, même paiement. Le match du mercredi (`data/monde/evenements.json`) est vécu aux mêmes minutes par les deux personnages.
 
 Le résultat de la validation est dans `data/simulations/thomas-berthier/VALIDATION.md`.
 
@@ -105,16 +109,16 @@ Le résumé de chaque journée distingue les besoins passés sous le seuil d'ale
 
 ## Vue fil de fer
 
-La semaine se rejoue dans une vue isométrique fil de fer (`vue/index.html`, à ouvrir dans un navigateur) : appartement, escalier de l'immeuble et parcours de course, avec l'état de chaque pas (activité, pensée, besoins, émotions, objets, lumières et appareils).
+La semaine se rejoue dans une vue isométrique fil de fer (`vue/index.html`, à ouvrir dans un navigateur), à quatre échelles : le logement, l'immeuble, la rue (de chez Thomas à l'épicerie) et le parcours de course (pentes et quais de Saône). On choisit le personnage suivi (Thomas ou Robert) ; l'autre reste visible. Le panneau donne l'état de chaque pas : activité, pensée, besoins, émotions, objets portés, argent, lumières et appareils.
 
 ```bash
 # Recalculer les données de la vue après une génération de journées ou une modification du plan
 python3 outils/exporter_vue.py
 ```
 
-L'export lit la fiche, la géométrie du monde (`data/monde/croix-rousse.json`) et toutes les journées, puis calcule :
-- le trajet de Thomas à chaque pas, porte par porte, et dans l'escalier (avec le détour par le local poubelles) ;
-- sa position sur le parcours de course : descente des pentes, aller-retour le long de la Saône, remontée ;
-- la position en 3D de chaque emplacement d'objet.
+L'export lit la géométrie du monde (`data/monde/croix-rousse.json`), les fiches des personnages qui y ont un logement et toutes leurs journées. Tout est exprimé dans un seul repère, en mètres. Il calcule :
+- le trajet de chaque personnage à chaque pas, porte par porte, par les escaliers (avec le détour par le local poubelles), puis dans les rues : courses à l'épicerie, descente des pentes, aller-retour le long de la Saône, remontée ;
+- la position en 3D de chaque emplacement d'objet ;
+- les immeubles ordinaires le long des rues et les arbres, générés de façon déterministe.
 
-Il s'arrête si une liaison du plan n'a pas de porte ou si une pièce n'a pas de rectangle. Il affiche les distances entre pièces mesurées sur le plan, à comparer avec celles de la fiche.
+Il s'arrête si une liaison du plan d'une fiche n'a pas de porte ou si une pièce n'a pas de rectangle. Il affiche les distances entre pièces mesurées sur le plan, à comparer avec celles des fiches.

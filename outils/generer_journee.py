@@ -3,8 +3,12 @@
 Usage : python3 outils/generer_journee.py 2010-03-09 [--personnage thomas-berthier]
 
 Le contenu rédigé est lu dans outils/journees/<date>.py. L'état de départ est
-l'état final de la veille (data/timelines/<personnage>/<veille>.json) ou, pour
+l'état final de la veille (data/references/<personnage>/<veille>.json) ou, pour
 le premier jour de la période, l'état initial de la fiche.
+
+Les journées rédigées à la main servent de référence pour valider l'agent
+autonome (outils/comparer_journees.py) ; la semaine officielle est vécue par
+l'agent (data/timelines/).
 """
 import argparse
 import datetime
@@ -27,7 +31,7 @@ def main():
     a = ap.parse_args()
 
     fiche = json.load(open(os.path.join(RACINE, "data", "personnages", f"{a.personnage}.json")))
-    dossier = os.path.join(RACINE, "data", "timelines", a.personnage)
+    dossier = os.path.join(RACINE, "data", "references", a.personnage)
     os.makedirs(dossier, exist_ok=True)
 
     debut = fiche["meta"]["periode"]["debut"][:10]

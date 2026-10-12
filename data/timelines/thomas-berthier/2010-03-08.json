@@ -1,16 +1,16 @@
 {
  "meta": {
   "personnage": "thomas-berthier",
-  "fiche_version": 8,
+  "fiche_version": 9,
   "date": "2010-03-08",
   "jour": "lundi",
   "pas_minutes": 5,
   "nombre_de_pas": 288,
   "methode": [
-   "Rédigé à la main dans outils/journees/2010-03-08.py : actions, pensées, rêves, événements vécus, objets déplacés, appareils utilisés.",
+   "Généré par l'agent autonome (outils/agent.py) à partir de ses recettes et règles (data/agents/).",
    "Calculé par outils/moteur.py avec les règles de la fiche : déplacements, lumière, besoins, émotions et concentration.",
-   "Aucune émotion n'est fixée à la main : chaque variation provient d'un événement listé, d'un besoin ou du retour à l'état de base.",
-   "La journée part de l'état exact de la fin de la veille (etat_initial), ou de la fiche pour le premier jour."
+   "Pensées et rêves choisis dans des modèles de façon déterministe.",
+   "La journée part de l'état exact de la fin de la veille."
   ],
   "champs": {
    "besoins, emotions": "valeurs à la fin du pas",
@@ -37,36 +37,32 @@
    "allumages": 59
   },
   "evenements_vecus": {
-   "reve_grand_pere": 2,
+   "reve_inquiet": 1,
+   "reve_grand_pere": 1,
    "reveil_sonnerie": 1,
-   "souvenir_grand_pere": 4,
    "plaisir_simple": 9,
-   "souvenir_tendre": 3,
-   "pensee_pere": 3,
    "controle_conforme": 11,
+   "souvenir_grand_pere": 3,
    "operation_delicate": 23,
    "geste_reussi": 3,
-   "oubli_mineur": 2,
    "repas_seul": 2,
-   "pensee_sophie": 1,
-   "lecture_emouvante": 2,
+   "pensee_pere": 1,
    "tache_terminee": 1,
-   "avance_planning": 1,
    "repos_merite": 1,
-   "jours_rallongent": 1,
-   "constat_isolement": 1,
+   "pensee_sophie": 1,
    "mesure_incertaine": 1,
    "beaute_du_geste": 1,
+   "oubli_mineur": 1,
    "ecriture_carnet": 1,
    "anticipation_delicate": 1
   },
-  "travail": {
-   "tr-omega": "terminée à 17:05 (360 min), en observation 24 h ; marche +3 à +5 s/j",
-   "tr-rolex": "examen et démontage commencés (45 min) ; reste 375 min"
-  },
-  "objectifs": {
-   "ob-montre": "séance 1 sur 4 : portées du balancier et du plateau tournées ; restent les pivots",
-   "ob-lecture": "« La Route » : page 112 → 138"
+  "travaux": {
+   "omega": "en attente jusqu'au pas 204 (17:00) du jour 2 ; 3 opérations restantes",
+   "rolex": "76 opérations restantes",
+   "pendule": "62 opérations restantes",
+   "quartz": "37 opérations restantes",
+   "zenith": "113 opérations restantes",
+   "gestion": "18 opérations restantes"
   },
   "objets_deplaces_position_finale": {
    "obj-montre-poignet": "chambre / table de chevet",
@@ -103,6 +99,14 @@
    "cuisses de poulet rôties": "2 cuisses",
    "pommes de terre rôties": "2 portions",
    "soupe poireaux-pommes de terre": "4 portions"
+  },
+  "achats": {},
+  "argent": {
+   "mouvements_du_jour": {},
+   "soldes_en_fin_de_journee": {
+    "especes": 35,
+    "compte": 940
+   }
   },
   "stock_en_fin_de_journee": {
    "café moulu": "257 g",
@@ -145,12 +149,10 @@
    "23:10 energie = 24.4 (seuil 25)"
   ],
   "besoins_sous_le_seuil_pendant_le_sommeil_pas": {},
-  "endormissement": "extinction à 23:00 ; anxiété 0.274 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
+  "endormissement": "extinction à 23:00 ; anxiété 0.272 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
   "ecarts_a_la_routine": [
-   "11:50-12:00 : mise au four du poulet avant le déjeuner (45 min de cuisson), pris sur le temps de travail.",
-   "18:20-18:45 : préparation de la soupe pendant le temps libre (cuisson de 30 min).",
-   "19:20 : dîner plus tardif que la routine (19:00) à cause de la cuisson.",
-   "22:35 : aller-retour au séjour pour chercher le livre oublié sur la table basse."
+   "11:50 : met le déjeuner en route avant midi (cuisson longue).",
+   "22:35 : livre oublié hors de la chambre ; il le rangera désormais après chaque lecture."
   ]
  },
  "etat_initial": {
@@ -181,6 +183,8 @@
    "obj-montre-poignet": "chambre / table de chevet",
    "obj-reveil": "chambre / table de chevet",
    "obj-portefeuille": "entree / tiroir de la commode",
+   "obj-cabas": "entree / porte-manteau",
+   "obj-veste": "entree / porte-manteau",
    "obj-carnet": "chambre / table de chevet, sous le livre",
    "obj-livre": "chambre / table de chevet",
    "obj-livre-courir": "sejour / bibliothèque",
@@ -241,6 +245,10 @@
    "biere": 4,
    "vin_rouge": 56,
    "lessive": 10
+  },
+  "argent": {
+   "especes": 35,
+   "compte": 940
   }
  },
  "etat_final": {
@@ -255,11 +263,11 @@
    "detente": 96.4
   },
   "emotions": {
-   "joie": 0.3986,
-   "tristesse": 0.2045,
-   "anxiete": 0.2987,
+   "joie": 0.3981,
+   "tristesse": 0.1954,
+   "anxiete": 0.2978,
    "colere": 0.0318,
-   "solitude": 0.3356,
+   "solitude": 0.3332,
    "fierte": 0.4046,
    "excitation": 0.2
   },
@@ -271,6 +279,8 @@
    "obj-montre-poignet": "chambre / table de chevet",
    "obj-reveil": "chambre / table de chevet",
    "obj-portefeuille": "entree / tiroir de la commode",
+   "obj-cabas": "entree / porte-manteau",
+   "obj-veste": "entree / porte-manteau",
    "obj-carnet": "chambre / table de chevet, sous le livre",
    "obj-livre": "chambre / table de chevet",
    "obj-livre-courir": "sejour / bibliothèque",
@@ -334,6 +344,81 @@
    "poulet_roti": 1,
    "pommes_de_terre_roties": 1,
    "soupe_poireaux": 3
+  },
+  "argent": {
+   "especes": 35,
+   "compte": 940
+  },
+  "agent": {
+   "endormi_a": -9,
+   "habitudes": {
+    "ranger_livre": true
+   },
+   "poubelle": {
+    "id": "obj-poubelle",
+    "repas": 4,
+    "numero": 1
+   },
+   "livre": 0,
+   "page": 157,
+   "travaux": {
+    "omega": {
+     "phase": 2,
+     "op": 0,
+     "dispo": 492,
+     "machine_fin": null,
+     "termine": false
+    },
+    "rolex": {
+     "phase": 0,
+     "op": 9,
+     "dispo": null,
+     "machine_fin": null,
+     "termine": false
+    },
+    "pendule": {
+     "phase": 0,
+     "op": 0,
+     "dispo": null,
+     "machine_fin": null,
+     "termine": false
+    },
+    "quartz": {
+     "phase": 0,
+     "op": 0,
+     "dispo": null,
+     "machine_fin": null,
+     "termine": false
+    },
+    "zenith": {
+     "phase": 0,
+     "op": 0,
+     "dispo": null,
+     "machine_fin": null,
+     "termine": false
+    },
+    "gestion": {
+     "phase": 0,
+     "op": 0,
+     "dispo": null,
+     "machine_fin": null,
+     "termine": false
+    }
+   },
+   "courant": "rolex",
+   "intercale": null,
+   "entretien": 0,
+   "seance": {
+    "numero": 2,
+    "op": 0
+   },
+   "evocations": {
+    "pre-commandes": 93,
+    "pre-montre": 128,
+    "pre-pere": 163,
+    "pre-sophie": 219
+   },
+   "jour_index": 0
   }
  },
  "pas": [
@@ -645,7 +730,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Des rouages tournent lentement dans le noir, sans aucun bruit.",
+   "reve": "Une montre démontée se remonte toute seule sous ses yeux.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 58.0,
@@ -679,7 +764,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Des rouages tournent lentement dans le noir, sans aucun bruit.",
+   "reve": "Une montre démontée se remonte toute seule sous ses yeux.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 57.8,
@@ -713,7 +798,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Des rouages tournent lentement dans le noir, sans aucun bruit.",
+   "reve": "Une montre démontée se remonte toute seule sous ses yeux.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 57.6,
@@ -1209,7 +1294,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Il cherche une vis minuscule tombée entre les lames du parquet ; ses doigts sont trop gros pour l'attraper.",
+   "reve": "Une pièce immense et vide, éclairée par une seule lampe.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 54.6,
@@ -1243,7 +1328,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Il cherche une vis minuscule tombée entre les lames du parquet ; ses doigts sont trop gros pour l'attraper.",
+   "reve": "Une pièce immense et vide, éclairée par une seule lampe.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 54.4,
@@ -1277,7 +1362,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Il cherche une vis minuscule tombée entre les lames du parquet ; ses doigts sont trop gros pour l'attraper.",
+   "reve": "Une pièce immense et vide, éclairée par une seule lampe.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 54.2,
@@ -1311,7 +1396,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Il cherche une vis minuscule tombée entre les lames du parquet ; ses doigts sont trop gros pour l'attraper.",
+   "reve": "Une pièce immense et vide, éclairée par une seule lampe.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 54.0,
@@ -1741,8 +1826,16 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Il court le long d'un quai qui ne finit pas ; la Saône coule à l'envers.",
+   "reve": "Un train vers Besançon. Son père est assis en face de lui et regarde par la fenêtre sans parler.",
    "appareils_allumes": [],
+   "evenements": [
+    {
+     "id": "reve_inquiet",
+     "effets": {
+      "anxiete": 0.031
+     }
+    }
+   ],
    "besoins": {
     "faim": 51.4,
     "soif": 54.2,
@@ -1756,7 +1849,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.311,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -1775,7 +1868,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Il court le long d'un quai qui ne finit pas ; la Saône coule à l'envers.",
+   "reve": "Un train vers Besançon. Son père est assis en face de lui et regarde par la fenêtre sans parler.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 51.2,
@@ -1790,7 +1883,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.308,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -1809,7 +1902,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Il court le long d'un quai qui ne finit pas ; la Saône coule à l'envers.",
+   "reve": "Un train vers Besançon. Son père est assis en face de lui et regarde par la fenêtre sans parler.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 51.0,
@@ -1824,7 +1917,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.305,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -1843,7 +1936,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Il court le long d'un quai qui ne finit pas ; la Saône coule à l'envers.",
+   "reve": "Un train vers Besançon. Son père est assis en face de lui et regarde par la fenêtre sans parler.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 50.8,
@@ -1858,7 +1951,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.302,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -1877,7 +1970,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Il court le long d'un quai qui ne finit pas ; la Saône coule à l'envers.",
+   "reve": "Un train vers Besançon. Son père est assis en face de lui et regarde par la fenêtre sans parler.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 50.6,
@@ -1892,7 +1985,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.3,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -1911,7 +2004,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Il court le long d'un quai qui ne finit pas ; la Saône coule à l'envers.",
+   "reve": "Un train vers Besançon. Son père est assis en face de lui et regarde par la fenêtre sans parler.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 50.4,
@@ -1926,7 +2019,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.297,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -1942,7 +2035,7 @@
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Nuit de dimanche à lundi",
-   "action": "Se retourne, remonte la couette sur son épaule et se rendort aussitôt.",
+   "action": "Se retourne, remonte la couette et se rendort.",
    "pensee": null,
    "phase_sommeil": "micro-éveil",
    "appareils_allumes": [],
@@ -1959,7 +2052,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.296,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -1992,7 +2085,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.294,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2025,7 +2118,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.292,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2058,7 +2151,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.291,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2076,7 +2169,7 @@
    "activite": "Nuit de dimanche à lundi",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "léger",
+   "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
     "faim": 49.4,
@@ -2091,7 +2184,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.29,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2124,7 +2217,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.289,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2157,7 +2250,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.288,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2175,7 +2268,7 @@
    "activite": "Nuit de dimanche à lundi",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "profond",
+   "phase_sommeil": "léger",
    "appareils_allumes": [],
    "besoins": {
     "faim": 48.8,
@@ -2190,7 +2283,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.287,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2223,7 +2316,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.286,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2256,7 +2349,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.285,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2289,7 +2382,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.285,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2322,7 +2415,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
-    "anxiete": 0.28,
+    "anxiete": 0.284,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2364,7 +2457,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.241,
-    "anxiete": 0.28,
+    "anxiete": 0.284,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2398,7 +2491,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.236,
-    "anxiete": 0.28,
+    "anxiete": 0.283,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2432,7 +2525,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.232,
-    "anxiete": 0.28,
+    "anxiete": 0.283,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2466,7 +2559,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.229,
-    "anxiete": 0.28,
+    "anxiete": 0.283,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2500,7 +2593,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.226,
-    "anxiete": 0.28,
+    "anxiete": 0.282,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2534,7 +2627,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.223,
-    "anxiete": 0.28,
+    "anxiete": 0.282,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2567,7 +2660,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.22,
-    "anxiete": 0.28,
+    "anxiete": 0.282,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2600,7 +2693,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.218,
-    "anxiete": 0.28,
+    "anxiete": 0.282,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2633,7 +2726,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.216,
-    "anxiete": 0.28,
+    "anxiete": 0.282,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2666,7 +2759,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.214,
-    "anxiete": 0.28,
+    "anxiete": 0.281,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2699,7 +2792,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.213,
-    "anxiete": 0.28,
+    "anxiete": 0.281,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2732,7 +2825,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.211,
-    "anxiete": 0.28,
+    "anxiete": 0.281,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2765,7 +2858,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.21,
-    "anxiete": 0.28,
+    "anxiete": 0.281,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2798,7 +2891,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.209,
-    "anxiete": 0.28,
+    "anxiete": 0.281,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2831,7 +2924,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.208,
-    "anxiete": 0.28,
+    "anxiete": 0.281,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2864,7 +2957,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.207,
-    "anxiete": 0.28,
+    "anxiete": 0.281,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2897,7 +2990,7 @@
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.206,
-    "anxiete": 0.28,
+    "anxiete": 0.281,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2916,16 +3009,8 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Le même atelier. Une montre posée sur l'établi tictaque de plus en plus fort.",
+   "reve": "Les quais de Saône sous la neige ; il court sans laisser de traces.",
    "appareils_allumes": [],
-   "evenements": [
-    {
-     "id": "reve_grand_pere",
-     "effets": {
-      "tristesse": 0.041
-     }
-    }
-   ],
    "besoins": {
     "faim": 44.4,
     "soif": 45.5,
@@ -2938,8 +3023,8 @@
    },
    "emotions": {
     "joie": 0.4,
-    "tristesse": 0.247,
-    "anxiete": 0.28,
+    "tristesse": 0.206,
+    "anxiete": 0.281,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -2958,7 +3043,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Le même atelier. Une montre posée sur l'établi tictaque de plus en plus fort.",
+   "reve": "Les quais de Saône sous la neige ; il court sans laisser de traces.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 44.2,
@@ -2972,7 +3057,7 @@
    },
    "emotions": {
     "joie": 0.4,
-    "tristesse": 0.241,
+    "tristesse": 0.205,
     "anxiete": 0.28,
     "colere": 0.03,
     "solitude": 0.3,
@@ -2992,7 +3077,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Le même atelier. Une montre posée sur l'établi tictaque de plus en plus fort.",
+   "reve": "Les quais de Saône sous la neige ; il court sans laisser de traces.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 44.0,
@@ -3006,7 +3091,7 @@
    },
    "emotions": {
     "joie": 0.4,
-    "tristesse": 0.237,
+    "tristesse": 0.205,
     "anxiete": 0.28,
     "colere": 0.03,
     "solitude": 0.3,
@@ -3026,7 +3111,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Le même atelier. Une montre posée sur l'établi tictaque de plus en plus fort.",
+   "reve": "Les quais de Saône sous la neige ; il court sans laisser de traces.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 43.8,
@@ -3040,7 +3125,7 @@
    },
    "emotions": {
     "joie": 0.4,
-    "tristesse": 0.233,
+    "tristesse": 0.204,
     "anxiete": 0.28,
     "colere": 0.03,
     "solitude": 0.3,
@@ -3060,7 +3145,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Le même atelier. Une montre posée sur l'établi tictaque de plus en plus fort.",
+   "reve": "Les quais de Saône sous la neige ; il court sans laisser de traces.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 43.6,
@@ -3074,7 +3159,7 @@
    },
    "emotions": {
     "joie": 0.4,
-    "tristesse": 0.229,
+    "tristesse": 0.204,
     "anxiete": 0.28,
     "colere": 0.03,
     "solitude": 0.3,
@@ -3094,7 +3179,7 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "reve": "Le même atelier. Une montre posée sur l'établi tictaque de plus en plus fort.",
+   "reve": "Les quais de Saône sous la neige ; il court sans laisser de traces.",
    "appareils_allumes": [],
    "besoins": {
     "faim": 43.4,
@@ -3108,7 +3193,7 @@
    },
    "emotions": {
     "joie": 0.4,
-    "tristesse": 0.226,
+    "tristesse": 0.203,
     "anxiete": 0.28,
     "colere": 0.03,
     "solitude": 0.3,
@@ -3141,7 +3226,7 @@
    },
    "emotions": {
     "joie": 0.4,
-    "tristesse": 0.223,
+    "tristesse": 0.203,
     "anxiete": 0.28,
     "colere": 0.03,
     "solitude": 0.3,
@@ -3159,7 +3244,7 @@
    "routine": "rt-matin-simple",
    "activite": "Réveil",
    "action": "La sonnerie du réveil retentit. Il l'éteint du plat de la main, allume la lampe de chevet et reste allongé.",
-   "pensee": "Encore l'atelier de grand-père. Qu'est-ce qu'il disait ?",
+   "pensee": "Déjà.",
    "lumiere": [
     "allume la lumière (chambre)"
    ],
@@ -3172,13 +3257,6 @@
      "effets": {
       "anxiete": 0.02,
       "excitation": 0.05
-     }
-    },
-    {
-     "id": "souvenir_grand_pere",
-     "effets": {
-      "tristesse": 0.051,
-      "joie": 0.03
      }
     }
    ],
@@ -3193,14 +3271,14 @@
     "energie_ressentie": 99.6
    },
    "emotions": {
-    "joie": 0.43,
-    "tristesse": 0.273,
-    "anxiete": 0.3,
+    "joie": 0.4,
+    "tristesse": 0.203,
+    "anxiete": 0.301,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
     "excitation": 0.25,
-    "concentration": 0.175
+    "concentration": 0.125
    }
   },
   {
@@ -3212,7 +3290,7 @@
    "routine": "rt-matin-simple",
    "activite": "Toilettes",
    "action": "Se lève, passe aux toilettes.",
-   "pensee": "Lundi. Tout recommence. C'est bien, un lundi.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "chambre",
@@ -3243,14 +3321,14 @@
     "energie_ressentie": 99.2
    },
    "emotions": {
-    "joie": 0.427,
-    "tristesse": 0.269,
+    "joie": 0.4,
+    "tristesse": 0.203,
     "anxiete": 0.299,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
     "excitation": 0.245,
-    "concentration": 0.412
+    "concentration": 0.388
    }
   },
   {
@@ -3262,7 +3340,7 @@
    "routine": "rt-matin-simple",
    "activite": "Douche et rasage",
    "action": "Boit un verre d'eau au lavabo, se déshabille et met son tee-shirt de nuit dans le panier à linge.",
-   "pensee": "Le panier est à moitié plein. Mercredi, la machine.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "wc",
@@ -3293,14 +3371,14 @@
     "energie_ressentie": 98.8
    },
    "emotions": {
-    "joie": 0.424,
-    "tristesse": 0.265,
+    "joie": 0.4,
+    "tristesse": 0.202,
     "anxiete": 0.298,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
     "excitation": 0.24,
-    "concentration": 0.531
+    "concentration": 0.519
    }
   },
   {
@@ -3312,7 +3390,7 @@
    "routine": "rt-matin-simple",
    "activite": "Douche et rasage",
    "action": "Prend sa douche, l'eau un peu trop chaude.",
-   "pensee": "L'Omega d'abord : nettoyage, remontage, réglage. Six heures, si tout va bien.",
+   "pensee": "Ça fait du bien.",
    "appareils_allumes": [
     "lumiere-salle-de-bain"
    ],
@@ -3335,14 +3413,14 @@
     "energie_ressentie": 98.4
    },
    "emotions": {
-    "joie": 0.461,
-    "tristesse": 0.261,
+    "joie": 0.44,
+    "tristesse": 0.202,
     "anxiete": 0.297,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
     "excitation": 0.235,
-    "concentration": 0.591
+    "concentration": 0.584
    }
   },
   {
@@ -3354,7 +3432,7 @@
    "routine": "rt-matin-simple",
    "activite": "Douche et rasage",
    "action": "Se rase de près devant le miroir.",
-   "pensee": "Rasé le lundi et le vendredi. Une semaine propre aux deux bouts.",
+   "pensee": null,
    "appareils_allumes": [
     "lumiere-salle-de-bain"
    ],
@@ -3369,14 +3447,14 @@
     "energie_ressentie": 98.0
    },
    "emotions": {
-    "joie": 0.455,
-    "tristesse": 0.258,
+    "joie": 0.436,
+    "tristesse": 0.202,
     "anxiete": 0.296,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
     "excitation": 0.231,
-    "concentration": 0.62
+    "concentration": 0.617
    }
   },
   {
@@ -3387,8 +3465,8 @@
    "posture": "debout",
    "routine": "rt-matin-simple",
    "activite": "S'habille",
-   "action": "Enfile une chemise bleue, un pull gris, un jean et ses chaussons en feutre. Attache sa montre LIP à son poignet.",
-   "pensee": "Elle tourne encore. Quarante heures de réserve, elle a tenu la nuit.",
+   "action": "S'habille et attache sa montre.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "salle-de-bain",
@@ -3423,14 +3501,14 @@
     "energie_ressentie": 97.6
    },
    "emotions": {
-    "joie": 0.449,
-    "tristesse": 0.255,
+    "joie": 0.432,
+    "tristesse": 0.202,
     "anxiete": 0.295,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
     "excitation": 0.228,
-    "concentration": 0.635
+    "concentration": 0.634
    }
   },
   {
@@ -3441,8 +3519,8 @@
    "posture": "debout",
    "routine": "rt-matin-simple",
    "activite": "Petit-déjeuner",
-   "action": "Passe par le séjour pour allumer la radio (France Inter), laisse la porte de la cuisine ouverte. Remplit la cafetière italienne et la pose sur la plaque.",
-   "pensee": "Le paquet entamé suffira pour aujourd'hui et demain matin.",
+   "action": "Passe par le séjour allumer la radio. Prépare le café.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "chambre",
@@ -3492,14 +3570,14 @@
     "energie_ressentie": 97.2
    },
    "emotions": {
-    "joie": 0.443,
-    "tristesse": 0.252,
-    "anxiete": 0.294,
+    "joie": 0.428,
+    "tristesse": 0.202,
+    "anxiete": 0.295,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
     "excitation": 0.225,
-    "concentration": 0.543
+    "concentration": 0.542
    }
   },
   {
@@ -3510,8 +3588,8 @@
    "posture": "debout",
    "routine": "rt-matin-simple",
    "activite": "Petit-déjeuner",
-   "action": "Sort deux tranches de pain du congélateur et les fait griller à la poêle pendant que le café monte.",
-   "pensee": "Journée des femmes, dit la radio. Maman doit déjà être debout depuis une heure.",
+   "action": "Fait griller deux tranches de pain.",
+   "pensee": null,
    "consommation": [
     {
      "produit": "pain_tranches",
@@ -3525,15 +3603,6 @@
     "plaque-1",
     "radio"
    ],
-   "evenements": [
-    {
-     "id": "souvenir_tendre",
-     "effets": {
-      "joie": 0.03,
-      "tristesse": 0.02
-     }
-    }
-   ],
    "besoins": {
     "faim": 39.2,
     "soif": 58.4,
@@ -3545,8 +3614,8 @@
     "energie_ressentie": 96.8
    },
    "emotions": {
-    "joie": 0.469,
-    "tristesse": 0.269,
+    "joie": 0.425,
+    "tristesse": 0.202,
     "anxiete": 0.294,
     "colere": 0.03,
     "solitude": 0.3,
@@ -3563,8 +3632,8 @@
    "posture": "debout",
    "routine": "rt-matin-simple",
    "activite": "Petit-déjeuner",
-   "action": "Éteint la plaque. Beurre ses tartines, met de la confiture d'abricot et se sert un café dans la tasse bleue.",
-   "pensee": null,
+   "action": "Éteint la plaque, beurre ses tartines, se sert un café dans la tasse bleue.",
+   "pensee": "Ça fait du bien.",
    "objets": [
     {
      "objet": "obj-tasse",
@@ -3610,8 +3679,8 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.501,
-    "tristesse": 0.265,
+    "joie": 0.462,
+    "tristesse": 0.202,
     "anxiete": 0.293,
     "colere": 0.03,
     "solitude": 0.3,
@@ -3628,19 +3697,10 @@
    "posture": "debout",
    "routine": "rt-matin-simple",
    "activite": "Petit-déjeuner",
-   "action": "Mange debout près de la fenêtre en écoutant le journal.",
-   "pensee": "Papa écoute la même radio, à Besançon. Il fait sûrement semblant d'aller bien.",
+   "action": "Mange près de la fenêtre.",
+   "pensee": "Les montres prêtes partiront lundi. Ce sera ça de payé.",
    "appareils_allumes": [
     "radio"
-   ],
-   "evenements": [
-    {
-     "id": "pensee_pere",
-     "effets": {
-      "anxiete": 0.071,
-      "tristesse": 0.041
-     }
-    }
    ],
    "besoins": {
     "faim": 78.2,
@@ -3653,14 +3713,14 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.49,
-    "tristesse": 0.302,
-    "anxiete": 0.364,
+    "joie": 0.456,
+    "tristesse": 0.202,
+    "anxiete": 0.292,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
     "excitation": 0.218,
-    "concentration": 0.462
+    "concentration": 0.461
    }
   },
   {
@@ -3671,8 +3731,8 @@
    "posture": "debout",
    "routine": "rt-matin-simple",
    "activite": "Rangement et montre",
-   "action": "Rince la tasse et la cafetière, les pose sur l'égouttoir. Remonte sa montre : vingt tours de couronne.",
-   "pensee": "Vingt tours, pas un de plus. On ne force jamais un ressort.",
+   "action": "Rince la tasse et la cafetière. Remonte sa montre.",
+   "pensee": null,
    "objets": [
     {
      "objet": "obj-tasse",
@@ -3699,9 +3759,9 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.48,
-    "tristesse": 0.297,
-    "anxiete": 0.359,
+    "joie": 0.45,
+    "tristesse": 0.202,
+    "anxiete": 0.292,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.35,
@@ -3717,8 +3777,8 @@
    "posture": "debout",
    "routine": "rt-matin-simple",
    "activite": "Réglage de la montre",
-   "action": "Compare sa montre au réveil radio-piloté : elle avance de quatre secondes. Il tire la couronne et la recale à la seconde.",
-   "pensee": "Quatre secondes en vingt-quatre heures. Elle vieillit bien.",
+   "action": "Règle sa montre sur le réveil.",
+   "pensee": "Tout est en ordre.",
    "deplacement": {
     "chemin": [
      "cuisine",
@@ -3760,9 +3820,9 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.511,
-    "tristesse": 0.291,
-    "anxiete": 0.354,
+    "joie": 0.484,
+    "tristesse": 0.201,
+    "anxiete": 0.291,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.38,
@@ -3778,8 +3838,8 @@
    "posture": "assis",
    "routine": "rt-matin-simple",
    "activite": "Lecture technique",
-   "action": "Prend l'ordinateur portable dans la bibliothèque, s'installe sur le canapé et ouvre la documentation technique du calibre de la Rolex.",
-   "pensee": "La Rolex mercredi et jeudi. Autant savoir où je mets les mains.",
+   "action": "Prend l'ordinateur portable dans la bibliothèque, s'installe sur le canapé et ouvre la documentation technique du calibre de la Omega.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "chambre",
@@ -3819,9 +3879,9 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.499,
-    "tristesse": 0.286,
-    "anxiete": 0.35,
+    "joie": 0.475,
+    "tristesse": 0.201,
+    "anxiete": 0.29,
     "colere": 0.03,
     "solitude": 0.3,
     "fierte": 0.379,
@@ -3838,7 +3898,7 @@
    "routine": "rt-matin-simple",
    "activite": "Lecture technique",
    "action": "Lit la procédure de démontage du mécanisme automatique.",
-   "pensee": "L'inverseur, attention à l'inverseur.",
+   "pensee": null,
    "appareils_allumes": [
     "ordinateur",
     "radio"
@@ -3854,9 +3914,9 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.488,
-    "tristesse": 0.281,
-    "anxiete": 0.346,
+    "joie": 0.467,
+    "tristesse": 0.201,
+    "anxiete": 0.29,
     "colere": 0.03,
     "solitude": 0.299,
     "fierte": 0.378,
@@ -3873,7 +3933,7 @@
    "routine": "rt-matin-simple",
    "activite": "Lecture technique",
    "action": "Lit la page sur le barillet et le ressort de remplacement.",
-   "pensee": "Le ressort neuf est dans le tiroir de l'établi. Arrivé samedi avec les montres.",
+   "pensee": null,
    "appareils_allumes": [
     "ordinateur",
     "radio"
@@ -3889,9 +3949,9 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.479,
-    "tristesse": 0.277,
-    "anxiete": 0.343,
+    "joie": 0.46,
+    "tristesse": 0.201,
+    "anxiete": 0.289,
     "colere": 0.03,
     "solitude": 0.299,
     "fierte": 0.378,
@@ -3908,7 +3968,7 @@
    "routine": "rt-matin-simple",
    "activite": "Lecture technique",
    "action": "Note mentalement l'ordre des huiles à utiliser.",
-   "pensee": "Huile fine pour l'échappement, graisse pour le barillet. Comme toujours.",
+   "pensee": null,
    "appareils_allumes": [
     "ordinateur",
     "radio"
@@ -3924,9 +3984,9 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.47,
-    "tristesse": 0.272,
-    "anxiete": 0.339,
+    "joie": 0.453,
+    "tristesse": 0.201,
+    "anxiete": 0.289,
     "colere": 0.03,
     "solitude": 0.298,
     "fierte": 0.377,
@@ -3943,7 +4003,7 @@
    "routine": "rt-matin-simple",
    "activite": "Lecture technique",
    "action": "Regarde les vues éclatées du mouvement.",
-   "pensee": "Beau calibre. Simple et costaud.",
+   "pensee": null,
    "appareils_allumes": [
     "ordinateur",
     "radio"
@@ -3959,9 +4019,9 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.463,
-    "tristesse": 0.268,
-    "anxiete": 0.336,
+    "joie": 0.447,
+    "tristesse": 0.201,
+    "anxiete": 0.288,
     "colere": 0.03,
     "solitude": 0.298,
     "fierte": 0.376,
@@ -3994,9 +4054,9 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.456,
-    "tristesse": 0.264,
-    "anxiete": 0.333,
+    "joie": 0.442,
+    "tristesse": 0.201,
+    "anxiete": 0.288,
     "colere": 0.03,
     "solitude": 0.297,
     "fierte": 0.375,
@@ -4013,7 +4073,7 @@
    "routine": "rt-matin-simple",
    "activite": "Lecture technique",
    "action": "Éteint l'ordinateur et regarde la cour par la fenêtre.",
-   "pensee": "Le ciel est gris sur les toits d'en face.",
+   "pensee": null,
    "appareils_allumes": [
     "radio"
    ],
@@ -4028,9 +4088,9 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.45,
-    "tristesse": 0.261,
-    "anxiete": 0.33,
+    "joie": 0.437,
+    "tristesse": 0.201,
+    "anxiete": 0.287,
     "colere": 0.03,
     "solitude": 0.297,
     "fierte": 0.375,
@@ -4069,9 +4129,9 @@
     "energie_ressentie": 100.0
    },
    "emotions": {
-    "joie": 0.444,
-    "tristesse": 0.257,
-    "anxiete": 0.327,
+    "joie": 0.433,
+    "tristesse": 0.201,
+    "anxiete": 0.287,
     "colere": 0.03,
     "solitude": 0.296,
     "fierte": 0.374,
@@ -4088,7 +4148,7 @@
    "routine": "rt-matin-simple",
    "activite": "Lecture technique",
    "action": "Reste assis quelques minutes à écouter la radio.",
-   "pensee": "Personne ne m'attend nulle part aujourd'hui. Ça a du bon.",
+   "pensee": null,
    "appareils_allumes": [
     "radio"
    ],
@@ -4103,9 +4163,9 @@
     "energie_ressentie": 99.6
    },
    "emotions": {
-    "joie": 0.439,
-    "tristesse": 0.254,
-    "anxiete": 0.324,
+    "joie": 0.43,
+    "tristesse": 0.201,
+    "anxiete": 0.287,
     "colere": 0.03,
     "solitude": 0.296,
     "fierte": 0.373,
@@ -4122,7 +4182,7 @@
    "routine": "rt-matin-simple",
    "activite": "Étirements",
    "action": "Éteint la radio en quittant le séjour. Fait ses étirements du dos devant le miroir.",
-   "pensee": "Rien qui tire ce matin.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "sejour",
@@ -4155,9 +4215,9 @@
     "energie_ressentie": 99.2
    },
    "emotions": {
-    "joie": 0.435,
-    "tristesse": 0.251,
-    "anxiete": 0.322,
+    "joie": 0.427,
+    "tristesse": 0.201,
+    "anxiete": 0.286,
     "colere": 0.03,
     "solitude": 0.295,
     "fierte": 0.372,
@@ -4189,9 +4249,9 @@
     "energie_ressentie": 98.8
    },
    "emotions": {
-    "joie": 0.431,
-    "tristesse": 0.248,
-    "anxiete": 0.319,
+    "joie": 0.424,
+    "tristesse": 0.201,
+    "anxiete": 0.286,
     "colere": 0.03,
     "solitude": 0.295,
     "fierte": 0.372,
@@ -4208,7 +4268,7 @@
    "routine": "rt-matin-simple",
    "activite": "Ouverture de l'atelier",
    "action": "Allume la lampe d'établi, aligne ses outils, prend la clé dans le tiroir et ouvre le coffre-fort. Regarde un instant la photo de son grand-père.",
-   "pensee": "Bonjour, grand-père. On s'y met.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "salle-de-bain",
@@ -4258,9 +4318,9 @@
     "energie_ressentie": 98.4
    },
    "emotions": {
-    "joie": 0.458,
-    "tristesse": 0.297,
-    "anxiete": 0.317,
+    "joie": 0.451,
+    "tristesse": 0.252,
+    "anxiete": 0.285,
     "colere": 0.03,
     "solitude": 0.294,
     "fierte": 0.371,
@@ -4275,9 +4335,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
-   "action": "Chausse ses lunettes demi-lunes et examine le plateau de l'Omega démontée.",
-   "pensee": "Tout est là : platine, ponts, rouage, barillet. Le balancier à part.",
+   "activite": "Omega",
+   "action": "Chausse ses lunettes. Examine le plateau de l'Omega démontée.",
+   "pensee": null,
    "objets": [
     {
      "objet": "obj-lunettes",
@@ -4299,9 +4359,9 @@
     "energie_ressentie": 98.0
    },
    "emotions": {
-    "joie": 0.452,
-    "tristesse": 0.291,
-    "anxiete": 0.315,
+    "joie": 0.445,
+    "tristesse": 0.249,
+    "anxiete": 0.285,
     "colere": 0.03,
     "solitude": 0.294,
     "fierte": 0.371,
@@ -4316,9 +4376,9 @@
    "piece": "atelier",
    "posture": "debout",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Dispose les pièces dans les paniers de la machine à ultrasons, le balancier dans le petit panier séparé.",
-   "pensee": "Le spiral ne doit jamais toucher le reste.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4333,9 +4393,9 @@
     "energie_ressentie": 97.6
    },
    "emotions": {
-    "joie": 0.446,
-    "tristesse": 0.286,
-    "anxiete": 0.313,
+    "joie": 0.441,
+    "tristesse": 0.246,
+    "anxiete": 0.285,
     "colere": 0.03,
     "solitude": 0.294,
     "fierte": 0.37,
@@ -4350,9 +4410,9 @@
    "piece": "atelier",
    "posture": "debout",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Lance le cycle : nettoyage, deux rinçages, séchage. Quarante minutes.",
-   "pensee": "Quarante minutes. Je m'occupe de la boîte.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4368,9 +4428,9 @@
     "energie_ressentie": 97.2
    },
    "emotions": {
-    "joie": 0.441,
-    "tristesse": 0.281,
-    "anxiete": 0.311,
+    "joie": 0.436,
+    "tristesse": 0.243,
+    "anxiete": 0.285,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.369,
@@ -4385,9 +4445,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Retire les vieux joints du fond et de la couronne.",
-   "pensee": "Durcis comme du bois. Ils n'avaient pas été changés depuis longtemps.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4403,9 +4463,9 @@
     "energie_ressentie": 96.8
    },
    "emotions": {
-    "joie": 0.436,
-    "tristesse": 0.277,
-    "anxiete": 0.31,
+    "joie": 0.432,
+    "tristesse": 0.241,
+    "anxiete": 0.284,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.369,
@@ -4420,9 +4480,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Nettoie la carrure et le fond au pinceau, sans polir.",
-   "pensee": "On ne polit pas une boîte de 1962. On la nettoie, on la respecte.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4438,9 +4498,9 @@
     "energie_ressentie": 96.4
    },
    "emotions": {
-    "joie": 0.432,
-    "tristesse": 0.272,
-    "anxiete": 0.308,
+    "joie": 0.429,
+    "tristesse": 0.239,
+    "anxiete": 0.284,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.368,
@@ -4455,21 +4515,12 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Polit la glace en plexiglas avec un peu de pâte.",
-   "pensee": "Henri disait : une montre, ça se respecte, même une à quartz.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
-   ],
-   "evenements": [
-    {
-     "id": "souvenir_tendre",
-     "effets": {
-      "joie": 0.03,
-      "tristesse": 0.02
-     }
-    }
    ],
    "besoins": {
     "faim": 68.2,
@@ -4482,9 +4533,9 @@
     "energie_ressentie": 96.0
    },
    "emotions": {
-    "joie": 0.459,
-    "tristesse": 0.289,
-    "anxiete": 0.306,
+    "joie": 0.426,
+    "tristesse": 0.237,
+    "anxiete": 0.284,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.368,
@@ -4499,7 +4550,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Dépoussière le cadran et les aiguilles à la poire soufflante.",
    "pensee": null,
    "appareils_allumes": [
@@ -4517,9 +4568,9 @@
     "energie_ressentie": 95.6
    },
    "emotions": {
-    "joie": 0.453,
-    "tristesse": 0.284,
-    "anxiete": 0.305,
+    "joie": 0.423,
+    "tristesse": 0.235,
+    "anxiete": 0.284,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.367,
@@ -4534,7 +4585,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Prépare les joints neufs dans une petite boîte.",
    "pensee": null,
    "appareils_allumes": [
@@ -4552,9 +4603,9 @@
     "energie_ressentie": 95.2
    },
    "emotions": {
-    "joie": 0.447,
-    "tristesse": 0.279,
-    "anxiete": 0.303,
+    "joie": 0.42,
+    "tristesse": 0.233,
+    "anxiete": 0.283,
     "colere": 0.03,
     "solitude": 0.292,
     "fierte": 0.367,
@@ -4569,7 +4620,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Note l'état de la boîte sur la fiche de travail.",
    "pensee": null,
    "appareils_allumes": [
@@ -4587,9 +4638,9 @@
     "energie_ressentie": 82.8
    },
    "emotions": {
-    "joie": 0.442,
-    "tristesse": 0.275,
-    "anxiete": 0.302,
+    "joie": 0.418,
+    "tristesse": 0.231,
+    "anxiete": 0.283,
     "colere": 0.03,
     "solitude": 0.292,
     "fierte": 0.366,
@@ -4604,9 +4655,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Surveille la machine en rangeant le pinceau et la pâte.",
-   "pensee": "Ce soir, le tour. Le premier copeau de l'axe.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4622,9 +4673,9 @@
     "energie_ressentie": 82.4
    },
    "emotions": {
-    "joie": 0.437,
-    "tristesse": 0.27,
-    "anxiete": 0.301,
+    "joie": 0.416,
+    "tristesse": 0.229,
+    "anxiete": 0.283,
     "colere": 0.03,
     "solitude": 0.292,
     "fierte": 0.366,
@@ -4639,7 +4690,7 @@
    "piece": "atelier",
    "posture": "debout",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "La machine s'arrête. Sort les paniers et laisse sécher les pièces sous une cloche.",
    "pensee": null,
    "appareils_allumes": [
@@ -4656,9 +4707,9 @@
     "energie_ressentie": 82.0
    },
    "emotions": {
-    "joie": 0.433,
-    "tristesse": 0.266,
-    "anxiete": 0.3,
+    "joie": 0.414,
+    "tristesse": 0.227,
+    "anxiete": 0.283,
     "colere": 0.03,
     "solitude": 0.292,
     "fierte": 0.365,
@@ -4673,9 +4724,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Contrôle à la loupe les pivots du rouage, un par un.",
-   "pensee": "Propres. Pas de rayure, pas d'usure.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4699,9 +4750,9 @@
     "energie_ressentie": 81.6
    },
    "emotions": {
-    "joie": 0.469,
-    "tristesse": 0.263,
-    "anxiete": 0.299,
+    "joie": 0.453,
+    "tristesse": 0.226,
+    "anxiete": 0.283,
     "colere": 0.03,
     "solitude": 0.292,
     "fierte": 0.395,
@@ -4716,9 +4767,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Contrôle les dents de la roue d'échappement et les levées de l'ancre.",
-   "pensee": "Les levées sont belles. Celui qui l'a révisée avant moi savait travailler.",
+   "pensee": "Conforme.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4742,9 +4793,9 @@
     "energie_ressentie": 81.2
    },
    "emotions": {
-    "joie": 0.502,
-    "tristesse": 0.259,
-    "anxiete": 0.298,
+    "joie": 0.487,
+    "tristesse": 0.224,
+    "anxiete": 0.283,
     "colere": 0.03,
     "solitude": 0.292,
     "fierte": 0.424,
@@ -4759,9 +4810,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Graisse le ressort, referme le barillet et huile son arbre.",
-   "pensee": null,
+   "pensee": "Doucement.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4784,9 +4835,9 @@
     "energie_ressentie": 80.8
    },
    "emotions": {
-    "joie": 0.491,
-    "tristesse": 0.256,
-    "anxiete": 0.327,
+    "joie": 0.478,
+    "tristesse": 0.223,
+    "anxiete": 0.313,
     "colere": 0.03,
     "solitude": 0.292,
     "fierte": 0.422,
@@ -4801,7 +4852,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Pose le barillet sur la platine.",
    "pensee": null,
    "appareils_allumes": [
@@ -4818,9 +4869,9 @@
     "energie_ressentie": 80.4
    },
    "emotions": {
-    "joie": 0.481,
-    "tristesse": 0.253,
-    "anxiete": 0.325,
+    "joie": 0.469,
+    "tristesse": 0.222,
+    "anxiete": 0.311,
     "colere": 0.03,
     "solitude": 0.292,
     "fierte": 0.42,
@@ -4835,7 +4886,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Monte la roue de centre et la roue moyenne.",
    "pensee": null,
    "appareils_allumes": [
@@ -4860,9 +4911,9 @@
     "energie_ressentie": 80.0
    },
    "emotions": {
-    "joie": 0.472,
-    "tristesse": 0.25,
-    "anxiete": 0.353,
+    "joie": 0.462,
+    "tristesse": 0.221,
+    "anxiete": 0.34,
     "colere": 0.03,
     "solitude": 0.292,
     "fierte": 0.418,
@@ -4877,9 +4928,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Monte la roue de seconde et la roue d'échappement, puis le pont de rouage.",
-   "pensee": "Les pivots entrent seuls dans leurs trous. C'est le moment que je préfère.",
+   "pensee": "C'est entré seul. C'est ça, le métier.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4904,9 +4955,9 @@
     "energie_ressentie": 79.6
    },
    "emotions": {
-    "joie": 0.544,
-    "tristesse": 0.247,
-    "anxiete": 0.319,
+    "joie": 0.535,
+    "tristesse": 0.219,
+    "anxiete": 0.307,
     "colere": 0.03,
     "solitude": 0.292,
     "fierte": 0.496,
@@ -4921,9 +4972,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : nettoyage et remontage du rouage",
+   "activite": "Omega",
    "action": "Souffle doucement sur le rouage : il tourne librement.",
-   "pensee": "Libre. Parfait.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4947,9 +4998,9 @@
     "energie_ressentie": 79.2
    },
    "emotions": {
-    "joie": 0.568,
-    "tristesse": 0.244,
-    "anxiete": 0.316,
+    "joie": 0.56,
+    "tristesse": 0.218,
+    "anxiete": 0.305,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.522,
@@ -5008,9 +5059,9 @@
     "energie_ressentie": 78.8
    },
    "emotions": {
-    "joie": 0.55,
-    "tristesse": 0.242,
-    "anxiete": 0.314,
+    "joie": 0.543,
+    "tristesse": 0.217,
+    "anxiete": 0.304,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.517,
@@ -5027,7 +5078,7 @@
    "routine": "rt-atelier",
    "activite": "Pause café",
    "action": "Se fait un café et boit un verre d'eau.",
-   "pensee": "Une heure et demie, et le rouage tourne déjà.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "wc",
@@ -5078,9 +5129,9 @@
     "energie_ressentie": 86.4
    },
    "emotions": {
-    "joie": 0.574,
-    "tristesse": 0.24,
-    "anxiete": 0.312,
+    "joie": 0.567,
+    "tristesse": 0.216,
+    "anxiete": 0.302,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.512,
@@ -5097,9 +5148,18 @@
    "routine": "rt-atelier",
    "activite": "Pause café",
    "action": "Rince la tasse, fait quelques étirements en regardant par la fenêtre.",
-   "pensee": "Les pigeons sur le toit d'en face. Toujours les mêmes, on dirait.",
+   "pensee": "Le 20 mars, ça fera six ans. Elle doit marcher avant.",
    "appareils_allumes": [
     "lampe-etabli"
+   ],
+   "evenements": [
+    {
+     "id": "souvenir_grand_pere",
+     "effets": {
+      "tristesse": 0.051,
+      "joie": 0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 60.7,
@@ -5112,14 +5172,14 @@
     "energie_ressentie": 90.0
    },
    "emotions": {
-    "joie": 0.555,
-    "tristesse": 0.237,
-    "anxiete": 0.311,
+    "joie": 0.579,
+    "tristesse": 0.266,
+    "anxiete": 0.301,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.507,
     "excitation": 0.2,
-    "concentration": 0.325
+    "concentration": 0.375
    }
   },
   {
@@ -5129,9 +5189,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
-   "action": "Remet ses lunettes, huile les pivots du rouage à l'huilier.",
-   "pensee": "Une goutte, pas plus. Trop d'huile, c'est de la poussière dans six mois.",
+   "activite": "Omega",
+   "action": "Remet ses lunettes. Huile les pivots du rouage à l'huilier.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "cuisine",
@@ -5171,14 +5231,14 @@
     "energie_ressentie": 89.6
    },
    "emotions": {
-    "joie": 0.538,
-    "tristesse": 0.235,
-    "anxiete": 0.339,
+    "joie": 0.559,
+    "tristesse": 0.263,
+    "anxiete": 0.331,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.503,
     "excitation": 0.2,
-    "concentration": 0.587
+    "concentration": 0.612
    }
   },
   {
@@ -5188,9 +5248,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Termine l'huilage des pivots côté cadran.",
-   "pensee": null,
+   "pensee": "Respirer, puis le geste.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5213,14 +5273,14 @@
     "energie_ressentie": 89.2
    },
    "emotions": {
-    "joie": 0.523,
-    "tristesse": 0.233,
-    "anxiete": 0.367,
+    "joie": 0.542,
+    "tristesse": 0.259,
+    "anxiete": 0.358,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.498,
     "excitation": 0.2,
-    "concentration": 0.719
+    "concentration": 0.731
    }
   },
   {
@@ -5230,7 +5290,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Pose l'ancre.",
    "pensee": null,
    "appareils_allumes": [
@@ -5255,14 +5315,14 @@
     "energie_ressentie": 88.8
    },
    "emotions": {
-    "joie": 0.509,
-    "tristesse": 0.231,
-    "anxiete": 0.392,
+    "joie": 0.526,
+    "tristesse": 0.256,
+    "anxiete": 0.385,
     "colere": 0.03,
     "solitude": 0.293,
     "fierte": 0.494,
     "excitation": 0.2,
-    "concentration": 0.784
+    "concentration": 0.791
    }
   },
   {
@@ -5272,7 +5332,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Pose le pont d'ancre et vérifie les ébats.",
    "pensee": null,
    "appareils_allumes": [
@@ -5289,14 +5349,14 @@
     "energie_ressentie": 88.4
    },
    "emotions": {
-    "joie": 0.497,
-    "tristesse": 0.23,
-    "anxiete": 0.386,
+    "joie": 0.513,
+    "tristesse": 0.253,
+    "anxiete": 0.379,
     "colere": 0.03,
     "solitude": 0.294,
     "fierte": 0.49,
     "excitation": 0.2,
-    "concentration": 0.817
+    "concentration": 0.82
    }
   },
   {
@@ -5306,7 +5366,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Huile les levées de l'ancre.",
    "pensee": null,
    "appareils_allumes": [
@@ -5331,14 +5391,14 @@
     "energie_ressentie": 88.0
    },
    "emotions": {
-    "joie": 0.487,
-    "tristesse": 0.228,
-    "anxiete": 0.411,
+    "joie": 0.5,
+    "tristesse": 0.25,
+    "anxiete": 0.404,
     "colere": 0.03,
     "solitude": 0.294,
     "fierte": 0.486,
     "excitation": 0.2,
-    "concentration": 0.834
+    "concentration": 0.835
    }
   },
   {
@@ -5348,9 +5408,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Pose le balancier-spiral.",
-   "pensee": "Doucement. Le spiral, c'est un cheveu.",
+   "pensee": "Respirer, puis le geste.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5373,14 +5433,14 @@
     "energie_ressentie": 87.6
    },
    "emotions": {
-    "joie": 0.477,
-    "tristesse": 0.226,
-    "anxiete": 0.434,
+    "joie": 0.489,
+    "tristesse": 0.247,
+    "anxiete": 0.427,
     "colere": 0.03,
     "solitude": 0.294,
     "fierte": 0.482,
     "excitation": 0.2,
-    "concentration": 0.842
+    "concentration": 0.843
    }
   },
   {
@@ -5390,7 +5450,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Visse le pont de balancier.",
    "pensee": null,
    "appareils_allumes": [
@@ -5407,9 +5467,9 @@
     "energie_ressentie": 87.2
    },
    "emotions": {
-    "joie": 0.469,
-    "tristesse": 0.225,
-    "anxiete": 0.425,
+    "joie": 0.48,
+    "tristesse": 0.244,
+    "anxiete": 0.419,
     "colere": 0.03,
     "solitude": 0.294,
     "fierte": 0.479,
@@ -5424,7 +5484,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Donne quelques tours de remontoir : le balancier ne part pas encore, il manque l'huile des pierres de balancier.",
    "pensee": null,
    "appareils_allumes": [
@@ -5441,9 +5501,9 @@
     "energie_ressentie": 86.8
    },
    "emotions": {
-    "joie": 0.461,
-    "tristesse": 0.223,
-    "anxiete": 0.417,
+    "joie": 0.471,
+    "tristesse": 0.242,
+    "anxiete": 0.411,
     "colere": 0.03,
     "solitude": 0.295,
     "fierte": 0.475,
@@ -5458,9 +5518,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Huile les pierres de balancier.",
-   "pensee": null,
+   "pensee": "Ne pas trembler.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5483,9 +5543,9 @@
     "energie_ressentie": 86.4
    },
    "emotions": {
-    "joie": 0.455,
-    "tristesse": 0.222,
-    "anxiete": 0.44,
+    "joie": 0.463,
+    "tristesse": 0.239,
+    "anxiete": 0.435,
     "colere": 0.03,
     "solitude": 0.295,
     "fierte": 0.471,
@@ -5500,9 +5560,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Le balancier oscille. Il écoute le tic-tac à la loupe.",
-   "pensee": "Elle bat. Régulière.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5527,14 +5587,14 @@
     "energie_ressentie": 86.0
    },
    "emotions": {
-    "joie": 0.529,
-    "tristesse": 0.221,
-    "anxiete": 0.401,
+    "joie": 0.536,
+    "tristesse": 0.237,
+    "anxiete": 0.396,
     "colere": 0.03,
     "solitude": 0.295,
     "fierte": 0.548,
     "excitation": 0.2,
-    "concentration": 0.849
+    "concentration": 0.85
    }
   },
   {
@@ -5544,7 +5604,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Monte la minuterie et le mécanisme de mise à l'heure.",
    "pensee": null,
    "appareils_allumes": [
@@ -5561,9 +5621,9 @@
     "energie_ressentie": 85.6
    },
    "emotions": {
-    "joie": 0.515,
-    "tristesse": 0.22,
-    "anxiete": 0.394,
+    "joie": 0.521,
+    "tristesse": 0.235,
+    "anxiete": 0.389,
     "colere": 0.03,
     "solitude": 0.295,
     "fierte": 0.542,
@@ -5578,9 +5638,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Contrôle le passage de la mise à l'heure.",
-   "pensee": "Un petit creux de faim. Le poulet.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5595,9 +5655,9 @@
     "energie_ressentie": 85.2
    },
    "emotions": {
-    "joie": 0.502,
-    "tristesse": 0.219,
-    "anxiete": 0.388,
+    "joie": 0.508,
+    "tristesse": 0.233,
+    "anxiete": 0.383,
     "colere": 0.03,
     "solitude": 0.296,
     "fierte": 0.537,
@@ -5612,7 +5672,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : huilage, échappement, balancier",
+   "activite": "Omega",
    "action": "Vérifie l'ensemble une dernière fois avant de s'arrêter.",
    "pensee": null,
    "appareils_allumes": [
@@ -5629,9 +5689,9 @@
     "energie_ressentie": 84.8
    },
    "emotions": {
-    "joie": 0.491,
-    "tristesse": 0.218,
-    "anxiete": 0.382,
+    "joie": 0.496,
+    "tristesse": 0.231,
+    "anxiete": 0.377,
     "colere": 0.03,
     "solitude": 0.296,
     "fierte": 0.531,
@@ -5645,10 +5705,10 @@
    "lieu": "domicile",
    "piece": "cuisine",
    "posture": "debout",
-   "routine": "écart : préparation anticipée",
+   "routine": "préparation anticipée",
    "activite": "Préparation du déjeuner",
    "action": "Pose ses lunettes. Allume le four à 200 °C. Dispose les deux cuisses de poulet dans un plat : une pour aujourd'hui, une pour demain.",
-   "pensee": "Quarante-cinq minutes de four. Il fallait y penser avant midi.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "atelier",
@@ -5679,14 +5739,6 @@
     "four",
     "lampe-etabli"
    ],
-   "evenements": [
-    {
-     "id": "oubli_mineur",
-     "effets": {
-      "colere": 0.041
-     }
-    }
-   ],
    "besoins": {
     "faim": 53.7,
     "soif": 72.7,
@@ -5698,10 +5750,10 @@
     "energie_ressentie": 84.4
    },
    "emotions": {
-    "joie": 0.481,
-    "tristesse": 0.217,
-    "anxiete": 0.376,
-    "colere": 0.071,
+    "joie": 0.486,
+    "tristesse": 0.23,
+    "anxiete": 0.372,
+    "colere": 0.03,
     "solitude": 0.296,
     "fierte": 0.526,
     "excitation": 0.2,
@@ -5714,7 +5766,7 @@
    "lieu": "domicile",
    "piece": "cuisine",
    "posture": "debout",
-   "routine": "écart : préparation anticipée",
+   "routine": "préparation anticipée",
    "activite": "Préparation du déjeuner",
    "action": "Épluche quatre pommes de terre, les coupe en quartiers, ajoute huile, sel et herbes, et enfourne le tout.",
    "pensee": null,
@@ -5748,10 +5800,10 @@
     "energie_ressentie": 84.0
    },
    "emotions": {
-    "joie": 0.472,
-    "tristesse": 0.216,
-    "anxiete": 0.371,
-    "colere": 0.064,
+    "joie": 0.477,
+    "tristesse": 0.228,
+    "anxiete": 0.367,
+    "colere": 0.03,
     "solitude": 0.297,
     "fierte": 0.521,
     "excitation": 0.2,
@@ -5765,8 +5817,8 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : premier contrôle de marche",
-   "action": "Remet ses lunettes, pose le mouvement sur le chronocomparateur.",
+   "activite": "Omega",
+   "action": "Remet ses lunettes. Pose le mouvement sur le chronocomparateur.",
    "pensee": null,
    "deplacement": {
     "chemin": [
@@ -5801,10 +5853,10 @@
     "energie_ressentie": 83.6
    },
    "emotions": {
-    "joie": 0.464,
-    "tristesse": 0.215,
-    "anxiete": 0.366,
-    "colere": 0.059,
+    "joie": 0.468,
+    "tristesse": 0.226,
+    "anxiete": 0.362,
+    "colere": 0.03,
     "solitude": 0.297,
     "fierte": 0.516,
     "excitation": 0.2,
@@ -5818,9 +5870,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : premier contrôle de marche",
+   "activite": "Omega",
    "action": "Lit le premier résultat : avance de quarante secondes par jour, amplitude correcte.",
-   "pensee": "Quarante secondes. On réglera après le remontage complet.",
+   "pensee": null,
    "appareils_allumes": [
     "chronocomparateur",
     "four",
@@ -5837,10 +5889,10 @@
     "energie_ressentie": 83.2
    },
    "emotions": {
-    "joie": 0.457,
-    "tristesse": 0.214,
-    "anxiete": 0.361,
-    "colere": 0.054,
+    "joie": 0.461,
+    "tristesse": 0.225,
+    "anxiete": 0.357,
+    "colere": 0.03,
     "solitude": 0.297,
     "fierte": 0.512,
     "excitation": 0.2,
@@ -5854,7 +5906,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : premier contrôle de marche",
+   "activite": "Omega",
    "action": "Note les mesures sur la fiche de travail.",
    "pensee": null,
    "appareils_allumes": [
@@ -5872,10 +5924,10 @@
     "energie_ressentie": 82.8
    },
    "emotions": {
-    "joie": 0.451,
-    "tristesse": 0.213,
-    "anxiete": 0.356,
-    "colere": 0.05,
+    "joie": 0.454,
+    "tristesse": 0.223,
+    "anxiete": 0.353,
+    "colere": 0.03,
     "solitude": 0.297,
     "fierte": 0.507,
     "excitation": 0.2,
@@ -5889,7 +5941,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : premier contrôle de marche",
+   "activite": "Omega",
    "action": "Range le mouvement dans un boîtier de protection.",
    "pensee": null,
    "appareils_allumes": [
@@ -5907,10 +5959,10 @@
     "energie_ressentie": 82.4
    },
    "emotions": {
-    "joie": 0.446,
-    "tristesse": 0.212,
-    "anxiete": 0.352,
-    "colere": 0.047,
+    "joie": 0.448,
+    "tristesse": 0.222,
+    "anxiete": 0.349,
+    "colere": 0.03,
     "solitude": 0.298,
     "fierte": 0.503,
     "excitation": 0.2,
@@ -5924,9 +5976,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : premier contrôle de marche",
+   "activite": "Omega",
    "action": "Nettoie ses brucelles et les aligne.",
-   "pensee": "L'odeur du poulet arrive jusqu'ici.",
+   "pensee": null,
    "appareils_allumes": [
     "four",
     "lampe-etabli"
@@ -5950,10 +6002,10 @@
     "energie_ressentie": 82.0
    },
    "emotions": {
-    "joie": 0.481,
-    "tristesse": 0.212,
-    "anxiete": 0.348,
-    "colere": 0.044,
+    "joie": 0.483,
+    "tristesse": 0.221,
+    "anxiete": 0.345,
+    "colere": 0.03,
     "solitude": 0.298,
     "fierte": 0.498,
     "excitation": 0.2,
@@ -5967,9 +6019,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : premier contrôle de marche",
-   "action": "Éteint la lampe d'établi, pose ses lunettes.",
-   "pensee": null,
+   "activite": "Fin de séance à l'atelier",
+   "action": "Éteint la lampe, pose ses lunettes.",
+   "pensee": "Faim.",
    "objets": [
     {
      "objet": "obj-lunettes",
@@ -5991,10 +6043,10 @@
     "energie_ressentie": 81.6
    },
    "emotions": {
-    "joie": 0.472,
-    "tristesse": 0.211,
-    "anxiete": 0.344,
-    "colere": 0.042,
+    "joie": 0.474,
+    "tristesse": 0.22,
+    "anxiete": 0.341,
+    "colere": 0.03,
     "solitude": 0.298,
     "fierte": 0.494,
     "excitation": 0.2,
@@ -6034,10 +6086,10 @@
     "energie_ressentie": 81.2
    },
    "emotions": {
-    "joie": 0.464,
-    "tristesse": 0.21,
-    "anxiete": 0.341,
-    "colere": 0.04,
+    "joie": 0.466,
+    "tristesse": 0.219,
+    "anxiete": 0.338,
+    "colere": 0.03,
     "solitude": 0.299,
     "fierte": 0.49,
     "excitation": 0.2,
@@ -6077,10 +6129,10 @@
     "energie_ressentie": 68.8
    },
    "emotions": {
-    "joie": 0.457,
-    "tristesse": 0.21,
-    "anxiete": 0.337,
-    "colere": 0.039,
+    "joie": 0.459,
+    "tristesse": 0.218,
+    "anxiete": 0.335,
+    "colere": 0.03,
     "solitude": 0.299,
     "fierte": 0.486,
     "excitation": 0.2,
@@ -6125,10 +6177,10 @@
     "energie_ressentie": 68.4
    },
    "emotions": {
-    "joie": 0.451,
-    "tristesse": 0.209,
-    "anxiete": 0.334,
-    "colere": 0.037,
+    "joie": 0.452,
+    "tristesse": 0.217,
+    "anxiete": 0.332,
+    "colere": 0.03,
     "solitude": 0.299,
     "fierte": 0.482,
     "excitation": 0.2,
@@ -6144,7 +6196,7 @@
    "routine": "rt-atelier",
    "activite": "Déjeuner",
    "action": "Déjeune seul à la table du séjour, avec un grand verre d'eau.",
-   "pensee": "Un poulet pour deux jours. Un poulet pour un.",
+   "pensee": "Manger seul, on s'y fait. Presque.",
    "deplacement": {
     "chemin": [
      "cuisine",
@@ -6197,10 +6249,10 @@
     "energie_ressentie": 68.0
    },
    "emotions": {
-    "joie": 0.485,
-    "tristesse": 0.229,
-    "anxiete": 0.331,
-    "colere": 0.036,
+    "joie": 0.487,
+    "tristesse": 0.236,
+    "anxiete": 0.329,
+    "colere": 0.03,
     "solitude": 0.351,
     "fierte": 0.478,
     "excitation": 0.2,
@@ -6216,17 +6268,8 @@
    "routine": "rt-atelier",
    "activite": "Déjeuner",
    "action": "Termine son assiette.",
-   "pensee": "Sophie aurait mis du thym. Elle mettait du thym partout.",
+   "pensee": null,
    "appareils_allumes": [],
-   "evenements": [
-    {
-     "id": "pensee_sophie",
-     "effets": {
-      "tristesse": 0.071,
-      "solitude": 0.041
-     }
-    }
-   ],
    "besoins": {
     "faim": 99.5,
     "soif": 84.3,
@@ -6238,11 +6281,11 @@
     "energie_ressentie": 67.6
    },
    "emotions": {
-    "joie": 0.476,
-    "tristesse": 0.299,
-    "anxiete": 0.328,
-    "colere": 0.035,
-    "solitude": 0.389,
+    "joie": 0.477,
+    "tristesse": 0.234,
+    "anxiete": 0.326,
+    "colere": 0.03,
+    "solitude": 0.348,
     "fierte": 0.475,
     "excitation": 0.2,
     "concentration": 0.269
@@ -6272,11 +6315,11 @@
     "energie_ressentie": 67.2
    },
    "emotions": {
-    "joie": 0.468,
-    "tristesse": 0.293,
-    "anxiete": 0.325,
-    "colere": 0.034,
-    "solitude": 0.384,
+    "joie": 0.469,
+    "tristesse": 0.232,
+    "anxiete": 0.323,
+    "colere": 0.03,
+    "solitude": 0.346,
     "fierte": 0.471,
     "excitation": 0.2,
     "concentration": 0.259
@@ -6315,11 +6358,11 @@
     "energie_ressentie": 66.8
    },
    "emotions": {
-    "joie": 0.46,
-    "tristesse": 0.288,
-    "anxiete": 0.323,
-    "colere": 0.034,
-    "solitude": 0.38,
+    "joie": 0.461,
+    "tristesse": 0.23,
+    "anxiete": 0.321,
+    "colere": 0.03,
+    "solitude": 0.343,
     "fierte": 0.468,
     "excitation": 0.2,
     "concentration": 0.355
@@ -6334,7 +6377,7 @@
    "routine": "rt-atelier",
    "activite": "Café et vaisselle",
    "action": "Met la cuisse restante et les pommes de terre dans une boîte au réfrigérateur.",
-   "pensee": "Demain midi, avec du riz.",
+   "pensee": null,
    "appareils_allumes": [
     "radio"
    ],
@@ -6349,11 +6392,11 @@
     "energie_ressentie": 66.4
    },
    "emotions": {
-    "joie": 0.454,
-    "tristesse": 0.283,
-    "anxiete": 0.32,
-    "colere": 0.033,
-    "solitude": 0.375,
+    "joie": 0.455,
+    "tristesse": 0.229,
+    "anxiete": 0.319,
+    "colere": 0.03,
+    "solitude": 0.341,
     "fierte": 0.464,
     "excitation": 0.2,
     "concentration": 0.402
@@ -6400,11 +6443,11 @@
     "energie_ressentie": 74.0
    },
    "emotions": {
-    "joie": 0.488,
-    "tristesse": 0.279,
-    "anxiete": 0.318,
-    "colere": 0.033,
-    "solitude": 0.371,
+    "joie": 0.489,
+    "tristesse": 0.227,
+    "anxiete": 0.316,
+    "colere": 0.03,
+    "solitude": 0.339,
     "fierte": 0.461,
     "excitation": 0.2,
     "concentration": 0.426
@@ -6434,11 +6477,11 @@
     "energie_ressentie": 73.6
    },
    "emotions": {
-    "joie": 0.478,
-    "tristesse": 0.274,
-    "anxiete": 0.316,
-    "colere": 0.032,
-    "solitude": 0.367,
+    "joie": 0.479,
+    "tristesse": 0.225,
+    "anxiete": 0.314,
+    "colere": 0.03,
+    "solitude": 0.337,
     "fierte": 0.458,
     "excitation": 0.2,
     "concentration": 0.438
@@ -6477,10 +6520,10 @@
    },
    "emotions": {
     "joie": 0.47,
-    "tristesse": 0.27,
-    "anxiete": 0.314,
-    "colere": 0.032,
-    "solitude": 0.364,
+    "tristesse": 0.224,
+    "anxiete": 0.313,
+    "colere": 0.03,
+    "solitude": 0.335,
     "fierte": 0.455,
     "excitation": 0.2,
     "concentration": 0.444
@@ -6508,11 +6551,11 @@
     "energie_ressentie": 72.8
    },
    "emotions": {
-    "joie": 0.462,
-    "tristesse": 0.266,
-    "anxiete": 0.312,
-    "colere": 0.032,
-    "solitude": 0.36,
+    "joie": 0.463,
+    "tristesse": 0.223,
+    "anxiete": 0.311,
+    "colere": 0.03,
+    "solitude": 0.333,
     "fierte": 0.452,
     "excitation": 0.2,
     "concentration": 0.447
@@ -6565,11 +6608,11 @@
     "energie_ressentie": 72.4
    },
    "emotions": {
-    "joie": 0.455,
-    "tristesse": 0.262,
-    "anxiete": 0.31,
-    "colere": 0.031,
-    "solitude": 0.357,
+    "joie": 0.456,
+    "tristesse": 0.221,
+    "anxiete": 0.309,
+    "colere": 0.03,
+    "solitude": 0.331,
     "fierte": 0.449,
     "excitation": 0.2,
     "concentration": 0.349
@@ -6584,7 +6627,7 @@
    "routine": "rt-atelier",
    "activite": "Lecture et courte sieste",
    "action": "S'allonge sur le canapé et lit « La Route ».",
-   "pensee": "Le père et le fils sur la route. Le père parle peu. Comme papa.",
+   "pensee": "Le contrôle de papa, c'est le 25.",
    "deplacement": {
     "chemin": [
      "chambre",
@@ -6605,12 +6648,6 @@
    "appareils_allumes": [],
    "evenements": [
     {
-     "id": "lecture_emouvante",
-     "effets": {
-      "tristesse": 0.041
-     }
-    },
-    {
      "id": "pensee_pere",
      "effets": {
       "anxiete": 0.071,
@@ -6629,11 +6666,11 @@
     "energie_ressentie": 76.0
    },
    "emotions": {
-    "joie": 0.449,
-    "tristesse": 0.34,
-    "anxiete": 0.38,
-    "colere": 0.031,
-    "solitude": 0.354,
+    "joie": 0.45,
+    "tristesse": 0.261,
+    "anxiete": 0.379,
+    "colere": 0.03,
+    "solitude": 0.329,
     "fierte": 0.446,
     "excitation": 0.2,
     "concentration": 0.474
@@ -6662,10 +6699,10 @@
    },
    "emotions": {
     "joie": 0.444,
-    "tristesse": 0.333,
-    "anxiete": 0.374,
-    "colere": 0.031,
-    "solitude": 0.351,
+    "tristesse": 0.258,
+    "anxiete": 0.373,
+    "colere": 0.03,
+    "solitude": 0.328,
     "fierte": 0.443,
     "excitation": 0.2,
     "concentration": 0.537
@@ -6694,10 +6731,10 @@
    },
    "emotions": {
     "joie": 0.439,
-    "tristesse": 0.325,
-    "anxiete": 0.369,
-    "colere": 0.031,
-    "solitude": 0.348,
+    "tristesse": 0.254,
+    "anxiete": 0.368,
+    "colere": 0.03,
+    "solitude": 0.327,
     "fierte": 0.441,
     "excitation": 0.2,
     "concentration": 0.269
@@ -6726,10 +6763,10 @@
    },
    "emotions": {
     "joie": 0.435,
-    "tristesse": 0.318,
-    "anxiete": 0.364,
-    "colere": 0.031,
-    "solitude": 0.346,
+    "tristesse": 0.251,
+    "anxiete": 0.363,
+    "colere": 0.03,
+    "solitude": 0.325,
     "fierte": 0.438,
     "excitation": 0.2,
     "concentration": 0.134
@@ -6744,7 +6781,7 @@
    "routine": "rt-atelier",
    "activite": "Lecture et courte sieste",
    "action": "Se réveille, referme le livre et le pose sur la table basse.",
-   "pensee": "Dix minutes. Juste ce qu'il fallait.",
+   "pensee": null,
    "objets": [
     {
      "objet": "obj-livre",
@@ -6773,10 +6810,10 @@
    },
    "emotions": {
     "joie": 0.471,
-    "tristesse": 0.311,
-    "anxiete": 0.359,
-    "colere": 0.031,
-    "solitude": 0.343,
+    "tristesse": 0.248,
+    "anxiete": 0.358,
+    "colere": 0.03,
+    "solitude": 0.324,
     "fierte": 0.436,
     "excitation": 0.2,
     "concentration": 0.192
@@ -6789,7 +6826,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Rallume la lampe, remet ses lunettes. Démonte le mécanisme automatique déjà nettoyé pour l'huiler.",
    "pensee": null,
    "deplacement": {
@@ -6822,11 +6859,11 @@
     "energie_ressentie": 76.4
    },
    "emotions": {
-    "joie": 0.463,
-    "tristesse": 0.305,
-    "anxiete": 0.355,
+    "joie": 0.464,
+    "tristesse": 0.246,
+    "anxiete": 0.354,
     "colere": 0.03,
-    "solitude": 0.341,
+    "solitude": 0.323,
     "fierte": 0.433,
     "excitation": 0.2,
     "concentration": 0.521
@@ -6839,9 +6876,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Huile les roues d'inverseur.",
-   "pensee": "Les inverseurs, c'est là que les automatiques s'usent.",
+   "pensee": "Lentement. C'est la pièce qui décide.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -6864,11 +6901,11 @@
     "energie_ressentie": 76.0
    },
    "emotions": {
-    "joie": 0.456,
-    "tristesse": 0.299,
-    "anxiete": 0.381,
+    "joie": 0.457,
+    "tristesse": 0.243,
+    "anxiete": 0.38,
     "colere": 0.03,
-    "solitude": 0.339,
+    "solitude": 0.322,
     "fierte": 0.431,
     "excitation": 0.2,
     "concentration": 0.686
@@ -6881,7 +6918,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Remonte le pont d'automatique.",
    "pensee": null,
    "appareils_allumes": [
@@ -6899,10 +6936,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.294,
-    "anxiete": 0.376,
+    "tristesse": 0.241,
+    "anxiete": 0.375,
     "colere": 0.03,
-    "solitude": 0.337,
+    "solitude": 0.321,
     "fierte": 0.429,
     "excitation": 0.2,
     "concentration": 0.768
@@ -6915,7 +6952,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Pose la masse oscillante.",
    "pensee": null,
    "appareils_allumes": [
@@ -6933,10 +6970,10 @@
    },
    "emotions": {
     "joie": 0.445,
-    "tristesse": 0.288,
-    "anxiete": 0.37,
+    "tristesse": 0.238,
+    "anxiete": 0.369,
     "colere": 0.03,
-    "solitude": 0.335,
+    "solitude": 0.32,
     "fierte": 0.426,
     "excitation": 0.2,
     "concentration": 0.809
@@ -6949,7 +6986,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Fait tourner la masse à la main : le remontage s'entend.",
    "pensee": null,
    "appareils_allumes": [
@@ -6976,10 +7013,10 @@
    },
    "emotions": {
     "joie": 0.48,
-    "tristesse": 0.284,
-    "anxiete": 0.365,
+    "tristesse": 0.236,
+    "anxiete": 0.364,
     "colere": 0.03,
-    "solitude": 0.333,
+    "solitude": 0.319,
     "fierte": 0.454,
     "excitation": 0.2,
     "concentration": 0.829
@@ -6992,7 +7029,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Contrôle le remontage automatique.",
    "pensee": null,
    "appareils_allumes": [
@@ -7010,10 +7047,10 @@
    },
    "emotions": {
     "joie": 0.471,
-    "tristesse": 0.279,
+    "tristesse": 0.234,
     "anxiete": 0.36,
     "colere": 0.03,
-    "solitude": 0.332,
+    "solitude": 0.318,
     "fierte": 0.451,
     "excitation": 0.2,
     "concentration": 0.84
@@ -7026,9 +7063,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Pose le cadran.",
-   "pensee": null,
+   "pensee": "Ne pas trembler.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7051,11 +7088,11 @@
     "energie_ressentie": 74.0
    },
    "emotions": {
-    "joie": 0.463,
-    "tristesse": 0.274,
+    "joie": 0.464,
+    "tristesse": 0.232,
     "anxiete": 0.386,
     "colere": 0.03,
-    "solitude": 0.33,
+    "solitude": 0.317,
     "fierte": 0.448,
     "excitation": 0.2,
     "concentration": 0.845
@@ -7068,9 +7105,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Chasse l'aiguille des heures et celle des minutes.",
-   "pensee": null,
+   "pensee": "Ne pas trembler.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7093,11 +7130,11 @@
     "energie_ressentie": 73.6
    },
    "emotions": {
-    "joie": 0.456,
-    "tristesse": 0.27,
-    "anxiete": 0.411,
+    "joie": 0.457,
+    "tristesse": 0.231,
+    "anxiete": 0.41,
     "colere": 0.03,
-    "solitude": 0.329,
+    "solitude": 0.317,
     "fierte": 0.445,
     "excitation": 0.2,
     "concentration": 0.847
@@ -7110,9 +7147,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Pose l'aiguille des secondes.",
-   "pensee": "La trotteuse, la plus délicate. Ne pas toucher le cadran.",
+   "pensee": "Lentement. C'est la pièce qui décide.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7136,10 +7173,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.266,
+    "tristesse": 0.229,
     "anxiete": 0.434,
     "colere": 0.03,
-    "solitude": 0.328,
+    "solitude": 0.316,
     "fierte": 0.443,
     "excitation": 0.2,
     "concentration": 0.849
@@ -7152,7 +7189,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Vérifie le parallélisme des aiguilles sur un tour complet.",
    "pensee": null,
    "appareils_allumes": [
@@ -7179,10 +7216,10 @@
    },
    "emotions": {
     "joie": 0.485,
-    "tristesse": 0.263,
-    "anxiete": 0.426,
+    "tristesse": 0.227,
+    "anxiete": 0.425,
     "colere": 0.03,
-    "solitude": 0.327,
+    "solitude": 0.316,
     "fierte": 0.47,
     "excitation": 0.2,
     "concentration": 0.849
@@ -7195,7 +7232,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Remet le mouvement sur le chronocomparateur, cadran en haut.",
    "pensee": null,
    "appareils_allumes": [
@@ -7214,10 +7251,10 @@
    },
    "emotions": {
     "joie": 0.476,
-    "tristesse": 0.259,
-    "anxiete": 0.418,
+    "tristesse": 0.226,
+    "anxiete": 0.417,
     "colere": 0.03,
-    "solitude": 0.325,
+    "solitude": 0.315,
     "fierte": 0.467,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7230,7 +7267,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Mesure cadran en haut : plus 6 secondes par jour.",
    "pensee": null,
    "appareils_allumes": [
@@ -7249,10 +7286,10 @@
    },
    "emotions": {
     "joie": 0.467,
-    "tristesse": 0.256,
-    "anxiete": 0.41,
+    "tristesse": 0.224,
+    "anxiete": 0.409,
     "colere": 0.03,
-    "solitude": 0.324,
+    "solitude": 0.315,
     "fierte": 0.463,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7265,9 +7302,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Mesure couronne en bas : plus 9.",
-   "pensee": "On peut faire mieux.",
+   "pensee": null,
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -7284,10 +7321,10 @@
    },
    "emotions": {
     "joie": 0.46,
-    "tristesse": 0.253,
-    "anxiete": 0.403,
+    "tristesse": 0.223,
+    "anxiete": 0.402,
     "colere": 0.03,
-    "solitude": 0.323,
+    "solitude": 0.314,
     "fierte": 0.46,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7300,7 +7337,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Déplace très légèrement la raquette.",
    "pensee": null,
    "appareils_allumes": [
@@ -7327,10 +7364,10 @@
    },
    "emotions": {
     "joie": 0.453,
-    "tristesse": 0.25,
+    "tristesse": 0.222,
     "anxiete": 0.426,
     "colere": 0.03,
-    "solitude": 0.323,
+    "solitude": 0.314,
     "fierte": 0.457,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7343,7 +7380,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Nouvelle mesure : plus 3 cadran en haut.",
    "pensee": null,
    "appareils_allumes": [
@@ -7362,10 +7399,10 @@
    },
    "emotions": {
     "joie": 0.448,
-    "tristesse": 0.247,
+    "tristesse": 0.22,
     "anxiete": 0.418,
     "colere": 0.03,
-    "solitude": 0.322,
+    "solitude": 0.314,
     "fierte": 0.454,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7378,9 +7415,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Mesure couronne en bas : plus 5.",
-   "pensee": "Plus 3, plus 5. Pour une montre de quarante-huit ans, c'est très bien.",
+   "pensee": "Voilà. Du premier coup.",
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -7407,10 +7444,10 @@
    },
    "emotions": {
     "joie": 0.522,
-    "tristesse": 0.244,
+    "tristesse": 0.219,
     "anxiete": 0.38,
     "colere": 0.03,
-    "solitude": 0.321,
+    "solitude": 0.314,
     "fierte": 0.531,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7423,7 +7460,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Mesure les autres positions pour vérifier l'écart.",
    "pensee": null,
    "appareils_allumes": [
@@ -7441,10 +7478,10 @@
    },
    "emotions": {
     "joie": 0.509,
-    "tristesse": 0.242,
-    "anxiete": 0.375,
+    "tristesse": 0.218,
+    "anxiete": 0.374,
     "colere": 0.03,
-    "solitude": 0.321,
+    "solitude": 0.313,
     "fierte": 0.526,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7457,7 +7494,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : automatique, cadran, réglage",
+   "activite": "Omega",
    "action": "Note les résultats sur la fiche de travail.",
    "pensee": null,
    "appareils_allumes": [
@@ -7475,10 +7512,10 @@
    },
    "emotions": {
     "joie": 0.497,
-    "tristesse": 0.239,
+    "tristesse": 0.217,
     "anxiete": 0.369,
     "colere": 0.03,
-    "solitude": 0.32,
+    "solitude": 0.313,
     "fierte": 0.521,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7536,10 +7573,10 @@
    },
    "emotions": {
     "joie": 0.487,
-    "tristesse": 0.237,
+    "tristesse": 0.216,
     "anxiete": 0.364,
     "colere": 0.03,
-    "solitude": 0.319,
+    "solitude": 0.313,
     "fierte": 0.516,
     "excitation": 0.2,
     "concentration": 0.55
@@ -7554,7 +7591,7 @@
    "routine": "rt-atelier",
    "activite": "Pause",
    "action": "Boit un verre d'eau, mange une pomme, étire son dos contre le chambranle.",
-   "pensee": "Plus de café après seize heures.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "wc",
@@ -7598,10 +7635,10 @@
    },
    "emotions": {
     "joie": 0.477,
-    "tristesse": 0.235,
-    "anxiete": 0.36,
+    "tristesse": 0.215,
+    "anxiete": 0.359,
     "colere": 0.03,
-    "solitude": 0.319,
+    "solitude": 0.313,
     "fierte": 0.511,
     "excitation": 0.2,
     "concentration": 0.4
@@ -7614,9 +7651,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Remet ses lunettes. Pose le mouvement dans la boîte et serre les vis de fixation.",
-   "pensee": null,
+   "pensee": "Ne pas trembler.",
    "deplacement": {
     "chemin": [
      "cuisine",
@@ -7657,10 +7694,10 @@
    },
    "emotions": {
     "joie": 0.469,
-    "tristesse": 0.233,
-    "anxiete": 0.386,
+    "tristesse": 0.214,
+    "anxiete": 0.385,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.313,
     "fierte": 0.507,
     "excitation": 0.2,
     "concentration": 0.625
@@ -7673,7 +7710,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Remet la tige et la couronne.",
    "pensee": null,
    "appareils_allumes": [
@@ -7691,10 +7728,10 @@
    },
    "emotions": {
     "joie": 0.461,
-    "tristesse": 0.231,
+    "tristesse": 0.214,
     "anxiete": 0.38,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.313,
     "fierte": 0.502,
     "excitation": 0.2,
     "concentration": 0.737
@@ -7707,7 +7744,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Pose les joints neufs du fond et de la couronne.",
    "pensee": null,
    "appareils_allumes": [
@@ -7725,10 +7762,10 @@
    },
    "emotions": {
     "joie": 0.455,
-    "tristesse": 0.23,
+    "tristesse": 0.213,
     "anxiete": 0.374,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.313,
     "fierte": 0.498,
     "excitation": 0.2,
     "concentration": 0.794
@@ -7741,7 +7778,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Graisse légèrement les joints.",
    "pensee": null,
    "appareils_allumes": [
@@ -7759,10 +7796,10 @@
    },
    "emotions": {
     "joie": 0.449,
-    "tristesse": 0.228,
+    "tristesse": 0.212,
     "anxiete": 0.369,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.313,
     "fierte": 0.494,
     "excitation": 0.2,
     "concentration": 0.822
@@ -7775,7 +7812,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Ferme le fond à la clé.",
    "pensee": null,
    "appareils_allumes": [
@@ -7793,10 +7830,10 @@
    },
    "emotions": {
     "joie": 0.443,
-    "tristesse": 0.226,
+    "tristesse": 0.211,
     "anxiete": 0.364,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.313,
     "fierte": 0.49,
     "excitation": 0.2,
     "concentration": 0.836
@@ -7809,7 +7846,7 @@
    "piece": "atelier",
    "posture": "debout",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Place la montre dans le contrôleur d'étanchéité.",
    "pensee": null,
    "appareils_allumes": [
@@ -7828,10 +7865,10 @@
    },
    "emotions": {
     "joie": 0.439,
-    "tristesse": 0.225,
+    "tristesse": 0.211,
     "anxiete": 0.359,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.313,
     "fierte": 0.486,
     "excitation": 0.2,
     "concentration": 0.843
@@ -7844,9 +7881,9 @@
    "piece": "atelier",
    "posture": "debout",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Lance le test de pression.",
-   "pensee": "Si ça fuit, on recommence les joints. Ça ne fuira pas.",
+   "pensee": null,
    "appareils_allumes": [
     "controleur-etancheite",
     "lampe-etabli"
@@ -7863,10 +7900,10 @@
    },
    "emotions": {
     "joie": 0.434,
-    "tristesse": 0.223,
+    "tristesse": 0.21,
     "anxiete": 0.355,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.313,
     "fierte": 0.482,
     "excitation": 0.2,
     "concentration": 0.846
@@ -7879,9 +7916,9 @@
    "piece": "atelier",
    "posture": "debout",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Lit le résultat : aucune fuite.",
-   "pensee": "Étanche. Enfin, pour une montre de 1962 : à la pluie, pas à la piscine.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7906,10 +7943,10 @@
    },
    "emotions": {
     "joie": 0.471,
-    "tristesse": 0.222,
-    "anxiete": 0.351,
+    "tristesse": 0.21,
+    "anxiete": 0.35,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.313,
     "fierte": 0.508,
     "excitation": 0.2,
     "concentration": 0.848
@@ -7922,7 +7959,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Remet le bracelet d'origine, nettoyé ce matin.",
    "pensee": null,
    "appareils_allumes": [
@@ -7940,10 +7977,10 @@
    },
    "emotions": {
     "joie": 0.463,
-    "tristesse": 0.221,
-    "anxiete": 0.347,
+    "tristesse": 0.209,
+    "anxiete": 0.346,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.313,
     "fierte": 0.503,
     "excitation": 0.2,
     "concentration": 0.849
@@ -7956,7 +7993,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Fait tourner la montre dans sa main pour vérifier le remontage automatique.",
    "pensee": null,
    "appareils_allumes": [
@@ -7974,10 +8011,10 @@
    },
    "emotions": {
     "joie": 0.456,
-    "tristesse": 0.22,
+    "tristesse": 0.209,
     "anxiete": 0.343,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.313,
     "fierte": 0.499,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7990,7 +8027,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "La met à l'heure d'après sa propre montre.",
    "pensee": null,
    "appareils_allumes": [
@@ -8008,10 +8045,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.219,
+    "tristesse": 0.208,
     "anxiete": 0.339,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.313,
     "fierte": 0.495,
     "excitation": 0.2,
     "concentration": 0.85
@@ -8024,7 +8061,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Remplit la fiche de travail : opérations, mesures, joints changés.",
    "pensee": null,
    "appareils_allumes": [
@@ -8042,10 +8079,10 @@
    },
    "emotions": {
     "joie": 0.444,
-    "tristesse": 0.218,
+    "tristesse": 0.208,
     "anxiete": 0.336,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.313,
     "fierte": 0.491,
     "excitation": 0.2,
     "concentration": 0.75
@@ -8058,7 +8095,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Nettoie l'établi.",
    "pensee": null,
    "appareils_allumes": [
@@ -8076,10 +8113,10 @@
    },
    "emotions": {
     "joie": 0.44,
-    "tristesse": 0.217,
+    "tristesse": 0.207,
     "anxiete": 0.333,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.313,
     "fierte": 0.487,
     "excitation": 0.2,
     "concentration": 0.7
@@ -8092,7 +8129,7 @@
    "piece": "atelier",
    "posture": "debout",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Vide et rince les bacs de la machine à ultrasons.",
    "pensee": null,
    "appareils_allumes": [
@@ -8110,10 +8147,10 @@
    },
    "emotions": {
     "joie": 0.435,
-    "tristesse": 0.216,
+    "tristesse": 0.207,
     "anxiete": 0.33,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.314,
     "fierte": 0.483,
     "excitation": 0.2,
     "concentration": 0.675
@@ -8126,7 +8163,7 @@
    "piece": "atelier",
    "posture": "debout",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Range les huiles et les joints restants.",
    "pensee": null,
    "appareils_allumes": [
@@ -8144,10 +8181,10 @@
    },
    "emotions": {
     "joie": 0.431,
-    "tristesse": 0.215,
+    "tristesse": 0.206,
     "anxiete": 0.327,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.314,
     "fierte": 0.479,
     "excitation": 0.2,
     "concentration": 0.662
@@ -8160,7 +8197,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Essuie la montre avec une peau de chamois.",
    "pensee": null,
    "appareils_allumes": [
@@ -8178,10 +8215,10 @@
    },
    "emotions": {
     "joie": 0.428,
-    "tristesse": 0.214,
+    "tristesse": 0.206,
     "anxiete": 0.324,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.314,
     "fierte": 0.475,
     "excitation": 0.2,
     "concentration": 0.656
@@ -8194,9 +8231,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Omega : emboîtage et contrôle final",
+   "activite": "Omega",
    "action": "Pose l'Omega cadran en haut sur un coussin pour vingt-quatre heures d'observation.",
-   "pensee": "Terminée. Un jour d'avance sur le planning.",
+   "pensee": "Fini. Elle peut repartir vivre au poignet de quelqu'un.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8207,13 +8244,6 @@
       "joie": 0.2,
       "fierte": 0.25,
       "anxiete": -0.1
-     }
-    },
-    {
-     "id": "avance_planning",
-     "effets": {
-      "anxiete": -0.08,
-      "joie": 0.04
      }
     }
    ],
@@ -8228,11 +8258,11 @@
     "energie_ressentie": 54.0
    },
    "emotions": {
-    "joie": 0.665,
-    "tristesse": 0.213,
-    "anxiete": 0.142,
+    "joie": 0.625,
+    "tristesse": 0.206,
+    "anxiete": 0.222,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.314,
     "fierte": 0.722,
     "excitation": 0.2,
     "concentration": 0.653
@@ -8245,9 +8275,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Rolex : premier examen et début du démontage",
+   "activite": "Rolex",
    "action": "Sort la Rolex du coffre et l'examine sous la lampe.",
-   "pensee": "Quelques rayures sur la lunette. Le client les veut, ce sont ses rayures.",
+   "pensee": null,
    "objets": [
     {
      "objet": "obj-rolex",
@@ -8269,11 +8299,11 @@
     "energie_ressentie": 53.6
    },
    "emotions": {
-    "joie": 0.636,
-    "tristesse": 0.212,
-    "anxiete": 0.15,
+    "joie": 0.6,
+    "tristesse": 0.205,
+    "anxiete": 0.225,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.314,
     "fierte": 0.711,
     "excitation": 0.2,
     "concentration": 0.752
@@ -8286,7 +8316,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Rolex : premier examen et début du démontage",
+   "activite": "Rolex",
    "action": "Remplit la fiche d'état initial : boîte, verre, couronne, marche.",
    "pensee": null,
    "appareils_allumes": [
@@ -8303,11 +8333,11 @@
     "energie_ressentie": 53.2
    },
    "emotions": {
-    "joie": 0.61,
-    "tristesse": 0.212,
-    "anxiete": 0.157,
+    "joie": 0.579,
+    "tristesse": 0.205,
+    "anxiete": 0.228,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.315,
     "fierte": 0.701,
     "excitation": 0.2,
     "concentration": 0.701
@@ -8320,7 +8350,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Rolex : premier examen et début du démontage",
+   "activite": "Rolex",
    "action": "Ouvre le fond avec la clé adaptée.",
    "pensee": null,
    "appareils_allumes": [
@@ -8337,11 +8367,11 @@
     "energie_ressentie": 52.8
    },
    "emotions": {
-    "joie": 0.587,
-    "tristesse": 0.211,
-    "anxiete": 0.164,
+    "joie": 0.559,
+    "tristesse": 0.205,
+    "anxiete": 0.231,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.315,
     "fierte": 0.691,
     "excitation": 0.2,
     "concentration": 0.775
@@ -8354,9 +8384,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Rolex : premier examen et début du démontage",
+   "activite": "Rolex",
    "action": "Observe le mouvement à la loupe.",
-   "pensee": "Propre, mais les huiles sont sèches. Le ressort est fatigué, comme prévu.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8371,11 +8401,11 @@
     "energie_ressentie": 52.4
    },
    "emotions": {
-    "joie": 0.567,
-    "tristesse": 0.21,
-    "anxiete": 0.17,
+    "joie": 0.542,
+    "tristesse": 0.205,
+    "anxiete": 0.234,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.315,
     "fierte": 0.681,
     "excitation": 0.2,
     "concentration": 0.813
@@ -8388,9 +8418,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Rolex : premier examen et début du démontage",
+   "activite": "Rolex",
    "action": "Vérifie dans le tiroir de l'établi le ressort de barillet neuf, dans son sachet.",
-   "pensee": "Il est là. Bien.",
+   "pensee": "Rien à redire.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8414,11 +8444,11 @@
     "energie_ressentie": 52.0
    },
    "emotions": {
-    "joie": 0.589,
-    "tristesse": 0.21,
-    "anxiete": 0.177,
+    "joie": 0.566,
+    "tristesse": 0.204,
+    "anxiete": 0.236,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.315,
     "fierte": 0.702,
     "excitation": 0.2,
     "concentration": 0.831
@@ -8431,7 +8461,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Rolex : premier examen et début du démontage",
+   "activite": "Rolex",
    "action": "Démonte la masse oscillante.",
    "pensee": null,
    "appareils_allumes": [
@@ -8448,11 +8478,11 @@
     "energie_ressentie": 51.6
    },
    "emotions": {
-    "joie": 0.568,
-    "tristesse": 0.209,
-    "anxiete": 0.182,
+    "joie": 0.548,
+    "tristesse": 0.204,
+    "anxiete": 0.239,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.316,
     "fierte": 0.692,
     "excitation": 0.2,
     "concentration": 0.841
@@ -8465,9 +8495,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Rolex : premier examen et début du démontage",
+   "activite": "Rolex",
    "action": "Sort le mouvement de la boîte.",
-   "pensee": null,
+   "pensee": "Respirer, puis le geste.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8490,11 +8520,11 @@
     "energie_ressentie": 51.2
    },
    "emotions": {
-    "joie": 0.55,
-    "tristesse": 0.209,
-    "anxiete": 0.218,
+    "joie": 0.532,
+    "tristesse": 0.204,
+    "anxiete": 0.272,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.316,
     "fierte": 0.682,
     "excitation": 0.2,
     "concentration": 0.845
@@ -8507,9 +8537,9 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Rolex : premier examen et début du démontage",
+   "activite": "Rolex",
    "action": "Retire les aiguilles avec un protège-cadran.",
-   "pensee": null,
+   "pensee": "Lentement. C'est la pièce qui décide.",
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8532,11 +8562,11 @@
     "energie_ressentie": 50.8
    },
    "emotions": {
-    "joie": 0.533,
-    "tristesse": 0.208,
-    "anxiete": 0.253,
+    "joie": 0.518,
+    "tristesse": 0.204,
+    "anxiete": 0.303,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.316,
     "fierte": 0.673,
     "excitation": 0.2,
     "concentration": 0.848
@@ -8549,7 +8579,7 @@
    "piece": "atelier",
    "posture": "assis",
    "routine": "rt-atelier",
-   "activite": "Rolex : premier examen et début du démontage",
+   "activite": "Rolex",
    "action": "Retire le cadran et range les pièces dans un plateau compartimenté.",
    "pensee": null,
    "appareils_allumes": [
@@ -8566,11 +8596,11 @@
     "energie_ressentie": 50.4
    },
    "emotions": {
-    "joie": 0.519,
-    "tristesse": 0.208,
-    "anxiete": 0.254,
+    "joie": 0.505,
+    "tristesse": 0.203,
+    "anxiete": 0.302,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.316,
     "fierte": 0.663,
     "excitation": 0.2,
     "concentration": 0.849
@@ -8584,18 +8614,23 @@
    "posture": "debout",
    "routine": "rt-atelier",
    "activite": "Rangement de l'atelier",
-   "action": "Range la Rolex démontée dans son plateau et l'Omega en observation dans le coffre-fort, cadran en haut.",
+   "action": "Range les montres en cours au coffre, ferme et remet la clé dans le tiroir.",
    "pensee": null,
    "objets": [
+    {
+     "objet": "obj-omega",
+     "de": "atelier / établi, démontée dans un plateau",
+     "vers": "atelier / coffre-fort, remontée, en observation"
+    },
     {
      "objet": "obj-rolex",
      "de": "atelier / établi",
      "vers": "atelier / coffre-fort"
     },
     {
-     "objet": "obj-omega",
-     "de": "atelier / établi, démontée dans un plateau",
-     "vers": "atelier / coffre-fort, remontée, en observation"
+     "objet": "obj-cles-coffre",
+     "de": "atelier / serrure du coffre",
+     "vers": "atelier / tiroir de l'établi, à droite"
     }
    ],
    "appareils_allumes": [
@@ -8612,11 +8647,11 @@
     "energie_ressentie": 50.0
    },
    "emotions": {
-    "joie": 0.506,
-    "tristesse": 0.207,
-    "anxiete": 0.256,
+    "joie": 0.493,
+    "tristesse": 0.203,
+    "anxiete": 0.3,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.317,
     "fierte": 0.655,
     "excitation": 0.2,
     "concentration": 0.749
@@ -8630,14 +8665,9 @@
    "posture": "debout",
    "routine": "rt-atelier",
    "activite": "Rangement de l'atelier",
-   "action": "Ferme le coffre, remet la clé dans le tiroir de l'établi, aligne ses outils, éteint la lampe et range ses lunettes.",
-   "pensee": "Journée pleine. Rien n'a résisté.",
+   "action": "Aligne ses outils, éteint la lampe, range ses lunettes.",
+   "pensee": "Ça, c'est fait.",
    "objets": [
-    {
-     "objet": "obj-cles-coffre",
-     "de": "atelier / serrure du coffre",
-     "vers": "atelier / tiroir de l'établi, à droite"
-    },
     {
      "objet": "obj-lunettes",
      "de": "sur son nez",
@@ -8665,11 +8695,11 @@
     "energie_ressentie": 49.6
    },
    "emotions": {
-    "joie": 0.544,
-    "tristesse": 0.207,
-    "anxiete": 0.207,
+    "joie": 0.533,
+    "tristesse": 0.203,
+    "anxiete": 0.249,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.317,
     "fierte": 0.646,
     "excitation": 0.2,
     "concentration": 0.7
@@ -8683,8 +8713,8 @@
    "posture": "assis",
    "routine": "rt-soir",
    "activite": "Temps libre",
-   "action": "S'assoit sur le canapé et allume la radio.",
-   "pensee": "La journée est faite. Le reste est à moi.",
+   "action": "S'assoit dans le canapé et allume la radio.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "atelier",
@@ -8708,11 +8738,11 @@
     "energie_ressentie": 49.2
    },
    "emotions": {
-    "joie": 0.529,
-    "tristesse": 0.207,
-    "anxiete": 0.211,
+    "joie": 0.519,
+    "tristesse": 0.203,
+    "anxiete": 0.251,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.317,
     "fierte": 0.637,
     "excitation": 0.2,
     "concentration": 0.475
@@ -8726,7 +8756,7 @@
    "posture": "assis",
    "routine": "rt-soir",
    "activite": "Temps libre",
-   "action": "Écoute la radio, les jambes allongées.",
+   "action": "Écoute la radio.",
    "pensee": null,
    "appareils_allumes": [
     "radio"
@@ -8742,11 +8772,11 @@
     "energie_ressentie": 48.8
    },
    "emotions": {
-    "joie": 0.515,
-    "tristesse": 0.206,
-    "anxiete": 0.215,
+    "joie": 0.506,
+    "tristesse": 0.203,
+    "anxiete": 0.253,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.317,
     "fierte": 0.629,
     "excitation": 0.2,
     "concentration": 0.362
@@ -8760,18 +8790,10 @@
    "posture": "assis",
    "routine": "rt-soir",
    "activite": "Temps libre",
-   "action": "Regarde la lumière baisser sur les toits par la fenêtre.",
-   "pensee": "Mars. Les jours rallongent, enfin.",
+   "action": "Écoute un reportage sans vraiment le suivre.",
+   "pensee": null,
    "appareils_allumes": [
     "radio"
-   ],
-   "evenements": [
-    {
-     "id": "jours_rallongent",
-     "effets": {
-      "joie": 0.03
-     }
-    }
    ],
    "besoins": {
     "faim": 82.5,
@@ -8784,11 +8806,11 @@
     "energie_ressentie": 48.4
    },
    "emotions": {
-    "joie": 0.532,
-    "tristesse": 0.206,
-    "anxiete": 0.219,
+    "joie": 0.494,
+    "tristesse": 0.203,
+    "anxiete": 0.254,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.317,
     "fierte": 0.621,
     "excitation": 0.2,
     "concentration": 0.306
@@ -8802,10 +8824,19 @@
    "posture": "assis",
    "routine": "rt-soir",
    "activite": "Temps libre",
-   "action": "Ferme les yeux quelques minutes, sans dormir.",
-   "pensee": null,
+   "action": "Écoute la radio.",
+   "pensee": "Elle aurait ri de me voir parler à une pendule.",
    "appareils_allumes": [
     "radio"
+   ],
+   "evenements": [
+    {
+     "id": "pensee_sophie",
+     "effets": {
+      "tristesse": 0.071,
+      "solitude": 0.041
+     }
+    }
    ],
    "besoins": {
     "faim": 82.0,
@@ -8818,11 +8849,11 @@
     "energie_ressentie": 48.0
    },
    "emotions": {
-    "joie": 0.518,
-    "tristesse": 0.206,
-    "anxiete": 0.222,
+    "joie": 0.484,
+    "tristesse": 0.274,
+    "anxiete": 0.256,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.358,
     "fierte": 0.614,
     "excitation": 0.2,
     "concentration": 0.278
@@ -8834,8 +8865,8 @@
    "lieu": "domicile",
    "piece": "cuisine",
    "posture": "debout",
-   "routine": "écart : préparation anticipée",
-   "activite": "Préparation de la soupe",
+   "routine": "rt-soir",
+   "activite": "Préparation du dîner",
    "action": "Sort la marmite en fonte du placard. Épluche trois poireaux.",
    "pensee": null,
    "deplacement": {
@@ -8877,11 +8908,11 @@
     "energie_ressentie": 47.6
    },
    "emotions": {
-    "joie": 0.505,
-    "tristesse": 0.205,
-    "anxiete": 0.225,
+    "joie": 0.475,
+    "tristesse": 0.27,
+    "anxiete": 0.257,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.356,
     "fierte": 0.606,
     "excitation": 0.2,
     "concentration": 0.364
@@ -8893,8 +8924,8 @@
    "lieu": "domicile",
    "piece": "cuisine",
    "posture": "debout",
-   "routine": "écart : préparation anticipée",
-   "activite": "Préparation de la soupe",
+   "routine": "rt-soir",
+   "activite": "Préparation du dîner",
    "action": "Épluche les pommes de terre.",
    "pensee": null,
    "consommation": [
@@ -8920,11 +8951,11 @@
     "energie_ressentie": 47.2
    },
    "emotions": {
-    "joie": 0.493,
-    "tristesse": 0.205,
-    "anxiete": 0.228,
+    "joie": 0.467,
+    "tristesse": 0.266,
+    "anxiete": 0.258,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.354,
     "fierte": 0.599,
     "excitation": 0.2,
     "concentration": 0.407
@@ -8936,10 +8967,10 @@
    "lieu": "domicile",
    "piece": "cuisine",
    "posture": "debout",
-   "routine": "écart : préparation anticipée",
-   "activite": "Préparation de la soupe",
+   "routine": "rt-soir",
+   "activite": "Préparation du dîner",
    "action": "Coupe les légumes et un oignon.",
-   "pensee": "Une soupe pour quatre soirs. Maman faisait pareil.",
+   "pensee": null,
    "consommation": [
     {
      "produit": "oignons",
@@ -8952,15 +8983,6 @@
    "appareils_allumes": [
     "radio"
    ],
-   "evenements": [
-    {
-     "id": "souvenir_tendre",
-     "effets": {
-      "joie": 0.03,
-      "tristesse": 0.02
-     }
-    }
-   ],
    "besoins": {
     "faim": 80.5,
     "soif": 71.7,
@@ -8972,11 +8994,11 @@
     "energie_ressentie": 46.8
    },
    "emotions": {
-    "joie": 0.513,
-    "tristesse": 0.225,
-    "anxiete": 0.231,
+    "joie": 0.459,
+    "tristesse": 0.262,
+    "anxiete": 0.259,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.351,
     "fierte": 0.592,
     "excitation": 0.2,
     "concentration": 0.429
@@ -8988,8 +9010,8 @@
    "lieu": "domicile",
    "piece": "cuisine",
    "posture": "debout",
-   "routine": "écart : préparation anticipée",
-   "activite": "Préparation de la soupe",
+   "routine": "rt-soir",
+   "activite": "Préparation du dîner",
    "action": "Allume la plaque et fait suer les poireaux et l'oignon dans un peu de beurre.",
    "pensee": null,
    "consommation": [
@@ -9016,11 +9038,11 @@
     "energie_ressentie": 46.4
    },
    "emotions": {
-    "joie": 0.501,
-    "tristesse": 0.224,
-    "anxiete": 0.234,
+    "joie": 0.453,
+    "tristesse": 0.259,
+    "anxiete": 0.261,
     "colere": 0.03,
-    "solitude": 0.318,
+    "solitude": 0.349,
     "fierte": 0.585,
     "excitation": 0.2,
     "concentration": 0.439
@@ -9032,8 +9054,8 @@
    "lieu": "domicile",
    "piece": "cuisine",
    "posture": "debout",
-   "routine": "écart : préparation anticipée",
-   "activite": "Préparation de la soupe",
+   "routine": "rt-soir",
+   "activite": "Préparation du dîner",
    "action": "Ajoute l'eau, les pommes de terre et le sel. Couvre, laisse cuire trente minutes.",
    "pensee": null,
    "lumiere": [
@@ -9055,11 +9077,11 @@
     "energie_ressentie": 46.0
    },
    "emotions": {
-    "joie": 0.49,
-    "tristesse": 0.222,
-    "anxiete": 0.237,
+    "joie": 0.447,
+    "tristesse": 0.255,
+    "anxiete": 0.262,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.347,
     "fierte": 0.578,
     "excitation": 0.2,
     "concentration": 0.445
@@ -9103,11 +9125,11 @@
     "energie_ressentie": 45.6
    },
    "emotions": {
-    "joie": 0.48,
-    "tristesse": 0.221,
-    "anxiete": 0.239,
+    "joie": 0.442,
+    "tristesse": 0.252,
+    "anxiete": 0.263,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.345,
     "fierte": 0.572,
     "excitation": 0.2,
     "concentration": 0.522
@@ -9122,25 +9144,10 @@
    "routine": "rt-soir",
    "activite": "Lecture pendant la cuisson",
    "action": "Lit sur le canapé.",
-   "pensee": "Le père protège le fils de tout. Même de ce qu'il pense.",
+   "pensee": null,
    "appareils_allumes": [
     "plaque-1",
     "lumiere-sejour"
-   ],
-   "evenements": [
-    {
-     "id": "lecture_emouvante",
-     "effets": {
-      "tristesse": 0.041
-     }
-    },
-    {
-     "id": "pensee_pere",
-     "effets": {
-      "anxiete": 0.071,
-      "tristesse": 0.041
-     }
-    }
    ],
    "besoins": {
     "faim": 78.5,
@@ -9153,11 +9160,11 @@
     "energie_ressentie": 45.2
    },
    "emotions": {
-    "joie": 0.471,
-    "tristesse": 0.301,
-    "anxiete": 0.313,
+    "joie": 0.437,
+    "tristesse": 0.249,
+    "anxiete": 0.264,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.343,
     "fierte": 0.565,
     "excitation": 0.2,
     "concentration": 0.561
@@ -9188,11 +9195,11 @@
     "energie_ressentie": 44.8
    },
    "emotions": {
-    "joie": 0.464,
-    "tristesse": 0.296,
-    "anxiete": 0.311,
+    "joie": 0.433,
+    "tristesse": 0.246,
+    "anxiete": 0.265,
     "colere": 0.03,
-    "solitude": 0.317,
+    "solitude": 0.342,
     "fierte": 0.559,
     "excitation": 0.2,
     "concentration": 0.581
@@ -9223,11 +9230,11 @@
     "energie_ressentie": 44.4
    },
    "emotions": {
-    "joie": 0.457,
-    "tristesse": 0.29,
-    "anxiete": 0.309,
+    "joie": 0.43,
+    "tristesse": 0.244,
+    "anxiete": 0.265,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.34,
     "fierte": 0.553,
     "excitation": 0.2,
     "concentration": 0.59
@@ -9240,7 +9247,7 @@
    "piece": "cuisine",
    "posture": "debout",
    "routine": "rt-soir",
-   "activite": "Fin de la soupe",
+   "activite": "Fin de la cuisson",
    "action": "Vérifie la cuisson à la pointe du couteau.",
    "pensee": null,
    "deplacement": {
@@ -9271,11 +9278,11 @@
     "energie_ressentie": 44.0
    },
    "emotions": {
-    "joie": 0.45,
-    "tristesse": 0.285,
-    "anxiete": 0.307,
+    "joie": 0.426,
+    "tristesse": 0.241,
+    "anxiete": 0.266,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.339,
     "fierte": 0.547,
     "excitation": 0.2,
     "concentration": 0.52
@@ -9288,7 +9295,7 @@
    "piece": "cuisine",
    "posture": "debout",
    "routine": "rt-soir",
-   "activite": "Fin de la soupe",
+   "activite": "Fin de la cuisson",
    "action": "Éteint la plaque, mixe la soupe au mixeur plongeant.",
    "pensee": null,
    "production": [
@@ -9314,11 +9321,11 @@
     "energie_ressentie": 43.6
    },
    "emotions": {
-    "joie": 0.445,
-    "tristesse": 0.281,
-    "anxiete": 0.306,
+    "joie": 0.424,
+    "tristesse": 0.239,
+    "anxiete": 0.267,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.337,
     "fierte": 0.542,
     "excitation": 0.2,
     "concentration": 0.485
@@ -9331,7 +9338,7 @@
    "piece": "cuisine",
    "posture": "debout",
    "routine": "rt-soir",
-   "activite": "Fin de la soupe",
+   "activite": "Fin de la cuisson",
    "action": "Sert un bol, coupe un morceau de comté et une tranche de pain.",
    "pensee": null,
    "consommation": [
@@ -9371,11 +9378,11 @@
     "energie_ressentie": 43.2
    },
    "emotions": {
-    "joie": 0.44,
-    "tristesse": 0.276,
-    "anxiete": 0.304,
+    "joie": 0.421,
+    "tristesse": 0.237,
+    "anxiete": 0.268,
     "colere": 0.03,
-    "solitude": 0.316,
+    "solitude": 0.336,
     "fierte": 0.536,
     "excitation": 0.2,
     "concentration": 0.468
@@ -9390,7 +9397,7 @@
    "routine": "rt-soir",
    "activite": "Dîner",
    "action": "Dîne à la table du séjour, avec un verre d'eau.",
-   "pensee": "Bonne soupe. Il manque quelqu'un pour le dire.",
+   "pensee": "Ça fait du bien.",
    "deplacement": {
     "chemin": [
      "cuisine",
@@ -9433,11 +9440,11 @@
     "energie_ressentie": 42.8
    },
    "emotions": {
-    "joie": 0.476,
-    "tristesse": 0.292,
-    "anxiete": 0.303,
+    "joie": 0.459,
+    "tristesse": 0.255,
+    "anxiete": 0.268,
     "colere": 0.03,
-    "solitude": 0.367,
+    "solitude": 0.386,
     "fierte": 0.531,
     "excitation": 0.2,
     "concentration": 0.359
@@ -9467,11 +9474,11 @@
     "energie_ressentie": 42.4
    },
    "emotions": {
-    "joie": 0.467,
-    "tristesse": 0.287,
-    "anxiete": 0.302,
+    "joie": 0.452,
+    "tristesse": 0.252,
+    "anxiete": 0.269,
     "colere": 0.03,
-    "solitude": 0.364,
+    "solitude": 0.382,
     "fierte": 0.526,
     "excitation": 0.2,
     "concentration": 0.304
@@ -9514,11 +9521,11 @@
     "energie_ressentie": 42.0
    },
    "emotions": {
-    "joie": 0.46,
-    "tristesse": 0.282,
-    "anxiete": 0.301,
+    "joie": 0.447,
+    "tristesse": 0.249,
+    "anxiete": 0.27,
     "colere": 0.03,
-    "solitude": 0.362,
+    "solitude": 0.378,
     "fierte": 0.521,
     "excitation": 0.2,
     "concentration": 0.477
@@ -9548,11 +9555,11 @@
     "energie_ressentie": 41.6
    },
    "emotions": {
-    "joie": 0.453,
-    "tristesse": 0.277,
-    "anxiete": 0.299,
+    "joie": 0.441,
+    "tristesse": 0.246,
+    "anxiete": 0.27,
     "colere": 0.03,
-    "solitude": 0.359,
+    "solitude": 0.375,
     "fierte": 0.516,
     "excitation": 0.2,
     "concentration": 0.564
@@ -9589,11 +9596,11 @@
     "energie_ressentie": 41.2
    },
    "emotions": {
-    "joie": 0.448,
-    "tristesse": 0.273,
-    "anxiete": 0.298,
+    "joie": 0.437,
+    "tristesse": 0.244,
+    "anxiete": 0.271,
     "colere": 0.03,
-    "solitude": 0.357,
+    "solitude": 0.372,
     "fierte": 0.511,
     "excitation": 0.2,
     "concentration": 0.607
@@ -9623,11 +9630,11 @@
     "energie_ressentie": 40.8
    },
    "emotions": {
-    "joie": 0.442,
-    "tristesse": 0.269,
-    "anxiete": 0.297,
+    "joie": 0.433,
+    "tristesse": 0.241,
+    "anxiete": 0.271,
     "colere": 0.03,
-    "solitude": 0.354,
+    "solitude": 0.369,
     "fierte": 0.507,
     "excitation": 0.2,
     "concentration": 0.628
@@ -9642,18 +9649,9 @@
    "routine": "rt-soir",
    "activite": "Vaisselle",
    "action": "Essuie la vaisselle et la range.",
-   "pensee": "Pas un mot adressé à quelqu'un de toute la journée. Je n'y avais pas pensé.",
+   "pensee": null,
    "appareils_allumes": [
     "lumiere-cuisine"
-   ],
-   "evenements": [
-    {
-     "id": "constat_isolement",
-     "effets": {
-      "solitude": 0.082,
-      "tristesse": 0.041
-     }
-    }
    ],
    "besoins": {
     "faim": 97.0,
@@ -9666,11 +9664,11 @@
     "energie_ressentie": 40.4
    },
    "emotions": {
-    "joie": 0.438,
-    "tristesse": 0.306,
-    "anxiete": 0.296,
+    "joie": 0.429,
+    "tristesse": 0.239,
+    "anxiete": 0.272,
     "colere": 0.03,
-    "solitude": 0.434,
+    "solitude": 0.366,
     "fierte": 0.502,
     "excitation": 0.2,
     "concentration": 0.639
@@ -9722,11 +9720,11 @@
     "energie_ressentie": 40.0
    },
    "emotions": {
-    "joie": 0.434,
-    "tristesse": 0.3,
-    "anxiete": 0.295,
+    "joie": 0.426,
+    "tristesse": 0.237,
+    "anxiete": 0.272,
     "colere": 0.03,
-    "solitude": 0.427,
+    "solitude": 0.363,
     "fierte": 0.498,
     "excitation": 0.2,
     "concentration": 0.645
@@ -9740,8 +9738,8 @@
    "posture": "assis",
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
-   "action": "Allume la lampe d'établi, remet ses lunettes, soulève la cloche de verre. Regarde la photo de René.",
-   "pensee": "À nous deux.",
+   "action": "Allume la lampe d'établi, remet ses lunettes, regarde la photo de René.",
+   "pensee": null,
    "deplacement": {
     "chemin": [
      "wc",
@@ -9795,11 +9793,11 @@
     "energie_ressentie": 39.6
    },
    "emotions": {
-    "joie": 0.46,
-    "tristesse": 0.345,
-    "anxiete": 0.295,
+    "joie": 0.453,
+    "tristesse": 0.286,
+    "anxiete": 0.273,
     "colere": 0.03,
-    "solitude": 0.421,
+    "solitude": 0.36,
     "fierte": 0.494,
     "excitation": 0.2,
     "concentration": 0.797
@@ -9830,11 +9828,11 @@
     "energie_ressentie": 39.2
    },
    "emotions": {
-    "joie": 0.453,
-    "tristesse": 0.337,
-    "anxiete": 0.294,
+    "joie": 0.447,
+    "tristesse": 0.281,
+    "anxiete": 0.273,
     "colere": 0.03,
-    "solitude": 0.416,
+    "solitude": 0.358,
     "fierte": 0.49,
     "excitation": 0.2,
     "concentration": 0.824
@@ -9849,7 +9847,7 @@
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Mesure les diamètres des portées et des pivots.",
-   "pensee": "Pivot : 0,09 ? Non, 0,10. On mesure trois fois.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -9873,11 +9871,11 @@
     "energie_ressentie": 38.8
    },
    "emotions": {
-    "joie": 0.448,
-    "tristesse": 0.33,
-    "anxiete": 0.334,
+    "joie": 0.442,
+    "tristesse": 0.276,
+    "anxiete": 0.314,
     "colere": 0.03,
-    "solitude": 0.41,
+    "solitude": 0.356,
     "fierte": 0.486,
     "excitation": 0.2,
     "concentration": 0.837
@@ -9908,11 +9906,11 @@
     "energie_ressentie": 38.4
    },
    "emotions": {
-    "joie": 0.442,
-    "tristesse": 0.322,
-    "anxiete": 0.331,
+    "joie": 0.438,
+    "tristesse": 0.272,
+    "anxiete": 0.312,
     "colere": 0.03,
-    "solitude": 0.405,
+    "solitude": 0.354,
     "fierte": 0.482,
     "excitation": 0.2,
     "concentration": 0.843
@@ -9950,11 +9948,11 @@
     "energie_ressentie": 38.0
    },
    "emotions": {
-    "joie": 0.438,
-    "tristesse": 0.315,
-    "anxiete": 0.328,
+    "joie": 0.434,
+    "tristesse": 0.268,
+    "anxiete": 0.311,
     "colere": 0.03,
-    "solitude": 0.4,
+    "solitude": 0.352,
     "fierte": 0.478,
     "excitation": 0.2,
     "concentration": 0.847
@@ -9993,11 +9991,11 @@
     "energie_ressentie": 37.6
    },
    "emotions": {
-    "joie": 0.434,
-    "tristesse": 0.309,
-    "anxiete": 0.356,
+    "joie": 0.43,
+    "tristesse": 0.264,
+    "anxiete": 0.339,
     "colere": 0.03,
-    "solitude": 0.396,
+    "solitude": 0.35,
     "fierte": 0.474,
     "excitation": 0.2,
     "concentration": 0.848
@@ -10012,7 +10010,7 @@
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Affûte le burin sur la pierre.",
-   "pensee": "Un burin mal affûté, c'est un axe raté.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10028,11 +10026,11 @@
     "energie_ressentie": 37.2
    },
    "emotions": {
-    "joie": 0.43,
-    "tristesse": 0.303,
-    "anxiete": 0.352,
+    "joie": 0.427,
+    "tristesse": 0.261,
+    "anxiete": 0.336,
     "colere": 0.03,
-    "solitude": 0.392,
+    "solitude": 0.349,
     "fierte": 0.471,
     "excitation": 0.2,
     "concentration": 0.849
@@ -10064,11 +10062,11 @@
     "energie_ressentie": 36.8
    },
    "emotions": {
-    "joie": 0.427,
-    "tristesse": 0.297,
-    "anxiete": 0.348,
+    "joie": 0.424,
+    "tristesse": 0.257,
+    "anxiete": 0.333,
     "colere": 0.03,
-    "solitude": 0.388,
+    "solitude": 0.347,
     "fierte": 0.467,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10100,11 +10098,11 @@
     "energie_ressentie": 36.4
    },
    "emotions": {
-    "joie": 0.424,
-    "tristesse": 0.292,
-    "anxiete": 0.344,
+    "joie": 0.421,
+    "tristesse": 0.254,
+    "anxiete": 0.33,
     "colere": 0.03,
-    "solitude": 0.384,
+    "solitude": 0.346,
     "fierte": 0.464,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10119,7 +10117,7 @@
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Contrôle le diamètre au micromètre.",
-   "pensee": null,
+   "pensee": "Bien.",
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10145,11 +10143,11 @@
     "energie_ressentie": 36.0
    },
    "emotions": {
-    "joie": 0.461,
-    "tristesse": 0.286,
-    "anxiete": 0.34,
+    "joie": 0.459,
+    "tristesse": 0.251,
+    "anxiete": 0.327,
     "colere": 0.03,
-    "solitude": 0.381,
+    "solitude": 0.344,
     "fierte": 0.491,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10189,11 +10187,11 @@
     "energie_ressentie": 35.6
    },
    "emotions": {
-    "joie": 0.455,
-    "tristesse": 0.282,
-    "anxiete": 0.367,
+    "joie": 0.452,
+    "tristesse": 0.248,
+    "anxiete": 0.355,
     "colere": 0.03,
-    "solitude": 0.377,
+    "solitude": 0.343,
     "fierte": 0.487,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10208,7 +10206,7 @@
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Travaille la portée du balancier.",
-   "pensee": "Le copeau sort en spirale bleue. C'est beau.",
+   "pensee": "Grand-père aurait aimé voir ça.",
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10239,11 +10237,11 @@
     "energie_ressentie": 35.2
    },
    "emotions": {
-    "joie": 0.549,
-    "tristesse": 0.277,
-    "anxiete": 0.393,
+    "joie": 0.547,
+    "tristesse": 0.245,
+    "anxiete": 0.382,
     "colere": 0.03,
-    "solitude": 0.374,
+    "solitude": 0.342,
     "fierte": 0.483,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10258,7 +10256,7 @@
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Termine la portée du balancier.",
-   "pensee": null,
+   "pensee": "Lentement. C'est la pièce qui décide.",
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10283,11 +10281,11 @@
     "energie_ressentie": 34.8
    },
    "emotions": {
-    "joie": 0.532,
-    "tristesse": 0.273,
-    "anxiete": 0.417,
+    "joie": 0.531,
+    "tristesse": 0.243,
+    "anxiete": 0.406,
     "colere": 0.03,
-    "solitude": 0.371,
+    "solitude": 0.341,
     "fierte": 0.479,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10302,7 +10300,7 @@
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Contrôle la cote : dans la tolérance.",
-   "pensee": null,
+   "pensee": "Bien.",
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10328,11 +10326,11 @@
     "energie_ressentie": 34.4
    },
    "emotions": {
-    "joie": 0.558,
-    "tristesse": 0.269,
-    "anxiete": 0.41,
+    "joie": 0.556,
+    "tristesse": 0.24,
+    "anxiete": 0.399,
     "colere": 0.03,
-    "solitude": 0.369,
+    "solitude": 0.34,
     "fierte": 0.505,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10347,7 +10345,7 @@
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Commence la portée du plateau.",
-   "pensee": null,
+   "pensee": "Respirer, puis le geste.",
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10372,11 +10370,11 @@
     "energie_ressentie": 34.0
    },
    "emotions": {
-    "joie": 0.541,
-    "tristesse": 0.265,
-    "anxiete": 0.433,
+    "joie": 0.539,
+    "tristesse": 0.238,
+    "anxiete": 0.423,
     "colere": 0.03,
-    "solitude": 0.366,
+    "solitude": 0.339,
     "fierte": 0.501,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10391,7 +10389,7 @@
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Travaille la portée du plateau.",
-   "pensee": null,
+   "pensee": "Respirer, puis le geste.",
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10416,11 +10414,11 @@
     "energie_ressentie": 33.6
    },
    "emotions": {
-    "joie": 0.525,
-    "tristesse": 0.261,
-    "anxiete": 0.455,
+    "joie": 0.524,
+    "tristesse": 0.236,
+    "anxiete": 0.446,
     "colere": 0.03,
-    "solitude": 0.364,
+    "solitude": 0.338,
     "fierte": 0.497,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10459,11 +10457,11 @@
     "energie_ressentie": 33.2
    },
    "emotions": {
-    "joie": 0.512,
-    "tristesse": 0.258,
-    "anxiete": 0.476,
+    "joie": 0.511,
+    "tristesse": 0.234,
+    "anxiete": 0.467,
     "colere": 0.03,
-    "solitude": 0.362,
+    "solitude": 0.338,
     "fierte": 0.493,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10478,7 +10476,7 @@
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Contrôle les cotes. Il reste les pivots, trop délicats pour être commencés si tard.",
-   "pensee": "Pas de pivot à moins de trente minutes de la fin. C'est la règle.",
+   "pensee": "Rien à redire.",
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10504,10 +10502,10 @@
    },
    "emotions": {
     "joie": 0.539,
-    "tristesse": 0.254,
-    "anxiete": 0.465,
+    "tristesse": 0.232,
+    "anxiete": 0.457,
     "colere": 0.03,
-    "solitude": 0.36,
+    "solitude": 0.337,
     "fierte": 0.518,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10538,11 +10536,11 @@
     "energie_ressentie": 32.4
    },
    "emotions": {
-    "joie": 0.524,
-    "tristesse": 0.251,
-    "anxiete": 0.454,
+    "joie": 0.523,
+    "tristesse": 0.23,
+    "anxiete": 0.447,
     "colere": 0.03,
-    "solitude": 0.358,
+    "solitude": 0.336,
     "fierte": 0.514,
     "excitation": 0.2,
     "concentration": 0.75
@@ -10557,7 +10555,7 @@
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Regarde l'ébauche sous la loupe.",
-   "pensee": "Un quart du chemin.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10573,11 +10571,11 @@
     "energie_ressentie": 32.0
    },
    "emotions": {
-    "joie": 0.511,
-    "tristesse": 0.249,
-    "anxiete": 0.445,
+    "joie": 0.51,
+    "tristesse": 0.229,
+    "anxiete": 0.437,
     "colere": 0.03,
-    "solitude": 0.356,
+    "solitude": 0.336,
     "fierte": 0.509,
     "excitation": 0.2,
     "concentration": 0.7
@@ -10608,11 +10606,11 @@
     "energie_ressentie": 31.6
    },
    "emotions": {
-    "joie": 0.499,
-    "tristesse": 0.246,
-    "anxiete": 0.435,
+    "joie": 0.498,
+    "tristesse": 0.227,
+    "anxiete": 0.428,
     "colere": 0.03,
-    "solitude": 0.354,
+    "solitude": 0.335,
     "fierte": 0.505,
     "excitation": 0.2,
     "concentration": 0.675
@@ -10627,19 +10625,10 @@
    "routine": "rt-soir",
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Repense à son grand-père qui tournait ses axes à l'œil.",
-   "pensee": "Grand-père tournait ses axes sans micromètre. Je n'en suis pas là.",
+   "pensee": null,
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
-   ],
-   "evenements": [
-    {
-     "id": "souvenir_grand_pere",
-     "effets": {
-      "tristesse": 0.051,
-      "joie": 0.03
-     }
-    }
    ],
    "besoins": {
     "faim": 85.5,
@@ -10652,14 +10641,14 @@
     "energie_ressentie": 31.2
    },
    "emotions": {
-    "joie": 0.518,
-    "tristesse": 0.294,
-    "anxiete": 0.427,
+    "joie": 0.487,
+    "tristesse": 0.226,
+    "anxiete": 0.42,
     "colere": 0.03,
-    "solitude": 0.353,
+    "solitude": 0.335,
     "fierte": 0.5,
     "excitation": 0.2,
-    "concentration": 0.712
+    "concentration": 0.662
    }
   },
   {
@@ -10694,14 +10683,14 @@
     "energie_ressentie": 30.8
    },
    "emotions": {
-    "joie": 0.505,
-    "tristesse": 0.289,
-    "anxiete": 0.418,
+    "joie": 0.478,
+    "tristesse": 0.224,
+    "anxiete": 0.412,
     "colere": 0.03,
-    "solitude": 0.351,
+    "solitude": 0.334,
     "fierte": 0.496,
     "excitation": 0.2,
-    "concentration": 0.681
+    "concentration": 0.656
    }
   },
   {
@@ -10729,14 +10718,14 @@
     "energie_ressentie": 30.4
    },
    "emotions": {
-    "joie": 0.494,
-    "tristesse": 0.284,
-    "anxiete": 0.411,
+    "joie": 0.469,
+    "tristesse": 0.223,
+    "anxiete": 0.405,
     "colere": 0.03,
-    "solitude": 0.35,
+    "solitude": 0.334,
     "fierte": 0.492,
     "excitation": 0.2,
-    "concentration": 0.666
+    "concentration": 0.653
    }
   },
   {
@@ -10764,14 +10753,14 @@
     "energie_ressentie": 30.0
    },
    "emotions": {
-    "joie": 0.478,
-    "tristesse": 0.279,
-    "anxiete": 0.403,
+    "joie": 0.457,
+    "tristesse": 0.221,
+    "anxiete": 0.398,
     "colere": 0.035,
-    "solitude": 0.349,
+    "solitude": 0.334,
     "fierte": 0.488,
     "excitation": 0.2,
-    "concentration": 0.583
+    "concentration": 0.577
    }
   },
   {
@@ -10805,14 +10794,14 @@
     "energie_ressentie": 29.6
    },
    "emotions": {
-    "joie": 0.465,
-    "tristesse": 0.275,
-    "anxiete": 0.396,
+    "joie": 0.446,
+    "tristesse": 0.22,
+    "anxiete": 0.391,
     "colere": 0.039,
-    "solitude": 0.348,
+    "solitude": 0.333,
     "fierte": 0.484,
     "excitation": 0.2,
-    "concentration": 0.541
+    "concentration": 0.538
    }
   },
   {
@@ -10872,14 +10861,14 @@
     "energie_ressentie": 29.2
    },
    "emotions": {
-    "joie": 0.493,
-    "tristesse": 0.271,
-    "anxiete": 0.39,
+    "joie": 0.476,
+    "tristesse": 0.219,
+    "anxiete": 0.385,
     "colere": 0.043,
-    "solitude": 0.347,
+    "solitude": 0.333,
     "fierte": 0.48,
     "excitation": 0.2,
-    "concentration": 0.321
+    "concentration": 0.319
    }
   },
   {
@@ -10928,11 +10917,11 @@
     "energie_ressentie": 28.8
    },
    "emotions": {
-    "joie": 0.478,
-    "tristesse": 0.267,
-    "anxiete": 0.384,
+    "joie": 0.462,
+    "tristesse": 0.218,
+    "anxiete": 0.379,
     "colere": 0.046,
-    "solitude": 0.346,
+    "solitude": 0.333,
     "fierte": 0.476,
     "excitation": 0.2,
     "concentration": 0.41
@@ -10978,11 +10967,11 @@
     "energie_ressentie": 28.4
    },
    "emotions": {
-    "joie": 0.464,
-    "tristesse": 0.263,
-    "anxiete": 0.378,
+    "joie": 0.451,
+    "tristesse": 0.217,
+    "anxiete": 0.374,
     "colere": 0.048,
-    "solitude": 0.345,
+    "solitude": 0.333,
     "fierte": 0.473,
     "excitation": 0.2,
     "concentration": 0.455
@@ -11012,14 +11001,14 @@
     "energie_ressentie": 28.0
    },
    "emotions": {
-    "joie": 0.452,
-    "tristesse": 0.259,
-    "anxiete": 0.372,
+    "joie": 0.44,
+    "tristesse": 0.216,
+    "anxiete": 0.368,
     "colere": 0.05,
-    "solitude": 0.344,
+    "solitude": 0.332,
     "fierte": 0.469,
     "excitation": 0.2,
-    "concentration": 0.478
+    "concentration": 0.477
    }
   },
   {
@@ -11030,7 +11019,7 @@
    "posture": "debout",
    "routine": "rt-soir",
    "activite": "Coucher",
-   "action": "Se déshabille, range ses vêtements dans l'armoire, met un tee-shirt et pose sa montre sur la table de chevet.",
+   "action": "Se déshabille, range ses vêtements et pose sa montre sur la table de chevet.",
    "pensee": null,
    "deplacement": {
     "chemin": [
@@ -11069,11 +11058,11 @@
     "energie_ressentie": 27.6
    },
    "emotions": {
-    "joie": 0.441,
-    "tristesse": 0.256,
-    "anxiete": 0.367,
+    "joie": 0.431,
+    "tristesse": 0.215,
+    "anxiete": 0.363,
     "colere": 0.052,
-    "solitude": 0.343,
+    "solitude": 0.332,
     "fierte": 0.466,
     "excitation": 0.2,
     "concentration": 0.289
@@ -11087,7 +11076,7 @@
    "posture": "debout",
    "routine": "rt-soir",
    "activite": "Coucher",
-   "action": "S'aperçoit que son livre est resté sur la table basse et va le chercher au séjour.",
+   "action": "S'aperçoit que son livre est resté ailleurs et va le chercher.",
    "pensee": "Le livre. Toujours là où je ne suis pas.",
    "deplacement": {
     "chemin": [
@@ -11144,11 +11133,11 @@
     "energie_ressentie": 27.2
    },
    "emotions": {
-    "joie": 0.432,
-    "tristesse": 0.253,
-    "anxiete": 0.362,
+    "joie": 0.422,
+    "tristesse": 0.214,
+    "anxiete": 0.359,
     "colere": 0.094,
-    "solitude": 0.342,
+    "solitude": 0.332,
     "fierte": 0.462,
     "excitation": 0.2,
     "concentration": 0.194
@@ -11162,7 +11151,7 @@
    "posture": "allongé",
    "routine": "rt-soir",
    "activite": "Coucher",
-   "action": "Se couche et lit (page 134).",
+   "action": "Se couche et lit (page 147).",
    "pensee": null,
    "appareils_allumes": [
     "lumiere-chambre"
@@ -11178,11 +11167,11 @@
     "energie_ressentie": 26.8
    },
    "emotions": {
-    "joie": 0.423,
-    "tristesse": 0.25,
-    "anxiete": 0.358,
+    "joie": 0.415,
+    "tristesse": 0.214,
+    "anxiete": 0.354,
     "colere": 0.089,
-    "solitude": 0.342,
+    "solitude": 0.332,
     "fierte": 0.459,
     "excitation": 0.2,
     "concentration": 0.322
@@ -11197,7 +11186,7 @@
    "routine": "rt-soir",
    "activite": "Coucher",
    "action": "Prend son carnet noir et écrit.",
-   "pensee": "« Lundi 8 mars. Omega terminée, plus 3 plus 5. Premier quart de l'axe. Rien d'autre. C'est bien, une journée où il n'y a rien d'autre. »",
+   "pensee": "« Lundi 8 mars. Omega terminée, en observation. Séance 1 sur l'axe : tournage de l'axe. »",
    "objets": [
     {
      "objet": "obj-carnet",
@@ -11228,11 +11217,11 @@
     "energie_ressentie": 26.4
    },
    "emotions": {
-    "joie": 0.416,
-    "tristesse": 0.217,
-    "anxiete": 0.273,
+    "joie": 0.408,
+    "tristesse": 0.183,
+    "anxiete": 0.27,
     "colere": 0.085,
-    "solitude": 0.341,
+    "solitude": 0.332,
     "fierte": 0.456,
     "excitation": 0.2,
     "concentration": 0.211
@@ -11246,7 +11235,7 @@
    "posture": "allongé",
    "routine": "rt-soir",
    "activite": "Coucher",
-   "action": "Referme le carnet et le repose sous le livre. Relit quelques pages.",
+   "action": "Repose le carnet sous le livre et relit quelques pages (page 152).",
    "pensee": null,
    "objets": [
     {
@@ -11269,11 +11258,11 @@
     "energie_ressentie": 26.0
    },
    "emotions": {
-    "joie": 0.409,
-    "tristesse": 0.216,
-    "anxiete": 0.274,
+    "joie": 0.402,
+    "tristesse": 0.184,
+    "anxiete": 0.271,
     "colere": 0.081,
-    "solitude": 0.341,
+    "solitude": 0.332,
     "fierte": 0.453,
     "excitation": 0.2,
     "concentration": 0.331
@@ -11287,7 +11276,7 @@
    "posture": "allongé",
    "routine": "rt-soir",
    "activite": "Coucher",
-   "action": "Lit encore (page 138).",
+   "action": "Lit encore (page 157).",
    "pensee": null,
    "appareils_allumes": [
     "lumiere-chambre"
@@ -11303,11 +11292,11 @@
     "energie_ressentie": 25.6
    },
    "emotions": {
-    "joie": 0.403,
-    "tristesse": 0.215,
-    "anxiete": 0.274,
+    "joie": 0.397,
+    "tristesse": 0.185,
+    "anxiete": 0.271,
     "colere": 0.078,
-    "solitude": 0.34,
+    "solitude": 0.332,
     "fierte": 0.45,
     "excitation": 0.2,
     "concentration": 0.39
@@ -11322,7 +11311,7 @@
    "routine": "rt-soir",
    "activite": "Endormissement",
    "action": "Éteint la lumière.",
-   "pensee": "Demain, la course. Le réveil est bien sur sept heures.",
+   "pensee": "Demain matin, les quais.",
    "lumiere": [
     "éteint la lumière (chambre)"
    ],
@@ -11338,11 +11327,11 @@
     "energie_ressentie": 25.2
    },
    "emotions": {
-    "joie": 0.398,
-    "tristesse": 0.214,
-    "anxiete": 0.274,
+    "joie": 0.392,
+    "tristesse": 0.185,
+    "anxiete": 0.272,
     "colere": 0.075,
-    "solitude": 0.34,
+    "solitude": 0.332,
     "fierte": 0.447,
     "excitation": 0.2,
     "concentration": 0.245
@@ -11356,8 +11345,8 @@
    "posture": "allongé",
    "routine": "rt-soir",
    "activite": "Endormissement",
-   "action": "Écoute le silence de l'immeuble.",
-   "pensee": "Le tour, demain soir : les pivots.",
+   "action": "Les yeux ouverts dans le noir.",
+   "pensee": "Pas le droit à l'erreur.",
    "appareils_allumes": [],
    "evenements": [
     {
@@ -11379,11 +11368,11 @@
     "energie_ressentie": 24.8
    },
    "emotions": {
-    "joie": 0.393,
-    "tristesse": 0.214,
-    "anxiete": 0.336,
+    "joie": 0.388,
+    "tristesse": 0.186,
+    "anxiete": 0.333,
     "colere": 0.073,
-    "solitude": 0.34,
+    "solitude": 0.332,
     "fierte": 0.445,
     "excitation": 0.2,
     "concentration": 0.173
@@ -11397,7 +11386,7 @@
    "posture": "allongé",
    "routine": "rt-soir",
    "activite": "Endormissement",
-   "action": "Ses pensées ralentissent.",
+   "action": "S'endort.",
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
@@ -11411,11 +11400,11 @@
     "energie_ressentie": 24.4
    },
    "emotions": {
-    "joie": 0.389,
-    "tristesse": 0.213,
-    "anxiete": 0.333,
+    "joie": 0.385,
+    "tristesse": 0.187,
+    "anxiete": 0.33,
     "colere": 0.071,
-    "solitude": 0.339,
+    "solitude": 0.332,
     "fierte": 0.442,
     "excitation": 0.2,
     "concentration": 0.086
@@ -11444,11 +11433,11 @@
     "energie_ressentie": 25.4
    },
    "emotions": {
-    "joie": 0.391,
-    "tristesse": 0.211,
-    "anxiete": 0.327,
+    "joie": 0.388,
+    "tristesse": 0.188,
+    "anxiete": 0.325,
     "colere": 0.059,
-    "solitude": 0.339,
+    "solitude": 0.333,
     "fierte": 0.437,
     "excitation": 0.2,
     "concentration": 0.043
@@ -11477,11 +11466,11 @@
     "energie_ressentie": 26.4
    },
    "emotions": {
-    "joie": 0.393,
-    "tristesse": 0.21,
-    "anxiete": 0.322,
+    "joie": 0.39,
+    "tristesse": 0.19,
+    "anxiete": 0.32,
     "colere": 0.051,
-    "solitude": 0.338,
+    "solitude": 0.333,
     "fierte": 0.432,
     "excitation": 0.2,
     "concentration": 0.022
@@ -11510,11 +11499,11 @@
     "energie_ressentie": 27.4
    },
    "emotions": {
-    "joie": 0.394,
-    "tristesse": 0.209,
-    "anxiete": 0.317,
+    "joie": 0.392,
+    "tristesse": 0.191,
+    "anxiete": 0.316,
     "colere": 0.045,
-    "solitude": 0.338,
+    "solitude": 0.333,
     "fierte": 0.427,
     "excitation": 0.2,
     "concentration": 0.011
@@ -11543,11 +11532,11 @@
     "energie_ressentie": 28.4
    },
    "emotions": {
-    "joie": 0.396,
-    "tristesse": 0.208,
-    "anxiete": 0.313,
+    "joie": 0.394,
+    "tristesse": 0.192,
+    "anxiete": 0.312,
     "colere": 0.04,
-    "solitude": 0.337,
+    "solitude": 0.333,
     "fierte": 0.423,
     "excitation": 0.2,
     "concentration": 0.005
@@ -11576,11 +11565,11 @@
     "energie_ressentie": 29.4
    },
    "emotions": {
-    "joie": 0.396,
-    "tristesse": 0.207,
-    "anxiete": 0.31,
+    "joie": 0.395,
+    "tristesse": 0.193,
+    "anxiete": 0.308,
     "colere": 0.037,
-    "solitude": 0.337,
+    "solitude": 0.333,
     "fierte": 0.419,
     "excitation": 0.2,
     "concentration": 0.003
@@ -11609,11 +11598,11 @@
     "energie_ressentie": 30.4
    },
    "emotions": {
-    "joie": 0.397,
-    "tristesse": 0.206,
-    "anxiete": 0.306,
+    "joie": 0.396,
+    "tristesse": 0.194,
+    "anxiete": 0.305,
     "colere": 0.035,
-    "solitude": 0.336,
+    "solitude": 0.333,
     "fierte": 0.415,
     "excitation": 0.2,
     "concentration": 0.001
@@ -11642,11 +11631,11 @@
     "energie_ressentie": 31.4
    },
    "emotions": {
-    "joie": 0.398,
-    "tristesse": 0.206,
-    "anxiete": 0.304,
+    "joie": 0.397,
+    "tristesse": 0.194,
+    "anxiete": 0.302,
     "colere": 0.034,
-    "solitude": 0.336,
+    "solitude": 0.333,
     "fierte": 0.411,
     "excitation": 0.2,
     "concentration": 0.001
@@ -11676,10 +11665,10 @@
    },
    "emotions": {
     "joie": 0.398,
-    "tristesse": 0.205,
-    "anxiete": 0.301,
+    "tristesse": 0.195,
+    "anxiete": 0.3,
     "colere": 0.033,
-    "solitude": 0.336,
+    "solitude": 0.333,
     "fierte": 0.408,
     "excitation": 0.2,
     "concentration": 0.0
@@ -11708,11 +11697,11 @@
     "energie_ressentie": 33.4
    },
    "emotions": {
-    "joie": 0.399,
-    "tristesse": 0.205,
-    "anxiete": 0.299,
+    "joie": 0.398,
+    "tristesse": 0.195,
+    "anxiete": 0.298,
     "colere": 0.032,
-    "solitude": 0.336,
+    "solitude": 0.333,
     "fierte": 0.405,
     "excitation": 0.2,
     "concentration": 0.0

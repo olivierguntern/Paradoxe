@@ -1,9 +1,8 @@
 """Fait vivre le personnage par l'agent autonome, jour après jour.
 
 Usage :
-  python3 outils/simuler_agent.py 2010-03-08 2010-03-10 --dossier data/simulations/thomas-berthier
-  python3 outils/simuler_agent.py 2010-03-11 2010-03-11 --dossier data/timelines/thomas-berthier \\
-      --memoire data/simulations/thomas-berthier
+  python3 outils/simuler_agent.py 2010-03-08 2010-03-14 --dossier data/timelines/thomas-berthier
+  python3 outils/simuler_agent.py 2010-03-08 2010-03-10 --dossier data/simulations/thomas-berthier --sans-courses
 
 Chaque jour part de l'état final de la veille, lu dans --dossier (ou de la
 fiche pour le premier jour de la période). Avec --memoire, l'état physique
@@ -19,6 +18,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import moteur
 from agent import Agent
+from agent_epicier import AgentEpicier
 
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -30,6 +30,7 @@ def main():
     ap.add_argument("--personnage", default="thomas-berthier")
     ap.add_argument("--dossier", required=True)
     ap.add_argument("--memoire")
+    ap.add_argument("--sans-courses", action="store_true", help="sans les courses à l'épicerie (pour rejouer les journées de référence)")
     a = ap.parse_args()
     fiche = json.load(open(os.path.join(RACINE, "data", "personnages", f"{a.personnage}.json")))
     dossier_agent = os.path.join(RACINE, "data", "agents", a.personnage)
@@ -45,7 +46,9 @@ def main():
             etat = moteur.etat_depuis_veille(os.path.join(a.dossier, f"{veille}.json"))
             if a.memoire:
                 etat["agent"] = moteur.etat_depuis_veille(os.path.join(a.memoire, f"{veille}.json"))["agent"]
-        agent = Agent(fiche, dossier_agent, date, etat)
+        type_agent = json.load(open(os.path.join(dossier_agent, "regles.json"))).get("type")
+        agent = (AgentEpicier if type_agent == "commerce" else Agent)(fiche, dossier_agent, date, etat)
+        agent.sans_courses = a.sans_courses
         try:
             steps, etat_final, stats = agent.vivre()
         except moteur.Incoherence as e:

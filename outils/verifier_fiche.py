@@ -24,16 +24,18 @@ for a in d['agenda_semaine']:
     for o in a['objets_necessaires']:
         if o not in objs: errs.append(f'objet inconnu {o}')
     chk(a['debut'], a['id']); chk(a['fin'], a['id'])
-for t in d['travail']['travaux_en_cours_au_debut']:
+travaux = d.get('travail', {}).get('travaux_en_cours_au_debut', [])
+for t in travaux:
     if t['objet'] not in objs: errs.append(f"objet inconnu {t['objet']}")
 for au in d['habitudes']['automatismes']:
     for o in au.get('objets', []):
         if o not in objs: errs.append(f'objet inconnu {o}')
 pl = d['domicile']['plan']['liaisons']
+noeuds = pieces | {'palier'} | set(d['domicile']['plan'].get('noeuds_exterieurs', []))
 for l in pl:
     for k in ('a','b'):
-        if l[k] not in pieces | {'palier'}: errs.append(f"pièce inconnue dans le plan : {l[k]}")
-reach = {'entree'}
+        if l[k] not in noeuds: errs.append(f"pièce inconnue dans le plan : {l[k]}")
+reach = {d['domicile']['pieces'][0]['id']}
 changed = True
 while changed:
     changed = False
@@ -60,10 +62,11 @@ for j in jours:
         if b[0] < a[1]: errs.append(f"{j}: chevauchement {a[2]} {a[0]//60:02}:{a[0]%60:02}-{a[1]//60:02}:{a[1]%60:02} / {b[2]} {b[0]//60:02}:{b[0]%60:02}")
         elif b[0] > a[1]: errs.append(f"{j}: trou {a[1]//60:02}:{a[1]%60:02}-{b[0]//60:02}:{b[0]%60:02}")
     print(j, f"{steps[0][0]//60:02}:{steps[0][0]%60:02} → coucher", f"{len(steps)} étapes")
-cap = 0
-for j in jours[:5]:
-    cap += 415 - (60 if j == 'vendredi' else 0)
-need = sum(t['temps_restant_minutes'] for t in d['travail']['travaux_en_cours_au_debut'])
-print('capacité atelier (min):', cap, '| travaux:', need)
+if travaux:
+    cap = 0
+    for j in jours[:5]:
+        cap += 415 - (60 if j == 'vendredi' else 0)
+    need = sum(t['temps_restant_minutes'] for t in travaux)
+    print('capacité atelier (min):', cap, '| travaux:', need)
 print('\n'.join(errs) or 'OK')
 sys.exit(1 if errs else 0)

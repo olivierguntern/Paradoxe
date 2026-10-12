@@ -1,0 +1,16 @@
+{
+  "principe": "Événements réels de la semaine, vus ou entendus par plusieurs habitants. Chaque agent qui les suit les vit aux mêmes heures.",
+  "match-real-lyon": {
+    "date": "2010-03-10",
+    "nom": "Real Madrid – Olympique Lyonnais, 8e de finale retour de Ligue des champions",
+    "diffusion": "télévision",
+    "moments": [
+      { "heure": "20:45", "texte": "Coup d'envoi au stade Santiago-Bernabéu.", "ev": "match_tension" },
+      { "heure": "20:50", "texte": "Cristiano Ronaldo ouvre le score pour le Real dès la sixième minute.", "ev": "but_adverse" },
+      { "heure": "21:30", "texte": "Mi-temps.", "pause": true },
+      { "heure": "21:45", "texte": "Reprise. Le Real attaque d'emblée.", "ev": "match_tension" },
+      { "heure": "22:15", "texte": "Miralem Pjanić égalise à la 75e minute.", "ev": "but_equipe" },
+      { "heure": "22:35", "texte": "Coup de sifflet final : 1-1. Lyon est qualifié pour les quarts de finale.", "ev": "qualification_equipe", "fin": true }
+    ]
+  }
+}

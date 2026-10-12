@@ -1,7 +1,7 @@
 {
   "meta": {
     "id": "thomas-berthier",
-    "version": 8,
+    "version": 9,
     "description": "Personnage d'étude n°1 : fiche complète servant de base à la génération de sa timeline sur une semaine, vécue seul.",
     "periode": {
       "debut": "2010-03-08T00:00",
@@ -12,10 +12,10 @@
     },
     "deterministe": true,
     "contraintes_du_test": [
-      "Aucun autre personnage n'apparaît ni n'est rencontré.",
+      "Un seul autre personnage simulé : Robert Chazal, l'épicier de la Grande-Rue de la Croix-Rousse, avec sa propre fiche et sa propre semaine (data/personnages/robert-chazal.json).",
       "Aucun contact à distance : ni téléphone, ni SMS, ni e-mail, ni réseau social.",
-      "Thomas reste chez lui, sauf pour ses sorties de course à pied, qu'il fait seul.",
-      "Les passants éventuels pendant la course ne sont pas simulés.",
+      "Thomas reste chez lui, sauf pour ses sorties de course à pied, qu'il fait seul, et ses courses à l'épicerie de Robert Chazal, le mardi, le jeudi et le samedi.",
+      "Les passants et les autres clients de l'épicerie ne sont pas simulés.",
       "Aucun élément perturbateur ni paradoxe n'est prévu : ce que Thomas croit correspond toujours à la réalité.",
       "Les autres personnes n'existent que dans sa mémoire et sa vie intérieure."
     ],
@@ -262,6 +262,7 @@
       "souvenir_excitant": { "description": "repenser à un moment fort de la journée", "effets": { "excitation": 0.05, "joie": 0.02 } },
       "accomplissement_intime": { "description": "réussir quelque chose qui compte profondément pour lui", "effets": { "joie": 0.3, "fierte": 0.3, "tristesse": 0.08, "excitation": 0.15 } },
       "livre_termine": { "description": "finir un livre", "effets": { "tristesse": 0.05, "joie": 0.05 } },
+      "echange_commercant": { "description": "quelques mots avec un commerçant qui le connaît", "effets": { "solitude": -0.03, "joie": 0.02 } },
       "fin_de_course": { "description": "fin d'une sortie de course", "effets": { "anxiete": -0.2, "joie": 0.1 } }
     }
   },
@@ -323,8 +324,8 @@
     "social": {
       "variation_par_pas": { "eveille": -0.04, "endormi": 0 },
       "seuil_alerte": 30,
-      "satisfaction": { "radio_par_pas": 0.15, "television_par_pas": 0.2, "match_televise_par_pas": 0.3 },
-      "notes": "Aucune interaction réelle pendant la semaine : la radio et la télévision n'atténuent que faiblement le manque, qui augmente lentement."
+      "satisfaction": { "radio_par_pas": 0.15, "television_par_pas": 0.2, "match_televise_par_pas": 0.3, "echange_bref": 5 },
+      "notes": "Ses seules interactions réelles de la semaine sont les quelques mots échangés avec l'épicier ; la radio et la télévision n'atténuent que faiblement le manque, qui augmente lentement."
     },
     "detente": {
       "variation_par_pas": { "travail": -0.25, "eveille_autre": -0.05 },
@@ -362,7 +363,7 @@
     { "date": "2009-09-01", "evenement": "Se déclare auto-entrepreneur. Ses clients lui sont envoyés par d'anciens clients de la boutique et par deux bijoutiers lyonnais." },
     { "date": "2009-11", "evenement": "Commence la restauration de la montre de son grand-père." },
     { "date": "2010-01-14", "evenement": "Infarctus de son père, pose d'un stent à Besançon. Thomas passe trois jours là-bas." },
-    { "date": "2010-03-06", "evenement": "Fait les grosses courses de la semaine et reçoit les dernières montres à réparer. Il ne prévoit aucune sortie la semaine suivante, hors course à pied." }
+    { "date": "2010-03-06", "evenement": "Fait les grosses courses de la semaine et reçoit les dernières montres à réparer. La semaine suivante, il ne sortira que pour courir et pour compléter ses provisions à l'épicerie de la Grande-Rue, tous les deux jours." }
   ],
 
   "personnes_en_memoire": [
@@ -373,6 +374,10 @@
     { "id": "julien-marchetti", "nom": "Julien Marchetti", "lien": "meilleur ami depuis le collège, vit à Lyon", "attachement": 0.8, "souvenir_dominant": "les matchs de l'OL regardés ensemble", "sentiment": "affection, un peu d'envie pour son aisance" },
     { "id": "henri-fournier", "nom": "Henri Fournier", "lien": "ancien patron et mentor, retraité", "attachement": 0.7, "souvenir_dominant": "« Une montre, ça se respecte, même une à quartz. »", "sentiment": "reconnaissance" },
     { "id": "sophie-lambert", "nom": "Sophie Lambert", "lien": "ex-compagne (2005-2009), partie à Montréal", "attachement": 0.5, "souvenir_dominant": "les dimanches matin au marché de la Croix-Rousse", "sentiment": "nostalgie, regret discret" }
+  ],
+
+  "personnes_du_quartier": [
+    { "id": "robert-chazal", "nom": "Robert Chazal", "role": "épicier de la Grande-Rue de la Croix-Rousse", "simule": true, "relation": "Client depuis son installation en 2006. Quelques mots à chaque passage : le temps, les montres, l'OL. Robert l'appelle « l'horloger »." }
   ],
 
   "economie": {
@@ -439,6 +444,13 @@
       "nom": "Parcours de course des quais de Saône",
       "type": "extérieur",
       "description": "Descente des pentes de la Croix-Rousse, puis bord de Saône vers le nord. Boucle courte de 7 km, boucle longue de 12 km."
+    },
+    {
+      "id": "epicerie-chazal",
+      "nom": "Épicerie Chazal",
+      "type": "commerce",
+      "adresse": "Grande-Rue de la Croix-Rousse, 69004 Lyon",
+      "description": "Épicerie de quartier tenue par Robert Chazal, à 500 m de l'appartement. Ouverte du mardi au samedi de 7:30 à 12:30 et de 15:30 à 19:30, le dimanche de 8:00 à 12:30, fermée le lundi."
     }
   ],
 
@@ -465,6 +477,15 @@
         { "de": "bord de Saône", "a": "bord de Saône", "moyen": "course le long des quais, aller-retour vers le nord", "distance_m": 9000, "denivele_m": 0, "duree_minutes": 65 },
         { "de": "bord de Saône", "a": "rue", "moyen": "marche dans la montée des pentes", "distance_m": 1500, "denivele_m": 85, "duree_minutes": 14 },
         { "de": "rue", "a": "appartement", "moyen": "escalier (montée de 3 étages)", "duree_minutes": 1 }
+      ]
+    },
+    {
+      "id": "trajet-epicerie",
+      "nom": "Aller à l'épicerie (environ 500 m)",
+      "valeurs": "approximatives",
+      "segments": [
+        { "de": "appartement", "a": "rue", "moyen": "escalier (descente de 3 étages)", "duree_minutes": 1 },
+        { "de": "rue", "a": "épicerie", "moyen": "marche : rue d'Austerlitz, place de la Croix-Rousse, Grande-Rue", "distance_m": 500, "denivele_m": 0, "duree_minutes": 7 }
       ]
     }
   ],
@@ -586,6 +607,8 @@
     { "id": "obj-montre-poignet", "nom": "Montre mécanique LIP Himalaya des années 1970", "description": "Remontage manuel ; Thomas la remonte chaque matin. Réserve de marche : 40 h.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.8 },
     { "id": "obj-reveil", "nom": "Réveil radio-piloté", "description": "Se règle seul sur le signal horaire officiel ; sert de référence pour régler les montres. Sonnerie à 07:00 du lundi au vendredi.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.7 },
     { "id": "obj-portefeuille", "nom": "Portefeuille en cuir", "contenu": ["35 € en espèces", "carte bancaire", "carte Vitale", "carte d'identité"], "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "tiroir de la commode" }, "importance": 0.6, "usage": "aucun pendant la semaine" },
+    { "id": "obj-cabas", "nom": "Cabas en toile", "description": "Sac de courses en toile écrue, rapporté d'un salon d'horlogerie à Besançon.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-manteau" }, "importance": 0.1 },
+    { "id": "obj-veste", "nom": "Veste en laine gris foncé", "description": "Sa veste de tous les jours pour sortir.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-manteau" }, "importance": 0.1 },
     { "id": "obj-carnet", "nom": "Carnet noir", "description": "Journal personnel, listes et réflexions du soir.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet, sous le livre" }, "importance": 0.7 },
     { "id": "obj-livre", "nom": "Livre « La Route » de Cormac McCarthy", "description": "Marque-page à la page 112 sur 252 ; lit environ 20 pages par séance.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.2 },
     { "id": "obj-livre-courir", "nom": "Livre « Courir » de Jean Echenoz", "description": "Roman sur le coureur Emil Zátopek (Éditions de Minuit, 2008, 142 pages). Pas encore commencé.", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "bibliothèque" }, "importance": 0.2 },
@@ -622,13 +645,15 @@
       "Ses menus de la semaine et l'état de ses provisions.",
       "Le match Real Madrid – Lyon est mercredi 10 mars à 20:45 à la télévision (Lyon a gagné le match aller 1-0).",
       "Son grand-père est mort le 20 mars 2004.",
-      "Les montres terminées seront expédiées le lundi 15 mars."
+      "Les montres terminées seront expédiées le lundi 15 mars.",
+      "L'épicerie Chazal est ouverte du mardi au samedi de 7:30 à 12:30 et de 15:30 à 19:30, le dimanche matin ; fermée le lundi."
     ]
   },
 
   "habitudes": {
     "automatismes": [
       { "id": "aut-cles", "description": "Pose toujours ses clés dans le vide-poche de l'entrée en rentrant.", "objets": ["obj-cles"] },
+      { "id": "aut-courses", "description": "Fait ses courses tous les deux jours à l'épicerie de la Grande-Rue, avec son cabas ; il note d'abord ce qui manque en regardant le réfrigérateur et le placard.", "objets": ["obj-cabas", "obj-portefeuille"] },
       { "id": "aut-montre", "description": "Remonte sa montre chaque matin juste après le petit-déjeuner et la règle sur le réveil radio-piloté.", "objets": ["obj-montre-poignet", "obj-reveil"] },
       { "id": "aut-porte", "description": "Vérifie deux fois que la porte est fermée à clé quand il part courir." },
       { "id": "aut-outils", "description": "Aligne ses outils dans le même ordre avant et après chaque séance à l'établi.", "objets": ["obj-outils"] },
@@ -776,7 +801,10 @@
     { "id": "ag-gestion", "debut": "2010-03-12T16:50", "fin": "2010-03-12T17:50", "lieu": "domicile", "quoi": "Livre des recettes, factures, préparation des colis", "engagement": "ferme", "objets_necessaires": ["obj-classeur-compta", "obj-netbook"] },
     { "id": "ag-menage", "debut": "2010-03-13T10:00", "fin": "2010-03-13T11:30", "lieu": "domicile", "quoi": "Ménage de la semaine", "engagement": "souple", "objets_necessaires": [] },
     { "id": "ag-course-dimanche", "debut": "2010-03-14T08:55", "fin": "2010-03-14T10:35", "lieu": "quais-de-saone", "quoi": "Sortie longue de course à pied", "engagement": "souple", "objets_necessaires": ["obj-tenue-course", "obj-chaussures-course", "obj-cles"] },
-    { "id": "ag-planification", "debut": "2010-03-14T17:00", "fin": "2010-03-14T17:30", "lieu": "domicile", "quoi": "Planifier la semaine suivante", "engagement": "souple", "objets_necessaires": ["obj-carnet"] }
+    { "id": "ag-planification", "debut": "2010-03-14T17:00", "fin": "2010-03-14T17:30", "lieu": "domicile", "quoi": "Planifier la semaine suivante", "engagement": "souple", "objets_necessaires": ["obj-carnet"] },
+    { "id": "ag-courses-mardi", "debut": "2010-03-09T18:00", "fin": "2010-03-09T18:40", "lieu": "epicerie-chazal", "quoi": "Courses à l'épicerie de la Grande-Rue", "engagement": "souple", "objets_necessaires": ["obj-cabas", "obj-portefeuille", "obj-cles", "obj-veste"] },
+    { "id": "ag-courses-jeudi", "debut": "2010-03-11T18:00", "fin": "2010-03-11T18:40", "lieu": "epicerie-chazal", "quoi": "Courses à l'épicerie de la Grande-Rue", "engagement": "souple", "objets_necessaires": ["obj-cabas", "obj-portefeuille", "obj-cles", "obj-veste"] },
+    { "id": "ag-courses-samedi", "debut": "2010-03-13T11:30", "fin": "2010-03-13T12:10", "lieu": "epicerie-chazal", "quoi": "Courses à l'épicerie de la Grande-Rue", "engagement": "souple", "objets_necessaires": ["obj-cabas", "obj-portefeuille", "obj-cles", "obj-veste"] }
   ],
 
   "objectifs": [

@@ -177,5 +177,70 @@
    "toilettes",
    "soif"
   ]
+ },
+ "courses": {
+  "principe": "Tous les deux jours, il complète ses provisions à l'épicerie de la Grande-Rue : après la fermeture de l'atelier en semaine, après le ménage le samedi. Il complète la corbeille de fruits, les yaourts et les œufs, et rachète ce qui passe sous son seuil.",
+  "jours": [
+   "mardi",
+   "jeudi",
+   "samedi"
+  ],
+  "commerce": "robert-chazal",
+  "liste": [
+   {
+    "produit": "pommes",
+    "cible": 8,
+    "minimum": 2
+   },
+   {
+    "produit": "oranges",
+    "cible": 6,
+    "minimum": 2
+   },
+   {
+    "produit": "bananes",
+    "cible": 6,
+    "minimum": 2
+   },
+   {
+    "produit": "yaourts",
+    "cible": 8,
+    "minimum": 4
+   },
+   {
+    "produit": "oeufs",
+    "cible": 12,
+    "minimum": 6
+   },
+   {
+    "produit": "lait_uht",
+    "seuil": 1000,
+    "achat": 1000
+   },
+   {
+    "produit": "beurre",
+    "seuil": 150,
+    "achat": 250
+   },
+   {
+    "produit": "cafe_moulu",
+    "seuil": 160,
+    "achat": 250
+   },
+   {
+    "produit": "chocolat_noir",
+    "seuil": 25,
+    "achat": 20
+   },
+   {
+    "produit": "comte",
+    "seuil": 300,
+    "achat": 250
+   }
+  ],
+  "paiement": {
+   "especes_si_moins_de": 15,
+   "garde_en_especes": 5
+  }
  }
 }

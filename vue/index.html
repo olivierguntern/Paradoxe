@@ -14,7 +14,9 @@
   --encre: #1c2a33;
   --trait: #3b5466;
   --trait-leger: #a7b5bd;
+  --trait-fin: #c9d3d8;
   --laiton: #9a6a14;
+  --brique: #9b3f2a;
   --lampe: #f0b84f;
   --verre: #3f86ab;
   --alerte: #b8402e;
@@ -27,14 +29,14 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --papier: #0d1519; --planche: #121c22; --encre: #dbe4e9; --trait: #8fb0c2; --trait-leger: #3a4c57;
-    --laiton: #e3a943; --lampe: #e8b24f; --verre: #6db1d4; --alerte: #ec7a62; --nuit: #091014; --regle: #26353f;
+    --papier: #0d1519; --planche: #121c22; --encre: #dbe4e9; --trait: #8fb0c2; --trait-leger: #3a4c57; --trait-fin: #26343d;
+    --laiton: #e3a943; --brique: #e8866b; --lampe: #e8b24f; --verre: #6db1d4; --alerte: #ec7a62; --nuit: #091014; --regle: #26353f;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --papier: #0d1519; --planche: #121c22; --encre: #dbe4e9; --trait: #8fb0c2; --trait-leger: #3a4c57;
-  --laiton: #e3a943; --lampe: #e8b24f; --verre: #6db1d4; --alerte: #ec7a62; --nuit: #091014; --regle: #26353f;
+  --papier: #0d1519; --planche: #121c22; --encre: #dbe4e9; --trait: #8fb0c2; --trait-leger: #3a4c57; --trait-fin: #26343d;
+  --laiton: #e3a943; --brique: #e8866b; --lampe: #e8b24f; --verre: #6db1d4; --alerte: #ec7a62; --nuit: #091014; --regle: #26353f;
   color-scheme: dark;
 }
 html, body { height: 100%; }
@@ -49,16 +51,18 @@ button, select, input { font: inherit; color: inherit; }
 .app { display: grid; grid-template-rows: auto 1fr auto; gap: 10px; height: 100%; max-width: 1500px; margin: 0 auto; }
 
 /* bandeau */
-.bandeau { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; }
+.bandeau { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
 .bandeau h1 { font-family: var(--f-titre); font-weight: 600; font-size: 1.25rem; letter-spacing: .02em; margin: 0; text-wrap: balance; }
 .bandeau h1 span { font-weight: 400; color: var(--trait); }
-.jours { display: flex; flex-wrap: wrap; gap: 4px; }
-.jours button {
+.groupe { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.groupe .etiq { margin-right: 4px; }
+.groupe button {
   border: 1px solid var(--regle); background: var(--planche); padding: 3px 9px; border-radius: 3px; cursor: pointer;
   font-size: .85rem; display: inline-flex; gap: 5px; align-items: baseline;
 }
-.jours button small { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--trait); }
-.jours button[aria-pressed="true"] { border-color: var(--laiton); box-shadow: inset 0 -2px 0 var(--laiton); }
+.groupe button small { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--trait); }
+.groupe button[aria-pressed="true"] { border-color: var(--laiton); box-shadow: inset 0 -2px 0 var(--laiton); }
+.groupe button .pastille { width: 9px; height: 9px; border-radius: 50%; display: inline-block; align-self: center; }
 
 /* planche */
 .planche { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 10px; min-height: 0; }
@@ -68,40 +72,59 @@ button, select, input { font: inherit; color: inherit; }
 .legende-scene { position: absolute; left: 10px; top: 8px; display: grid; gap: 1px; pointer-events: none; }
 .legende-scene .ou { font-family: var(--f-titre); font-weight: 600; font-size: 1rem; }
 .legende-scene .detail { font-size: .8rem; color: var(--trait); }
-.vues { position: absolute; right: 8px; top: 8px; display: flex; gap: 2px; }
+.vues { position: absolute; right: 8px; top: 8px; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 2px; max-width: 70%; }
 .vues button { border: 1px solid var(--regle); background: var(--planche); font-size: .75rem; padding: 2px 7px; cursor: pointer; border-radius: 3px; }
 .vues button[aria-pressed="true"] { border-color: var(--trait); color: var(--encre); font-weight: 600; }
 .etiquette-objet { position: absolute; left: 10px; bottom: 8px; font-size: .8rem; background: var(--planche); border: 1px solid var(--regle); padding: 2px 7px; border-radius: 3px; }
-.statut { font-size: .72rem; color: var(--trait); margin: 0; }
 
-/* traits de la scène */
-.scene polyline, .scene polygon, .quartier polyline, .quartier polygon { fill: none; stroke: var(--trait); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; }
-.scene .leger, .quartier .leger { stroke: var(--trait-leger); }
-.scene .tirets, .quartier .tirets { stroke-dasharray: 4 4; }
+/* traits de la scène ; --px vaut un pixel d'écran en unités du dessin (mètres) */
+.scene path, .scene polyline, .scene polygon, .carte path, .carte polyline, .carte polygon { fill: none; stroke: var(--trait); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; }
+.scene .leger, .carte .leger { stroke: var(--trait-leger); }
+.scene .fin { stroke: var(--trait-fin); }
+.scene .tirets { stroke-dasharray: 4 4; }
 .scene .mur { stroke: var(--encre); stroke-width: 1.4; }
 .scene .vitre { stroke: var(--verre); stroke-width: 1.2; }
+.scene .eau, .carte .eau { fill: var(--verre); fill-opacity: .12; stroke: var(--verre); }
+.scene .arbre { stroke: var(--trait-leger); }
+.scene .trajet-course { stroke: var(--laiton); stroke-dasharray: 6 5; opacity: .55; }
+.scene .trajet-courses { stroke: var(--brique); stroke-dasharray: 3 4; opacity: .6; }
 .scene .sol { fill: transparent; stroke: var(--trait-leger); transition: fill .4s; }
 .scene .sol.allumee { fill: var(--lampe); fill-opacity: .28; }
-.scene .meuble polyline, .scene .meuble polygon { stroke: var(--trait); stroke-width: .9; }
+.scene .meuble { stroke: var(--trait); stroke-width: .9; }
 .scene .objet polygon { fill: var(--planche); stroke: var(--encre); stroke-width: 1; cursor: pointer; }
 .scene .objet.deplace polygon { fill: var(--laiton); stroke: var(--laiton); }
 .scene .appareil { fill: var(--lampe); stroke: var(--laiton); stroke-width: 1; vector-effect: non-scaling-stroke; }
 .scene .halo { fill: none; stroke: var(--lampe); stroke-width: 1.2; vector-effect: non-scaling-stroke; animation: halo 1.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
 @keyframes halo { from { opacity: .9; transform: scale(.6); } to { opacity: 0; transform: scale(1.8); } }
-.scene .thomas polyline { stroke: var(--laiton); stroke-width: 2.6; }
-.scene .thomas circle, .quartier .thomas { fill: var(--planche); stroke: var(--laiton); stroke-width: 2.2; vector-effect: non-scaling-stroke; }
-.scene .ombre { fill: var(--laiton); fill-opacity: .18; stroke: none; }
-/* --px vaut la taille d'un pixel d'écran en unités du dessin (mètres) ; le texte garde ainsi une taille fixe quel que soit le cadrage */
-.scene text, .quartier text { font-family: var(--f-titre); fill: var(--trait); font-size: calc(var(--px, .05) * 11px); letter-spacing: .04em; paint-order: stroke; stroke: var(--planche); stroke-width: calc(var(--px, .05) * 3px); stroke-linejoin: round; }
+.scene .perso polyline { stroke-width: 2.6; }
+.scene .perso circle { fill: var(--planche); stroke-width: 2.2; vector-effect: non-scaling-stroke; }
+.scene .perso.thomas polyline, .scene .perso.thomas circle { stroke: var(--laiton); }
+.scene .perso.robert polyline, .scene .perso.robert circle { stroke: var(--brique); }
+.scene .perso .ombre { fill-opacity: .18; stroke: none; }
+.scene .perso.thomas .ombre { fill: var(--laiton); }
+.scene .perso.robert .ombre { fill: var(--brique); }
+.scene .perso .epingle { stroke-width: 2; }
+.scene .perso.thomas .epingle { fill: var(--laiton); }
+.scene .perso.robert .epingle { fill: var(--brique); }
+.scene text, .carte text { font-family: var(--f-titre); fill: var(--trait); font-size: calc(var(--px, .05) * 11px); letter-spacing: .04em; paint-order: stroke; stroke: var(--planche); stroke-width: calc(var(--px, .05) * 3px); stroke-linejoin: round; }
 .scene.nuit text { stroke: var(--nuit); }
 .scene text.piece { text-transform: uppercase; font-size: calc(var(--px, .05) * 10px); letter-spacing: .1em; }
-.quartier .saone { fill: var(--verre); fill-opacity: .14; stroke: var(--verre); }
-.quartier .parcouru { stroke: var(--laiton); stroke-width: 2.4; }
-.quartier .chemin { stroke: var(--trait); stroke-dasharray: 3 3; }
-.quartier text.repere { dominant-baseline: text-after-edge; }
-.scene .immeuble-seul { transition: opacity .5s; }
-.scene.vue-appartement .immeuble-seul { opacity: .14; }
-@media (prefers-reduced-motion: reduce) { .scene .halo { animation: none; opacity: .6; } .scene { transition: none; } }
+.scene text.rue { font-style: italic; }
+.scene text.nom-perso { font-weight: 600; font-size: calc(var(--px, .05) * 12px); }
+.scene text.nom-perso.thomas { fill: var(--laiton); }
+.scene text.nom-perso.robert { fill: var(--brique); }
+.scene .estompe, .scene .niveau-estompe { transition: opacity .5s; }
+.scene.proche .estompe { opacity: .12; }
+.scene .niveau-estompe.cache { opacity: .1; }
+.scene .niveau-estompe.dessous { opacity: .35; }
+.scene.loin text.piece, .scene.loin .detail-proche { display: none; }
+.carte .route-course { stroke: var(--laiton); stroke-dasharray: 3 3; }
+.carte .route-courses { stroke: var(--brique); stroke-dasharray: 2 2; }
+.carte .batiment { fill: var(--trait); stroke: none; }
+.carte .point { stroke: var(--planche); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.carte .point.thomas { fill: var(--laiton); }
+.carte .point.robert { fill: var(--brique); }
+@media (prefers-reduced-motion: reduce) { .scene .halo { animation: none; opacity: .6; } .scene, .scene .estompe, .scene .niveau-estompe { transition: none; } }
 
 /* cartouche */
 .cartouche { background: var(--planche); border: 1px solid var(--regle); display: flex; flex-direction: column; min-height: 0; overflow: auto; }
@@ -114,18 +137,22 @@ button, select, input { font: inherit; color: inherit; }
 .puces { display: flex; flex-wrap: wrap; gap: 4px; }
 .puce { font-size: .75rem; border: 1px solid var(--regle); padding: 1px 7px; border-radius: 10px; white-space: nowrap; }
 .puce.laiton { border-color: var(--laiton); color: var(--laiton); }
+.puce.brique { border-color: var(--brique); color: var(--brique); }
 .activite { font-family: var(--f-titre); font-weight: 600; font-size: 1.05rem; }
 .action { margin: 0; }
 .pensee { font-family: var(--f-pensee); font-style: italic; font-size: 1.05rem; margin: 0; border-left: 2px solid var(--laiton); padding-left: 10px; }
+.pensee.robert { border-left-color: var(--brique); }
 .reve { font-family: var(--f-pensee); font-style: italic; margin: 0; color: var(--trait); }
+.autre { font-size: .82rem; margin: 0; color: var(--trait); }
+.autre b { font-weight: 600; }
 .jauges { display: grid; grid-template-columns: auto 1fr auto; gap: 3px 8px; align-items: center; font-size: .8rem; }
 .jauges .val { font-family: var(--f-chiffres); font-size: .75rem; font-variant-numeric: tabular-nums; text-align: right; min-width: 3.2em; }
-.barre { position: relative; height: 7px; background: transparent; border: 1px solid var(--regle); }
+.barre { position: relative; height: 7px; border: 1px solid var(--regle); }
 .barre i { position: absolute; inset: 0 auto 0 0; background: var(--trait); }
 .barre.bas i { background: var(--alerte); }
 .barre u { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--alerte); }
 .val.bas { color: var(--alerte); }
-.quartier { width: 100%; height: 130px; display: block; }
+.carte { width: 100%; height: 170px; display: block; }
 .liste { font-size: .82rem; margin: 0; padding-left: 16px; }
 .liste li { margin: 1px 0; }
 .vide { font-size: .8rem; color: var(--trait); }
@@ -141,7 +168,7 @@ button, select, input { font: inherit; color: inherit; }
 .bande { position: relative; height: 14px; display: grid; grid-template-columns: repeat(288, 1fr); cursor: pointer; }
 .bande i { display: block; height: 100%; }
 .bande i.chambre { background: var(--trait-leger); }
-.bande i.atelier { background: var(--laiton); opacity: .55; }
+.bande i.travail { background: var(--laiton); opacity: .55; }
 .bande i.vie { background: var(--trait); opacity: .8; }
 .bande i.eau { background: var(--verre); opacity: .5; }
 .bande i.dehors { background: var(--alerte); opacity: .6; }
@@ -151,35 +178,41 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
 .cles { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .72rem; color: var(--trait); }
 .cles span::before { content: ""; display: inline-block; width: 10px; height: 8px; margin-right: 4px; vertical-align: -1px; }
 .cles .k-chambre::before { background: var(--trait-leger); }
-.cles .k-atelier::before { background: var(--laiton); opacity: .55; }
+.cles .k-travail::before { background: var(--laiton); opacity: .55; }
 .cles .k-vie::before { background: var(--trait); opacity: .8; }
 .cles .k-eau::before { background: var(--verre); opacity: .5; }
 .cles .k-dehors::before { background: var(--alerte); opacity: .6; }
+.statut { font-size: .72rem; color: var(--trait); margin: 0; }
 
 @media (max-width: 900px) {
   html, body { height: auto; }
   .app { height: auto; }
   .planche { grid-template-columns: minmax(0, 1fr); }
-  .scene { height: 62vw; min-height: 300px; max-height: 520px; }
+  .scene { height: 70vw; min-height: 320px; max-height: 560px; }
   .cartouche { overflow: visible; }
+  .vues { top: auto; bottom: 8px; right: 8px; max-width: 90%; }
+  .legende-scene .detail { display: none; }
 }
 </style>
 </head>
 <body>
 <div class="app">
   <header class="bandeau">
-    <h1>Thomas Berthier <span>· Croix-Rousse, mars 2010</span></h1>
-    <nav class="jours" id="jours" aria-label="Jours de la semaine"></nav>
+    <h1>La Croix-Rousse <span>· mars 2010</span></h1>
+    <div class="groupe" id="suivre" role="group" aria-label="Personnage suivi"><span class="etiq">Suivre</span></div>
+    <nav class="groupe" id="jours" aria-label="Jours de la semaine"></nav>
   </header>
 
   <main class="planche">
-    <section class="scene" id="scene" aria-label="Appartement et immeuble en fil de fer">
-      <svg id="svg" role="img" aria-label="Vue isométrique de l'appartement de Thomas"></svg>
+    <section class="scene" id="scene" aria-label="Le quartier en fil de fer">
+      <svg id="svg" role="img" aria-label="Vue isométrique du quartier, des logements et des trajets"></svg>
       <div class="legende-scene"><span class="ou" id="ou"></span><span class="detail" id="ou-detail"></span></div>
       <div class="vues" role="group" aria-label="Cadrage">
-        <button type="button" id="vue-auto" aria-pressed="true">Suivre</button>
-        <button type="button" id="vue-appartement" aria-pressed="false">Appartement</button>
-        <button type="button" id="vue-immeuble" aria-pressed="false">Immeuble</button>
+        <button type="button" data-vue="auto" aria-pressed="true">Suivre</button>
+        <button type="button" data-vue="logement" aria-pressed="false">Logement</button>
+        <button type="button" data-vue="immeuble" aria-pressed="false">Immeuble</button>
+        <button type="button" data-vue="rue" aria-pressed="false">Rue</button>
+        <button type="button" data-vue="parcours" aria-pressed="false">Parcours</button>
       </div>
       <div class="etiquette-objet" id="etiquette" hidden></div>
     </section>
@@ -190,17 +223,17 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
         <div class="puces" id="puces"></div>
       </section>
       <section>
-        <span class="etiq">Activité</span>
+        <span class="etiq" id="etiq-activite">Activité</span>
         <span class="activite" id="activite"></span>
         <p class="action" id="action"></p>
         <p class="pensee" id="pensee" hidden></p>
         <p class="reve" id="reve" hidden></p>
         <div class="puces" id="evenements"></div>
+        <p class="autre" id="autre"></p>
       </section>
       <section>
-        <span class="etiq">Parcours de course</span>
-        <svg class="quartier" id="quartier" role="img" aria-label="Schéma du parcours : pentes de la Croix-Rousse et quais de Saône"></svg>
-        <span class="vide" id="dehors"></span>
+        <span class="etiq">Plan du quartier</span>
+        <svg class="carte" id="carte" role="img" aria-label="Plan du quartier avec la position des deux personnages"></svg>
       </section>
       <section>
         <span class="etiq">Besoins (seuil d'alerte en rouge)</span>
@@ -213,6 +246,8 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
       <section>
         <span class="etiq">Sur lui</span>
         <ul class="liste" id="porte"></ul>
+        <span class="etiq">Argent</span>
+        <div class="puces" id="argent"></div>
         <span class="etiq">Allumé</span>
         <div class="puces" id="appareils"></div>
       </section>
@@ -236,9 +271,9 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
       <span class="ici" id="ici"></span>
     </div>
     <div class="bande" id="bande" aria-hidden="true"><span class="curseur" id="curseur"></span></div>
-    <input type="range" id="temps" min="0" max="287" step="1" value="84" aria-label="Heure de la journée">
+    <input type="range" id="temps" min="0" max="287" step="1" value="220" aria-label="Heure de la journée">
     <div class="graduations"><span>00 h</span><span>03 h</span><span>06 h</span><span>09 h</span><span>12 h</span><span>15 h</span><span>18 h</span><span>21 h</span><span>24 h</span></div>
-    <div class="cles"><span class="k-chambre">Chambre</span><span class="k-atelier">Atelier</span><span class="k-vie">Séjour, cuisine, entrée</span><span class="k-eau">Salle de bain, WC</span><span class="k-dehors">Dehors</span></div>
+    <div class="cles"><span class="k-chambre">Chambre</span><span class="k-travail">Atelier, boutique</span><span class="k-vie">Séjour, cuisine, entrée</span><span class="k-eau">Salle de bain, WC</span><span class="k-dehors">Dehors</span></div>
     <p class="statut" id="statut"></p>
   </footer>
 </div>
@@ -249,9 +284,9 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
   "use strict";
   const D = window.PARADOXE;
   const M = D.monde;
-  const IM = M.immeuble, LG = M.logement;
-  const Z = M.z_logement, H = IM.hauteur_etage;
-  const COUPE = 1.1;                       // hauteur de coupe des murs (m)
+  const PERSOS = D.personnages;
+  const CLASSE = (p) => p.id.split("-")[0];               // « thomas », « robert »
+  const COUPE = 1.1;
   const C = Math.cos(Math.PI / 6), S = 0.5;
   const NS = "http://www.w3.org/2000/svg";
   const $ = (id) => document.getElementById(id);
@@ -260,12 +295,15 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
   const NOMS_EMOTIONS = { joie: "Joie", tristesse: "Tristesse", anxiete: "Anxiété", colere: "Colère", solitude: "Solitude", fierte: "Fierté", excitation: "Excitation", concentration: "Concentration" };
   const NOMS_APPAREILS = { "lampe-etabli": "Lampe d'établi", radio: "Radio", "lecteur-cd": "Lecteur CD", television: "Téléviseur", "plaque-1": "Plaque 1",
     "plaque-2": "Plaque 2", four: "Four", "machine-a-laver": "Machine à laver", "machine-ultrasons": "Bac à ultrasons", chronocomparateur: "Chronocomparateur",
-    tour: "Tour d'horloger", ordinateur: "Ordinateur portable", aspirateur: "Aspirateur", "lampe-alcool": "Lampe à alcool", "controleur-etancheite": "Contrôleur d'étanchéité" };
+    tour: "Tour d'horloger", ordinateur: "Ordinateur portable", aspirateur: "Aspirateur", "lampe-alcool": "Lampe à alcool", "controleur-etancheite": "Contrôleur d'étanchéité",
+    "radio-cuisine": "Radio de la cuisine", "radio-boutique": "Radio de la boutique" };
   const POSTURES = { debout: "debout", assis: "assis", allonge: "allongé", course: "en course", marche: "en marche" };
+  const NOMS_COMPTES = { especes: "espèces", compte: "compte", caisse: "caisse" };
 
-  // ------------------------------------------------------------------ projection isométrique
+  // ------------------------------------------------------------------ projection
   const iso = (p) => [(p[0] + p[1]) * C, (p[0] - p[1]) * S - p[2]];
-  const enChaine = (arr) => arr.map((p) => { const q = iso(p); return q[0].toFixed(3) + "," + q[1].toFixed(3); }).join(" ");
+  const f2 = (v) => v.toFixed(2);
+  const enChaine = (arr) => arr.map((p) => { const q = iso(p); return f2(q[0]) + "," + f2(q[1]); }).join(" ");
   function el(tag, attrs, parent) {
     const e = document.createElementNS(NS, tag);
     for (const k in attrs) e.setAttribute(k, attrs[k]);
@@ -275,140 +313,181 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
   const trait = (arr, cls, parent) => el("polyline", { points: enChaine(arr), class: cls || "" }, parent);
   const contour = (arr, cls, parent) => el("polygon", { points: enChaine(arr), class: cls || "" }, parent);
   const rect = (r, z) => [[r[0], r[1], z], [r[2], r[1], z], [r[2], r[3], z], [r[0], r[3], z]];
-  function boite(b, z0, cls, parent) {
-    const [x0, y0, x1, y1, h] = b;
-    const g = el("g", { class: cls || "" }, parent);
-    const bas = rect([x0, y0, x1, y1], z0);
-    contour(bas, "", g);
-    if (h > 0.03) {
-      contour(rect([x0, y0, x1, y1], z0 + h), "", g);
-      bas.forEach((p) => trait([p, [p[0], p[1], z0 + h]], "", g));
-    }
-    return g;
-  }
-  function texte(p, t, cls, parent) {
+  function texte(p, t, cls, parent, ancre) {
     const q = iso(p);
-    const e = el("text", { x: q[0].toFixed(3), y: q[1].toFixed(3), "text-anchor": "middle", class: cls || "" }, parent);
+    const e = el("text", { x: f2(q[0]), y: f2(q[1]), "text-anchor": ancre || "middle", class: cls || "" }, parent);
     e.textContent = t;
     return e;
   }
-  const loc = (p, z) => [p[0], p[1], Z + (z || 0)];
+  // un seul <path> pour beaucoup de segments
+  function Chemin() { this.d = []; }
+  Chemin.prototype.ligne = function (pts, ferme) {
+    pts.forEach((p, i) => { const q = iso(p); this.d.push((i ? "L" : "M") + f2(q[0]) + " " + f2(q[1])); });
+    if (ferme) this.d.push("Z");
+  };
+  Chemin.prototype.boite = function (coins, z0, h) {
+    const bas = coins.map((c) => [c[0], c[1], z0]), haut = coins.map((c) => [c[0], c[1], z0 + h]);
+    this.ligne(bas, true); this.ligne(haut, true);
+    bas.forEach((p, i) => this.ligne([p, haut[i]]));
+  };
+  Chemin.prototype.poser = function (parent, cls) { return el("path", { d: this.d.join(""), class: cls || "" }, parent); };
+  const coinsRect = (r) => [[r[0], r[1]], [r[2], r[1]], [r[2], r[3]], [r[0], r[3]]];
 
-  // ------------------------------------------------------------------ chronologie aplatie
+  // ------------------------------------------------------------------ chronologie aplatie, par personnage
+  const NB = PERSOS[0].jours.reduce((n, j) => n + j.pas.length, 0);
   const G = [];
-  D.jours.forEach((j, ji) => j.pas.forEach((s, k) => G.push({ s, ji, k })));
-  const fin = new Array(G.length);
-  const posObjets = new Array(G.length);
-  (function precalcul() {
-    let dernier = D.depart, carte = {};
-    let jPrec = -1;
-    G.forEach((e, g) => {
-      if (e.ji !== jPrec) { carte = Object.assign({}, carte, D.jours[e.ji].positions); jPrec = e.ji; }
-      if (e.s.w) dernier = e.s.w[e.s.w.length - 1];
-      fin[g] = dernier;
-      if (e.s.no || e.s.ob) {
+  PERSOS[0].jours.forEach((j, ji) => j.pas.forEach((s, k) => G.push({ ji, k })));
+  const debutJour = PERSOS[0].jours.map((_, ji) => G.findIndex((e) => e.ji === ji));
+  PERSOS.forEach((P) => {
+    P.pas = [];
+    P.jours.forEach((j) => j.pas.forEach((s) => P.pas.push(s)));
+    P.fin = new Array(NB);
+    P.objetsA = new Array(NB);
+    let dernier = P.depart, carte = {}, jPrec = -1;
+    for (let g = 0; g < NB; g++) {
+      const s = P.pas[g], ji = G[g].ji;
+      if (ji !== jPrec) { carte = Object.assign({}, carte, P.jours[ji].positions); jPrec = ji; }
+      if (s.w) dernier = s.w[s.w.length - 1];
+      P.fin[g] = dernier;
+      if (s.no || s.ob) {
         carte = Object.assign({}, carte);
-        (e.s.no || []).forEach(([id, pos]) => { carte[id] = pos; });
-        (e.s.ob || []).forEach(([id, , vers]) => { carte[id] = vers; });
+        (s.no || []).forEach(([id, pos]) => { carte[id] = pos; });
+        (s.ob || []).forEach(([id, , vers]) => { carte[id] = vers; });
       }
-      posObjets[g] = carte;
-    });
-  })();
-  const debutJour = D.jours.map((_, ji) => G.findIndex((e) => e.ji === ji));
-
-  // ------------------------------------------------------------------ scène statique
-  const svg = $("svg");
-  const gFond = el("g", { class: "immeuble-seul" }, svg), gSols = el("g", {}, svg), gStat = el("g", {}, svg);
-  const gApp = el("g", {}, svg), gObj = el("g", {}, svg), gThomas = el("g", { class: "thomas" }, svg), gTextes = el("g", {}, svg);
-  const gTextesImmeuble = el("g", { class: "immeuble-seul" }, svg);
-  const sols = {};
-
-  function dessinerImmeuble() {
-    const E = IM.emprise, R = IM.rue, N = IM.niveaux;
-    const xa = E[0] - 5, xb = E[2] + 5;
-    // rue
-    trait([[xa, R.trottoir, 0], [xb, R.trottoir, 0]], "leger", gFond);
-    trait([[xa, R.chaussee[1], 0], [xb, R.chaussee[1], 0]], "leger", gFond);
-    trait([[xa, R.trottoir_en_face, 0], [xb, R.trottoir_en_face, 0]], "leger", gFond);
-    trait([[xa, (R.chaussee[0] + R.chaussee[1]) / 2, 0], [xb, (R.chaussee[0] + R.chaussee[1]) / 2, 0]], "leger tirets", gFond);
-    texte([E[2] + 2, (R.chaussee[0] + R.chaussee[1]) / 2, 0], R.nom, "", gTextesImmeuble);
-    // cour
-    contour(rect(IM.cour, 0), "leger tirets", gFond);
-    texte([E[2] - 1.5, IM.cour[3] - 1, 0], "Cour", "", gTextesImmeuble);
-    // niveaux, angles et toit
-    for (let k = 0; k <= N; k++) contour(rect(E, k * H), k === N ? "leger" : "leger", gFond);
-    rect(E, 0).forEach((p) => trait([p, [p[0], p[1], N * H]], "leger", gFond));
-    for (let k = 0; k < N; k++) texte([E[0] - 0.6, E[1], k * H + 0.3], k === 0 ? "RDC" : k + "e", "", gTextesImmeuble);
-    // cage d'escalier
-    const T = IM.cage_escalier;
-    contour(rect(T, 0), "leger", gFond);
-    contour(rect(T, N * H), "leger", gFond);
-    rect(T, 0).forEach((p) => { if (p[1] > E[3]) trait([p, [p[0], p[1], N * H]], "leger", gFond); });
-    // volées et paliers
-    const ES = IM.escalier, n = ES.marches_par_volee;
-    for (let k = 0; k < IM.etage_logement; k++) {
-      const z = k * H;
-      const vm = ES.volee_montante, vd = ES.volee_descendante;
-      for (let i = 0; i <= n; i++) {
-        const u = i / n;
-        const ym = vm.y[0] + (vm.y[1] - vm.y[0]) * u, zm = z + (H / 2) * u;
-        trait([[vm.x[0], ym, zm], [vm.x[1], ym, zm]], "", gFond);
-        const yd = vd.y[0] + (vd.y[1] - vd.y[0]) * u, zd = z + H / 2 + (H / 2) * u;
-        trait([[vd.x[0], yd, zd], [vd.x[1], yd, zd]], "", gFond);
-      }
-      trait([[vm.x[0], vm.y[0], z], [vm.x[0], vm.y[1], z + H / 2]], "leger", gFond);
-      trait([[vd.x[1], vd.y[0], z + H / 2], [vd.x[1], vd.y[1], z + H]], "leger", gFond);
-      contour(rect(ES.palier_intermediaire, z + H / 2), "leger", gFond);
-      contour(rect([T[0], LG.pieces.palier[1], T[2], LG.pieces.palier[3]], z + H), "leger", k === IM.etage_logement - 1 ? gStat : gFond);
+      P.objetsA[g] = carte;
     }
-    // allée, porte d'immeuble, local poubelles
-    contour(rect(IM.allee, 0), "leger", gFond);
-    const pi = IM.porte_immeuble;
-    trait([[pi[0][0], pi[0][1], 0], [pi[0][0], pi[0][1], 2.4], [pi[1][0], pi[1][1], 2.4], [pi[1][0], pi[1][1], 0]], "", gFond);
-    const lp = IM.local_poubelles;
-    boite([lp[0], lp[1], lp[2], lp[3], 2.5], 0, "leger", gFond);
-    texte([(lp[0] + lp[2]) / 2, (lp[1] + lp[3]) / 2, 2.7], "Local poubelles", "", gTextesImmeuble);
+  });
+
+  // ------------------------------------------------------------------ scène
+  const svg = $("svg");
+  const gMonde = el("g", { class: "estompe" }, svg);
+  const gBatiments = el("g", {}, svg);
+  const gLogements = el("g", {}, svg);
+  const gTrajets = el("g", {}, svg);
+  const gApp = el("g", {}, svg), gObj = el("g", {}, svg), gPersos = el("g", {}, svg);
+  const gTextesMonde = el("g", { class: "estompe" }, svg), gTextes = el("g", {}, svg);
+  const sols = {};            // logement → pièce → polygone
+  const niveaux = [];         // groupes estompables par altitude
+
+  function dessinerMonde() {
+    const T = M.terrain, zb = T.z_bas;
+    const X0 = -1750, X1 = 760, Y0 = -800, Y1 = 4800;
+    const relief = new Chemin();
+    // courbes de niveau : un « L » par altitude (pente ouest et pente sud)
+    [0, 0.25, 0.5, 0.75, 1].forEach((f) => {
+      const x = T.bord_ouest_x - f * T.largeur_pente_ouest, y = T.bord_sud_y - f * T.largeur_pente_sud, z = zb * f;
+      relief.ligne([[x, Y1, z], [x, y, z], [X1, y, z]]);
+    });
+    for (let y = -400; y <= Y1; y += 400) relief.ligne([[T.bord_ouest_x, y, 0], [T.bord_ouest_x - T.largeur_pente_ouest, y, zb], [X0, y, zb]]);
+    for (let x = -600; x <= X1; x += 200) relief.ligne([[x, T.bord_sud_y, 0], [x, T.bord_sud_y - T.largeur_pente_sud, zb], [x, Y0, zb]]);
+    relief.poser(gMonde, "fin");
+    // Saône et quai
+    el("polygon", { points: enChaine(M.saone.proche.concat(M.saone.loin.slice().reverse())), class: "eau" }, gMonde);
+    trait(M.quai, "leger", gMonde);
+    // rues : alignements de façades et bordures de trottoir
+    const rues = new Chemin();
+    M.rues.forEach((r) => {
+      for (let i = 0; i < r.axe.length - 1; i++) {
+        const a = r.axe[i], b = r.axe[i + 1], l = Math.hypot(b[0] - a[0], b[1] - a[1]);
+        const nx = -(b[1] - a[1]) / l, ny = (b[0] - a[0]) / l;
+        [r.facade_a_facade / 2, -r.facade_a_facade / 2, r.chaussee / 2, -r.chaussee / 2].concat(r.terre_plein ? [r.terre_plein / 2, -r.terre_plein / 2] : [])
+          .forEach((o) => rues.ligne([[a[0] + nx * o, a[1] + ny * o, 0], [b[0] + nx * o, b[1] + ny * o, 0]]));
+      }
+      if (r.nom) {
+        const k = Math.floor((r.axe.length - 1) / 2), a = r.axe[k], b = r.axe[k + 1];
+        texte([(a[0] + b[0]) / 2 + (r.id === "rue-austerlitz" ? 60 : 0), (a[1] + b[1]) / 2 + (r.id === "grande-rue" ? 90 : 0), 0], r.nom, "rue", gTextesMonde);
+      }
+    });
+    M.places.forEach((p) => { rues.ligne(p.contour.map((c) => [c[0], c[1], 0]), true); texte([(p.contour[0][0] + p.contour[2][0]) / 2, (p.contour[0][1] + p.contour[2][1]) / 2, 0], p.nom, "rue", gTextesMonde); });
+    rues.poser(gMonde, "leger");
+    // immeubles ordinaires
+    const bati = new Chemin();
+    M.bati.forEach(([coins, z0, h]) => bati.boite(coins, z0, h));
+    bati.poser(gMonde, "fin");
+    // arbres : un tronc et une couronne en losange
+    const arbres = new Chemin();
+    M.arbres.forEach(([x, y, z]) => {
+      arbres.ligne([[x, y, z], [x, y, z + 3]]);
+      arbres.ligne([[x - 2, y, z + 5], [x, y - 2, z + 5], [x + 2, y, z + 5], [x, y + 2, z + 5]], true);
+    });
+    arbres.poser(gMonde, "arbre");
+    M.reperes.forEach((r) => { if (!["Thomas", "Épicerie Chazal"].includes(r.nom)) texte(r.point, r.nom, "", gTextesMonde); });
+    // trajets
+    trait(M.descente, "trajet-course", gTrajets);
+    trait(M.quai, "trajet-course", gTrajets);
+    trait(M.trajet_epicerie, "trajet-courses", gTrajets);
   }
 
-  function dessinerLogement() {
-    for (const [id, r] of Object.entries(LG.pieces)) {
-      if (id === "palier") continue;
-      sols[id] = contour(rect(r, Z), "sol", gSols);
-      texte(loc([(r[0] + r[2]) / 2, (r[1] + r[3]) / 2]), (D.noms_pieces[id] || id).split(" (")[0], "piece", gTextes);
+  function dessinerBatiments() {
+    M.batiments.forEach((b) => {
+      const g = el("g", { class: "estompe" }, gBatiments);
+      const E = b.emprise, N = b.niveaux, H = b.H;
+      for (let k = 0; k <= N; k++) contour(rect(E, k * H), "leger", g);
+      rect(E, 0).forEach((p) => trait([p, [p[0], p[1], N * H]], "leger", g));
+      const [p0, p1] = b.porte;
+      trait([[p0[0], p0[1], 0], [p0[0], p0[1], 2.4], [p1[0], p1[1], 2.4], [p1[0], p1[1], 0]], "", g);
+      if (b.volees) {
+        const V = b.volees, T = b.cage;
+        contour(rect(T, 0), "leger", g); contour(rect(T, N * H), "leger", g);
+        rect(T, 0).forEach((p) => { if (p[1] > E[3]) trait([p, [p[0], p[1], N * H]], "leger", g); });
+        for (let k = 0; k < V.jusqua; k++) {
+          const z = k * H, vm = V.montante, vd = V.descendante, n = V.marches;
+          const gk = el("g", {}, g);
+          for (let i = 0; i <= n; i++) {
+            const u = i / n;
+            trait([[vm.x[0], vm.y[0] + (vm.y[1] - vm.y[0]) * u, z + H / 2 * u], [vm.x[1], vm.y[0] + (vm.y[1] - vm.y[0]) * u, z + H / 2 * u]], "", gk);
+            trait([[vd.x[0], vd.y[0] + (vd.y[1] - vd.y[0]) * u, z + H / 2 + H / 2 * u], [vd.x[1], vd.y[0] + (vd.y[1] - vd.y[0]) * u, z + H / 2 + H / 2 * u]], "", gk);
+          }
+          contour(rect(V.palier, z + H / 2), "leger", gk);
+          contour(rect([T[0], V.palier_niveau[1], T[2], V.palier_niveau[3]], z + H), "leger", gk);
+        }
+        contour(rect(b.allee, 0), "leger", g);
+        const lp = b.local_poubelles;
+        const ch = new Chemin(); ch.boite(coinsRect(lp), 0, 2.5); ch.poser(g, "leger");
+        texte([(lp[0] + lp[2]) / 2, (lp[1] + lp[3]) / 2, 2.7], "Local poubelles", "detail-proche", gTextesMonde);
+        contour(rect(b.cour, 0), "leger tirets", g);
+        for (let k = 0; k < N; k++) texte([E[0] - 0.6, E[1], k * H + 0.3], k === 0 ? "RDC" : k + "e", "detail-proche", gTextesMonde, "end");
+      }
+      if (b.escalier_droit) {
+        const ed = b.escalier_droit, n = ed.marches, dl = ed.dir_largeur, w = ed.largeur / 2;
+        for (let i = 0; i <= n; i++) {
+          const u = i / n, x = ed.bas[0] + (ed.haut[0] - ed.bas[0]) * u, y = ed.bas[1] + (ed.haut[1] - ed.bas[1]) * u, z = ed.bas[2] + (ed.haut[2] - ed.bas[2]) * u;
+          trait([[x - dl[0] * w, y - dl[1] * w, z], [x + dl[0] * w, y + dl[1] * w, z]], "leger", gBatiments);
+        }
+      }
+      if (b.enseigne) texte([(p0[0] + p1[0]) / 2 - 0.3, (p0[1] + p1[1]) / 2, 3.0], b.enseigne, "nom-perso robert", gTextes);
+    });
+  }
+
+  function dessinerLogements() {
+    for (const [id, L] of Object.entries(M.logements)) {
+      sols[id] = {};
+      const parZ = {};
+      const groupe = (z) => parZ[z] || (parZ[z] = el("g", { class: "niveau-estompe", "data-z": z }, gLogements));
+      L.sols.forEach((s) => { sols[id][s.piece] = contour(rect(s.rect, s.z), "sol", groupe(s.z)); });
+      L.murs.forEach(([a, b, z]) => {
+        const g = groupe(z);
+        const A = [a[0], a[1], z], B = [b[0], b[1], z], A2 = [a[0], a[1], z + COUPE], B2 = [b[0], b[1], z + COUPE];
+        trait([A, B], "mur", g); trait([A2, B2], "mur", g); trait([A, A2], "mur", g); trait([B, B2], "mur", g);
+      });
+      L.cadres.forEach(([a, b, z]) => trait([[a[0], a[1], z], [a[0], a[1], z + 2.05], [b[0], b[1], z + 2.05], [b[0], b[1], z]], "leger", groupe(z)));
+      L.vitres.forEach(([a, b, z, vitrine]) => {
+        const g = groupe(z), hh = vitrine ? 0.3 : 0.9;
+        trait([[a[0], a[1], z + COUPE], [b[0], b[1], z + COUPE]], "vitre", g);
+        trait([[a[0], a[1], z + hh], [a[0], a[1], z + COUPE]], "vitre", g);
+        trait([[b[0], b[1], z + hh], [b[0], b[1], z + COUPE]], "vitre", g);
+        trait([[a[0], a[1], z + hh], [b[0], b[1], z + hh]], "vitre", g);
+      });
+      // un meuble posé sur un autre (lampe, tour) appartient au niveau du sol le plus proche en dessous
+      const niveauDe = (z) => Object.keys(parZ).map(Number).filter((n) => n <= z + 0.01).sort((a, b) => b - a)[0];
+      L.meubles.forEach((m) => {
+        const ch = new Chemin(); ch.boite(coinsRect(m.rect), m.z, m.h);
+        const p = ch.poser(groupe(niveauDe(m.z)), "meuble");
+        el("title", {}, p).textContent = m.nom;
+      });
+      L.noms.forEach(([pid, p]) => texte(p, pid.replace(/-/g, " "), "piece", groupe(p[2])));
+      Object.values(parZ).forEach((g) => niveaux.push(g));
     }
-    // murs coupés à 1,10 m
-    M.murs.forEach(([a, b]) => {
-      const A = loc(a), B = loc(b), A2 = loc(a, COUPE), B2 = loc(b, COUPE);
-      trait([A, B], "mur", gStat);
-      trait([A2, B2], "mur", gStat);
-      trait([A, A2], "mur", gStat);
-      trait([B, B2], "mur", gStat);
-    });
-    // fenêtres : symbole de plan à la hauteur de coupe (allège à 0,90 m)
-    LG.fenetres.forEach((f) => {
-      const [a, b] = f.segment;
-      const n = a[1] === b[1] ? [0, 0.12] : [0.12, 0];
-      const A = [a[0] - n[0] / 2, a[1] - n[1] / 2], B = [b[0] - n[0] / 2, b[1] - n[1] / 2];
-      const A2 = [a[0] + n[0] / 2, a[1] + n[1] / 2], B2 = [b[0] + n[0] / 2, b[1] + n[1] / 2];
-      trait([loc(A, COUPE), loc(B, COUPE)], "vitre", gStat);
-      trait([loc(A2, COUPE), loc(B2, COUPE)], "vitre", gStat);
-      trait([loc(a, COUPE), loc(b, COUPE)], "vitre", gStat);
-      trait([loc(a, 0.9), loc(a, COUPE)], "vitre", gStat);
-      trait([loc(b, 0.9), loc(b, COUPE)], "vitre", gStat);
-    });
-    // portes : encadrement léger
-    LG.portes.forEach((p) => {
-      const [a, b] = p.segment;
-      trait([loc(a), loc(a, 2.05), loc(b, 2.05), loc(b)], "leger", gStat);
-    });
-    // mobilier
-    LG.mobilier.forEach((m) => {
-      const z0 = m.z || 0;
-      if (z0 >= COUPE) return;
-      const b = m.boite.slice(); b[4] = Math.min(b[4], COUPE - z0);
-      const g = boite(b, Z + z0, "meuble", gStat);
-      el("title", {}, g).textContent = m.nom;
-    });
   }
 
   // ------------------------------------------------------------------ cadrages
@@ -417,49 +496,32 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     points.forEach((p) => { const q = iso(p); x0 = Math.min(x0, q[0]); x1 = Math.max(x1, q[0]); y0 = Math.min(y0, q[1]); y1 = Math.max(y1, q[1]); });
     return [x0 - marge, y0 - marge, x1 - x0 + 2 * marge, y1 - y0 + 2 * marge];
   }
-  const CADRES = {
-    appartement: cadre(rect([-0.5, -1.2, 10.8, 7.4], Z).concat(rect([-0.5, -1.2, 10.8, 7.4], Z + 3.3)), 0.6),
-    immeuble: cadre(rect([IM.emprise[0], IM.rue.trottoir_en_face, IM.emprise[2], IM.cour[3]], 0).concat(rect(IM.emprise, IM.niveaux * H)), 1.2),
-  };
-  let vueChoisie = "auto", cadreActuel = CADRES.appartement.slice(), cadreCible = CADRES.appartement.slice();
+  const boiteDe = (r, z0, z1) => rect(r, z0).concat(rect(r, z1));
+  const BAT = Object.fromEntries(M.batiments.map((b) => [b.id, b]));
+  const CADRES = {};
+  PERSOS.forEach((P) => {
+    const L = M.logements[P.logement], b = BAT[P.batiment];
+    const zs = L.sols.map((s) => s.z), zmin = Math.min(...zs), zmax = Math.max(...zs);
+    const r = [b.emprise[0] - 0.8, b.emprise[1] - 2.5, b.emprise[2] + 0.8, b.emprise[3] + 0.5];
+    if (P.batiment === "immeuble-austerlitz") { r[0] = -0.5; r[2] = 10.8; r[3] = 7.4; r[1] = -1.2; }
+    CADRES["logement:" + P.id] = cadre(boiteDe(r, zmin, zmax + 3.0), 0.6);
+    CADRES["immeuble:" + P.id] = cadre(boiteDe([b.emprise[0] - 4, b.emprise[1] - 10, b.emprise[2] + 4, b.emprise[3] + 4], 0, b.niveaux * b.H), 1.0);
+  });
+  CADRES.rue = cadre(boiteDe([-30, -40, 360, 200], 0, 20), 4);
+  CADRES.parcours = cadre(boiteDe([-1500, -600, 400, 4750], -85, 20), 30);
+  let vueChoisie = "auto", cadreActuel = CADRES["logement:" + PERSOS[0].id].slice(), cadreCible = CADRES["logement:" + PERSOS[0].id], pxActuel = 0.05, transition = null;
   svg.setAttribute("viewBox", cadreActuel.join(" "));
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
 
-  // ------------------------------------------------------------------ Thomas
-  function silhouette(p, pose, d, h, enMouvement) {
-    gThomas.textContent = "";
-    const [x, y, z] = p;
-    let dx = d ? d[0] : 0, dy = d ? d[1] : 1;
-    const n = Math.hypot(dx, dy) || 1; dx /= n; dy /= n;
-    const px = -dy, py = dx;            // perpendiculaire
-    const P = (a, b, c) => [x + a, y + b, z + c];
-    el("ellipse", { cx: iso([x, y, z])[0], cy: iso([x, y, z])[1], rx: 0.32, ry: 0.16, class: "ombre" }, gThomas);
-    let tete;
-    if (pose === "allonge") {
-      const hh = h || 0.5;
-      const pieds = P(-dx * 0.85, -dy * 0.85, hh + 0.05), bassin = P(-dx * 0.05, -dy * 0.05, hh + 0.08), cou = P(dx * 0.6, dy * 0.6, hh + 0.08);
-      trait([pieds, bassin, cou], "", gThomas);
-      trait([P(dx * 0.5 + px * 0.2, dy * 0.5 + py * 0.2, hh + 0.08), P(-dx * 0.1 + px * 0.22, -dy * 0.1 + py * 0.22, hh + 0.06)], "", gThomas);
-      tete = P(dx * 0.76, dy * 0.76, hh + 0.12);
-    } else if (pose === "assis") {
-      const hh = h || 0.45;
-      const bassin = P(0, 0, hh), genoux = P(dx * 0.42, dy * 0.42, hh), pieds = P(dx * 0.47, dy * 0.47, 0), cou = P(-dx * 0.04, -dy * 0.04, hh + 0.55);
-      trait([pieds, genoux, bassin, cou], "", gThomas);
-      trait([P(px * 0.18 - dx * 0.02, py * 0.18 - dy * 0.02, hh + 0.5), P(dx * 0.38 + px * 0.15, dy * 0.38 + py * 0.15, hh + 0.3)], "", gThomas);
-      trait([P(-px * 0.18 - dx * 0.02, -py * 0.18 - dy * 0.02, hh + 0.5), P(dx * 0.38 - px * 0.15, dy * 0.38 - py * 0.15, hh + 0.3)], "", gThomas);
-      tete = P(-dx * 0.04, -dy * 0.04, hh + 0.72);
-    } else {
-      const ecart = enMouvement || pose === "course" || pose === "marche" ? 0.2 : 0.05;
-      const bassin = P(0, 0, 0.92), cou = P(0, 0, 1.45);
-      trait([P(dx * ecart + px * 0.1, dy * ecart + py * 0.1, 0), bassin, P(-dx * ecart - px * 0.1, -dy * ecart - py * 0.1, 0)], "", gThomas);
-      trait([bassin, cou], "", gThomas);
-      trait([P(px * 0.22 - dx * ecart * 0.6, py * 0.22 - dy * ecart * 0.6, 0.88), P(px * 0.18, py * 0.18, 1.4), P(-px * 0.18, -py * 0.18, 1.4), P(-px * 0.22 + dx * ecart * 0.6, -py * 0.22 + dy * ecart * 0.6, 0.88)], "", gThomas);
-      tete = P(0, 0, 1.62);
-    }
-    const q = iso(tete);
-    el("circle", { cx: q[0].toFixed(3), cy: q[1].toFixed(3), r: 0.12 }, gThomas);
+  function echelle(elt, vb) {
+    const r = elt.getBoundingClientRect();
+    if (!r.width || !r.height) return null;
+    const px = 1 / Math.min(r.width / vb[2], r.height / vb[3]);
+    elt.style.setProperty("--px", px.toFixed(5));
+    return px;
   }
 
+  // ------------------------------------------------------------------ personnages
   function longueurs(w) {
     const L = [0];
     for (let i = 1; i < w.length; i++) L.push(L[i - 1] + Math.hypot(w[i][0] - w[i - 1][0], w[i][1] - w[i - 1][1], w[i][2] - w[i - 1][2]));
@@ -475,43 +537,74 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     const n = w.length;
     return { p: w[n - 1], dir: n > 1 ? [w[n - 1][0] - w[n - 2][0], w[n - 1][1] - w[n - 2][1]] : [0, 1] };
   }
-
-  // ------------------------------------------------------------------ quartier
-  const QS = $("quartier");
-  const Q = M.quartier, EX = Q.exageration_verticale;
-  // vue oblique schématique : nord vers la droite, la Saône en bas, altitudes exagérées
-  const isoQ = (p) => [p[1] + p[0] * 0.35, -p[0] * 0.4 - p[2] * EX];
-  const chaineQ = (arr) => arr.map((p) => { const q = isoQ(p); return q[0].toFixed(1) + "," + q[1].toFixed(1); }).join(" ");
-  const zTerrain = (x) => x >= Q.plateau.bord_x ? Q.plateau.altitude : x <= Q.bas_des_pentes_x ? 0 : Q.plateau.altitude * (x - Q.bas_des_pentes_x) / (Q.plateau.bord_x - Q.bas_des_pentes_x);
-  let gQParcouru, gQThomas, gQImmeuble, vbQ;
-  function dessinerQuartier() {
-    const g = el("g", {}, QS);
-    const xs = [600, Q.plateau.bord_x, Q.bas_des_pentes_x, -1750];
-    for (let y = -1200; y <= 4800; y += 600) el("polyline", { points: chaineQ(xs.map((x) => [x, y, zTerrain(x)])), class: "leger" }, g);
-    const yN = [-1200, 4800];
-    [Q.plateau.bord_x, (Q.plateau.bord_x + Q.bas_des_pentes_x) / 2, Q.bas_des_pentes_x].forEach((x) =>
-      el("polyline", { points: chaineQ([[x, -1200, zTerrain(x)], [x, 4800, zTerrain(x)]]), class: "leger tirets" }, g));
-    const proche = Q.quai.map((p) => [p[0] + Q.saone.rive_proche, p[1], 0]);
-    const loin = Q.quai.map((p) => [p[0] + Q.saone.rive_lointaine, p[1], 0]).reverse();
-    el("polygon", { points: chaineQ(proche.concat(loin)), class: "saone" }, g);
-    el("polyline", { points: chaineQ(Q.quai), class: "chemin" }, g);
-    el("polyline", { points: chaineQ(Q.descente), class: "chemin" }, g);
-    const b = isoQ(Q.descente[0]);
-    gQImmeuble = el("rect", { x: b[0], y: b[1], width: 0, height: 0, fill: "none", stroke: "var(--encre)", "stroke-width": 1, "vector-effect": "non-scaling-stroke" }, g);
-    Q.reperes.forEach((r) => {
-      const q = isoQ(r.point);
-      const t = el("text", { x: q[0].toFixed(1), y: q[1].toFixed(1), "text-anchor": "middle", class: "repere" }, g);
-      t.textContent = r.nom;
-    });
-    gQParcouru = el("polyline", { points: "", class: "parcouru" }, QS);
-    gQThomas = el("circle", { r: 0, class: "thomas", visibility: "hidden" }, QS);
-    const tous = Q.quai.concat(Q.descente, [[600, -1200, 85], [600, 4800, 85], [-1750, -1200, 0], [-1750, 4800, 0]]);
-    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-    tous.forEach((p) => { const q = isoQ(p); x0 = Math.min(x0, q[0]); x1 = Math.max(x1, q[0]); y0 = Math.min(y0, q[1]); y1 = Math.max(y1, q[1]); });
-    vbQ = [x0 - 120, y0 - 160, x1 - x0 + 240, y1 - y0 + 260];
-    QS.setAttribute("viewBox", vbQ.join(" "));
-    QS.setAttribute("preserveAspectRatio", "xMidYMid meet");
+  function etat(P, g, t) {
+    const s = P.pas[g];
+    let p, dir = s.d, pose = s.po, h = s.d ? s.d[2] : 0, mouvement = false;
+    if (s.w) {
+      const L = longueurs(s.w), tot = L[L.length - 1];
+      const part = s.cont ? 1 : Math.min(0.85, tot / (2.5 * (1 / vitesse)));
+      const u = part <= 0 ? 1 : Math.min(1, t / part);
+      const r = surChemin(s.w, L, u * tot);
+      p = r.p;
+      if (u < 1) { mouvement = true; dir = r.dir; if (pose !== "course") pose = "marche"; }
+    } else p = g > 0 ? P.fin[g - 1] : P.depart;
+    return { p, dir, pose, h, mouvement, s };
   }
+  function silhouette(parent, p, pose, d, h, enMouvement) {
+    const [x, y, z] = p;
+    let dx = d ? d[0] : 0, dy = d ? d[1] : 1;
+    const n = Math.hypot(dx, dy) || 1; dx /= n; dy /= n;
+    const px = -dy, py = dx;
+    const P = (a, b, c) => [x + a, y + b, z + c];
+    el("ellipse", { cx: iso([x, y, z])[0], cy: iso([x, y, z])[1], rx: 0.32, ry: 0.16, class: "ombre" }, parent);
+    let tete;
+    if (pose === "allonge") {
+      const hh = h || 0.5;
+      trait([P(-dx * 0.85, -dy * 0.85, hh + 0.05), P(-dx * 0.05, -dy * 0.05, hh + 0.08), P(dx * 0.6, dy * 0.6, hh + 0.08)], "", parent);
+      trait([P(dx * 0.5 + px * 0.2, dy * 0.5 + py * 0.2, hh + 0.08), P(-dx * 0.1 + px * 0.22, -dy * 0.1 + py * 0.22, hh + 0.06)], "", parent);
+      tete = P(dx * 0.76, dy * 0.76, hh + 0.12);
+    } else if (pose === "assis") {
+      const hh = h || 0.45;
+      trait([P(dx * 0.47, dy * 0.47, 0), P(dx * 0.42, dy * 0.42, hh), P(0, 0, hh), P(-dx * 0.04, -dy * 0.04, hh + 0.55)], "", parent);
+      trait([P(px * 0.18 - dx * 0.02, py * 0.18 - dy * 0.02, hh + 0.5), P(dx * 0.38 + px * 0.15, dy * 0.38 + py * 0.15, hh + 0.3)], "", parent);
+      trait([P(-px * 0.18 - dx * 0.02, -py * 0.18 - dy * 0.02, hh + 0.5), P(dx * 0.38 - px * 0.15, dy * 0.38 - py * 0.15, hh + 0.3)], "", parent);
+      tete = P(-dx * 0.04, -dy * 0.04, hh + 0.72);
+    } else {
+      const ecart = enMouvement || pose === "course" || pose === "marche" ? 0.2 : 0.05;
+      trait([P(dx * ecart + px * 0.1, dy * ecart + py * 0.1, 0), P(0, 0, 0.92), P(-dx * ecart - px * 0.1, -dy * ecart - py * 0.1, 0)], "", parent);
+      trait([P(0, 0, 0.92), P(0, 0, 1.45)], "", parent);
+      trait([P(px * 0.22 - dx * ecart * 0.6, py * 0.22 - dy * ecart * 0.6, 0.88), P(px * 0.18, py * 0.18, 1.4), P(-px * 0.18, -py * 0.18, 1.4), P(-px * 0.22 + dx * ecart * 0.6, -py * 0.22 + dy * ecart * 0.6, 0.88)], "", parent);
+      tete = P(0, 0, 1.62);
+    }
+    const q = iso(tete);
+    el("circle", { cx: f2(q[0]), cy: f2(q[1]), r: 0.12 }, parent);
+  }
+  function epingle(parent, p, nom, cls) {
+    const q = iso(p), r = 6 * pxActuel, hgt = 22 * pxActuel;
+    el("polyline", { points: `${f2(q[0])},${f2(q[1])} ${f2(q[0])},${f2(q[1] - hgt)}`, class: "" }, parent);
+    el("circle", { cx: f2(q[0]), cy: f2(q[1] - hgt), r: f2(r), class: "epingle" }, parent);
+    const gauche = cls === "robert";
+    const t = el("text", { x: f2(q[0] + (gauche ? -1 : 1) * r * 1.6), y: f2(q[1] - hgt + r * 0.6), class: "nom-perso " + cls, "text-anchor": gauche ? "end" : "start" }, gPersos);
+    t.textContent = nom;
+  }
+
+  // ------------------------------------------------------------------ carte du quartier (vue de dessus)
+  const CARTE = $("carte");
+  const plan = (p) => [p[0], -p[1]];
+  const chainePlan = (arr) => arr.map((p) => { const q = plan(p); return q[0].toFixed(1) + "," + q[1].toFixed(1); }).join(" ");
+  let carteVb = null, pointsCarte = {};
+  function dessinerCarte() {
+    el("polygon", { points: chainePlan(M.saone.proche.concat(M.saone.loin.slice().reverse())), class: "eau" }, CARTE);
+    M.rues.forEach((r) => el("polyline", { points: chainePlan(r.axe), class: "leger", style: `stroke-width:${Math.max(1, r.facade_a_facade / 8)}` }, CARTE));
+    M.places.forEach((p) => el("polygon", { points: chainePlan(p.contour), class: "leger" }, CARTE));
+    el("polyline", { points: chainePlan(M.descente), class: "route-course" }, CARTE);
+    el("polyline", { points: chainePlan(M.quai), class: "route-course" }, CARTE);
+    el("polyline", { points: chainePlan(M.trajet_epicerie), class: "route-courses" }, CARTE);
+    M.batiments.forEach((b) => { const e = b.emprise; el("rect", { x: e[0], y: -e[3], width: e[2] - e[0], height: e[3] - e[1], class: "batiment" }, CARTE); });
+    PERSOS.forEach((P) => { pointsCarte[P.id] = el("circle", { r: 4, class: "point " + CLASSE(P) }, CARTE); });
+    CARTE.setAttribute("preserveAspectRatio", "xMidYMid meet");
+  }
+  const VB_CARTE = { proche: [-200, -240, 620, 400], loin: [-1800, -4850, 2600, 5700] };
 
   // ------------------------------------------------------------------ panneau
   function jauges(cible, noms, ids) {
@@ -525,188 +618,189 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
       return { b, i, v };
     });
   }
-  const JB = jauges("besoins", NOMS_BESOINS, D.besoins.map((b) => b.id));
-  D.besoins.forEach((b, k) => { const u = document.createElement("u"); u.style.left = b.seuil + "%"; JB[k].b.appendChild(u); });
+  const JB = jauges("besoins", NOMS_BESOINS, PERSOS[0].besoins.map((b) => b.id));
+  const seuils = JB.map((j) => { const u = document.createElement("u"); j.b.appendChild(u); return u; });
   const JE = jauges("emotions", NOMS_EMOTIONS, D.emotions);
 
-  // ------------------------------------------------------------------ état de lecture
-  let g = debutJour[0] + 84, t = 1, enLecture = false, vitesse = 1, dernierRendu = -1, dernierInstant = 0;
-  const court = (id) => (D.noms_pieces[id] || id).split(" (")[0];
+  let suivi = 0, g = debutJour[1] + 220, t = 1, enLecture = false, vitesse = 1, dernierRendu = -1, dernierSuivi = -1, dernierInstant = 0;
   const minutes = (h) => +h.slice(0, 2) * 60 + +h.slice(3, 5);
-  const fmtDate = (j) => { const d = new Date(j.date + "T12:00:00"); return j.jour + " " + d.getDate() + " mars 2010"; };
+  const fmtDate = (j) => j.jour + " " + (+j.date.slice(8)) + " mars 2010";
+  const euros = (v) => v.toFixed(2).replace(".", ",") + " €";
+  const court = (P, id) => (P.noms_pieces[id] || id).split(" (")[0];
 
-  function rendreJours() {
-    const nav = $("jours");
-    D.jours.forEach((j, ji) => {
+  function rendreBoutons() {
+    const s = $("suivre");
+    PERSOS.forEach((P, k) => {
       const b = document.createElement("button");
       b.type = "button";
-      b.innerHTML = JOURS_COURTS[j.jour] + " " + +j.date.slice(8) + " <small>" + (j.methode === "agent" ? "agent" : "référence") + "</small>";
-      b.title = fmtDate(j) + (j.methode === "agent" ? " : vécu par l'agent autonome" : " : journée de référence rédigée à la main");
-      b.addEventListener("click", () => { allerA(debutJour[ji] + (g - debutJour[G[g].ji])); });
+      b.innerHTML = `<span class="pastille" style="background:var(--${k === 0 ? "laiton" : "brique"})"></span>${P.prenom}`;
+      b.addEventListener("click", () => { suivi = k; dernierRendu = -1; });
+      s.appendChild(b);
+    });
+    const nav = $("jours");
+    PERSOS[0].jours.forEach((j, ji) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = JOURS_COURTS[j.jour] + " " + (+j.date.slice(8));
+      b.title = fmtDate(j);
+      b.addEventListener("click", () => allerA(debutJour[ji] + G[g].k));
       nav.appendChild(b);
     });
   }
-  function rendreBande(ji) {
+  function categorie(P, s) {
+    if (s.l !== "d") return "dehors";
+    if (s.pc === "chambre") return "chambre";
+    if (["atelier", "boutique", "reserve", "arriere-boutique"].includes(s.pc)) return "travail";
+    if (["salle-de-bain", "wc", "wc-boutique"].includes(s.pc)) return "eau";
+    return "vie";
+  }
+  function rendreBande() {
     const bande = $("bande");
     bande.querySelectorAll("i").forEach((e) => e.remove());
-    const cat = (s) => s.l === "e" || s.hors ? "dehors" : s.pc === "chambre" ? "chambre" : s.pc === "atelier" ? "atelier" : (s.pc === "salle-de-bain" || s.pc === "wc") ? "eau" : "vie";
-    const frag = document.createDocumentFragment();
-    D.jours[ji].pas.forEach((s) => { const i = document.createElement("i"); i.className = cat(s); frag.appendChild(i); });
+    const P = PERSOS[suivi], d0 = debutJour[G[g].ji], frag = document.createDocumentFragment();
+    for (let k = 0; k < 288; k++) { const i = document.createElement("i"); i.className = categorie(P, P.pas[d0 + k]); frag.appendChild(i); }
     bande.insertBefore(frag, $("curseur"));
   }
 
   function majPanneau() {
-    const e = G[g], s = e.s, j = D.jours[e.ji];
+    const P = PERSOS[suivi], s = P.pas[g], e = G[g], j = P.jours[e.ji], cls = CLASSE(P);
     $("heure").textContent = s.h;
     $("date").textContent = fmtDate(j);
     const m = minutes(s.h), nuit = m < minutes(j.lever) || m >= minutes(j.coucher);
     $("scene").classList.toggle("nuit", nuit);
-    const puces = [];
-    puces.push(court(s.pc));
-    puces.push(POSTURES[s.po] || s.po);
-    if (s.ps) puces.push("sommeil " + s.ps);
-    puces.push(nuit ? "nuit" : "jour");
+    const puces = [[P.prenom, cls === "thomas" ? "laiton" : "brique"], [court(P, s.pc), ""], [POSTURES[s.po] || s.po, ""]];
+    if (s.ps) puces.push(["sommeil " + s.ps, ""]);
+    puces.push([nuit ? "nuit" : "jour", ""]);
     $("puces").innerHTML = "";
-    puces.forEach((p, k) => { const c = document.createElement("span"); c.className = "puce" + (k === 0 ? " laiton" : ""); c.textContent = p; $("puces").appendChild(c); });
+    puces.forEach(([t_, c]) => { const x = document.createElement("span"); x.className = "puce " + c; x.textContent = t_; $("puces").appendChild(x); });
     $("activite").textContent = s.a;
     $("action").textContent = s.x;
-    $("pensee").hidden = !s.pe; $("pensee").textContent = s.pe ? "« " + s.pe + " »" : "";
+    $("pensee").hidden = !s.pe; $("pensee").textContent = s.pe ? "« " + s.pe + " »" : ""; $("pensee").className = "pensee " + cls;
     $("reve").hidden = !s.r; $("reve").textContent = s.r ? "Rêve : « " + s.r + " »" : "";
     const ev = $("evenements"); ev.innerHTML = "";
-    (s.ev || []).forEach((id) => { const c = document.createElement("span"); c.className = "puce"; c.textContent = D.evenements[id] || id; ev.appendChild(c); });
-    s.b.forEach((v, k) => {
-      const bas = v < D.besoins[k].seuil;
+    (s.ev || []).forEach((id) => { const c = document.createElement("span"); c.className = "puce"; c.textContent = P.evenements[id] || id; ev.appendChild(c); });
+    const autres = PERSOS.filter((_, k) => k !== suivi).map((A) => { const a = A.pas[g]; return `<b>${A.prenom}</b> : ${a.a} (${court(A, a.pc).toLowerCase()})`; });
+    $("autre").innerHTML = "Au même moment, " + autres.join(" ; ") + ".";
+    P.besoins.forEach((b, k) => {
+      const v = s.b[k], bas = v < b.seuil;
+      seuils[k].style.left = b.seuil + "%";
       JB[k].i.style.width = Math.max(0, Math.min(100, v)) + "%";
       JB[k].b.classList.toggle("bas", bas); JB[k].v.classList.toggle("bas", bas);
       JB[k].v.textContent = v.toFixed(0);
     });
     s.em.forEach((v, k) => { JE[k].i.style.width = Math.max(0, Math.min(1, v)) * 100 + "%"; JE[k].v.textContent = v.toFixed(2); });
-    // sur lui
-    const pos = posObjets[g], ul = $("porte"); ul.innerHTML = "";
+    const pos = P.objetsA[g], ul = $("porte"); ul.innerHTML = "";
     Object.entries(pos).forEach(([id, ou]) => {
-      if (D.emplacements[ou] && D.emplacements[ou].porte) { const li = document.createElement("li"); li.textContent = (D.objets[id] || id) + " : " + ou; ul.appendChild(li); }
+      const em = D.emplacements[P.id][ou];
+      if (em && em.porte) { const li = document.createElement("li"); li.textContent = (D.objets[P.id][id] || id) + " : " + ou; ul.appendChild(li); }
     });
     if (!ul.children.length) { const li = document.createElement("li"); li.className = "vide"; li.textContent = "rien en main"; ul.appendChild(li); }
+    // argent : dernier solde connu
+    let soldes = null;
+    for (let k = g; k >= 0 && !soldes; k--) soldes = P.pas[k].ar || null;
+    $("argent").innerHTML = soldes ? Object.entries(soldes).map(([c, v]) => `<span class="puce">${NOMS_COMPTES[c] || c} ${euros(v)}</span>`).join("") : '<span class="vide">pas de mouvement depuis lundi</span>';
     const ap = $("appareils"); ap.innerHTML = "";
-    s.ap.forEach((id) => { const c = document.createElement("span"); c.className = "puce"; c.textContent = id.startsWith("lumiere-") ? "Lumière " + court(id.slice(8)).toLowerCase() : NOMS_APPAREILS[id] || id; ap.appendChild(c); });
+    s.ap.forEach((id) => { const c = document.createElement("span"); c.className = "puce"; c.textContent = id.startsWith("lumiere-") ? "Lumière " + court(P, id.slice(8)).toLowerCase() : NOMS_APPAREILS[id] || id; ap.appendChild(c); });
     if (!s.ap.length) ap.innerHTML = '<span class="vide">rien</span>';
-    // règle
     $("temps").value = e.k;
     $("curseur").style.left = (e.k / 288 * 100) + "%";
     $("ici").textContent = JOURS_COURTS[j.jour] + " " + s.h;
     document.querySelectorAll("#jours button").forEach((b, k) => b.setAttribute("aria-pressed", k === e.ji ? "true" : "false"));
-    // lumières et appareils
-    for (const [id, poly] of Object.entries(sols)) poly.classList.toggle("allumee", s.ap.includes("lumiere-" + id));
-    gApp.textContent = "";
-    s.ap.forEach((id) => {
-      if (id.startsWith("lumiere-")) return;
-      let a = M.appareils[id];
-      let p = null;
-      if (typeof a === "string" && a.startsWith("obj-")) { const em = D.emplacements[pos[a]]; p = em && em.p ? em.p : null; }
-      else if (a === "thomas") p = null;
-      else if (a) p = loc(a, a[2]);
-      if (!p) return;
-      const q = iso(p);
-      el("circle", { cx: q[0], cy: q[1], r: 0.07, class: "appareil" }, gApp);
-      el("circle", { cx: q[0], cy: q[1], r: 0.2, class: "halo" }, gApp);
-    });
-    // objets
-    gObj.textContent = "";
-    const deplaces = new Set((s.ob || []).map((o) => o[0]).concat((s.no || []).map((o) => o[0])));
-    const parPoint = {};
-    Object.entries(pos).forEach(([id, ou]) => {
-      const em = D.emplacements[ou];
-      if (!em || em.porte || !em.p) return;
-      const cle = em.p.join(",");
-      (parPoint[cle] = parPoint[cle] || []).push(id);
-    });
-    Object.entries(parPoint).forEach(([cle, ids]) => {
-      const base = cle.split(",").map(Number);
-      ids.forEach((id, i) => {
-        const ox = ((i % 3) - 1) * 0.14, oy = Math.floor(i / 3) * 0.14;
-        const c = [base[0] + ox, base[1] + oy, base[2]];
-        const r = 0.055;
-        const gg = el("g", { class: "objet" + (deplaces.has(id) ? " deplace" : ""), tabindex: 0, role: "button", "aria-label": D.objets[id] || id }, gObj);
-        contour([[c[0] - r, c[1] - r, c[2]], [c[0] + r, c[1] - r, c[2]], [c[0] + r, c[1] + r, c[2]], [c[0] - r, c[1] + r, c[2]]], "", gg);
-        el("title", {}, gg).textContent = (D.objets[id] || id) + " : " + pos[id];
-        const montrer = () => { const et = $("etiquette"); et.hidden = false; et.textContent = (D.objets[id] || id) + " · " + pos[id]; };
-        gg.addEventListener("click", montrer);
-        gg.addEventListener("keydown", (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); montrer(); } });
+    document.querySelectorAll("#suivre button").forEach((b, k) => b.setAttribute("aria-pressed", k === suivi ? "true" : "false"));
+    if (rendreBande.cle !== e.ji + ":" + suivi) { rendreBande(); rendreBande.cle = e.ji + ":" + suivi; }
+    // lumières, appareils et objets de chaque personnage
+    gApp.textContent = ""; gObj.textContent = "";
+    PERSOS.forEach((Q) => {
+      const sq = Q.pas[g], posQ = Q.objetsA[g];
+      for (const [pid, poly] of Object.entries(sols[Q.logement] || {})) poly.classList.toggle("allumee", sq.ap.includes("lumiere-" + pid));
+      sq.ap.forEach((id) => {
+        if (id.startsWith("lumiere-")) return;
+        const a = Q.appareils[id];
+        let p = null;
+        if (typeof a === "string" && a.startsWith("obj-")) { const em = D.emplacements[Q.id][posQ[a]]; p = em && em.p ? em.p : null; }
+        else if (Array.isArray(a)) p = a;
+        if (!p) return;
+        const q = iso(p);
+        el("circle", { cx: q[0], cy: q[1], r: 0.07, class: "appareil" }, gApp);
+        el("circle", { cx: q[0], cy: q[1], r: 0.2, class: "halo" }, gApp);
+      });
+      const deplaces = new Set((sq.ob || []).map((o) => o[0]).concat((sq.no || []).map((o) => o[0])));
+      const parPoint = {};
+      Object.entries(posQ).forEach(([id, ou]) => {
+        const em = D.emplacements[Q.id][ou];
+        if (!em || em.porte || !em.p) return;
+        (parPoint[em.p.join(",")] = parPoint[em.p.join(",")] || []).push(id);
+      });
+      Object.entries(parPoint).forEach(([cle, ids]) => {
+        const base = cle.split(",").map(Number);
+        ids.forEach((id, i) => {
+          const c = [base[0] + ((i % 3) - 1) * 0.14, base[1] + Math.floor(i / 3) * 0.14, base[2]], r = 0.055;
+          const gg = el("g", { class: "objet" + (deplaces.has(id) ? " deplace" : ""), tabindex: 0, role: "button", "aria-label": D.objets[Q.id][id] || id }, gObj);
+          contour([[c[0] - r, c[1] - r, c[2]], [c[0] + r, c[1] - r, c[2]], [c[0] + r, c[1] + r, c[2]], [c[0] - r, c[1] + r, c[2]]], "", gg);
+          el("title", {}, gg).textContent = (D.objets[Q.id][id] || id) + " : " + posQ[id];
+          const montrer = () => { const et = $("etiquette"); et.hidden = false; et.textContent = (D.objets[Q.id][id] || id) + " · " + posQ[id]; };
+          gg.addEventListener("click", montrer);
+          gg.addEventListener("keydown", (ev2) => { if (ev2.key === "Enter" || ev2.key === " ") { ev2.preventDefault(); montrer(); } });
+        });
       });
     });
-    // parcours dans le quartier : chemin couvert depuis le départ de la course du jour
-    const jd = debutJour[e.ji];
-    const couvert = [];
-    for (let k = jd; k < g; k++) if (G[k].s.q) couvert.push(...G[k].s.q);
-    gQParcouru.setAttribute("points", chaineQ(couvert));
-    const km = D.jours[e.ji].pas.slice(0, e.k + 1).filter((x) => x.q).length;
-    $("dehors").textContent = s.l === "e" ? "Dehors : " + (s.qp === "quai" ? "le long de la Saône" : s.qp === "montee" ? "remontée des pentes" : "descente des pentes") : km ? "Course du jour terminée." : "Pas de sortie pour l'instant ce jour-là.";
-    if (e.ji !== rendreBande.dernier) { rendreBande(e.ji); rendreBande.dernier = e.ji; }
   }
 
   // ------------------------------------------------------------------ rendu d'un instant
+  function vueAuto(P, st) {
+    const s = st.s, b = BAT[P.batiment], e = b.emprise, p = st.p;
+    const zLogement = M.logements[P.logement].sols[0].z;
+    const dansImmeuble = p[0] >= e[0] - 1 && p[0] <= e[2] + 1 && p[1] >= e[1] - 2 && p[1] <= (b.cage ? b.cage[3] : e[3]) + 1;
+    if (s.l === "p") return "logement:robert-chazal";
+    if (b.volees && dansImmeuble && (p[2] < zLogement - 0.3 || p[1] < e[1] || p[1] > e[3] - 0.5)) return "immeuble:" + P.id;
+    if (s.l === "e") return s.a === "Courses à l'épicerie" ? "rue" : "parcours";
+    return "logement:" + P.id;
+  }
   function rendre() {
-    const e = G[g], s = e.s;
-    const vit = vitesse;
-    let p, dir = s.d, pose = s.po, h = s.d ? s.d[2] : 0, visible = true, enMouvement = false, surEscalier = false, partBat = 0;
-    const avant = g > 0 ? fin[g - 1] : D.depart;
-    if (s.w) {
-      const L = longueurs(s.w), tot = L[L.length - 1];
-      const part = Math.min(0.85, tot / (2.5 * (1 / vit)));
-      partBat = part;
-      const u = part <= 0 ? 1 : Math.min(1, t / part);
-      const r = surChemin(s.w, L, u * tot);
-      p = r.p;
-      if (u < 1) { enMouvement = true; dir = r.dir; pose = "marche"; surEscalier = p[2] < Z - 0.3; }
-      if (s.hors && u >= 1) visible = false;
-    } else {
-      p = avant;
-      if (s.hors) visible = false;
-    }
-    if (visible) silhouette(p, pose, dir, h, enMouvement); else gThomas.textContent = "";
-    // quartier
-    if (s.q && s.q.length) {
-      const L = longueurs(s.q.map((q) => [q[0], q[1], 0])), tot = L[L.length - 1];
-      // dehors seulement une fois l'escalier descendu
-      const u = s.esc === "descente" && partBat < 1 ? Math.max(0, (t - partBat) / (1 - partBat)) : Math.min(1, t);
-      const r = surChemin(s.q, L, u * tot);
-      const q = isoQ(r.p);
-      gQThomas.setAttribute("cx", q[0]); gQThomas.setAttribute("cy", q[1]); gQThomas.setAttribute("visibility", "visible");
-    } else gQThomas.setAttribute("visibility", "hidden");
-    // cadrage
-    const vue = vueChoisie === "auto" ? (!visible || surEscalier ? "immeuble" : "appartement") : vueChoisie;
-    cadreCible = CADRES[vue];
-    $("scene").classList.toggle("vue-appartement", vue === "appartement");
-    $("ou").textContent = !visible ? "Dehors" : surEscalier ? "Escalier de l'immeuble" : court(s.pc);
-    $("ou-detail").textContent = !visible ? "Thomas court : voir le parcours" : surEscalier ? "66 marches, trois étages" : "3e étage, rue d'Austerlitz";
+    gPersos.textContent = "";
+    const etats = PERSOS.map((P) => etat(P, g, t));
+    const P = PERSOS[suivi], st = etats[suivi];
+    let vue = vueChoisie === "auto" ? vueAuto(P, st) : (vueChoisie === "rue" || vueChoisie === "parcours" ? vueChoisie : vueChoisie + ":" + P.id);
+    if (!CADRES[vue]) vue = "logement:" + P.id;
+    if (CADRES[vue] !== cadreCible) { transition = { de: cadreActuel.slice(), t0: performance.now() }; cadreCible = CADRES[vue]; }
+    const proche = vue.startsWith("logement:") || vue.startsWith("immeuble:");
+    $("scene").classList.toggle("proche", vue.startsWith("logement:"));
+    // niveaux au-dessus de la personne suivie estompés
+    const zFocus = vue.startsWith("logement:") ? (vue === "logement:" + P.id ? st.p[2] : etats[PERSOS.findIndex((Q) => vue === "logement:" + Q.id)].p[2]) : Infinity;
+    niveaux.forEach((n) => { n.classList.toggle("cache", +n.dataset.z > zFocus + 1); n.classList.toggle("dessous", +n.dataset.z < zFocus - 1); });
+    $("scene").classList.toggle("loin", pxActuel > 0.06);
+    PERSOS.forEach((Q, k) => {
+      const e = etats[k], cls = CLASSE(Q);
+      const gp = el("g", { class: "perso " + cls }, gPersos);
+      if (pxActuel > 0.06) epingle(gp, e.p, Q.prenom, cls);
+      else silhouette(gp, e.p, e.pose, e.dir, e.h, e.mouvement);
+      const cp = plan(e.p);
+      pointsCarte[Q.id].setAttribute("cx", cp[0]); pointsCarte[Q.id].setAttribute("cy", cp[1]);
+    });
+    // carte : vue d'ensemble pendant la course
+    const loin = etats.some((e) => e.s.l === "e" && e.s.a !== "Courses à l'épicerie");
+    const vb = VB_CARTE[loin ? "loin" : "proche"];
+    if (carteVb !== vb) { CARTE.setAttribute("viewBox", vb.join(" ")); carteVb = vb; const px = echelle(CARTE, vb); if (px) PERSOS.forEach((Q) => pointsCarte[Q.id].setAttribute("r", (5 * px).toFixed(1))); }
+    const s = st.s;
+    const nomLieu = s.l === "p" ? "Épicerie Chazal" : s.l === "e" ? court(P, s.pc) : court(P, s.pc);
+    $("ou").textContent = P.prenom + " · " + (vue.startsWith("immeuble:") && st.mouvement ? "escalier de l'immeuble" : nomLieu);
+    $("ou-detail").textContent = vue === "parcours" ? "Parcours de course : pentes et quais de Saône" : vue === "rue" ? "Rue d'Austerlitz, place et Grande-Rue de la Croix-Rousse" :
+      (P.batiment === "immeuble-austerlitz" ? "3e étage, rue d'Austerlitz" : "Grande-Rue de la Croix-Rousse");
+    void proche;
   }
 
-  // taille d'un pixel d'écran en unités du dessin, pour le texte et les repères
-  function echelle(el_, vb) {
-    const r = el_.getBoundingClientRect();
-    if (!r.width || !r.height) return null;
-    const px = 1 / Math.min(r.width / vb[2], r.height / vb[3]);
-    el_.style.setProperty("--px", px.toFixed(5));
-    return px;
-  }
-  function echelleQuartier() {
-    const px = echelle(QS, vbQ);
-    if (!px) return;
-    gQThomas.setAttribute("r", (5 * px).toFixed(1));
-    const b = isoQ(Q.descente[0]), c = 7 * px;
-    gQImmeuble.setAttribute("x", (b[0] - c / 2).toFixed(1)); gQImmeuble.setAttribute("y", (b[1] - c).toFixed(1));
-    gQImmeuble.setAttribute("width", c.toFixed(1)); gQImmeuble.setAttribute("height", c.toFixed(1));
-  }
-  window.addEventListener("resize", () => { echelle(svg, cadreActuel); echelleQuartier(); });
-
-  function animerCadre(dt) {
-    const k = Math.min(1, dt / 350);
-    let change = false;
-    for (let i = 0; i < 4; i++) {
-      const d = cadreCible[i] - cadreActuel[i];
-      if (Math.abs(d) > 0.01) { cadreActuel[i] += d * k; change = true; } else cadreActuel[i] = cadreCible[i];
-    }
-    if (change || dt === 0) { svg.setAttribute("viewBox", cadreActuel.map((v) => v.toFixed(3)).join(" ")); echelle(svg, cadreActuel); }
+  const reduit = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function animerCadre(instant) {
+    if (!transition) return;
+    const u = reduit ? 1 : Math.min(1, (instant - transition.t0) / 700);
+    const e = u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+    const [ax, ay, aw, ah] = transition.de, [bx, by, bw, bh] = cadreCible;
+    const w = aw * Math.pow(bw / aw, e), h = ah * Math.pow(bh / ah, e);
+    const cx = ax + aw / 2 + (bx + bw / 2 - ax - aw / 2) * e, cy = ay + ah / 2 + (by + bh / 2 - ay - ah / 2) * e;
+    cadreActuel = [cx - w / 2, cy - h / 2, w, h];
+    svg.setAttribute("viewBox", cadreActuel.map((v) => v.toFixed(3)).join(" "));
+    pxActuel = echelle(svg, cadreActuel) || pxActuel;
+    if (u >= 1) transition = null;
   }
 
   function boucle(instant) {
@@ -715,21 +809,20 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     if (enLecture) {
       t += (dt / 1000) * vitesse;
       while (t >= 1) {
-        if (g >= G.length - 1) { t = 1; arreter(); break; }
+        if (g >= NB - 1) { t = 1; arreter(); break; }
         g += 1; t -= 1;
       }
     }
-    if (g !== dernierRendu) { majPanneau(); dernierRendu = g; }
+    if (g !== dernierRendu || suivi !== dernierSuivi) { majPanneau(); dernierRendu = g; dernierSuivi = suivi; }
     rendre();
-    animerCadre(dt);
+    animerCadre(instant);
     requestAnimationFrame(boucle);
   }
 
-  function allerA(ng) { g = Math.max(0, Math.min(G.length - 1, ng)); t = 1; $("etiquette").hidden = true; }
-  function lancer() { if (g >= G.length - 1) return; enLecture = true; if (t >= 1) { g += 1; t = 0; } $("lecture").textContent = "Pause"; }
+  function allerA(ng) { g = Math.max(0, Math.min(NB - 1, ng)); t = 1; $("etiquette").hidden = true; }
+  function lancer() { if (g >= NB - 1) return; enLecture = true; if (t >= 1) { g += 1; t = 0; } $("lecture").textContent = "Pause"; }
   function arreter() { enLecture = false; $("lecture").textContent = "Lecture"; }
 
-  // ------------------------------------------------------------------ commandes
   $("lecture").addEventListener("click", () => (enLecture ? arreter() : lancer()));
   $("recul").addEventListener("click", () => { arreter(); allerA(g - 1); });
   $("avance").addEventListener("click", () => { arreter(); allerA(g + 1); });
@@ -739,26 +832,25 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     const r = ev.currentTarget.getBoundingClientRect();
     arreter(); allerA(debutJour[G[g].ji] + Math.min(287, Math.floor((ev.clientX - r.left) / r.width * 288)));
   });
-  [["vue-auto", "auto"], ["vue-appartement", "appartement"], ["vue-immeuble", "immeuble"]].forEach(([id, v]) =>
-    $(id).addEventListener("click", () => {
-      vueChoisie = v;
-      ["vue-auto", "vue-appartement", "vue-immeuble"].forEach((x) => $(x).setAttribute("aria-pressed", x === id ? "true" : "false"));
-    }));
+  document.querySelectorAll(".vues button").forEach((b) => b.addEventListener("click", () => {
+    vueChoisie = b.dataset.vue;
+    document.querySelectorAll(".vues button").forEach((x) => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+  }));
   document.addEventListener("keydown", (ev) => {
     if (ev.target.matches("input, select, textarea")) return;
     if (ev.key === " ") { ev.preventDefault(); enLecture ? arreter() : lancer(); }
     if (ev.key === "ArrowRight") { arreter(); allerA(g + 1); }
     if (ev.key === "ArrowLeft") { arreter(); allerA(g - 1); }
   });
+  window.addEventListener("resize", () => { pxActuel = echelle(svg, cadreActuel) || pxActuel; if (carteVb) echelle(CARTE, carteVb); });
 
-  // ------------------------------------------------------------------ démarrage
-  dessinerImmeuble();
-  dessinerLogement();
-  dessinerQuartier();
-  rendreJours();
+  dessinerMonde();
+  dessinerBatiments();
+  dessinerLogements();
+  dessinerCarte();
+  rendreBoutons();
   $("statut").textContent = M.statut;
-  echelle(svg, cadreActuel);
-  echelleQuartier();
+  pxActuel = echelle(svg, cadreActuel) || pxActuel;
   requestAnimationFrame(boucle);
 })();
 </script>

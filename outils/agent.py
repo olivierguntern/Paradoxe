@@ -16,11 +16,14 @@ Principales règles de décision :
 - interruption quand un besoin passe sous son seuil d'alerte, et besoins
   anticipés avant une séance longue ;
 - livre suivant pris dans la bibliothèque quand le livre en cours est fini ;
+- courses à l'épicerie les jours prévus : liste établie d'après le stock, achats
+  et paiement, répliques partagées avec l'épicier (data/monde/echanges.json) ;
 - pensées et rêves choisis dans des modèles, de façon déterministe.
 """
 import copy
 import datetime
 import json
+import math
 import os
 import zlib
 
@@ -68,6 +71,13 @@ class Agent:
         self.SEANCES = json.load(open(os.path.join(dossier, "seances.json")))
         self.REPAS = json.load(open(os.path.join(dossier, "repas.json")))
         self.PENSEES = json.load(open(os.path.join(dossier, "pensees.json")))
+        self.sans_courses = False
+        self.COMMERCE, self.ECHANGES = None, None
+        if self.R.get("courses"):
+            racine = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(dossier))))
+            commercant = self.R["courses"]["commerce"]
+            self.COMMERCE = json.load(open(os.path.join(racine, "data", "personnages", f"{commercant}.json")))["commerce"]
+            self.ECHANGES = json.load(open(os.path.join(racine, "data", "monde", "echanges.json")))[self.COMMERCE["id"]]
         self.date = date
         d = datetime.date.fromisoformat(date)
         self.jour = JOURS[d.weekday()]
@@ -955,7 +965,13 @@ class Agent:
         self.bloc("douche_rasage_weekend")
         self.bloc("habillage_weekend")
         self.bloc("menage")
-        self.lecture_session(S["lecture"][1], "rt-samedi")
+        if self.jour_de_courses():
+            self.courses()
+        if idx(S["lecture"][1]) - self.i >= 4:
+            self.lecture_session(S["lecture"][1], "rt-samedi")
+        else:
+            self.remplir(S["lecture"][1], {"action": "S'assoit un moment dans le canapé avant le déjeuner.", "piece": "sejour", "charge": "repos",
+                                           "posture": "assis"}, "Repos", "rt-samedi")
         self.repas_midi_weekend()
         self.sieste_session(S["sieste"][1], "rt-samedi")
         self.seance(hm(idx(S["seance"][1]) - 2))
@@ -1016,6 +1032,158 @@ class Agent:
         self.musique_session(D["musique"][1], "rt-dimanche")
         self.soiree_weekend()
 
+    # ------------------------------------------------------------ courses à l'épicerie
+    GENRE = {"pack": "m", "boîte": "f", "brique": "f", "plaquette": "f", "paquet": "m", "tablette": "f", "morceau": "m", "sachet": "m",
+             "bouteille": "f", "pièce": "f", "pommes": "f", "oranges": "f", "bananes": "f", "oignons": "m", "baguettes": "f"}
+
+    def jour_de_courses(self):
+        C = self.R.get("courses")
+        if not C or self.sans_courses or self.jour not in C["jours"]:
+            return False
+        debut = self.i
+        ouvert = any(idx(a) <= debut and debut + 6 <= idx(b) for a, b in self.COMMERCE["horaires"][self.jour])
+        if not ouvert:
+            self.decisions.append(f"{hm(debut)} : l'épicerie est fermée à cette heure ; pas de courses.")
+        return ouvert
+
+    def liste_de_courses(self):
+        cat = {c["produit"]: c for c in self.COMMERCE["catalogue"]}
+        liste = []
+        for l in self.R["courses"]["liste"]:
+            c = cat.get(l["produit"])
+            stock = self.sim.stock.get(l["produit"], 0)
+            if not c:
+                continue
+            if "cible" in l:
+                manque = l["cible"] - stock
+                if manque < l.get("minimum", 1):
+                    continue
+                n = math.ceil(manque / c["quantite"])
+            elif stock < l["seuil"]:
+                n = max(1, math.ceil(l["achat"] / c["quantite"]))
+            else:
+                continue
+            liste.append({"produit": l["produit"], "n": n, "quantite": n * c["quantite"], "prix": round(n * c["prix"], 2), "c": c})
+        return liste
+
+    def libelle(self, x):
+        c, n = x["c"], x["n"]
+        if c["vente"] == "à la pièce":
+            if n == 1:
+                return ("une " if self.GENRE.get(c["unite"]) == "f" else "un ") + c["unite"][:-1]
+            return f"{n} {c['unite']}"
+        base = c["nom"].split(" (")[0]
+        de = "d'" if base[0].lower() in "aeiouyhéèêœ" else "de "
+        if n == 1:
+            return ("une " if self.GENRE.get(c["vente"]) == "f" else "un ") + f"{c['vente']} {de}{base}"
+        return f"{n} {c['vente']}s {de}{base}"
+
+    @staticmethod
+    def enumerer(mots):
+        return mots[0] if len(mots) == 1 else ", ".join(mots[:-1]) + " et " + mots[-1]
+
+    @staticmethod
+    def euros(v):
+        return f"{v:.2f}".replace(".", ",") + " €"
+
+    def courses(self):
+        """Aller à l'épicerie, acheter ce qui manque, payer, rentrer et ranger (9 pas)."""
+        C, E = self.R["courses"], self.ECHANGES
+        T, R = "Courses à l'épicerie", "rt-courses"
+        liste = self.liste_de_courses()
+        if not liste:
+            self.decisions.append(f"{hm(self.i)} : rien ne manque ; il ne descend pas à l'épicerie.")
+            return
+        moment = "matin" if self.i < idx("12:00") else "soir"
+        txt = self.enumerer([self.libelle(x) for x in liste])
+        total = round(sum(x["prix"] for x in liste), 2)
+        P = C["paiement"]
+        especes = total <= P["especes_si_moins_de"] and self.sim.argent.get("especes", 0) - total >= P["garde_en_especes"]
+        pos = self.sim.positions
+        self.decisions.append(f"{hm(self.i)} : courses à l'épicerie : {txt} ({self.euros(total)}, {'en espèces' if especes else 'par carte'}).")
+
+        # 1. la liste
+        self.emettre({"action": f"Ouvre le réfrigérateur et le placard, note sur un bout de papier ce qui manque : {txt}.", "piece": "cuisine",
+                      "charge": "simple", "posture": "debout",
+                      "pensee": choix(self.PENSEES["courses"]["liste"], self.date, self.i)}, T, R)
+        # 2. départ, avec la poubelle si elle est pleine
+        objets = [{"objet": "obj-veste", "de": pos["obj-veste"], "vers": "porté"},
+                  {"objet": "obj-cabas", "de": pos["obj-cabas"], "vers": "dans sa main"},
+                  {"objet": "obj-portefeuille", "de": pos["obj-portefeuille"], "vers": "poche de la veste"},
+                  {"objet": "obj-cles", "de": pos["obj-cles"], "vers": "poche de la veste"}]
+        p = {"action": "Enfile sa veste, prend le cabas, son portefeuille et ses clés, sort et ferme la porte à clé.", "piece": "entree",
+             "charge": "simple", "posture": "debout", "objets": objets}
+        if not pos["obj-cabas"].startswith("entree"):
+            p["via"] = [pos["obj-cabas"].split(" / ")[0]]
+            p["action"] = "Reprend le cabas, " + p["action"][0].lower() + p["action"][1:].replace(", prend le cabas,", ", prend")
+        pb, sac = self.mem["poubelle"], None
+        if pb["repas"] >= self.R["poubelle"]["repas_avant_descente"]:
+            sac, nouveau = pb["id"], f"obj-poubelle-{pb['numero'] + 1}"
+            objets.append({"objet": sac, "de": "cuisine / poubelle sous l'évier", "vers": "dans sa main"})
+            p["nouveaux_objets"] = [{"id": nouveau, "nom": "Sac-poubelle de la cuisine (neuf)", "position": "cuisine / poubelle sous l'évier"}]
+            p["via"] = ["cuisine"]
+            p["action"] = "Passe à la cuisine prendre le sac-poubelle et en remet un neuf. " + p["action"]
+            pb.update({"id": nouveau, "numero": pb["numero"] + 1, "repas": 0})
+            self.decisions.append(f"{hm(self.i)} : descend la poubelle en allant faire les courses.")
+        self.emettre(p, T, R)
+        # 3. escalier et rue d'Austerlitz
+        p = {"action": "Appuie sur la minuterie, descend les trois étages" + (", dépose le sac au local poubelles" if sac else "") +
+                       " et sort. Remonte la rue d'Austerlitz.",
+             "piece": "rue d'Austerlitz", "lieu": "exterieur", "charge": "simple", "posture": "en marche", "sortie": True,
+             "escalier": {"sens": "descente"}, "parcours": [{"moyen": "marche", "distance_m": 150, "denivele_m": 0}]}
+        if sac:
+            p["objets"] = [{"objet": sac, "de": "dans sa main", "vers": "local poubelles de l'immeuble"}]
+        self.emettre(p, T, R)
+        # 4. place et Grande-Rue
+        self.emettre({"action": "Traverse la place de la Croix-Rousse et remonte la Grande-Rue jusqu'à l'épicerie.",
+                      "piece": "Grande-Rue de la Croix-Rousse", "lieu": "exterieur", "charge": "simple", "posture": "en marche",
+                      "parcours": [{"moyen": "marche", "distance_m": 350, "denivele_m": 0}]}, T, R)
+        # 5. dans l'épicerie : l'échange
+        accueil = E["accueil_commercant"].get(self.jour, E["accueil_commercant"]["defaut"])
+        reponse = E["reponse_client"].get(self.jour, E["reponse_client"]["defaut"])
+        self.emettre({"action": f"Pousse la porte de l'épicerie. « {E['salut_client'][moment]} » Robert Chazal lève la tête de sa caisse : "
+                                f"« {accueil} » « {reponse} » Prend dans les rayons {txt}.",
+                      "piece": "épicerie", "lieu": "epicerie-chazal", "charge": "simple", "posture": "debout", "ev": ["echange_commercant"],
+                      "effets": {"social": self.fiche["besoins"]["social"]["satisfaction"]["echange_bref"]},
+                      "pensee": choix(self.PENSEES["courses"]["epicerie"], self.date, self.i)}, T, R)
+        # 6. paiement
+        achats = [{"produit": x["produit"], "quantite": x["quantite"], "prix": x["prix"]} for x in liste]
+        au_revoir = E["au_revoir_commercant"].get(self.jour, E["au_revoir_commercant"]["defaut"])
+        self.emettre({"action": f"Pose ses achats sur le comptoir. « Ça fera {self.euros(total)}. » " +
+                                ("Paie en espèces" if especes else "Paie par carte") +
+                                f" et range tout dans le cabas. « {E['au_revoir_client'][moment]} » « {au_revoir} »",
+                      "piece": "épicerie", "lieu": "epicerie-chazal", "charge": "simple", "posture": "debout",
+                      "achats": achats, "argent": {"especes" if especes else "compte": -total}}, T, R)
+        # 7. retour par la Grande-Rue
+        self.emettre({"action": "Redescend la Grande-Rue, le cabas à la main, et retraverse la place.",
+                      "piece": "Grande-Rue de la Croix-Rousse", "lieu": "exterieur", "charge": "simple", "posture": "en marche",
+                      "parcours": [{"moyen": "marche", "distance_m": 350, "denivele_m": 0}],
+                      "pensee": choix(self.PENSEES["courses"]["retour"], self.date, self.i)}, T, R)
+        # 8. rentrer
+        self.emettre({"action": "Longe la rue d'Austerlitz, compose le code, monte les trois étages et ouvre la porte. "
+                                "Accroche sa veste, pose ses clés dans le vide-poche et range son portefeuille.",
+                      "piece": "entree", "charge": "simple", "posture": "debout", "retour": True, "escalier": {"sens": "montee"},
+                      "parcours": [{"moyen": "marche", "distance_m": 150, "denivele_m": 0}],
+                      "objets": [{"objet": "obj-veste", "de": "porté", "vers": "entree / porte-manteau"},
+                                 {"objet": "obj-cles", "de": "poche de la veste", "vers": "entree / vide-poche de la commode"},
+                                 {"objet": "obj-portefeuille", "de": "poche de la veste", "vers": "entree / tiroir de la commode"}]}, T, R)
+        # 9. ranger les courses
+        ranges = {}
+        rangements = {x["id"]: x.get("rangement", "") for x in self.fiche["domicile"]["provisions_au_debut"]}
+        for x in liste:
+            ou = rangements.get(x["produit"], "placard à provisions")
+            nom = x["c"]["nom"].split(" (")[0]
+            art = "les " if nom.split()[0].endswith(("s", "x")) else ("l'" if nom[0].lower() in "aeiouyhéèêœ" else
+                                                                       ("la " if self.GENRE.get(x["c"]["vente"]) == "f" and x["c"]["vente"] == "bouteille" else "le "))
+            ranges.setdefault(ou, []).append(art + nom)
+        LIEUX = {"corbeille de la cuisine": "dans la corbeille", "réfrigérateur": "au réfrigérateur", "congélateur": "au congélateur",
+                 "placard à provisions": "dans le placard"}
+        phrase = self.enumerer([f"{self.enumerer(v)} {LIEUX.get(k, 'à sa place')}" for k, v in ranges.items()])
+        self.emettre({"action": f"Vide le cabas dans la cuisine : {phrase}. Plie le cabas et le laisse sur le plan de travail.",
+                      "piece": "cuisine", "charge": "simple", "posture": "debout",
+                      "objets": [{"objet": "obj-cabas", "de": "dans sa main", "vers": "cuisine / plan de travail"}]}, T, R)
+        self.faits.append(f"Courses à l'épicerie ({self.euros(total)})")
+
     # ------------------------------------------------------------ journée
     def vivre(self):
         self.mem["courant"] = None
@@ -1042,6 +1210,8 @@ class Agent:
         self.pause_fruit()
         self.atelier(A[3]["debut"], A[3]["fin"])
         self.rangement_atelier()
+        if self.jour_de_courses():
+            self.courses()
         self.soiree()
         return self.terminer()
 
