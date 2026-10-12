@@ -78,8 +78,10 @@ class AgentEpicier:
 
     # ------------------------------------------------------------ mémoire
     def memoire_initiale(self):
-        return {"endormi_a": idx(self.R["endormi_la_veille_du_premier_jour"]) - PAS_PAR_JOUR, "commande": None, "ardoises": {},
-                "journal": None, "journal_veille": None, "evocations": {}, "nuit_minutes": None}
+        # le bon de commande de mardi a été écrit dimanche à la fermeture, avant la période : stock du magasin ramené à sa cible
+        commande = {p: c["cible"] - self.sim.boutique.get(p, 0) for p, c in self.CAT.items() if not c.get("frais") and c["cible"] > self.sim.boutique.get(p, 0)}
+        return {"endormi_a": idx(self.R["endormi_la_veille_du_premier_jour"]) - PAS_PAR_JOUR, "commande": commande, "ardoises": {},
+                "journal": None, "journal_veille": None, "evocations": {}, "nuit_minutes": None, "recettes": {}}
 
     @property
     def i(self):
@@ -222,9 +224,10 @@ class AgentEpicier:
         midi = self.i < idx("13:00")
         out = []
         if self.jour == "lundi":
-            out = [("lundi", "dejeuner"), ("lundi", "diner"), ("mardi", "dejeuner")]
+            out = []  # jour de congé : il ne passe à la boutique que pour la recette
         elif self.jour == "dimanche":
-            out = [("dimanche", "diner"), ("lundi", "dejeuner")] if not midi else [("dimanche", "dejeuner"), ("dimanche", "diner"), ("lundi", "dejeuner")]
+            # le lundi, il ne rapporte rien : le cabas du dimanche va jusqu'au déjeuner du mardi
+            out = ([("dimanche", "dejeuner")] if midi else []) + [("dimanche", "diner"), ("lundi", "dejeuner"), ("lundi", "diner"), ("mardi", "dejeuner")]
         else:
             out = [(self.jour, "diner"), (ordre[(k + 1) % 7], "dejeuner")]
         return out
@@ -339,10 +342,6 @@ class AgentEpicier:
         jl = f"obj-progres-{self.date[5:7]}{self.date[8:10]}"
         self.mem["journal_veille"], self.mem["journal"] = self.mem.get("journal"), jl
         spec["nouveaux_objets"] = [{"id": jl, "nom": f"Le Progrès du {self.jour} {self.d.day} {MOIS[self.d.month - 1]} {self.d.year}", "position": "cuisine / table"}]
-        objets = [list(x) for x in ARRIVEE_MAISON]
-        if self.sim.positions.get(CABAS) == "dans sa main":
-            objets.append([CABAS, "entree / portemanteau"])
-        spec["objets"] = objets
         return spec
 
     def role_grossiste(self, spec):
@@ -461,14 +460,16 @@ class AgentEpicier:
         spec["action"] = spec["modele"].format(perimes=enumerer([libelle(self.CAT[p], q) for p, q in perimes.items()]) or "rien")
         return spec
 
-    def role_cabas_lundi(self, spec):
-        lignes, _ = self.liste_cabas()
-        spec["prelevements"] = lignes
-        spec["action"] = spec["modele"].format(liste=self.texte_cabas(lignes) or "rien")
-        spec["objets"] = [[CABAS, "dans sa main"]] if lignes else []
+    # rôles de la fin de semaine (dimanche à la fermeture)
+    def role_comptes_semaine(self, spec):
+        debut = (self.d - datetime.timedelta(days=6)).isoformat()
+        total = round(sum(v for d, v in (self.mem.get("recettes") or {}).items() if d >= debut) + self.recette, 2)
+        spec["action"] = spec["modele"].format(semaine=euros(total))
+        spec["pensee"] = spec["modele_pensee"].format(semaine=euros(total).capitalize())
+        self.faits.append(f"Comptes de la semaine : {euros(total)}")
         return spec
 
-    def role_commande_lundi(self, spec):
+    def role_commande_dimanche(self, spec):
         commande = {p: c["cible"] - self.sim.boutique.get(p, 0) for p, c in self.CAT.items() if not c.get("frais") and c["cible"] > self.sim.boutique.get(p, 0)}
         self.mem["commande"] = commande
         spec["action"] = spec["modele"].format(commande=self.texte_commande(commande))
@@ -870,7 +871,14 @@ class AgentEpicier:
             self.soiree_semaine()
 
     def apres_midi_dimanche(self):
-        self.jouer("fermeture_dimanche", variante="defaut")
+        # fermeture : caisse, puis la fin de semaine (tri, ménage, comptes, bon de commande de mardi), puis le cabas
+        sc = self.scene("fermeture_dimanche", variante="defaut")
+        for spec in sc[:2]:
+            self.emettre(self.appliquer_role(spec))
+        self.jouer("fin_de_semaine", variante="defaut")
+        self.faits.append("Fin de semaine à la boutique : produits périmés triés, ménage")
+        for spec in sc[2:]:
+            self.emettre(self.appliquer_role(spec))
         self.route("midi_dimanche", "midi_dimanche", depart="cour")
         self.jouer("dejeuner_dimanche", variante="defaut")
         self.jouer("sieste_dimanche", variante="defaut")
@@ -893,8 +901,9 @@ class AgentEpicier:
         self.nuit(idx(self.R["reveil"]["lundi"]))
         self.jouer("lundi")
         self.route("lundi_matin", "lundi_matin", depart="garage")
-        self.jouer("lundi_boutique")
+        self.jouer("lundi_banque")
         self.route("lundi_midi", "lundi_midi", depart="cour")
+        self.jouer("lundi_matinee")
         self.jouer("lundi_apres_midi")
         self.faits.append("Potager : deux rangs retournés, radis semés")
         self.route("cinema_aller", "cinema_aller", depart="garage", arrivee="parking")
@@ -932,6 +941,8 @@ class AgentEpicier:
         etat_final, stats = self.sim.terminer(self.j.extinction, self.j.endormissement)
         self.mem.pop("evocations_du_jour", None)
         self.mem["ardoises"] = self.comptoir.ardoises
+        if self.recette:
+            self.mem.setdefault("recettes", {})[self.date] = self.recette
         etat_final["agent"] = self.mem
         self.j.ecarts = self.decisions or ["Aucun écart notable."]
         self.j.bilan = [f"**{f}**" for f in self.faits] or ["Journée sans fait marquant."]

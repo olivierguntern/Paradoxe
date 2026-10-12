@@ -19,9 +19,9 @@ FICHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..
 
 def rediger(etat):
     fiche = json.load(open(FICHE))
-    j = Journee("2010-03-09", "mardi", extinction="22:00")
+    j = Journee("2010-03-09", "mardi", extinction="22:10")
     mag = Magasin(fiche, etat, "2010-03-09", "mardi")
-    commande = mag.commande()  # le bon écrit lundi : rien n'a bougé depuis
+    commande = mag.commande()  # le bon écrit dimanche à la fermeture : rien n'a bougé depuis
     nb_lignes = len(commande)
 
     # ------------------------------------------------------------ nuit
@@ -290,7 +290,8 @@ def rediger(etat):
     ])
     tele = ["La météo.", "Un jeu télévisé ; Josiane donne les réponses avant les candidats.", "Le jeu.", "Un film d'aventure commence.",
             "Regarde le film.", "Regarde le film.", "Somnole devant le film.", "Se réveille, regarde le film.", "Regarde le film.",
-            "Josiane tricote à côté de lui.", "Regarde le film, les paupières lourdes.", "Somnole."]
+            "Josiane tricote à côté de lui.", "Regarde le film, les paupières lourdes.", "Somnole.", "Se réveille en sursaut, regarde la fin du film.",
+            "Somnole, le menton sur la poitrine."]
     tv = []
     for k, t in enumerate(tele):
         st = p(t, None, tele=True, mode="loisir", effets={"social": 1.0})
@@ -306,7 +307,7 @@ def rediger(etat):
     j.seg("20:30", "Télévision", "sejour", "rt-soir", "loisir", "repos", "assis", tv)
 
     # ------------------------------------------------------------ coucher
-    j.seg("21:35", "Toilette du soir", "salle-de-bain", "rt-soir", "eveille", "simple", "debout", [
+    j.seg("21:45", "Toilette du soir", "salle-de-bain", "rt-soir", "eveille", "simple", "debout", [
         p("Monte à l'étage. Passe aux toilettes.", None, effets={"toilettes": "vide"}),
         p("Se brosse les dents, boit un verre d'eau au lavabo.", None, effets={"hygiene": 10, "soif": 15}),
         p("Prépare ses vêtements de demain sur le tabouret, enfile son pyjama.", None),
@@ -315,20 +316,20 @@ def rediger(etat):
                       ("obj-lunettes", "sur son front", "chambre / table de chevet de Robert")])),
         p("Se couche ; le lit est froid du côté de Josiane.", "Demain soir, le Bernabéu.", piece="chambre", posture="allongé", charge="repos"),
     ])
-    j.seg("22:00", "Endormissement", "chambre", "rt-soir", "eveille", "repos", "allongé", [
+    j.seg("22:10", "Endormissement", "chambre", "rt-soir", "eveille", "repos", "allongé", [
         p("Éteint la lampe de chevet.", None, app=off("lumiere-chambre")),
         p("Entend la télévision en bas, très loin.", None),
         p("S'endort.", None, charge="sommeil"),
     ])
-    j.seg("22:15", "Sommeil", "chambre", "sommeil", "sommeil", "sommeil", "allongé", nuit([
-        ("22:15", "22:30", "léger", None, None),
+    j.seg("22:25", "Sommeil", "chambre", "sommeil", "sommeil", "sommeil", "allongé", nuit([
+        ("22:25", "22:30", "léger", None, None),
         ("22:30", "23:30", "profond", None, None),
         ("23:30", "23:40", "léger", None, None),
         ("23:40", "23:45", "micro-éveil", None, None, "Josiane se couche ; il se retourne et se rendort."),
         ("23:45", "24:00", "paradoxal", "Le grossiste livre des cagettes de montres ; l'horloger les remonte une à une dans la réserve.", None),
     ]))
     j.ecarts = ["Nuit écourtée par le cinéma de la veille : six heures de sommeil.",
-                "21:30 : épuisé (énergie sous le seuil d'alerte), il éteint la télévision et se couche une demi-heure plus tôt que d'habitude."]
+                "21:40 : épuisé (énergie sous le seuil d'alerte), il éteint la télévision et se couche vingt minutes plus tôt que d'habitude."]
     j.bilan = [f"**Livraison du grossiste** : {nb_lignes} lignes.",
                f"**Recette** : {euros(recette)} ({mag.comptoir.nb_clients} clients).",
                "**L'horloger** est passé : 2,10 € en espèces.",

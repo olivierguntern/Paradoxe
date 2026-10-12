@@ -1,7 +1,7 @@
 {
   "meta": {
     "id": "robert-chazal",
-    "version": 2,
+    "version": 3,
     "description": "Personnage n°2 : l'épicier de la Grande-Rue de la Croix-Rousse, chez qui Thomas Berthier fait ses courses. Fiche complète servant de base à sa semaine, rédigée puis vécue par son agent, comme celle de Thomas.",
     "periode": {
       "debut": "2010-03-08T00:00",
@@ -427,7 +427,7 @@
     },
     "livraisons": {
       "pain": { "principe": "chaque jour d'ouverture à 06:35, par le livreur de la boulangerie de la place, qui reprend les invendus de la veille", "baguette": { "defaut": 70, "samedi": 80, "dimanche": 50 }, "pain_campagne": { "defaut": 6, "samedi": 10, "dimanche": 8 } },
-      "grossiste": { "principe": "mardi et vendredi à 06:40, par la porte de la cour : le bon de commande écrit la veille de fermeture (lundi) ou le jeudi soir ramène chaque produit à son stock cible", "jours": ["mardi", "vendredi"] }
+      "grossiste": { "principe": "mardi et vendredi à 06:40, par la porte de la cour : le bon de commande écrit le dimanche à la fermeture (pour mardi) ou le jeudi soir (pour vendredi) ramène chaque produit à son stock cible", "jours": ["mardi", "vendredi"] }
     },
     "affluence_clients_par_pas": {
       "principe": "Nombre moyen de clients anonymes par pas de 5 minutes, selon l'heure ; le nombre réel et le contenu des paniers sont tirés de façon déterministe (outils/clientele.py).",
@@ -445,7 +445,7 @@
       { "produit": "baguette", "nom": "baguette", "vente": "pièce", "quantite": 1, "unite": "baguettes", "prix": 0.9, "stock_initial": 0, "cible": 0, "frais": "pain" },
       { "produit": "pain_campagne", "nom": "pain de campagne (500 g)", "vente": "pièce", "quantite": 1, "unite": "pains", "prix": 2.1, "stock_initial": 0, "cible": 0, "frais": "pain" },
       { "produit": "lait_uht", "nom": "lait UHT (brique d'un litre)", "vente": "brique", "quantite": 1000, "unite": "ml", "prix": 0.95, "stock_initial": 30, "cible": 56 },
-      { "produit": "yaourts", "nom": "yaourts nature (pack de 4)", "vente": "pack", "quantite": 4, "unite": "pots", "prix": 1.6, "stock_initial": 16, "cible": 42 },
+      { "produit": "yaourts", "nom": "yaourts nature (pack de 4)", "vente": "pack", "quantite": 4, "unite": "pots", "prix": 1.6, "stock_initial": 14, "cible": 42 },
       { "produit": "oeufs", "nom": "œufs (boîte de 6)", "vente": "boîte", "quantite": 6, "unite": "œufs", "prix": 1.9, "stock_initial": 14, "cible": 32 },
       { "produit": "beurre", "nom": "beurre (plaquette de 250 g)", "vente": "plaquette", "quantite": 250, "unite": "g", "prix": 1.95, "stock_initial": 10, "cible": 22 },
       { "produit": "comte", "nom": "comté (morceau de 250 g)", "vente": "morceau", "quantite": 250, "unite": "g", "prix": 4.5, "stock_initial": 8, "cible": 12 },
@@ -468,10 +468,10 @@
       { "produit": "oranges", "nom": "oranges", "vente": "à la pièce", "quantite": 1, "unite": "oranges", "prix": 0.35, "stock_initial": 44, "cible": 80 },
       { "produit": "bananes", "nom": "bananes", "vente": "à la pièce", "quantite": 1, "unite": "bananes", "prix": 0.3, "stock_initial": 40, "cible": 88 },
       { "produit": "tomates", "nom": "tomates (barquette de 500 g)", "vente": "barquette", "quantite": 500, "unite": "g", "prix": 1.6, "stock_initial": 10, "cible": 24 },
-      { "produit": "pommes_de_terre", "nom": "pommes de terre (sac de 2,5 kg)", "vente": "sac", "quantite": 2500, "unite": "g", "prix": 2.5, "stock_initial": 8, "cible": 10 },
-      { "produit": "carottes", "nom": "carottes (sachet d'un kilo)", "vente": "sachet", "quantite": 1000, "unite": "g", "prix": 1.5, "stock_initial": 10, "cible": 12 },
+      { "produit": "pommes_de_terre", "nom": "pommes de terre (sac de 2,5 kg)", "vente": "sac", "quantite": 2500, "unite": "g", "prix": 2.5, "stock_initial": 7, "cible": 10 },
+      { "produit": "carottes", "nom": "carottes (sachet d'un kilo)", "vente": "sachet", "quantite": 1000, "unite": "g", "prix": 1.5, "stock_initial": 9, "cible": 12 },
       { "produit": "oignons", "nom": "oignons", "vente": "à la pièce", "quantite": 1, "unite": "oignons", "prix": 0.25, "stock_initial": 30, "cible": 40 },
-      { "produit": "salade", "nom": "laitue", "vente": "pièce", "quantite": 1, "unite": "laitues", "prix": 1.1, "stock_initial": 5, "cible": 11 },
+      { "produit": "salade", "nom": "laitue", "vente": "pièce", "quantite": 1, "unite": "laitues", "prix": 1.1, "stock_initial": 3, "cible": 11 },
       { "produit": "papier_toilette", "nom": "papier toilette (paquet de 6)", "vente": "paquet", "quantite": 1, "unite": "paquets", "prix": 2.9, "stock_initial": 8, "cible": 10 },
       { "produit": "lessive", "nom": "lessive liquide (bidon)", "vente": "bidon", "quantite": 1, "unite": "bidons", "prix": 6.9, "stock_initial": 4, "cible": 6 },
       { "produit": "bonbons", "nom": "bonbons (sachet)", "vente": "sachet", "quantite": 1, "unite": "sachets", "prix": 1.0, "stock_initial": 20, "cible": 24 }
@@ -671,11 +671,11 @@
       { "id": "vin_rouge", "produit": "vin rouge (côtes-du-rhône)", "quantite": 225, "unite": "cl", "description": "trois bouteilles", "rangement": "garage", "magasin": "vin_rouge", "par_unite": 75 },
       { "id": "biere", "produit": "bière", "quantite": 2, "unite": "bouteilles", "rangement": "réfrigérateur", "magasin": "biere", "par_unite": 1 },
       { "id": "comprimes", "produit": "comprimés pour la tension", "quantite": 18, "unite": "comprimés", "rangement": "placard à provisions" },
-      { "id": "pommes_de_terre", "produit": "pommes de terre", "quantite": 1200, "unite": "g", "rangement": "cellier du garage", "magasin": "pommes_de_terre", "par_unite": 2500 },
-      { "id": "carottes", "produit": "carottes", "quantite": 200, "unite": "g", "rangement": "bac à légumes", "magasin": "carottes", "par_unite": 1000 },
+      { "id": "pommes_de_terre", "produit": "pommes de terre", "quantite": 3700, "unite": "g", "rangement": "cellier du garage", "magasin": "pommes_de_terre", "par_unite": 2500 },
+      { "id": "carottes", "produit": "carottes", "quantite": 1200, "unite": "g", "rangement": "bac à légumes", "magasin": "carottes", "par_unite": 1000 },
       { "id": "oignons", "produit": "oignons", "quantite": 2, "unite": "oignons", "rangement": "cellier du garage", "magasin": "oignons", "par_unite": 1 },
       { "id": "oeufs", "produit": "œufs", "quantite": 2, "unite": "œufs", "rangement": "réfrigérateur", "magasin": "oeufs", "par_unite": 6 },
-      { "id": "salade", "produit": "laitue", "quantite": 0, "unite": "laitues", "rangement": "bac à légumes", "magasin": "salade", "par_unite": 1 },
+      { "id": "salade", "produit": "laitue", "quantite": 1, "unite": "laitues", "rangement": "bac à légumes", "magasin": "salade", "par_unite": 1 },
       { "id": "tomates", "produit": "tomates", "quantite": 0, "unite": "g", "rangement": "corbeille de la cuisine", "magasin": "tomates", "par_unite": 500 },
       { "id": "jambon", "produit": "jambon blanc", "quantite": 0, "unite": "tranches", "rangement": "réfrigérateur", "magasin": "jambon", "par_unite": 4 },
       { "id": "fromage_rape", "produit": "emmental râpé", "quantite": 0, "unite": "g", "rangement": "réfrigérateur", "magasin": "fromage_rape", "par_unite": 200 },
@@ -691,7 +691,7 @@
   },
 
   "menus_prevus": {
-    "regle": "Josiane cuisine le déjeuner et le dîner avec ce qu'elle achète à Cusset (viande, poisson) et ce que Robert rapporte de la boutique : à chaque départ de la boutique le soir, il prélève sur le stock du magasin ce qui manque à la maison pour le dîner du soir et le déjeuner du lendemain ; le dimanche midi et le lundi, pour les deux repas suivants. Le matin, il met de côté une baguette (deux le dimanche). Il complète aussi ses propres provisions quand elles baissent (fruits, fromage, beurre, café, vin, bière). Les quantités sont celles du repas du couple.",
+    "regle": "Josiane cuisine le déjeuner et le dîner avec ce qu'elle achète à Cusset (viande, poisson) et ce que Robert rapporte de la boutique : à chaque départ de la boutique le soir, il prélève sur le stock du magasin ce qui manque à la maison pour le dîner du soir et le déjeuner du lendemain ; le dimanche midi, jusqu'au déjeuner du mardi, puisque le lundi il ne retourne à la boutique que pour prendre la recette. Le matin, il met de côté une baguette (deux le dimanche). Il complète aussi ses propres provisions quand elles baissent (fruits, fromage, beurre, café, vin, bière). Les quantités sont celles du repas du couple.",
     "petit_dejeuner": { "plat": "café, deux tartines beurre-confiture, comprimé pour la tension", "ingredients": [["cafe_moulu", 14], ["pain", 1], ["beurre", 10], ["confiture", 2], ["comprimes", 1]] },
     "lundi": {
       "dejeuner": { "plat": "gratin dauphinois préparé la veille, côtes de porc", "ingredients": [["pommes_de_terre", 1000], ["beurre", 20], ["pain", 2], ["fruits", 1], ["repas_josiane", 1]] },
@@ -739,7 +739,7 @@
     { "id": "obj-casquette", "nom": "Casquette de toile", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "portemanteau" }, "importance": 0.1 },
     { "id": "obj-sac-a-dos", "nom": "Sac à dos avec gourde et jumelles", "emplacement_initial": { "lieu": "domicile", "piece": "garage", "support": "étagère" }, "importance": 0.3 },
     { "id": "obj-jeu-de-cartes", "nom": "Jeu de cartes de belote et carnet des scores", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "tiroir du buffet" }, "importance": 0.3 },
-    { "id": "obj-cabas-boutique", "nom": "Cabas de la boutique pour rapporter les courses de la maison", "emplacement_initial": { "lieu": "domicile", "piece": "arriere-boutique", "support": "patère" }, "importance": 0.2 }
+    { "id": "obj-cabas-boutique", "nom": "Cabas de la boutique pour rapporter les courses de la maison", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "portemanteau" }, "importance": 0.2, "note": "Rapporté plein dimanche midi, accroché vide au portemanteau de la maison pour ne pas l'oublier mardi." }
   ],
 
   "connaissances": {
@@ -833,29 +833,30 @@
         { "debut": "06:15", "fin": "06:30", "lieu": "trajet-voiture", "action": "Route vers la Croix-Rousse, rues vides" },
         { "debut": "06:30", "fin": "07:00", "lieu": "boutique", "action": "Pain, lève le rideau" },
         { "debut": "07:00", "fin": "12:00", "lieu": "boutique", "action": "Sert les clients du dimanche" },
-        { "debut": "12:00", "fin": "12:15", "lieu": "arriere-boutique", "action": "Ferme et compte la caisse" },
-        { "debut": "12:15", "fin": "12:30", "lieu": "trajet-voiture", "action": "Rentre" },
-        { "debut": "12:30", "fin": "13:45", "lieu": "sejour", "action": "Déjeuner du dimanche avec Josiane" },
-        { "debut": "13:45", "fin": "14:15", "lieu": "sejour", "action": "Sieste" },
-        { "debut": "14:15", "fin": "14:35", "lieu": "bureau-de-vote", "action": "Va voter à pied avec Josiane : premier tour des régionales" },
-        { "debut": "14:35", "fin": "14:45", "lieu": "entree", "action": "Chaussures de marche, sac à dos" },
-        { "debut": "14:45", "fin": "15:15", "lieu": "trajet-voiture", "action": "Route vers Poleymieux-au-Mont-d'Or" },
-        { "debut": "15:15", "fin": "17:30", "lieu": "monts-d-or", "action": "Randonnée avec Josiane : mont Thou, mont Cindre" },
-        { "debut": "17:30", "fin": "18:00", "lieu": "trajet-voiture", "action": "Retour à Villeurbanne" },
-        { "debut": "18:00", "fin": "19:30", "lieu": "sejour", "action": "Le Progrès, radio, mots croisés" },
+        { "debut": "12:00", "fin": "12:10", "lieu": "arriere-boutique", "action": "Ferme et compte la caisse" },
+        { "debut": "12:10", "fin": "12:45", "lieu": "boutique", "action": "Fin de semaine : tri des produits frais périmés, ménage, comptes de la semaine, bon de commande pour mardi" },
+        { "debut": "12:45", "fin": "13:05", "lieu": "trajet-voiture", "action": "Rentre, le cabas rempli jusqu'au déjeuner de mardi" },
+        { "debut": "13:05", "fin": "14:15", "lieu": "sejour", "action": "Déjeuner du dimanche avec Josiane" },
+        { "debut": "14:15", "fin": "14:30", "lieu": "sejour", "action": "Courte sieste" },
+        { "debut": "14:30", "fin": "14:50", "lieu": "bureau-de-vote", "action": "Va voter à pied avec Josiane : premier tour des régionales" },
+        { "debut": "14:50", "fin": "15:00", "lieu": "entree", "action": "Chaussures de marche, sac à dos" },
+        { "debut": "15:00", "fin": "15:30", "lieu": "trajet-voiture", "action": "Route vers Poleymieux-au-Mont-d'Or" },
+        { "debut": "15:30", "fin": "17:45", "lieu": "monts-d-or", "action": "Randonnée avec Josiane : mont Thou, mont Cindre" },
+        { "debut": "17:45", "fin": "18:15", "lieu": "trajet-voiture", "action": "Retour à Villeurbanne" },
+        { "debut": "18:15", "fin": "19:30", "lieu": "sejour", "action": "Le Progrès, radio, mots croisés" },
         { "debut": "19:30", "fin": "20:15", "lieu": "cuisine", "action": "Dîner" },
         { "debut": "20:15", "fin": "22:00", "lieu": "sejour", "action": "Télévision" },
         { "debut": "22:00", "fin": "22:15", "lieu": "salle-de-bain", "action": "Toilette du soir" },
         { "debut": "22:15", "fin": null, "lieu": "chambre", "action": "Se couche" }
       ] },
-      { "id": "rt-lundi", "nom": "Lundi : jour de fermeture", "jours": ["lundi"], "etapes": [
+      { "id": "rt-lundi", "nom": "Lundi : jour de fermeture et jour de congé", "jours": ["lundi"], "etapes": [
         { "debut": "00:00", "fin": "07:15", "lieu": "chambre", "action": "Dort, sans réveil" },
-        { "debut": "07:15", "fin": "08:00", "lieu": "cuisine", "action": "Réveil, petit-déjeuner avec Josiane avant qu'elle parte travailler, douche" },
-        { "debut": "08:00", "fin": "08:20", "lieu": "trajet-voiture", "action": "Route vers la boutique" },
-        { "debut": "08:20", "fin": "08:45", "lieu": "boutique", "action": "Prend la sacoche, va à pied déposer la recette au coffre de la banque, revient" },
-        { "debut": "08:45", "fin": "10:30", "lieu": "boutique", "action": "Grand ménage : sol, rayons, vitrine" },
-        { "debut": "10:30", "fin": "11:50", "lieu": "arriere-boutique", "action": "Comptes de la semaine, bon de commande pour le grossiste" },
-        { "debut": "11:50", "fin": "12:10", "lieu": "trajet-voiture", "action": "Rentre" },
+        { "debut": "07:15", "fin": "07:55", "lieu": "cuisine", "action": "Réveil, douche, petit-déjeuner avec Josiane avant qu'elle parte travailler" },
+        { "debut": "07:55", "fin": "08:45", "lieu": "jardin", "action": "Deuxième café, taille des rosiers" },
+        { "debut": "08:45", "fin": "09:10", "lieu": "trajet-voiture", "action": "Route vers la Croix-Rousse" },
+        { "debut": "09:10", "fin": "09:35", "lieu": "banque", "action": "Prend la recette au coffre de l'arrière-boutique, rideau baissé, la dépose au coffre de la banque ; quelques mots avec M. Garnier" },
+        { "debut": "09:35", "fin": "09:55", "lieu": "trajet-voiture", "action": "Rentre" },
+        { "debut": "09:55", "fin": "12:10", "lieu": "sejour", "action": "Catalogue de graines, petit bricolage, jardin, légumes de la soupe pour Josiane" },
         { "debut": "12:10", "fin": "13:15", "lieu": "cuisine", "action": "Déjeuner avec Josiane" },
         { "debut": "13:15", "fin": "14:15", "lieu": "sejour", "action": "Sieste" },
         { "debut": "14:15", "fin": "16:30", "lieu": "jardin", "action": "Potager : retourne la terre, sème les radis" },
@@ -874,21 +875,21 @@
   },
 
   "agenda_semaine": [
-    { "id": "ag-banque", "debut": "2010-03-08T08:25", "fin": "2010-03-08T08:40", "lieu": "banque", "quoi": "Dépôt de la recette de la semaine au coffre de la banque", "engagement": "ferme", "objets_necessaires": ["obj-sacoche", "obj-cles"] },
-    { "id": "ag-commande", "debut": "2010-03-08T11:20", "fin": "2010-03-08T11:50", "lieu": "epicerie-chazal", "quoi": "Bon de commande du grossiste pour mardi", "engagement": "ferme", "objets_necessaires": ["obj-bon-commande"] },
+    { "id": "ag-banque", "debut": "2010-03-08T09:10", "fin": "2010-03-08T09:35", "lieu": "banque", "quoi": "Dépôt de la recette de la semaine au coffre de la banque", "engagement": "ferme", "objets_necessaires": ["obj-sacoche", "obj-cles"] },
+    { "id": "ag-commande", "debut": "2010-03-14T12:10", "fin": "2010-03-14T12:45", "lieu": "epicerie-chazal", "quoi": "Fin de semaine à la boutique : tri des produits périmés, ménage, comptes, bon de commande du grossiste pour mardi", "engagement": "ferme", "objets_necessaires": ["obj-bon-commande"] },
     { "id": "ag-cinema", "debut": "2010-03-08T20:15", "fin": "2010-03-08T22:40", "lieu": "cinema-ugc", "quoi": "Cinéma avec Josiane : « The Ghost Writer » de Roman Polanski (séance de 20:15, bandes-annonces comprises)", "engagement": "souple", "objets_necessaires": ["obj-portefeuille", "obj-cles-kangoo"] },
     { "id": "ag-livraison-mardi", "debut": "2010-03-09T06:40", "fin": "2010-03-09T07:00", "lieu": "epicerie-chazal", "quoi": "Livraison du grossiste", "engagement": "ferme", "objets_necessaires": ["obj-cles"] },
     { "id": "ag-match", "debut": "2010-03-10T20:45", "fin": "2010-03-10T22:40", "lieu": "domicile", "quoi": "Regarder Real Madrid – Lyon à la télévision", "engagement": "ferme", "objets_necessaires": ["obj-telecommande"] },
     { "id": "ag-commande-jeudi", "debut": "2010-03-11T19:00", "fin": "2010-03-11T19:15", "lieu": "epicerie-chazal", "quoi": "Bon de commande du grossiste pour vendredi", "engagement": "ferme", "objets_necessaires": ["obj-bon-commande"] },
     { "id": "ag-livraison-vendredi", "debut": "2010-03-12T06:40", "fin": "2010-03-12T07:00", "lieu": "epicerie-chazal", "quoi": "Livraison du grossiste", "engagement": "ferme", "objets_necessaires": ["obj-cles"] },
     { "id": "ag-belote", "debut": "2010-03-13T20:40", "fin": "2010-03-13T23:00", "lieu": "domicile", "quoi": "Belote avec Gérard et Monique Morel", "engagement": "souple", "objets_necessaires": ["obj-jeu-de-cartes"] },
-    { "id": "ag-vote", "debut": "2010-03-14T14:20", "fin": "2010-03-14T14:35", "lieu": "bureau-de-vote", "quoi": "Voter au premier tour des élections régionales, avec Josiane", "engagement": "ferme", "objets_necessaires": ["obj-portefeuille"] },
+    { "id": "ag-vote", "debut": "2010-03-14T14:30", "fin": "2010-03-14T14:50", "lieu": "bureau-de-vote", "quoi": "Voter au premier tour des élections régionales, avec Josiane", "engagement": "ferme", "objets_necessaires": ["obj-portefeuille"] },
     { "id": "ag-randonnee", "debut": "2010-03-14T14:45", "fin": "2010-03-14T18:00", "lieu": "monts-d-or", "quoi": "Randonnée avec Josiane dans les monts d'Or", "engagement": "souple", "objets_necessaires": ["obj-chaussures-marche", "obj-sac-a-dos", "obj-cles-kangoo"] }
   ],
 
   "objectifs": [
     { "id": "ob-chiffre", "description": "Tenir 300 € de recette par jour d'ouverture", "echeance": "2010-03-14T12:00", "priorite": 0.8, "etapes": ["matins", "fins d'après-midi"], "motivation": "payer le loyer du local et tenir jusqu'à la retraite" },
-    { "id": "ob-commande", "description": "Préparer les commandes du grossiste du mardi et du vendredi", "echeance": "2010-03-11T19:15", "priorite": 0.7, "etapes": ["lundi : comptage et bon de commande", "jeudi soir : bon de commande"], "motivation": "ne pas manquer de produits" },
+    { "id": "ob-commande", "description": "Préparer les commandes du grossiste du mardi et du vendredi", "echeance": "2010-03-11T19:15", "priorite": 0.7, "etapes": ["dimanche à la fermeture : comptage et bon de commande (celui du mardi 9 a été écrit le dimanche 7)", "jeudi soir : bon de commande"], "motivation": "ne pas manquer de produits" },
     { "id": "ob-banque", "description": "Déposer la recette de la semaine lundi", "echeance": "2010-03-08T12:00", "priorite": 0.7, "etapes": ["sacoche", "coffre de dépôt"], "motivation": "ne pas garder d'argent à la boutique" },
     { "id": "ob-cadeau", "description": "Trouver une idée de cadeau pour les trente-quatre ans de mariage", "echeance": "2010-03-16T00:00", "priorite": 0.5, "etapes": ["y penser", "demander conseil à Claire à Pâques… trop tard"], "motivation": "ne pas oublier comme en 2007" },
     { "id": "ob-match", "description": "Voir le match de mercredi", "echeance": "2010-03-10T22:40", "priorite": 0.4, "etapes": ["fermer à l'heure", "dîner tôt"], "motivation": "plaisir" }

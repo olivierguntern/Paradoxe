@@ -3333,6 +3333,34 @@
     "routine": "rt-soir",
     "piece": "sejour",
     "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "repos",
+    "posture": "assis",
+    "action": "Se réveille en sursaut, regarde la fin du film.",
+    "effets": {
+     "social": 1.0
+    },
+    "tele": true
+   },
+   {
+    "titre": "Télévision",
+    "routine": "rt-soir",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "loisir",
+    "charge": "repos",
+    "posture": "assis",
+    "action": "Somnole, le menton sur la poitrine.",
+    "effets": {
+     "social": 1.0
+    },
+    "tele": true
+   },
+   {
+    "titre": "Télévision",
+    "routine": "rt-soir",
+    "piece": "sejour",
+    "lieu": "domicile",
     "mode": "eveille",
     "charge": "repos",
     "posture": "assis",
@@ -3783,7 +3811,7 @@
     "charge": "repos",
     "posture": "assis",
     "action": "Se réveille de lui-même. Le côté de Josiane est vide ; en bas, la radio et l'odeur du café. Attache sa Seiko au poignet, remonte ses lunettes sur son front.",
-    "pensee": "Lundi. Pas de réveil, pas de rideau à lever. Juste la banque et le ménage.",
+    "pensee": "Lundi. Pas de réveil, pas de rideau à lever. Juste la banque, et le potager.",
     "objets": [
      [
       "obj-montre",
@@ -3843,7 +3871,7 @@
     "mode": "eveille",
     "charge": "simple",
     "posture": "debout",
-    "action": "S'habille dans la chambre : chemise à carreaux, pantalon de velours, vieux pull pour le ménage."
+    "action": "S'habille dans la chambre : chemise à carreaux, pantalon de velours, le vieux pull du jardin."
    },
    {
     "titre": "Petit-déjeuner avec Josiane",
@@ -3895,30 +3923,183 @@
     "mode": "eveille",
     "charge": "repos",
     "posture": "assis",
-    "action": "Josiane enfile son manteau : « À midi. Fais pas le ménage comme un sauvage, avec ton dos. » Elle part à pied au cabinet.",
-    "pensee": "Comme un sauvage. Je le fais comme il faut, c'est tout.",
+    "action": "Josiane enfile son manteau : « À midi. Profite de ton lundi, et cet après-midi, au potager, ménage ton dos. » Elle part à pied au cabinet.",
+    "pensee": "Ménage ton dos. Elle dit ça depuis trente ans.",
     "effets": {
      "social": 1.0
     },
     "radio": true
    },
    {
-    "titre": "Départ pour la boutique",
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "action": "Reste à table avec un deuxième café, la radio en fond, et regarde le jardin par la fenêtre.",
+    "pensee": "Personne qui attend devant le rideau. Le lundi, c'est le seul jour où le temps est à moi.",
+    "effets": {
+     "cafe": true,
+     "soif": 10
+    },
+    "ev": [
+     "plaisir_simple"
+    ],
+    "app": {
+     "allume": [
+      "cafetiere-maison"
+     ],
+     "eteint": [
+      "cafetiere-maison"
+     ]
+    },
+    "radio": true,
+    "consommation": [
+     [
+      "cafe_moulu",
+      7
+     ]
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "action": "Écoute les informations : la neige dans le Roussillon, le match de mercredi à Madrid.",
+    "pensee": "Mercredi. Le Bernabéu.",
+    "radio": true
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Éteint la radio, rince les bols et les pose sur l'égouttoir.",
+    "app": {
+     "eteint": [
+      "radio-cuisine"
+     ]
+    }
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "jardin",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "en marche",
+    "action": "Sort par la porte-fenêtre et fait le tour du jardin, les mains dans les poches : la terre est encore froide ; il regarde où il sèmera les radis cet après-midi.",
+    "via": [
+     "sejour"
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "jardin",
+    "lieu": "domicile",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Prend le sécateur au garage et commence à tailler les rosiers le long de la façade.",
+    "via": [
+     "garage"
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "jardin",
+    "lieu": "domicile",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Taille les rosiers, branche par branche, au-dessus d'un œil tourné vers l'extérieur.",
+    "pensee": "Comme mon père me l'a appris. Un œil dehors.",
+    "ev": [
+     "jardinage"
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "jardin",
+    "lieu": "domicile",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Continue la taille ; le voisin d'à côté part au travail et lui fait signe.",
+    "effets": {
+     "social": 0.5
+    }
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "jardin",
+    "lieu": "domicile",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Taille le dernier rosier, celui que Josiane a planté à la naissance de Claire.",
+    "pensee": "Trente ans, ce rosier. Il fleurit encore.",
+    "ev": [
+     "pensee_claire"
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "jardin",
+    "lieu": "domicile",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "en marche",
+    "action": "Ramasse les tailles dans la brouette et les vide au compost, au fond du jardin.",
+    "ev": [
+     "effort_physique"
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Range le sécateur au garage, se lave les mains à la cuisine et boit un verre d'eau.",
+    "via": [
+     "garage"
+    ],
+    "effets": {
+     "soif": 20,
+     "hygiene": 5
+    }
+   },
+   {
+    "titre": "Départ pour la banque",
     "routine": "rt-lundi",
     "piece": "garage",
     "lieu": "domicile",
     "mode": "eveille",
     "charge": "simple",
     "posture": "debout",
-    "action": "Éteint la radio, rince les bols. Prend sa veste, ses clés, celles de la Kangoo et son portefeuille dans le vide-poche, passe au garage et ouvre la porte basculante.",
+    "action": "Prend sa veste, ses clés, celles de la Kangoo et son portefeuille dans le vide-poche, passe au garage et ouvre la porte basculante.",
+    "pensee": "Un saut à la banque, et je reviens.",
     "via": [
-     "cuisine"
+     "entree"
     ],
-    "app": {
-     "eteint": [
-      "radio-cuisine"
-     ]
-    },
     "objets": [
      [
       "obj-veste",
@@ -3940,7 +4121,7 @@
    }
   ]
  },
- "lundi_boutique": {
+ "lundi_banque": {
   "defaut": [
    {
     "titre": "Recette de la semaine",
@@ -3950,7 +4131,7 @@
     "mode": "eveille",
     "charge": "precision",
     "posture": "debout",
-    "action": "Gare la Kangoo à sa place dans la cour, entre par la porte de derrière. Dans l'arrière-boutique, ouvre le coffre, recompte la recette de la semaine passée, 1184,60 €, et la glisse dans une pochette de dépôt de la banque avec le bordereau rempli.",
+    "action": "Gare la Kangoo à sa place dans la cour et entre par la porte de derrière, sans allumer la boutique : le rideau reste baissé. Dans l'arrière-boutique, ouvre le coffre, recompte la recette de la semaine passée, 1184,60 €, et la glisse dans une pochette de dépôt de la banque avec le bordereau rempli.",
     "pensee": "Mille cent quatre-vingt-quatre euros soixante en liquide. L'an dernier à la même époque, c'était plus.",
     "retour": "cour-epicerie",
     "ev": [
@@ -3974,7 +4155,7 @@
      ]
     ],
     "role": "banque_recette",
-    "modele": "Gare la Kangoo à sa place dans la cour, entre par la porte de derrière. Dans l'arrière-boutique, ouvre le coffre, recompte la recette de la semaine passée, {coffre}, et la glisse dans une pochette de dépôt de la banque avec le bordereau rempli."
+    "modele": "Gare la Kangoo à sa place dans la cour et entre par la porte de derrière, sans allumer la boutique : le rideau reste baissé. Dans l'arrière-boutique, ouvre le coffre, recompte la recette de la semaine passée, {coffre}, et la glisse dans une pochette de dépôt de la banque avec le bordereau rempli."
    },
    {
     "titre": "Dépôt au coffre de la banque",
@@ -3984,7 +4165,7 @@
     "mode": "eveille",
     "charge": "simple",
     "posture": "en marche",
-    "action": "Ressort par la cour avec la pochette sous le bras, remonte la Grande-Rue jusqu'au boulevard.",
+    "action": "Referme la porte de derrière, ressort par la cour avec la pochette sous le bras et remonte la Grande-Rue jusqu'au boulevard.",
     "sortie": "cour-epicerie",
     "parcours": [
      {
@@ -4027,7 +4208,7 @@
     "mode": "eveille",
     "charge": "simple",
     "posture": "en marche",
-    "action": "Redescend la Grande-Rue. M. Garnier, le buraliste d'à côté, lève son rideau ; trois mots sur le tiercé et sur Madrid.",
+    "action": "Redescend la Grande-Rue. M. Garnier, le buraliste d'à côté, fume sur le pas de sa porte ; ils parlent du tiercé et de Madrid.",
     "pensee": "Garnier dit 2-0 pour le Real. Il dit toujours le pire.",
     "effets": {
      "social": 2
@@ -4044,598 +4225,31 @@
     ]
    },
    {
-    "titre": "Blouse",
+    "titre": "Retour à la Kangoo",
     "routine": "rt-lundi",
-    "piece": "arriere-boutique",
+    "piece": "cour-epicerie",
     "lieu": "epicerie-chazal",
     "mode": "eveille",
     "charge": "simple",
     "posture": "debout",
-    "action": "Rentre par la cour, accroche sa veste à la patère, enfile sa blouse grise, met ses clés dans la poche.",
-    "retour": "cour-epicerie",
-    "objets": [
-     [
-      "obj-veste",
-      "arriere-boutique / patère"
-     ],
-     [
-      "obj-blouse",
-      "porté"
-     ],
-     [
-      "obj-cles",
-      "poche de la blouse"
-     ],
-     [
-      "obj-cles-kangoo",
-      "poche de la blouse"
-     ]
-    ]
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Allume la boutique, rideau baissé, et la radio sur RTL. Sort de la réserve le seau, la serpillière et le balai.",
-    "via": [
-     "reserve"
-    ],
-    "app": {
-     "allume": [
-      "lumiere-boutique",
-      "radio-boutique"
-     ]
-    },
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Balaie la boutique, du fond vers la porte.",
-    "ev": [
-     "effort_physique"
-    ],
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Balaie sous les rayons, ramasse un ticket de loto et une pièce de dix centimes.",
-    "pensee": "Dix centimes. Le loto, je le garde pas.",
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Remplit le seau à l'évier de l'arrière-boutique et lave le sol.",
-    "via": [
-     "arriere-boutique"
-    ],
-    "ev": [
-     "effort_physique"
-    ],
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Lave le sol, à genoux dans les coins.",
-    "pensee": "Le dos. Bon. Encore deux coins.",
-    "ev": [
-     "mal_de_dos"
-    ],
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Vide le seau, rince la serpillière, laisse sécher le sol.",
-    "via": [
-     "arriere-boutique"
-    ],
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Trie les produits frais de la vitrine réfrigérée : deux packs de yaourts au-delà de leur date et une laitue fanée partent à la poubelle.",
-    "pensee": "Deux packs de yaourts pour rien. Faut que je commande moins.",
-    "radio": true,
-    "role": "perimes",
-    "modele": "Trie les produits frais de la vitrine réfrigérée : {perimes} partent à la poubelle."
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Vide la vitrine réfrigérée et range les produits dans la chambre froide de la réserve.",
-    "via": [
-     "reserve"
-    ],
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Lave les clayettes de la vitrine réfrigérée à l'eau savonneuse.",
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Essuie les clayettes, remet tout en place, les dates les plus courtes devant.",
-    "via": [
-     "reserve"
-    ],
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Monte sur l'escabeau et dépoussière les rayons du haut.",
-    "ev": [
-     "effort_physique"
-    ],
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Dépoussière les conserves une par une.",
-    "pensee": "Les haricots verts, personne n'en prend. J'en commande toujours trop.",
-    "radio": true
-   },
-   {
-    "titre": "Café de dix heures moins le quart",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "eveille",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Passe aux toilettes du fond, puis se fait un café dans l'arrière-boutique et le boit debout, la tasse de Lucas à la main.",
-    "pensee": "« Meilleur papi. » Il a écrit le « p » à l'envers, sur la carte.",
-    "via": [
-     "wc-boutique",
-     "arriere-boutique"
-    ],
-    "effets": {
-     "toilettes": "vide",
-     "cafe": true,
-     "soif": 15
-    },
-    "ev": [
-     "plaisir_simple",
-     "pensee_claire"
-    ],
-    "app": {
-     "allume": [
-      "cafetiere-boutique"
-     ],
-     "eteint": [
-      "cafetiere-boutique"
-     ]
-    },
-    "radio": true,
-    "consommation": [
-     [
-      "cafe_boutique",
-      7
-     ]
-    ]
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Nettoie l'étal des fruits et légumes, jette les feuilles et la terre.",
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Lave la porte vitrée et l'intérieur de la vitrine.",
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Lève le rideau à mi-hauteur pour laver la vitrine côté rue.",
-    "via": [
-     "trottoir"
-    ],
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "trottoir",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Lave la vitrine côté rue, sur le trottoir encore à l'ombre.",
-    "pensee": "Les gens passent et regardent dedans. Fermé, mesdames, c'est lundi.",
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Rabaisse le rideau. Essuie le comptoir et la caisse.",
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Range la réserve : aplatit les cartons vides et les sort dans la cour.",
-    "via": [
-     "reserve",
-     "cour-epicerie"
-    ],
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "reserve",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Remet les cagettes vides en pile pour le grossiste.",
-    "radio": true
-   },
-   {
-    "titre": "Grand ménage de la boutique",
-    "routine": "rt-lundi",
-    "piece": "reserve",
-    "lieu": "epicerie-chazal",
-    "mode": "effort",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Passe la serpillière dans la réserve.",
-    "ev": [
-     "effort_physique"
-    ],
-    "radio": true
-   },
-   {
-    "titre": "Comptes de la semaine",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "Éteint la radio et la boutique, s'installe au bureau de l'arrière-boutique avec le cahier des comptes et descend ses lunettes sur son nez.",
-    "via": [
-     "boutique"
-    ],
-    "app": {
-     "eteint": [
-      "radio-boutique",
-      "lumiere-boutique"
-     ]
-    },
-    "objets": [
-     [
-      "obj-lunettes",
-      "sur son nez"
-     ]
-    ]
-   },
-   {
-    "titre": "Comptes de la semaine",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "Recopie les recettes de la semaine dernière, jour par jour.",
-    "pensee": "Mardi 312, mercredi 295, jeudi 288… Samedi, heureusement."
-   },
-   {
-    "titre": "Comptes de la semaine",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "Additionne : mille neuf cent quarante euros, cartes comprises.",
-    "pensee": "Mille neuf cent quarante. Avant la supérette, je faisais deux mille trois cents.",
-    "ev": [
-     "constat_chiffre"
-    ]
-   },
-   {
-    "titre": "Comptes de la semaine",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "Classe les factures du grossiste et de la boulangerie."
-   },
-   {
-    "titre": "Comptes de la semaine",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "Vérifie la facture du grossiste ligne par ligne.",
-    "pensee": "Le lait a encore pris deux centimes. Je peux pas tout répercuter."
-   },
-   {
-    "titre": "Comptes de la semaine",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "Calcule le loyer et les charges du mois."
-   },
-   {
-    "titre": "Comptes de la semaine",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "Fait le total du carnet des ardoises : quarante-six euros trente, dont trente-huit de M. Rey qu'il ne reverra pas.",
-    "pensee": "Rey. Parti à Vénissieux sans régler. Tant pis, c'était un brave homme.",
-    "via": [
-     "boutique"
-    ]
-   },
-   {
-    "titre": "Comptes de la semaine",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "Compare avec mars de l'an dernier, page par page."
-   },
-   {
-    "titre": "Comptes de la semaine",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "Range les factures dans le classeur pour le comptable."
-   },
-   {
-    "titre": "Comptes de la semaine",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "Referme le cahier des comptes et remonte ses lunettes sur son front.",
-    "pensee": "Bon. Ça va bien comme ça. On tient.",
-    "ev": [
-     "comptes_faits"
-    ],
-    "objets": [
-     [
-      "obj-lunettes",
-      "sur son front"
-     ]
-    ]
-   },
-   {
-    "titre": "Bon de commande du grossiste",
-    "routine": "rt-lundi",
-    "piece": "reserve",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Compte les cartons et les packs dans la réserve, le carnet de bons de commande à la main."
-   },
-   {
-    "titre": "Bon de commande du grossiste",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Boit un grand verre d'eau à l'évier de l'arrière-boutique, puis compte les rayons de la boutique : conserves, pâtes, riz, café.",
-    "via": [
-     "arriere-boutique"
-    ],
-    "effets": {
-     "soif": 25
-    },
-    "app": {
-     "allume": [
-      "lumiere-boutique"
-     ]
-    }
-   },
-   {
-    "titre": "Bon de commande du grossiste",
-    "routine": "rt-lundi",
-    "piece": "boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Remplit d'abord le cabas de la boutique pour Josiane : un sac de pommes de terre, un sachet de carottes pour la soupe de ce soir et une laitue pour demain midi. Puis compte les fruits et légumes de l'étal et la vitrine réfrigérée.",
-    "pensee": "Les carottes, elle me l'a dit trois fois. Je les ai.",
-    "objets": [
-     [
-      "obj-cabas-boutique",
-      "dans sa main"
-     ]
-    ],
-    "role": "cabas_lundi",
-    "modele": "Remplit d'abord le cabas de la boutique pour Josiane : {liste}. Puis compte les fruits et légumes de l'étal et la vitrine réfrigérée."
-   },
-   {
-    "titre": "Bon de commande du grossiste",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "S'assoit au bureau et remplit le bon de commande pour demain, les lunettes sur le nez : 26 briques de lait UHT, 28 packs d'yaourts nature, 18 boîtes d'œufs, 12 plaquettes de beurre, quatre morceaus de comté et 26 autres produits.",
-    "app": {
-     "eteint": [
-      "lumiere-boutique"
-     ]
-    },
-    "objets": [
-     [
-      "obj-lunettes",
-      "sur son nez"
-     ]
-    ],
-    "role": "commande_lundi",
-    "modele": "S'assoit au bureau et remplit le bon de commande pour demain, les lunettes sur le nez : {commande}."
-   },
-   {
-    "titre": "Bon de commande du grossiste",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "precision",
-    "posture": "assis",
-    "action": "Termine le bon de commande : 31 lignes pour la livraison de demain, 6 h 40. Le pose sur le bureau, sous l'agrafeuse.",
-    "pensee": "Avec ça, on tient jusqu'à vendredi.",
-    "objets": [
-     [
-      "obj-lunettes",
-      "sur son front"
-     ]
-    ],
-    "role": "commande_fin",
-    "modele": "Termine le bon de commande : {n_commande} lignes pour la livraison de demain, 6 h 40. Le pose sur le bureau, sous l'agrafeuse."
-   },
-   {
-    "titre": "Bon de commande du grossiste",
-    "routine": "rt-lundi",
-    "piece": "arriere-boutique",
-    "lieu": "epicerie-chazal",
-    "mode": "travail",
-    "charge": "simple",
-    "posture": "debout",
-    "action": "Range le bureau, vérifie la porte de la cour et le coffre.",
-    "pensee": "Voilà le lundi fait. Plus que le cinéma, ce soir."
+    "action": "Revient par la cour, vérifie la porte de derrière, bien fermée, et remonte dans la Kangoo.",
+    "pensee": "Le rideau baissé, la boutique dort. Moi aussi, presque.",
+    "retour": "cour-epicerie"
    }
   ]
  },
- "lundi_apres_midi": {
+ "lundi_matinee": {
   "defaut": [
    {
-    "titre": "Déjeuner avec Josiane",
-    "routine": "rt-repas",
-    "piece": "cuisine",
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "entree",
     "lieu": "domicile",
     "mode": "eveille",
-    "charge": "repos",
+    "charge": "simple",
     "posture": "debout",
-    "action": "Entre par la porte du garage, pose les légumes sur la table de la cuisine, accroche sa veste et le cabas vide au portemanteau pour ne pas l'oublier demain, pose ses clés et son portefeuille dans le vide-poche. Josiane rentre à pied du cabinet au même moment, Le Progrès sous le bras ; elle met le gratin de la veille au four.",
+    "action": "Entre par la porte du garage, accroche sa veste, pose ses clés et son portefeuille dans le vide-poche.",
     "retour": "garage",
-    "effets": {
-     "social": 1.0
-    },
     "objets": [
      [
       "obj-kangoo",
@@ -4656,11 +4270,356 @@
      [
       "obj-veste",
       "entree / portemanteau"
-     ],
-     [
-      "obj-cabas-boutique",
-      "entree / portemanteau"
      ]
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "wc",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Passe aux toilettes du rez-de-chaussée.",
+    "effets": {
+     "toilettes": "vide"
+    }
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "lecture",
+    "charge": "lecture",
+    "posture": "assis",
+    "action": "S'installe au séjour avec le catalogue de graines de la jardinerie, les lunettes sur le nez.",
+    "ev": [
+     "plaisir_simple"
+    ],
+    "objets": [
+     [
+      "obj-lunettes",
+      "sur son nez"
+     ]
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "lecture",
+    "charge": "lecture",
+    "posture": "assis",
+    "action": "Coche les variétés pour le printemps : radis de dix-huit jours, haricots nains, une rangée de laitues.",
+    "pensee": "Des tomates cerises, pour les petits. Lucas les mange comme des bonbons.",
+    "ev": [
+     "pensee_claire"
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "lecture",
+    "charge": "lecture",
+    "posture": "assis",
+    "action": "Feuillette les pages des outils.",
+    "pensee": "Une grelinette. Josiane dira que j'ai déjà tout."
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "action": "Somnole un instant, le catalogue ouvert sur les genoux."
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "sejour",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "action": "Se redresse, pose le catalogue sur la table basse et remonte ses lunettes.",
+    "objets": [
+     [
+      "obj-lunettes",
+      "sur son front"
+     ]
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Le robinet de la cuisine goutte depuis une semaine : il va chercher la caisse à outils au garage.",
+    "pensee": "Un joint. Dix minutes, si tout va bien.",
+    "via": [
+     "garage"
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "precision",
+    "posture": "debout",
+    "action": "Ferme l'arrivée d'eau sous l'évier et démonte la tête du robinet."
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "precision",
+    "posture": "debout",
+    "action": "Change le joint, remonte la tête et rouvre l'arrivée d'eau."
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Ouvre et ferme le robinet : plus une goutte.",
+    "pensee": "Voilà. Josiane le verra même pas. C'est ça, un travail bien fait.",
+    "ev": [
+     "plaisir_simple"
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Rapporte la caisse à outils au garage et se lave les mains.",
+    "via": [
+     "garage"
+    ],
+    "effets": {
+     "hygiene": 5
+    }
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "jardin",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "action": "Boit un verre d'eau et sort s'asseoir sur le banc du jardin, la veste sur le dos.",
+    "via": [
+     "entree"
+    ],
+    "effets": {
+     "soif": 20
+    }
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "jardin",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "action": "Regarde le jardin. Un merle fouille le compost.",
+    "pensee": "Le merle. Toujours le même, depuis trois printemps.",
+    "ev": [
+     "nature"
+    ]
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "jardin",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "assis",
+    "action": "Reste assis un moment dans l'air froid, les mains dans les poches."
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "jardin",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Arrache quelques pissenlits dans l'allée."
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "jardin",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "en marche",
+    "action": "Roule la poubelle jusqu'au portail : le ramassage est demain matin."
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "action": "Rentre et épluche les pommes de terre et les carottes pour la soupe du soir, pour faire plaisir à Josiane.",
+    "pensee": "Elle va dire que je les épluche trop épais. Elle aura raison."
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "action": "Épluche les carottes."
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "action": "Coupe les légumes en morceaux et les met dans la cocotte, avec de l'eau froide, pour ce soir."
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Rince l'économe et la planche, essuie le plan de travail."
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Allume la radio de la cuisine et met le couvert : deux assiettes, deux verres.",
+    "app": {
+     "allume": [
+      "radio-cuisine"
+     ]
+    },
+    "radio": true
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Coupe le pain de la veille et remplit la carafe d'eau.",
+    "radio": true
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Regarde le calendrier des Postes accroché au mur : le 16 mars, entouré au feutre par Josiane.",
+    "pensee": "Mardi prochain. Trente-quatre ans. Faut que je trouve quelque chose.",
+    "ev": [
+     "anniversaire_mariage"
+    ],
+    "radio": true
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Écoute le journal de midi, debout, en guettant la rue par la fenêtre.",
+    "radio": true
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "cuisine",
+    "posture": "debout",
+    "action": "Sort les côtes de porc du réfrigérateur et les pose sur le plan de travail.",
+    "pensee": "Elle rentre à midi dix. Toujours.",
+    "radio": true
+   },
+   {
+    "titre": "Matinée de congé",
+    "routine": "rt-lundi",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Éteint la radio.",
+    "app": {
+     "eteint": [
+      "radio-cuisine"
+     ]
+    }
+   }
+  ]
+ },
+ "lundi_apres_midi": {
+  "defaut": [
+   {
+    "titre": "Déjeuner avec Josiane",
+    "routine": "rt-repas",
+    "piece": "cuisine",
+    "lieu": "domicile",
+    "mode": "eveille",
+    "charge": "repos",
+    "posture": "debout",
+    "action": "Josiane rentre à pied du cabinet, Le Progrès sous le bras. Elle voit la cocotte prête et l'embrasse : « Tu vois, quand tu veux. » Elle met le gratin de la veille au four.",
+    "pensee": "Quand je veux. Le lundi, je veux.",
+    "effets": {
+     "social": 1.0
+    },
+    "ev": [
+     "moment_josiane"
     ],
     "role": "journal_josiane"
    },
@@ -4719,7 +4678,7 @@
     "mode": "eveille",
     "charge": "repos",
     "posture": "assis",
-    "action": "Lui raconte la banque, le ménage, les yaourts périmés.",
+    "action": "Lui raconte la banque, Garnier et son tiercé, le joint du robinet.",
     "effets": {
      "social": 1.0
     }
@@ -6684,22 +6643,22 @@
   "lundi_matin": {
    "defaut": {
     "textes": [
-     "Sort la Kangoo, referme la porte basculante, éteint la lumière du garage par la vitre. Rue des Glycines, puis le cours Émile-Zola, déjà chargé.",
-     "Cours Émile-Zola au pas, de feu en feu, derrière un bus.",
+     "Sort la Kangoo, referme la porte basculante, éteint la lumière du garage par la vitre. Rue des Glycines, puis le cours Émile-Zola, encore chargé.",
+     "Cours Émile-Zola, de feu en feu, derrière un bus.",
      "Boulevard de Stalingrad, puis le pont Winston-Churchill. Le Rhône est gris.",
      "Monte la montée de la Boucle en seconde, longe le boulevard de la Croix-Rousse et entre dans la cour de l'épicerie."
     ],
     "pensees": [
-     "Le lundi, tout Villeurbanne part travailler en même temps que moi.",
+     "Le lundi, j'y vais pour la banque, pas pour la boutique. Ça change tout.",
      null,
      null,
      null
     ],
     "ev": [
+     [],
      [
       "embouteillage"
      ],
-     [],
      [],
      []
     ]
@@ -6708,9 +6667,9 @@
   "lundi_midi": {
    "defaut": {
     "textes": [
-     "Raccroche sa blouse, remet sa veste, éteint, ferme la porte de derrière et pose le cabas sur le siège passager. Sort la Kangoo de la cour et descend la montée de la Boucle.",
+     "Sort la Kangoo de la cour et descend la montée de la Boucle.",
      "Traverse le Rhône par le pont Winston-Churchill.",
-     "Boulevard de Stalingrad, puis le cours Émile-Zola, au pas derrière une camionnette.",
+     "Boulevard de Stalingrad, puis le cours Émile-Zola, plus fluide qu'à l'aller.",
      "Rue des Glycines. Ouvre la porte basculante et rentre la Kangoo au garage."
     ],
     "pensees": [
@@ -6724,9 +6683,7 @@
      [
       "conduite_tranquille"
      ],
-     [
-      "embouteillage"
-     ],
+     [],
      []
     ]
    }
@@ -7221,6 +7178,123 @@
    }
   ]
  },
+ "fin_de_semaine": {
+  "defaut": [
+   {
+    "titre": "Fin de semaine à la boutique",
+    "routine": "rt-dimanche",
+    "piece": "boutique",
+    "lieu": "epicerie-chazal",
+    "mode": "travail",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Trie les produits frais de la vitrine réfrigérée : {perimes} partent à la poubelle.",
+    "pensee": "Faut que je commande moins de frais. Je le dis chaque semaine.",
+    "role": "perimes",
+    "modele": "Trie les produits frais de la vitrine réfrigérée, rideau baissé : {perimes} partent à la poubelle."
+   },
+   {
+    "titre": "Fin de semaine à la boutique",
+    "routine": "rt-dimanche",
+    "piece": "boutique",
+    "lieu": "epicerie-chazal",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Balaie la boutique, du fond vers la porte, et sous les rayons.",
+    "ev": [
+     "effort_physique"
+    ]
+   },
+   {
+    "titre": "Fin de semaine à la boutique",
+    "routine": "rt-dimanche",
+    "piece": "boutique",
+    "lieu": "epicerie-chazal",
+    "mode": "effort",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Passe la serpillière dans la boutique et dans la réserve.",
+    "pensee": "Le dos. Demain, rien. Demain, c'est lundi.",
+    "via": [
+     "reserve",
+     "arriere-boutique"
+    ],
+    "ev": [
+     "mal_de_dos"
+    ]
+   },
+   {
+    "titre": "Fin de semaine à la boutique",
+    "routine": "rt-dimanche",
+    "piece": "boutique",
+    "lieu": "epicerie-chazal",
+    "mode": "travail",
+    "charge": "simple",
+    "posture": "debout",
+    "action": "Essuie les clayettes de la vitrine réfrigérée et nettoie l'étal des fruits et légumes, les dates les plus courtes devant.",
+    "via": [
+     "reserve"
+    ]
+   },
+   {
+    "titre": "Fin de semaine à la boutique",
+    "routine": "rt-dimanche",
+    "piece": "arriere-boutique",
+    "lieu": "epicerie-chazal",
+    "mode": "travail",
+    "charge": "precision",
+    "posture": "assis",
+    "action": "S'assoit au bureau de l'arrière-boutique avec le cahier des comptes, les lunettes sur le nez : additionne la semaine.",
+    "role": "comptes_semaine",
+    "objets": [
+     [
+      "obj-lunettes",
+      "sur son nez"
+     ]
+    ],
+    "modele": "S'assoit au bureau de l'arrière-boutique avec le cahier des comptes, les lunettes sur le nez : la semaine fait {semaine}, cartes comprises.",
+    "modele_pensee": "{semaine}. Avant la supérette, je faisais deux mille trois cents.",
+    "ev": [
+     "constat_chiffre"
+    ]
+   },
+   {
+    "titre": "Fin de semaine à la boutique",
+    "routine": "rt-dimanche",
+    "piece": "arriere-boutique",
+    "lieu": "epicerie-chazal",
+    "mode": "travail",
+    "charge": "precision",
+    "posture": "assis",
+    "action": "Remplit le bon de commande pour mardi : {commande}.",
+    "role": "commande_dimanche",
+    "modele": "Remplit le bon de commande pour mardi : {commande}."
+   },
+   {
+    "titre": "Fin de semaine à la boutique",
+    "routine": "rt-dimanche",
+    "piece": "arriere-boutique",
+    "lieu": "epicerie-chazal",
+    "mode": "travail",
+    "charge": "precision",
+    "posture": "assis",
+    "action": "Termine le bon de commande.",
+    "pensee": "Voilà la semaine bouclée. Demain, congé.",
+    "role": "commande_fin",
+    "objets": [
+     [
+      "obj-lunettes",
+      "sur son front"
+     ]
+    ],
+    "ev": [
+     "comptes_faits"
+    ],
+    "modele": "Termine le bon de commande : {n_commande} lignes pour la livraison de mardi, 6 h 40. Le pose sous l'agrafeuse et remonte ses lunettes."
+   }
+  ]
+ },
  "dejeuner_dimanche": {
   "defaut": [
    {
@@ -7440,36 +7514,6 @@
     "charge": "sommeil",
     "posture": "assis",
     "action": "S'endort dans son fauteuil, les mains croisées sur le ventre."
-   },
-   {
-    "titre": "Sieste",
-    "routine": "rt-repos",
-    "piece": "sejour",
-    "lieu": "domicile",
-    "mode": "sieste",
-    "charge": "sommeil",
-    "posture": "assis",
-    "action": "Somnole."
-   },
-   {
-    "titre": "Sieste",
-    "routine": "rt-repos",
-    "piece": "sejour",
-    "lieu": "domicile",
-    "mode": "sieste",
-    "charge": "sommeil",
-    "posture": "assis",
-    "action": "Somnole."
-   },
-   {
-    "titre": "Sieste",
-    "routine": "rt-repos",
-    "piece": "sejour",
-    "lieu": "domicile",
-    "mode": "sieste",
-    "charge": "sommeil",
-    "posture": "assis",
-    "action": "Somnole."
    },
    {
     "titre": "Sieste",

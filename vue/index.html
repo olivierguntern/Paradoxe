@@ -264,6 +264,7 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
       <button type="button" id="avance" aria-label="Pas suivant">+5 min</button>
       <label for="vitesse">Vitesse
         <select id="vitesse">
+          <option value="0.0033333333">Temps réel (1 s = 1 s)</option>
           <option value="0.5">5 min en 2 s</option>
           <option value="1" selected>5 min en 1 s</option>
           <option value="4">20 min en 1 s</option>
@@ -524,7 +525,8 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
         const p = ch.poser(groupe(niveauDe(m.z)), "meuble");
         el("title", {}, p).textContent = m.nom;
       });
-      L.noms.forEach(([pid, p]) => texte(p, pid.replace(/-/g, " "), "piece", groupe(p[2])));
+      const habitant = PERSOS.find((Q) => (Q.logements || [Q.logement]).includes(id));
+      L.noms.forEach(([pid, p]) => texte(p, habitant ? court(habitant, pid) : pid.replace(/-/g, " "), "piece", groupe(p[2])));
       Object.values(parZ).forEach((g) => niveaux.push(g));
     }
   }
@@ -604,7 +606,8 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     let p, dir = s.d, pose = s.po, h = s.d ? s.d[2] : 0, mouvement = false;
     if (s.w) {
       const L = longueurs(s.w), tot = L[L.length - 1];
-      const part = s.cont ? 1 : Math.min(0.85, tot / (2.5 * (1 / vitesse)));
+      // en temps réel, un déplacement dans le logement se fait au pas (1,3 m/s) ; en accéléré, plus vite pour rester visible
+      const part = s.cont ? 1 : Math.min(0.85, tot / ((vitesse < 0.01 ? 1.3 : 2.5) * (1 / vitesse)));
       const u = part <= 0 ? 1 : Math.min(1, t / part);
       const r = surChemin(s.w, L, u * tot);
       p = r.p;
@@ -732,6 +735,7 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
 
   function majPanneau() {
     const P = PERSOS[suivi], s = P.pas[g], e = G[g], j = P.jours[e.ji], cls = CLASSE(P);
+    horlogeAffichee = "";
     $("heure").textContent = s.h;
     $("date").textContent = fmtDate(j);
     const m = minutes(s.h), nuit = m < minutes(j.lever) || m >= minutes(j.coucher);
@@ -852,11 +856,12 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     if (lgVue) kFocus = st.s.zn === "lg:" + lgVue ? suivi : PERSOS.findIndex((Q, k) => etats[k].s.zn === "lg:" + lgVue);
     const zFocus = kFocus >= 0 ? etats[kFocus].p[2] : Infinity;
     niveaux.forEach((n) => { n.classList.toggle("cache", +n.dataset.z > zFocus + 1); n.classList.toggle("dessous", +n.dataset.z < zFocus - 1); });
-    $("scene").classList.toggle("loin", pxActuel > 0.06);
+    const loin = pxActuel > (proche ? 0.14 : 0.06);
+    $("scene").classList.toggle("loin", loin);
     PERSOS.forEach((Q, k) => {
       const e = etats[k], cls = CLASSE(Q);
       const gp = el("g", { class: "perso " + cls }, gPersos);
-      if (pxActuel > 0.06) epingle(gp, e.p, Q.prenom, cls);
+      if (loin) epingle(gp, e.p, Q.prenom, cls);
       else silhouette(gp, e.p, e.pose, e.dir, e.h, e.mouvement);
       const cp = plan(e.p);
       pointsCarte[Q.id].setAttribute("cx", cp[0]); pointsCarte[Q.id].setAttribute("cy", cp[1]);
@@ -899,19 +904,38 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
       }
     }
     if (g !== dernierRendu || suivi !== dernierSuivi) { majPanneau(); dernierRendu = g; dernierSuivi = suivi; }
+    if (vitesse < 0.01) horloge();
     rendre();
     animerCadre(instant);
     requestAnimationFrame(boucle);
   }
 
+  // temps réel : l'heure à la seconde dans le pas de 5 minutes
+  let horlogeAffichee = "";
+  function horloge() {
+    const P = PERSOS[suivi], s = P.pas[g], j = P.jours[G[g].ji];
+    const sec = minutes(s.h) * 60 + (t >= 1 ? 0 : Math.floor(Math.max(0, t) * 300));
+    const hms = [Math.floor(sec / 3600), Math.floor(sec / 60) % 60, sec % 60].map((v) => String(v).padStart(2, "0")).join(":");
+    if (hms === horlogeAffichee) return;
+    horlogeAffichee = hms;
+    $("heure").textContent = hms;
+    $("ici").textContent = JOURS_COURTS[j.jour] + " " + hms;
+  }
+
   function allerA(ng) { g = Math.max(0, Math.min(NB - 1, ng)); t = 1; $("etiquette").hidden = true; }
-  function lancer() { if (g >= NB - 1) return; enLecture = true; if (t >= 1) { g += 1; t = 0; } $("lecture").textContent = "Pause"; }
+  function lancer() {
+    if (g >= NB - 1) return;
+    enLecture = true;
+    // en temps réel, la lecture reprend au début du pas affiché ; en accéléré, au pas suivant
+    if (t >= 1) { if (vitesse >= 0.01) g += 1; t = 0; }
+    $("lecture").textContent = "Pause";
+  }
   function arreter() { enLecture = false; $("lecture").textContent = "Lecture"; }
 
   $("lecture").addEventListener("click", () => (enLecture ? arreter() : lancer()));
   $("recul").addEventListener("click", () => { arreter(); allerA(g - 1); });
   $("avance").addEventListener("click", () => { arreter(); allerA(g + 1); });
-  $("vitesse").addEventListener("change", (ev) => { vitesse = +ev.target.value; });
+  $("vitesse").addEventListener("change", (ev) => { vitesse = +ev.target.value; horlogeAffichee = ""; dernierRendu = -1; });
   $("temps").addEventListener("input", (ev) => { arreter(); allerA(debutJour[G[g].ji] + +ev.target.value); });
   $("bande").addEventListener("click", (ev) => {
     const r = ev.currentTarget.getBoundingClientRect();

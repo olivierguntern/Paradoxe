@@ -1,6 +1,6 @@
 {
   "type": "commerce",
-  "principe": "Règles de décision de l'agent de Robert Chazal, tirées de ses journées de référence (lundi à mercredi) : horaires, seuils des besoins, habitudes du comptoir, courses prélevées pour la maison, soirées.",
+  "principe": "Règles de décision de l'agent de Robert Chazal, tirées de ses journées de référence (lundi à mercredi) : horaires, seuils des besoins, habitudes du comptoir, courses prélevées pour la maison, soirées. Le lundi est son jour de congé : la boutique reste fermée et il n'y passe que pour prendre la recette de la semaine et la déposer à la banque.",
   "client": "thomas-berthier",
   "endormi_la_veille_du_premier_jour": "22:30",
   "reveil": { "commerce": "05:30", "lundi": "07:15" },
@@ -24,9 +24,9 @@
     "principe": "Lectures, bavardage et rire se placent au premier pas sans client à partir de l'heure indiquée."
   },
   "pain_mis_de_cote": { "defaut": 1, "dimanche": 2 },
-  "perimes_au_menage": { "principe": "Part des produits à date courte jetés au grand ménage du lundi (arrondi).", "yaourts": 0.12, "salade": 0.2 },
+  "perimes_au_menage": { "principe": "Part des produits à date courte jetés au ménage de fin de semaine, le dimanche à la fermeture (arrondi).", "yaourts": 0.12, "salade": 0.2 },
   "cabas": {
-    "principe": "Le soir (et le dimanche midi, et le lundi avant de rentrer), il prélève au magasin ce qui manque à la maison pour les repas jusqu'au premier repas qui suit son prochain départ de la boutique, puis complète ses provisions personnelles déjà passées sous leur seuil. Le pain vient de la baguette mise de côté le matin.",
+    "principe": "Le soir, et le dimanche midi en fermant, il prélève au magasin ce qui manque à la maison pour les repas jusqu'au premier repas qui suit son prochain départ de la boutique (le dimanche, jusqu'au déjeuner du mardi : le lundi est son jour de congé), puis complète ses provisions personnelles déjà passées sous leur seuil. Le pain vient de la baguette mise de côté le matin.",
     "provisions_personnelles": {
       "fruits": { "seuil": 4, "produit": "pommes", "unites": 4 },
       "fromage": { "seuil": 150, "produit": "comte", "unites": 1 },
@@ -38,7 +38,7 @@
     "cafe_boutique": { "seuil": 50, "unites": 1 },
     "oubli_si_nuit_de_moins_de_minutes": 350
   },
-  "commande_grossiste": { "lundi": "mardi", "jeudi": "vendredi" },
+  "commande_grossiste": { "dimanche": "mardi", "jeudi": "vendredi" },
   "objectif_recette_eur": 300,
   "fin_tele": { "defaut": "22:00", "dimanche": "21:45" },
   "trajets": {

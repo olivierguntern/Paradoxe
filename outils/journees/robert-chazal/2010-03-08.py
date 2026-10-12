@@ -1,10 +1,13 @@
 """Lundi 8 mars 2010 — contenu rédigé de la journée de Robert Chazal.
 
-Jour de fermeture de l'épicerie. Robert dort sans réveil, déjeune avec
-Josiane avant qu'elle parte au cabinet, puis va à la boutique en Kangoo :
-dépôt de la recette de la semaine au coffre de la banque, grand ménage,
-comptes, bon de commande du grossiste pour mardi. L'après-midi, sieste,
-potager et garage ; le soir, mots croisés, dîner et télévision avec Josiane.
+Jour de fermeture de l'épicerie et jour de congé de Robert. Le ménage, les
+comptes et le bon de commande de mardi ont été faits dimanche à la fermeture.
+Il dort sans réveil, déjeune avec Josiane avant qu'elle parte au cabinet,
+taille les rosiers, puis fait un aller-retour en Kangoo à la Croix-Rousse :
+il prend la recette au coffre de l'arrière-boutique, rideau baissé, et la
+dépose au coffre de la banque. Fin de matinée à la maison (catalogue de
+graines, joint du robinet, légumes de la soupe). L'après-midi, sieste,
+potager et garage ; le soir, dîner tôt et cinéma avec Josiane.
 """
 from commun import ALLER_LENT, BOUTIQUE, RETOUR_LENT, TRAJET, Magasin, en_voiture, euros, ingredients, mvs, nuit
 from moteur import Journee, c, marche, off, on, onoff, p
@@ -44,7 +47,7 @@ def rediger(etat):
     # ------------------------------------------------------------ matin
     j.seg("07:15", "Réveil sans sonnerie", "chambre", "rt-lundi", "eveille", "repos", "assis", [
         p("Se réveille de lui-même. Le côté de Josiane est vide ; en bas, la radio et l'odeur du café. Attache sa Seiko au poignet, "
-          "remonte ses lunettes sur son front.", "Lundi. Pas de réveil, pas de rideau à lever. Juste la banque et le ménage.",
+          "remonte ses lunettes sur son front.", "Lundi. Pas de réveil, pas de rideau à lever. Juste la banque, et le potager.",
           objets=mvs([("obj-montre", "chambre / table de chevet de Robert", "poignet gauche"),
                       ("obj-lunettes", "chambre / table de chevet de Robert", "sur son front")])),
     ])
@@ -52,7 +55,7 @@ def rediger(etat):
         p("Passe aux toilettes de la salle de bain.", None, effets={"toilettes": "vide"}),
         p("Prend une douche.", "L'eau chaude sur le dos. Ça le décoince.", effets={"hygiene": 75}, ev=["plaisir_simple"]),
         p("Se rase devant le miroir embué.", None, charge="precision"),
-        p("S'habille dans la chambre : chemise à carreaux, pantalon de velours, vieux pull pour le ménage.", None, piece="chambre"),
+        p("S'habille dans la chambre : chemise à carreaux, pantalon de velours, le vieux pull du jardin.", None, piece="chambre"),
     ])
     j.seg("07:40", "Petit-déjeuner avec Josiane", "cuisine", "rt-lundi", "eveille", "repos", "assis", [
         p("Descend à la cuisine. Josiane a fait le café et beurré ses tartines. Il s'assoit en face d'elle, la radio en fond.",
@@ -60,154 +63,139 @@ def rediger(etat):
           app=on("radio-cuisine"), effets={"cafe": True, "social": 1.0}, consommation=ingredients(fiche, None, "petit_dejeuner")),
         p("Mange ses tartines, boit son café sucré, avale son comprimé pour la tension avec un verre d'eau. Josiane parle de sa sœur.",
           None, radio=True, effets={"faim": 40, "soif": 30, "social": 1.0}),
-        p("Josiane enfile son manteau : « À midi. Fais pas le ménage comme un sauvage, avec ton dos. » Elle part à pied au cabinet.",
-          "Comme un sauvage. Je le fais comme il faut, c'est tout.", radio=True, effets={"social": 1.0}),
+        p("Josiane enfile son manteau : « À midi. Profite de ton lundi, et cet après-midi, au potager, ménage ton dos. » Elle part à pied au cabinet.",
+          "Ménage ton dos. Elle dit ça depuis trente ans.", radio=True, effets={"social": 1.0}),
     ])
-    j.seg("07:55", "Départ pour la boutique", "garage", "rt-lundi", "eveille", "simple", "debout", [
-        p("Éteint la radio, rince les bols. Prend sa veste, ses clés, celles de la Kangoo et son portefeuille dans le vide-poche, "
-          "passe au garage et ouvre la porte basculante.", None, app=off("radio-cuisine"), via=["cuisine"],
+
+    # ------------------------------------------------------------ matinée de congé
+    j.seg("07:55", "Matinée de congé", "cuisine", "rt-lundi", "eveille", "repos", "assis", [
+        p("Reste à table avec un deuxième café, la radio en fond, et regarde le jardin par la fenêtre.", "Personne qui attend devant le rideau. "
+          "Le lundi, c'est le seul jour où le temps est à moi.", radio=True, effets={"cafe": True, "soif": 10}, ev=["plaisir_simple"],
+          app=onoff(["cafetiere-maison"], ["cafetiere-maison"]), consommation=[c("cafe_moulu", 7)]),
+        p("Écoute les informations : la neige dans le Roussillon, le match de mercredi à Madrid.", "Mercredi. Le Bernabéu.", radio=True),
+        p("Éteint la radio, rince les bols et les pose sur l'égouttoir.", None, posture="debout", charge="simple", app=off("radio-cuisine")),
+        p("Sort par la porte-fenêtre et fait le tour du jardin, les mains dans les poches : la terre est encore froide ; il regarde où il "
+          "sèmera les radis cet après-midi.", None, piece="jardin", posture="en marche", charge="simple", via=["sejour"]),
+        p("Prend le sécateur au garage et commence à tailler les rosiers le long de la façade.", None, piece="jardin", posture="debout",
+          charge="simple", via=["garage"], mode="effort"),
+        p("Taille les rosiers, branche par branche, au-dessus d'un œil tourné vers l'extérieur.", "Comme mon père me l'a appris. Un œil dehors.",
+          piece="jardin", posture="debout", charge="simple", mode="effort", ev=["jardinage"]),
+        p("Continue la taille ; le voisin d'à côté part au travail et lui fait signe.", None, piece="jardin", posture="debout", charge="simple",
+          mode="effort", effets={"social": 0.5}),
+        p("Taille le dernier rosier, celui que Josiane a planté à la naissance de Claire.", "Trente ans, ce rosier. Il fleurit encore.",
+          piece="jardin", posture="debout", charge="simple", mode="effort", ev=["pensee_claire"]),
+        p("Ramasse les tailles dans la brouette et les vide au compost, au fond du jardin.", None, piece="jardin", posture="en marche",
+          charge="simple", mode="effort", ev=["effort_physique"]),
+        p("Range le sécateur au garage, se lave les mains à la cuisine et boit un verre d'eau.", None, piece="cuisine", posture="debout",
+          charge="simple", via=["garage"], effets={"soif": 20, "hygiene": 5}),
+    ])
+    j.seg("08:45", "Départ pour la banque", "garage", "rt-lundi", "eveille", "simple", "debout", [
+        p("Prend sa veste, ses clés, celles de la Kangoo et son portefeuille dans le vide-poche, passe au garage et ouvre la porte basculante.",
+          "Un saut à la banque, et je reviens.", via=["entree"],
           objets=mvs([("obj-veste", "entree / portemanteau", "porté"), ("obj-cles", "entree / vide-poche", "poche de la veste"),
                       ("obj-cles-kangoo", "entree / vide-poche", "dans sa main"), ("obj-portefeuille", "entree / vide-poche", "poche de la veste")])),
     ])
-    j.seg("08:00", "Route vers la Croix-Rousse", KANGOO, "rt-lundi", "eveille", "conduite", "assis", en_voiture([
-        "Sort la Kangoo, referme la porte basculante, éteint la lumière du garage par la vitre. Rue des Glycines, puis le cours Émile-Zola, déjà chargé.",
-        "Cours Émile-Zola au pas, de feu en feu, derrière un bus.",
+    j.seg("08:50", "Route vers la Croix-Rousse", KANGOO, "rt-lundi", "eveille", "conduite", "assis", en_voiture([
+        "Sort la Kangoo, referme la porte basculante, éteint la lumière du garage par la vitre. Rue des Glycines, puis le cours Émile-Zola, encore chargé.",
+        "Cours Émile-Zola, de feu en feu, derrière un bus.",
         "Boulevard de Stalingrad, puis le pont Winston-Churchill. Le Rhône est gris.",
         "Monte la montée de la Boucle en seconde, longe le boulevard de la Croix-Rousse et entre dans la cour de l'épicerie.",
-    ], ALLER_LENT, pensees=["Le lundi, tout Villeurbanne part travailler en même temps que moi.", None, None, None],
-        ev=[["embouteillage"], None, None, None],
+    ], ALLER_LENT, pensees=["Le lundi, j'y vais pour la banque, pas pour la boutique. Ça change tout.", None, None, None],
+        ev=[None, ["embouteillage"], None, None],
         extra={0: {"objets": mvs([("obj-kangoo", "garage / place de la Kangoo", "en route"), ("obj-cles-kangoo", "dans sa main", "contact de la Kangoo")]),
                    "app": off("lumiere-garage")}}), lieu=TRAJET)
 
     # ------------------------------------------------------------ banque
-    j.seg("08:20", "Recette de la semaine", "arriere-boutique", "rt-lundi", "eveille", "precision", "debout", [
-        p("Gare la Kangoo à sa place dans la cour, entre par la porte de derrière. Dans l'arrière-boutique, ouvre le coffre, recompte la recette "
-          f"de la semaine passée, {euros(etat['argent']['coffre'])}, et la glisse dans une pochette de dépôt de la banque avec le bordereau rempli.",
+    j.seg("09:10", "Recette de la semaine", "arriere-boutique", "rt-lundi", "eveille", "precision", "debout", [
+        p("Gare la Kangoo à sa place dans la cour et entre par la porte de derrière, sans allumer la boutique : le rideau reste baissé. Dans "
+          f"l'arrière-boutique, ouvre le coffre, recompte la recette de la semaine passée, {euros(etat['argent']['coffre'])}, et la glisse dans une "
+          "pochette de dépôt de la banque avec le bordereau rempli.",
           "Mille cent quatre-vingt-quatre euros soixante en liquide. L'an dernier à la même époque, c'était plus.",
           retour="cour-epicerie", ev=["constat_chiffre"],
           objets=mvs([("obj-kangoo", "en route", "cour-epicerie / place louée"), ("obj-cles-kangoo", "contact de la Kangoo", "poche de la veste")]),
           nouveaux_objets=[{"id": "obj-pochette-depot", "nom": "Pochette de dépôt de la banque (recette en espèces de la semaine)", "position": "dans sa main"}]),
     ], lieu=BOUTIQUE)
-    j.seg("08:25", "Dépôt au coffre de la banque", "boulevard de la Croix-Rousse", "rt-lundi", "eveille", "simple", "en marche", [
-        p("Ressort par la cour avec la pochette sous le bras, remonte la Grande-Rue jusqu'au boulevard.", None,
+    j.seg("09:15", "Dépôt au coffre de la banque", "boulevard de la Croix-Rousse", "rt-lundi", "eveille", "simple", "en marche", [
+        p("Referme la porte de derrière, ressort par la cour avec la pochette sous le bras et remonte la Grande-Rue jusqu'au boulevard.", None,
           sortie="cour-epicerie", parcours=[marche(300)], lieu="exterieur"),
         p("Devant l'agence fermée, ouvre la trappe du coffre de dépôt avec sa clé, y glisse la pochette et referme.",
           "Voilà. Elle est à la banque, plus chez moi.", piece="coffre de dépôt de la banque", lieu="banque", posture="debout",
           ev=["depot_recette"], argent={"coffre": -etat["argent"]["coffre"], "compte": etat["argent"]["coffre"]},
           objets=mvs([("obj-pochette-depot", "dans sa main", "banque / coffre de dépôt")])),
-        p("Redescend la Grande-Rue. M. Garnier, le buraliste d'à côté, lève son rideau ; trois mots sur le tiercé et sur Madrid.",
+        p("Redescend la Grande-Rue. M. Garnier, le buraliste d'à côté, fume sur le pas de sa porte ; ils parlent du tiercé et de Madrid.",
           "Garnier dit 2-0 pour le Real. Il dit toujours le pire.", parcours=[marche(300)], lieu="exterieur",
           piece="Grande-Rue de la Croix-Rousse", ev=["bavardage_voisin"], effets={"social": 2}),
     ])
-    j.seg("08:40", "Blouse", "arriere-boutique", "rt-lundi", "eveille", "simple", "debout", [
-        p("Rentre par la cour, accroche sa veste à la patère, enfile sa blouse grise, met ses clés dans la poche.", None, retour="cour-epicerie",
-          objets=mvs([("obj-veste", "porté", "arriere-boutique / patère"), ("obj-blouse", "arriere-boutique / patère", "porté"),
-                      ("obj-cles", "poche de la veste", "poche de la blouse"), ("obj-cles-kangoo", "poche de la veste", "poche de la blouse")])),
+    j.seg("09:30", "Retour à la Kangoo", "cour-epicerie", "rt-lundi", "eveille", "simple", "debout", [
+        p("Revient par la cour, vérifie la porte de derrière, bien fermée, et remonte dans la Kangoo.", "Le rideau baissé, la boutique dort. Moi aussi, presque.",
+          retour="cour-epicerie"),
     ], lieu=BOUTIQUE)
-
-    # ------------------------------------------------------------ ménage
-    perimes = {"yaourts": 2, "salade": 1}
-    reprise = mag.reprendre(perimes, "date dépassée ou abîmé, jeté")
-    j.seg("08:45", "Grand ménage de la boutique", "boutique", "rt-lundi", "effort", "simple", "debout", [
-        p("Allume la boutique, rideau baissé, et la radio sur RTL. Sort de la réserve le seau, la serpillière et le balai.", None,
-          via=["reserve"], app=on("lumiere-boutique", "radio-boutique"), radio=True, mode="travail"),
-        p("Balaie la boutique, du fond vers la porte.", None, radio=True, ev=["effort_physique"]),
-        p("Balaie sous les rayons, ramasse un ticket de loto et une pièce de dix centimes.", "Dix centimes. Le loto, je le garde pas.", radio=True),
-        p("Remplit le seau à l'évier de l'arrière-boutique et lave le sol.", None, via=["arriere-boutique"], radio=True, ev=["effort_physique"]),
-        p("Lave le sol, à genoux dans les coins.", "Le dos. Bon. Encore deux coins.", radio=True, ev=["mal_de_dos"]),
-        p("Vide le seau, rince la serpillière, laisse sécher le sol.", None, via=["arriere-boutique"], radio=True),
-        p("Trie les produits frais de la vitrine réfrigérée : deux packs de yaourts au-delà de leur date et une laitue fanée partent à la poubelle.",
-          "Deux packs de yaourts pour rien. Faut que je commande moins.", radio=True, mode="travail", reprises=reprise),
-        p("Vide la vitrine réfrigérée et range les produits dans la chambre froide de la réserve.", None, via=["reserve"], radio=True),
-        p("Lave les clayettes de la vitrine réfrigérée à l'eau savonneuse.", None, radio=True),
-        p("Essuie les clayettes, remet tout en place, les dates les plus courtes devant.", None, via=["reserve"], radio=True, mode="travail"),
-        p("Monte sur l'escabeau et dépoussière les rayons du haut.", None, radio=True, ev=["effort_physique"]),
-        p("Dépoussière les conserves une par une.", "Les haricots verts, personne n'en prend. J'en commande toujours trop.", radio=True),
-    ], lieu=BOUTIQUE)
-    j.seg("09:45", "Café de dix heures moins le quart", "boutique", "rt-lundi", "eveille", "simple", "debout", [
-        p("Passe aux toilettes du fond, puis se fait un café dans l'arrière-boutique et le boit debout, la tasse de Lucas à la main.",
-          "« Meilleur papi. » Il a écrit le « p » à l'envers, sur la carte.", via=["wc-boutique", "arriere-boutique"], radio=True,
-          effets={"toilettes": "vide", "cafe": True, "soif": 15}, ev=["plaisir_simple", "pensee_claire"], consommation=[c("cafe_boutique", 7)],
-          app=onoff(["cafetiere-boutique"], ["cafetiere-boutique"])),
-    ], lieu=BOUTIQUE)
-    j.seg("09:50", "Grand ménage de la boutique", "boutique", "rt-lundi", "effort", "simple", "debout", [
-        p("Nettoie l'étal des fruits et légumes, jette les feuilles et la terre.", None, radio=True),
-        p("Lave la porte vitrée et l'intérieur de la vitrine.", None, radio=True),
-        p("Lève le rideau à mi-hauteur pour laver la vitrine côté rue.", None, radio=True, via=["trottoir"]),
-        p("Lave la vitrine côté rue, sur le trottoir encore à l'ombre.", "Les gens passent et regardent dedans. Fermé, mesdames, c'est lundi.",
-          radio=True, piece="trottoir"),
-        p("Rabaisse le rideau. Essuie le comptoir et la caisse.", None, radio=True, mode="travail"),
-        p("Range la réserve : aplatit les cartons vides et les sort dans la cour.", None, via=["reserve", "cour-epicerie"], radio=True),
-        p("Remet les cagettes vides en pile pour le grossiste.", None, piece="reserve", radio=True),
-        p("Passe la serpillière dans la réserve.", None, piece="reserve", radio=True, ev=["effort_physique"]),
-    ], lieu=BOUTIQUE)
-
-    # ------------------------------------------------------------ comptes
-    j.seg("10:30", "Comptes de la semaine", "arriere-boutique", "rt-lundi", "travail", "precision", "assis", [
-        p("Éteint la radio et la boutique, s'installe au bureau de l'arrière-boutique avec le cahier des comptes et descend ses lunettes sur son nez.",
-          None, app=off("radio-boutique", "lumiere-boutique"), objets=mvs([("obj-lunettes", "sur son front", "sur son nez")]), via=["boutique"]),
-        p("Recopie les recettes de la semaine dernière, jour par jour.", "Mardi 312, mercredi 295, jeudi 288… Samedi, heureusement."),
-        p("Additionne : mille neuf cent quarante euros, cartes comprises.", "Mille neuf cent quarante. Avant la supérette, je faisais deux mille trois cents.",
-          ev=["constat_chiffre"]),
-        p("Classe les factures du grossiste et de la boulangerie."),
-        p("Vérifie la facture du grossiste ligne par ligne.", "Le lait a encore pris deux centimes. Je peux pas tout répercuter."),
-        p("Calcule le loyer et les charges du mois.", None),
-        p("Fait le total du carnet des ardoises : quarante-six euros trente, dont trente-huit de M. Rey qu'il ne reverra pas.",
-          "Rey. Parti à Vénissieux sans régler. Tant pis, c'était un brave homme.", via=["boutique"]),
-        p("Compare avec mars de l'an dernier, page par page.", None),
-        p("Range les factures dans le classeur pour le comptable.", None),
-        p("Referme le cahier des comptes et remonte ses lunettes sur son front.", "Bon. Ça va bien comme ça. On tient.",
-          ev=["comptes_faits"], objets=mvs([("obj-lunettes", "sur son nez", "sur son front")])),
-    ], lieu=BOUTIQUE)
-
-    # ------------------------------------------------------------ bon de commande
-    cabas = [mag.pour_maison("pommes_de_terre", 1), mag.pour_maison("carottes", 1), mag.pour_maison("salade", 1)]
-    commande = mag.commande()
-    j.seg("11:20", "Bon de commande du grossiste", "reserve", "rt-lundi", "travail", "simple", "debout", [
-        p("Compte les cartons et les packs dans la réserve, le carnet de bons de commande à la main.", None),
-        p("Boit un grand verre d'eau à l'évier de l'arrière-boutique, puis compte les rayons de la boutique : conserves, pâtes, riz, café.", None,
-          piece="boutique", via=["arriere-boutique"], app=on("lumiere-boutique"), effets={"soif": 25}),
-        p("Remplit d'abord le cabas de la boutique pour Josiane : un sac de pommes de terre, un sachet de carottes pour la soupe de ce soir et "
-          "une laitue pour demain midi. Puis compte les fruits et légumes de l'étal et la vitrine réfrigérée.",
-          "Les carottes, elle me l'a dit trois fois. Je les ai.", piece="boutique", prelevements=cabas,
-          objets=mvs([("obj-cabas-boutique", "arriere-boutique / patère", "dans sa main")])),
-        p("S'assoit au bureau et remplit le bon de commande pour demain, les lunettes sur le nez : "
-          f"{mag.texte(commande, limite=5)}.", None, piece="arriere-boutique", posture="assis",
-          charge="precision", app=off("lumiere-boutique"), objets=mvs([("obj-lunettes", "sur son front", "sur son nez")])),
-        p(f"Termine le bon de commande : {len(commande)} lignes pour la livraison de demain, 6 h 40. Le pose sur le bureau, sous l'agrafeuse.",
-          "Avec ça, on tient jusqu'à vendredi.", piece="arriere-boutique", posture="assis", charge="precision",
-          objets=mvs([("obj-lunettes", "sur son nez", "sur son front")])),
-        p("Range le bureau, vérifie la porte de la cour et le coffre.", "Voilà le lundi fait. Plus que le cinéma, ce soir.", piece="arriere-boutique"),
-    ], lieu=BOUTIQUE)
-
-    # ------------------------------------------------------------ midi
-    j.seg("11:50", "Retour à la maison", KANGOO, "rt-lundi", "eveille", "conduite", "assis", en_voiture([
-        "Raccroche sa blouse, remet sa veste, éteint, ferme la porte de derrière et pose le cabas sur le siège passager. Sort la Kangoo de la cour "
-        "et descend la montée de la Boucle.",
+    j.seg("09:35", "Retour à la maison", KANGOO, "rt-lundi", "eveille", "conduite", "assis", en_voiture([
+        "Sort la Kangoo de la cour et descend la montée de la Boucle.",
         "Traverse le Rhône par le pont Winston-Churchill.",
-        "Boulevard de Stalingrad, puis le cours Émile-Zola, au pas derrière une camionnette.",
+        "Boulevard de Stalingrad, puis le cours Émile-Zola, plus fluide qu'à l'aller.",
         "Rue des Glycines. Ouvre la porte basculante et rentre la Kangoo au garage.",
     ], RETOUR_LENT, pensees=[None, "Le Rhône. Quarante ans que je le traverse.", None, None],
-        ev=[None, ["conduite_tranquille"], ["embouteillage"], None],
-        extra={0: {"sortie": "cour-epicerie", "objets": mvs([("obj-blouse", "porté", "arriere-boutique / patère"),
-                                                             ("obj-veste", "arriere-boutique / patère", "porté"),
-                                                             ("obj-cles", "poche de la blouse", "poche de la veste"),
-                                                             ("obj-cles-kangoo", "poche de la blouse", "contact de la Kangoo"),
+        ev=[None, ["conduite_tranquille"], None, None],
+        extra={0: {"sortie": "cour-epicerie", "objets": mvs([("obj-cles-kangoo", "poche de la veste", "contact de la Kangoo"),
                                                              ("obj-kangoo", "cour-epicerie / place louée", "en route")])}}), lieu=TRAJET)
-    j.seg("12:10", "Déjeuner avec Josiane", "cuisine", "rt-repas", "eveille", "repos", "assis", [
-        p("Entre par la porte du garage, pose les légumes sur la table de la cuisine, accroche sa veste et le cabas vide au portemanteau pour ne pas "
-          "l'oublier demain, pose ses clés et son portefeuille dans le vide-poche. Josiane rentre à pied du cabinet au même moment, Le Progrès "
-          "sous le bras ; elle met le gratin de la veille au four.", None, retour="garage", posture="debout", effets={"social": 1.0},
+
+    # ------------------------------------------------------------ fin de matinée à la maison
+    j.seg("09:55", "Matinée de congé", "entree", "rt-lundi", "eveille", "simple", "debout", [
+        p("Entre par la porte du garage, accroche sa veste, pose ses clés et son portefeuille dans le vide-poche.", None, retour="garage",
           objets=mvs([("obj-kangoo", "en route", "garage / place de la Kangoo"), ("obj-cles-kangoo", "contact de la Kangoo", "entree / vide-poche"),
                       ("obj-cles", "poche de la veste", "entree / vide-poche"), ("obj-portefeuille", "poche de la veste", "entree / vide-poche"),
-                      ("obj-veste", "porté", "entree / portemanteau"), ("obj-cabas-boutique", "dans sa main", "entree / portemanteau")]),
+                      ("obj-veste", "porté", "entree / portemanteau")])),
+        p("Passe aux toilettes du rez-de-chaussée.", None, piece="wc", effets={"toilettes": "vide"}),
+        p("S'installe au séjour avec le catalogue de graines de la jardinerie, les lunettes sur le nez.", None, piece="sejour", posture="assis",
+          mode="lecture", charge="lecture", objets=mvs([("obj-lunettes", "sur son front", "sur son nez")]), ev=["plaisir_simple"]),
+        p("Coche les variétés pour le printemps : radis de dix-huit jours, haricots nains, une rangée de laitues.", "Des tomates cerises, pour les petits. "
+          "Lucas les mange comme des bonbons.", piece="sejour", posture="assis", mode="lecture", charge="lecture", ev=["pensee_claire"]),
+        p("Feuillette les pages des outils.", "Une grelinette. Josiane dira que j'ai déjà tout.", piece="sejour", posture="assis", mode="lecture",
+          charge="lecture"),
+        p("Somnole un instant, le catalogue ouvert sur les genoux.", None, piece="sejour", posture="assis", charge="repos"),
+        p("Se redresse, pose le catalogue sur la table basse et remonte ses lunettes.", None, piece="sejour", posture="assis", charge="repos",
+          objets=mvs([("obj-lunettes", "sur son nez", "sur son front")])),
+        p("Le robinet de la cuisine goutte depuis une semaine : il va chercher la caisse à outils au garage.", "Un joint. Dix minutes, si tout va bien.",
+          piece="cuisine", via=["garage"]),
+        p("Ferme l'arrivée d'eau sous l'évier et démonte la tête du robinet.", None, piece="cuisine", charge="precision"),
+        p("Change le joint, remonte la tête et rouvre l'arrivée d'eau.", None, piece="cuisine", charge="precision"),
+        p("Ouvre et ferme le robinet : plus une goutte.", "Voilà. Josiane le verra même pas. C'est ça, un travail bien fait.", piece="cuisine",
+          ev=["plaisir_simple"]),
+        p("Rapporte la caisse à outils au garage et se lave les mains.", None, piece="cuisine", via=["garage"], effets={"hygiene": 5}),
+        p("Boit un verre d'eau et sort s'asseoir sur le banc du jardin, la veste sur le dos.", None, piece="jardin", posture="assis", charge="repos",
+          via=["entree"], effets={"soif": 20}),
+        p("Regarde le jardin. Un merle fouille le compost.", "Le merle. Toujours le même, depuis trois printemps.", piece="jardin", posture="assis",
+          charge="repos", ev=["nature"]),
+        p("Reste assis un moment dans l'air froid, les mains dans les poches.", None, piece="jardin", posture="assis", charge="repos"),
+        p("Arrache quelques pissenlits dans l'allée.", None, piece="jardin", posture="debout", charge="simple"),
+        p("Roule la poubelle jusqu'au portail : le ramassage est demain matin.", None, piece="jardin", posture="en marche", charge="simple"),
+        p("Rentre et épluche les pommes de terre et les carottes pour la soupe du soir, pour faire plaisir à Josiane.", "Elle va dire que je les épluche "
+          "trop épais. Elle aura raison.", piece="cuisine", charge="cuisine"),
+        p("Épluche les carottes.", None, piece="cuisine", charge="cuisine"),
+        p("Coupe les légumes en morceaux et les met dans la cocotte, avec de l'eau froide, pour ce soir.", None, piece="cuisine", charge="cuisine"),
+        p("Rince l'économe et la planche, essuie le plan de travail.", None, piece="cuisine", charge="simple"),
+        p("Allume la radio de la cuisine et met le couvert : deux assiettes, deux verres.", None, piece="cuisine", charge="simple", radio=True,
+          app=on("radio-cuisine")),
+        p("Coupe le pain de la veille et remplit la carafe d'eau.", None, piece="cuisine", charge="simple", radio=True),
+        p("Regarde le calendrier des Postes accroché au mur : le 16 mars, entouré au feutre par Josiane.", "Mardi prochain. Trente-quatre ans. "
+          "Faut que je trouve quelque chose.", piece="cuisine", radio=True, ev=["anniversaire_mariage"]),
+        p("Écoute le journal de midi, debout, en guettant la rue par la fenêtre.", None, piece="cuisine", radio=True),
+        p("Sort les côtes de porc du réfrigérateur et les pose sur le plan de travail.", "Elle rentre à midi dix. Toujours.", piece="cuisine",
+          charge="cuisine", radio=True),
+        p("Éteint la radio.", None, piece="cuisine", app=off("radio-cuisine")),
+    ])
+    j.seg("12:10", "Déjeuner avec Josiane", "cuisine", "rt-repas", "eveille", "repos", "assis", [
+        p("Josiane rentre à pied du cabinet, Le Progrès sous le bras. Elle voit la cocotte prête et l'embrasse : « Tu vois, quand tu veux. » "
+          "Elle met le gratin de la veille au four.", "Quand je veux. Le lundi, je veux.", posture="debout", effets={"social": 1.0},
+          ev=["moment_josiane"],
           nouveaux_objets=[{"id": "obj-progres-0308", "nom": "Le Progrès du lundi 8 mars 2010", "position": "cuisine / table"}]),
         p("Met la table pendant que les côtes de porc grillent. Josiane raconte le cabinet : le docteur est en retard sur tout.", None,
           posture="debout", charge="simple", effets={"social": 1.0}),
         p("Se lave les mains et boit un verre d'eau.", None, posture="debout", effets={"soif": 20, "hygiene": 10}),
         p("Mangent le gratin dauphinois et les côtes de porc.", "Son gratin. Personne le fait comme elle.", ev=["moment_josiane", "plaisir_simple"],
           effets={"faim": 55, "social": 1.0}, consommation=ingredients(fiche, "lundi", "dejeuner")),
-        p("Lui raconte la banque, le ménage, les yaourts périmés.", None, effets={"social": 1.0}),
+        p("Lui raconte la banque, Garnier et son tiercé, le joint du robinet.", None, effets={"social": 1.0}),
         p("Josiane parle de Claire : elle a appelé hier soir, Emma a une otite.", "Une otite. À trois ans, ça passe. Faudrait qu'on y aille, à Grenoble.",
           ev=["pensee_claire"], effets={"social": 1.0}),
         p("Josiane propose le cinéma ce soir : le dernier Polanski passe à la Cité internationale.", "Polanski. Bon. Si elle y tient. Je dormirai mardi.",
@@ -407,11 +395,9 @@ def rediger(etat):
     ]))
     j.extinction = "23:20"
     j.ecarts = ["Dîner avancé à 18:45 et coucher à 23:20 : soirée au cinéma avec Josiane (« The Ghost Writer »)."]
-    j.bilan = [f"**Recette de la semaine passée déposée au coffre de la banque** : {euros(etat['argent']['coffre'])}.",
-               "**Boutique** : grand ménage, deux packs de yaourts et une laitue jetés.",
-               f"**Bon de commande** : {len(commande)} lignes pour la livraison de mardi.",
-               "**Pour la maison** : un sac de pommes de terre, des carottes et une laitue prélevés au magasin.",
+    j.bilan = ["**Jour de congé** : la boutique reste fermée ; le ménage, les comptes et le bon de commande de mardi ont été faits dimanche à la fermeture.",
+               f"**Recette de la semaine passée déposée au coffre de la banque** : {euros(etat['argent']['coffre'])}.",
+               "**Jardin et maison** : rosiers taillés, joint du robinet de la cuisine changé, légumes de la soupe épluchés pour Josiane.",
                "**Potager** : deux rangs retournés, radis semés.",
                "**Cinéma** avec Josiane : « The Ghost Writer » de Roman Polanski, à l'UGC Ciné Cité Internationale."]
-    j.commande = commande
     return j

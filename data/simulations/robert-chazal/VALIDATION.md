@@ -26,21 +26,25 @@ Les clients anonymes viennent du même flux déterministe (`outils/clientele.py`
 ## Ce qui diffère
 
 - **Les pensées et les textes** : l'agent les tire de ses modèles (`data/agents/robert-chazal/pensees.json`) et de ses scènes ; les notes écrites à la main dans la référence (une pensée à 08:45, un client qui demande un pronostic…) ne tombent pas aux mêmes pas.
-- **Les besoins** : identiques, sauf les toilettes au comptoir (écart moyen 2,5 à 2,9 sur 100) et la soif le mercredi (0,4) : la référence place le passage aux toilettes de l'après-midi à 17:15 ou 17:20, l'agent y va au premier pas où le besoin passe sous 45. Ce passage est un aller-retour au fond de la boutique : la pièce, à la fin du pas, reste la boutique.
+- **Les besoins** : identiques le lundi ; mardi et mercredi, seuls les toilettes au comptoir (écart moyen 2,5 à 2,9 sur 100) et la soif le mercredi (0,4) diffèrent : la référence place le passage aux toilettes de l'après-midi à 17:15 ou 17:20, l'agent y va au premier pas où le besoin passe sous 45. Ce passage est un aller-retour au fond de la boutique : la pièce, à la fin du pas, reste la boutique.
 - **Les émotions**, qui en découlent : écart moyen de 0,001 à 0,012 sur une échelle de 0 à 1.
+
+## Le lundi, jour de congé
+
+Le lundi, la boutique reste fermée et Robert ne travaille pas : il taille ses rosiers, fait un aller-retour à la Croix-Rousse pour prendre la recette au coffre de l'arrière-boutique, rideau baissé, et la déposer au coffre de la banque, puis bricole, jardine et va au cinéma avec Josiane. Le tri des produits frais, le ménage, les comptes et le bon de commande du mardi se font le dimanche à la fermeture. Pour le lundi 8 mars, premier jour de la période, ce travail a eu lieu le dimanche 7 : l'état de départ de la fiche en tient compte (produits périmés déjà jetés, légumes déjà rapportés à la maison, bon de commande écrit d'après le stock).
 
 ## Décisions reproduites par des règles
 
 | Décision | Règle de l'agent |
 |---|---|
-| Bon de commande du lundi (31 lignes), livré mardi à 06:40 | Chaque produit sec ou frais de rayon ramené à son stock cible ; la livraison reprend le bon |
-| Deux packs de yaourts et une laitue jetés au ménage du lundi | Part des produits à date courte jetés (12 % des yaourts, 20 % des laitues) |
-| Pommes de terre, carottes et laitue rapportées lundi ; œufs, oignon et tomates mardi ; jambon, emmental et riz mercredi | Il prélève au magasin ce qui manque à la maison pour les repas de Josiane jusqu'au premier repas qui suit son prochain départ de la boutique |
+| Bon de commande écrit le dimanche à la fermeture (31 lignes pour le mardi 9, écrit le dimanche 7), livré mardi à 06:40 | Chaque produit sec ou frais de rayon ramené à son stock cible ; la livraison reprend le bon |
+| Produits frais jetés au ménage du dimanche à la fermeture (deux packs de yaourts le 14) | Part des produits à date courte jetés (12 % des yaourts, 20 % des laitues) |
+| Œufs, oignon et tomates mardi ; jambon, emmental et riz mercredi ; le dimanche midi, de quoi tenir jusqu'au déjeuner du mardi | Il prélève au magasin ce qui manque à la maison pour les repas de Josiane jusqu'au premier repas qui suit son prochain départ de la boutique ; le lundi, jour de congé, il n'en rapporte rien |
 | Une baguette mise de côté chaque matin à la livraison du pain | Habitude ; deux le dimanche |
 | Caisse vidée dans la sacoche du coffre à midi et le soir | Tout ce qui dépasse le fond de caisse de 150 € |
 | Dépôt de la recette de la semaine au coffre de la banque, lundi | Le coffre de l'arrière-boutique est vidé sur le compte |
 | Ardoise des étudiantes, mercredi | Paiement « sur l'ardoise » des habituées qui le demandent ; noté au carnet |
-| Coucher à 22:00 mardi au lieu de 22:30 | Fatigue : énergie sous 25 devant la télévision, après une nuit de six heures (cinéma la veille) |
+| Coucher à 22:10 mardi au lieu de 22:30 (télévision éteinte à 21:40) | Fatigue : énergie sous 25 devant la télévision, après une nuit de six heures (cinéma la veille) |
 | Endormissement en 45 minutes mercredi | Excitation de la qualification au-dessus du seuil |
 
 ## Jeudi à dimanche, vécus par l'agent seul
@@ -50,4 +54,4 @@ Les clients anonymes viennent du même flux déterministe (`outils/clientele.py`
 | Jeudi | Après une nuit de 5 h 45, il oublie le cabas au portemanteau ; il le voit à midi et le reprend. Bon de commande du soir pour vendredi. Couché à 21:20, épuisé. |
 | Vendredi | Livraison du grossiste ; les étudiantes règlent leur ardoise de mercredi (5,80 €). Haricots verts, pommes et beurre rapportés pour le week-end. |
 | Samedi | L'horloger passe à 11:50 ; Robert lui conseille « The Ghost Writer », vu lundi avec Josiane (l'horloger ira le soir même). Deux pommes, un morceau de comté et un pain de campagne, 7,40 €. Pizza de Josiane, puis belote avec les Morel jusqu'à 23:00. |
-| Dimanche | Nouveau cabas oublié après la belote : les courses rentrent dans un carton de la réserve. Vote au premier tour des régionales, randonnée dans les monts d'Or, couché à 20:40. |
+| Dimanche | Nouveau cabas oublié après la belote : les courses rentrent dans un carton de la réserve. À la fermeture, fin de semaine : deux packs de yaourts jetés, ménage, comptes (1 827,50 € sur la semaine), bon de commande de 31 lignes pour mardi. Vote au premier tour des régionales, randonnée dans les monts d'Or, couché à 21:00. |
