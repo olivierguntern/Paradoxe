@@ -590,6 +590,124 @@ def trajets_course(pas, M, exclus=()):
     return out
 
 
+# ---------------------------------------------------------------- boutique : clients et commerçant dans le pas
+MARCHE_M_S, PAS_S = 1.3, 300.0
+
+
+class Chore:
+    """Images-clés d'un personnage dans un pas : [fraction du pas, x, y, z, dx, dy]."""
+
+    def __init__(self, lg, piece, noeud, pt=None, f=0.0):
+        self.lg, self.pc, self.noeud = lg, piece, noeud
+        self.C = lg.L["circulation"][piece]
+        p0 = pt or self.pt(noeud)
+        self.k = [[r2(f), r2(p0[0]), r2(p0[1]), r2(p0[2]), 0.0, 1.0]]
+
+    def pt(self, n):
+        return self.lg.pt(self.pc, self.C["noeuds"][n])
+
+    def duree(self, a, b):
+        pts = [self.pt(a)] + self.lg.allee(self.pc, a, b)
+        return longueur(pts) / (MARCHE_M_S * PAS_S)
+
+    def aller(self, b):
+        """Marche jusqu'au nœud b par les allées ; renvoie l'heure d'arrivée (fraction du pas)."""
+        if b != self.noeud:
+            f, prec = self.k[-1][0], self.k[-1][1:4]
+            for q in self.lg.allee(self.pc, self.noeud, b):
+                dl = math.dist(prec, q)
+                if dl < 1e-6:
+                    continue
+                f += dl / (MARCHE_M_S * PAS_S)
+                self.k.append([r2(f), r2(q[0]), r2(q[1]), r2(q[2]), r2((q[0] - prec[0]) / dl), r2((q[1] - prec[1]) / dl)])
+                prec = q
+            self.noeud = b
+        return self.k[-1][0]
+
+    def rester(self, jusqua, regard=None):
+        """Reste sur place jusqu'à l'heure dite, tourné vers le rayon (ou la caisse)."""
+        x = list(self.k[-1])
+        if regard is not None:
+            po = self.lg.L["postes"][self.pc].get(regard)
+            if po:
+                dd = self.lg.R.v(po[2], po[3])
+                x[4], x[5] = r2(dd[0]), r2(dd[1])
+                self.k.append([x[0]] + x[1:4] + x[4:6])
+        if jusqua > x[0]:
+            self.k.append([r2(jusqua)] + x[1:4] + [self.k[-1][4], self.k[-1][5]])
+        return max(jusqua, x[0])
+
+
+def chore_clients(lg, pc, visiteurs, date, heure):
+    """Les clients d'un pas : entrée par la porte, tour des rayons, caisse (deux places), sortie. Déterministe."""
+    out, libre = [], {"caisse_g": 0.0, "caisse_d": 0.0}
+    n = len(visiteurs)
+    plan = []
+    for k, v in enumerate(visiteurs):
+        # devant chaque rayon, de 30 à 70 secondes ; à la caisse, de 30 à 60 secondes (le temps de demander le pain, de payer, de dire trois mots)
+        arrets = [(r, (30 + 40 * h01(date, heure, k, r)) / PAS_S) for r in v["rayons"]]
+        paie = (30 + 30 * h01(date, heure, k, "paie")) / PAS_S if v["paie"] else 15 / PAS_S
+        c = Chore(lg, pc, "trottoir")
+        marche = 0.0
+        prec = "trottoir"
+        for r, _ in arrets + [("caisse_g", 0), ("porte", 0), ("trottoir", 0)]:
+            marche += c.duree(prec, r)
+            prec = r
+        total = marche + sum(d for _, d in arrets) + paie
+        a = 0.02 + 0.85 * (k + h01(date, heure, k, "arrivee")) / max(n, 1)
+        plan.append((min(max(0.0, a), max(0.0, 0.97 - total)), k, v, arrets, paie))
+    for a, k, v, arrets, paie in sorted(plan, key=lambda x: x[0]):
+        c = Chore(lg, pc, "trottoir", f=a)
+        c.aller("porte")
+        for i, (r, d) in enumerate(arrets):
+            c.aller(r)
+            c.rester(c.k[-1][0] + d, regard=r)
+        place = min(libre, key=lambda x: libre[x])
+        arrivee = c.k[-1][0] + c.duree(c.noeud, place)
+        if libre[place] > arrivee:
+            c.rester(c.k[-1][0] + libre[place] - arrivee)   # attend son tour dans l'allée
+        c.aller(place)
+        debut = c.k[-1][0]
+        c.rester(debut + paie, regard="caisse")
+        libre[place] = c.k[-1][0] + 2 / PAS_S
+        c.aller("porte")
+        c.aller("trottoir")
+        out.append({"q": v["qui"], "h": 1 if v["habitue"] else 0, "k": c.k, "paie": [r2(debut), r2(debut + paie)] if v["paie"] else None})
+    return out
+
+
+def chore_commercant(lg, pc, depart_pt, depart_noeud, travail, clients):
+    """Le commerçant à l'endroit de sa tâche, qui rejoint la caisse pour chaque client qui paie, puis retourne à sa tâche."""
+    c = Chore(lg, pc, depart_noeud, pt=depart_pt)
+    travail = travail if travail in c.C["noeuds"] else "comptoir"
+    paies = sorted(x["paie"] for x in clients if x.get("paie"))
+    blocs = []
+    for a, b in paies:
+        if blocs and a - blocs[-1][1] < 2 * c.duree("comptoir", travail) + 20 / PAS_S:
+            blocs[-1][1] = max(blocs[-1][1], b)
+        else:
+            blocs.append([a, b])
+    for a, b in blocs:
+        if c.noeud != "comptoir":
+            aller_travail = travail != "comptoir" and c.noeud != travail and \
+                c.k[-1][0] + c.duree(c.noeud, travail) + c.duree(travail, "comptoir") + 10 / PAS_S < a
+            if aller_travail:
+                c.aller(travail)
+            if c.noeud == travail and travail != "comptoir":
+                c.rester(a - c.duree(travail, "comptoir"), regard=travail)
+            c.aller("comptoir")
+        c.rester(b, regard="debout")
+    if travail != "comptoir" and c.k[-1][0] + c.duree(c.noeud, travail) < 0.97:
+        c.aller(travail)
+        c.rester(1.0, regard=travail)
+    elif c.noeud == "comptoir" or travail == "comptoir":
+        c.aller("comptoir")
+        c.rester(1.0, regard="debout")
+    else:
+        c.rester(1.0)
+    return c.k, c.noeud
+
+
 def plan_hors_logement(pas, M, perso, LGS, piece_lg):
     """Trajets hors des logements d'un personnage : en voiture et à pied (trajets_personnages du monde).
 
@@ -741,6 +859,7 @@ def exporter_personnage(perso, M, emplacements, noms, avertissements):
             courses = s["activite"] == "Courses à l'épicerie"
             poubelles = any("local poubelles" in o["vers"] for o in s.get("objets", []))
             w, cont, d, zone, st_arrets = None, False, None, None, None
+            avant_pas, images_cles, clients_pas = precedent, None, None
             lg = piece_lg.get(s["piece"])
             public = s["lieu"] in lp and lp[s["lieu"]]["logement"] not in mes_logements
             if public:
@@ -795,6 +914,21 @@ def exporter_personnage(perso, M, emplacements, noms, avertissements):
                     w = [precedent["pt"]] + entree + lg.traversee(pieces) + [po_pt]
                 hors = False
                 precedent = {"pt": po_pt, "piece": s["piece"], "lg": lg}
+                C_b = lg.L.get("circulation", {}).get(s["piece"])
+                if C_b:
+                    # boutique ouverte : clients du pas, et le commerçant entre sa tâche et la caisse
+                    if s.get("visiteurs"):
+                        clients_pas = chore_clients(lg, s["piece"], s["visiteurs"], J["meta"]["date"], s["heure"])
+                    poste_nom = s.get("poste") if isinstance(s.get("poste"), str) and s.get("poste") in C_b["noeuds"] else "comptoir"
+                    seul_ici = all(p_ == s["piece"] for p_ in chemin) if chemin else True
+                    if avant_pas.get("lg") is lg and avant_pas.get("piece") == s["piece"] and avant_pas.get("noeud") and seul_ici and s["posture"] == "debout":
+                        images_cles, noeud_fin = chore_commercant(lg, s["piece"], avant_pas["pt"], avant_pas["noeud"], poste_nom, clients_pas or [])
+                        w = None
+                        fin_k = images_cles[-1]
+                        d = [fin_k[4], fin_k[5], 0.0]
+                        precedent = {"pt": fin_k[1:4], "piece": s["piece"], "lg": lg, "noeud": noeud_fin}
+                    else:
+                        precedent["noeud"] = poste_nom if (s.get("poste") or s["posture"] == "debout") else None
             elif k in dehors:
                 x = dehors[k]
                 zone = x["zone"]
@@ -884,6 +1018,10 @@ def exporter_personnage(perso, M, emplacements, noms, avertissements):
                 e["w"] = w
             if cont:
                 e["cont"] = 1
+            if images_cles:
+                e["k"] = images_cles
+            if clients_pas:
+                e["cl"] = clients_pas
             if st_arrets and e.get("w"):
                 # arrêts (rayons) : indice du point dans le trajet nettoyé, et direction du regard
                 k0, idx_arrets = 0, []

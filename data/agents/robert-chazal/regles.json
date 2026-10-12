@@ -311,22 +311,59 @@
   ]
  },
  "postes_boutique": {
-  "principe": "Endroit de la boutique où Robert se tient pour une tâche sans client (postes « travail_… » du monde), reconnu aux mots de la tâche ; sinon, derrière le comptoir.",
+  "principe": "Endroit de la boutique où Robert se tient pour une tâche (postes « travail_… » du monde), reconnu aux mots de la tâche ; sinon, derrière le comptoir. Il rejoint la caisse quand un client vient payer.",
   "travail_etal": [
    "étal",
    "cagettes"
   ],
   "travail_frais": [
    "vitrine réfrigérée",
-   "yaourts"
+   "yaourts",
+   "packs de lait"
   ],
   "travail_epicerie": [
    "conserves",
    "rayons du fond",
-   "paquets de café"
+   "paquets de café",
+   "étiquette"
   ],
   "travail_central": [
    "carton de lait"
+  ],
+  "travail_reserve": [
+   "réserve",
+   "cartons vides"
+  ],
+  "travail_vitrine": [
+   "Grande-Rue",
+   "bus",
+   "cartes postales"
+  ]
+ },
+ "taches_de_fond": {
+  "principe": "Quand des clients font leurs courses sans qu'une tâche soit prévue, Robert s'occupe d'un rayon entre deux passages à la caisse (à peu près une fois sur deux).",
+  "frequence": 0.6,
+  "travail_etal": [
+   "redresse les pommes de l'étal",
+   "remet des oranges sur l'étal",
+   "enlève une laitue fanée de l'étal"
+  ],
+  "travail_epicerie": [
+   "remplit le rayon des conserves",
+   "aligne les paquets de pâtes",
+   "met en rayon des paquets de café"
+  ],
+  "travail_frais": [
+   "range des yaourts dans la vitrine réfrigérée",
+   "vérifie les dates de la vitrine réfrigérée"
+  ],
+  "travail_central": [
+   "aligne les bouteilles du rayon central",
+   "remet des briques de lait au rayon central"
+  ],
+  "travail_reserve": [
+   "va chercher un carton à la réserve",
+   "rapporte des packs d'eau de la réserve"
   ]
  }
 }

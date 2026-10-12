@@ -683,14 +683,35 @@ class AgentEpicier:
             if r.get("argent"):
                 st["argent"] = r["argent"]
             st.update(note)
-            # où il se tient : à la caisse s'il sert ou encaisse, sinon à l'endroit de son travail (étal, rayons, vitrine)
-            if not ventes and not (client or {}).get("caisse"):
-                poste = self.poste_de(action or txt)
+            # l'endroit de sa tâche du moment (étal, rayons, vitrine, réserve) ; il rejoint la caisse quand un client vient payer
+            if not (client or {}).get("caisse"):
+                poste = self.poste_de(action or (txt if not texte else ""))
+                if not poste and texte and not action:
+                    poste, tache = self.tache_de_fond(h)
+                    if poste:
+                        st["action"] = st["action"].rstrip() + f" Entre deux clients, {tache}."
                 if poste:
                     st["poste"] = poste
+            # les clients du pas, pour la vue : leur tour des rayons et leur passage à la caisse
+            if r.get("details"):
+                st["visiteurs"] = [self.visiteur(t) for t in r["details"]]
             if not st.get("pensee"):
                 self.preoccupation(st)
             self.emettre(st, bloc="service")
+
+    def tache_de_fond(self, h):
+        """Entre deux clients, une petite tâche dans un rayon (une fois sur deux à peu près), choisie de façon déterministe."""
+        T = self.R.get("taches_de_fond", {})
+        if not T or tirage(self.date, h, "tache") >= T.get("frequence", 0.5):
+            return None, None
+        poste = choix([k for k in T if k not in ("principe", "frequence")], self.date, h, "poste")
+        return poste, choix(T[poste], self.date, h, "tache")
+
+    def visiteur(self, t):
+        """Un client du pas : qui il est, les rayons où il cherche ses articles (dans l'ordre de la boutique), s'il passe à la caisse."""
+        ordre = self.C.get("rayons", {}).get("ordre", [])
+        vus = {self.CAT[pid].get("rayon", "epicerie") for pid, _ in t["lignes"]} | {self.CAT[pid].get("rayon", "epicerie") for pid in t["manque"]}
+        return {"qui": t["qui"], "habitue": t["habitue"], "rayons": [r for r in ordre if r in vus and r != "comptoir"], "paie": bool(t["lignes"])}
 
     def poste_de(self, texte):
         """Endroit de la boutique où se fait une tâche, d'après les mots qui la décrivent (regles.json, postes_boutique)."""

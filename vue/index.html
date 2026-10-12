@@ -106,6 +106,9 @@ button, select, input { font: inherit; color: inherit; }
 .scene .perso.thomas .ombre { fill: var(--laiton); }
 .scene .perso.robert .ombre { fill: var(--brique); }
 .scene .perso .epingle { stroke-width: 2; }
+.scene .perso.client polyline, .scene .perso.client circle { stroke: var(--trait); stroke-width: 1.8; opacity: .75; }
+.scene .perso.client.habitue polyline, .scene .perso.client.habitue circle { opacity: 1; }
+.scene .perso.client .ombre { fill: var(--trait); }
 .scene .perso.thomas .epingle { fill: var(--laiton); }
 .scene .perso.robert .epingle { fill: var(--brique); }
 .scene text, .carte text { font-family: var(--f-titre); fill: var(--trait); font-size: calc(var(--px, .05) * 11px); letter-spacing: .04em; paint-order: stroke; stroke: var(--planche); stroke-width: calc(var(--px, .05) * 3px); stroke-linejoin: round; }
@@ -355,7 +358,8 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
       if (s.zn && s.zn.startsWith("lg:") && (P.logements || [P.logement]).includes(s.zn.slice(3))) lg = s.zn.slice(3);
       P.lgA[g] = lg;
       if (ji !== jPrec) { carte = Object.assign({}, carte, P.jours[ji].positions); jPrec = ji; }
-      if (s.w) dernier = s.w[s.w.length - 1];
+      if (s.k) dernier = s.k[s.k.length - 1].slice(1, 4);
+      else if (s.w) dernier = s.w[s.w.length - 1];
       P.fin[g] = dernier;
       if (s.no || s.ob) {
         carte = Object.assign({}, carte);
@@ -601,9 +605,29 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     const n = w.length;
     return { p: w[n - 1], dir: n > 1 ? [w[n - 1][0] - w[n - 2][0], w[n - 1][1] - w[n - 2][1]] : [0, 1] };
   }
+  // images-clés d'un pas (boutique : clients et commerçant) : [fraction du pas, x, y, z, dx, dy]
+  function surCles(k, t) {
+    if (t <= k[0][0]) return { p: k[0].slice(1, 4), dir: [k[0][4], k[0][5]], bouge: false };
+    for (let i = 1; i < k.length; i++) {
+      if (t <= k[i][0]) {
+        const a = k[i - 1], b = k[i], du = b[0] - a[0], u = du > 0 ? (t - a[0]) / du : 1;
+        const bouge = Math.hypot(b[1] - a[1], b[2] - a[2]) > 0.01;
+        return { p: [a[1] + (b[1] - a[1]) * u, a[2] + (b[2] - a[2]) * u, a[3] + (b[3] - a[3]) * u], dir: [b[4], b[5]], bouge };
+      }
+    }
+    const z = k[k.length - 1];
+    return { p: z.slice(1, 4), dir: [z[4], z[5]], bouge: false };
+  }
+  // à l'arrêt sur un pas, la boutique est montrée au milieu du pas, avec ses clients
+  const tCles = () => (!enLecture && t >= 1 ? 0.5 : t);
   function etat(P, g, t) {
     const s = P.pas[g];
     let p, dir = s.d, pose = s.po, h = s.d ? s.d[2] : 0, mouvement = false;
+    if (s.k) {
+      const r = surCles(s.k, tCles());
+      if (r.bouge && pose !== "course") pose = "marche";
+      return { p: r.p, dir: r.dir, pose, h, mouvement: r.bouge, s };
+    }
     if (s.w && s.st) {
       // arrêts (rayons d'une boutique) : marche au pas d'un arrêt à l'autre, le reste du pas est passé devant chaque rayon
       const L = longueurs(s.w), tot = L[L.length - 1];
@@ -885,6 +909,17 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
       const cp = plan(e.p);
       pointsCarte[Q.id].setAttribute("cx", cp[0]); pointsCarte[Q.id].setAttribute("cy", cp[1]);
     });
+    // les clients de la boutique pendant ce pas (simulés par la clientèle de l'épicier, sans fiche)
+    if (!loin) {
+      const tc = tCles();
+      PERSOS.forEach((Q) => (Q.pas[g].cl || []).forEach((c) => {
+        if (tc < c.k[0][0] || tc > c.k[c.k.length - 1][0]) return;
+        const r = surCles(c.k, tc);
+        const gc = el("g", { class: "perso client" + (c.h ? " habitue" : "") }, gPersos);
+        el("title", {}, gc).textContent = c.q;
+        silhouette(gc, r.p, r.bouge ? "marche" : "debout", r.dir, 0, r.bouge);
+      }));
+    }
     // carte : selon le lieu de la personne suivie
     const zs = st.s.zn || "";
     const vb = VB_CARTE[zs === "parcours" ? "loin" : (zs === "monts" || zs === "route-monts") ? "monts" : zs === "boulevard" ? "boulevard" :

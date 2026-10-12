@@ -3950,6 +3950,24 @@
    "activite": "Boutique ouverte",
    "action": "Sert deux clients à la suite. Un jeune homme pressé : une baguette et une bouteille d'eau minérale (1,50 €), en regardant sa montre. Un étudiant : une baguette et quatre pommes (2,50 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un jeune homme pressé",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un étudiant",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -4076,8 +4094,19 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert une jeune mère avec sa poussette : une plaquette de beurre (1,95 €).",
+   "action": "Sert une jeune mère avec sa poussette : une plaquette de beurre (1,95 €). Entre deux clients, rapporte des packs d'eau de la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
+   "visiteurs": [
+    {
+     "qui": "une jeune mère avec sa poussette",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "beurre",
@@ -4135,8 +4164,41 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert quatre clients à la suite. Un jeune homme pressé : une baguette, trois bananes et un pack de yaourts nature (3,40 €). Un étudiant : une baguette (0,90 €). Une dame âgée : une baguette, six pommes et une plaquette de beurre (5,25 €). Une employée de la mairie : un pain de campagne, une baguette et un sachet de bonbons (4,00 €), en regardant sa montre.",
+   "action": "Sert quatre clients à la suite. Un jeune homme pressé : une baguette, trois bananes et un pack de yaourts nature (3,40 €). Un étudiant : une baguette (0,90 €). Une dame âgée : une baguette, six pommes et une plaquette de beurre (5,25 €). Une employée de la mairie : un pain de campagne, une baguette et un sachet de bonbons (4,00 €), en regardant sa montre. Entre deux clients, rapporte des packs d'eau de la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
+   "visiteurs": [
+    {
+     "qui": "un jeune homme pressé",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un étudiant",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    },
+    {
+     "qui": "une dame âgée",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une employée de la mairie",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -4281,8 +4343,34 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert trois clients à la suite. Une dame avec son chien : une baguette (0,90 €). Une jeune mère avec sa poussette : une baguette et une barquette de jambon blanc (3,50 €). Un ouvrier du chantier de la place : une brique de lait UHT, une baguette et un pack de yaourts nature (3,45 €).",
+   "action": "Sert trois clients à la suite. Une dame avec son chien : une baguette (0,90 €). Une jeune mère avec sa poussette : une baguette et une barquette de jambon blanc (3,50 €). Un ouvrier du chantier de la place : une brique de lait UHT, une baguette et un pack de yaourts nature (3,45 €). Entre deux clients, va chercher un carton à la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
+   "visiteurs": [
+    {
+     "qui": "une dame avec son chien",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    },
+    {
+     "qui": "une jeune mère avec sa poussette",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un ouvrier du chantier de la place",
+     "habitue": false,
+     "rayons": [
+      "central",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -4391,6 +4479,7 @@
    "activite": "Boutique ouverte",
    "action": "Aligne les boîtes de conserve, les étiquettes vers la rue.",
    "pensee": null,
+   "poste": "travail_epicerie",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4425,8 +4514,33 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert trois clients à la suite. Une adolescente : une baguette et un pack de yaourts nature (2,50 €), avec quelques mots sur le quartier. Une voisine de la rue d'Ivry : un pain de campagne (2,10 €). Un couple de touristes : une barquette de jambon blanc, une baguette et une boîte d'œufs (5,40 €, par carte), avec quelques mots sur le quartier.",
+   "action": "Sert trois clients à la suite. Une adolescente : une baguette et un pack de yaourts nature (2,50 €), avec quelques mots sur le quartier. Une voisine de la rue d'Ivry : un pain de campagne (2,10 €). Un couple de touristes : une barquette de jambon blanc, une baguette et une boîte d'œufs (5,40 €, par carte), avec quelques mots sur le quartier. Entre deux clients, remet des briques de lait au rayon central.",
    "pensee": null,
+   "poste": "travail_central",
+   "visiteurs": [
+    {
+     "qui": "une adolescente",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une voisine de la rue d'Ivry",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    },
+    {
+     "qui": "un couple de touristes",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -4543,6 +4657,31 @@
    "activite": "Boutique ouverte",
    "action": "Sert trois clients à la suite. Un livreur : deux bouteilles d'eau minérale et une baguette (2,10 €), avec quelques mots sur le quartier. Un monsieur en costume : une baguette, un paquet de café moulu, une plaquette de beurre et une barquette de jambon blanc (8,35 €). Une infirmière qui sort de garde : une baguette (0,90 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un livreur",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un monsieur en costume",
+     "habitue": false,
+     "rayons": [
+      "epicerie",
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une infirmière qui sort de garde",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "eau",
@@ -4700,8 +4839,20 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert une adolescente : un pack de yaourts nature et une brique de lait UHT (2,55 €).",
+   "action": "Sert une adolescente : un pack de yaourts nature et une brique de lait UHT (2,55 €). Entre deux clients, range des yaourts dans la vitrine réfrigérée.",
    "pensee": "La supérette du boulevard me mange.",
+   "poste": "travail_frais",
+   "visiteurs": [
+    {
+     "qui": "une adolescente",
+     "habitue": false,
+     "rayons": [
+      "central",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "yaourts",
@@ -4821,6 +4972,14 @@
    "activite": "Boutique ouverte",
    "action": "Sert une adolescente : une baguette (0,90 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une adolescente",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -4880,6 +5039,7 @@
    "activite": "Boutique ouverte",
    "action": "Regarde passer les bus dans la Grande-Rue.",
    "pensee": "Un bijou ? Elle en porte jamais.",
+   "poste": "travail_vitrine",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4998,6 +5158,16 @@
    "activite": "Boutique ouverte",
    "action": "Mme Ferrand entre. « La réunion de copropriété a encore duré trois heures, monsieur Chazal. » Robert : « Trois heures ! Et le ravalement, alors, c'est voté ? » Lui sert une baguette et une brique de lait UHT (1,85 €).",
    "pensee": "Elle vient pour parler, le pain c'est l'excuse.",
+   "visiteurs": [
+    {
+     "qui": "Mme Ferrand",
+     "habitue": true,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -5108,8 +5278,19 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un couple de touristes : une baguette et une brique de jus d'orange (2,70 €), avec quelques mots sur le quartier.",
+   "action": "Sert un couple de touristes : une baguette et une brique de jus d'orange (2,70 €), avec quelques mots sur le quartier. Entre deux clients, rapporte des packs d'eau de la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
+   "visiteurs": [
+    {
+     "qui": "un couple de touristes",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -5257,8 +5438,20 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un couple de touristes : une baguette, deux bouteilles d'eau minérale et une barquette de jambon blanc (4,70 €).",
+   "action": "Sert un couple de touristes : une baguette, deux bouteilles d'eau minérale et une barquette de jambon blanc (4,70 €). Entre deux clients, aligne les bouteilles du rayon central.",
    "pensee": null,
+   "poste": "travail_central",
+   "visiteurs": [
+    {
+     "qui": "un couple de touristes",
+     "habitue": false,
+     "rayons": [
+      "central",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -5334,6 +5527,28 @@
    "activite": "Boutique ouverte",
    "action": "Sert trois clients à la suite. Une infirmière qui sort de garde : une baguette (0,90 €). Un peintre du quartier : une baguette (0,90 €). Un livreur : une baguette et une boîte d'œufs (2,80 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une infirmière qui sort de garde",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    },
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    },
+    {
+     "qui": "un livreur",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -5424,8 +5639,19 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert une infirmière qui sort de garde : une baguette et cinq bananes (2,40 €).",
+   "action": "Sert une infirmière qui sort de garde : une baguette et cinq bananes (2,40 €). Entre deux clients, remplit le rayon des conserves.",
    "pensee": null,
+   "poste": "travail_epicerie",
+   "visiteurs": [
+    {
+     "qui": "une infirmière qui sort de garde",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -5528,8 +5754,19 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un peintre du quartier : une brique de lait UHT et une baguette (1,85 €).",
+   "action": "Sert un peintre du quartier : une brique de lait UHT et une baguette (1,85 €). Entre deux clients, range des yaourts dans la vitrine réfrigérée.",
    "pensee": null,
+   "poste": "travail_frais",
+   "visiteurs": [
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "lait_uht",
@@ -5634,6 +5871,7 @@
    "activite": "Boutique ouverte",
    "action": "Aligne les boîtes de conserve, les étiquettes vers la rue.",
    "pensee": null,
+   "poste": "travail_epicerie",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5670,6 +5908,16 @@
    "activite": "Boutique ouverte",
    "action": "Sert un vieux monsieur à canne : une boîte d'œufs et une baguette (2,80 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un vieux monsieur à canne",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "oeufs",
@@ -5737,6 +5985,18 @@
    "activite": "Boutique ouverte",
    "action": "Sert un vieux monsieur à canne : un paquet de sucre, cinq pommes et une brique de lait UHT (4,15 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un vieux monsieur à canne",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "epicerie",
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "sucre",
@@ -5810,8 +6070,19 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert une dame âgée : quatre pommes et une baguette (2,50 €).",
+   "action": "Sert une dame âgée : quatre pommes et une baguette (2,50 €). Entre deux clients, va chercher un carton à la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
+   "visiteurs": [
+    {
+     "qui": "une dame âgée",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "pommes",
@@ -5966,6 +6237,16 @@
    "activite": "Boutique ouverte",
    "action": "Sert une dame âgée : une baguette et trois pommes (2,10 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une dame âgée",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -6069,6 +6350,7 @@
    "activite": "Boutique ouverte",
    "action": "Regarde passer les bus dans la Grande-Rue.",
    "pensee": null,
+   "poste": "travail_vitrine",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -6105,6 +6387,14 @@
    "activite": "Boutique ouverte",
    "action": "Sert une employée de la mairie : une baguette (0,90 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une employée de la mairie",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -6254,6 +6544,33 @@
    "activite": "Boutique ouverte",
    "action": "Sert trois clients à la suite. Un ouvrier du chantier de la place : une boîte d'œufs (1,90 €). Un vieux monsieur à canne : une baguette, un pack de yaourts nature et une boîte d'œufs (4,40 €). Une dame avec son chien : une baguette, une plaquette de beurre, cinq pommes et un pack de yaourts nature (6,45 €, par carte), avec quelques mots sur le quartier.",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un ouvrier du chantier de la place",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un vieux monsieur à canne",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une dame avec son chien",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "oeufs",
@@ -6422,6 +6739,24 @@
    "activite": "Boutique ouverte",
    "action": "Sert deux clients à la suite. Une employée de la mairie : une baguette et une barquette de jambon blanc (3,50 €). Une dame âgée : une baguette et un pack de yaourts nature (2,50 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une employée de la mairie",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une dame âgée",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -6539,8 +6874,17 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert une employée de la mairie : une baguette (0,90 €), avec quelques mots sur le quartier.",
+   "action": "Sert une employée de la mairie : une baguette (0,90 €), avec quelques mots sur le quartier. Entre deux clients, enlève une laitue fanée de l'étal.",
    "pensee": null,
+   "poste": "travail_etal",
+   "visiteurs": [
+    {
+     "qui": "une employée de la mairie",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -6609,6 +6953,17 @@
    "activite": "Boutique ouverte",
    "action": "Sert une employée de la mairie : une brique de lait UHT, une baguette, une plaquette de beurre et une brique de jus d'orange (5,60 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une employée de la mairie",
+     "habitue": false,
+     "rayons": [
+      "central",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "lait_uht",
@@ -6847,6 +7202,7 @@
    "activite": "Boutique ouverte",
    "action": "Aligne les boîtes de conserve, les étiquettes vers la rue.",
    "pensee": null,
+   "poste": "travail_epicerie",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -6933,6 +7289,16 @@
    "activite": "Boutique ouverte",
    "action": "Sert un peintre du quartier : un paquet de pâtes (0,95 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [
+      "epicerie"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "pates",
@@ -6990,8 +7356,27 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert deux clients à la suite. Un retraité en casquette : une bouteille de bière et une baguette (2,00 €). Un couple de touristes : quatre oranges et une baguette (2,30 €).",
+   "action": "Sert deux clients à la suite. Un retraité en casquette : une bouteille de bière et une baguette (2,00 €). Un couple de touristes : quatre oranges et une baguette (2,30 €). Entre deux clients, vérifie les dates de la vitrine réfrigérée.",
    "pensee": null,
+   "poste": "travail_frais",
+   "visiteurs": [
+    {
+     "qui": "un retraité en casquette",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un couple de touristes",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "biere",
@@ -7075,6 +7460,16 @@
    "activite": "Boutique ouverte",
    "action": "Sert un peintre du quartier : une baguette et un paquet de pâtes (1,85 €).",
    "pensee": "Encore un fonds de commerce à vendre dans la rue.",
+   "visiteurs": [
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [
+      "epicerie"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -7148,8 +7543,20 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un peintre du quartier : une baguette, un morceau de comté et une barquette de tomates (7,00 €).",
+   "action": "Sert un peintre du quartier : une baguette, un morceau de comté et une barquette de tomates (7,00 €). Entre deux clients, va chercher un carton à la réserve.",
    "pensee": "Un bijou ? Elle en porte jamais.",
+   "poste": "travail_reserve",
+   "visiteurs": [
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -7232,8 +7639,17 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un retraité en casquette : une baguette (0,90 €).",
+   "action": "Sert un retraité en casquette : une baguette (0,90 €). Entre deux clients, range des yaourts dans la vitrine réfrigérée.",
    "pensee": null,
+   "poste": "travail_frais",
+   "visiteurs": [
+    {
+     "qui": "un retraité en casquette",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -7293,6 +7709,16 @@
    "activite": "Boutique ouverte",
    "action": "Sert une infirmière qui sort de garde : une baguette, cinq pommes, une barquette de tomates et quatre bananes (5,70 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une infirmière qui sort de garde",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -7374,8 +7800,19 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un couple de touristes : une bouteille d'eau minérale (0,60 €).",
+   "action": "Sert un couple de touristes : une bouteille d'eau minérale (0,60 €). Entre deux clients, rapporte des packs d'eau de la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
+   "visiteurs": [
+    {
+     "qui": "un couple de touristes",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "eau",
@@ -7435,6 +7872,17 @@
    "activite": "Boutique ouverte",
    "action": "Sert un étudiant : une baguette, une barquette de tomates et deux bouteilles d'eau minérale (3,70 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un étudiant",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -7546,6 +7994,26 @@
    "activite": "Boutique ouverte",
    "action": "Commence à resserrer l'étal de fruits avant midi. Sert deux clients à la suite. Une dame avec son chien : une baguette et une barquette de jambon blanc (3,50 €), avec quelques mots sur le quartier. Une jeune mère avec sa poussette : une boîte de thon et une bouteille d'eau minérale (2,10 €).",
    "pensee": null,
+   "poste": "travail_etal",
+   "visiteurs": [
+    {
+     "qui": "une dame avec son chien",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une jeune mère avec sa poussette",
+     "habitue": false,
+     "rayons": [
+      "epicerie",
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -7638,6 +8106,17 @@
    "activite": "Boutique ouverte",
    "action": "Sert un étudiant : une barquette de jambon blanc, une baguette et une barquette de tomates (5,10 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un étudiant",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "jambon",
@@ -8910,6 +9389,7 @@
    "activite": "Boutique ouverte",
    "action": "Range la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -9141,6 +9621,17 @@
    "activite": "Boutique ouverte",
    "action": "Sert une jeune mère avec sa poussette : une bouteille d'eau minérale, une baguette et une boîte de thon (3,00 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une jeune mère avec sa poussette",
+     "habitue": false,
+     "rayons": [
+      "epicerie",
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "eau",
@@ -9317,6 +9808,16 @@
     "duree_s": 9,
     "foulees": 14
    },
+   "visiteurs": [
+    {
+     "qui": "une jeune mère avec sa poussette",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "jambon",
@@ -9388,6 +9889,7 @@
    "activite": "Boutique ouverte",
    "action": "Écrit une étiquette à la main.",
    "pensee": null,
+   "poste": "travail_epicerie",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -9422,8 +9924,17 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert une dame avec son chien : une baguette (0,90 €), avec quelques mots sur le quartier.",
+   "action": "Sert une dame avec son chien : une baguette (0,90 €), avec quelques mots sur le quartier. Entre deux clients, remet des briques de lait au rayon central.",
    "pensee": null,
+   "poste": "travail_central",
+   "visiteurs": [
+    {
+     "qui": "une dame avec son chien",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -9492,6 +10003,7 @@
    "activite": "Boutique ouverte",
    "action": "Aplatit les cartons vides dans la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -9528,6 +10040,7 @@
    "activite": "Boutique ouverte",
    "action": "Compte les sacs de pommes de terre de la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -9564,6 +10077,7 @@
    "activite": "Boutique ouverte",
    "action": "Remet de l'ordre dans le présentoir de cartes postales.",
    "pensee": null,
+   "poste": "travail_vitrine",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -9598,8 +10112,19 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un livreur : une barquette de tomates et une baguette (2,50 €), avec quelques mots sur le quartier.",
+   "action": "Sert un livreur : une barquette de tomates et une baguette (2,50 €), avec quelques mots sur le quartier. Entre deux clients, enlève une laitue fanée de l'étal.",
    "pensee": null,
+   "poste": "travail_etal",
+   "visiteurs": [
+    {
+     "qui": "un livreur",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "tomates",
@@ -9676,6 +10201,7 @@
    "activite": "Boutique ouverte",
    "action": "Range la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -9784,6 +10310,16 @@
    "activite": "Boutique ouverte",
    "action": "Sert une adolescente : deux bouteilles de bière et une baguette (3,10 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une adolescente",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "biere",
@@ -9885,8 +10421,25 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert deux clients à la suite. Une voisine de la rue d'Ivry : une baguette (0,90 €). Une adolescente : une baguette et cinq bananes (2,40 €).",
+   "action": "Sert deux clients à la suite. Une voisine de la rue d'Ivry : une baguette (0,90 €). Une adolescente : une baguette et cinq bananes (2,40 €). Entre deux clients, rapporte des packs d'eau de la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
+   "visiteurs": [
+    {
+     "qui": "une voisine de la rue d'Ivry",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    },
+    {
+     "qui": "une adolescente",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -9960,8 +10513,19 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un jeune homme pressé : une bouteille d'eau minérale (0,60 €), en regardant sa montre.",
+   "action": "Sert un jeune homme pressé : une bouteille d'eau minérale (0,60 €), en regardant sa montre. Entre deux clients, remplit le rayon des conserves.",
    "pensee": null,
+   "poste": "travail_epicerie",
+   "visiteurs": [
+    {
+     "qui": "un jeune homme pressé",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "eau",
@@ -10066,6 +10630,17 @@
    "activite": "Boutique ouverte",
    "action": "Les Grosses Têtes commencent à la radio ; il monte un peu le son. Sert une jeune mère avec sa poussette : une boîte d'œufs et une tablette de chocolat noir (3,50 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une jeune mère avec sa poussette",
+     "habitue": false,
+     "rayons": [
+      "epicerie",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "oeufs",
@@ -10148,6 +10723,24 @@
    "activite": "Boutique ouverte",
    "action": "Sert deux clients à la suite. Un jeune homme pressé : une baguette et une brique de lait UHT (1,85 €). Un étudiant : un paquet de riz et une baguette (2,70 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un jeune homme pressé",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un étudiant",
+     "habitue": false,
+     "rayons": [
+      "epicerie"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -10231,6 +10824,23 @@
    "activite": "Boutique ouverte",
    "action": "Sert deux clients à la suite. Une jeune mère avec sa poussette : une boîte de thon et un sac de pommes de terre (4,00 €). Une dame avec son chien : une baguette (0,90 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une jeune mère avec sa poussette",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "epicerie"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une dame avec son chien",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "thon",
@@ -10306,6 +10916,25 @@
    "activite": "Boutique ouverte",
    "action": "Sert deux clients à la suite. Un jeune homme pressé : une baguette, trois oranges et un pack de yaourts nature (3,55 €), en regardant sa montre. Un étudiant : une bouteille d'huile de tournesol (2,40 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un jeune homme pressé",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un étudiant",
+     "habitue": false,
+     "rayons": [
+      "epicerie"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -10395,8 +11024,19 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un jeune homme pressé : quatre oranges et une baguette (2,30 €).",
+   "action": "Sert un jeune homme pressé : quatre oranges et une baguette (2,30 €). Entre deux clients, range des yaourts dans la vitrine réfrigérée.",
    "pensee": null,
+   "poste": "travail_frais",
+   "visiteurs": [
+    {
+     "qui": "un jeune homme pressé",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "oranges",
@@ -10462,8 +11102,21 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert une jeune mère avec sa poussette : un sac de pommes de terre, une baguette, un sachet d'emmental râpé et une tablette de chocolat noir (6,70 €).",
+   "action": "Sert une jeune mère avec sa poussette : un sac de pommes de terre, une baguette, un sachet d'emmental râpé et une tablette de chocolat noir (6,70 €). Entre deux clients, redresse les pommes de l'étal.",
    "pensee": null,
+   "poste": "travail_etal",
+   "visiteurs": [
+    {
+     "qui": "une jeune mère avec sa poussette",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "epicerie",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "pommes_de_terre",
@@ -10661,8 +11314,19 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert une employée de la mairie : une baguette et un bidon de lessive liquide (7,80 €).",
+   "action": "Sert une employée de la mairie : une baguette et un bidon de lessive liquide (7,80 €). Entre deux clients, enlève une laitue fanée de l'étal.",
    "pensee": "Emma m'appelle « papi épicier ». Je le dis à tous les clients.",
+   "poste": "travail_etal",
+   "visiteurs": [
+    {
+     "qui": "une employée de la mairie",
+     "habitue": false,
+     "rayons": [
+      "epicerie"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -10737,8 +11401,20 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un ouvrier du chantier de la place : une baguette, une brique de lait UHT et une barquette de jambon blanc (4,45 €).",
+   "action": "Sert un ouvrier du chantier de la place : une baguette, une brique de lait UHT et une barquette de jambon blanc (4,45 €). Entre deux clients, va chercher un carton à la réserve.",
    "pensee": "Faudrait que je voie le kiné. Josiane le dit depuis Noël.",
+   "poste": "travail_reserve",
+   "visiteurs": [
+    {
+     "qui": "un ouvrier du chantier de la place",
+     "habitue": false,
+     "rayons": [
+      "central",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -10823,6 +11499,14 @@
    "activite": "Boutique ouverte",
    "action": "Sert un ouvrier du chantier de la place : une baguette (0,90 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un ouvrier du chantier de la place",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -10882,6 +11566,16 @@
    "activite": "Boutique ouverte",
    "action": "Sert une employée de la mairie : une bouteille de vin rouge, côtes-du-rhône et une brique de lait UHT (5,45 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une employée de la mairie",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "vin_rouge",
@@ -11009,6 +11703,25 @@
    "activite": "Boutique ouverte",
    "action": "Sert deux clients à la suite. Une employée de la mairie : une bouteille de vin rouge, côtes-du-rhône, un paquet de pâtes, deux bouteilles de bière et une baguette (8,55 €). Une dame âgée : une bouteille d'eau minérale et deux bouteilles de bière (2,80 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une employée de la mairie",
+     "habitue": false,
+     "rayons": [
+      "epicerie",
+      "central"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une dame âgée",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "vin_rouge",
@@ -11115,8 +11828,21 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert une employée de la mairie : une brique de lait UHT, un paquet de riz, un pack de yaourts nature et deux bouteilles d'eau minérale (5,55 €).",
+   "action": "Sert une employée de la mairie : une brique de lait UHT, un paquet de riz, un pack de yaourts nature et deux bouteilles d'eau minérale (5,55 €). Entre deux clients, remet des oranges sur l'étal.",
    "pensee": null,
+   "poste": "travail_etal",
+   "visiteurs": [
+    {
+     "qui": "une employée de la mairie",
+     "habitue": false,
+     "rayons": [
+      "epicerie",
+      "central",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "lait_uht",
@@ -11198,8 +11924,35 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert trois clients à la suite. Un ouvrier du chantier de la place : deux oranges (0,70 €). Un vieux monsieur à canne : une brique de lait UHT (0,95 €). Une dame avec son chien : une baguette et quatre oranges (2,30 €).",
+   "action": "Sert trois clients à la suite. Un ouvrier du chantier de la place : deux oranges (0,70 €). Un vieux monsieur à canne : une brique de lait UHT (0,95 €). Une dame avec son chien : une baguette et quatre oranges (2,30 €). Entre deux clients, redresse les pommes de l'étal.",
    "pensee": null,
+   "poste": "travail_etal",
+   "visiteurs": [
+    {
+     "qui": "un ouvrier du chantier de la place",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un vieux monsieur à canne",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une dame avec son chien",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "oranges",
@@ -11290,8 +12043,26 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert deux clients à la suite. Une dame âgée : une baguette (0,90 €). Une employée de la mairie : un sachet de carottes et une bouteille de bière (2,60 €), avec quelques mots sur le quartier.",
+   "action": "Sert deux clients à la suite. Une dame âgée : une baguette (0,90 €). Une employée de la mairie : un sachet de carottes et une bouteille de bière (2,60 €), avec quelques mots sur le quartier. Entre deux clients, rapporte des packs d'eau de la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
+   "visiteurs": [
+    {
+     "qui": "une dame âgée",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    },
+    {
+     "qui": "une employée de la mairie",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -11376,6 +12147,14 @@
    "activite": "Boutique ouverte",
    "action": "Sert un vieux monsieur à canne : une baguette (0,90 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un vieux monsieur à canne",
+     "habitue": false,
+     "rayons": [],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -11478,8 +12257,20 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un retraité en casquette : une brique de lait UHT et un paquet de pâtes (1,90 €).",
+   "action": "Sert un retraité en casquette : une brique de lait UHT et un paquet de pâtes (1,90 €). Entre deux clients, aligne les bouteilles du rayon central.",
    "pensee": null,
+   "poste": "travail_central",
+   "visiteurs": [
+    {
+     "qui": "un retraité en casquette",
+     "habitue": false,
+     "rayons": [
+      "epicerie",
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "lait_uht",
@@ -11557,6 +12348,16 @@
     "duree_s": 9,
     "foulees": 14
    },
+   "visiteurs": [
+    {
+     "qui": "un retraité en casquette",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "carottes",
@@ -11628,6 +12429,7 @@
    "activite": "Boutique ouverte",
    "action": "Écrit une étiquette à la main.",
    "pensee": null,
+   "poste": "travail_epicerie",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -11664,6 +12466,34 @@
    "activite": "Boutique ouverte",
    "action": "Sert trois clients à la suite. Un retraité en casquette : une baguette, une bouteille de vin rouge, côtes-du-rhône, un sachet d'emmental râpé et une barquette de jambon blanc (9,70 €). Un couple de touristes : une boîte de haricots verts et une boîte d'œufs (3,10 €). Une voisine de la rue d'Ivry : une baguette et un pack de yaourts nature (2,50 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un retraité en casquette",
+     "habitue": false,
+     "rayons": [
+      "central",
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un couple de touristes",
+     "habitue": false,
+     "rayons": [
+      "epicerie",
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une voisine de la rue d'Ivry",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "baguette",
@@ -11786,8 +12616,28 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert deux clients à la suite. Un peintre du quartier : un pack de yaourts nature (1,60 €). Une infirmière qui sort de garde : un paquet de pâtes, une boîte d'œufs, une baguette et un sachet d'emmental râpé (5,45 €).",
+   "action": "Sert deux clients à la suite. Un peintre du quartier : un pack de yaourts nature (1,60 €). Une infirmière qui sort de garde : un paquet de pâtes, une boîte d'œufs, une baguette et un sachet d'emmental râpé (5,45 €). Entre deux clients, redresse les pommes de l'étal.",
    "pensee": null,
+   "poste": "travail_etal",
+   "visiteurs": [
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une infirmière qui sort de garde",
+     "habitue": false,
+     "rayons": [
+      "epicerie",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "yaourts",
@@ -11877,8 +12727,28 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert deux clients à la suite. Un peintre du quartier : un paquet de pâtes, un sachet d'emmental râpé, une boîte d'œufs et une baguette (5,45 €). Une infirmière qui sort de garde : une baguette et une bouteille de vin rouge, côtes-du-rhône (5,40 €).",
+   "action": "Sert deux clients à la suite. Un peintre du quartier : un paquet de pâtes, un sachet d'emmental râpé, une boîte d'œufs et une baguette (5,45 €). Une infirmière qui sort de garde : une baguette et une bouteille de vin rouge, côtes-du-rhône (5,40 €). Entre deux clients, aligne les bouteilles du rayon central.",
    "pensee": null,
+   "poste": "travail_central",
+   "visiteurs": [
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [
+      "epicerie",
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une infirmière qui sort de garde",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "pates",
@@ -11978,6 +12848,18 @@
    "activite": "Boutique ouverte",
    "action": "Les deux étudiantes du 7 entrent. « Vous nous faites crédit jusqu'à vendredi ? La bourse tombe jeudi. » Robert : « Je le note sur l'ardoise. Vendredi, hein ! » Leur sert deux paquets de pâtes, un sachet d'emmental râpé et deux bouteilles de bière (5,80 €, sur l'ardoise). Il sort le carnet des ardoises de sous la caisse et y note la date et la somme.",
    "pensee": "Elles paieront. Elles paient toujours, celles-là.",
+   "visiteurs": [
+    {
+     "qui": "les deux étudiantes du 7",
+     "habitue": true,
+     "rayons": [
+      "epicerie",
+      "central",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "pates",
@@ -12060,8 +12942,27 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert deux clients à la suite. Une infirmière qui sort de garde : une barquette de tomates (1,60 €). Un peintre du quartier : un sachet d'emmental râpé, une baguette et une barquette de jambon blanc (5,20 €, par carte).",
+   "action": "Sert deux clients à la suite. Une infirmière qui sort de garde : une barquette de tomates (1,60 €). Un peintre du quartier : un sachet d'emmental râpé, une baguette et une barquette de jambon blanc (5,20 €, par carte). Entre deux clients, vérifie les dates de la vitrine réfrigérée.",
    "pensee": null,
+   "poste": "travail_frais",
+   "visiteurs": [
+    {
+     "qui": "une infirmière qui sort de garde",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "tomates",
@@ -12146,6 +13047,7 @@
    "activite": "Boutique ouverte",
    "action": "Aplatit les cartons vides dans la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -12180,10 +13082,27 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert deux clients à la suite. Une infirmière qui sort de garde repart sans rien. Plus de baguette : il s'excuse. Un peintre du quartier : une bouteille d'huile de tournesol (2,40 €). Plus de baguette : il s'excuse.",
+   "action": "Sert deux clients à la suite. Une infirmière qui sort de garde repart sans rien. Plus de baguette : il s'excuse. Un peintre du quartier : une bouteille d'huile de tournesol (2,40 €). Plus de baguette : il s'excuse. Entre deux clients, vérifie les dates de la vitrine réfrigérée.",
    "pensee": null,
    "ruptures": [
     "baguette"
+   ],
+   "poste": "travail_frais",
+   "visiteurs": [
+    {
+     "qui": "une infirmière qui sort de garde",
+     "habitue": false,
+     "rayons": [],
+     "paie": false
+    },
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [
+      "epicerie"
+     ],
+     "paie": true
+    }
    ],
    "ventes": [
     {
@@ -12253,6 +13172,41 @@
    "activite": "Boutique ouverte",
    "action": "Sert quatre clients à la suite. Un couple de touristes : trois bouteilles de bière (3,30 €). Un retraité en casquette : quatre oranges (1,40 €). Une adolescente : une bouteille de vin rouge, côtes-du-rhône (4,50 €). Une voisine de la rue d'Ivry : un pack de yaourts nature et une barquette de tomates (3,20 €). Plus de baguette : il s'excuse.",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un couple de touristes",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un retraité en casquette",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une adolescente",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "une voisine de la rue d'Ivry",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "biere",
@@ -12353,6 +13307,7 @@
    "activite": "Boutique ouverte",
    "action": "Compte les sacs de pommes de terre de la réserve.",
    "pensee": null,
+   "poste": "travail_reserve",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -12389,6 +13344,25 @@
    "activite": "Boutique ouverte",
    "action": "Sert deux clients à la suite. Une infirmière qui sort de garde : trois bouteilles de bière et un sachet d'emmental râpé (5,00 €). Un peintre du quartier : cinq oranges (1,75 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une infirmière qui sort de garde",
+     "habitue": false,
+     "rayons": [
+      "central",
+      "frais"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "biere",
@@ -12462,8 +13436,19 @@
    "posture": "debout",
    "routine": "rt-mercredi",
    "activite": "Boutique ouverte",
-   "action": "Sert un couple de touristes : trois bouteilles de bière et une bouteille de vin rouge, côtes-du-rhône (7,80 €). Plus de baguette : il s'excuse.",
+   "action": "Sert un couple de touristes : trois bouteilles de bière et une bouteille de vin rouge, côtes-du-rhône (7,80 €). Plus de baguette : il s'excuse. Entre deux clients, met en rayon des paquets de café.",
    "pensee": null,
+   "poste": "travail_epicerie",
+   "visiteurs": [
+    {
+     "qui": "un couple de touristes",
+     "habitue": false,
+     "rayons": [
+      "central"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "biere",
@@ -12531,6 +13516,24 @@
    "activite": "Boutique ouverte",
    "action": "Sert deux clients à la suite. Une infirmière qui sort de garde : une bouteille d'huile de tournesol (2,40 €). Un peintre du quartier : trois oignons (0,75 €). Plus de baguette : il s'excuse.",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "une infirmière qui sort de garde",
+     "habitue": false,
+     "rayons": [
+      "epicerie"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [
+      "etal"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "huile",
@@ -12598,6 +13601,35 @@
    "activite": "Boutique ouverte",
    "action": "Commence à rentrer l'étal de fruits pour la nuit. Sert trois clients à la suite. Une infirmière qui sort de garde : une boîte de thon (1,50 €). Un peintre du quartier : une brique de lait UHT et une boîte de haricots verts (2,15 €). Un livreur : une boîte de haricots verts et un sac de pommes de terre (3,70 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "poste": "travail_etal",
+   "visiteurs": [
+    {
+     "qui": "une infirmière qui sort de garde",
+     "habitue": false,
+     "rayons": [
+      "epicerie"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un peintre du quartier",
+     "habitue": false,
+     "rayons": [
+      "epicerie",
+      "central"
+     ],
+     "paie": true
+    },
+    {
+     "qui": "un livreur",
+     "habitue": false,
+     "rayons": [
+      "etal",
+      "epicerie"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "thon",
@@ -12705,6 +13737,17 @@
    "activite": "Boutique ouverte",
    "action": "Sert un couple de touristes : quatre bouteilles de bière et un pack de yaourts nature (6,00 €).",
    "pensee": null,
+   "visiteurs": [
+    {
+     "qui": "un couple de touristes",
+     "habitue": false,
+     "rayons": [
+      "central",
+      "frais"
+     ],
+     "paie": true
+    }
+   ],
    "ventes": [
     {
      "produit": "biere",

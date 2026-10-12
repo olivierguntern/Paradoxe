@@ -2228,6 +2228,30 @@
       1.4,
       0.0,
       1.0
+     ],
+     "travail_reserve": [
+      1.9,
+      4.2,
+      0.0,
+      1.0
+     ],
+     "travail_vitrine": [
+      4.6,
+      0.45,
+      0.0,
+      -1.0
+     ],
+     "caisse_g": [
+      6.0,
+      0.55,
+      0.0,
+      1.0
+     ],
+     "caisse_d": [
+      7.2,
+      0.55,
+      0.0,
+      1.0
      ]
     },
     "trottoir": {
@@ -2297,7 +2321,7 @@
     ]
    },
    "circulation": {
-    "principe": "Allées de la boutique pour un client : nœuds (x, y) et passages en ligne droite entre eux, sans traverser les meubles. Les rayons et la caisse sont des postes du même nom.",
+    "principe": "Allées de la boutique : nœuds (x, y) et passages en ligne droite entre eux, sans traverser les meubles. Les rayons, les places de travail de Robert (« travail_… », « comptoir » derrière la caisse) et les trois places des clients à la caisse sont des nœuds.",
     "boutique": {
      "noeuds": {
       "porte": [
@@ -2331,6 +2355,46 @@
       "caisse": [
        6.6,
        0.55
+      ],
+      "comptoir": [
+       6.6,
+       2.0
+      ],
+      "travail_etal": [
+       3.4,
+       0.75
+      ],
+      "travail_epicerie": [
+       1.05,
+       3.9
+      ],
+      "travail_frais": [
+       4.8,
+       3.3
+      ],
+      "travail_central": [
+       2.9,
+       1.4
+      ],
+      "travail_reserve": [
+       1.9,
+       4.2
+      ],
+      "travail_vitrine": [
+       4.6,
+       0.45
+      ],
+      "caisse_g": [
+       6.0,
+       0.55
+      ],
+      "caisse_d": [
+       7.2,
+       0.55
+      ],
+      "trottoir": [
+       4.0,
+       -1.2
       ]
      },
      "aretes": [
@@ -2377,6 +2441,78 @@
       [
        "avant",
        "caisse"
+      ],
+      [
+       "comptoir",
+       "coin"
+      ],
+      [
+       "travail_etal",
+       "porte"
+      ],
+      [
+       "travail_etal",
+       "avant"
+      ],
+      [
+       "travail_etal",
+       "travail_central"
+      ],
+      [
+       "travail_central",
+       "etal"
+      ],
+      [
+       "travail_central",
+       "porte"
+      ],
+      [
+       "travail_epicerie",
+       "epicerie"
+      ],
+      [
+       "travail_epicerie",
+       "travail_reserve"
+      ],
+      [
+       "travail_reserve",
+       "central"
+      ],
+      [
+       "travail_frais",
+       "central"
+      ],
+      [
+       "travail_frais",
+       "frais"
+      ],
+      [
+       "travail_frais",
+       "coin"
+      ],
+      [
+       "travail_vitrine",
+       "porte"
+      ],
+      [
+       "travail_vitrine",
+       "avant"
+      ],
+      [
+       "caisse_g",
+       "avant"
+      ],
+      [
+       "caisse_g",
+       "caisse"
+      ],
+      [
+       "caisse",
+       "caisse_d"
+      ],
+      [
+       "trottoir",
+       "porte"
       ]
      ]
     }
