@@ -561,9 +561,15 @@ class AgentEpicier:
                     "pensee": choix(self.P["client_connu"]["paiement"], self.date, self.i)}
         accueil = E["accueil_commercant"].get(self.jour, E["accueil_commercant"]["defaut"])
         reponse = E["reponse_client"].get(self.jour, E["reponse_client"]["defaut"])
-        return {"texte": f"L'horloger de la rue d'Austerlitz pousse la porte. « {E['salut_client'][moment]} » Robert lève la tête de sa caisse : « {accueil} » — "
-                         f"« {reponse} » Il le laisse choisir dans les rayons.", "ev": ["client_habitue"],
-                "social": self.fiche["besoins"]["social"]["satisfaction"]["habitue"], "pensee": choix(self.P["client_connu"]["entree"], self.date, self.i)}
+        conseil = E.get("conseil", {}).get(self.jour)
+        texte = f"L'horloger de la rue d'Austerlitz pousse la porte. « {E['salut_client'][moment]} » Robert lève la tête de sa caisse : « {accueil} » — « {reponse} »"
+        pensee = choix(self.P["client_connu"]["entree"], self.date, self.i)
+        if conseil:
+            texte += f" Robert ajoute : « {conseil['commercant']} » — « {conseil['client']} »"
+            pensee = conseil["pensee_commercant"]
+            self.decisions.append(f"{hm(self.i)} : conseille « {conseil['film']} » à l'horloger.")
+        return {"texte": texte + " Il le laisse choisir dans les rayons.", "ev": ["client_habitue"],
+                "social": self.fiche["besoins"]["social"]["satisfaction"]["habitue"], "pensee": pensee}
 
     def note_comptoir(self, fin):
         """Ce que Robert fait au comptoir en plus de servir : café, besoins, journal, voisin, radio, étal."""

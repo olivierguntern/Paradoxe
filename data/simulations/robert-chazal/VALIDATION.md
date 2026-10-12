@@ -49,5 +49,5 @@ Les clients anonymes viennent du même flux déterministe (`outils/clientele.py`
 |---|---|
 | Jeudi | Après une nuit de 5 h 45, il oublie le cabas au portemanteau ; il le voit à midi et le reprend. Bon de commande du soir pour vendredi. Couché à 21:20, épuisé. |
 | Vendredi | Livraison du grossiste ; les étudiantes règlent leur ardoise de mercredi (5,80 €). Haricots verts, pommes et beurre rapportés pour le week-end. |
-| Samedi | L'horloger passe à 11:50 (deux pommes et un morceau de comté, 5,30 €). Pizza de Josiane, puis belote avec les Morel jusqu'à 23:00. |
+| Samedi | L'horloger passe à 11:50 ; Robert lui conseille « The Ghost Writer », vu lundi avec Josiane (l'horloger ira le soir même). Deux pommes, un morceau de comté et un pain de campagne, 7,40 €. Pizza de Josiane, puis belote avec les Morel jusqu'à 23:00. |
 | Dimanche | Nouveau cabas oublié après la belote : les courses rentrent dans un carton de la réserve. Vote au premier tour des régionales, randonnée dans les monts d'Or, couché à 20:40. |

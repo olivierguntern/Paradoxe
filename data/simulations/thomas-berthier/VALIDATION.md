@@ -48,7 +48,7 @@ python3 outils/comparer_journees.py data/references/thomas-berthier/2010-03-09.j
 
 ## Règles ajoutées après la validation
 
-Ces règles ne changent rien à la reproduction de lundi à mercredi (mêmes taux de concordance) ; elles servent aux journées que l'agent vit seul, de jeudi à dimanche.
+Ces règles ne changent rien à la reproduction de lundi à mercredi (mêmes taux de concordance, vérifiés après chaque ajout) ; elles servent aux journées que l'agent vit seul, de jeudi à dimanche.
 
 | Règle | Effet |
 |---|---|
@@ -61,3 +61,8 @@ Ces règles ne changent rien à la reproduction de lundi à mercredi (mêmes tau
 | Livre terminé | Quand la dernière page est atteinte, l'événement `livre_termine` est vécu. Le livre est rangé et le reste de la plage de lecture devient de la musique |
 | Livre suivant | À la séance de lecture suivante au séjour, il range le livre fini dans la bibliothèque et prend le suivant (`regles.json`, `lecture.livres`) ; sans livre suivant, la plage devient de la musique |
 | Courses à l'épicerie | Mardi, jeudi et samedi : liste d'après le stock, trajet de 500 m, achats au prix du catalogue de l'épicier, paiement, rangement ; désactivées par `--sans-courses` pour cette validation |
+| Courses pour les repas | Avant de partir, il ajoute ce que demanderaient ses déjeuners et dîners d'ici aux prochaines courses, et les envies notées dans ses menus (un pain de campagne le samedi pour le brunch du dimanche) |
+| Forum d'horlogerie | Vendredi soir, la semaine de travail finie : une demi-heure de lecture sur le netbook avant le temps libre |
+| Conseil de l'épicier | Samedi, Robert lui conseille un film (`data/monde/echanges.json`) : il vérifie l'horaire, dîne plus tôt, va au cinéma à pied, rentre à pied et va voir la montre du grand-père avant de se coucher |
+| Vote et promenade | Dimanche des élections, après la planification : vote à la mairie du 4e, marche jusqu'au Gros Caillou ; le soir, la radio donne les résultats |
+| Besoins avant une sortie | Comme avant une séance : toilettes ou verre d'eau si le besoin passerait sous son seuil d'alerte avant le retour |

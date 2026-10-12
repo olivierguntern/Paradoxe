@@ -80,7 +80,17 @@ python3 outils/comparer_journees.py data/references/robert-chazal/2010-03-09.jso
 
 ### Courses à l'épicerie
 
-Le mardi, le jeudi et le samedi, Thomas descend à l'épicerie de Robert Chazal (`regles.json`, section `courses`) : en semaine après la fermeture de l'atelier, le samedi après le ménage. Il fait d'abord sa liste d'après son stock (fruits à compléter, produits sous leur seuil), vérifie que l'épicerie est ouverte (horaires de la fiche de Robert), descend la poubelle si elle est pleine, marche 500 m, achète au prix du catalogue de l'épicerie, paie en espèces ou par carte, rentre et range. Les achats augmentent son stock ; l'argent est suivi (espèces, compte).
+Le mardi, le jeudi et le samedi, Thomas descend à l'épicerie de Robert Chazal (`regles.json`, section `courses`) : en semaine après la fermeture de l'atelier, le samedi après le ménage. Il fait d'abord sa liste d'après son stock (fruits à compléter, produits sous leur seuil), y ajoute ce que demanderaient ses déjeuners et dîners d'ici aux prochaines courses et les envies notées dans ses menus (`pour_les_repas` : un pain de campagne le samedi, pour le brunch du dimanche), vérifie que l'épicerie est ouverte (horaires de la fiche de Robert), descend la poubelle si elle est pleine, marche 500 m, achète au prix du catalogue de l'épicerie, paie en espèces ou par carte, rentre et range. Les achats augmentent son stock ; l'argent est suivi (espèces, compte).
+
+### Distractions et sorties de Thomas
+
+Du lundi au jeudi, la journée de Thomas reste celle qui a été validée sur les journées de référence. En fin de semaine (`regles.json`, sections `distractions` et `sorties`) :
+
+- **Vendredi soir** : la semaine de travail finie, il lit un forum d'horlogerie sur le netbook avant le temps libre (lecture seule, sans y écrire : la fiche exclut tout contact à distance).
+- **Samedi** : à l'épicerie, Robert lui conseille « The Ghost Writer » (réplique `conseil` de `data/monde/echanges.json`, lue par les deux agents). L'agent de Thomas en tire sa décision : il vérifie l'horaire sur le netbook, avance son dîner, va à pied à l'UGC Ciné Cité Internationale (2,4 km par le boulevard, la montée de la Boucle et le pont Winston-Churchill), paie sa place, voit le film et rentre à pied ; il va voir la montre du grand-père avant de se coucher. Sans conseil, la soirée du samedi reste la soirée habituelle.
+- **Dimanche** : brunch avec le pain de campagne acheté la veille ; après la planification de la semaine, il va voter au premier tour des régionales à la mairie du 4e, marche jusqu'au Gros Caillou et rentre ; le soir, la radio donne les résultats.
+
+Avant de partir, il passe aux toilettes ou boit un verre d'eau si le besoin passerait sous son seuil d'alerte avant son retour (même règle qu'avant une séance sur la montre).
 
 ### L'épicier
 
@@ -92,7 +102,7 @@ Le mardi, le jeudi et le samedi, Thomas descend à l'épicerie de Robert Chazal 
 - **Maison** : le soir, il prélève au magasin ce qui manque pour les repas de Josiane (menus de la fiche, avec leurs ingrédients) et ses propres provisions ; après une nuit trop courte, il oublie le cabas.
 - **Soirées** : télévision écourtée par la fatigue, match du mercredi, belote du samedi, cinéma du lundi ; le dimanche, vote et randonnée dans les monts d'Or.
 
-Aux pas où la journée de Thomas le fait entrer dans la boutique, Robert le sert : mêmes répliques (`data/monde/echanges.json`), mêmes achats, même paiement. Le match du mercredi (`data/monde/evenements.json`) est vécu aux mêmes minutes par les deux personnages.
+Aux pas où la journée de Thomas le fait entrer dans la boutique, Robert le sert : mêmes répliques (`data/monde/echanges.json`, y compris le conseil de film du samedi), mêmes achats, même paiement. Le match du mercredi (`data/monde/evenements.json`) est vécu aux mêmes minutes par les deux personnages.
 
 Les résultats des validations sont dans `data/simulations/thomas-berthier/VALIDATION.md` et `data/simulations/robert-chazal/VALIDATION.md`.
 
@@ -122,7 +132,7 @@ Le résumé de chaque journée distingue les besoins passés sous le seuil d'ale
 
 ## Vue fil de fer
 
-La semaine se rejoue dans une vue isométrique fil de fer (`vue/index.html`, à ouvrir dans un navigateur), à plusieurs échelles : le logement (l'appartement de Thomas, la boutique ou la maison de Robert), l'immeuble, la rue (de chez Thomas à l'épicerie), le parcours de course (pentes et quais de Saône), et pour Robert le trajet en Kangoo (Croix-Rousse, Rhône, Villeurbanne), le cinéma de la Cité internationale, l'école où il vote et les monts d'Or. On choisit le personnage suivi (Thomas ou Robert) ; l'autre reste visible. Le panneau donne l'état de chaque pas : activité, pensée, besoins, émotions, objets portés, argent, lumières et appareils.
+La semaine se rejoue dans une vue isométrique fil de fer (`vue/index.html`, à ouvrir dans un navigateur), à plusieurs échelles : le logement (l'appartement de Thomas, la boutique ou la maison de Robert), l'immeuble, la rue (de chez Thomas à l'épicerie), le parcours de course (pentes et quais de Saône), les sorties à pied de Thomas (vers le cinéma par la montée de la Boucle, le boulevard jusqu'à la mairie du 4e et au Gros Caillou), et pour Robert le trajet en Kangoo (Croix-Rousse, Rhône, Villeurbanne), le cinéma de la Cité internationale, l'école où il vote et les monts d'Or. On choisit le personnage suivi (Thomas ou Robert) ; l'autre reste visible. Le panneau donne l'état de chaque pas : activité, pensée, besoins, émotions, objets portés, argent, lumières et appareils.
 
 ```bash
 # Recalculer les données de la vue après une génération de journées ou une modification du plan
@@ -130,7 +140,7 @@ python3 outils/exporter_vue.py
 ```
 
 L'export lit la géométrie du monde (`data/monde/croix-rousse.json`), les fiches des personnages qui y ont un logement et toutes leurs journées. Tout est exprimé dans un seul repère, en mètres. Il calcule :
-- le trajet de chaque personnage à chaque pas, porte par porte, par les escaliers (avec le détour par le local poubelles), puis dans les rues : courses à l'épicerie, descente des pentes, aller-retour le long de la Saône, remontée ; pour un personnage qui a plusieurs lieux (boutique et maison), les trajets en voiture et à pied décrits dans `trajets_personnages`, la position suivant la part du trajet faite ;
+- le trajet de chaque personnage à chaque pas, porte par porte, par les escaliers (avec le détour par le local poubelles), puis dans les rues : courses à l'épicerie, descente des pentes, aller-retour le long de la Saône, remontée ; les trajets en voiture et à pied décrits dans `trajets_personnages` (pour Thomas, ses sorties à pied ; pour Robert, ses trajets entre ses deux lieux et ses sorties), un pas étant rattaché à un itinéraire par son activité ou par sa rue, la position suivant la part du trajet faite ;
 - l'altitude de chaque bâtiment et des rues d'après le relief (plateau, pentes vers la Saône et le Rhône, monts d'Or) ;
 - la position en 3D de chaque emplacement d'objet ;
 - les immeubles ordinaires le long des rues et les arbres, générés de façon déterministe.

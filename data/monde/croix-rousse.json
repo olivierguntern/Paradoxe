@@ -3953,6 +3953,179 @@
      0.0
     ]
    }
+  },
+  "thomas-berthier": {
+   "principe": "Sorties à pied de Thomas en fin de semaine (la course et l'épicerie ont leurs propres tracés dans « quartier ») : les pas sont reconnus à leur activité ; la position suit la part du trajet faite.",
+   "voiture": {},
+   "a_pied": {
+    "cinema": {
+     "activites": [
+      "Vers le cinéma",
+      "Au cinéma",
+      "Retour du cinéma"
+     ],
+     "zone": "a-pied-rhone",
+     "zone_par_lieu": {
+      "cinema-ugc": "cinema"
+     },
+     "pieces": [
+      "place de la Croix-Rousse",
+      "montée de la Boucle",
+      "pont Winston-Churchill",
+      "quai Charles-de-Gaulle",
+      "UGC Ciné Cité Internationale"
+     ],
+     "points": [
+      [
+       6.6,
+       -4.5
+      ],
+      [
+       262,
+       -4.5
+      ],
+      [
+       334,
+       -60
+      ],
+      [
+       405,
+       -104
+      ],
+      [
+       920,
+       -104
+      ],
+      [
+       950,
+       -110
+      ],
+      [
+       1150,
+       30
+      ],
+      [
+       1300,
+       180
+      ],
+      [
+       1420,
+       300
+      ],
+      [
+       1500,
+       360
+      ],
+      [
+       1730,
+       420
+      ],
+      [
+       1800,
+       700
+      ],
+      [
+       1820,
+       760
+      ],
+      [
+       1850,
+       820
+      ],
+      [
+       1880,
+       840
+      ]
+     ],
+     "aller_retour": true
+    },
+    "vote": {
+     "activites": [
+      "Vote et promenade"
+     ],
+     "zone": "boulevard",
+     "pieces": [
+      "mairie du 4e",
+      "bureau de vote de la mairie du 4e",
+      "boulevard de la Croix-Rousse",
+      "Gros Caillou"
+     ],
+     "points": [
+      [
+       6.6,
+       -4.5
+      ],
+      [
+       262,
+       -4.5
+      ],
+      [
+       266,
+       -90
+      ],
+      [
+       200,
+       -96
+      ],
+      [
+       420,
+       -100
+      ],
+      [
+       920,
+       -104
+      ],
+      [
+       938,
+       -122
+      ],
+      [
+       920,
+       -104
+      ],
+      [
+       420,
+       -100
+      ],
+      [
+       334,
+       -60
+      ],
+      [
+       262,
+       -4.5
+      ],
+      [
+       6.6,
+       -4.5
+      ]
+     ]
+    }
+   },
+   "lieux": {
+    "cinema": {
+     "nom": "UGC Ciné Cité Internationale",
+     "point": [
+      1880,
+      840
+     ]
+    },
+    "mairie": {
+     "nom": "mairie du 4e, bureau de vote",
+     "point": [
+      200,
+      -96
+     ]
+    },
+    "gros-caillou": {
+     "nom": "Gros Caillou",
+     "point": [
+      938,
+      -122
+     ]
+    }
+   },
+   "emplacements": {}
   }
  },
  "reperes_batis": [
@@ -3985,6 +4158,26 @@
     -92
    ],
    "h": 12
+  },
+  {
+   "nom": "Mairie du 4e (bureau de vote)",
+   "rect": [
+    160,
+    -94,
+    240,
+    -80
+   ],
+   "h": 16
+  },
+  {
+   "nom": "Gros Caillou",
+   "rect": [
+    934,
+    -130,
+    942,
+    -124
+   ],
+   "h": 3
   }
  ]
 }

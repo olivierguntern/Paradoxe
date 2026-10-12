@@ -16,8 +16,12 @@ Principales règles de décision :
 - interruption quand un besoin passe sous son seuil d'alerte, et besoins
   anticipés avant une séance longue ;
 - livre suivant pris dans la bibliothèque quand le livre en cours est fini ;
-- courses à l'épicerie les jours prévus : liste établie d'après le stock, achats
-  et paiement, répliques partagées avec l'épicier (data/monde/echanges.json) ;
+- courses à l'épicerie les jours prévus : liste établie d'après le stock et les
+  repas à venir, achats et paiement, répliques partagées avec l'épicier
+  (data/monde/echanges.json) ;
+- sorties de la fin de semaine : forum d'horlogerie le vendredi soir, cinéma le
+  samedi soir si l'épicier lui a conseillé un film, vote et promenade jusqu'au
+  Gros Caillou le dimanche des élections ;
 - pensées et rêves choisis dans des modèles, de façon déterministe.
 """
 import copy
@@ -712,8 +716,8 @@ class Agent:
                 self.poser_lunettes(pas)
         self.bloc("rangement_seance", remplace=lunettes)
 
-    def anticiper(self, p, fin):
-        """Avant une séance longue, répond d'avance à un besoin qui passerait sous son seuil d'alerte avant la fin."""
+    def anticiper(self, p, fin, quand="avant de s'installer"):
+        """Avant une séance longue (ou une sortie), répond d'avance à un besoin qui passerait sous son seuil d'alerte avant la fin."""
         B = self.fiche["besoins"]
         textes = []
         for besoin in self.R["anticipation_seance"]["besoins"]:
@@ -723,13 +727,13 @@ class Agent:
             if besoin == "toilettes":
                 p["via"] = p.get("via", []) + ["wc"]
                 p.setdefault("effets", {})["toilettes"] = "vide"
-                textes.append("Passe aux toilettes avant de s'installer.")
+                textes.append(f"Passe aux toilettes {quand}.")
             else:
                 p["via"] = p.get("via", []) + ["cuisine"]
                 p.setdefault("effets", {})["soif"] = 20
-                textes.append("Boit un verre d'eau à la cuisine avant de s'installer.")
+                textes.append(f"Boit un verre d'eau à la cuisine {quand}.")
             self.decisions.append(f"{hm(self.i)} : {besoin} à {round(self.sim.besoins[besoin], 1)}, sous le seuil d'alerte avant la fin "
-                                  "prévue de la séance ; y répond avant de commencer.")
+                                  f"prévue ; y répond {quand}.")
         if textes:
             p["action"] = " ".join(textes) + " " + p["action"]
 
@@ -780,7 +784,8 @@ class Agent:
         if demain in self.R["jours_course"]:
             txt = choix(self.PENSEES["extinction"]["course"], self.date, self.i)
         elif seance:
-            txt = choix(self.PENSEES["extinction"]["seance"], self.date, self.i).replace("{seance}", nom_seance.capitalize())
+            modele = choix(self.PENSEES["extinction"]["seance"], self.date, self.i)
+            txt = modele.replace("{seance}", nom_seance.capitalize() if modele.startswith("{seance}") else nom_seance[0].lower() + nom_seance[1:])
         else:
             txt = choix(self.PENSEES["extinction"]["neutre"], self.date, self.i)
         ext = {"action": "Éteint la lumière.", "piece": "chambre", "charge": "repos", "posture": "allongé", "pensee": txt,
@@ -836,6 +841,9 @@ class Agent:
             self.bloc("avant_coucher_match")
         else:
             debut_diner = idx(self.R["diner_fini_a"]) - self.longueur_diner()
+            F = self.R.get("distractions", {}).get("forum")
+            if F and self.jour in F["jours"] and debut_diner - self.i >= F["pas"] + 3:
+                self.forum(F["pas"])
             self.temps_libre(debut_diner)
             self.diner()
             self.seance(self.R["seance"]["fin"])
@@ -943,12 +951,22 @@ class Agent:
             self.emettre({"action": "Va voir la montre de gousset à l'atelier : elle tourne toujours. Il l'écoute un moment.", "piece": "atelier",
                           "charge": "repos", "posture": "debout", "ev": ["souvenir_grand_pere"]}, "La montre tourne", "rt-soir", bloc="montre")
         R = self.BLOCS["radio_soir"]["pas"]
-        self.emettre(copy.deepcopy(R[0]), "Radio", "rt-soir", bloc="radio")
+        textes = self.PENSEES["radio_dimanche"] if self.jour_de_vote() else None
+        def radio(k, n):
+            p = copy.deepcopy(R[k])
+            if textes and n < len(textes) - 1:
+                p["action"] = textes[n]
+            elif textes and k == 2:
+                p["action"] = textes[-1]
+            return p
+        self.emettre(radio(0, 0), "Radio", "rt-soir", bloc="radio")
+        n = 1
         while self.i < fin - 1:
             if self.interruption(fin - 1):
                 continue
-            self.emettre(copy.deepcopy(R[1]), "Radio", "rt-soir", bloc="radio")
-        self.emettre(copy.deepcopy(R[2]), "Radio", "rt-soir", bloc="radio")
+            self.emettre(radio(1, n), "Radio", "rt-soir", bloc="radio")
+            n += 1
+        self.emettre(radio(2, len(textes or [])), "Radio", "rt-soir", bloc="radio")
         self.bloc("chocolat")
         self.bloc("toilette_soir")
         self.coucher()
@@ -976,7 +994,10 @@ class Agent:
         self.sieste_session(S["sieste"][1], "rt-samedi")
         self.seance(hm(idx(S["seance"][1]) - 2))
         self.musique_session(S["musique"][1], "rt-samedi")
-        self.soiree_weekend(moment_montre=idx(S["regarder_la_montre"]))
+        if self.R.get("sorties", {}).get("cinema") and self.mem.get("conseil", {}).get("date") == self.date:
+            self.soiree_cinema()
+        else:
+            self.soiree_weekend(moment_montre=idx(S["regarder_la_montre"]))
 
     def dimanche(self, reveil):
         D = self.R["dimanche"]
@@ -1022,15 +1043,162 @@ class Agent:
         self.bloc("habillage")
         self.remplir(D["brunch"], {"action": "S'assoit un moment, les jambes lourdes, un verre d'eau à la main.", "piece": "sejour",
                                    "charge": "repos", "posture": "assis", "effets": {"soif": 10}}, "Repos", "rt-dimanche")
-        self.bloc("brunch")
+        def pain(k, pas):
+            for c in pas.get("consommation", []):
+                if c["produit"] == "pain_tranches" and self.sim.stock.get("pain_campagne", 0) >= 0.25:
+                    c["produit"], c["quantite"] = "pain_campagne", 0.25
+                    pas["action"] = self.PENSEES["pain_campagne"]
+                    self.decisions.append(f"{hm(self.i)} : prend le pain de campagne acheté la veille plutôt que les tranches du congélateur.")
+        self.bloc("brunch", remplace=pain)
         self.mem["poubelle"]["repas"] += 1
         self.lecture_session(D["sieste"][0], "rt-dimanche")
         self.sieste_session(D["sieste"][1], "rt-dimanche")
         self.musique_session(D["seance"][0], "rt-dimanche")
         self.seance(hm(idx(D["seance"][1]) - 2))
         self.bloc("planification")
+        if self.jour_de_vote():
+            self.vote_promenade()
         self.musique_session(D["musique"][1], "rt-dimanche")
         self.soiree_weekend()
+
+    # ------------------------------------------------------------ distractions et sorties de la fin de semaine
+    def forum(self, n):
+        """Le vendredi soir : un forum d'horlogerie sur le netbook, en lecture seule."""
+        P, T, R = self.PENSEES["forum"], "Forum d'horlogerie", "rt-soir"
+        ou = self.sim.positions["obj-netbook"]
+        p = {"action": P["ouvrir"], "piece": "sejour", "charge": "lecture", "posture": "assis", "app": {"allume": ["ordinateur"]},
+             "objets": [{"objet": "obj-netbook", "de": ou, "vers": "sejour / table basse"}]}
+        if not ou.startswith("sejour"):
+            p["via"] = [ou.split(" / ")[0]]
+            p["action"] = p["action"].replace("Prend le netbook dans la bibliothèque", f"Va chercher le netbook ({ou.split(' / ')[0]})")
+        self.emettre(p, T, R, bloc="forum")
+        fin, k = self.i + n - 2, 0
+        while self.i < fin:
+            if self.interruption(fin):
+                continue
+            p = {"action": P["lectures"][(k + self.mem["jour_index"]) % len(P["lectures"])], "piece": "sejour", "charge": "lecture", "posture": "assis"}
+            if k == 0:
+                p["ev"] = ["passion_partagee"]
+            if k == 1:
+                p["pensee"] = choix(P["pensees"], self.date, self.i)
+            self.emettre(p, T, R, bloc="forum")
+            k += 1
+        self.emettre({"action": P["fermer"], "piece": "sejour", "charge": "simple", "posture": "debout", "app": {"eteint": ["ordinateur"]},
+                      "objets": [{"objet": "obj-netbook", "de": "sejour / table basse", "vers": "sejour / bibliothèque, étagère du bas"}]},
+                     T, R, bloc="forum")
+        self.faits.append("Lu un forum d'horlogerie")
+
+    def objets_depart(self):
+        pos = self.sim.positions
+        return [{"objet": "obj-veste", "de": pos["obj-veste"], "vers": "porté"},
+                {"objet": "obj-portefeuille", "de": pos["obj-portefeuille"], "vers": "poche de la veste"},
+                {"objet": "obj-cles", "de": pos["obj-cles"], "vers": "poche de la veste"}]
+
+    @staticmethod
+    def objets_retour():
+        return [{"objet": "obj-veste", "de": "porté", "vers": "entree / porte-manteau"},
+                {"objet": "obj-cles", "de": "poche de la veste", "vers": "entree / vide-poche de la commode"},
+                {"objet": "obj-portefeuille", "de": "poche de la veste", "vers": "entree / tiroir de la commode"}]
+
+    def marcher(self, textes, rues, troncons, titre, pensees=None, premier=None):
+        """Pas de marche dehors : pour chaque pas, un texte, une rue, une distance et un dénivelé."""
+        for k, (txt, rue, (d, dz)) in enumerate(zip(textes, rues, troncons)):
+            p = {"action": txt, "piece": rue, "lieu": "exterieur", "charge": "simple", "posture": "en marche",
+                 "parcours": [{"moyen": "marche", "distance_m": d, "denivele_m": dz}]}
+            if k == 0 and premier:
+                p.update(premier)
+            if pensees and pensees[k]:
+                p["pensee"] = pensees[k]
+            self.emettre(p, titre, "rt-sortie", bloc="marche_" + titre)
+
+    def paiement(self, montant):
+        P = self.R["courses"]["paiement"]
+        return montant <= P["especes_si_moins_de"] and self.sim.argent.get("especes", 0) - montant >= P["garde_en_especes"]
+
+    def soiree_cinema(self):
+        """Samedi soir : l'épicier lui a conseillé un film ; il vérifie l'horaire, dîne plus tôt et y va à pied."""
+        C, P = self.R["sorties"]["cinema"], self.PENSEES["cinema"]
+        CINE, LIEU = C["cinema"], "cinema-ugc"
+        self.remplir(C["verifier_horaire"], {"action": "Reste assis sur le canapé.", "piece": "sejour", "charge": "repos", "posture": "assis"},
+                     "Repos", "rt-soir")
+        ou = self.sim.positions["obj-netbook"]
+        self.emettre({"action": P["verifier"], "piece": "sejour", "charge": "simple", "posture": "assis", "ev": ["anticipation_plaisir"],
+                      "pensee": P["verifier_pensee"], "app": {"allume": ["ordinateur"]},
+                      "objets": [{"objet": "obj-netbook", "de": ou, "vers": "sejour / table basse"}]}, "Horaires du cinéma", "rt-soir")
+        self.emettre({"action": self.PENSEES["forum"]["fermer"], "piece": "sejour", "charge": "simple", "posture": "debout",
+                      "app": {"eteint": ["ordinateur"]},
+                      "objets": [{"objet": "obj-netbook", "de": "sejour / table basse", "vers": "sejour / bibliothèque, étagère du bas"}]},
+                     "Horaires du cinéma", "rt-soir")
+        self.decisions.append(f"{hm(self.i - 2)} : séance de {C['seance']} à l'{CINE} ; dîne plus tôt pour partir à pied à {C['depart']}.")
+        # dîner avancé
+        debut = idx(C["diner_fini_a"]) - self.longueur_diner()
+        if debut - self.i >= 3:
+            self.lecture_session(debut, "rt-soir")
+        else:
+            self.remplir(debut, {"action": "Reste assis sur le canapé.", "piece": "sejour", "charge": "repos", "posture": "assis"}, "Repos", "rt-soir")
+        self.diner()
+        self.remplir(C["depart"], {"action": "Attend, assis dans le canapé, l'heure de partir.", "piece": "sejour", "charge": "repos", "posture": "assis"},
+                     "Repos", "rt-soir")
+        # départ et aller à pied
+        rues = ["place de la Croix-Rousse", "boulevard de la Croix-Rousse", "montée de la Boucle", "montée de la Boucle",
+                "pont Winston-Churchill", "quai Charles-de-Gaulle"]
+        F = P["film"]
+        duree = 1 + len(C["aller"]) + 3 + F["duree_pas"] + len(C["retour"])
+        p = {"action": P["depart"], "piece": "entree", "charge": "simple", "posture": "debout", "objets": self.objets_depart(), "ev": ["sortie_cinema"]}
+        self.anticiper(p, self.i + duree, "avant de partir")
+        self.emettre(p, "Vers le cinéma", "rt-sortie")
+        self.marcher(P["aller"], rues, C["aller"], "Vers le cinéma", P["aller_pensees"], premier={"sortie": True, "escalier": {"sens": "descente"}})
+        # au cinéma
+        especes = self.paiement(C["prix_eur"])
+        self.emettre({"action": P["billet"].replace("{paiement}", "en espèces" if especes else "par carte"), "piece": CINE, "lieu": LIEU,
+                      "charge": "simple", "posture": "debout", "argent": {"especes" if especes else "compte": -C["prix_eur"]}}, "Au cinéma", "rt-sortie")
+        self.emettre({"action": P["salle"], "piece": CINE, "lieu": LIEU, "charge": "repos", "posture": "assis"}, "Au cinéma", "rt-sortie")
+        self.emettre({"action": P["attente"], "piece": CINE, "lieu": LIEU, "charge": "repos", "posture": "assis"}, "Au cinéma", "rt-sortie")
+        for k in range(F["duree_pas"]):
+            p = {"action": F["textes"].get(str(k), F["defaut"]), "piece": CINE, "lieu": LIEU, "charge": "repos", "posture": "assis"}
+            if str(k) in F["pensees"]:
+                p["pensee"] = F["pensees"][str(k)]
+            if str(k) in F["ev"]:
+                p["ev"] = list(F["ev"][str(k)])
+            self.emettre(p, "Au cinéma", "rt-sortie", bloc="film")
+        self.faits.append(f"Cinéma, seul : « {C['film']} », sur le conseil de Chazal")
+        self.decisions.append(f"{hm(self.i)} : sort du cinéma, rentre à pied.")
+        # retour à pied
+        self.marcher(P["retour"], rues[::-1], C["retour"], "Retour du cinéma", P["retour_pensees"])
+        self.emettre({"action": P["rentrer"], "piece": "entree", "charge": "simple", "posture": "debout", "retour": True,
+                      "escalier": {"sens": "montee"}, "objets": self.objets_retour()}, "Retour du cinéma", "rt-sortie")
+        self.emettre({"action": P["montre"], "piece": "atelier", "charge": "repos", "posture": "debout", "ev": ["souvenir_grand_pere"],
+                      "pensee": P["montre_pensee"]}, "La montre tourne", "rt-soir", bloc="montre")
+        self.bloc("toilette_soir")
+        self.coucher()
+        self.endormissement()
+
+    def jour_de_vote(self):
+        V = self.R.get("sorties", {}).get("vote")
+        return bool(V) and self.date == V["date"]
+
+    def vote_promenade(self):
+        """Dimanche des élections : vote à la mairie du 4e, puis marche jusqu'au Gros Caillou et retour."""
+        V, P = self.R["sorties"]["vote"], self.PENSEES["vote"]
+        T = "Vote et promenade"
+        self.remplir(V["depart"], {"action": "Reste assis sur le canapé.", "piece": "sejour", "charge": "repos", "posture": "assis"}, "Repos", "rt-dimanche")
+        p = {"action": P["depart"], "piece": "entree", "charge": "simple", "posture": "debout", "objets": self.objets_depart()}
+        self.anticiper(p, self.i + 10, "avant de partir")
+        self.emettre(p, T, "rt-sortie")
+        self.marcher([P["aller"]], ["mairie du 4e"], [[V["aller_m"], 0]], T, premier={"sortie": True, "escalier": {"sens": "descente"}})
+        self.emettre({"action": P["bureau"], "piece": "bureau de vote de la mairie du 4e", "lieu": "bureau-de-vote", "charge": "simple",
+                      "posture": "debout", "ev": ["devoir_civique"], "pensee": P["bureau_pensee"]}, T, "rt-sortie")
+        self.marcher(P["boulevard"], ["boulevard de la Croix-Rousse"] * len(V["boulevard_m"]), [[d, 0] for d in V["boulevard_m"]], T)
+        for k in range(V["vue_pas"]):
+            p = {"action": P["vue"][k], "piece": "Gros Caillou", "lieu": "exterieur", "charge": "repos", "posture": "debout", "pensee": P["vue_pensees"][k]}
+            if k == 0:
+                p["ev"] = ["point_de_vue"]
+            self.emettre(p, T, "rt-sortie")
+        self.marcher(P["retour"], ["boulevard de la Croix-Rousse", "place de la Croix-Rousse"], [[d, 0] for d in V["retour_m"]], T)
+        self.emettre({"action": P["rentrer"], "piece": "entree", "charge": "simple", "posture": "debout", "retour": True,
+                      "escalier": {"sens": "montee"}, "objets": self.objets_retour()}, T, "rt-sortie")
+        self.faits.append("Voté au premier tour des régionales, puis marché jusqu'au Gros Caillou")
+        self.decisions.append(f"{hm(self.i - 1)} : rentre du vote et du Gros Caillou.")
 
     # ------------------------------------------------------------ courses à l'épicerie
     GENRE = {"pack": "m", "boîte": "f", "brique": "f", "plaquette": "f", "paquet": "m", "tablette": "f", "morceau": "m", "sachet": "m",
@@ -1064,7 +1232,57 @@ class Agent:
             else:
                 continue
             liste.append({"produit": l["produit"], "n": n, "quantite": n * c["quantite"], "prix": round(n * c["prix"], 2), "c": c})
+        # les repas jusqu'aux prochaines courses, puis les envies du jour
+        P = self.R["courses"].get("pour_les_repas")
+        if P:
+            prevu = {x["produit"]: x for x in liste}
+            ajouts = []
+            for pid, q in self.besoins_repas().items():
+                c = cat.get(pid)
+                manque = q - self.sim.stock.get(pid, 0) - (prevu[pid]["quantite"] if pid in prevu else 0)
+                if c and manque > 0:
+                    ajouts.append((pid, math.ceil(manque / c["quantite"]), "les repas d'ici aux prochaines courses"))
+            for e in P.get("envies", []):
+                if e["jour"] == self.jour and e["produit"] in cat:
+                    ajouts.append((e["produit"], e["unites"], e["pour"]))
+            for pid, n, pour in ajouts:
+                c = cat[pid]
+                if pid in prevu:
+                    x = prevu[pid]
+                    x["n"] += n
+                    x["quantite"], x["prix"] = x["n"] * c["quantite"], round(x["n"] * c["prix"], 2)
+                else:
+                    x = {"produit": pid, "n": n, "quantite": n * c["quantite"], "prix": round(n * c["prix"], 2), "c": c}
+                    liste.append(x)
+                    prevu[pid] = x
+                self.decisions.append(f"{hm(self.i)} : ajoute à sa liste {self.libelle(dict(x, n=n))}, pour {pour}.")
         return liste
+
+    def besoins_repas(self):
+        """Ce que demandent les déjeuners, brunchs et dîners prévus d'ici aux prochaines courses (au plus tard dimanche soir)."""
+        C = self.R["courses"]
+        j0 = JOURS.index(self.jour)
+        suivants = [JOURS.index(j) for j in C["jours"] if JOURS.index(j) > j0]
+        fin = (suivants[0], idx("12:00" if JOURS[suivants[0]] == "samedi" else "18:00")) if suivants else (7, 0)
+        besoin = {}
+        for j in range(j0, min(fin[0] + 1, 7)):
+            jour = JOURS[j]
+            repas = []
+            if jour == "dimanche":
+                repas.append((idx("11:00"), self.BLOCS["brunch"]["pas"]))
+            elif jour in self.REPAS["midi"]:
+                r = self.REPAS["midi"][jour]
+                repas.append((idx("12:30"), (r.get("avance") or []) + r["repas"] + (r.get("apres") or [])))
+            if jour in self.REPAS["soir"]:
+                r = self.REPAS["soir"][jour]
+                repas.append((idx("19:00"), [p for c in ("preparation", "attente", "finition", "repas", "apres") for p in (r.get(c) or [])]))
+            for heure, pas in repas:
+                if (j, heure) <= (j0, self.i) or (j, heure) >= fin:
+                    continue
+                for p in pas:
+                    for x in p.get("consommation", []):
+                        besoin[x["produit"]] = besoin.get(x["produit"], 0) + x["quantite"]
+        return besoin
 
     def libelle(self, x):
         c, n = x["c"], x["n"]
@@ -1073,6 +1291,11 @@ class Agent:
                 return ("une " if self.GENRE.get(c["unite"]) == "f" else "un ") + c["unite"][:-1]
             return f"{n} {c['unite']}"
         base = c["nom"].split(" (")[0]
+        if c["vente"] == "pièce":
+            mot, reste = (base.split(" ", 1) + [""])[:2]
+            if n == 1:
+                return ("une " if self.GENRE.get(mot + "s") == "f" else "un ") + base
+            return f"{n} {mot}s" + (f" {reste}" if reste else "")
         de = "d'" if base[0].lower() in "aeiouhéèêœ" and not base.lower().startswith(("haricot", "yaourt")) else "de "
         if n == 1:
             return ("une " if self.GENRE.get(c["vente"]) == "f" else "un ") + f"{c['vente']} {de}{base}"
@@ -1141,11 +1364,20 @@ class Agent:
         # 5. dans l'épicerie : l'échange
         accueil = E["accueil_commercant"].get(self.jour, E["accueil_commercant"]["defaut"])
         reponse = E["reponse_client"].get(self.jour, E["reponse_client"]["defaut"])
-        self.emettre({"action": f"Pousse la porte de l'épicerie. « {E['salut_client'][moment]} » Robert Chazal lève la tête de sa caisse : "
-                                f"« {accueil} » « {reponse} » Prend dans les rayons {txt}.",
-                      "piece": "épicerie", "lieu": "epicerie-chazal", "charge": "simple", "posture": "debout", "ev": ["echange_commercant"],
-                      "effets": {"social": self.fiche["besoins"]["social"]["satisfaction"]["echange_bref"]},
-                      "pensee": choix(self.PENSEES["courses"]["epicerie"], self.date, self.i)}, T, R)
+        conseil = E.get("conseil", {}).get(self.jour)
+        p = {"action": f"Pousse la porte de l'épicerie. « {E['salut_client'][moment]} » Robert Chazal lève la tête de sa caisse : "
+                       f"« {accueil} » « {reponse} » Prend dans les rayons {txt}.",
+             "piece": "épicerie", "lieu": "epicerie-chazal", "charge": "simple", "posture": "debout", "ev": ["echange_commercant"],
+             "effets": {"social": self.fiche["besoins"]["social"]["satisfaction"]["echange_bref"]},
+             "pensee": choix(self.PENSEES["courses"]["epicerie"], self.date, self.i)}
+        if conseil:
+            # le conseil de l'épicier : la décision de la soirée en découle
+            p["action"] = p["action"].replace(" Prend dans les rayons", f" Robert ajoute : « {conseil['commercant']} » « {conseil['client']} » Prend dans les rayons")
+            p["ev"].append("conseil_recu")
+            p["pensee"] = conseil["pensee_client"]
+            self.mem["conseil"] = {"date": self.date, "film": conseil["film"]}
+            self.decisions.append(f"{hm(self.i)} : l'épicier lui conseille « {conseil['film']} » ; il pense y aller le soir même.")
+        self.emettre(p, T, R)
         # 6. paiement
         achats = [{"produit": x["produit"], "quantite": x["quantite"], "prix": x["prix"]} for x in liste]
         au_revoir = E["au_revoir_commercant"].get(self.jour, E["au_revoir_commercant"]["defaut"])
@@ -1177,7 +1409,7 @@ class Agent:
                                                                        ("la " if self.GENRE.get(x["c"]["vente"]) == "f" and x["c"]["vente"] == "bouteille" else "le "))
             ranges.setdefault(ou, []).append(art + nom)
         LIEUX = {"corbeille de la cuisine": "dans la corbeille", "réfrigérateur": "au réfrigérateur", "congélateur": "au congélateur",
-                 "placard à provisions": "dans le placard"}
+                 "placard à provisions": "dans le placard", "plan de travail, dans un torchon": "sur le plan de travail, dans un torchon"}
         phrase = self.enumerer([f"{self.enumerer(v)} {LIEUX.get(k, 'à sa place')}" for k, v in ranges.items()])
         self.emettre({"action": f"Vide le cabas dans la cuisine : {phrase}. Plie le cabas et le laisse sur le plan de travail.",
                       "piece": "cuisine", "charge": "simple", "posture": "debout",

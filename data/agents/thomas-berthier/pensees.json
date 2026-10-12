@@ -242,5 +242,138 @@
    "Toute la rue a l'air pressée.",
    "Bon. Remonter les soixante-six marches."
   ]
- }
+ },
+ "forum": {
+  "ouvrir": "Prend le netbook dans la bibliothèque, s'installe sur le canapé et ouvre un forum d'horlogerie.",
+  "lectures": [
+   "Lit la restauration d'une Lip Himalaya, la même que celle qu'il porte au poignet : le cadran refait, les photos du mouvement avant et après.",
+   "Lit un long fil sur l'huilage des échappements à ancre ; il hoche la tête, il n'aurait pas mieux dit.",
+   "Regarde les photos d'un chronographe Valjoux démonté pièce par pièce sur un tapis vert.",
+   "Lit les conseils d'un ancien de Besançon sur le réglage du spiral Breguet.",
+   "Lit un débat sur les montres à quartz des années 1970 ; il sourit aux certitudes de chacun."
+  ],
+  "pensees": [
+   "Il y a des gens qui aiment ça autant que moi. Quelque part.",
+   "Je pourrais leur montrer la Lip de grand-père, quand elle marchera. Peut-être.",
+   "Celui-là a cassé un pivot. Ça arrive à tout le monde."
+  ],
+  "fermer": "Éteint le netbook et le range sur l'étagère du bas."
+ },
+ "cinema": {
+  "verifier": "Allume le netbook et cherche les horaires de l'UGC de la Cité internationale : « The Ghost Writer », séance de 20 h 15. Trente minutes à pied ; il dînera plus tôt.",
+  "verifier_pensee": "Un samedi soir dehors. Pourquoi pas.",
+  "depart": "Enfile sa veste, prend son portefeuille et ses clés, éteint la lumière et ferme la porte à clé.",
+  "aller": [
+   "Descend les trois étages, longe la rue d'Austerlitz et traverse la place de la Croix-Rousse, presque vide.",
+   "Suit le boulevard de la Croix-Rousse sous les platanes jusqu'au Gros Caillou.",
+   "Descend la montée de la Boucle ; les lumières de la Cité internationale de l'autre côté du Rhône.",
+   "Finit la descente, longe le bas de la colline jusqu'au pont.",
+   "Traverse le Rhône sur le pont Winston-Churchill, le vent dans la figure.",
+   "Remonte le quai Charles-de-Gaulle jusqu'au cinéma."
+  ],
+  "aller_pensees": [
+   null,
+   "Le samedi soir, tout le monde est à deux.",
+   null,
+   null,
+   "Je marchais ici avec Sophie, le dimanche.",
+   null
+  ],
+  "billet": "Prend une place pour « The Ghost Writer », séance de 20 h 15, et paie {paiement}.",
+  "salle": "Entre dans la salle, choisit une place au bout d'un rang, au milieu, retire sa veste.",
+  "film": {
+   "duree_pas": 29,
+   "defaut": "Suit le film.",
+   "textes": {
+    "0": "Les bandes-annonces.",
+    "1": "Les bandes-annonces, le son très fort.",
+    "2": "Les dernières publicités ; la salle s'éteint.",
+    "3": "Le film commence : un écrivain anglais accepte de finir les mémoires d'un ancien Premier ministre britannique.",
+    "5": "Le ferry, la pluie, une maison de verre sur une île américaine.",
+    "8": "Le nègre littéraire apprend que son prédécesseur s'est noyé.",
+    "11": "Suit le film, immobile.",
+    "14": "La voiture du prédécesseur : le GPS se souvient encore de son dernier trajet.",
+    "16": "Suit le film, penché en avant.",
+    "20": "La tension monte ; il ne bouge plus.",
+    "24": "Les révélations s'enchaînent, dans une salle de réception.",
+    "25": "Le secret était caché au début de chaque chapitre : il sourit, c'est un mécanisme.",
+    "27": "La fin, dans une rue de Londres : des feuilles qui s'envolent.",
+    "28": "Le générique. Il reste assis jusqu'à la dernière ligne."
+   },
+   "pensees": {
+    "0": "La dernière fois, c'était avec Sophie.",
+    "8": "Il y a toujours un mort dans ces histoires.",
+    "25": "Grand-père aurait aimé ça. Un message dans les rouages.",
+    "28": "Chazal avait raison."
+   },
+   "ev": {
+    "3": [
+     "film_prenant"
+    ],
+    "14": [
+     "film_prenant"
+    ],
+    "20": [
+     "film_prenant"
+    ],
+    "25": [
+     "film_prenant"
+    ]
+   }
+  },
+  "sortie": "Ressort dans la nuit avec les autres spectateurs, longe le Rhône.",
+  "retour": [
+   "Ressort dans la nuit avec les autres spectateurs et redescend le quai Charles-de-Gaulle, les mains dans les poches.",
+   "Retraverse le pont Winston-Churchill ; le Rhône est noir.",
+   "Attaque la montée de la Boucle à pied, d'un bon pas.",
+   "Termine la montée, le souffle un peu court.",
+   "Reprend le boulevard de la Croix-Rousse, désert à cette heure.",
+   "Traverse la place, longe la rue d'Austerlitz jusqu'à sa porte."
+  ],
+  "retour_pensees": [
+   null,
+   "Il faudrait que j'y retourne. Pas dans deux ans.",
+   null,
+   "La montée, c'est mieux en courant.",
+   null,
+   null
+  ],
+  "rentrer": "Compose le code, monte les trois étages et ouvre la porte. Accroche sa veste, pose ses clés dans le vide-poche et range son portefeuille.",
+  "montre": "Avant de se coucher, va voir la montre de gousset à l'atelier : elle tourne toujours. Il l'écoute un moment.",
+  "montre_pensee": "Elle a tenu toute la soirée sans moi.",
+  "attente": "Regarde la salle se remplir : des couples, des bandes d'amis. Il lit le programme du mois en attendant."
+ },
+ "vote": {
+  "depart": "Enfile sa veste, vérifie qu'il a sa carte d'électeur et sa carte d'identité dans son portefeuille, prend ses clés et ferme la porte.",
+  "aller": "Descend les trois étages, longe la rue d'Austerlitz et traverse la place jusqu'à la mairie du 4e.",
+  "bureau": "Au bureau de vote de la mairie : prend les bulletins, passe dans l'isoloir, met l'enveloppe dans l'urne. « A voté. » Signe la liste d'émargement.",
+  "bureau_pensee": "Voilà. Une petite chose dans le bon ordre.",
+  "boulevard": [
+   "Ressort et longe le boulevard de la Croix-Rousse vers l'est, sous les platanes encore nus.",
+   "Continue jusqu'au bout du boulevard."
+  ],
+  "vue": [
+   "Au Gros Caillou, s'accoude à la rambarde : le Rhône, la Cité internationale, les toits de Villeurbanne dans la lumière basse.",
+   "Reste un moment à regarder la ville. Le soleil descend."
+  ],
+  "vue_pensees": [
+   "L'appartement est trop calme le dimanche. Ici, au moins, il y a la ville.",
+   "Grand-père venait ici. Il disait qu'on voyait le temps qu'il ferait demain."
+  ],
+  "retour": [
+   "Revient par le boulevard, les mains dans les poches.",
+   "Traverse la place, longe la rue d'Austerlitz jusqu'à sa porte."
+  ],
+  "rentrer": "Compose le code, monte les trois étages. Accroche sa veste, pose ses clés dans le vide-poche et range son portefeuille."
+ },
+ "radio_dimanche": [
+  "Allume la radio : sur France Inter, la soirée électorale des régionales.",
+  "Les premières estimations, région par région.",
+  "On parle d'une abstention record.",
+  "Les commentaires des partis.",
+  "Écoute les résultats de Rhône-Alpes.",
+  "Les débats continuent ; il écoute à moitié.",
+  "Éteint la radio."
+ ],
+ "pain_campagne": "Fait griller deux belles tranches du pain de campagne d'hier, coupe du comté et une orange."
 }

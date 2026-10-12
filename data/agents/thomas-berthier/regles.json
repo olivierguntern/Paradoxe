@@ -179,7 +179,7 @@
   ]
  },
  "courses": {
-  "principe": "Tous les deux jours, il complète ses provisions à l'épicerie de la Grande-Rue : après la fermeture de l'atelier en semaine, après le ménage le samedi. Il complète la corbeille de fruits, les yaourts et les œufs, et rachète ce qui passe sous son seuil.",
+  "principe": "Tous les deux jours, il complète ses provisions à l'épicerie de la Grande-Rue : après la fermeture de l'atelier en semaine, après le ménage le samedi. Il complète la corbeille de fruits, les yaourts et les œufs, rachète ce qui passe sous son seuil, puis vérifie, menus en main, qu'il a de quoi faire les repas jusqu'aux prochaines courses.",
   "jours": [
    "mardi",
    "jeudi",
@@ -241,6 +241,108 @@
   "paiement": {
    "especes_si_moins_de": 15,
    "garde_en_especes": 5
+  },
+  "pour_les_repas": {
+   "principe": "Avant de partir, il additionne ce que demandent ses repas jusqu'aux prochaines courses (ou jusqu'à la fin de la semaine) et achète ce qui manquerait, si l'épicerie le vend. S'y ajoutent les envies notées dans ses menus.",
+   "envies": [
+    {
+     "jour": "samedi",
+     "produit": "pain_campagne",
+     "unites": 1,
+     "pour": "le brunch de dimanche"
+    }
+   ]
+  }
+ },
+ "sorties": {
+  "principe": "Sorties à pied de la fin de semaine, en plus de la course et des courses.",
+  "cinema": {
+   "principe": "Si l'épicier lui conseille un film le samedi matin, il y va le soir même : il vérifie l'horaire sur le netbook, dîne plus tôt, va au cinéma à pied et rentre à pied.",
+   "jour": "samedi",
+   "declencheur": "conseil",
+   "film": "The Ghost Writer",
+   "cinema": "UGC Ciné Cité Internationale",
+   "seance": "20:15",
+   "prix_eur": 9.3,
+   "verifier_horaire": "18:00",
+   "diner_fini_a": "19:25",
+   "depart": "19:25",
+   "aller": [
+    [
+     400,
+     0
+    ],
+    [
+     500,
+     0
+    ],
+    [
+     350,
+     -45
+    ],
+    [
+     350,
+     -40
+    ],
+    [
+     400,
+     0
+    ],
+    [
+     400,
+     0
+    ]
+   ],
+   "retour": [
+    [
+     400,
+     0
+    ],
+    [
+     400,
+     0
+    ],
+    [
+     350,
+     40
+    ],
+    [
+     350,
+     45
+    ],
+    [
+     450,
+     0
+    ],
+    [
+     450,
+     0
+    ]
+   ]
+  },
+  "vote": {
+   "principe": "Le dimanche des élections, après la planification de la semaine, il va voter à la mairie du 4e, puis marche jusqu'au Gros Caillou avant de rentrer.",
+   "date": "2010-03-14",
+   "depart": "17:10",
+   "aller_m": 410,
+   "boulevard_m": [
+    370,
+    365
+   ],
+   "vue_pas": 2,
+   "retour_m": [
+    480,
+    475
+   ]
+  }
+ },
+ "distractions": {
+  "principe": "Le vendredi soir, la semaine de travail finie, il lit un forum d'horlogerie sur le netbook avant le temps libre (lecture seule : il n'y écrit pas).",
+  "forum": {
+   "jours": [
+    "vendredi"
+   ],
+   "pas": 6
   }
  }
 }

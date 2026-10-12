@@ -17,9 +17,9 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 ## Contraintes du test
 
 - Deux personnages simulés : Thomas Berthier et Robert Chazal, l'épicier chez qui il fait ses courses. Thomas vit seul ; Robert vit avec sa femme Josiane, qui n'est pas simulée (ses paroles et ses gestes n'apparaissent que tels que Robert les vit).
-- Les passants, les autres clients et les livreurs ne sont pas simulés.
+- Les passants, les autres clients, les livreurs, les spectateurs du cinéma et les assesseurs des bureaux de vote ne sont pas simulés.
 - Aucun contact à distance (téléphone, SMS, e-mail, réseau social).
-- Thomas reste chez lui, sauf pour courir seul et faire ses courses (mardi, jeudi, samedi). Robert va et vient en Kangoo entre sa maison de Villeurbanne et sa boutique ; ses autres sorties : le coffre de la banque le lundi matin, le cinéma avec Josiane le lundi soir, le vote et une randonnée dans les monts d'Or le dimanche.
+- Thomas reste chez lui, sauf pour courir seul, faire ses courses (mardi, jeudi, samedi) et, en fin de semaine, ses sorties à pied : le cinéma le samedi soir, sur le conseil de Robert, et le vote du dimanche suivi d'une promenade jusqu'au Gros Caillou. Robert va et vient en Kangoo entre sa maison de Villeurbanne et sa boutique ; ses autres sorties : le coffre de la banque le lundi matin, le cinéma avec Josiane le lundi soir, le vote et une randonnée dans les monts d'Or le dimanche.
 - Aucun paradoxe ni élément perturbateur : les croyances correspondent toujours à la réalité. Les paradoxes seront introduits plus tard, de l'extérieur.
 
 ## Sections d'une fiche
@@ -37,11 +37,11 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 | `personnes_en_memoire` | Personnes qui existent seulement dans ses souvenirs et ses pensées |
 | `economie`, `travail` | Argent, charges, horaires, travaux en cours et ordre de priorité |
 | `commerce` | Pour un commerçant : horaires, livraisons, affluence par heure, paniers des clients, catalogue (prix, stock initial, stock cible), habitués et leurs propos du jour |
-| `lieux`, `trajets` | Domicile et parcours de course détaillés par segments (distance, dénivelé, durée) |
+| `lieux`, `trajets` | Domicile, épicerie, cinéma, bureau de vote et parcours (course, épicerie, sorties à pied) détaillés par segments (distance, dénivelé, durée) |
 | `immeuble` | Étage, escalier (66 marches), durées et efforts de montée et de descente |
 | `domicile` | Pièces (avec ou sans fenêtre), plan des liaisons et distances, petits déplacements par activité, mobilier, équipements, provisions chiffrées et plats préparés |
 | `menus_prevus` | Repas planifiés pour chaque jour ; chez Robert, avec leurs ingrédients (pour le couple) |
-| `voiture`, `vie_interieure.loisirs` | Chez Robert : la Kangoo ; cinéma, randonnée, belote, potager, journal, radio |
+| `voiture`, `vie_interieure.loisirs` | Chez Robert : la Kangoo ; cinéma, randonnée, belote, potager, journal, radio. Chez Thomas : course, montre du grand-père, lecture, musique, radio, forums d'horlogerie (en lecture), cinéma, promenade |
 | `objets` | Objets avec leur emplacement réel au départ |
 | `connaissances` | Ce que le personnage sait ; ses croyances sur l'emplacement des objets |
 | `habitudes` | Automatismes (gestes systématiques) et routines horaires de chaque jour |
@@ -83,7 +83,7 @@ Toutes les journées de `timelines/` sont vécues par les agents autonomes (`out
 | Fichier | Contenu |
 |---|---|
 | `monde/croix-rousse.json` | Géométrie partagée, dans un seul repère : relief (plateau, pentes vers la Saône et le Rhône, monts d'Or), rues de la Croix-Rousse et de Villeurbanne, place, immeubles de Thomas et de l'épicerie, maison de Robert (étages, escaliers), logements (pièces, portes, fenêtres, mobilier, emplacements des objets, postes), Saône, Rhône, trajets de course, d'épicerie, en Kangoo et à pied. **Proposition à valider.** |
-| `monde/echanges.json` | Répliques partagées par deux personnages qui se rencontrent (Thomas et Robert au comptoir) |
+| `monde/echanges.json` | Répliques partagées par deux personnages qui se rencontrent (Thomas et Robert au comptoir, dont le conseil de film du samedi qui décide la soirée de Thomas) |
 | `monde/evenements.json` | Événements réels vécus aux mêmes minutes par plusieurs habitants (match Real Madrid – Lyon) |
 
 Repère : x vers l'est le long de la rue d'Austerlitz, y vers le nord, z vers le haut (0 au niveau des rues du plateau), en mètres.

@@ -96,20 +96,20 @@
    "mouvements_du_jour": {
     "caisse": 0.0,
     "compte": 30.4,
-    "coffre": 312.5
+    "coffre": 314.6
    },
    "soldes_en_fin_de_journee": {
     "especes": 60,
     "compte": 3648.95,
     "caisse": 150.0,
-    "coffre": 1465.65,
+    "coffre": 1467.75,
     "ardoises": 46.3
    }
   },
   "magasin": {
    "clients": 115,
-   "recette": 342.9,
-   "recette_especes": 312.5,
+   "recette": 345.0,
+   "recette_especes": 314.6,
    "recette_carte": 30.4,
    "a_credit": 0.0,
    "ruptures": [],
@@ -125,12 +125,12 @@
     },
     "pain_campagne": {
      "nom": "pain de campagne (500 g)",
-     "vendu": 6,
+     "vendu": 7,
      "livre": 10,
      "repris": 1,
      "preleve": 0,
-     "recette": 12.6,
-     "stock": 4
+     "recette": 14.7,
+     "stock": 3
     },
     "lait_uht": {
      "nom": "lait UHT (brique d'un litre)",
@@ -468,7 +468,8 @@
   },
   "endormissement": "extinction à 23:30 ; anxiété 0.247 (seuil 0.65), excitation 0.207 (seuil 0.5) : endormissement en 15 minutes",
   "ecarts_a_la_routine": [
-   "11:55 : sert Thomas Berthier (deux pommes et un morceau de comté, 5,30 €, espèces).",
+   "11:50 : conseille « The Ghost Writer » à l'horloger.",
+   "11:55 : sert Thomas Berthier (deux pommes, un morceau de comté et un pain de campagne, 7,40 €, espèces).",
    "19:10 : rapporte pour la maison un paquet de farine, une barquette de tomates, une barquette de jambon blanc et un sachet d'emmental râpé."
   ]
  },
@@ -697,12 +698,12 @@
    "especes": 60,
    "compte": 3648.95,
    "caisse": 150.0,
-   "coffre": 1465.65,
+   "coffre": 1467.75,
    "ardoises": 46.3
   },
   "boutique": {
    "baguette": 4,
-   "pain_campagne": 4,
+   "pain_campagne": 3,
    "lait_uht": 25,
    "yaourts": 23,
    "oeufs": 21,
@@ -7790,8 +7791,8 @@
    "posture": "debout",
    "routine": "rt-samedi",
    "activite": "Boutique ouverte",
-   "action": "Commence à resserrer l'étal de fruits avant midi. L'horloger de la rue d'Austerlitz pousse la porte. « Bonjour. » Robert lève la tête de sa caisse : « Bonjour l'horloger ! Déjà samedi, hein. » — « Eh oui. Ça passe vite. » Il le laisse choisir dans les rayons.",
-   "pensee": "Il devrait sortir un peu, ce petit.",
+   "action": "Commence à resserrer l'étal de fruits avant midi. L'horloger de la rue d'Austerlitz pousse la porte. « Bonjour. » Robert lève la tête de sa caisse : « Bonjour l'horloger ! Déjà samedi, hein. » — « Eh oui. Ça passe vite. » Robert ajoute : « Dites, l'horloger, vous devriez sortir un peu. Lundi, avec Josiane, on a vu le Polanski, « The Ghost Writer », à l'UGC de la Cité internationale. Allez-y, ça vous changera de vos montres. » — « Pourquoi pas. Ce soir, peut-être. » Il le laisse choisir dans les rayons.",
+   "pensee": "Josiane sera contente : je lui ai dit d'aller au cinéma, au petit.",
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -7835,7 +7836,7 @@
    "posture": "debout",
    "routine": "rt-samedi",
    "activite": "Boutique ouverte",
-   "action": "L'horloger pose sur le comptoir deux pommes et un morceau de comté. « Ça fera 5,30 €. » Il paie en espèces. « Bonne journée, monsieur Chazal. » — « Bon dimanche, l'horloger ! » Puis sert deux clients à la suite. Un ouvrier du chantier de la place : une baguette, une laitue et une barquette de tomates (3,60 €). Un vieux monsieur à canne : une laitue (1,10 €).",
+   "action": "L'horloger pose sur le comptoir deux pommes, un morceau de comté et un pain de campagne. « Ça fera 7,40 €. » Il paie en espèces. « Bonne journée, monsieur Chazal. » — « Bon film, l'horloger ! » Puis sert deux clients à la suite. Un ouvrier du chantier de la place : une baguette, une laitue et une barquette de tomates (3,60 €). Un vieux monsieur à canne : une laitue (1,10 €).",
    "pensee": "Josiane dit qu'il faudrait l'inviter un dimanche. Elle a raison, peut-être.",
    "ventes": [
     {
@@ -7853,6 +7854,14 @@
      "prix": 4.5,
      "paiement": "especes",
      "reste": 10
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 3
     },
     {
      "produit": "baguette",
@@ -7890,12 +7899,12 @@
    "clients": 3,
    "argent": {
     "mouvements": {
-     "caisse": 10.0
+     "caisse": 12.1
     },
     "soldes": {
      "especes": 60,
      "compte": 3628.8,
-     "caisse": 310.55,
+     "caisse": 312.65,
      "coffre": 1153.15,
      "ardoises": 46.3
     }
@@ -7978,8 +7987,8 @@
    "posture": "debout",
    "routine": "rt-commerce",
    "activite": "Fermeture de midi",
-   "action": "Dans l'arrière-boutique, compte la caisse du matin : 160,55 € en espèces au-delà du fond, qu'il range dans la sacoche du coffre. Rince la tasse de Lucas.",
-   "pensee": "170,80 € ce matin, cartes comprises.",
+   "action": "Dans l'arrière-boutique, compte la caisse du matin : 162,65 € en espèces au-delà du fond, qu'il range dans la sacoche du coffre. Rince la tasse de Lucas.",
+   "pensee": "172,90 € ce matin, cartes comprises.",
    "deplacement": {
     "chemin": [
      "boutique",
@@ -7998,14 +8007,14 @@
    ],
    "argent": {
     "mouvements": {
-     "caisse": -160.55,
-     "coffre": 160.55
+     "caisse": -162.65,
+     "coffre": 162.65
     },
     "soldes": {
      "especes": 60,
      "compte": 3628.8,
      "caisse": 150.0,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -9218,7 +9227,7 @@
      "especes": 60,
      "compte": 3628.8,
      "caisse": 150.9,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -9277,7 +9286,7 @@
      "especes": 60,
      "compte": 3628.8,
      "caisse": 151.8,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -9380,7 +9389,7 @@
      "especes": 60,
      "compte": 3628.8,
      "caisse": 154.4,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -9519,7 +9528,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 154.4,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -9728,7 +9737,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 170.45,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -9842,7 +9851,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 181.25,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -9953,7 +9962,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 181.85,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -10100,7 +10109,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 188.75,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -10191,7 +10200,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 193.35,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -10331,7 +10340,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 195.95,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -10422,7 +10431,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 202.95,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -10541,7 +10550,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 207.75,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -10680,7 +10689,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 216.35,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -10755,7 +10764,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 220.55,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -10894,7 +10903,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 224.0,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -10969,7 +10978,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 225.8,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -11053,7 +11062,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 230.8,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -11120,7 +11129,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 236.25,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -11203,7 +11212,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 240.2,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -11308,7 +11317,7 @@
      "especes": 60,
      "compte": 3634.2,
      "caisse": 241.1,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -11387,7 +11396,7 @@
      "especes": 60,
      "compte": 3641.05,
      "caisse": 241.1,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -11446,7 +11455,7 @@
      "especes": 60,
      "compte": 3641.05,
      "caisse": 242.2,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -11521,7 +11530,7 @@
      "especes": 60,
      "compte": 3641.05,
      "caisse": 247.0,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -11620,7 +11629,7 @@
      "especes": 60,
      "compte": 3641.05,
      "caisse": 255.9,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -11724,7 +11733,7 @@
      "especes": 60,
      "compte": 3641.05,
      "caisse": 257.6,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -11831,7 +11840,7 @@
      "especes": 60,
      "compte": 3641.05,
      "caisse": 265.1,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -11925,7 +11934,7 @@
      "especes": 60,
      "compte": 3641.05,
      "caisse": 269.3,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12048,7 +12057,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 269.3,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12151,7 +12160,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 271.95,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12227,7 +12236,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 274.3,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12311,7 +12320,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 281.2,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12378,7 +12387,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 283.7,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12445,7 +12454,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 286.4,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12512,7 +12521,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 289.5,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12579,7 +12588,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 292.0,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12662,7 +12671,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 297.25,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12721,7 +12730,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 298.85,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12869,7 +12878,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 301.95,
-     "coffre": 1313.7,
+     "coffre": 1315.8,
      "ardoises": 46.3
     }
    },
@@ -12951,7 +12960,7 @@
    "posture": "assis",
    "routine": "rt-commerce",
    "activite": "Fermeture",
-   "action": "Compte la caisse au bureau : 151,95 € en espèces depuis midi, qu'il range dans la sacoche du coffre. La caisse tombe juste. La journée fait 342,90 €.",
+   "action": "Compte la caisse au bureau : 151,95 € en espèces depuis midi, qu'il range dans la sacoche du coffre. La caisse tombe juste. La journée fait 345,00 €.",
    "pensee": "Au-dessus de trois cents. Ça arrive encore.",
    "deplacement": {
     "chemin": [
@@ -12978,7 +12987,7 @@
      "especes": 60,
      "compte": 3648.95,
      "caisse": 150.0,
-     "coffre": 1465.65,
+     "coffre": 1467.75,
      "ardoises": 46.3
     }
    },

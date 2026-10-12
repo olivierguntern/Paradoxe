@@ -1,7 +1,7 @@
 {
   "meta": {
     "id": "thomas-berthier",
-    "version": 9,
+    "version": 10,
     "description": "Personnage d'étude n°1 : fiche complète servant de base à la génération de sa timeline sur une semaine, vécue seul.",
     "periode": {
       "debut": "2010-03-08T00:00",
@@ -14,8 +14,8 @@
     "contraintes_du_test": [
       "Un seul autre personnage simulé : Robert Chazal, l'épicier de la Grande-Rue de la Croix-Rousse, avec sa propre fiche et sa propre semaine (data/personnages/robert-chazal.json).",
       "Aucun contact à distance : ni téléphone, ni SMS, ni e-mail, ni réseau social.",
-      "Thomas reste chez lui, sauf pour ses sorties de course à pied, qu'il fait seul, et ses courses à l'épicerie de Robert Chazal, le mardi, le jeudi et le samedi.",
-      "Les passants et les autres clients de l'épicerie ne sont pas simulés.",
+      "Thomas reste chez lui, sauf pour ses sorties de course à pied, qu'il fait seul, ses courses à l'épicerie de Robert Chazal (mardi, jeudi et samedi) et ses sorties à pied de la fin de semaine : le cinéma, s'il s'y décide, et le vote du dimanche suivi d'une promenade jusqu'au Gros Caillou.",
+      "Les passants, les autres clients de l'épicerie, les spectateurs du cinéma et les assesseurs du bureau de vote ne sont pas simulés.",
       "Aucun élément perturbateur ni paradoxe n'est prévu : ce que Thomas croit correspond toujours à la réalité.",
       "Les autres personnes n'existent que dans sa mémoire et sa vie intérieure."
     ],
@@ -35,7 +35,10 @@
     },
     "faits_reels_utilises": [
       "Mercredi 10 mars 2010, 20h45 : Real Madrid – Olympique Lyonnais, 8e de finale retour de Ligue des champions, retransmis à la télévision.",
-      "Régime de l'auto-entrepreneur, créé en France le 1er janvier 2009.", "« Courir », roman de Jean Echenoz sur Emil Zátopek, paru aux Éditions de Minuit en octobre 2008."
+      "Régime de l'auto-entrepreneur, créé en France le 1er janvier 2009.", "« Courir », roman de Jean Echenoz sur Emil Zátopek, paru aux Éditions de Minuit en octobre 2008.",
+      "« The Ghost Writer » de Roman Polanski est sorti en France le 3 mars 2010 (2 h 08). L'UGC Ciné Cité Internationale se trouve quai Charles-de-Gaulle (Lyon 6e). L'horaire de la séance du samedi (20 h 15) et le prix de la place sont supposés.",
+      "Dimanche 14 mars 2010 : premier tour des élections régionales ; à Lyon, les bureaux de vote sont ouverts de 8 h à 20 h. La mairie du 4e arrondissement est au 133, boulevard de la Croix-Rousse ; que Thomas y vote est supposé.",
+      "Le Gros Caillou, bloc erratique déposé par un glacier et dégagé lors du percement du funiculaire de la Croix-Rousse, est installé au bout est du boulevard de la Croix-Rousse, au-dessus du Rhône."
     ],
     "elements_fictifs": "Thomas, son entourage et son adresse précise sont fictifs. Les rues, quartiers et lieux de Lyon sont réels."
   },
@@ -161,6 +164,16 @@
       { "sujet": "solitude", "texte": "L'appartement est trop calme le dimanche." },
       { "sujet": "sophie", "texte": "Elle aurait aimé la lumière de l'atelier le matin." }
     ],
+    "loisirs": [
+      { "loisir": "la course à pied, le mardi, le jeudi et le dimanche", "plaisir": 0.7, "note": "Seul, le long de la Saône ; il compte ses foulées pour ne plus penser." },
+      { "loisir": "la montre du grand-père, le soir à l'établi", "plaisir": 0.9, "note": "Son vrai loisir : de l'horlogerie pour personne d'autre que lui." },
+      { "loisir": "la lecture, au lit et le week-end sur le canapé", "plaisir": 0.65 },
+      { "loisir": "la musique : les Variations Goldberg, des disques de piano", "plaisir": 0.6 },
+      { "loisir": "la radio (France Inter), pour entendre des voix", "plaisir": 0.4 },
+      { "loisir": "les forums d'horlogerie sur Internet, en lecture seulement", "plaisir": 0.5, "note": "Il lit les restaurations des autres et regarde les photos de mouvements ; il n'y écrit jamais." },
+      { "loisir": "le cinéma, seul, quelques fois par an", "plaisir": 0.55, "note": "Il y allait souvent avec Sophie ; depuis, il faut qu'on le pousse un peu." },
+      { "loisir": "marcher dans le quartier le dimanche, jusqu'au Gros Caillou", "plaisir": 0.5, "note": "Il regarde le Rhône et les toits de Villeurbanne ; par temps clair, les Alpes." }
+    ],
     "preoccupations_semaine": [
       { "id": "pre-commandes", "sujet": "Terminer les réparations en cours pour être payé", "intensite_initiale": 0.6, "valence": "négative" },
       { "id": "pre-montre", "sujet": "Fabriquer l'axe de balancier et faire repartir la montre du grand-père avant le 20 mars", "intensite_initiale": 0.6, "valence": "positive" },
@@ -263,7 +276,13 @@
       "accomplissement_intime": { "description": "réussir quelque chose qui compte profondément pour lui", "effets": { "joie": 0.3, "fierte": 0.3, "tristesse": 0.08, "excitation": 0.15 } },
       "livre_termine": { "description": "finir un livre", "effets": { "tristesse": 0.05, "joie": 0.05 } },
       "echange_commercant": { "description": "quelques mots avec un commerçant qui le connaît", "effets": { "solitude": -0.03, "joie": 0.02 } },
-      "fin_de_course": { "description": "fin d'une sortie de course", "effets": { "anxiete": -0.2, "joie": 0.1 } }
+      "fin_de_course": { "description": "fin d'une sortie de course", "effets": { "anxiete": -0.2, "joie": 0.1 } },
+      "conseil_recu": { "description": "quelqu'un se soucie de lui (un conseil, une attention)", "effets": { "joie": 0.04, "solitude": -0.03 } },
+      "passion_partagee": { "description": "lire d'autres passionnés d'horlogerie sur un forum", "effets": { "joie": 0.03, "solitude": -0.02 } },
+      "sortie_cinema": { "description": "sortir au cinéma, ce qu'il ne fait plus guère", "effets": { "excitation": 0.05, "joie": 0.04, "solitude": -0.02 } },
+      "film_prenant": { "description": "un film qui le tient en haleine", "effets": { "excitation": 0.05, "anxiete": 0.02 } },
+      "point_de_vue": { "description": "une vue dégagée sur la ville et le Rhône", "effets": { "joie": 0.05, "anxiete": -0.04 } },
+      "devoir_civique": { "description": "aller voter", "effets": { "fierte": 0.03, "joie": 0.01 } }
     }
   },
 
@@ -451,6 +470,27 @@
       "type": "commerce",
       "adresse": "Grande-Rue de la Croix-Rousse, 69004 Lyon",
       "description": "Épicerie de quartier tenue par Robert Chazal, à 500 m de l'appartement. Ouverte du mardi au samedi de 7:00 à 12:00 et de 14:00 à 19:00, le dimanche de 7:00 à 12:00, fermée le lundi."
+    },
+    {
+      "id": "cinema-ugc",
+      "nom": "UGC Ciné Cité Internationale",
+      "type": "cinéma",
+      "adresse": "quai Charles-de-Gaulle, Cité internationale, 69006 Lyon",
+      "description": "Multiplexe au bord du Rhône, de l'autre côté du pont Winston-Churchill, à 2,4 km à pied de l'appartement."
+    },
+    {
+      "id": "bureau-de-vote",
+      "nom": "Bureau de vote de la mairie du 4e",
+      "type": "public",
+      "adresse": "133, boulevard de la Croix-Rousse, 69004 Lyon",
+      "description": "Le bureau où Thomas vote (supposé), à 400 m de l'appartement."
+    },
+    {
+      "id": "gros-caillou",
+      "nom": "Le Gros Caillou",
+      "type": "extérieur",
+      "adresse": "bout est du boulevard de la Croix-Rousse, 69004 Lyon",
+      "description": "Gros rocher posé au-dessus de la montée de la Boucle ; vue sur le Rhône, la Cité internationale et Villeurbanne."
     }
   ],
 
@@ -486,6 +526,28 @@
       "segments": [
         { "de": "appartement", "a": "rue", "moyen": "escalier (descente de 3 étages)", "duree_minutes": 1 },
         { "de": "rue", "a": "épicerie", "moyen": "marche : rue d'Austerlitz, place de la Croix-Rousse, Grande-Rue", "distance_m": 500, "denivele_m": 0, "duree_minutes": 7 }
+      ]
+    },
+    {
+      "id": "trajet-cinema",
+      "nom": "Aller au cinéma de la Cité internationale à pied (environ 2,4 km)",
+      "valeurs": "approximatives, mesurées sur le plan du quartier",
+      "segments": [
+        { "de": "appartement", "a": "rue", "moyen": "escalier (descente de 3 étages)", "duree_minutes": 1 },
+        { "de": "rue", "a": "Gros Caillou", "moyen": "marche : rue d'Austerlitz, place de la Croix-Rousse, boulevard de la Croix-Rousse", "distance_m": 900, "denivele_m": 0, "duree_minutes": 11 },
+        { "de": "Gros Caillou", "a": "bord du Rhône", "moyen": "marche : montée de la Boucle, en descente", "distance_m": 700, "denivele_m": -85, "duree_minutes": 9 },
+        { "de": "bord du Rhône", "a": "cinéma", "moyen": "marche : pont Winston-Churchill, quai Charles-de-Gaulle", "distance_m": 800, "denivele_m": 0, "duree_minutes": 10 }
+      ]
+    },
+    {
+      "id": "trajet-vote-promenade",
+      "nom": "Vote à la mairie du 4e et promenade jusqu'au Gros Caillou (environ 2,1 km)",
+      "valeurs": "approximatives, mesurées sur le plan du quartier",
+      "segments": [
+        { "de": "appartement", "a": "rue", "moyen": "escalier (descente de 3 étages)", "duree_minutes": 1 },
+        { "de": "rue", "a": "mairie du 4e", "moyen": "marche : rue d'Austerlitz, place de la Croix-Rousse", "distance_m": 400, "denivele_m": 0, "duree_minutes": 5 },
+        { "de": "mairie du 4e", "a": "Gros Caillou", "moyen": "marche le long du boulevard de la Croix-Rousse", "distance_m": 740, "denivele_m": 0, "duree_minutes": 10 },
+        { "de": "Gros Caillou", "a": "appartement", "moyen": "marche : boulevard, place de la Croix-Rousse, rue d'Austerlitz, puis escalier", "distance_m": 950, "denivele_m": 0, "duree_minutes": 12 }
       ]
     }
   ],
@@ -552,6 +614,7 @@
     "provisions_au_debut": [
       { "id": "cafe_moulu", "produit": "café moulu", "quantite": 278, "unite": "g", "description": "1 paquet neuf de 250 g + 28 g dans le paquet entamé (4 doses de 7 g)", "rangement": "placard à provisions" },
       { "id": "pain_tranches", "produit": "pain de campagne en tranches", "quantite": 24, "unite": "tranches", "rangement": "congélateur" },
+      { "id": "pain_campagne", "produit": "pain de campagne frais", "quantite": 0, "unite": "pains", "description": "acheté à l'épicerie quand il en veut un frais", "rangement": "plan de travail, dans un torchon" },
       { "id": "biscottes", "produit": "biscottes", "quantite": 30, "unite": "biscottes", "rangement": "placard à provisions" },
       { "id": "beurre", "produit": "beurre", "quantite": 250, "unite": "g", "rangement": "réfrigérateur" },
       { "id": "confiture_abricot", "produit": "confiture d'abricot", "quantite": 37, "unite": "cuillères", "description": "1 pot + 1/2 pot entamé", "rangement": "placard à provisions" },
@@ -599,14 +662,14 @@
     "jeudi": { "dejeuner": "saucisse de Morteau et lentilles", "diner": "soupe (3e portion) et tartines de comté" },
     "vendredi": { "dejeuner": "poisson pané, riz et haricots verts", "diner": "omelette de 3 œufs et carottes râpées" },
     "samedi": { "dejeuner": "pâtes à la carbonara (lardons, 2 œufs)", "diner": "soupe (4e portion) et un verre de vin" },
-    "dimanche": { "brunch": "œufs au plat, tartines, comté, orange", "diner": "ratatouille et riz" }
+    "dimanche": { "brunch": "œufs au plat, tartines (du pain de campagne frais s'il en a pris un la veille à l'épicerie), comté, orange", "diner": "ratatouille et riz" }
   },
 
   "objets": [
     { "id": "obj-cles", "nom": "Trousseau de clés", "description": "Clé de l'appartement et clé de la boîte aux lettres, porte-clés en laiton fait main.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "vide-poche de la commode" }, "importance": 0.9, "usage": "fermer l'appartement pendant les sorties de course" },
     { "id": "obj-montre-poignet", "nom": "Montre mécanique LIP Himalaya des années 1970", "description": "Remontage manuel ; Thomas la remonte chaque matin. Réserve de marche : 40 h.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.8 },
     { "id": "obj-reveil", "nom": "Réveil radio-piloté", "description": "Se règle seul sur le signal horaire officiel ; sert de référence pour régler les montres. Sonnerie à 07:00 du lundi au vendredi.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.7 },
-    { "id": "obj-portefeuille", "nom": "Portefeuille en cuir", "contenu": ["35 € en espèces", "carte bancaire", "carte Vitale", "carte d'identité"], "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "tiroir de la commode" }, "importance": 0.6, "usage": "aucun pendant la semaine" },
+    { "id": "obj-portefeuille", "nom": "Portefeuille en cuir", "contenu": ["35 € en espèces", "carte bancaire", "carte Vitale", "carte d'identité", "carte d'électeur"], "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "tiroir de la commode" }, "importance": 0.6, "usage": "courses à l'épicerie, cinéma, vote" },
     { "id": "obj-cabas", "nom": "Cabas en toile", "description": "Sac de courses en toile écrue, rapporté d'un salon d'horlogerie à Besançon.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-manteau" }, "importance": 0.1 },
     { "id": "obj-veste", "nom": "Veste en laine gris foncé", "description": "Sa veste de tous les jours pour sortir.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-manteau" }, "importance": 0.1 },
     { "id": "obj-carnet", "nom": "Carnet noir", "description": "Journal personnel, listes et réflexions du soir.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet, sous le livre" }, "importance": 0.7 },
@@ -804,7 +867,8 @@
     { "id": "ag-planification", "debut": "2010-03-14T17:00", "fin": "2010-03-14T17:30", "lieu": "domicile", "quoi": "Planifier la semaine suivante", "engagement": "souple", "objets_necessaires": ["obj-carnet"] },
     { "id": "ag-courses-mardi", "debut": "2010-03-09T18:00", "fin": "2010-03-09T18:40", "lieu": "epicerie-chazal", "quoi": "Courses à l'épicerie de la Grande-Rue", "engagement": "souple", "objets_necessaires": ["obj-cabas", "obj-portefeuille", "obj-cles", "obj-veste"] },
     { "id": "ag-courses-jeudi", "debut": "2010-03-11T18:00", "fin": "2010-03-11T18:40", "lieu": "epicerie-chazal", "quoi": "Courses à l'épicerie de la Grande-Rue", "engagement": "souple", "objets_necessaires": ["obj-cabas", "obj-portefeuille", "obj-cles", "obj-veste"] },
-    { "id": "ag-courses-samedi", "debut": "2010-03-13T11:30", "fin": "2010-03-13T12:10", "lieu": "epicerie-chazal", "quoi": "Courses à l'épicerie de la Grande-Rue", "engagement": "souple", "objets_necessaires": ["obj-cabas", "obj-portefeuille", "obj-cles", "obj-veste"] }
+    { "id": "ag-courses-samedi", "debut": "2010-03-13T11:30", "fin": "2010-03-13T12:10", "lieu": "epicerie-chazal", "quoi": "Courses à l'épicerie de la Grande-Rue", "engagement": "souple", "objets_necessaires": ["obj-cabas", "obj-portefeuille", "obj-cles", "obj-veste"] },
+    { "id": "ag-vote", "debut": "2010-03-14T17:10", "fin": "2010-03-14T17:55", "lieu": "bureau-de-vote", "quoi": "Voter au premier tour des régionales à la mairie du 4e, puis marcher jusqu'au Gros Caillou", "engagement": "ferme", "objets_necessaires": ["obj-portefeuille", "obj-cles", "obj-veste"] }
   ],
 
   "objectifs": [
@@ -817,7 +881,7 @@
   ],
 
   "technologie_2010": {
-    "ordinateur": "Asus Eee PC (Windows XP) : documentation technique et tableur, sans e-mail ni réseau social pendant le test",
+    "ordinateur": "Asus Eee PC (Windows XP) et ADSL : documentation technique, tableur, horaires de cinéma et forums d'horlogerie en lecture seule, sans e-mail ni réseau social pendant le test",
     "musique": "CD et radio sur la chaîne hi-fi",
     "television": "petit téléviseur, chaînes de la TNT",
     "heure_de_reference": "réveil radio-piloté"

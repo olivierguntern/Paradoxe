@@ -553,6 +553,8 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
   CADRES.parcours = cadre(boiteDe([-1500, -600, 400, 4750], -85, 20), 30);
   CADRES.trajet = cadre(boiteDe([300, -300, 4700, 900], -85, 10), 30);
   CADRES.cinema = cadre(boiteDe([1760, 700, 1940, 880], -90, -70), 4);
+  CADRES["a-pied-rhone"] = cadre(boiteDe([-30, -170, 1950, 880], -85, 20), 20);
+  CADRES.boulevard = cadre(boiteDe([-30, -150, 960, 20], -5, 20), 6);
   CADRES.villeurbanne = cadre(boiteDe([4560, -260, 4700, 200], -90, -70), 4);
   CADRES.monts = cadre(boiteDe([-3100, 8700, -1300, 10200], -90, 380), 30);
   CADRES["route-monts"] = cadre(boiteDe([-3100, -400, 5300, 9500], -90, 380), 60);
@@ -560,7 +562,8 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     "logement:domicile-thomas": "3e étage, rue d'Austerlitz", "logement:boutique-robert": "Épicerie Chazal, Grande-Rue de la Croix-Rousse",
     "logement:maison-robert": "Maison de la rue des Glycines, Villeurbanne", rue: "Rue d'Austerlitz, place et Grande-Rue de la Croix-Rousse",
     parcours: "Parcours de course : pentes et quais de Saône", trajet: "En Kangoo : Croix-Rousse, Rhône, Villeurbanne",
-    cinema: "Cité internationale, au bord du Rhône", villeurbanne: "Rue des Glycines et l'école du quartier, Villeurbanne",
+    cinema: "Cité internationale, au bord du Rhône", "a-pied-rhone": "À pied : boulevard, montée de la Boucle, pont Winston-Churchill, quai Charles-de-Gaulle",
+    boulevard: "Boulevard de la Croix-Rousse : mairie du 4e et Gros Caillou", villeurbanne: "Rue des Glycines et l'école du quartier, Villeurbanne",
     monts: "Monts d'Or : mont Thou et mont Cindre", "route-monts": "En Kangoo vers les monts d'Or",
   };
   let vueChoisie = "auto", cadreActuel = CADRES["logement:" + PERSOS[0].logement].slice(), cadreCible = CADRES["logement:" + PERSOS[0].logement], pxActuel = 0.05, transition = null;
@@ -663,7 +666,8 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     PERSOS.forEach((P) => { pointsCarte[P.id] = el("circle", { r: 4, class: "point " + CLASSE(P) }, CARTE); });
     CARTE.setAttribute("preserveAspectRatio", "xMidYMid meet");
   }
-  const VB_CARTE = { proche: [-200, -240, 620, 400], loin: [-1800, -4850, 2600, 5700], trajet: [-100, -1000, 5000, 1450], monts: [-3600, -10600, 9000, 11300] };
+  const VB_CARTE = { proche: [-200, -240, 620, 400], loin: [-1800, -4850, 2600, 5700], trajet: [-100, -1000, 5000, 1450], monts: [-3600, -10600, 9000, 11300],
+    rhone: [-250, -1000, 2300, 1300], boulevard: [-200, -300, 1250, 500] };
 
   // ------------------------------------------------------------------ panneau
   function jauges(cible, noms, ids) {
@@ -824,7 +828,7 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     if (vueChoisie === "logement") return "logement:" + P.lgA[g];
     if (vueChoisie === "immeuble") return "immeuble:" + P.lgA[g];
     if (vueChoisie === "rue") return "rue";
-    if (CLASSE(P) === "thomas") return "parcours";
+    if (CLASSE(P) === "thomas") return ["a-pied-rhone", "cinema", "boulevard"].includes(st.s.zn) ? st.s.zn : "parcours";
     return st.s.zn && !st.s.zn.startsWith("lg:") ? st.s.zn : "trajet";
   }
   function rendre() {
@@ -853,7 +857,8 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     });
     // carte : selon le lieu de la personne suivie
     const zs = st.s.zn || "";
-    const vb = VB_CARTE[zs === "parcours" ? "loin" : (zs === "monts" || zs === "route-monts") ? "monts" :
+    const vb = VB_CARTE[zs === "parcours" ? "loin" : (zs === "monts" || zs === "route-monts") ? "monts" : zs === "boulevard" ? "boulevard" :
+      (zs === "a-pied-rhone" || (zs === "cinema" && CLASSE(P) === "thomas")) ? "rhone" :
       (["trajet", "cinema", "villeurbanne", "lg:maison-robert"].includes(zs) ? "trajet" : "proche")];
     if (carteVb !== vb) { CARTE.setAttribute("viewBox", vb.join(" ")); carteVb = vb; const px = echelle(CARTE, vb); if (px) PERSOS.forEach((Q) => pointsCarte[Q.id].setAttribute("r", (5 * px).toFixed(1))); }
     const s = st.s;

@@ -380,6 +380,8 @@ class Monde:
             exclus.append([r[0] - 1, r[1] - 1, r[2] + 1, r[3] + 1])
             if "cour" in b:
                 exclus.append(Repere(b["origine"], b["rotation"]).rect(b["cour"]))
+        for r in G.get("reperes_batis", []):
+            exclus.append([r["rect"][0] - 1, r["rect"][1] - 1, r["rect"][2] + 1, r["rect"][3] + 1])
         places = [p["contour"] for p in G.get("places", [])]
 
         def dans_poly(x, y, poly):
@@ -524,11 +526,11 @@ class Monde:
 
 
 # -------------------------------------------------------------------- trajets d'un personnage
-def trajets_course(pas, M):
-    """Points du parcours de course pour chaque pas passé dehors en courant."""
+def trajets_course(pas, M, exclus=()):
+    """Points du parcours de course pour chaque pas passé dehors en courant (hors courses et sorties à pied déjà placées)."""
     desc, quai = M.descente, M.quai
     L_desc, L_quai = longueur(desc), longueur(quai)
-    ext = [k for k, s in enumerate(pas) if s["lieu"] == "exterieur" and s["activite"] != "Courses à l'épicerie"]
+    ext = [k for k, s in enumerate(pas) if s["lieu"] == "exterieur" and s["activite"] != "Courses à l'épicerie" and k not in exclus]
     out = {}
     if not ext:
         return out
@@ -561,8 +563,9 @@ def trajets_course(pas, M):
 
 
 def plan_hors_logement(pas, M, perso, LGS, piece_lg):
-    """Trajets hors des logements d'un personnage qui en a plusieurs : en voiture et à pied.
+    """Trajets hors des logements d'un personnage : en voiture et à pied (trajets_personnages du monde).
 
+    Un pas appartient à un itinéraire à pied par son activité (« activites ») ou par sa rue (« pieces »).
     Renvoie, pour chaque pas concerné, les points du trajet et la zone de la vue."""
     TR = M.geo.get("trajets_personnages", {}).get(perso)
     out = {}
@@ -570,10 +573,17 @@ def plan_hors_logement(pas, M, perso, LGS, piece_lg):
         return out
     T3 = lambda pts: [[r2(x), r2(y), r2(M.terrain.z(x, y))] for x, y in pts]
     lieux_voiture = {"epicerie": "cour-epicerie", "maison": "garage"}
-    pieces_lieu = {}
+    pieces_lieu, activites = {}, {}
     for nom, it in TR["a_pied"].items():
         for pc in it["pieces"]:
             pieces_lieu[pc] = nom
+        for a in it.get("activites", []):
+            activites[a] = nom
+
+    def itineraire(s):
+        if piece_lg.get(s["piece"]) is not None or s["activite"] == "Courses à l'épicerie":
+            return None
+        return activites.get(s["activite"]) or pieces_lieu.get(s["piece"])
     contexte_it = {"cinema": "parking-cite", "monts": "parking-poleymieux"}
 
     def contexte(s):
@@ -615,18 +625,19 @@ def plan_hors_logement(pas, M, perso, LGS, piece_lg):
                 out[i] = {"w": sous_chemin(pts, c0 / total * L, c1 / total * L), "zone": zone, "cont": True, "route": route}
             k = j
             continue
-        it_nom = pieces_lieu.get(s["piece"]) if piece_lg.get(s["piece"]) is None else None
+        it_nom = itineraire(s)
         if it_nom:
             it = TR["a_pied"][it_nom]
             j = k
-            while j < len(pas) and piece_lg.get(pas[j]["piece"]) is None and pieces_lieu.get(pas[j]["piece"]) == it_nom:
+            while j < len(pas) and itineraire(pas[j]) == it_nom:
                 j += 1
             pts = T3(it["points"])
             L = longueur(pts)
             total = sum(dist(pas[i], "marche") for i in range(k, j)) or 1
             cumul = 0.0
-            zone = {"banque": "rue", "cinema": "cinema", "vote": "villeurbanne", "monts": "monts"}[it_nom]
             for i in range(k, j):
+                zone = it.get("zone_par_lieu", {}).get(pas[i]["lieu"]) or it.get("zone") or \
+                    {"banque": "rue", "cinema": "cinema", "vote": "villeurbanne", "monts": "monts"}[it_nom]
                 c0, c1 = cumul, cumul + dist(pas[i], "marche")
                 cumul = c1
                 if it.get("aller_retour"):
@@ -685,8 +696,8 @@ def exporter_personnage(perso, M, emplacements, noms, avertissements):
         pas = J["pas"]
         for t in J["etat_initial"]["positions"].values():
             note(t)
-        course = trajets_course(pas, M) if not plusieurs else {}
-        dehors = plan_hors_logement(pas, M, perso, LGS, piece_lg) if plusieurs else {}
+        dehors = plan_hors_logement(pas, M, perso, LGS, piece_lg) if TR else {}
+        course = trajets_course(pas, M, exclus=set(dehors)) if not plusieurs else {}
         if precedent is None:
             L0 = piece_lg[J["etat_initial"]["piece"]]
             pt, _ = L0.poste(J["etat_initial"]["piece"], "allongé", "")
@@ -742,8 +753,12 @@ def exporter_personnage(perso, M, emplacements, noms, avertissements):
                 x = dehors[k]
                 zone = x["zone"]
                 pre = []
-                if not hors and chemin and precedent.get("lg") is not None:
-                    lgp = precedent["lg"]
+                lgp = precedent.get("lg") if not hors else None
+                if lgp is not None and esc == "descente" and lgp.bat.get("escalier", {}).get("type") == "volees":
+                    # sortie de l'immeuble par la cage d'escalier
+                    pieces = chemin if chemin else [precedent["piece"], "palier"]
+                    pre = lgp.traversee(pieces) + M.escalier_volees(lgp.bat, "descente", lgp.base)
+                elif lgp is not None and chemin:
                     pieces = [p_ for p_ in chemin if p_ in lgp.pieces]
                     pre = lgp.traversee(pieces)
                     if pieces and pieces[-1] in lgp.L.get("sorties", {}):
