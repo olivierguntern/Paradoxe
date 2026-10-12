@@ -88,6 +88,8 @@ button, select, input { font: inherit; color: inherit; }
 .scene .arbre { stroke: var(--trait-leger); }
 .scene .trajet-course { stroke: var(--laiton); stroke-dasharray: 6 5; opacity: .55; }
 .scene .trajet-courses { stroke: var(--brique); stroke-dasharray: 3 4; opacity: .6; }
+.scene .trajet-voiture { stroke: var(--brique); stroke-dasharray: 10 6; opacity: .5; }
+.scene .trajet-pied { stroke: var(--brique); stroke-dasharray: 3 4; opacity: .6; }
 .scene .sol { fill: transparent; stroke: var(--trait-leger); transition: fill .4s; }
 .scene .sol.allumee { fill: var(--lampe); fill-opacity: .28; }
 .scene .meuble { stroke: var(--trait); stroke-width: .9; }
@@ -120,6 +122,7 @@ button, select, input { font: inherit; color: inherit; }
 .scene.loin text.piece, .scene.loin .detail-proche { display: none; }
 .carte .route-course { stroke: var(--laiton); stroke-dasharray: 3 3; }
 .carte .route-courses { stroke: var(--brique); stroke-dasharray: 2 2; }
+.carte .route-voiture { stroke: var(--brique); stroke-dasharray: 5 3; }
 .carte .batiment { fill: var(--trait); stroke: none; }
 .carte .point { stroke: var(--planche); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
 .carte .point.thomas { fill: var(--laiton); }
@@ -198,7 +201,7 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
 <body>
 <div class="app">
   <header class="bandeau">
-    <h1>La Croix-Rousse <span>· mars 2010</span></h1>
+    <h1>La Croix-Rousse et Villeurbanne <span>· mars 2010</span></h1>
     <div class="groupe" id="suivre" role="group" aria-label="Personnage suivi"><span class="etiq">Suivre</span></div>
     <nav class="groupe" id="jours" aria-label="Jours de la semaine"></nav>
   </header>
@@ -212,7 +215,7 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
         <button type="button" data-vue="logement" aria-pressed="false">Logement</button>
         <button type="button" data-vue="immeuble" aria-pressed="false">Immeuble</button>
         <button type="button" data-vue="rue" aria-pressed="false">Rue</button>
-        <button type="button" data-vue="parcours" aria-pressed="false">Parcours</button>
+        <button type="button" data-vue="parcours" aria-pressed="false">Trajet</button>
       </div>
       <div class="etiquette-objet" id="etiquette" hidden></div>
     </section>
@@ -273,7 +276,7 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     <div class="bande" id="bande" aria-hidden="true"><span class="curseur" id="curseur"></span></div>
     <input type="range" id="temps" min="0" max="287" step="1" value="220" aria-label="Heure de la journée">
     <div class="graduations"><span>00 h</span><span>03 h</span><span>06 h</span><span>09 h</span><span>12 h</span><span>15 h</span><span>18 h</span><span>21 h</span><span>24 h</span></div>
-    <div class="cles"><span class="k-chambre">Chambre</span><span class="k-travail">Atelier, boutique</span><span class="k-vie">Séjour, cuisine, entrée</span><span class="k-eau">Salle de bain, WC</span><span class="k-dehors">Dehors</span></div>
+    <div class="cles"><span class="k-chambre">Chambre</span><span class="k-travail">Atelier, boutique</span><span class="k-vie">Séjour, cuisine, entrée</span><span class="k-eau">Salle de bain, WC</span><span class="k-dehors">Dehors, en voiture</span></div>
     <p class="statut" id="statut"></p>
   </footer>
 </div>
@@ -296,9 +299,10 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
   const NOMS_APPAREILS = { "lampe-etabli": "Lampe d'établi", radio: "Radio", "lecteur-cd": "Lecteur CD", television: "Téléviseur", "plaque-1": "Plaque 1",
     "plaque-2": "Plaque 2", four: "Four", "machine-a-laver": "Machine à laver", "machine-ultrasons": "Bac à ultrasons", chronocomparateur: "Chronocomparateur",
     tour: "Tour d'horloger", ordinateur: "Ordinateur portable", aspirateur: "Aspirateur", "lampe-alcool": "Lampe à alcool", "controleur-etancheite": "Contrôleur d'étanchéité",
-    "radio-cuisine": "Radio de la cuisine", "radio-boutique": "Radio de la boutique" };
+    "radio-cuisine": "Radio de la cuisine", "radio-boutique": "Radio de la boutique", caisse: "Caisse enregistreuse",
+    "cafetiere-maison": "Cafetière", "cafetiere-boutique": "Cafetière de l'arrière-boutique" };
   const POSTURES = { debout: "debout", assis: "assis", allonge: "allongé", course: "en course", marche: "en marche" };
-  const NOMS_COMPTES = { especes: "espèces", compte: "compte", caisse: "caisse" };
+  const NOMS_COMPTES = { especes: "espèces", compte: "compte", caisse: "caisse", coffre: "coffre", ardoises: "ardoises" };
 
   // ------------------------------------------------------------------ projection
   const iso = (p) => [(p[0] + p[1]) * C, (p[0] - p[1]) * S - p[2]];
@@ -343,9 +347,12 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     P.jours.forEach((j) => j.pas.forEach((s) => P.pas.push(s)));
     P.fin = new Array(NB);
     P.objetsA = new Array(NB);
-    let dernier = P.depart, carte = {}, jPrec = -1;
+    P.lgA = new Array(NB);      // dernier logement (ou lieu) où il s'est trouvé
+    let dernier = P.depart, carte = {}, jPrec = -1, lg = P.logement;
     for (let g = 0; g < NB; g++) {
       const s = P.pas[g], ji = G[g].ji;
+      if (s.zn && s.zn.startsWith("lg:") && (P.logements || [P.logement]).includes(s.zn.slice(3))) lg = s.zn.slice(3);
+      P.lgA[g] = lg;
       if (ji !== jPrec) { carte = Object.assign({}, carte, P.jours[ji].positions); jPrec = ji; }
       if (s.w) dernier = s.w[s.w.length - 1];
       P.fin[g] = dernier;
@@ -372,6 +379,24 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
   function dessinerMonde() {
     const T = M.terrain, zb = T.z_bas;
     const X0 = -1750, X1 = 760, Y0 = -800, Y1 = 4800;
+    if (T.bord_est_x !== undefined) {
+      // pente est vers le Rhône, et plaine de Villeurbanne
+      const est = new Chemin();
+      [0, 0.25, 0.5, 0.75, 1].forEach((f) => { const x = T.bord_est_x + f * T.largeur_pente_est; est.ligne([[x, -700, zb * f], [x, 2800, zb * f]]); });
+      for (let y = -600; y <= 2800; y += 400) est.ligne([[T.bord_est_x, y, 0], [T.bord_est_x + T.largeur_pente_est, y, zb], [5300, y, zb]]);
+      est.poser(gMonde, "fin");
+    }
+    if (T.colline) {
+      // monts d'Or : courbes de niveau tous les 100 m
+      const C = T.colline, mont = new Chemin();
+      [100, 200, 300, 400].forEach((h) => {
+        const r = C.sigma * Math.sqrt(2 * Math.log(C.hauteur / h)), pts = [];
+        for (let a = 0; a <= 48; a++) { const t_ = a / 48 * 2 * Math.PI; pts.push([C.centre[0] + r * Math.cos(t_), C.centre[1] + r * Math.sin(t_), zb + h]); }
+        mont.ligne(pts);
+      });
+      mont.poser(gMonde, "fin");
+    }
+    if (M.rhone) el("polygon", { points: enChaine(M.rhone.droite.concat(M.rhone.gauche.slice().reverse())), class: "eau" }, gMonde);
     const relief = new Chemin();
     // courbes de niveau : un « L » par altitude (pente ouest et pente sud)
     [0, 0.25, 0.5, 0.75, 1].forEach((f) => {
@@ -387,15 +412,17 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     // rues : alignements de façades et bordures de trottoir
     const rues = new Chemin();
     M.rues.forEach((r) => {
-      for (let i = 0; i < r.axe.length - 1; i++) {
-        const a = r.axe[i], b = r.axe[i + 1], l = Math.hypot(b[0] - a[0], b[1] - a[1]);
+      const axe = r.axe3 || r.axe.map((p) => [p[0], p[1], 0]);
+      for (let i = 0; i < axe.length - 1; i++) {
+        const a = axe[i], b = axe[i + 1], l = Math.hypot(b[0] - a[0], b[1] - a[1]);
+        if (!l) continue;
         const nx = -(b[1] - a[1]) / l, ny = (b[0] - a[0]) / l;
         [r.facade_a_facade / 2, -r.facade_a_facade / 2, r.chaussee / 2, -r.chaussee / 2].concat(r.terre_plein ? [r.terre_plein / 2, -r.terre_plein / 2] : [])
-          .forEach((o) => rues.ligne([[a[0] + nx * o, a[1] + ny * o, 0], [b[0] + nx * o, b[1] + ny * o, 0]]));
+          .forEach((o) => rues.ligne([[a[0] + nx * o, a[1] + ny * o, a[2]], [b[0] + nx * o, b[1] + ny * o, b[2]]]));
       }
       if (r.nom) {
-        const k = Math.floor((r.axe.length - 1) / 2), a = r.axe[k], b = r.axe[k + 1];
-        texte([(a[0] + b[0]) / 2 + (r.id === "rue-austerlitz" ? 60 : 0), (a[1] + b[1]) / 2 + (r.id === "grande-rue" ? 90 : 0), 0], r.nom, "rue", gTextesMonde);
+        const k = Math.floor((axe.length - 1) / 2), a = axe[k], b = axe[Math.min(k + 1, axe.length - 1)];
+        texte([(a[0] + b[0]) / 2 + (r.id === "rue-austerlitz" ? 60 : 0), (a[1] + b[1]) / 2 + (r.id === "grande-rue" ? 90 : 0), (a[2] + b[2]) / 2], r.nom, "rue", gTextesMonde);
       }
     });
     M.places.forEach((p) => { rues.ligne(p.contour.map((c) => [c[0], c[1], 0]), true); texte([(p.contour[0][0] + p.contour[2][0]) / 2, (p.contour[0][1] + p.contour[2][1]) / 2, 0], p.nom, "rue", gTextesMonde); });
@@ -412,20 +439,32 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     });
     arbres.poser(gMonde, "arbre");
     M.reperes.forEach((r) => { if (!["Thomas", "Épicerie Chazal"].includes(r.nom)) texte(r.point, r.nom, "", gTextesMonde); });
+    // bâtiments repères : cinéma, école, banque
+    const reperes = new Chemin();
+    (M.reperes_batis || []).forEach((r) => {
+      reperes.boite(coinsRect(r.rect), r.z0, r.h);
+      texte([(r.rect[0] + r.rect[2]) / 2, (r.rect[1] + r.rect[3]) / 2, r.z0 + r.h + 2], r.nom, "", gTextesMonde);
+    });
+    reperes.poser(gMonde, "leger");
     // trajets
     trait(M.descente, "trajet-course", gTrajets);
     trait(M.quai, "trajet-course", gTrajets);
     trait(M.trajet_epicerie, "trajet-courses", gTrajets);
+    Object.values(M.trajets || {}).forEach((T_) => {
+      Object.values(T_.voiture).forEach((pts) => trait(pts, "trajet-voiture", gTrajets));
+      Object.values(T_.a_pied).forEach((pts) => trait(pts, "trajet-pied", gTrajets));
+    });
   }
 
   function dessinerBatiments() {
     M.batiments.forEach((b) => {
       const g = el("g", { class: "estompe" }, gBatiments);
-      const E = b.emprise, N = b.niveaux, H = b.H;
-      for (let k = 0; k <= N; k++) contour(rect(E, k * H), "leger", g);
-      rect(E, 0).forEach((p) => trait([p, [p[0], p[1], N * H]], "leger", g));
+      const E = b.emprise, N = b.niveaux, H = b.H, Z = b.z0 || 0;
+      for (let k = 0; k <= N; k++) contour(rect(E, Z + k * H), "leger", g);
+      rect(E, Z).forEach((p) => trait([p, [p[0], p[1], Z + N * H]], "leger", g));
       const [p0, p1] = b.porte;
-      trait([[p0[0], p0[1], 0], [p0[0], p0[1], 2.4], [p1[0], p1[1], 2.4], [p1[0], p1[1], 0]], "", g);
+      trait([[p0[0], p0[1], Z], [p0[0], p0[1], Z + 2.2], [p1[0], p1[1], Z + 2.2], [p1[0], p1[1], Z]], "", g);
+      if (b.jardin) contour(rect(b.jardin, Z), "leger tirets", g);
       if (b.volees) {
         const V = b.volees, T = b.cage;
         contour(rect(T, 0), "leger", g); contour(rect(T, N * H), "leger", g);
@@ -455,7 +494,7 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
           trait([[x - dl[0] * w, y - dl[1] * w, z], [x + dl[0] * w, y + dl[1] * w, z]], "leger", gBatiments);
         }
       }
-      if (b.enseigne) texte([(p0[0] + p1[0]) / 2 - 0.3, (p0[1] + p1[1]) / 2, 3.0], b.enseigne, "nom-perso robert", gTextes);
+      if (b.enseigne) texte([(p0[0] + p1[0]) / 2 - 0.3, (p0[1] + p1[1]) / 2, Z + 3.0], b.enseigne, "nom-perso robert", gTextes);
     });
   }
 
@@ -500,16 +539,31 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
   const BAT = Object.fromEntries(M.batiments.map((b) => [b.id, b]));
   const CADRES = {};
   PERSOS.forEach((P) => {
-    const L = M.logements[P.logement], b = BAT[P.batiment];
-    const zs = L.sols.map((s) => s.z), zmin = Math.min(...zs), zmax = Math.max(...zs);
-    const r = [b.emprise[0] - 0.8, b.emprise[1] - 2.5, b.emprise[2] + 0.8, b.emprise[3] + 0.5];
-    if (P.batiment === "immeuble-austerlitz") { r[0] = -0.5; r[2] = 10.8; r[3] = 7.4; r[1] = -1.2; }
-    CADRES["logement:" + P.id] = cadre(boiteDe(r, zmin, zmax + 3.0), 0.6);
-    CADRES["immeuble:" + P.id] = cadre(boiteDe([b.emprise[0] - 4, b.emprise[1] - 10, b.emprise[2] + 4, b.emprise[3] + 4], 0, b.niveaux * b.H), 1.0);
+    (P.logements || [P.logement]).forEach((lid) => {
+      const L = M.logements[lid], b = BAT[(P.batiments || {})[lid] || P.batiment];
+      const zs = L.sols.map((s) => s.z), zmin = Math.min(...zs), zmax = Math.max(...zs), Z = b.z0 || 0;
+      const E = b.jardin ? [Math.min(b.emprise[0], b.jardin[0]), Math.min(b.emprise[1], b.jardin[1]), Math.max(b.emprise[2], b.jardin[2]), Math.max(b.emprise[3], b.jardin[3])] : b.emprise;
+      const r = [E[0] - 0.8, E[1] - 2.5, E[2] + 0.8, E[3] + 0.5];
+      if (b.id === "immeuble-austerlitz") { r[0] = -0.5; r[2] = 10.8; r[3] = 7.4; r[1] = -1.2; }
+      CADRES["logement:" + lid] = cadre(boiteDe(r, zmin, zmax + 3.0), 0.6);
+      CADRES["immeuble:" + lid] = cadre(boiteDe([b.emprise[0] - 4, b.emprise[1] - 10, b.emprise[2] + 4, b.emprise[3] + 4], Z, Z + b.niveaux * b.H), 1.0);
+    });
   });
-  CADRES.rue = cadre(boiteDe([-30, -40, 360, 200], 0, 20), 4);
+  CADRES.rue = cadre(boiteDe([-30, -110, 380, 200], 0, 20), 4);
   CADRES.parcours = cadre(boiteDe([-1500, -600, 400, 4750], -85, 20), 30);
-  let vueChoisie = "auto", cadreActuel = CADRES["logement:" + PERSOS[0].id].slice(), cadreCible = CADRES["logement:" + PERSOS[0].id], pxActuel = 0.05, transition = null;
+  CADRES.trajet = cadre(boiteDe([300, -300, 4700, 900], -85, 10), 30);
+  CADRES.cinema = cadre(boiteDe([1760, 700, 1940, 880], -90, -70), 4);
+  CADRES.villeurbanne = cadre(boiteDe([4560, -260, 4700, 200], -90, -70), 4);
+  CADRES.monts = cadre(boiteDe([-3100, 8700, -1300, 10200], -90, 380), 30);
+  CADRES["route-monts"] = cadre(boiteDe([-3100, -400, 5300, 9500], -90, 380), 60);
+  const DETAILS = {
+    "logement:domicile-thomas": "3e étage, rue d'Austerlitz", "logement:boutique-robert": "Épicerie Chazal, Grande-Rue de la Croix-Rousse",
+    "logement:maison-robert": "Maison de la rue des Glycines, Villeurbanne", rue: "Rue d'Austerlitz, place et Grande-Rue de la Croix-Rousse",
+    parcours: "Parcours de course : pentes et quais de Saône", trajet: "En Kangoo : Croix-Rousse, Rhône, Villeurbanne",
+    cinema: "Cité internationale, au bord du Rhône", villeurbanne: "Rue des Glycines et l'école du quartier, Villeurbanne",
+    monts: "Monts d'Or : mont Thou et mont Cindre", "route-monts": "En Kangoo vers les monts d'Or",
+  };
+  let vueChoisie = "auto", cadreActuel = CADRES["logement:" + PERSOS[0].logement].slice(), cadreCible = CADRES["logement:" + PERSOS[0].logement], pxActuel = 0.05, transition = null;
   svg.setAttribute("viewBox", cadreActuel.join(" "));
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
 
@@ -601,10 +655,15 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     el("polyline", { points: chainePlan(M.quai), class: "route-course" }, CARTE);
     el("polyline", { points: chainePlan(M.trajet_epicerie), class: "route-courses" }, CARTE);
     M.batiments.forEach((b) => { const e = b.emprise; el("rect", { x: e[0], y: -e[3], width: e[2] - e[0], height: e[3] - e[1], class: "batiment" }, CARTE); });
+    if (M.rhone) el("polygon", { points: chainePlan(M.rhone.droite.concat(M.rhone.gauche.slice().reverse())), class: "eau" }, CARTE);
+    Object.values(M.trajets || {}).forEach((T_) => {
+      Object.values(T_.voiture).forEach((pts) => el("polyline", { points: chainePlan(pts), class: "route-voiture" }, CARTE));
+      Object.values(T_.a_pied).forEach((pts) => el("polyline", { points: chainePlan(pts), class: "route-courses" }, CARTE));
+    });
     PERSOS.forEach((P) => { pointsCarte[P.id] = el("circle", { r: 4, class: "point " + CLASSE(P) }, CARTE); });
     CARTE.setAttribute("preserveAspectRatio", "xMidYMid meet");
   }
-  const VB_CARTE = { proche: [-200, -240, 620, 400], loin: [-1800, -4850, 2600, 5700] };
+  const VB_CARTE = { proche: [-200, -240, 620, 400], loin: [-1800, -4850, 2600, 5700], trajet: [-100, -1000, 5000, 1450], monts: [-3600, -10600, 9000, 11300] };
 
   // ------------------------------------------------------------------ panneau
   function jauges(cible, noms, ids) {
@@ -712,7 +771,9 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     gApp.textContent = ""; gObj.textContent = "";
     PERSOS.forEach((Q) => {
       const sq = Q.pas[g], posQ = Q.objetsA[g];
-      for (const [pid, poly] of Object.entries(sols[Q.logement] || {})) poly.classList.toggle("allumee", sq.ap.includes("lumiere-" + pid));
+      (Q.logements || [Q.logement]).forEach((lid) => {
+        for (const [pid, poly] of Object.entries(sols[lid] || {})) poly.classList.toggle("allumee", sq.ap.includes("lumiere-" + pid));
+      });
       sq.ap.forEach((id) => {
         if (id.startsWith("lumiere-")) return;
         const a = Q.appareils[id];
@@ -749,24 +810,37 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
   // ------------------------------------------------------------------ rendu d'un instant
   function vueAuto(P, st) {
     const s = st.s, b = BAT[P.batiment], e = b.emprise, p = st.p;
-    const zLogement = M.logements[P.logement].sols[0].z;
-    const dansImmeuble = p[0] >= e[0] - 1 && p[0] <= e[2] + 1 && p[1] >= e[1] - 2 && p[1] <= (b.cage ? b.cage[3] : e[3]) + 1;
-    if (s.l === "p") return "logement:robert-chazal";
-    if (b.volees && dansImmeuble && (p[2] < zLogement - 0.3 || p[1] < e[1] || p[1] > e[3] - 0.5)) return "immeuble:" + P.id;
+    if (b.volees && s.l !== "p") {
+      // dans la cage d'escalier de l'immeuble : vue de l'immeuble
+      const zLogement = M.logements[P.logement].sols[0].z;
+      const dansImmeuble = p[0] >= e[0] - 1 && p[0] <= e[2] + 1 && p[1] >= e[1] - 2 && p[1] <= (b.cage ? b.cage[3] : e[3]) + 1;
+      if (dansImmeuble && (p[2] < zLogement - 0.3 || p[1] < e[1] || p[1] > e[3] - 0.5)) return "immeuble:" + P.logement;
+    }
+    if (s.zn) return s.zn.startsWith("lg:") ? "logement:" + s.zn.slice(3) : s.zn;
     if (s.l === "e") return s.a === "Courses à l'épicerie" ? "rue" : "parcours";
-    return "logement:" + P.id;
+    return "logement:" + P.lgA[g];
+  }
+  function vueManuelle(P, st) {
+    if (vueChoisie === "logement") return "logement:" + P.lgA[g];
+    if (vueChoisie === "immeuble") return "immeuble:" + P.lgA[g];
+    if (vueChoisie === "rue") return "rue";
+    if (CLASSE(P) === "thomas") return "parcours";
+    return st.s.zn && !st.s.zn.startsWith("lg:") ? st.s.zn : "trajet";
   }
   function rendre() {
     gPersos.textContent = "";
     const etats = PERSOS.map((P) => etat(P, g, t));
     const P = PERSOS[suivi], st = etats[suivi];
-    let vue = vueChoisie === "auto" ? vueAuto(P, st) : (vueChoisie === "rue" || vueChoisie === "parcours" ? vueChoisie : vueChoisie + ":" + P.id);
-    if (!CADRES[vue]) vue = "logement:" + P.id;
+    let vue = vueChoisie === "auto" ? vueAuto(P, st) : vueManuelle(P, st);
+    if (!CADRES[vue]) vue = "logement:" + P.lgA[g];
     if (CADRES[vue] !== cadreCible) { transition = { de: cadreActuel.slice(), t0: performance.now() }; cadreCible = CADRES[vue]; }
     const proche = vue.startsWith("logement:") || vue.startsWith("immeuble:");
     $("scene").classList.toggle("proche", vue.startsWith("logement:"));
     // niveaux au-dessus de la personne suivie estompés
-    const zFocus = vue.startsWith("logement:") ? (vue === "logement:" + P.id ? st.p[2] : etats[PERSOS.findIndex((Q) => vue === "logement:" + Q.id)].p[2]) : Infinity;
+    const lgVue = vue.startsWith("logement:") ? vue.slice(9) : null;
+    let kFocus = -1;
+    if (lgVue) kFocus = st.s.zn === "lg:" + lgVue ? suivi : PERSOS.findIndex((Q, k) => etats[k].s.zn === "lg:" + lgVue);
+    const zFocus = kFocus >= 0 ? etats[kFocus].p[2] : Infinity;
     niveaux.forEach((n) => { n.classList.toggle("cache", +n.dataset.z > zFocus + 1); n.classList.toggle("dessous", +n.dataset.z < zFocus - 1); });
     $("scene").classList.toggle("loin", pxActuel > 0.06);
     PERSOS.forEach((Q, k) => {
@@ -777,15 +851,15 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
       const cp = plan(e.p);
       pointsCarte[Q.id].setAttribute("cx", cp[0]); pointsCarte[Q.id].setAttribute("cy", cp[1]);
     });
-    // carte : vue d'ensemble pendant la course
-    const loin = etats.some((e) => e.s.l === "e" && e.s.a !== "Courses à l'épicerie");
-    const vb = VB_CARTE[loin ? "loin" : "proche"];
+    // carte : selon le lieu de la personne suivie
+    const zs = st.s.zn || "";
+    const vb = VB_CARTE[zs === "parcours" ? "loin" : (zs === "monts" || zs === "route-monts") ? "monts" :
+      (["trajet", "cinema", "villeurbanne", "lg:maison-robert"].includes(zs) ? "trajet" : "proche")];
     if (carteVb !== vb) { CARTE.setAttribute("viewBox", vb.join(" ")); carteVb = vb; const px = echelle(CARTE, vb); if (px) PERSOS.forEach((Q) => pointsCarte[Q.id].setAttribute("r", (5 * px).toFixed(1))); }
     const s = st.s;
-    const nomLieu = s.l === "p" ? "Épicerie Chazal" : s.l === "e" ? court(P, s.pc) : court(P, s.pc);
+    const nomLieu = s.l === "p" ? "Épicerie Chazal" : s.l === "v" ? "en Kangoo" : court(P, s.pc);
     $("ou").textContent = P.prenom + " · " + (vue.startsWith("immeuble:") && st.mouvement ? "escalier de l'immeuble" : nomLieu);
-    $("ou-detail").textContent = vue === "parcours" ? "Parcours de course : pentes et quais de Saône" : vue === "rue" ? "Rue d'Austerlitz, place et Grande-Rue de la Croix-Rousse" :
-      (P.batiment === "immeuble-austerlitz" ? "3e étage, rue d'Austerlitz" : "Grande-Rue de la Croix-Rousse");
+    $("ou-detail").textContent = DETAILS[vue] || (vue.startsWith("immeuble:") ? "L'immeuble et sa cage d'escalier" : "");
     void proche;
   }
 

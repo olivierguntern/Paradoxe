@@ -60,7 +60,7 @@ Certains **événements-clés** (importants pour le futur) pourront compter plus
 | 2 | Thomas autonome : le moteur décide de ses actions et reproduit la semaine de référence | Fait : référence reproduite (voir `data/simulations/thomas-berthier/VALIDATION.md`) ; la semaine entière est vécue par l'agent, courses comprises |
 | 3 | Perception : ce que Thomas voit, entend, remarque | À faire |
 | 4 | Le voyageur dans le monde de Thomas ; mesure de la divergence entre les deux mondes | À faire |
-| 5 | Plusieurs habitants et lieux partagés (rue, bar, commerces) | Commencé : Robert Chazal, l'épicier, vit sa propre semaine ; scène partagée au comptoir (mêmes répliques, mêmes achats) ; match du mercredi vécu par les deux |
+| 5 | Plusieurs habitants et lieux partagés (rue, bar, commerces) | Commencé : Robert Chazal, l'épicier, a une fiche aussi complète que celle de Thomas, trois journées de référence rédigées et un agent qui les reproduit (voir `data/simulations/robert-chazal/VALIDATION.md`) ; magasin tenu produit par produit, clientèle déterministe, maison à Villeurbanne, loisirs ; scène partagée au comptoir ; match du mercredi vécu par les deux |
 | 6 | La mini-ville : génération des habitants, niveaux de détail | À faire |
 | 7 | Missions du voyageur | Plus tard |
-| 8 | Interface de jeu | Commencée : vue isométrique fil de fer du quartier (`vue/`) : logements, immeubles, rues, parcours, deux personnages ; plan à valider |
+| 8 | Interface de jeu | Commencée : vue isométrique fil de fer (`vue/`) : logements, immeubles, rues, parcours, trajets en voiture jusqu'à Villeurbanne et aux monts d'Or, deux personnages ; plan à valider |

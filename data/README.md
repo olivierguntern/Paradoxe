@@ -16,10 +16,10 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 
 ## Contraintes du test
 
-- Deux personnages simulés : Thomas Berthier et Robert Chazal, l'épicier chez qui il fait ses courses. Chacun vit seul.
+- Deux personnages simulés : Thomas Berthier et Robert Chazal, l'épicier chez qui il fait ses courses. Thomas vit seul ; Robert vit avec sa femme Josiane, qui n'est pas simulée (ses paroles et ses gestes n'apparaissent que tels que Robert les vit).
 - Les passants, les autres clients et les livreurs ne sont pas simulés.
 - Aucun contact à distance (téléphone, SMS, e-mail, réseau social).
-- Thomas reste chez lui, sauf pour courir seul et faire ses courses (mardi, jeudi, samedi) ; Robert ne quitte pas son immeuble.
+- Thomas reste chez lui, sauf pour courir seul et faire ses courses (mardi, jeudi, samedi). Robert va et vient en Kangoo entre sa maison de Villeurbanne et sa boutique ; ses autres sorties : le coffre de la banque le lundi matin, le cinéma avec Josiane le lundi soir, le vote et une randonnée dans les monts d'Or le dimanche.
 - Aucun paradoxe ni élément perturbateur : les croyances correspondent toujours à la réalité. Les paradoxes seront introduits plus tard, de l'extérieur.
 
 ## Sections d'une fiche
@@ -36,10 +36,12 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 | `competences`, `biographie` | Savoir-faire et passé daté |
 | `personnes_en_memoire` | Personnes qui existent seulement dans ses souvenirs et ses pensées |
 | `economie`, `travail` | Argent, charges, horaires, travaux en cours et ordre de priorité |
+| `commerce` | Pour un commerçant : horaires, livraisons, affluence par heure, paniers des clients, catalogue (prix, stock initial, stock cible), habitués et leurs propos du jour |
 | `lieux`, `trajets` | Domicile et parcours de course détaillés par segments (distance, dénivelé, durée) |
 | `immeuble` | Étage, escalier (66 marches), durées et efforts de montée et de descente |
 | `domicile` | Pièces (avec ou sans fenêtre), plan des liaisons et distances, petits déplacements par activité, mobilier, équipements, provisions chiffrées et plats préparés |
-| `menus_prevus` | Repas planifiés pour chaque jour |
+| `menus_prevus` | Repas planifiés pour chaque jour ; chez Robert, avec leurs ingrédients (pour le couple) |
+| `voiture`, `vie_interieure.loisirs` | Chez Robert : la Kangoo ; cinéma, randonnée, belote, potager, journal, radio |
 | `objets` | Objets avec leur emplacement réel au départ |
 | `connaissances` | Ce que le personnage sait ; ses croyances sur l'emplacement des objets |
 | `habitudes` | Automatismes (gestes systématiques) et routines horaires de chaque jour |
@@ -50,7 +52,7 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 
 Les journées vécues sont stockées dans `data/timelines/<personnage>/<date>.json`, avec une version lisible `<date>.md`.
 
-Chaque pas de 5 minutes contient : heure, pièce, posture, routine suivie, activité, action, pensée (voix intérieure), rêve et phase de sommeil la nuit, déplacement (chemin, distance, durée, foulées, escalier, parcours extérieur), interrupteurs actionnés, appareils allumés, objets déplacés, provisions consommées, achetées ou préparées avec le stock restant, mouvements d'argent (espèces, compte, caisse), événements vécus avec leur effet sur chaque émotion, besoins et émotions à la fin du pas.
+Chaque pas de 5 minutes contient : heure, pièce, posture, routine suivie, activité, action, pensée (voix intérieure), rêve et phase de sommeil la nuit, déplacement (chemin, distance, durée, foulées, escalier, parcours à pied ou en voiture), interrupteurs actionnés, appareils allumés, objets déplacés, provisions consommées, achetées ou préparées avec le stock restant, mouvements d'argent (espèces, compte, caisse, coffre, ardoises), événements vécus avec leur effet sur chaque émotion, besoins et émotions à la fin du pas. Chez un commerçant : clients servis, ventes (produit, quantité, prix, paiement), livraisons, reprises d'invendus, prélèvements pour la maison, ruptures, et le stock du magasin restant.
 
 Le stock de provisions est suivi d'un jour à l'autre : une journée qui consomme ce qui n'existe plus est refusée.
 
@@ -65,8 +67,14 @@ Les émotions ne sont jamais fixées à la main : elles sont calculées à parti
 | `timelines/thomas-berthier/2010-03-12.json` | Vendredi 12 mars : Zenith en observation, gestion, dépose de l'ancien axe, fin de « La Route » |
 | `timelines/thomas-berthier/2010-03-13.json` | Samedi 13 mars : ménage, courses, début de « Courir », montage de l'axe : la montre du grand-père bat de nouveau |
 | `timelines/thomas-berthier/2010-03-14.json` | Dimanche 14 mars : sortie longue de 12 km, fin de « Courir », réglage après 24 h |
-| `timelines/robert-chazal/2010-03-08.json` … `2010-03-14.json` | La semaine de l'épicier : fermeture du lundi, livraisons, service, visites de Thomas, match du mercredi, dimanche matin |
-| `references/thomas-berthier/2010-03-08.json` … `2010-03-10.json` | Lundi à mercredi rédigés à la main, sans courses : la référence qui valide l'agent |
+| `timelines/robert-chazal/2010-03-08.json` | Lundi 8 mars : banque, grand ménage, comptes, bon de commande, potager, cinéma avec Josiane |
+| `timelines/robert-chazal/2010-03-09.json` | Mardi 9 mars : livraisons, Mme Ferrand et M. Benali, l'horloger, omelette, coucher avancé |
+| `timelines/robert-chazal/2010-03-10.json` | Mercredi 10 mars : ardoise des étudiantes, croque-monsieur, Real Madrid – Lyon |
+| `timelines/robert-chazal/2010-03-11.json` | Jeudi 11 mars : cabas oublié, l'horloger, bon de commande pour vendredi |
+| `timelines/robert-chazal/2010-03-12.json` | Vendredi 12 mars : grossiste, ardoise réglée |
+| `timelines/robert-chazal/2010-03-13.json` | Samedi 13 mars : l'horloger à 11:50, belote avec les Morel |
+| `timelines/robert-chazal/2010-03-14.json` | Dimanche 14 mars : boutique le matin, rôti, vote, randonnée dans les monts d'Or |
+| `references/<personnage>/2010-03-08.json` … `2010-03-10.json` | Lundi à mercredi rédigés à la main : la référence qui valide chaque agent (Thomas sans les courses) |
 
 Toutes les journées de `timelines/` sont vécues par les agents autonomes (`outils/simuler_agent.py`). Les journées rédigées à la main sont gardées dans `references/` et calculées par `outils/generer_journee.py`. Voir `outils/README.md`.
 
@@ -74,7 +82,7 @@ Toutes les journées de `timelines/` sont vécues par les agents autonomes (`out
 
 | Fichier | Contenu |
 |---|---|
-| `monde/croix-rousse.json` | Géométrie partagée, dans un seul repère : relief, rues, place, immeubles de Thomas et de l'épicerie (étages, escaliers), logements des deux personnages (pièces, portes, fenêtres, mobilier, emplacements des objets, postes), Saône, quais, trajets de course et d'épicerie. **Proposition à valider.** |
+| `monde/croix-rousse.json` | Géométrie partagée, dans un seul repère : relief (plateau, pentes vers la Saône et le Rhône, monts d'Or), rues de la Croix-Rousse et de Villeurbanne, place, immeubles de Thomas et de l'épicerie, maison de Robert (étages, escaliers), logements (pièces, portes, fenêtres, mobilier, emplacements des objets, postes), Saône, Rhône, trajets de course, d'épicerie, en Kangoo et à pied. **Proposition à valider.** |
 | `monde/echanges.json` | Répliques partagées par deux personnages qui se rencontrent (Thomas et Robert au comptoir) |
 | `monde/evenements.json` | Événements réels vécus aux mêmes minutes par plusieurs habitants (match Real Madrid – Lyon) |
 
@@ -85,11 +93,11 @@ Repère : x vers l'est le long de la rue d'Austerlitz, y vers le nord, z vers le
 | Dossier | Contenu |
 |---|---|
 | `agents/<personnage>/` | Connaissances de l'agent autonome : plan, recettes, travaux, séances, repas, modèles de pensées |
-| `simulations/<personnage>/` | Lundi à mercredi revécus par l'agent sans les courses, pour les comparer à la référence, et rapport `VALIDATION.md` |
+| `simulations/<personnage>/` | Lundi à mercredi revécus par l'agent, pour les comparer à la référence, et rapport `VALIDATION.md` |
 
 ## Personnages
 
 | Fichier | Personnage |
 |---|---|
 | `personnages/thomas-berthier.json` | Thomas Berthier, 31 ans, horloger indépendant à Lyon (cas d'étude n°1) |
-| `personnages/robert-chazal.json` | Robert Chazal, 58 ans, épicier de la Grande-Rue de la Croix-Rousse, veuf (personnage n°2) |
+| `personnages/robert-chazal.json` | Robert Chazal, 58 ans, épicier de la Grande-Rue de la Croix-Rousse, marié à Josiane, vit à Villeurbanne (personnage n°2) |
