@@ -17,7 +17,23 @@ import zlib
 GENRE = {"pack": "m", "boîte": "f", "brique": "f", "plaquette": "f", "paquet": "m", "tablette": "f", "morceau": "m", "sachet": "m",
          "bouteille": "f", "pièce": "f", "barquette": "f", "sac": "m", "bidon": "m", "pommes": "f", "oranges": "f", "bananes": "f",
          "oignons": "m", "baguettes": "f", "pains": "m", "laitues": "f"}
-NOMBRES = ["zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix"]
+NOMBRES = ["zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze", "treize", "quatorze", "quinze", "seize"]
+DIZAINES = {20: "vingt", 30: "trente", 40: "quarante", 50: "cinquante", 60: "soixante", 80: "quatre-vingt"}
+
+
+def en_lettres(n):
+    """Nombre de 0 à 99 en toutes lettres."""
+    if n < 17:
+        return NOMBRES[n]
+    if n < 20:
+        return "dix-" + NOMBRES[n - 10]
+    d, u = (n // 10) * 10, n % 10
+    if d in (70, 90):
+        base = "soixante" if d == 70 else "quatre-vingt"
+        return base + ("-et-onze" if (d == 70 and u == 1) else "-" + en_lettres(10 + u))
+    if u == 0:
+        return DIZAINES[d] + ("s" if d == 80 else "")
+    return DIZAINES[d] + ("-et-un" if u == 1 and d != 80 else "-" + NOMBRES[u])
 PORTRAITS = ["une dame âgée", "un ouvrier du chantier de la place", "une jeune mère avec sa poussette", "un étudiant", "un retraité en casquette",
              "une infirmière qui sort de garde", "un monsieur en costume", "une adolescente", "un livreur", "une voisine de la rue d'Ivry",
              "un couple de touristes", "un peintre du quartier", "une dame avec son chien", "un jeune homme pressé", "une employée de la mairie",
@@ -47,22 +63,24 @@ def enumerer(mots):
 
 
 def libelle(c, n):
-    """« une baguette », « quatre pommes », « deux paquets de pâtes »."""
+    """« une baguette », « quatre pommes », « deux paquets de pâtes », « huit pains de campagne »."""
+    nb = en_lettres(n) if n < 100 else str(n)
     if c["vente"] in ("à la pièce", "pièce"):
         nom = c["nom"].split(" (")[0]
         if c["vente"] == "pièce":
             if n == 1:
                 return ("une " if GENRE.get(c["unite"]) == "f" else "un ") + nom
-            return f"{NOMBRES[n] if n <= 10 else n} {c['unite']}"
+            mots = nom.split(" ")
+            return f"{nb} {' '.join([mots[0] + 's'] + mots[1:])}"
         if n == 1:
             return ("une " if GENRE.get(c["unite"]) == "f" else "un ") + c["unite"][:-1]
-        return f"{NOMBRES[n] if n <= 10 else n} {c['unite']}"
+        return f"{nb} {c['unite']}"
     base = c["nom"].split(" (")[0]
-    de = "d'" if base[0].lower() in "aeiouyhéèêœ" else "de "
+    de = "d'" if base[0].lower() in "aeiouhéèêœ" and not base.lower().startswith(("haricot", "yaourt")) else "de "
     if n == 1:
         return ("une " if GENRE.get(c["vente"]) == "f" else "un ") + f"{c['vente']} {de}{base}"
     pluriel = c["vente"] if c["vente"].endswith(("s", "x")) else c["vente"] + "s"
-    return f"{NOMBRES[n] if n <= 10 else n} {pluriel} {de}{base}"
+    return f"{nb} {pluriel} {de}{base}"
 
 
 class Clientele:
@@ -237,7 +255,7 @@ class Comptoir:
 
     def pas(self, i, clients=None):
         res = self.cl.servir(i, self.stock, clients, self.ardoises)
-        out = {"ventes": res["ventes"], "clients": res["n"], "ev": [], "texte": self.cl.raconter(res)}
+        out = {"ventes": res["ventes"], "clients": res["n"], "ev": [], "texte": self.cl.raconter(res), "details": res["clients"]}
         self.nb_clients += res["n"]
         self.recette = round(self.recette + sum(res["recu"].values()), 2)
         if res["rembourse"]:

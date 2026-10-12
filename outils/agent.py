@@ -1073,7 +1073,7 @@ class Agent:
                 return ("une " if self.GENRE.get(c["unite"]) == "f" else "un ") + c["unite"][:-1]
             return f"{n} {c['unite']}"
         base = c["nom"].split(" (")[0]
-        de = "d'" if base[0].lower() in "aeiouyhéèêœ" else "de "
+        de = "d'" if base[0].lower() in "aeiouhéèêœ" and not base.lower().startswith(("haricot", "yaourt")) else "de "
         if n == 1:
             return ("une " if self.GENRE.get(c["vente"]) == "f" else "un ") + f"{c['vente']} {de}{base}"
         return f"{n} {c['vente']}s {de}{base}"

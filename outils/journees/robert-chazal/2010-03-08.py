@@ -123,13 +123,13 @@ def rediger(etat):
         p("Essuie les clayettes, remet tout en place, les dates les plus courtes devant.", None, via=["reserve"], radio=True, mode="travail"),
         p("Monte sur l'escabeau et dépoussière les rayons du haut.", None, radio=True, ev=["effort_physique"]),
         p("Dépoussière les conserves une par une.", "Les haricots verts, personne n'en prend. J'en commande toujours trop.", radio=True),
-    ])
+    ], lieu=BOUTIQUE)
     j.seg("09:45", "Café de dix heures moins le quart", "boutique", "rt-lundi", "eveille", "simple", "debout", [
         p("Passe aux toilettes du fond, puis se fait un café dans l'arrière-boutique et le boit debout, la tasse de Lucas à la main.",
           "« Meilleur papi. » Il a écrit le « p » à l'envers, sur la carte.", via=["wc-boutique", "arriere-boutique"], radio=True,
           effets={"toilettes": "vide", "cafe": True, "soif": 15}, ev=["plaisir_simple", "pensee_claire"], consommation=[c("cafe_boutique", 7)],
           app=onoff(["cafetiere-boutique"], ["cafetiere-boutique"])),
-    ])
+    ], lieu=BOUTIQUE)
     j.seg("09:50", "Grand ménage de la boutique", "boutique", "rt-lundi", "effort", "simple", "debout", [
         p("Nettoie l'étal des fruits et légumes, jette les feuilles et la terre.", None, radio=True),
         p("Lave la porte vitrée et l'intérieur de la vitrine.", None, radio=True),
@@ -140,7 +140,7 @@ def rediger(etat):
         p("Range la réserve : aplatit les cartons vides et les sort dans la cour.", None, via=["reserve", "cour-epicerie"], radio=True),
         p("Remet les cagettes vides en pile pour le grossiste.", None, piece="reserve", radio=True),
         p("Passe la serpillière dans la réserve.", None, piece="reserve", radio=True, ev=["effort_physique"]),
-    ])
+    ], lieu=BOUTIQUE)
 
     # ------------------------------------------------------------ comptes
     j.seg("10:30", "Comptes de la semaine", "arriere-boutique", "rt-lundi", "travail", "precision", "assis", [

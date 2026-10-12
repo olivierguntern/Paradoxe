@@ -1,42 +1,102 @@
 {
- "frequence_preoccupations": 0.12,
- "service": {
-  "vide": [
-   "Remet de l'ordre dans l'étal de fruits.",
-   "Regarde passer la Grande-Rue par la vitrine.",
-   "Refait le plein du rayon des conserves.",
-   "Essuie le comptoir d'un coup de chiffon.",
-   "Écrit deux prix à la craie sur l'ardoise.",
-   "Range les bocaux de bonbons près de la caisse."
+  "principe": "Modèles de pensées, de rêves et de petits gestes de Robert, choisis par l'agent de façon déterministe selon le jour, l'heure et son état.",
+  "frequence_preoccupations": 0.1,
+  "reves": [
+    { "texte": "La boutique est pleine ; tout le monde parle en même temps et le tiroir de la caisse refuse de s'ouvrir.", "ev": "reve_inquiet" },
+    { "texte": "Le bal de la Croix-Rousse, en 1974. Josiane porte sa robe à pois et se moque de ses chaussures neuves.", "ev": "reve_souvenir" },
+    { "texte": "Lucas choisit des bonbons un par un dans les bocaux, et les bocaux ne se vident jamais.", "ev": null },
+    { "texte": "Le camion du grossiste recule dans la Grande-Rue et ne s'arrête plus ; les cagettes roulent jusqu'à la place.", "ev": "reve_inquiet" },
+    { "texte": "Son père, au bord du canal de Jonage, tend une canne à pêche à Lucas.", "ev": "reve_souvenir" },
+    { "texte": "Il cherche un cadeau dans une boutique où tout est en vitrine et rien n'est à vendre.", "ev": "reve_inquiet" },
+    { "texte": "Claire petite, debout sur une cagette derrière le comptoir, rend la monnaie en riant.", "ev": "reve_souvenir" },
+    { "texte": "La supérette du boulevard a une file d'attente jusqu'à sa porte à lui ; personne n'entre.", "ev": "reve_inquiet" },
+    { "texte": "Il marche dans les monts d'Or, et chaque pierre du chemin est une boîte de conserve.", "ev": null }
   ],
-  "un": [
-   "Sert une cliente : une baguette et un litre de lait.",
-   "Sert un client pressé : un paquet de café, la monnaie, au revoir.",
-   "Sert une dame âgée du quartier, qui prend son temps pour choisir ses pommes.",
-   "Sert un étudiant : des pâtes, du thon, une bière.",
-   "Sert une mère de famille : des yaourts, du jambon, des biscuits.",
-   "Sert un habitué qui lui parle du temps qu'il fait.",
-   "Sert un ouvrier du chantier d'en face : un sandwich et une bouteille d'eau."
+  "micro_eveil": ["Se retourne, entend Josiane respirer, se rendort.", "Remonte la couverture, se rendort.", "Un camion passe dans la rue ; il se rendort."],
+  "vide": {
+    "matin": ["Range les packs de lait dans la vitrine réfrigérée.", "Aligne les boîtes de conserve, les étiquettes vers la rue.", "Essuie le comptoir.",
+              "Regarde passer les bus dans la Grande-Rue.", "Redresse les cagettes de l'étal.", "Range les bocaux de bonbons.", "Fait la monnaie dans le tiroir de la caisse.",
+              "Chantonne avec la radio.", "Vérifie les dates des yaourts.", "Met en rayon les paquets de café."],
+    "apres": ["Range la réserve.", "Recopie les ventes du matin dans le cahier.", "Regarde la Grande-Rue par la vitrine.", "Redresse les boîtes de conserve.",
+              "Essuie la vitrine réfrigérée.", "Chantonne avec la radio.", "Écrit une étiquette à la main.", "Aplatit les cartons vides dans la réserve.",
+              "Compte les sacs de pommes de terre de la réserve.", "Remet de l'ordre dans le présentoir de cartes postales."],
+    "dimanche": ["Regarde la Grande-Rue du dimanche, presque vide.", "Essuie le comptoir.", "Range les bocaux de bonbons.", "Chantonne avec la radio.",
+                 "Redresse les cagettes de l'étal.", "Fait la monnaie dans le tiroir de la caisse."]
+  },
+  "comptoir": {
+    "cafe": "Se fait un café dans l'arrière-boutique et revient au comptoir avec la tasse de Lucas.",
+    "cafe_toilettes": "Passe aux toilettes du fond, se fait un café dans l'arrière-boutique et revient au comptoir avec la tasse de Lucas.",
+    "toilettes": "Passe aux toilettes du fond pendant un creux.",
+    "eau": "Boit un grand verre d'eau à l'évier de l'arrière-boutique.",
+    "reassort": ["Entre deux clients, va chercher un carton de lait à la réserve.", "Ouvre les cartons de conserves et remplit les rayons du fond."],
+    "etal_rempli": "Remplit l'étal de pommes depuis la réserve.",
+    "etal_resserre": ["Commence à resserrer l'étal de fruits avant midi.", "Commence à rentrer l'étal de fruits pour la nuit."],
+    "ardoise": "Il sort le carnet des ardoises de sous la caisse et y note la date et la somme."
+  },
+  "journal": {
+    "2010-03-08": ["Lit Le Progrès : la neige à Perpignan, les régionales de dimanche."],
+    "2010-03-09": ["Déplie Le Progrès sur le comptoir : tout le journal parle de Madrid.", "Lit Le Progrès entre deux clients : les élections régionales, la neige dans le Roussillon.", "Relit Le Progrès, la page de l'OL, accoudé au comptoir."],
+    "2010-03-10": ["Lit la une du Progrès : l'OL au pied du mur.", "Lit Le Progrès entre deux clients : les deux pages sur Madrid.", "Relit la page des sports en attendant les clients."],
+    "2010-03-11": ["Relit la une du Progrès : Lyon qualifié au Bernabéu, Pjanić en photo.", "Lit le compte rendu du match, ligne par ligne.", "Lit les pages régionales, les meetings des régionales."],
+    "2010-03-12": ["Lit Le Progrès : le tirage des quarts de finale approche.", "Lit les pages de Lyon : les travaux de la place.", "Fait les mots fléchés du journal entre deux clients."],
+    "2010-03-13": ["Feuillette Le Progrès : le tiercé, les programmes du week-end.", "Lit les petites annonces : un fonds de commerce à vendre rue d'Austerlitz.", "Relit la page des sports."],
+    "2010-03-14": ["Lit Le Progrès du dimanche : les bureaux de vote, les listes en présence.", "Lit les pages régionales.", "Fait les mots croisés du journal."],
+    "pensees": ["Toujours les mêmes nouvelles. Et toujours le prix du gazole qui monte.", "Un fonds de commerce à vendre. Encore un.", "Les régionales. Je voterai, comme toujours."]
+  },
+  "garnier": [
+    { "texte": "M. Garnier, le buraliste, sort fumer sur le trottoir ; Robert le rejoint sur le pas de la porte. Ils parlent de l'OL et de la supérette.", "pensee": "Garnier dit que la supérette va fermer le dimanche. On verra." },
+    { "texte": "M. Garnier passe la tête par la porte : ils parlent du tiercé et des loyers de la Grande-Rue.", "pensee": "Les loyers. Garnier aussi a peur, ça se voit." },
+    { "texte": "Sort sur le trottoir avec M. Garnier ; ils regardent passer les voitures en parlant du quartier.", "pensee": "Vingt ans qu'on se parle sur ce trottoir." }
   ],
-  "plusieurs": [
-   "Sert {n} clients à la suite, rend la monnaie sans regarder la caisse.",
-   "Petite file au comptoir : {n} clients, des baguettes surtout.",
-   "{n} clients en même temps ; il plaisante avec l'un pendant qu'il pèse les tomates de l'autre."
-  ]
- },
- "preoccupations": {
-  "pre-chiffre": {"evenement": "constat_chiffre", "textes": ["La supérette du boulevard me prend mes clients du soir.", "Il faudrait trois cents euros par jour. On y sera pas."]},
-  "pre-josiane": {"evenement": "souvenir_josiane", "textes": ["Le 16, ça fera trente-quatre ans. Josiane aurait fait un gâteau.", "Josiane aurait déjà changé la vitrine pour Pâques."]},
-  "pre-claire": {"evenement": "pensee_claire", "textes": ["Claire doit être de garde. Les petits chez leur père.", "Emma a dû grandir encore. Pâques, ils viendront peut-être."]},
-  "pre-match": {"evenement": "anticipation_plaisir", "textes": ["Mercredi, Madrid. S'ils tiennent le 1-0…", "Lyon au Bernabéu. Faudra pas fermer en retard."], "jusqua": "2010-03-10"},
-  "pre-dos": {"evenement": "mal_de_dos", "textes": ["Le dos. Encore quatre ans à porter des cagettes.", "Faudra que je m'assoie un peu, ce dos."]}
- },
- "apres_client_connu": ["Toujours seul, ce garçon.", "Un bon petit, l'horloger. Il parle à ses montres plus qu'aux gens.", "Il a l'air fatigué, l'horloger."],
- "reves": [
-  {"texte": "Josiane derrière la caisse, qui rend la monnaie en francs.", "ev": "reve_souvenir"},
-  {"texte": "La boutique est vide, les rayons aussi, et la porte ne ferme plus.", "ev": "reve_inquiet"},
-  {"texte": "La plage de Sète, l'été 1985. Claire construit un château de sable.", "ev": "reve_souvenir"},
-  {"texte": "Un camion de livraison qui ne s'arrête pas devant la boutique.", "ev": "reve_inquiet"},
-  {"texte": "Le bal de la Croix-Rousse, la musique, mais il ne trouve pas Josiane.", "ev": "reve_souvenir"}
- ]
+  "grosses_tetes": {
+    "debut": "Les Grosses Têtes commencent à la radio ; il monte un peu le son.",
+    "rire": ["Éclate de rire à une blague de Bouvard à la radio.", "Rit tout seul à une histoire des Grosses Têtes ; un client rit avec lui."]
+  },
+  "habitues": {
+    "Mme Ferrand": ["Quatre-vingt-deux ans, et elle sait tout ce qui se passe dans la rue avant tout le monde.", "Elle vient pour parler, le pain c'est l'excuse.", "Elle me fait penser à ma mère, avec son cabas à roulettes."],
+    "M. Benali": ["Ahmed. Trente ans qu'il critique le pain des autres.", "Il a raison pour le match, le bougre.", "Ahmed et moi, deux vieux commerçants. Lui a vendu à temps."],
+    "les deux étudiantes du 7": ["Des pâtes, des pâtes. À leur âge, je mangeais pareil.", "Elles paieront. Elles paient toujours, celles-là.", "Elles me rappellent Claire, à vingt ans."]
+  },
+  "client_connu": {
+    "entree": ["Toujours seul, ce garçon. Il parle à ses montres plus qu'aux gens.", "L'horloger. Il a toujours l'air de compter quelque chose.", "Il devrait sortir un peu, ce petit."],
+    "paiement": ["Il a l'air fatigué. Les montres, ça use les yeux.", "Deux mots, et il repart. Il est comme ça.", "Josiane dit qu'il faudrait l'inviter un dimanche. Elle a raison, peut-être."]
+  },
+  "caisse": {
+    "dessus": "Au-dessus de trois cents. Ça arrive encore.",
+    "dessous": "En dessous de trois cents. Comme d'habitude, maintenant.",
+    "midi": "{recette} ce matin, cartes comprises."
+  },
+  "tele": {
+    "defaut": ["La météo.", "Un jeu télévisé ; Josiane donne les réponses avant les candidats.", "Le jeu.", "Un film commence.", "Regarde le film.", "Regarde le film.",
+               "Somnole devant le film.", "Se réveille, regarde le film.", "Regarde le film.", "Josiane tricote à côté de lui.", "Regarde le film, les paupières lourdes.",
+               "Somnole.", "Regarde la fin du film.", "Zappe sur un documentaire.", "Regarde le documentaire."],
+    "dimanche": ["Les soirées électorales : les premières estimations des régionales.", "Les résultats région par région.", "Les commentateurs, les graphiques.",
+                 "Josiane commente les visages des candidats.", "Les résultats de Rhône-Alpes.", "Les discours des têtes de liste.", "Zappe sur un film.", "Regarde le film.",
+                 "Somnole devant le film.", "Regarde le film."],
+    "josiane_monte": "Josiane monte se coucher : « Ne traîne pas. »",
+    "fatigue": "Éteint la télévision : il dort debout. Josiane : « Monte, va. »",
+    "fin": "Éteint la télévision.",
+    "pensees": ["Demain, cinq heures et demie.", "Le 16. Toujours pas d'idée.", "Claire doit être de garde, ce soir."]
+  },
+  "belote": {
+    "parties": ["Distribue les cartes. Gérard prend à cœur.", "Joue ; Monique compte les points à voix haute.", "Gérard annonce une belote et rebelote, triomphant.",
+                "Robert coupe à l'atout, Josiane le regarde de travers.", "Partie serrée ; personne ne parle.", "Gérard raconte le dernier match de Saint-Étienne ; tout le monde rit.",
+                "Monique note les points dans le carnet.", "Joue, les cartes en éventail.", "Robert fait un capot ; il tape sur la table.", "Josiane sert des bugnes et du café.",
+                "Distribue.", "Joue. Gérard réfléchit trop longtemps."],
+    "gagnee": "Robert et Gérard gagnent la partie ; Gérard se lève pour lui serrer la main.",
+    "perdue": "Les dames gagnent la partie. Monique rit, Josiane aussi.",
+    "pensees": ["Gérard, toujours une blague d'avance.", "Trente ans de belote. On n'a jamais compté qui gagne vraiment.", "Josiane joue mieux que moi. Faut pas le dire."]
+  },
+  "endormissement": {
+    "agite": ["Revoit la journée, les yeux ouverts dans le noir.", "Se retourne. Le cœur bat encore.", "Se retourne de l'autre côté. Josiane soupire dans son sommeil.",
+              "Compte les cagettes de la prochaine livraison pour s'endormir.", "Se calme peu à peu.", "Les paupières lourdes."],
+    "calme": ["Écoute Josiane respirer.", "Pense au chiffre du jour, puis à rien."],
+    "endormi": "S'endort."
+  },
+  "preoccupations": {
+    "pre-chiffre": { "evenement": "constat_chiffre", "textes": ["La supérette du boulevard me mange.", "Encore un fonds de commerce à vendre dans la rue.", "Trois cents euros par jour. C'était facile, avant."] },
+    "pre-anniversaire": { "evenement": "anniversaire_mariage", "jusqua": "2010-03-15", "textes": ["Le 16. Trente-quatre ans. Faut que je trouve quelque chose.", "Un bijou ? Elle en porte jamais.", "Un restaurant, peut-être. Le petit sur les quais."] },
+    "pre-claire": { "evenement": "pensee_claire", "textes": ["Claire doit être de garde ce soir.", "Lucas va avoir sept ans. Sept ans, déjà.", "Emma m'appelle « papi épicier ». Je le dis à tous les clients."] },
+    "pre-dos": { "evenement": "mal_de_dos", "textes": ["Le dos. Encore quatre ans à porter des cagettes.", "Faudrait que je voie le kiné. Josiane le dit depuis Noël."] }
+  }
 }

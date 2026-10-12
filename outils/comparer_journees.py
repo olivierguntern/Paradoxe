@@ -3,7 +3,8 @@
 Usage : python3 outils/comparer_journees.py REFERENCE.json SIMULATION.json [--details]
 
 Faits comparés à chaque pas : pièce, lieu, posture, appareils et lumières
-allumés, position de chaque objet, stock de chaque provision. Les besoins et
+allumés, position de chaque objet, stock de chaque provision ; pour un
+commerçant, stock du magasin et argent (caisse, coffre, compte, ardoises). Les besoins et
 les émotions sont comparés en écart moyen. Les textes (actions, pensées) ne
 sont pas comparés.
 """
@@ -12,19 +13,29 @@ import sys
 
 
 def positions_par_pas(j):
+    """Position des objets, stock de la maison, stock du magasin et argent à la fin de chaque pas."""
     pos = dict(j["etat_initial"]["positions"])
     stock = dict(j["etat_initial"]["stock"])
+    magasin = dict(j["etat_initial"].get("boutique") or {})
+    argent = dict(j["etat_initial"].get("argent") or {})
     out = []
     for s in j["pas"]:
         for o in s.get("nouveaux_objets", []):
             pos[o["id"]] = o["position"]
         for o in s.get("objets", []):
             pos[o["objet"]] = o["vers"]
-        for cle in ("production", "consommation"):
+        for cle in ("achats", "production", "consommation"):
             for x in s.get(cle, []):
                 if "reste" in x:
                     stock[x["produit"]] = x["reste"]
-        out.append((dict(pos), dict(stock)))
+        for cle in ("livraisons", "reprises", "ventes", "prelevements"):
+            for x in s.get(cle, []):
+                magasin[x["produit"]] = x["reste"]
+                if cle == "prelevements":
+                    stock[x["maison"]] = x["reste_maison"]
+        if s.get("argent"):
+            argent = dict(s["argent"]["soldes"])
+        out.append((dict(pos), dict(stock), dict(magasin), dict(argent)))
     return out
 
 
@@ -49,6 +60,8 @@ def comparer(ref, sim):
     R, S = ref["pas"], sim["pas"]
     pr, ps = positions_par_pas(ref), positions_par_pas(sim)
     criteres = {"pièce": [], "lieu": [], "posture": [], "appareils": [], "objets": [], "stock": []}
+    if ref["etat_initial"].get("boutique"):
+        criteres.update({"magasin": [], "argent": []})
     objets_diff = {}
     for k, (a, b) in enumerate(zip(R, S)):
         h = a["heure"]
@@ -67,6 +80,10 @@ def comparer(ref, sim):
                     objets_diff.setdefault(o, []).append(h)
         if pr[k][1] != ps[k][1]:
             criteres["stock"].append(h)
+        if "magasin" in criteres and pr[k][2] != ps[k][2]:
+            criteres["magasin"].append(h)
+        if "argent" in criteres and pr[k][3] != ps[k][3]:
+            criteres["argent"].append(h)
     n = len(R)
     def mae(cle):
         noms = R[0][cle].keys()

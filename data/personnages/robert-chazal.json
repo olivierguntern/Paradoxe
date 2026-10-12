@@ -39,6 +39,7 @@
       "Lundi 8 mars 2010 : chutes de neige exceptionnelles en Catalogne et dans le Roussillon, nombreux foyers privés d'électricité.",
       "« The Ghost Writer » de Roman Polanski est sorti en France le 3 mars 2010 (2 h 08) ; l'UGC Ciné Cité Internationale se trouve quai Charles-de-Gaulle, à la Cité internationale (Lyon 6e). L'horaire de la séance est supposé.",
       "En 2010, « Les Grosses Têtes » de Philippe Bouvard passent sur RTL en semaine l'après-midi.",
+      "Dimanche 14 mars 2010 : premier tour des élections régionales.",
       "Le Progrès est le quotidien régional de Lyon. Le mont Thou (609 m) et le mont Cindre (467 m) font partie des monts d'Or, au nord de Lyon ; le parcours de randonnée est approximatif."
     ],
     "elements_fictifs": "Robert, Josiane, leur famille, leurs voisins les Morel, le buraliste M. Garnier, l'épicerie, la maison et la rue des Glycines sont fictifs. La Croix-Rousse, la Grande-Rue, le boulevard, Villeurbanne et le quartier de Cusset sont réels."
@@ -529,6 +530,13 @@
       "description": "Multiplexe au bord du Rhône, parking souterrain de la Cité internationale, à 3,5 km de la maison."
     },
     {
+      "id": "bureau-de-vote",
+      "nom": "Bureau de vote de l'école du quartier",
+      "type": "public",
+      "adresse": "Villeurbanne, à 400 m de la maison",
+      "description": "Préau de l'école primaire ; Robert et Josiane y votent ensemble."
+    },
+    {
       "id": "monts-d-or",
       "nom": "Monts d'Or, boucle du mont Thou",
       "type": "extérieur",
@@ -712,7 +720,7 @@
     { "id": "obj-cles", "nom": "Trousseau de clés (maison, boutique, rideau de fer)", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "vide-poche" }, "importance": 0.7 },
     { "id": "obj-cles-kangoo", "nom": "Clés de la Kangoo", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "vide-poche" }, "importance": 0.6 },
     { "id": "obj-kangoo", "nom": "Renault Kangoo blanche (2003)", "emplacement_initial": { "lieu": "domicile", "piece": "garage", "support": "place de la Kangoo" }, "importance": 0.7 },
-    { "id": "obj-portefeuille", "nom": "Portefeuille", "contenu": ["60 € en espèces", "carte bancaire", "permis de conduire", "photo des petits-enfants"], "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "vide-poche" }, "importance": 0.6 },
+    { "id": "obj-portefeuille", "nom": "Portefeuille", "contenu": ["60 € en espèces", "carte bancaire", "permis de conduire", "carte d'électeur", "photo des petits-enfants"], "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "vide-poche" }, "importance": 0.6 },
     { "id": "obj-veste", "nom": "Veste matelassée bleu marine", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "portemanteau" }, "importance": 0.2 },
     { "id": "obj-montre", "nom": "Montre Seiko automatique offerte par Josiane pour ses cinquante ans, révisée par Thomas Berthier en 2008", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet de Robert" }, "importance": 0.8 },
     { "id": "obj-lunettes", "nom": "Lunettes de lecture", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet de Robert" }, "importance": 0.5 },
@@ -828,8 +836,9 @@
         { "debut": "12:00", "fin": "12:15", "lieu": "arriere-boutique", "action": "Ferme et compte la caisse" },
         { "debut": "12:15", "fin": "12:30", "lieu": "trajet-voiture", "action": "Rentre" },
         { "debut": "12:30", "fin": "13:45", "lieu": "sejour", "action": "Déjeuner du dimanche avec Josiane" },
-        { "debut": "13:45", "fin": "14:30", "lieu": "sejour", "action": "Sieste" },
-        { "debut": "14:30", "fin": "14:45", "lieu": "entree", "action": "Chaussures de marche, sac à dos" },
+        { "debut": "13:45", "fin": "14:15", "lieu": "sejour", "action": "Sieste" },
+        { "debut": "14:15", "fin": "14:35", "lieu": "bureau-de-vote", "action": "Va voter à pied avec Josiane : premier tour des régionales" },
+        { "debut": "14:35", "fin": "14:45", "lieu": "entree", "action": "Chaussures de marche, sac à dos" },
         { "debut": "14:45", "fin": "15:15", "lieu": "trajet-voiture", "action": "Route vers Poleymieux-au-Mont-d'Or" },
         { "debut": "15:15", "fin": "17:30", "lieu": "monts-d-or", "action": "Randonnée avec Josiane : mont Thou, mont Cindre" },
         { "debut": "17:30", "fin": "18:00", "lieu": "trajet-voiture", "action": "Retour à Villeurbanne" },
@@ -873,6 +882,7 @@
     { "id": "ag-commande-jeudi", "debut": "2010-03-11T19:00", "fin": "2010-03-11T19:15", "lieu": "epicerie-chazal", "quoi": "Bon de commande du grossiste pour vendredi", "engagement": "ferme", "objets_necessaires": ["obj-bon-commande"] },
     { "id": "ag-livraison-vendredi", "debut": "2010-03-12T06:40", "fin": "2010-03-12T07:00", "lieu": "epicerie-chazal", "quoi": "Livraison du grossiste", "engagement": "ferme", "objets_necessaires": ["obj-cles"] },
     { "id": "ag-belote", "debut": "2010-03-13T20:40", "fin": "2010-03-13T23:00", "lieu": "domicile", "quoi": "Belote avec Gérard et Monique Morel", "engagement": "souple", "objets_necessaires": ["obj-jeu-de-cartes"] },
+    { "id": "ag-vote", "debut": "2010-03-14T14:20", "fin": "2010-03-14T14:35", "lieu": "bureau-de-vote", "quoi": "Voter au premier tour des élections régionales, avec Josiane", "engagement": "ferme", "objets_necessaires": ["obj-portefeuille"] },
     { "id": "ag-randonnee", "debut": "2010-03-14T14:45", "fin": "2010-03-14T18:00", "lieu": "monts-d-or", "quoi": "Randonnée avec Josiane dans les monts d'Or", "engagement": "souple", "objets_necessaires": ["obj-chaussures-marche", "obj-sac-a-dos", "obj-cles-kangoo"] }
   ],
 
