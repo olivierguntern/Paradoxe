@@ -77,9 +77,28 @@
   "repas_au_depart": 2
  },
  "lecture": {
-  "page_au_depart": 112,
   "pages_par_pas": 5,
-  "pages_total": 252
+  "livres": [
+   {
+    "id": "obj-livre",
+    "titre": "La Route",
+    "auteur": "Cormac McCarthy",
+    "pages_total": 252,
+    "page_au_depart": 112,
+    "pensee_fin": "Fini. Le père et le fils. Je ne l'oublierai pas."
+   },
+   {
+    "id": "obj-livre-courir",
+    "titre": "Courir",
+    "auteur": "Jean Echenoz",
+    "pages_total": 142,
+    "page_au_depart": 0,
+    "pensee_debut": "Echenoz. Zátopek, le coureur tchèque. Voyons.",
+    "pensee_fin": "Fini. Courir comme ça, toute une vie."
+   }
+  ],
+  "rangement_livre_fini": "sejour / bibliothèque",
+  "principe": "Quand un livre est terminé, le suivant est pris dans la bibliothèque au début de la séance de lecture suivante au séjour."
  },
  "diner_fini_a": "20:00",
  "seance": {
@@ -151,5 +170,12 @@
    "18:00"
   ],
   "soiree_libre_jusqua": "22:00"
+ },
+ "anticipation_seance": {
+  "principe": "Avant une séance sur la montre du grand-père, il passe aux toilettes ou boit un verre d'eau si le besoin passerait sous son seuil d'alerte avant la fin prévue.",
+  "besoins": [
+   "toilettes",
+   "soif"
+  ]
  }
 }

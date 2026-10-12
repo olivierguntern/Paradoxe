@@ -1,7 +1,7 @@
 {
  "meta": {
   "personnage": "thomas-berthier",
-  "fiche_version": 7,
+  "fiche_version": 8,
   "date": "2010-03-12",
   "jour": "vendredi",
   "pas_minutes": 5,
@@ -171,6 +171,7 @@
    "obj-portefeuille": "entree / tiroir de la commode",
    "obj-carnet": "chambre / table de chevet, sous le livre",
    "obj-livre": "chambre / table de chevet",
+   "obj-livre-courir": "sejour / bibliothèque",
    "obj-montre-gousset": "atelier / établi, sous une cloche en verre",
    "obj-acier-axe": "atelier / établi, boîte à côté de la montre de gousset (axe terminé)",
    "obj-photo-grand-pere": "atelier / établi, à gauche de la lampe",
@@ -244,6 +245,7 @@
     "repas": 2,
     "numero": 3
    },
+   "livre": 0,
    "page": 212,
    "travaux": {
     "omega": {
@@ -336,6 +338,7 @@
    "obj-portefeuille": "entree / tiroir de la commode",
    "obj-carnet": "chambre / table de chevet, sous le livre",
    "obj-livre": "chambre / table de chevet",
+   "obj-livre-courir": "sejour / bibliothèque",
    "obj-montre-gousset": "atelier / établi, sous une cloche en verre",
    "obj-acier-axe": "atelier / établi, boîte à côté de la montre de gousset (axe terminé)",
    "obj-photo-grand-pere": "atelier / établi, à gauche de la lampe",
@@ -409,6 +412,7 @@
     "repas": 4,
     "numero": 3
    },
+   "livre": 0,
    "page": 252,
    "travaux": {
     "omega": {
@@ -10983,7 +10987,7 @@
    "posture": "allongé",
    "routine": "rt-soir",
    "activite": "Coucher",
-   "action": "Se couche et lit (relit les dernières pages).",
+   "action": "Se couche et feuillette les dernières pages.",
    "pensee": null,
    "appareils_allumes": [
     "lumiere-chambre"
@@ -11017,7 +11021,7 @@
    "posture": "allongé",
    "routine": "rt-soir",
    "activite": "Coucher",
-   "action": "Se couche et lit (relit les dernières pages).",
+   "action": "Se couche et feuillette les dernières pages.",
    "pensee": null,
    "appareils_allumes": [
     "lumiere-chambre"
@@ -11101,7 +11105,7 @@
    "posture": "allongé",
    "routine": "rt-soir",
    "activite": "Coucher",
-   "action": "Repose le carnet sous le livre et relit quelques pages (relit les dernières pages).",
+   "action": "Repose le carnet sous le livre et feuillette les dernières pages.",
    "pensee": null,
    "objets": [
     {
@@ -11142,7 +11146,7 @@
    "posture": "allongé",
    "routine": "rt-soir",
    "activite": "Coucher",
-   "action": "Lit encore (relit les dernières pages).",
+   "action": "Feuillette encore les dernières pages.",
    "pensee": null,
    "appareils_allumes": [
     "lumiere-chambre"

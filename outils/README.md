@@ -91,6 +91,12 @@ Pendant l'atelier, une séance, la lecture, la musique, le temps libre ou la gra
 
 Il ne s'interrompt pas si l'activité se termine dans les 10 minutes. Chaque interruption figure dans les « écarts à la routine » du résumé de la journée.
 
+Avant une séance sur la montre du grand-père, il anticipe : si les toilettes ou la soif passeraient sous leur seuil avant la fin prévue de la séance, il y répond en allant s'installer (`regles.json`, section `anticipation_seance`).
+
+### Livres
+
+Les livres à lire sont listés dans `regles.json` (section `lecture.livres`), dans l'ordre : objet de la fiche, titre, nombre de pages, page de départ, pensées de début et de fin. Il lit 5 pages par pas. Quand un livre est fini, il le range dans la bibliothèque du séjour à la séance de lecture suivante et prend le suivant. Le reste d'une plage de lecture, une fois le livre fini, devient de la musique.
+
 ### Fin de semaine
 
 Le samedi et le dimanche n'ont pas de sonnerie : réveil naturel entre 07:30 et 08:30. Le plan de ces journées (ménage, sieste, sortie longue du dimanche, séances sur la montre du grand-père, planification de la semaine) est dans `regles.json`, sections `samedi` et `dimanche`.

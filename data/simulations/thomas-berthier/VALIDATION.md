@@ -57,4 +57,6 @@ Ces règles ne changent rien à la reproduction de lundi à mercredi (mêmes tau
 | Tenue de course | Prise là où elle se trouve réellement (armoire, étendoir, panier à linge) |
 | Montre à sortir du coffre | Une montre rangée au coffre est sortie avant sa première opération du jour |
 | Réveil du week-end | Sans sonnerie : pas avant 07:30, au plus tard 08:30 |
-| Livre terminé | Quand la dernière page est atteinte, l'événement `livre_termine` est vécu ; les plages de lecture suivantes deviennent de la musique |
+| Anticipation avant une séance | Avant une séance sur la montre du grand-père, il passe aux toilettes ou boit un verre d'eau si le besoin passerait sous son seuil d'alerte avant la fin prévue |
+| Livre terminé | Quand la dernière page est atteinte, l'événement `livre_termine` est vécu. Le livre est rangé et le reste de la plage de lecture devient de la musique |
+| Livre suivant | À la séance de lecture suivante au séjour, il range le livre fini dans la bibliothèque et prend le suivant (`regles.json`, `lecture.livres`) ; sans livre suivant, la plage devient de la musique |

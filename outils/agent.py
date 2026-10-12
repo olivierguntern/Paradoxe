@@ -13,6 +13,9 @@ Principales règles de décision :
 - séance du soir écourtée si l'énergie passe sous le seuil de fatigue ;
 - durée d'endormissement selon l'anxiété et l'excitation ;
 - habitude apprise après un oubli (ranger le livre) ;
+- interruption quand un besoin passe sous son seuil d'alerte, et besoins
+  anticipés avant une séance longue ;
+- livre suivant pris dans la bibliothèque quand le livre en cours est fini ;
 - pensées et rêves choisis dans des modèles, de façon déterministe.
 """
 import copy
@@ -91,11 +94,15 @@ class Agent:
         return {
             "endormi_a": veille, "habitudes": {"ranger_livre": False},
             "poubelle": {"id": "obj-poubelle", "repas": self.R["poubelle"]["repas_au_depart"], "numero": 1},
-            "page": self.R["lecture"]["page_au_depart"],
+            "livre": 0, "page": self.R["lecture"]["livres"][0]["page_au_depart"],
             "travaux": {t["id"]: {"phase": 0, "op": 0, "dispo": None, "machine_fin": None, "termine": False} for t in self.TRAVAUX["liste"]},
             "courant": None, "intercale": None, "entretien": 0,
             "seance": {"numero": 1, "op": 0}, "evocations": {},
         }
+
+    def livre(self):
+        """Livre en cours de lecture."""
+        return self.R["lecture"]["livres"][self.mem.get("livre", 0)]
 
     @property
     def i(self):
@@ -114,23 +121,34 @@ class Agent:
         # cohérence des lunettes : un geste déjà fait n'est pas refait
         if "objets" in st:
             st["objets"] = [o for o in st["objets"] if not (o["objet"] == "obj-lunettes" and self.sim.positions["obj-lunettes"] != o["de"])]
+        # le livre des recettes est le livre en cours
+        livre = self.livre()
+        if livre["id"] != "obj-livre":
+            for o in st.get("objets", []):
+                if o["objet"] == "obj-livre":
+                    o["objet"] = livre["id"]
+            st["action"] = st["action"].replace("« La Route »", f"« {livre['titre']} »")
         if "{travail}" in st["action"]:
             prochain = next((t["titre"] for t in self.TRAVAUX["liste"] if not self.mem["travaux"][t["id"]]["termine"]
                              and self.op_suivante(t) is not None), "montre en cours")
             st["action"] = st["action"].replace("{travail}", prochain)
-        L = self.R["lecture"]
         deja_fini = self.mem.get("livre_termine", False)
         if s["mode"] == "lecture" and not deja_fini:
-            self.mem["page"] = min(L["pages_total"], self.mem["page"] + L["pages_par_pas"])
-            if self.mem["page"] >= L["pages_total"]:
+            self.mem["page"] = min(livre["pages_total"], self.mem["page"] + self.R["lecture"]["pages_par_pas"])
+            if self.mem["page"] >= livre["pages_total"]:
                 self.mem["livre_termine"] = True
                 st.setdefault("ev", []).append("livre_termine")
-                st["pensee"] = st.get("pensee") or choix(self.PENSEES["evenements"]["livre_termine"], self.date, self.i)
-                self.faits.append(self.PENSEES["livre_termine"])
-                self.decisions.append(f"{hm(self.i)} : termine « La Route ».")
+                st["pensee"] = st.get("pensee") or livre["pensee_fin"]
+                self.faits.append(self.PENSEES["livre_termine"].replace("{titre}", livre["titre"]))
+                self.decisions.append(f"{hm(self.i)} : termine « {livre['titre']} ».")
         if "{page}" in st["action"]:
             if deja_fini:
-                st["action"] = st["action"].replace("(page {page})", "(relit les dernières pages)")
+                for lu, feuillete in (("Se couche et lit (page {page})", "Se couche et feuillette les dernières pages"),
+                                      ("relit quelques pages (page {page})", "feuillette les dernières pages"),
+                                      ("lit deux pages (page {page})", "feuillette les dernières pages"),
+                                      ("Lit encore (page {page})", "Feuillette encore les dernières pages"),
+                                      ("(page {page})", "(relit les dernières pages)")):
+                    st["action"] = st["action"].replace(lu, feuillete)
             st["action"] = st["action"].replace("{page}", str(self.mem["page"]))
         # très assoiffé, il boit un deuxième verre
         eau = st.get("effets", {}).get("soif")
@@ -648,6 +666,7 @@ class Agent:
         if s is None:
             self.emettre(p, "Montre du grand-père", "rt-soir", bloc="seance")
             return
+        self.anticiper(p, fin_ops)
         titre = s["titre"]
         self.emettre(p, titre, "rt-soir", bloc="seance")
         seuil = self.SEANCES["seuil_fatigue"]
@@ -683,6 +702,27 @@ class Agent:
                 self.poser_lunettes(pas)
         self.bloc("rangement_seance", remplace=lunettes)
 
+    def anticiper(self, p, fin):
+        """Avant une séance longue, répond d'avance à un besoin qui passerait sous son seuil d'alerte avant la fin."""
+        B = self.fiche["besoins"]
+        textes = []
+        for besoin in self.R["anticipation_seance"]["besoins"]:
+            prevu = self.sim.besoins[besoin] + B[besoin]["variation_par_pas"]["eveille"] * (fin - self.i)
+            if prevu >= B[besoin]["seuil_alerte"]:
+                continue
+            if besoin == "toilettes":
+                p["via"] = p.get("via", []) + ["wc"]
+                p.setdefault("effets", {})["toilettes"] = "vide"
+                textes.append("Passe aux toilettes avant de s'installer.")
+            else:
+                p["via"] = p.get("via", []) + ["cuisine"]
+                p.setdefault("effets", {})["soif"] = 20
+                textes.append("Boit un verre d'eau à la cuisine avant de s'installer.")
+            self.decisions.append(f"{hm(self.i)} : {besoin} à {round(self.sim.besoins[besoin], 1)}, sous le seuil d'alerte avant la fin "
+                                  "prévue de la séance ; y répond avant de commencer.")
+        if textes:
+            p["action"] = " ".join(textes) + " " + p["action"]
+
     def coucher(self):
         fatigue = self.sim.besoins["energie"] < self.SEANCES["seuil_fatigue"]
         cible = idx(self.R["extinction_cible"])
@@ -691,7 +731,7 @@ class Agent:
                       "charge": "repos", "posture": "debout",
                       "objets": [{"objet": "obj-montre-poignet", "de": "poignet gauche", "vers": "chambre / table de chevet"}]}, T, "rt-soir")
         carnet = self.texte_carnet()
-        livre = self.sim.positions["obj-livre"]
+        livre = self.sim.positions[self.livre()["id"]]
         if self.i >= cible:
             self.emettre({"action": "Se couche, écrit dans son carnet et le repose sous le livre.", "piece": "chambre", "charge": "repos",
                           "posture": "assis", "ev": ["ecriture_carnet"], "pensee": carnet,
@@ -806,18 +846,46 @@ class Agent:
     def lecture_session(self, fin, routine):
         """Va chercher le livre, lit au séjour, et le rapporte (habitude apprise)."""
         fin = idx(fin) if isinstance(fin, str) else fin
-        if self.mem.get("livre_termine"):
+        if not self.mem.get("livre_termine"):
+            self.bloc("repos_chambre")
+        elif not self.changer_de_livre(routine):
             return self.musique_session(fin, routine)
-        self.bloc("repos_chambre")
         while self.i < fin - 1:
             if self.interruption(fin - 1):
                 continue
             if self.mem.get("livre_termine"):
-                p = {"action": "Reste allongé, le livre refermé sur la poitrine.", "piece": "sejour", "charge": "repos", "posture": "allongé"}
-            else:
-                p = {"action": "Lit sur le canapé (page {page}).", "piece": "sejour", "mode": "lecture", "charge": "lecture", "posture": "allongé"}
-            self.emettre(p, "Lecture", routine, bloc="lecture_session")
+                self.emettre({"action": "Reste un moment allongé, le livre refermé sur la poitrine.", "piece": "sejour", "charge": "repos",
+                              "posture": "allongé"}, "Lecture", routine, bloc="lecture_session")
+                break
+            self.emettre({"action": "Lit sur le canapé (page {page}).", "piece": "sejour", "mode": "lecture", "charge": "lecture",
+                          "posture": "allongé"}, "Lecture", routine, bloc="lecture_session")
         self.bloc("rangement_livre")
+        # livre fini en cours de route : de la musique pour le reste du temps
+        if self.i < fin:
+            self.musique_session(fin, routine)
+
+    def changer_de_livre(self, routine):
+        """Le livre en cours est fini : il le range dans la bibliothèque et prend le suivant, qu'il garde en main."""
+        L = self.R["lecture"]
+        n = self.mem.get("livre", 0) + 1
+        if n >= len(L["livres"]):
+            return False
+        ancien, nouveau = L["livres"][n - 1], L["livres"][n]
+        ou = self.sim.positions[ancien["id"]]
+        piece = ou.split(" / ")[0]
+        p = {"action": (f"Rapporte « {ancien['titre']} » de la chambre et le range dans la bibliothèque. " if piece == "chambre" else
+                        f"Range « {ancien['titre']} » dans la bibliothèque. ") +
+                       f"Prend « {nouveau['titre']} » de {nouveau['auteur']}, pas encore commencé.",
+             "piece": "sejour", "charge": "repos", "posture": "debout", "ev": ["anticipation_plaisir"], "pensee": nouveau.get("pensee_debut"),
+             "objets": [{"objet": ancien["id"], "de": ou, "vers": L["rangement_livre_fini"]},
+                        {"objet": nouveau["id"], "de": self.sim.positions[nouveau["id"]], "vers": "dans sa main"}]}
+        if piece not in ("sejour", "dans sa main"):
+            p["via"] = [piece]
+        self.emettre(p, "Lecture", routine, bloc="nouveau_livre")
+        self.mem.update({"livre": n, "page": nouveau["page_au_depart"], "livre_termine": False})
+        self.faits.append(f"Commencé « {nouveau['titre']} »")
+        self.decisions.append(f"{hm(self.i - 1)} : « {ancien['titre']} » est fini ; prend « {nouveau['titre']} » dans la bibliothèque.")
+        return True
 
     def musique_session(self, fin, routine):
         fin = idx(fin) if isinstance(fin, str) else fin
@@ -861,7 +929,7 @@ class Agent:
         self.diner()
         fin = idx(self.R[self.jour]["soiree_libre_jusqua"])
         if moment_montre:
-            self.lecture_session(moment_montre, "rt-soir") if not self.mem.get("livre_termine") else self.musique_session(moment_montre, "rt-soir")
+            self.lecture_session(moment_montre, "rt-soir")
             self.emettre({"action": "Va voir la montre de gousset à l'atelier : elle tourne toujours. Il l'écoute un moment.", "piece": "atelier",
                           "charge": "repos", "posture": "debout", "ev": ["souvenir_grand_pere"]}, "La montre tourne", "rt-soir", bloc="montre")
         R = self.BLOCS["radio_soir"]["pas"]
