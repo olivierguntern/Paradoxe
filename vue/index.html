@@ -550,6 +550,7 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     });
   });
   CADRES.rue = cadre(boiteDe([-30, -110, 380, 200], 0, 20), 4);
+  CADRES["rue-epicerie"] = cadre(boiteDe([255, -125, 440, 250], 0, 20), 4);
   CADRES.parcours = cadre(boiteDe([-1500, -600, 400, 4750], -85, 20), 30);
   CADRES.trajet = cadre(boiteDe([300, -300, 4700, 900], -85, 10), 30);
   CADRES.cinema = cadre(boiteDe([1760, 700, 1940, 880], -90, -70), 4);
@@ -561,6 +562,10 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
   const DETAILS = {
     "logement:domicile-thomas": "3e étage, rue d'Austerlitz", "logement:boutique-robert": "Épicerie Chazal, Grande-Rue de la Croix-Rousse",
     "logement:maison-robert": "Maison de la rue des Glycines, Villeurbanne", rue: "Rue d'Austerlitz, place et Grande-Rue de la Croix-Rousse",
+    "rue-epicerie": "Grande-Rue de la Croix-Rousse, cour de l'épicerie, place et banque",
+    "immeuble:domicile-thomas": "L'immeuble de la rue d'Austerlitz et sa cage d'escalier",
+    "immeuble:boutique-robert": "L'immeuble de l'épicerie : la boutique au rez-de-chaussée, la cour derrière",
+    "immeuble:maison-robert": "La maison : deux niveaux, le garage et le jardin",
     parcours: "Parcours de course : pentes et quais de Saône", trajet: "En Kangoo : Croix-Rousse, Rhône, Villeurbanne",
     cinema: "Cité internationale, au bord du Rhône", "a-pied-rhone": "À pied : boulevard, montée de la Boucle, pont Winston-Churchill, quai Charles-de-Gaulle",
     boulevard: "Boulevard de la Croix-Rousse : mairie du 4e et Gros Caillou", villeurbanne: "Rue des Glycines et l'école du quartier, Villeurbanne",
@@ -824,10 +829,11 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
     if (s.l === "e") return s.a === "Courses à l'épicerie" ? "rue" : "parcours";
     return "logement:" + P.lgA[g];
   }
+  const RUE_DU_LOGEMENT = { "domicile-thomas": "rue", "boutique-robert": "rue-epicerie", "maison-robert": "villeurbanne" };
   function vueManuelle(P, st) {
     if (vueChoisie === "logement") return "logement:" + P.lgA[g];
     if (vueChoisie === "immeuble") return "immeuble:" + P.lgA[g];
-    if (vueChoisie === "rue") return "rue";
+    if (vueChoisie === "rue") return RUE_DU_LOGEMENT[P.lgA[g]] || "rue";
     if (CLASSE(P) === "thomas") return ["a-pied-rhone", "cinema", "boulevard"].includes(st.s.zn) ? st.s.zn : "parcours";
     return st.s.zn && !st.s.zn.startsWith("lg:") ? st.s.zn : "trajet";
   }
