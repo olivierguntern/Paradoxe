@@ -63,4 +63,4 @@ Certains **événements-clés** (importants pour le futur) pourront compter plus
 | 5 | Plusieurs habitants et lieux partagés (rue, bar, commerces) | À faire |
 | 6 | La mini-ville : génération des habitants, niveaux de détail | À faire |
 | 7 | Missions du voyageur | Plus tard |
-| 8 | Interface de jeu | Plus tard |
+| 8 | Interface de jeu | Commencée : vue isométrique fil de fer de la semaine (`vue/`), plan à valider |

@@ -102,3 +102,19 @@ Les livres à lire sont listés dans `regles.json` (section `lecture.livres`), d
 Le samedi et le dimanche n'ont pas de sonnerie : réveil naturel entre 07:30 et 08:30. Le plan de ces journées (ménage, sieste, sortie longue du dimanche, séances sur la montre du grand-père, planification de la semaine) est dans `regles.json`, sections `samedi` et `dimanche`.
 
 Le résumé de chaque journée distingue les besoins passés sous le seuil d'alerte **éveillé** (à examiner) et **pendant le sommeil** (durée par besoin, attendu pour la soif la nuit).
+
+## Vue fil de fer
+
+La semaine se rejoue dans une vue isométrique fil de fer (`vue/index.html`, à ouvrir dans un navigateur) : appartement, escalier de l'immeuble et parcours de course, avec l'état de chaque pas (activité, pensée, besoins, émotions, objets, lumières et appareils).
+
+```bash
+# Recalculer les données de la vue après une génération de journées ou une modification du plan
+python3 outils/exporter_vue.py
+```
+
+L'export lit la fiche, la géométrie du monde (`data/monde/croix-rousse.json`) et toutes les journées, puis calcule :
+- le trajet de Thomas à chaque pas, porte par porte, et dans l'escalier (avec le détour par le local poubelles) ;
+- sa position sur le parcours de course : descente des pentes, aller-retour le long de la Saône, remontée ;
+- la position en 3D de chaque emplacement d'objet.
+
+Il s'arrête si une liaison du plan n'a pas de porte ou si une pièce n'a pas de rectangle. Il affiche les distances entre pièces mesurées sur le plan, à comparer avec celles de la fiche.

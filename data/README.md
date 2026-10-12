@@ -67,6 +67,14 @@ Les émotions ne sont jamais fixées à la main : elles sont calculées à parti
 
 Lundi à mercredi sont rédigés à la main et calculés par `outils/generer_journee.py` ; de jeudi à dimanche, les journées sont vécues par l'agent autonome (`outils/simuler_agent.py`). La semaine complète (2016 pas) est donc disponible. Voir `outils/README.md`.
 
+## Monde
+
+| Fichier | Contenu |
+|---|---|
+| `monde/croix-rousse.json` | Géométrie partagée : immeuble (étages, escalier, allée, local poubelles, cour, rue), logement de Thomas (pièces, portes, fenêtres, mobilier, emplacements des objets, postes où il se tient), parcours de course (pentes, quais, Saône). **Proposition à valider.** |
+
+Repère : x le long de la façade sur rue, y de la rue vers la cour, z vers le haut, en mètres.
+
 ## Agents et simulations
 
 | Dossier | Contenu |

@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La semaine de Thomas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap">
+<style>
+/* Planche technique : la scène isométrique occupe la planche, le cartouche à droite donne l'état du pas, la règle en bas fait avancer le temps. */
+:root {
+  --papier: #e9eef0;
+  --planche: #f4f7f8;
+  --encre: #1c2a33;
+  --trait: #3b5466;
+  --trait-leger: #a7b5bd;
+  --laiton: #9a6a14;
+  --lampe: #f0b84f;
+  --verre: #3f86ab;
+  --alerte: #b8402e;
+  --nuit: #d9e0e5;
+  --regle: #cbd4d9;
+  --f-titre: "Barlow Semi Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-texte: "Barlow Semi Condensed", "Helvetica Neue", Arial, sans-serif;
+  --f-pensee: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-chiffres: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --papier: #0d1519; --planche: #121c22; --encre: #dbe4e9; --trait: #8fb0c2; --trait-leger: #3a4c57;
+    --laiton: #e3a943; --lampe: #e8b24f; --verre: #6db1d4; --alerte: #ec7a62; --nuit: #091014; --regle: #26353f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --papier: #0d1519; --planche: #121c22; --encre: #dbe4e9; --trait: #8fb0c2; --trait-leger: #3a4c57;
+  --laiton: #e3a943; --lampe: #e8b24f; --verre: #6db1d4; --alerte: #ec7a62; --nuit: #091014; --regle: #26353f;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: var(--papier); color: var(--encre); font-family: var(--f-texte); font-size: 15px; line-height: 1.4;
+  margin: 0; padding-inline: 16px; padding-block: 12px; box-sizing: border-box;
+}
+* { box-sizing: border-box; }
+button, select, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--laiton); outline-offset: 2px; }
+
+.app { display: grid; grid-template-rows: auto 1fr auto; gap: 10px; height: 100%; max-width: 1500px; margin: 0 auto; }
+
+/* bandeau */
+.bandeau { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; }
+.bandeau h1 { font-family: var(--f-titre); font-weight: 600; font-size: 1.25rem; letter-spacing: .02em; margin: 0; text-wrap: balance; }
+.bandeau h1 span { font-weight: 400; color: var(--trait); }
+.jours { display: flex; flex-wrap: wrap; gap: 4px; }
+.jours button {
+  border: 1px solid var(--regle); background: var(--planche); padding: 3px 9px; border-radius: 3px; cursor: pointer;
+  font-size: .85rem; display: inline-flex; gap: 5px; align-items: baseline;
+}
+.jours button small { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--trait); }
+.jours button[aria-pressed="true"] { border-color: var(--laiton); box-shadow: inset 0 -2px 0 var(--laiton); }
+
+/* planche */
+.planche { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 10px; min-height: 0; }
+.scene { position: relative; background: var(--planche); border: 1px solid var(--regle); min-height: 320px; overflow: hidden; transition: background .6s; }
+.scene.nuit { background: var(--nuit); }
+.scene svg { width: 100%; height: 100%; display: block; }
+.legende-scene { position: absolute; left: 10px; top: 8px; display: grid; gap: 1px; pointer-events: none; }
+.legende-scene .ou { font-family: var(--f-titre); font-weight: 600; font-size: 1rem; }
+.legende-scene .detail { font-size: .8rem; color: var(--trait); }
+.vues { position: absolute; right: 8px; top: 8px; display: flex; gap: 2px; }
+.vues button { border: 1px solid var(--regle); background: var(--planche); font-size: .75rem; padding: 2px 7px; cursor: pointer; border-radius: 3px; }
+.vues button[aria-pressed="true"] { border-color: var(--trait); color: var(--encre); font-weight: 600; }
+.etiquette-objet { position: absolute; left: 10px; bottom: 8px; font-size: .8rem; background: var(--planche); border: 1px solid var(--regle); padding: 2px 7px; border-radius: 3px; }
+.statut { font-size: .72rem; color: var(--trait); margin: 0; }
+
+/* traits de la scène */
+.scene polyline, .scene polygon, .quartier polyline, .quartier polygon { fill: none; stroke: var(--trait); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; }
+.scene .leger, .quartier .leger { stroke: var(--trait-leger); }
+.scene .tirets, .quartier .tirets { stroke-dasharray: 4 4; }
+.scene .mur { stroke: var(--encre); stroke-width: 1.4; }
+.scene .vitre { stroke: var(--verre); stroke-width: 1.2; }
+.scene .sol { fill: transparent; stroke: var(--trait-leger); transition: fill .4s; }
+.scene .sol.allumee { fill: var(--lampe); fill-opacity: .28; }
+.scene .meuble polyline, .scene .meuble polygon { stroke: var(--trait); stroke-width: .9; }
+.scene .objet polygon { fill: var(--planche); stroke: var(--encre); stroke-width: 1; cursor: pointer; }
+.scene .objet.deplace polygon { fill: var(--laiton); stroke: var(--laiton); }
+.scene .appareil { fill: var(--lampe); stroke: var(--laiton); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.scene .halo { fill: none; stroke: var(--lampe); stroke-width: 1.2; vector-effect: non-scaling-stroke; animation: halo 1.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes halo { from { opacity: .9; transform: scale(.6); } to { opacity: 0; transform: scale(1.8); } }
+.scene .thomas polyline { stroke: var(--laiton); stroke-width: 2.6; }
+.scene .thomas circle, .quartier .thomas { fill: var(--planche); stroke: var(--laiton); stroke-width: 2.2; vector-effect: non-scaling-stroke; }
+.scene .ombre { fill: var(--laiton); fill-opacity: .18; stroke: none; }
+/* --px vaut la taille d'un pixel d'écran en unités du dessin (mètres) ; le texte garde ainsi une taille fixe quel que soit le cadrage */
+.scene text, .quartier text { font-family: var(--f-titre); fill: var(--trait); font-size: calc(var(--px, .05) * 11px); letter-spacing: .04em; paint-order: stroke; stroke: var(--planche); stroke-width: calc(var(--px, .05) * 3px); stroke-linejoin: round; }
+.scene.nuit text { stroke: var(--nuit); }
+.scene text.piece { text-transform: uppercase; font-size: calc(var(--px, .05) * 10px); letter-spacing: .1em; }
+.quartier .saone { fill: var(--verre); fill-opacity: .14; stroke: var(--verre); }
+.quartier .parcouru { stroke: var(--laiton); stroke-width: 2.4; }
+.quartier .chemin { stroke: var(--trait); stroke-dasharray: 3 3; }
+.quartier text.repere { dominant-baseline: text-after-edge; }
+.scene .immeuble-seul { transition: opacity .5s; }
+.scene.vue-appartement .immeuble-seul { opacity: .14; }
+@media (prefers-reduced-motion: reduce) { .scene .halo { animation: none; opacity: .6; } .scene { transition: none; } }
+
+/* cartouche */
+.cartouche { background: var(--planche); border: 1px solid var(--regle); display: flex; flex-direction: column; min-height: 0; overflow: auto; }
+.cartouche section { padding: 10px 12px; border-bottom: 1px solid var(--regle); display: grid; gap: 6px; min-width: 0; }
+.cartouche section:last-child { border-bottom: none; }
+.etiq { font-family: var(--f-titre); font-size: .7rem; text-transform: uppercase; letter-spacing: .09em; color: var(--trait); }
+.heure { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.heure b { font-family: var(--f-chiffres); font-weight: 500; font-size: 1.9rem; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.heure span { color: var(--trait); }
+.puces { display: flex; flex-wrap: wrap; gap: 4px; }
+.puce { font-size: .75rem; border: 1px solid var(--regle); padding: 1px 7px; border-radius: 10px; white-space: nowrap; }
+.puce.laiton { border-color: var(--laiton); color: var(--laiton); }
+.activite { font-family: var(--f-titre); font-weight: 600; font-size: 1.05rem; }
+.action { margin: 0; }
+.pensee { font-family: var(--f-pensee); font-style: italic; font-size: 1.05rem; margin: 0; border-left: 2px solid var(--laiton); padding-left: 10px; }
+.reve { font-family: var(--f-pensee); font-style: italic; margin: 0; color: var(--trait); }
+.jauges { display: grid; grid-template-columns: auto 1fr auto; gap: 3px 8px; align-items: center; font-size: .8rem; }
+.jauges .val { font-family: var(--f-chiffres); font-size: .75rem; font-variant-numeric: tabular-nums; text-align: right; min-width: 3.2em; }
+.barre { position: relative; height: 7px; background: transparent; border: 1px solid var(--regle); }
+.barre i { position: absolute; inset: 0 auto 0 0; background: var(--trait); }
+.barre.bas i { background: var(--alerte); }
+.barre u { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--alerte); }
+.val.bas { color: var(--alerte); }
+.quartier { width: 100%; height: 130px; display: block; }
+.liste { font-size: .82rem; margin: 0; padding-left: 16px; }
+.liste li { margin: 1px 0; }
+.vide { font-size: .8rem; color: var(--trait); }
+
+/* règle du temps */
+.regle-temps { background: var(--planche); border: 1px solid var(--regle); padding: 8px 12px; display: grid; gap: 6px; }
+.commandes { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.commandes button { border: 1px solid var(--regle); background: var(--papier); padding: 4px 10px; border-radius: 3px; cursor: pointer; min-width: 2.4em; }
+.commandes button.lecture { border-color: var(--laiton); color: var(--laiton); font-weight: 600; min-width: 6.5em; }
+.commandes label { font-size: .8rem; color: var(--trait); display: inline-flex; gap: 6px; align-items: center; }
+.commandes select { background: var(--papier); border: 1px solid var(--regle); border-radius: 3px; padding: 2px 4px; }
+.commandes .ici { font-family: var(--f-chiffres); font-size: .85rem; margin-left: auto; font-variant-numeric: tabular-nums; }
+.bande { position: relative; height: 14px; display: grid; grid-template-columns: repeat(288, 1fr); cursor: pointer; }
+.bande i { display: block; height: 100%; }
+.bande i.chambre { background: var(--trait-leger); }
+.bande i.atelier { background: var(--laiton); opacity: .55; }
+.bande i.vie { background: var(--trait); opacity: .8; }
+.bande i.eau { background: var(--verre); opacity: .5; }
+.bande i.dehors { background: var(--alerte); opacity: .6; }
+.curseur { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--encre); pointer-events: none; }
+input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
+.graduations { display: flex; justify-content: space-between; font-family: var(--f-chiffres); font-size: .68rem; color: var(--trait); }
+.cles { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .72rem; color: var(--trait); }
+.cles span::before { content: ""; display: inline-block; width: 10px; height: 8px; margin-right: 4px; vertical-align: -1px; }
+.cles .k-chambre::before { background: var(--trait-leger); }
+.cles .k-atelier::before { background: var(--laiton); opacity: .55; }
+.cles .k-vie::before { background: var(--trait); opacity: .8; }
+.cles .k-eau::before { background: var(--verre); opacity: .5; }
+.cles .k-dehors::before { background: var(--alerte); opacity: .6; }
+
+@media (max-width: 900px) {
+  html, body { height: auto; }
+  .app { height: auto; }
+  .planche { grid-template-columns: minmax(0, 1fr); }
+  .scene { height: 62vw; min-height: 300px; max-height: 520px; }
+  .cartouche { overflow: visible; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="bandeau">
+    <h1>Thomas Berthier <span>· Croix-Rousse, mars 2010</span></h1>
+    <nav class="jours" id="jours" aria-label="Jours de la semaine"></nav>
+  </header>
+
+  <main class="planche">
+    <section class="scene" id="scene" aria-label="Appartement et immeuble en fil de fer">
+      <svg id="svg" role="img" aria-label="Vue isométrique de l'appartement de Thomas"></svg>
+      <div class="legende-scene"><span class="ou" id="ou"></span><span class="detail" id="ou-detail"></span></div>
+      <div class="vues" role="group" aria-label="Cadrage">
+        <button type="button" id="vue-auto" aria-pressed="true">Suivre</button>
+        <button type="button" id="vue-appartement" aria-pressed="false">Appartement</button>
+        <button type="button" id="vue-immeuble" aria-pressed="false">Immeuble</button>
+      </div>
+      <div class="etiquette-objet" id="etiquette" hidden></div>
+    </section>
+
+    <aside class="cartouche" aria-live="polite">
+      <section>
+        <div class="heure"><b id="heure">07:00</b><span id="date"></span></div>
+        <div class="puces" id="puces"></div>
+      </section>
+      <section>
+        <span class="etiq">Activité</span>
+        <span class="activite" id="activite"></span>
+        <p class="action" id="action"></p>
+        <p class="pensee" id="pensee" hidden></p>
+        <p class="reve" id="reve" hidden></p>
+        <div class="puces" id="evenements"></div>
+      </section>
+      <section>
+        <span class="etiq">Parcours de course</span>
+        <svg class="quartier" id="quartier" role="img" aria-label="Schéma du parcours : pentes de la Croix-Rousse et quais de Saône"></svg>
+        <span class="vide" id="dehors"></span>
+      </section>
+      <section>
+        <span class="etiq">Besoins (seuil d'alerte en rouge)</span>
+        <div class="jauges" id="besoins"></div>
+      </section>
+      <section>
+        <span class="etiq">Émotions</span>
+        <div class="jauges" id="emotions"></div>
+      </section>
+      <section>
+        <span class="etiq">Sur lui</span>
+        <ul class="liste" id="porte"></ul>
+        <span class="etiq">Allumé</span>
+        <div class="puces" id="appareils"></div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="regle-temps">
+    <div class="commandes">
+      <button type="button" class="lecture" id="lecture">Lecture</button>
+      <button type="button" id="recul" aria-label="Pas précédent">−5 min</button>
+      <button type="button" id="avance" aria-label="Pas suivant">+5 min</button>
+      <label for="vitesse">Vitesse
+        <select id="vitesse">
+          <option value="0.5">5 min en 2 s</option>
+          <option value="1" selected>5 min en 1 s</option>
+          <option value="4">20 min en 1 s</option>
+          <option value="12">1 h en 1 s</option>
+          <option value="48">4 h en 1 s</option>
+        </select>
+      </label>
+      <span class="ici" id="ici"></span>
+    </div>
+    <div class="bande" id="bande" aria-hidden="true"><span class="curseur" id="curseur"></span></div>
+    <input type="range" id="temps" min="0" max="287" step="1" value="84" aria-label="Heure de la journée">
+    <div class="graduations"><span>00 h</span><span>03 h</span><span>06 h</span><span>09 h</span><span>12 h</span><span>15 h</span><span>18 h</span><span>21 h</span><span>24 h</span></div>
+    <div class="cles"><span class="k-chambre">Chambre</span><span class="k-atelier">Atelier</span><span class="k-vie">Séjour, cuisine, entrée</span><span class="k-eau">Salle de bain, WC</span><span class="k-dehors">Dehors</span></div>
+    <p class="statut" id="statut"></p>
+  </footer>
+</div>
+
+<script src="donnees.js"></script>
+<script>
+(function () {
+  "use strict";
+  const D = window.PARADOXE;
+  const M = D.monde;
+  const IM = M.immeuble, LG = M.logement;
+  const Z = M.z_logement, H = IM.hauteur_etage;
+  const COUPE = 1.1;                       // hauteur de coupe des murs (m)
+  const C = Math.cos(Math.PI / 6), S = 0.5;
+  const NS = "http://www.w3.org/2000/svg";
+  const $ = (id) => document.getElementById(id);
+  const JOURS_COURTS = { lundi: "Lun", mardi: "Mar", mercredi: "Mer", jeudi: "Jeu", vendredi: "Ven", samedi: "Sam", dimanche: "Dim" };
+  const NOMS_BESOINS = { faim: "Faim", soif: "Soif", energie: "Énergie", hygiene: "Hygiène", toilettes: "Toilettes", social: "Contact social", detente: "Détente" };
+  const NOMS_EMOTIONS = { joie: "Joie", tristesse: "Tristesse", anxiete: "Anxiété", colere: "Colère", solitude: "Solitude", fierte: "Fierté", excitation: "Excitation", concentration: "Concentration" };
+  const NOMS_APPAREILS = { "lampe-etabli": "Lampe d'établi", radio: "Radio", "lecteur-cd": "Lecteur CD", television: "Téléviseur", "plaque-1": "Plaque 1",
+    "plaque-2": "Plaque 2", four: "Four", "machine-a-laver": "Machine à laver", "machine-ultrasons": "Bac à ultrasons", chronocomparateur: "Chronocomparateur",
+    tour: "Tour d'horloger", ordinateur: "Ordinateur portable", aspirateur: "Aspirateur", "lampe-alcool": "Lampe à alcool", "controleur-etancheite": "Contrôleur d'étanchéité" };
+  const POSTURES = { debout: "debout", assis: "assis", allonge: "allongé", course: "en course", marche: "en marche" };
+
+  // ------------------------------------------------------------------ projection isométrique
+  const iso = (p) => [(p[0] + p[1]) * C, (p[0] - p[1]) * S - p[2]];
+  const enChaine = (arr) => arr.map((p) => { const q = iso(p); return q[0].toFixed(3) + "," + q[1].toFixed(3); }).join(" ");
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  const trait = (arr, cls, parent) => el("polyline", { points: enChaine(arr), class: cls || "" }, parent);
+  const contour = (arr, cls, parent) => el("polygon", { points: enChaine(arr), class: cls || "" }, parent);
+  const rect = (r, z) => [[r[0], r[1], z], [r[2], r[1], z], [r[2], r[3], z], [r[0], r[3], z]];
+  function boite(b, z0, cls, parent) {
+    const [x0, y0, x1, y1, h] = b;
+    const g = el("g", { class: cls || "" }, parent);
+    const bas = rect([x0, y0, x1, y1], z0);
+    contour(bas, "", g);
+    if (h > 0.03) {
+      contour(rect([x0, y0, x1, y1], z0 + h), "", g);
+      bas.forEach((p) => trait([p, [p[0], p[1], z0 + h]], "", g));
+    }
+    return g;
+  }
+  function texte(p, t, cls, parent) {
+    const q = iso(p);
+    const e = el("text", { x: q[0].toFixed(3), y: q[1].toFixed(3), "text-anchor": "middle", class: cls || "" }, parent);
+    e.textContent = t;
+    return e;
+  }
+  const loc = (p, z) => [p[0], p[1], Z + (z || 0)];
+
+  // ------------------------------------------------------------------ chronologie aplatie
+  const G = [];
+  D.jours.forEach((j, ji) => j.pas.forEach((s, k) => G.push({ s, ji, k })));
+  const fin = new Array(G.length);
+  const posObjets = new Array(G.length);
+  (function precalcul() {
+    let dernier = D.depart, carte = {};
+    let jPrec = -1;
+    G.forEach((e, g) => {
+      if (e.ji !== jPrec) { carte = Object.assign({}, carte, D.jours[e.ji].positions); jPrec = e.ji; }
+      if (e.s.w) dernier = e.s.w[e.s.w.length - 1];
+      fin[g] = dernier;
+      if (e.s.no || e.s.ob) {
+        carte = Object.assign({}, carte);
+        (e.s.no || []).forEach(([id, pos]) => { carte[id] = pos; });
+        (e.s.ob || []).forEach(([id, , vers]) => { carte[id] = vers; });
+      }
+      posObjets[g] = carte;
+    });
+  })();
+  const debutJour = D.jours.map((_, ji) => G.findIndex((e) => e.ji === ji));
+
+  // ------------------------------------------------------------------ scène statique
+  const svg = $("svg");
+  const gFond = el("g", { class: "immeuble-seul" }, svg), gSols = el("g", {}, svg), gStat = el("g", {}, svg);
+  const gApp = el("g", {}, svg), gObj = el("g", {}, svg), gThomas = el("g", { class: "thomas" }, svg), gTextes = el("g", {}, svg);
+  const gTextesImmeuble = el("g", { class: "immeuble-seul" }, svg);
+  const sols = {};
+
+  function dessinerImmeuble() {
+    const E = IM.emprise, R = IM.rue, N = IM.niveaux;
+    const xa = E[0] - 5, xb = E[2] + 5;
+    // rue
+    trait([[xa, R.trottoir, 0], [xb, R.trottoir, 0]], "leger", gFond);
+    trait([[xa, R.chaussee[1], 0], [xb, R.chaussee[1], 0]], "leger", gFond);
+    trait([[xa, R.trottoir_en_face, 0], [xb, R.trottoir_en_face, 0]], "leger", gFond);
+    trait([[xa, (R.chaussee[0] + R.chaussee[1]) / 2, 0], [xb, (R.chaussee[0] + R.chaussee[1]) / 2, 0]], "leger tirets", gFond);
+    texte([E[2] + 2, (R.chaussee[0] + R.chaussee[1]) / 2, 0], R.nom, "", gTextesImmeuble);
+    // cour
+    contour(rect(IM.cour, 0), "leger tirets", gFond);
+    texte([E[2] - 1.5, IM.cour[3] - 1, 0], "Cour", "", gTextesImmeuble);
+    // niveaux, angles et toit
+    for (let k = 0; k <= N; k++) contour(rect(E, k * H), k === N ? "leger" : "leger", gFond);
+    rect(E, 0).forEach((p) => trait([p, [p[0], p[1], N * H]], "leger", gFond));
+    for (let k = 0; k < N; k++) texte([E[0] - 0.6, E[1], k * H + 0.3], k === 0 ? "RDC" : k + "e", "", gTextesImmeuble);
+    // cage d'escalier
+    const T = IM.cage_escalier;
+    contour(rect(T, 0), "leger", gFond);
+    contour(rect(T, N * H), "leger", gFond);
+    rect(T, 0).forEach((p) => { if (p[1] > E[3]) trait([p, [p[0], p[1], N * H]], "leger", gFond); });
+    // volées et paliers
+    const ES = IM.escalier, n = ES.marches_par_volee;
+    for (let k = 0; k < IM.etage_logement; k++) {
+      const z = k * H;
+      const vm = ES.volee_montante, vd = ES.volee_descendante;
+      for (let i = 0; i <= n; i++) {
+        const u = i / n;
+        const ym = vm.y[0] + (vm.y[1] - vm.y[0]) * u, zm = z + (H / 2) * u;
+        trait([[vm.x[0], ym, zm], [vm.x[1], ym, zm]], "", gFond);
+        const yd = vd.y[0] + (vd.y[1] - vd.y[0]) * u, zd = z + H / 2 + (H / 2) * u;
+        trait([[vd.x[0], yd, zd], [vd.x[1], yd, zd]], "", gFond);
+      }
+      trait([[vm.x[0], vm.y[0], z], [vm.x[0], vm.y[1], z + H / 2]], "leger", gFond);
+      trait([[vd.x[1], vd.y[0], z + H / 2], [vd.x[1], vd.y[1], z + H]], "leger", gFond);
+      contour(rect(ES.palier_intermediaire, z + H / 2), "leger", gFond);
+      contour(rect([T[0], LG.pieces.palier[1], T[2], LG.pieces.palier[3]], z + H), "leger", k === IM.etage_logement - 1 ? gStat : gFond);
+    }
+    // allée, porte d'immeuble, local poubelles
+    contour(rect(IM.allee, 0), "leger", gFond);
+    const pi = IM.porte_immeuble;
+    trait([[pi[0][0], pi[0][1], 0], [pi[0][0], pi[0][1], 2.4], [pi[1][0], pi[1][1], 2.4], [pi[1][0], pi[1][1], 0]], "", gFond);
+    const lp = IM.local_poubelles;
+    boite([lp[0], lp[1], lp[2], lp[3], 2.5], 0, "leger", gFond);
+    texte([(lp[0] + lp[2]) / 2, (lp[1] + lp[3]) / 2, 2.7], "Local poubelles", "", gTextesImmeuble);
+  }
+
+  function dessinerLogement() {
+    for (const [id, r] of Object.entries(LG.pieces)) {
+      if (id === "palier") continue;
+      sols[id] = contour(rect(r, Z), "sol", gSols);
+      texte(loc([(r[0] + r[2]) / 2, (r[1] + r[3]) / 2]), (D.noms_pieces[id] || id).split(" (")[0], "piece", gTextes);
+    }
+    // murs coupés à 1,10 m
+    M.murs.forEach(([a, b]) => {
+      const A = loc(a), B = loc(b), A2 = loc(a, COUPE), B2 = loc(b, COUPE);
+      trait([A, B], "mur", gStat);
+      trait([A2, B2], "mur", gStat);
+      trait([A, A2], "mur", gStat);
+      trait([B, B2], "mur", gStat);
+    });
+    // fenêtres : symbole de plan à la hauteur de coupe (allège à 0,90 m)
+    LG.fenetres.forEach((f) => {
+      const [a, b] = f.segment;
+      const n = a[1] === b[1] ? [0, 0.12] : [0.12, 0];
+      const A = [a[0] - n[0] / 2, a[1] - n[1] / 2], B = [b[0] - n[0] / 2, b[1] - n[1] / 2];
+      const A2 = [a[0] + n[0] / 2, a[1] + n[1] / 2], B2 = [b[0] + n[0] / 2, b[1] + n[1] / 2];
+      trait([loc(A, COUPE), loc(B, COUPE)], "vitre", gStat);
+      trait([loc(A2, COUPE), loc(B2, COUPE)], "vitre", gStat);
+      trait([loc(a, COUPE), loc(b, COUPE)], "vitre", gStat);
+      trait([loc(a, 0.9), loc(a, COUPE)], "vitre", gStat);
+      trait([loc(b, 0.9), loc(b, COUPE)], "vitre", gStat);
+    });
+    // portes : encadrement léger
+    LG.portes.forEach((p) => {
+      const [a, b] = p.segment;
+      trait([loc(a), loc(a, 2.05), loc(b, 2.05), loc(b)], "leger", gStat);
+    });
+    // mobilier
+    LG.mobilier.forEach((m) => {
+      const z0 = m.z || 0;
+      if (z0 >= COUPE) return;
+      const b = m.boite.slice(); b[4] = Math.min(b[4], COUPE - z0);
+      const g = boite(b, Z + z0, "meuble", gStat);
+      el("title", {}, g).textContent = m.nom;
+    });
+  }
+
+  // ------------------------------------------------------------------ cadrages
+  function cadre(points, marge) {
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    points.forEach((p) => { const q = iso(p); x0 = Math.min(x0, q[0]); x1 = Math.max(x1, q[0]); y0 = Math.min(y0, q[1]); y1 = Math.max(y1, q[1]); });
+    return [x0 - marge, y0 - marge, x1 - x0 + 2 * marge, y1 - y0 + 2 * marge];
+  }
+  const CADRES = {
+    appartement: cadre(rect([-0.5, -1.2, 10.8, 7.4], Z).concat(rect([-0.5, -1.2, 10.8, 7.4], Z + 3.3)), 0.6),
+    immeuble: cadre(rect([IM.emprise[0], IM.rue.trottoir_en_face, IM.emprise[2], IM.cour[3]], 0).concat(rect(IM.emprise, IM.niveaux * H)), 1.2),
+  };
+  let vueChoisie = "auto", cadreActuel = CADRES.appartement.slice(), cadreCible = CADRES.appartement.slice();
+  svg.setAttribute("viewBox", cadreActuel.join(" "));
+  svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
+  // ------------------------------------------------------------------ Thomas
+  function silhouette(p, pose, d, h, enMouvement) {
+    gThomas.textContent = "";
+    const [x, y, z] = p;
+    let dx = d ? d[0] : 0, dy = d ? d[1] : 1;
+    const n = Math.hypot(dx, dy) || 1; dx /= n; dy /= n;
+    const px = -dy, py = dx;            // perpendiculaire
+    const P = (a, b, c) => [x + a, y + b, z + c];
+    el("ellipse", { cx: iso([x, y, z])[0], cy: iso([x, y, z])[1], rx: 0.32, ry: 0.16, class: "ombre" }, gThomas);
+    let tete;
+    if (pose === "allonge") {
+      const hh = h || 0.5;
+      const pieds = P(-dx * 0.85, -dy * 0.85, hh + 0.05), bassin = P(-dx * 0.05, -dy * 0.05, hh + 0.08), cou = P(dx * 0.6, dy * 0.6, hh + 0.08);
+      trait([pieds, bassin, cou], "", gThomas);
+      trait([P(dx * 0.5 + px * 0.2, dy * 0.5 + py * 0.2, hh + 0.08), P(-dx * 0.1 + px * 0.22, -dy * 0.1 + py * 0.22, hh + 0.06)], "", gThomas);
+      tete = P(dx * 0.76, dy * 0.76, hh + 0.12);
+    } else if (pose === "assis") {
+      const hh = h || 0.45;
+      const bassin = P(0, 0, hh), genoux = P(dx * 0.42, dy * 0.42, hh), pieds = P(dx * 0.47, dy * 0.47, 0), cou = P(-dx * 0.04, -dy * 0.04, hh + 0.55);
+      trait([pieds, genoux, bassin, cou], "", gThomas);
+      trait([P(px * 0.18 - dx * 0.02, py * 0.18 - dy * 0.02, hh + 0.5), P(dx * 0.38 + px * 0.15, dy * 0.38 + py * 0.15, hh + 0.3)], "", gThomas);
+      trait([P(-px * 0.18 - dx * 0.02, -py * 0.18 - dy * 0.02, hh + 0.5), P(dx * 0.38 - px * 0.15, dy * 0.38 - py * 0.15, hh + 0.3)], "", gThomas);
+      tete = P(-dx * 0.04, -dy * 0.04, hh + 0.72);
+    } else {
+      const ecart = enMouvement || pose === "course" || pose === "marche" ? 0.2 : 0.05;
+      const bassin = P(0, 0, 0.92), cou = P(0, 0, 1.45);
+      trait([P(dx * ecart + px * 0.1, dy * ecart + py * 0.1, 0), bassin, P(-dx * ecart - px * 0.1, -dy * ecart - py * 0.1, 0)], "", gThomas);
+      trait([bassin, cou], "", gThomas);
+      trait([P(px * 0.22 - dx * ecart * 0.6, py * 0.22 - dy * ecart * 0.6, 0.88), P(px * 0.18, py * 0.18, 1.4), P(-px * 0.18, -py * 0.18, 1.4), P(-px * 0.22 + dx * ecart * 0.6, -py * 0.22 + dy * ecart * 0.6, 0.88)], "", gThomas);
+      tete = P(0, 0, 1.62);
+    }
+    const q = iso(tete);
+    el("circle", { cx: q[0].toFixed(3), cy: q[1].toFixed(3), r: 0.12 }, gThomas);
+  }
+
+  function longueurs(w) {
+    const L = [0];
+    for (let i = 1; i < w.length; i++) L.push(L[i - 1] + Math.hypot(w[i][0] - w[i - 1][0], w[i][1] - w[i - 1][1], w[i][2] - w[i - 1][2]));
+    return L;
+  }
+  function surChemin(w, L, s) {
+    for (let i = 1; i < w.length; i++) {
+      if (L[i] >= s) {
+        const u = L[i] === L[i - 1] ? 0 : (s - L[i - 1]) / (L[i] - L[i - 1]);
+        return { p: [0, 1, 2].map((k) => w[i - 1][k] + (w[i][k] - w[i - 1][k]) * u), dir: [w[i][0] - w[i - 1][0], w[i][1] - w[i - 1][1]] };
+      }
+    }
+    const n = w.length;
+    return { p: w[n - 1], dir: n > 1 ? [w[n - 1][0] - w[n - 2][0], w[n - 1][1] - w[n - 2][1]] : [0, 1] };
+  }
+
+  // ------------------------------------------------------------------ quartier
+  const QS = $("quartier");
+  const Q = M.quartier, EX = Q.exageration_verticale;
+  // vue oblique schématique : nord vers la droite, la Saône en bas, altitudes exagérées
+  const isoQ = (p) => [p[1] + p[0] * 0.35, -p[0] * 0.4 - p[2] * EX];
+  const chaineQ = (arr) => arr.map((p) => { const q = isoQ(p); return q[0].toFixed(1) + "," + q[1].toFixed(1); }).join(" ");
+  const zTerrain = (x) => x >= Q.plateau.bord_x ? Q.plateau.altitude : x <= Q.bas_des_pentes_x ? 0 : Q.plateau.altitude * (x - Q.bas_des_pentes_x) / (Q.plateau.bord_x - Q.bas_des_pentes_x);
+  let gQParcouru, gQThomas, gQImmeuble, vbQ;
+  function dessinerQuartier() {
+    const g = el("g", {}, QS);
+    const xs = [600, Q.plateau.bord_x, Q.bas_des_pentes_x, -1750];
+    for (let y = -1200; y <= 4800; y += 600) el("polyline", { points: chaineQ(xs.map((x) => [x, y, zTerrain(x)])), class: "leger" }, g);
+    const yN = [-1200, 4800];
+    [Q.plateau.bord_x, (Q.plateau.bord_x + Q.bas_des_pentes_x) / 2, Q.bas_des_pentes_x].forEach((x) =>
+      el("polyline", { points: chaineQ([[x, -1200, zTerrain(x)], [x, 4800, zTerrain(x)]]), class: "leger tirets" }, g));
+    const proche = Q.quai.map((p) => [p[0] + Q.saone.rive_proche, p[1], 0]);
+    const loin = Q.quai.map((p) => [p[0] + Q.saone.rive_lointaine, p[1], 0]).reverse();
+    el("polygon", { points: chaineQ(proche.concat(loin)), class: "saone" }, g);
+    el("polyline", { points: chaineQ(Q.quai), class: "chemin" }, g);
+    el("polyline", { points: chaineQ(Q.descente), class: "chemin" }, g);
+    const b = isoQ(Q.descente[0]);
+    gQImmeuble = el("rect", { x: b[0], y: b[1], width: 0, height: 0, fill: "none", stroke: "var(--encre)", "stroke-width": 1, "vector-effect": "non-scaling-stroke" }, g);
+    Q.reperes.forEach((r) => {
+      const q = isoQ(r.point);
+      const t = el("text", { x: q[0].toFixed(1), y: q[1].toFixed(1), "text-anchor": "middle", class: "repere" }, g);
+      t.textContent = r.nom;
+    });
+    gQParcouru = el("polyline", { points: "", class: "parcouru" }, QS);
+    gQThomas = el("circle", { r: 0, class: "thomas", visibility: "hidden" }, QS);
+    const tous = Q.quai.concat(Q.descente, [[600, -1200, 85], [600, 4800, 85], [-1750, -1200, 0], [-1750, 4800, 0]]);
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    tous.forEach((p) => { const q = isoQ(p); x0 = Math.min(x0, q[0]); x1 = Math.max(x1, q[0]); y0 = Math.min(y0, q[1]); y1 = Math.max(y1, q[1]); });
+    vbQ = [x0 - 120, y0 - 160, x1 - x0 + 240, y1 - y0 + 260];
+    QS.setAttribute("viewBox", vbQ.join(" "));
+    QS.setAttribute("preserveAspectRatio", "xMidYMid meet");
+  }
+
+  // ------------------------------------------------------------------ panneau
+  function jauges(cible, noms, ids) {
+    const box = $(cible);
+    return ids.map((id) => {
+      const n = document.createElement("span"); n.textContent = noms[id] || id;
+      const b = document.createElement("span"); b.className = "barre";
+      const i = document.createElement("i"); b.appendChild(i);
+      const v = document.createElement("span"); v.className = "val";
+      box.append(n, b, v);
+      return { b, i, v };
+    });
+  }
+  const JB = jauges("besoins", NOMS_BESOINS, D.besoins.map((b) => b.id));
+  D.besoins.forEach((b, k) => { const u = document.createElement("u"); u.style.left = b.seuil + "%"; JB[k].b.appendChild(u); });
+  const JE = jauges("emotions", NOMS_EMOTIONS, D.emotions);
+
+  // ------------------------------------------------------------------ état de lecture
+  let g = debutJour[0] + 84, t = 1, enLecture = false, vitesse = 1, dernierRendu = -1, dernierInstant = 0;
+  const court = (id) => (D.noms_pieces[id] || id).split(" (")[0];
+  const minutes = (h) => +h.slice(0, 2) * 60 + +h.slice(3, 5);
+  const fmtDate = (j) => { const d = new Date(j.date + "T12:00:00"); return j.jour + " " + d.getDate() + " mars 2010"; };
+
+  function rendreJours() {
+    const nav = $("jours");
+    D.jours.forEach((j, ji) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = JOURS_COURTS[j.jour] + " " + +j.date.slice(8) + " <small>" + (j.methode === "agent" ? "agent" : "référence") + "</small>";
+      b.title = fmtDate(j) + (j.methode === "agent" ? " : vécu par l'agent autonome" : " : journée de référence rédigée à la main");
+      b.addEventListener("click", () => { allerA(debutJour[ji] + (g - debutJour[G[g].ji])); });
+      nav.appendChild(b);
+    });
+  }
+  function rendreBande(ji) {
+    const bande = $("bande");
+    bande.querySelectorAll("i").forEach((e) => e.remove());
+    const cat = (s) => s.l === "e" || s.hors ? "dehors" : s.pc === "chambre" ? "chambre" : s.pc === "atelier" ? "atelier" : (s.pc === "salle-de-bain" || s.pc === "wc") ? "eau" : "vie";
+    const frag = document.createDocumentFragment();
+    D.jours[ji].pas.forEach((s) => { const i = document.createElement("i"); i.className = cat(s); frag.appendChild(i); });
+    bande.insertBefore(frag, $("curseur"));
+  }
+
+  function majPanneau() {
+    const e = G[g], s = e.s, j = D.jours[e.ji];
+    $("heure").textContent = s.h;
+    $("date").textContent = fmtDate(j);
+    const m = minutes(s.h), nuit = m < minutes(j.lever) || m >= minutes(j.coucher);
+    $("scene").classList.toggle("nuit", nuit);
+    const puces = [];
+    puces.push(court(s.pc));
+    puces.push(POSTURES[s.po] || s.po);
+    if (s.ps) puces.push("sommeil " + s.ps);
+    puces.push(nuit ? "nuit" : "jour");
+    $("puces").innerHTML = "";
+    puces.forEach((p, k) => { const c = document.createElement("span"); c.className = "puce" + (k === 0 ? " laiton" : ""); c.textContent = p; $("puces").appendChild(c); });
+    $("activite").textContent = s.a;
+    $("action").textContent = s.x;
+    $("pensee").hidden = !s.pe; $("pensee").textContent = s.pe ? "« " + s.pe + " »" : "";
+    $("reve").hidden = !s.r; $("reve").textContent = s.r ? "Rêve : « " + s.r + " »" : "";
+    const ev = $("evenements"); ev.innerHTML = "";
+    (s.ev || []).forEach((id) => { const c = document.createElement("span"); c.className = "puce"; c.textContent = D.evenements[id] || id; ev.appendChild(c); });
+    s.b.forEach((v, k) => {
+      const bas = v < D.besoins[k].seuil;
+      JB[k].i.style.width = Math.max(0, Math.min(100, v)) + "%";
+      JB[k].b.classList.toggle("bas", bas); JB[k].v.classList.toggle("bas", bas);
+      JB[k].v.textContent = v.toFixed(0);
+    });
+    s.em.forEach((v, k) => { JE[k].i.style.width = Math.max(0, Math.min(1, v)) * 100 + "%"; JE[k].v.textContent = v.toFixed(2); });
+    // sur lui
+    const pos = posObjets[g], ul = $("porte"); ul.innerHTML = "";
+    Object.entries(pos).forEach(([id, ou]) => {
+      if (D.emplacements[ou] && D.emplacements[ou].porte) { const li = document.createElement("li"); li.textContent = (D.objets[id] || id) + " : " + ou; ul.appendChild(li); }
+    });
+    if (!ul.children.length) { const li = document.createElement("li"); li.className = "vide"; li.textContent = "rien en main"; ul.appendChild(li); }
+    const ap = $("appareils"); ap.innerHTML = "";
+    s.ap.forEach((id) => { const c = document.createElement("span"); c.className = "puce"; c.textContent = id.startsWith("lumiere-") ? "Lumière " + court(id.slice(8)).toLowerCase() : NOMS_APPAREILS[id] || id; ap.appendChild(c); });
+    if (!s.ap.length) ap.innerHTML = '<span class="vide">rien</span>';
+    // règle
+    $("temps").value = e.k;
+    $("curseur").style.left = (e.k / 288 * 100) + "%";
+    $("ici").textContent = JOURS_COURTS[j.jour] + " " + s.h;
+    document.querySelectorAll("#jours button").forEach((b, k) => b.setAttribute("aria-pressed", k === e.ji ? "true" : "false"));
+    // lumières et appareils
+    for (const [id, poly] of Object.entries(sols)) poly.classList.toggle("allumee", s.ap.includes("lumiere-" + id));
+    gApp.textContent = "";
+    s.ap.forEach((id) => {
+      if (id.startsWith("lumiere-")) return;
+      let a = M.appareils[id];
+      let p = null;
+      if (typeof a === "string" && a.startsWith("obj-")) { const em = D.emplacements[pos[a]]; p = em && em.p ? em.p : null; }
+      else if (a === "thomas") p = null;
+      else if (a) p = loc(a, a[2]);
+      if (!p) return;
+      const q = iso(p);
+      el("circle", { cx: q[0], cy: q[1], r: 0.07, class: "appareil" }, gApp);
+      el("circle", { cx: q[0], cy: q[1], r: 0.2, class: "halo" }, gApp);
+    });
+    // objets
+    gObj.textContent = "";
+    const deplaces = new Set((s.ob || []).map((o) => o[0]).concat((s.no || []).map((o) => o[0])));
+    const parPoint = {};
+    Object.entries(pos).forEach(([id, ou]) => {
+      const em = D.emplacements[ou];
+      if (!em || em.porte || !em.p) return;
+      const cle = em.p.join(",");
+      (parPoint[cle] = parPoint[cle] || []).push(id);
+    });
+    Object.entries(parPoint).forEach(([cle, ids]) => {
+      const base = cle.split(",").map(Number);
+      ids.forEach((id, i) => {
+        const ox = ((i % 3) - 1) * 0.14, oy = Math.floor(i / 3) * 0.14;
+        const c = [base[0] + ox, base[1] + oy, base[2]];
+        const r = 0.055;
+        const gg = el("g", { class: "objet" + (deplaces.has(id) ? " deplace" : ""), tabindex: 0, role: "button", "aria-label": D.objets[id] || id }, gObj);
+        contour([[c[0] - r, c[1] - r, c[2]], [c[0] + r, c[1] - r, c[2]], [c[0] + r, c[1] + r, c[2]], [c[0] - r, c[1] + r, c[2]]], "", gg);
+        el("title", {}, gg).textContent = (D.objets[id] || id) + " : " + pos[id];
+        const montrer = () => { const et = $("etiquette"); et.hidden = false; et.textContent = (D.objets[id] || id) + " · " + pos[id]; };
+        gg.addEventListener("click", montrer);
+        gg.addEventListener("keydown", (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); montrer(); } });
+      });
+    });
+    // parcours dans le quartier : chemin couvert depuis le départ de la course du jour
+    const jd = debutJour[e.ji];
+    const couvert = [];
+    for (let k = jd; k < g; k++) if (G[k].s.q) couvert.push(...G[k].s.q);
+    gQParcouru.setAttribute("points", chaineQ(couvert));
+    const km = D.jours[e.ji].pas.slice(0, e.k + 1).filter((x) => x.q).length;
+    $("dehors").textContent = s.l === "e" ? "Dehors : " + (s.qp === "quai" ? "le long de la Saône" : s.qp === "montee" ? "remontée des pentes" : "descente des pentes") : km ? "Course du jour terminée." : "Pas de sortie pour l'instant ce jour-là.";
+    if (e.ji !== rendreBande.dernier) { rendreBande(e.ji); rendreBande.dernier = e.ji; }
+  }
+
+  // ------------------------------------------------------------------ rendu d'un instant
+  function rendre() {
+    const e = G[g], s = e.s;
+    const vit = vitesse;
+    let p, dir = s.d, pose = s.po, h = s.d ? s.d[2] : 0, visible = true, enMouvement = false, surEscalier = false, partBat = 0;
+    const avant = g > 0 ? fin[g - 1] : D.depart;
+    if (s.w) {
+      const L = longueurs(s.w), tot = L[L.length - 1];
+      const part = Math.min(0.85, tot / (2.5 * (1 / vit)));
+      partBat = part;
+      const u = part <= 0 ? 1 : Math.min(1, t / part);
+      const r = surChemin(s.w, L, u * tot);
+      p = r.p;
+      if (u < 1) { enMouvement = true; dir = r.dir; pose = "marche"; surEscalier = p[2] < Z - 0.3; }
+      if (s.hors && u >= 1) visible = false;
+    } else {
+      p = avant;
+      if (s.hors) visible = false;
+    }
+    if (visible) silhouette(p, pose, dir, h, enMouvement); else gThomas.textContent = "";
+    // quartier
+    if (s.q && s.q.length) {
+      const L = longueurs(s.q.map((q) => [q[0], q[1], 0])), tot = L[L.length - 1];
+      // dehors seulement une fois l'escalier descendu
+      const u = s.esc === "descente" && partBat < 1 ? Math.max(0, (t - partBat) / (1 - partBat)) : Math.min(1, t);
+      const r = surChemin(s.q, L, u * tot);
+      const q = isoQ(r.p);
+      gQThomas.setAttribute("cx", q[0]); gQThomas.setAttribute("cy", q[1]); gQThomas.setAttribute("visibility", "visible");
+    } else gQThomas.setAttribute("visibility", "hidden");
+    // cadrage
+    const vue = vueChoisie === "auto" ? (!visible || surEscalier ? "immeuble" : "appartement") : vueChoisie;
+    cadreCible = CADRES[vue];
+    $("scene").classList.toggle("vue-appartement", vue === "appartement");
+    $("ou").textContent = !visible ? "Dehors" : surEscalier ? "Escalier de l'immeuble" : court(s.pc);
+    $("ou-detail").textContent = !visible ? "Thomas court : voir le parcours" : surEscalier ? "66 marches, trois étages" : "3e étage, rue d'Austerlitz";
+  }
+
+  // taille d'un pixel d'écran en unités du dessin, pour le texte et les repères
+  function echelle(el_, vb) {
+    const r = el_.getBoundingClientRect();
+    if (!r.width || !r.height) return null;
+    const px = 1 / Math.min(r.width / vb[2], r.height / vb[3]);
+    el_.style.setProperty("--px", px.toFixed(5));
+    return px;
+  }
+  function echelleQuartier() {
+    const px = echelle(QS, vbQ);
+    if (!px) return;
+    gQThomas.setAttribute("r", (5 * px).toFixed(1));
+    const b = isoQ(Q.descente[0]), c = 7 * px;
+    gQImmeuble.setAttribute("x", (b[0] - c / 2).toFixed(1)); gQImmeuble.setAttribute("y", (b[1] - c).toFixed(1));
+    gQImmeuble.setAttribute("width", c.toFixed(1)); gQImmeuble.setAttribute("height", c.toFixed(1));
+  }
+  window.addEventListener("resize", () => { echelle(svg, cadreActuel); echelleQuartier(); });
+
+  function animerCadre(dt) {
+    const k = Math.min(1, dt / 350);
+    let change = false;
+    for (let i = 0; i < 4; i++) {
+      const d = cadreCible[i] - cadreActuel[i];
+      if (Math.abs(d) > 0.01) { cadreActuel[i] += d * k; change = true; } else cadreActuel[i] = cadreCible[i];
+    }
+    if (change || dt === 0) { svg.setAttribute("viewBox", cadreActuel.map((v) => v.toFixed(3)).join(" ")); echelle(svg, cadreActuel); }
+  }
+
+  function boucle(instant) {
+    const dt = dernierInstant ? Math.min(100, instant - dernierInstant) : 0;
+    dernierInstant = instant;
+    if (enLecture) {
+      t += (dt / 1000) * vitesse;
+      while (t >= 1) {
+        if (g >= G.length - 1) { t = 1; arreter(); break; }
+        g += 1; t -= 1;
+      }
+    }
+    if (g !== dernierRendu) { majPanneau(); dernierRendu = g; }
+    rendre();
+    animerCadre(dt);
+    requestAnimationFrame(boucle);
+  }
+
+  function allerA(ng) { g = Math.max(0, Math.min(G.length - 1, ng)); t = 1; $("etiquette").hidden = true; }
+  function lancer() { if (g >= G.length - 1) return; enLecture = true; if (t >= 1) { g += 1; t = 0; } $("lecture").textContent = "Pause"; }
+  function arreter() { enLecture = false; $("lecture").textContent = "Lecture"; }
+
+  // ------------------------------------------------------------------ commandes
+  $("lecture").addEventListener("click", () => (enLecture ? arreter() : lancer()));
+  $("recul").addEventListener("click", () => { arreter(); allerA(g - 1); });
+  $("avance").addEventListener("click", () => { arreter(); allerA(g + 1); });
+  $("vitesse").addEventListener("change", (ev) => { vitesse = +ev.target.value; });
+  $("temps").addEventListener("input", (ev) => { arreter(); allerA(debutJour[G[g].ji] + +ev.target.value); });
+  $("bande").addEventListener("click", (ev) => {
+    const r = ev.currentTarget.getBoundingClientRect();
+    arreter(); allerA(debutJour[G[g].ji] + Math.min(287, Math.floor((ev.clientX - r.left) / r.width * 288)));
+  });
+  [["vue-auto", "auto"], ["vue-appartement", "appartement"], ["vue-immeuble", "immeuble"]].forEach(([id, v]) =>
+    $(id).addEventListener("click", () => {
+      vueChoisie = v;
+      ["vue-auto", "vue-appartement", "vue-immeuble"].forEach((x) => $(x).setAttribute("aria-pressed", x === id ? "true" : "false"));
+    }));
+  document.addEventListener("keydown", (ev) => {
+    if (ev.target.matches("input, select, textarea")) return;
+    if (ev.key === " ") { ev.preventDefault(); enLecture ? arreter() : lancer(); }
+    if (ev.key === "ArrowRight") { arreter(); allerA(g + 1); }
+    if (ev.key === "ArrowLeft") { arreter(); allerA(g - 1); }
+  });
+
+  // ------------------------------------------------------------------ démarrage
+  dessinerImmeuble();
+  dessinerLogement();
+  dessinerQuartier();
+  rendreJours();
+  $("statut").textContent = M.statut;
+  echelle(svg, cadreActuel);
+  echelleQuartier();
+  requestAnimationFrame(boucle);
+})();
+</script>
+</body>
+</html>
