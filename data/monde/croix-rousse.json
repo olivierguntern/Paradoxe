@@ -2161,7 +2161,7 @@
     ]
    },
    "postes": {
-    "principe": "x, y, direction du regard (ou de la tête si allongé), hauteur du siège ou de la couche",
+    "principe": "x, y, direction du regard (ou de la tête si allongé), hauteur du siège ou de la couche. Dans la boutique : « etal », « epicerie », « central », « frais » et « caisse » sont les places d'un client ; « travail_… », celles de Robert quand il s'occupe d'un rayon.",
     "boutique": {
      "debout": [
       6.6,
@@ -2172,6 +2172,60 @@
      "client": [
       6.6,
       0.55,
+      0.0,
+      1.0
+     ],
+     "etal": [
+      1.9,
+      1.35,
+      0.0,
+      -1.0
+     ],
+     "epicerie": [
+      1.05,
+      2.8,
+      -1.0,
+      0.0
+     ],
+     "central": [
+      2.9,
+      3.15,
+      0.0,
+      -1.0
+     ],
+     "frais": [
+      5.9,
+      3.3,
+      0.0,
+      1.0
+     ],
+     "caisse": [
+      6.6,
+      0.55,
+      0.0,
+      1.0
+     ],
+     "travail_etal": [
+      3.4,
+      0.75,
+      -1.0,
+      0.0
+     ],
+     "travail_epicerie": [
+      1.05,
+      3.9,
+      -1.0,
+      0.0
+     ],
+     "travail_frais": [
+      4.8,
+      3.3,
+      0.0,
+      1.0
+     ],
+     "travail_central": [
+      2.9,
+      1.4,
       0.0,
       1.0
      ]
@@ -2241,6 +2295,91 @@
      4.9,
      1.0
     ]
+   },
+   "circulation": {
+    "principe": "Allées de la boutique pour un client : nœuds (x, y) et passages en ligne droite entre eux, sans traverser les meubles. Les rayons et la caisse sont des postes du même nom.",
+    "boutique": {
+     "noeuds": {
+      "porte": [
+       4.0,
+       0.35
+      ],
+      "etal": [
+       1.9,
+       1.35
+      ],
+      "epicerie": [
+       1.05,
+       2.8
+      ],
+      "central": [
+       2.9,
+       3.15
+      ],
+      "frais": [
+       5.9,
+       3.3
+      ],
+      "coin": [
+       5.0,
+       2.1
+      ],
+      "avant": [
+       5.0,
+       0.6
+      ],
+      "caisse": [
+       6.6,
+       0.55
+      ]
+     },
+     "aretes": [
+      [
+       "porte",
+       "etal"
+      ],
+      [
+       "porte",
+       "avant"
+      ],
+      [
+       "porte",
+       "coin"
+      ],
+      [
+       "etal",
+       "epicerie"
+      ],
+      [
+       "etal",
+       "avant"
+      ],
+      [
+       "epicerie",
+       "central"
+      ],
+      [
+       "central",
+       "frais"
+      ],
+      [
+       "central",
+       "coin"
+      ],
+      [
+       "frais",
+       "coin"
+      ],
+      [
+       "coin",
+       "avant"
+      ],
+      [
+       "avant",
+       "caisse"
+      ]
+     ]
+    }
    }
   },
   {

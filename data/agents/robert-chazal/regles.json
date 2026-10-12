@@ -1,57 +1,332 @@
 {
-  "type": "commerce",
-  "principe": "Règles de décision de l'agent de Robert Chazal, tirées de ses journées de référence (lundi à mercredi) : horaires, seuils des besoins, habitudes du comptoir, courses prélevées pour la maison, soirées. Le lundi est son jour de congé : la boutique reste fermée et il n'y passe que pour prendre la recette de la semaine et la déposer à la banque.",
-  "client": "thomas-berthier",
-  "endormi_la_veille_du_premier_jour": "22:30",
-  "reveil": { "commerce": "05:30", "lundi": "07:15" },
-  "seuils": {
-    "toilettes": 30,
-    "toilettes_au_comptoir": 45,
-    "soif": 45,
-    "toilettes_avant_cafe": 75,
-    "fatigue_coucher": 25,
-    "principe": "Un besoin sous son seuil interrompt l'activité au pas suivant (au comptoir, un aller-retour au fond de la boutique, dès 45 pour les toilettes : il y va pendant un creux plutôt qu'en pleine affluence) ; à la pause café, il passe aux toilettes s'il est sous 75. Le soir, si l'énergie passe sous 25 devant la télévision, il éteint et monte se coucher, sauf un soir de match."
+ "type": "commerce",
+ "principe": "Règles de décision de l'agent de Robert Chazal, tirées de ses journées de référence (lundi à mercredi) : horaires, seuils des besoins, habitudes du comptoir, courses prélevées pour la maison, soirées. Le lundi est son jour de congé : la boutique reste fermée et il n'y passe que pour prendre la recette de la semaine et la déposer à la banque.",
+ "client": "thomas-berthier",
+ "endormi_la_veille_du_premier_jour": "22:30",
+ "reveil": {
+  "commerce": "05:30",
+  "lundi": "07:15"
+ },
+ "seuils": {
+  "toilettes": 30,
+  "toilettes_au_comptoir": 45,
+  "soif": 45,
+  "toilettes_avant_cafe": 75,
+  "fatigue_coucher": 25,
+  "principe": "Un besoin sous son seuil interrompt l'activité au pas suivant (au comptoir, un aller-retour au fond de la boutique, dès 45 pour les toilettes : il y va pendant un creux plutôt qu'en pleine affluence) ; à la pause café, il passe aux toilettes s'il est sous 75. Le soir, si l'énergie passe sous 25 devant la télévision, il éteint et monte se coucher, sauf un soir de match."
+ },
+ "comptoir": {
+  "cafes": [
+   "09:30",
+   "16:30"
+  ],
+  "verres_d_eau": [
+   "11:00",
+   "14:45",
+   "17:40"
+  ],
+  "lectures_du_journal": [
+   "07:45",
+   "10:00",
+   "14:15"
+  ],
+  "reassort_apres_livraison": [
+   "07:05",
+   "07:20"
+  ],
+  "etal_rempli": "17:00",
+  "etal_resserre": [
+   "11:50",
+   "18:50"
+  ],
+  "garnier": {
+   "jours": [
+    "mardi",
+    "mercredi",
+    "jeudi",
+    "vendredi"
+   ],
+   "apres": "14:40"
   },
-  "comptoir": {
-    "cafes": ["09:30", "16:30"],
-    "verres_d_eau": ["11:00", "14:45", "17:40"],
-    "lectures_du_journal": ["07:45", "10:00", "14:15"],
-    "reassort_apres_livraison": ["07:05", "07:20"],
-    "etal_rempli": "17:00",
-    "etal_resserre": ["11:50", "18:50"],
-    "garnier": { "jours": ["mardi", "mercredi", "jeudi", "vendredi"], "apres": "14:40" },
-    "grosses_tetes": { "jours": ["mardi", "mercredi", "jeudi", "vendredi"], "debut": "16:00", "rire_apres": "16:45" },
-    "principe": "Lectures, bavardage et rire se placent au premier pas sans client à partir de l'heure indiquée."
+  "grosses_tetes": {
+   "jours": [
+    "mardi",
+    "mercredi",
+    "jeudi",
+    "vendredi"
+   ],
+   "debut": "16:00",
+   "rire_apres": "16:45"
   },
-  "pain_mis_de_cote": { "defaut": 1, "dimanche": 2 },
-  "perimes_au_menage": { "principe": "Part des produits à date courte jetés au ménage de fin de semaine, le dimanche à la fermeture (arrondi).", "yaourts": 0.12, "salade": 0.2 },
-  "cabas": {
-    "principe": "Le soir, et le dimanche midi en fermant, il prélève au magasin ce qui manque à la maison pour les repas jusqu'au premier repas qui suit son prochain départ de la boutique (le dimanche, jusqu'au déjeuner du mardi : le lundi est son jour de congé), puis complète ses provisions personnelles déjà passées sous leur seuil. Le pain vient de la baguette mise de côté le matin.",
-    "provisions_personnelles": {
-      "fruits": { "seuil": 4, "produit": "pommes", "unites": 4 },
-      "fromage": { "seuil": 150, "produit": "comte", "unites": 1 },
-      "beurre": { "seuil": 100, "produit": "beurre", "unites": 1 },
-      "vin_rouge": { "seuil": 75, "produit": "vin_rouge", "unites": 2 },
-      "biere": { "seuil": 2, "produit": "biere", "unites": 4 },
-      "cafe_moulu": { "seuil": 150, "produit": "cafe_moulu", "unites": 1 }
-    },
-    "cafe_boutique": { "seuil": 50, "unites": 1 },
-    "oubli_si_nuit_de_moins_de_minutes": 350
+  "principe": "Lectures, bavardage et rire se placent au premier pas sans client à partir de l'heure indiquée."
+ },
+ "pain_mis_de_cote": {
+  "defaut": 1,
+  "dimanche": 2
+ },
+ "perimes_au_menage": {
+  "principe": "Part des produits à date courte jetés au ménage de fin de semaine, le dimanche à la fermeture (arrondi).",
+  "yaourts": 0.12,
+  "salade": 0.2
+ },
+ "cabas": {
+  "principe": "Le soir, et le dimanche midi en fermant, il prélève au magasin ce qui manque à la maison pour les repas jusqu'au premier repas qui suit son prochain départ de la boutique (le dimanche, jusqu'au déjeuner du mardi : le lundi est son jour de congé), puis complète ses provisions personnelles déjà passées sous leur seuil. Le pain vient de la baguette mise de côté le matin.",
+  "provisions_personnelles": {
+   "fruits": {
+    "seuil": 4,
+    "produit": "pommes",
+    "unites": 4
+   },
+   "fromage": {
+    "seuil": 150,
+    "produit": "comte",
+    "unites": 1
+   },
+   "beurre": {
+    "seuil": 100,
+    "produit": "beurre",
+    "unites": 1
+   },
+   "vin_rouge": {
+    "seuil": 75,
+    "produit": "vin_rouge",
+    "unites": 2
+   },
+   "biere": {
+    "seuil": 2,
+    "produit": "biere",
+    "unites": 4
+   },
+   "cafe_moulu": {
+    "seuil": 150,
+    "produit": "cafe_moulu",
+    "unites": 1
+   }
   },
-  "commande_grossiste": { "dimanche": "mardi", "jeudi": "vendredi" },
-  "objectif_recette_eur": 300,
-  "fin_tele": { "defaut": "22:00", "dimanche": "21:45" },
-  "trajets": {
-    "aube": [[1900, 0], [1500, 0], [1800, 85]],
-    "midi": [[1800, -85], [1500, 0], [1900, 0]],
-    "midi_dimanche": [[1800, -85], [1500, 0], [1900, 0]],
-    "apres_midi": [[1900, 0], [1500, 0], [1800, 85]],
-    "soir": [[1300, -85], [1200, 0], [1400, 0], [1300, 0]],
-    "lundi_matin": [[1300, 0], [1300, 0], [1200, 0], [1400, 85]],
-    "lundi_midi": [[1300, -85], [1200, 0], [1400, 0], [1300, 0]],
-    "cinema_aller": [[1500, 0], [1300, 0], [700, 0]],
-    "cinema_retour": [[700, 0], [1300, 0], [1500, 0]],
-    "monts_aller": [[4000, 0], [4000, 0], [4000, 0], [3000, 50], [2500, 150], [1500, 50]],
-    "monts_retour": [[1500, -50], [2500, -150], [3000, -50], [4000, 0], [4000, 0], [4000, 0]]
-  }
+  "cafe_boutique": {
+   "seuil": 50,
+   "unites": 1
+  },
+  "oubli_si_nuit_de_moins_de_minutes": 350
+ },
+ "commande_grossiste": {
+  "dimanche": "mardi",
+  "jeudi": "vendredi"
+ },
+ "objectif_recette_eur": 300,
+ "fin_tele": {
+  "defaut": "22:00",
+  "dimanche": "21:45"
+ },
+ "trajets": {
+  "aube": [
+   [
+    1900,
+    0
+   ],
+   [
+    1500,
+    0
+   ],
+   [
+    1800,
+    85
+   ]
+  ],
+  "midi": [
+   [
+    1800,
+    -85
+   ],
+   [
+    1500,
+    0
+   ],
+   [
+    1900,
+    0
+   ]
+  ],
+  "midi_dimanche": [
+   [
+    1800,
+    -85
+   ],
+   [
+    1500,
+    0
+   ],
+   [
+    1900,
+    0
+   ]
+  ],
+  "apres_midi": [
+   [
+    1900,
+    0
+   ],
+   [
+    1500,
+    0
+   ],
+   [
+    1800,
+    85
+   ]
+  ],
+  "soir": [
+   [
+    1300,
+    -85
+   ],
+   [
+    1200,
+    0
+   ],
+   [
+    1400,
+    0
+   ],
+   [
+    1300,
+    0
+   ]
+  ],
+  "lundi_matin": [
+   [
+    1300,
+    0
+   ],
+   [
+    1300,
+    0
+   ],
+   [
+    1200,
+    0
+   ],
+   [
+    1400,
+    85
+   ]
+  ],
+  "lundi_midi": [
+   [
+    1300,
+    -85
+   ],
+   [
+    1200,
+    0
+   ],
+   [
+    1400,
+    0
+   ],
+   [
+    1300,
+    0
+   ]
+  ],
+  "cinema_aller": [
+   [
+    1500,
+    0
+   ],
+   [
+    1300,
+    0
+   ],
+   [
+    700,
+    0
+   ]
+  ],
+  "cinema_retour": [
+   [
+    700,
+    0
+   ],
+   [
+    1300,
+    0
+   ],
+   [
+    1500,
+    0
+   ]
+  ],
+  "monts_aller": [
+   [
+    4000,
+    0
+   ],
+   [
+    4000,
+    0
+   ],
+   [
+    4000,
+    0
+   ],
+   [
+    3000,
+    50
+   ],
+   [
+    2500,
+    150
+   ],
+   [
+    1500,
+    50
+   ]
+  ],
+  "monts_retour": [
+   [
+    1500,
+    -50
+   ],
+   [
+    2500,
+    -150
+   ],
+   [
+    3000,
+    -50
+   ],
+   [
+    4000,
+    0
+   ],
+   [
+    4000,
+    0
+   ],
+   [
+    4000,
+    0
+   ]
+  ]
+ },
+ "postes_boutique": {
+  "principe": "Endroit de la boutique où Robert se tient pour une tâche sans client (postes « travail_… » du monde), reconnu aux mots de la tâche ; sinon, derrière le comptoir.",
+  "travail_etal": [
+   "étal",
+   "cagettes"
+  ],
+  "travail_frais": [
+   "vitrine réfrigérée",
+   "yaourts"
+  ],
+  "travail_epicerie": [
+   "conserves",
+   "rayons du fond",
+   "paquets de café"
+  ],
+  "travail_central": [
+   "carton de lait"
+  ]
+ }
 }

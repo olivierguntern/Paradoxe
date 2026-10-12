@@ -27,7 +27,8 @@ def idx(h):
 def p(action, pensee=None, **kw):
     """Un pas de 5 minutes. Options : ev, objets, nouveaux_objets, consommation, production,
     achats, argent, effets, app, radio, musique, tele, mode, charge, posture, piece, lieu, via,
-    via_apres, sortie, retour, escalier, parcours, phase_sommeil, reve ; pour un commerçant :
+    via_apres, sortie, retour, escalier, parcours, phase_sommeil, reve, poste (endroit précis de la pièce, ou
+    liste d'arrêts successifs : rayons d'une boutique…) ; pour un commerçant :
     ventes, livraisons, reprises, prelevements, clients."""
     d = {"action": action, "pensee": pensee}
     d.update(kw)
@@ -517,7 +518,7 @@ class Simulation:
                  "routine": s["routine"], "activite": s["titre"], "action": st["action"], "pensee": st["pensee"]}
         if dep:
             entry["deplacement"] = dep
-        for opt in ("phase_sommeil", "reve", "nouveaux_objets", "objets", "ruptures"):
+        for opt in ("phase_sommeil", "reve", "nouveaux_objets", "objets", "ruptures", "poste"):
             if st.get(opt):
                 entry[opt] = st[opt]
         entry.update(mouvements)

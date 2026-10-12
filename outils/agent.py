@@ -1365,8 +1365,21 @@ class Agent:
         accueil = E["accueil_commercant"].get(self.jour, E["accueil_commercant"]["defaut"])
         reponse = E["reponse_client"].get(self.jour, E["reponse_client"]["defaut"])
         conseil = E.get("conseil", {}).get(self.jour)
-        p = {"action": f"Pousse la porte de l'épicerie. « {E['salut_client'][moment]} » Robert Chazal lève la tête de sa caisse : "
-                       f"« {accueil} » « {reponse} » Prend dans les rayons {txt}.",
+        # le tour des rayons, dans l'ordre de la boutique ; le pain se demande à la caisse
+        RY = self.COMMERCE.get("rayons", {})
+        ordre = RY.get("ordre", [])
+        par_rayon = {}
+        for x in liste:
+            par_rayon.setdefault(x["c"].get("rayon", "epicerie"), []).append(self.libelle(x))
+        tour = [r for r in ordre if r in par_rayon and r != "comptoir"]
+        au_comptoir = par_rayon.get("comptoir", [])
+        if tour:
+            etapes = " ; ".join(f"à {RY['noms'][r]}, {self.enumerer(par_rayon[r])}" for r in tour)
+            choix_txt = f"Prend un panier près de la porte et fait le tour des rayons : {etapes}. Tout va dans le panier."
+        else:
+            choix_txt = "Attend son tour près de la porte."
+        p = {"action": f"Pousse la porte de l'épicerie. « {E['salut_client'][moment]} » Robert Chazal lève la tête : "
+                       f"« {accueil} » « {reponse} » {choix_txt}", "poste": tour or ["porte"],
              "piece": "épicerie", "lieu": "epicerie-chazal", "charge": "simple", "posture": "debout", "ev": ["echange_commercant"],
              "effets": {"social": self.fiche["besoins"]["social"]["satisfaction"]["echange_bref"]},
              "pensee": choix(self.PENSEES["courses"]["epicerie"], self.date, self.i)}
@@ -1381,10 +1394,12 @@ class Agent:
         # 6. paiement
         achats = [{"produit": x["produit"], "quantite": x["quantite"], "prix": x["prix"]} for x in liste]
         au_revoir = E["au_revoir_commercant"].get(self.jour, E["au_revoir_commercant"]["defaut"])
-        self.emettre({"action": f"Pose ses achats sur le comptoir. « Ça fera {self.euros(total)}. » " +
+        pain = (f"Demande {self.enumerer(au_comptoir)} ; Robert le prend dans la panière, derrière lui. " if au_comptoir else "")
+        self.emettre({"action": ("Va à la caisse et pose son panier sur le comptoir. " if tour else "S'avance jusqu'à la caisse. ") + pain +
+                                f"Robert tape les articles un à un sur la caisse. « Ça fera {self.euros(total)}. » " +
                                 ("Paie en espèces" if especes else "Paie par carte") +
-                                f" et range tout dans le cabas. « {E['au_revoir_client'][moment]} » « {au_revoir} »",
-                      "piece": "épicerie", "lieu": "epicerie-chazal", "charge": "simple", "posture": "debout",
+                                f", range ses courses dans le cabas{' et rend le panier' if tour else ''}. « {E['au_revoir_client'][moment]} » « {au_revoir} »",
+                      "piece": "épicerie", "lieu": "epicerie-chazal", "charge": "simple", "posture": "debout", "poste": "caisse",
                       "achats": achats, "argent": {"especes" if especes else "compte": -total}}, T, R)
         # 7. retour par la Grande-Rue
         self.emettre({"action": "Redescend la Grande-Rue, le cabas à la main, et retraverse la place.",

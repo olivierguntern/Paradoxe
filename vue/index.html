@@ -604,6 +604,25 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
   function etat(P, g, t) {
     const s = P.pas[g];
     let p, dir = s.d, pose = s.po, h = s.d ? s.d[2] : 0, mouvement = false;
+    if (s.w && s.st) {
+      // arrêts (rayons d'une boutique) : marche au pas d'un arrêt à l'autre, le reste du pas est passé devant chaque rayon
+      const L = longueurs(s.w), tot = L[L.length - 1];
+      const fin = vitesse < 0.01 ? 1 : 0.85;
+      const marche = Math.min(fin * 0.5, tot / ((vitesse < 0.01 ? 1.3 : 2.5) * (1 / vitesse)));
+      const arret = (fin - marche) / s.st.length;
+      let t0 = 0, l0 = 0, r = null;
+      for (const [k, dx, dy] of s.st) {
+        const dl = L[k] - l0, dm = tot > 0 ? marche * dl / tot : 0;
+        if (t < t0 + dm) { const q = surChemin(s.w, L, l0 + dl * (t - t0) / dm); r = { p: q.p, dir: q.dir, bouge: true }; break; }
+        t0 += dm;
+        if (t < t0 + arret) { r = { p: s.w[k], dir: [dx, dy], bouge: false }; break; }
+        t0 += arret; l0 = L[k];
+      }
+      if (!r) { const k = s.st[s.st.length - 1]; r = { p: s.w[k[0]], dir: [k[1], k[2]], bouge: false }; }
+      p = r.p; dir = r.dir;
+      if (r.bouge) { mouvement = true; if (pose !== "course") pose = "marche"; }
+      return { p, dir, pose, h, mouvement, s };
+    }
     if (s.w) {
       const L = longueurs(s.w), tot = L[L.length - 1];
       // en temps réel, un déplacement dans le logement se fait au pas (1,3 m/s) ; en accéléré, plus vite pour rester visible
@@ -835,7 +854,7 @@ input[type="range"] { width: 100%; margin: 0; accent-color: var(--laiton); }
   }
   const RUE_DU_LOGEMENT = { "domicile-thomas": "rue", "boutique-robert": "rue-epicerie", "maison-robert": "villeurbanne" };
   function vueManuelle(P, st) {
-    if (vueChoisie === "logement") return "logement:" + P.lgA[g];
+    if (vueChoisie === "logement") return st.s.zn && st.s.zn.startsWith("lg:") ? "logement:" + st.s.zn.slice(3) : "logement:" + P.lgA[g];
     if (vueChoisie === "immeuble") return "immeuble:" + P.lgA[g];
     if (vueChoisie === "rue") return RUE_DU_LOGEMENT[P.lgA[g]] || "rue";
     if (CLASSE(P) === "thomas") return ["a-pied-rhone", "cinema", "boulevard"].includes(st.s.zn) ? st.s.zn : "parcours";

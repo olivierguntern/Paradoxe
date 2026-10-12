@@ -554,22 +554,26 @@ class AgentEpicier:
                        "paiement": "especes" if especes else "carte"} for a in s["achats"]]
             total = round(sum(v["quantite"] * self.CAT[v["produit"]]["prix"] for v in ventes), 2)
             liste = enumerer([libelle(self.CAT[v["produit"]], v["quantite"]) for v in ventes])
+            pain = [libelle(self.CAT[v["produit"]], v["quantite"]) for v in ventes if self.CAT[v["produit"]].get("rayon") == "comptoir"]
+            panier = any(self.CAT[v["produit"]].get("rayon") != "comptoir" for v in ventes)
             au_revoir = E["au_revoir_commercant"].get(self.jour, E["au_revoir_commercant"]["defaut"])
             self.faits.append(f"L'horloger est passé ({euros(total)})")
             self.decisions.append(f"{hm(self.i)} : sert Thomas Berthier ({liste}, {euros(total)}, {'espèces' if especes else 'carte'}).")
-            return {"texte": f"L'horloger pose sur le comptoir {liste}. « Ça fera {euros(total)}. » Il paie {'en espèces' if especes else 'par carte'}. "
-                             f"« {E['au_revoir_client'][moment]} » — « {au_revoir} »", "ventes": ventes,
+            debut = (f"Retourne à la caisse : l'horloger pose son panier sur le comptoir. " if panier else "L'horloger s'avance jusqu'à la caisse. ") + \
+                    (f"Il demande {enumerer(pain)} ; Robert le prend dans la panière. " if pain else "")
+            return {"texte": debut + f"Robert tape les articles un à un : {liste}. « Ça fera {euros(total)}. » Il paie {'en espèces' if especes else 'par carte'}. "
+                             f"« {E['au_revoir_client'][moment]} » — « {au_revoir} »", "ventes": ventes, "caisse": True,
                     "pensee": choix(self.P["client_connu"]["paiement"], self.date, self.i)}
         accueil = E["accueil_commercant"].get(self.jour, E["accueil_commercant"]["defaut"])
         reponse = E["reponse_client"].get(self.jour, E["reponse_client"]["defaut"])
         conseil = E.get("conseil", {}).get(self.jour)
-        texte = f"L'horloger de la rue d'Austerlitz pousse la porte. « {E['salut_client'][moment]} » Robert lève la tête de sa caisse : « {accueil} » — « {reponse} »"
+        texte = f"L'horloger de la rue d'Austerlitz pousse la porte. « {E['salut_client'][moment]} » Robert lève la tête : « {accueil} » — « {reponse} »"
         pensee = choix(self.P["client_connu"]["entree"], self.date, self.i)
         if conseil:
             texte += f" Robert ajoute : « {conseil['commercant']} » — « {conseil['client']} »"
             pensee = conseil["pensee_commercant"]
             self.decisions.append(f"{hm(self.i)} : conseille « {conseil['film']} » à l'horloger.")
-        return {"texte": texte + " Il le laisse choisir dans les rayons.", "ev": ["client_habitue"],
+        return {"texte": texte + " L'horloger prend un panier et fait le tour des rayons ; Robert retourne à son travail.", "ev": ["client_habitue"],
                 "social": self.fiche["besoins"]["social"]["satisfaction"]["habitue"], "pensee": pensee}
 
     def note_comptoir(self, fin):
@@ -679,9 +683,22 @@ class AgentEpicier:
             if r.get("argent"):
                 st["argent"] = r["argent"]
             st.update(note)
+            # où il se tient : à la caisse s'il sert ou encaisse, sinon à l'endroit de son travail (étal, rayons, vitrine)
+            if not ventes and not (client or {}).get("caisse"):
+                poste = self.poste_de(action or txt)
+                if poste:
+                    st["poste"] = poste
             if not st.get("pensee"):
                 self.preoccupation(st)
             self.emettre(st, bloc="service")
+
+    def poste_de(self, texte):
+        """Endroit de la boutique où se fait une tâche, d'après les mots qui la décrivent (regles.json, postes_boutique)."""
+        t = (texte or "").lower()
+        for poste, mots in self.R.get("postes_boutique", {}).items():
+            if poste != "principe" and any(m in t for m in mots):
+                return poste
+        return None
 
     @staticmethod
     def comptoir_dernier(r):

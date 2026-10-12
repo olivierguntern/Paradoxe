@@ -36,7 +36,7 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 | `competences`, `biographie` | Savoir-faire et passé daté |
 | `personnes_en_memoire` | Personnes qui existent seulement dans ses souvenirs et ses pensées |
 | `economie`, `travail` | Argent, charges, horaires, travaux en cours et ordre de priorité |
-| `commerce` | Pour un commerçant : horaires, livraisons, affluence par heure, paniers des clients, catalogue (prix, stock initial, stock cible), habitués et leurs propos du jour |
+| `commerce` | Pour un commerçant : horaires, livraisons, affluence par heure, paniers des clients, rayons de la boutique dans l'ordre du tour d'un client, catalogue (rayon, prix, stock initial, stock cible), habitués et leurs propos du jour |
 | `lieux`, `trajets` | Domicile, épicerie, cinéma, bureau de vote et parcours (course, épicerie, sorties à pied) détaillés par segments (distance, dénivelé, durée) |
 | `immeuble` | Étage, escalier (66 marches), durées et efforts de montée et de descente |
 | `domicile` | Pièces (avec ou sans fenêtre), plan des liaisons et distances, petits déplacements par activité, mobilier, équipements, provisions chiffrées et plats préparés |
@@ -83,6 +83,7 @@ Toutes les journées de `timelines/` sont vécues par les agents autonomes (`out
 | Fichier | Contenu |
 |---|---|
 | `monde/croix-rousse.json` | Géométrie partagée, dans un seul repère : relief (plateau, pentes vers la Saône et le Rhône, monts d'Or), rues de la Croix-Rousse et de Villeurbanne, place, immeubles de Thomas et de l'épicerie, maison de Robert (étages, escaliers), logements (pièces, portes, fenêtres, mobilier, emplacements des objets, postes), Saône, Rhône, trajets de course, d'épicerie, en Kangoo et à pied. **Proposition à valider.** |
+| `monde/croix-rousse.json` (boutique) | Places précises de la boutique (rayons et caisse pour un client, places de travail de Robert) et allées (`circulation`) que suit un client entre deux rayons |
 | `monde/echanges.json` | Répliques partagées par deux personnages qui se rencontrent (Thomas et Robert au comptoir, dont le conseil de film du samedi qui décide la soirée de Thomas) |
 | `monde/evenements.json` | Événements réels vécus aux mêmes minutes par plusieurs habitants (match Real Madrid – Lyon) |
 

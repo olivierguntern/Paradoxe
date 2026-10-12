@@ -146,10 +146,12 @@ class Logement:
             return [m[0], m[1] + (APPROCHE if c[1] > y0 else -APPROCHE)]
         return [m[0] + (APPROCHE if c[0] > x0 else -APPROCHE), m[1]]
 
-    def poste(self, piece, posture, activite):
-        """Point, direction et hauteur de siège dans le repère du monde."""
+    def poste(self, piece, posture, activite, nom=None):
+        """Point, direction et hauteur de siège dans le repère du monde (nom : endroit précis de la pièce donné par le pas)."""
         P = self.L["postes"].get(piece)
-        if not P:
+        if P and isinstance(nom, str) and nom in P:
+            po = P[nom]
+        elif not P:
             po = self.centre(piece) + [0.0, 1.0]
         elif posture == "allongé" and "allongé" in P:
             po = P["allongé"]
@@ -163,6 +165,32 @@ class Logement:
             po = P.get("debout") or next(iter(v for k, v in P.items() if k != "principe"))
         d = self.R.v(po[2], po[3]) if len(po) > 3 else (0.0, 1.0)
         return self.pt(piece, po[:2]), [r2(d[0]), r2(d[1]), po[4] if len(po) > 4 else 0.0]
+
+    def allee(self, piece, a, b):
+        """Plus court chemin entre deux nœuds de la circulation d'une pièce (boutique), en points du monde."""
+        C = self.L.get("circulation", {}).get(piece)
+        if not C or a not in C["noeuds"] or b not in C["noeuds"]:
+            return [self.pt(piece, C["noeuds"][b] if C and b in C["noeuds"] else self.L["postes"][piece][b][:2])]
+        voisins = {}
+        for x, y in C["aretes"]:
+            d = math.dist(C["noeuds"][x], C["noeuds"][y])
+            voisins.setdefault(x, []).append((y, d))
+            voisins.setdefault(y, []).append((x, d))
+        dist, prec, file = {a: 0.0}, {}, [(0.0, a)]
+        while file:
+            file.sort()
+            d, n = file.pop(0)
+            if n == b:
+                break
+            for m, w in voisins.get(n, []):
+                if d + w < dist.get(m, float("inf")):
+                    dist[m], prec[m] = d + w, n
+                    file.append((d + w, m))
+        chemin, n = [b], b
+        while n != a:
+            n = prec[n]
+            chemin.append(n)
+        return [self.pt(piece, C["noeuds"][n]) for n in chemin[::-1][1:]]
 
     def chemin_pieces(self, a, b):
         if a == b:
@@ -712,23 +740,41 @@ def exporter_personnage(perso, M, emplacements, noms, avertissements):
             dist = sum(p["distance_m"] for p in dep.get("parcours", []))
             courses = s["activite"] == "Courses à l'épicerie"
             poubelles = any("local poubelles" in o["vers"] for o in s.get("objets", []))
-            w, cont, d, zone = None, False, None, None
+            w, cont, d, zone, st_arrets = None, False, None, None, None
             lg = piece_lg.get(s["piece"])
             public = s["lieu"] in lp and lp[s["lieu"]]["logement"] not in mes_logements
             if public:
-                # dans un lieu public : le poste prévu dans le logement d'un autre habitant
+                # dans un lieu public (la boutique d'un autre habitant) : par les allées, jusqu'aux postes du pas (rayons, caisse)
                 P = lp[s["lieu"]]
                 autre = M.logements[P["logement"]]
-                po = autre.L["postes"][P["piece"]][P["poste"]]
-                cible = autre.pt(P["piece"], po[:2])
-                dd = autre.R.v(po[2], po[3])
-                d = [r2(dd[0]), r2(dd[1]), 0.0]
-                w = [precedent["pt"], traj[-1], cible] if precedent["pt"] != cible else None
-                precedent = {"pt": cible, "piece": s["piece"], "lg": None}
+                pc = P["piece"]
+                arrets = s.get("poste") or [P["poste"]]
+                arrets = [arrets] if isinstance(arrets, str) else arrets
+                entre = precedent.get("public") != s["lieu"]
+                noeud = "porte" if entre else precedent.get("noeud", "porte")
+                w = [precedent["pt"]] + ([traj[-1], autre.pt(pc, autre.L["circulation"][pc]["noeuds"]["porte"])] if entre and autre.L.get("circulation") else
+                                         ([traj[-1]] if entre else []))
+                stops = []
+                for a in arrets:
+                    if a != noeud:
+                        w += autre.allee(pc, noeud, a)
+                    po = autre.L["postes"][pc].get(a)
+                    if po:
+                        dd = autre.R.v(po[2], po[3])
+                        stops.append([w[-1], r2(dd[0]), r2(dd[1])])
+                    noeud = a
+                if stops:
+                    d = [stops[-1][1], stops[-1][2], 0.0]
+                if len(stops) > 1 or (len(stops) == 1 and isinstance(s.get("poste"), list)):
+                    st_arrets = stops
+                precedent = {"pt": w[-1], "piece": s["piece"], "lg": None, "public": s["lieu"], "noeud": noeud,
+                             "porte": autre.pt(pc, autre.L["circulation"][pc]["noeuds"]["porte"]) if autre.L.get("circulation") else None}
+                if len(w) < 2 or all(p_ == w[0] for p_ in w):
+                    w = None
                 alle, hors, s_epi = True, True, L_epi
                 zone = "lg:" + autre.L["id"]
             elif lg is not None and (s["lieu"] in ("domicile", "exterieur") or s["lieu"] in lp or plusieurs or s["piece"] in LG.pieces):
-                po_pt, d = lg.poste(s["piece"], s["posture"], s["activite"])
+                po_pt, d = lg.poste(s["piece"], s["posture"], s["activite"], s.get("poste"))
                 zone = "lg:" + lg.L["id"]
                 if esc == "montee" and lg.bat["escalier"]["type"] == "volees" and not dep.get("escalier", {}).get("interieur"):
                     rue = []
@@ -784,7 +830,7 @@ def exporter_personnage(perso, M, emplacements, noms, avertissements):
                     fin_seg = max(0.0, s_epi - dist) if alle else min(L_epi, s_epi + dist)
                     seg = sous_chemin(traj, s_epi, fin_seg)
                     s_epi = fin_seg
-                    w = (w or [precedent["pt"]]) + seg
+                    w = (w or ([precedent["pt"], precedent["porte"]] if precedent.get("porte") else [precedent["pt"]])) + seg
                     cont = True
                     zone = "rue"
                 elif k in course:
@@ -838,6 +884,16 @@ def exporter_personnage(perso, M, emplacements, noms, avertissements):
                 e["w"] = w
             if cont:
                 e["cont"] = 1
+            if st_arrets and e.get("w"):
+                # arrêts (rayons) : indice du point dans le trajet nettoyé, et direction du regard
+                k0, idx_arrets = 0, []
+                for pt_, dx_, dy_ in st_arrets:
+                    k_ = next((k for k in range(k0, len(e["w"])) if math.dist(e["w"][k], pt_) < 0.02), None)
+                    if k_ is not None:
+                        idx_arrets.append([k_, dx_, dy_])
+                        k0 = k_
+                if idx_arrets:
+                    e["st"] = idx_arrets
             if esc:
                 e["esc"] = esc
             if d:
