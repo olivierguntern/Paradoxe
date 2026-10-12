@@ -2,7 +2,7 @@
 
 Usage : python3 outils/generer_journee.py 2010-03-09 [--personnage thomas-berthier]
 
-Le contenu rédigé est lu dans outils/journees/<date>.py. L'état de départ est
+Le contenu rédigé est lu dans outils/journees/<personnage>/<date>.py. L'état de départ est
 l'état final de la veille (data/references/<personnage>/<veille>.json) ou, pour
 le premier jour de la période, l'état initial de la fiche.
 
@@ -13,6 +13,7 @@ l'agent (data/timelines/).
 import argparse
 import datetime
 import importlib.util
+import inspect
 import os
 import sys
 
@@ -44,10 +45,14 @@ def main():
             sys.exit(f"La veille ({veille}) doit être générée avant le {a.date}.")
         etat = moteur.etat_depuis_veille(chemin_veille)
 
-    spec = importlib.util.spec_from_file_location("journee", os.path.join(RACINE, "outils", "journees", f"{a.date}.py"))
+    dossier_journees = os.path.join(RACINE, "outils", "journees", a.personnage)
+    sys.path.insert(0, dossier_journees)  # éléments communs aux journées d'un même personnage
+    spec = importlib.util.spec_from_file_location("journee", os.path.join(dossier_journees, f"{a.date}.py"))
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    j = module.rediger()
+    # une journée de commerçant part de l'état du magasin au matin (stock, caisse) : la rédaction le reçoit
+    j = module.rediger(etat) if inspect.signature(module.rediger).parameters else module.rediger()
+    j.personnage = a.personnage
 
     try:
         steps, etat_final, stats = moteur.simuler(fiche, j, etat)

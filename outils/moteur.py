@@ -1,7 +1,7 @@
 """Moteur de calcul des journées de Paradoxe.
 
 Le contenu d'une journée (actions, pensées, rêves, événements vécus, objets,
-appareils) est rédigé dans outils/journees/<date>.py. Ce moteur calcule, avec
+appareils) est rédigé dans outils/journees/<personnage>/<date>.py. Ce moteur calcule, avec
 les règles de la fiche du personnage : déplacements, lumière, besoins,
 émotions et concentration. Il vérifie aussi que chaque objet déplacé se
 trouvait bien là où la journée le prend, d'un jour à l'autre.
@@ -27,7 +27,8 @@ def idx(h):
 def p(action, pensee=None, **kw):
     """Un pas de 5 minutes. Options : ev, objets, nouveaux_objets, consommation, production,
     achats, argent, effets, app, radio, musique, tele, mode, charge, posture, piece, lieu, via,
-    via_apres, sortie, retour, escalier, parcours, phase_sommeil, reve."""
+    via_apres, sortie, retour, escalier, parcours, phase_sommeil, reve ; pour un commerçant :
+    ventes, livraisons, reprises, prelevements, clients."""
     d = {"action": action, "pensee": pensee}
     d.update(kw)
     return d
@@ -67,6 +68,15 @@ def marche(distance_m, denivele_m=0):
     return {"moyen": "marche", "distance_m": distance_m, "denivele_m": denivele_m}
 
 
+def voiture(distance_m, denivele_m=0):
+    return {"moyen": "voiture", "distance_m": distance_m, "denivele_m": denivele_m}
+
+
+def vente(produit, quantite, paiement="especes"):
+    """Vente au comptoir : quantité en unités de vente du catalogue, payée en espèces (caisse) ou par carte (compte)."""
+    return {"produit": produit, "quantite": quantite, "paiement": paiement}
+
+
 class Journee:
     def __init__(self, date, jour, extinction, endormissement=15):
         self.date = date
@@ -85,12 +95,21 @@ class Journee:
 
 # ---------------------------------------------------------------- état
 def argent_initial(fiche):
-    """Espèces, compte courant et, pour un commerçant, caisse du magasin au premier pas."""
+    """Espèces, compte courant et, pour un commerçant, caisse et coffre du magasin au premier pas."""
     E = fiche.get("economie", {})
     out = {"especes": E.get("especes_au_debut", 0), "compte": E.get("compte_courant_au_debut", 0)}
     if "caisse_au_debut" in E:
         out["caisse"] = E["caisse_au_debut"]
+    if "coffre_au_debut" in E:
+        out["coffre"] = E["coffre_au_debut"]
+    if "ardoises_au_debut" in E:
+        out["ardoises"] = round(sum(E["ardoises_au_debut"].values()), 2)
     return out
+
+
+def boutique_initiale(fiche):
+    """Stock du magasin au premier pas, produit par produit (unités de vente du catalogue)."""
+    return {c["produit"]: c["stock_initial"] for c in fiche.get("commerce", {}).get("catalogue", [])}
 
 
 def etat_initial_depuis_fiche(fiche):
@@ -101,9 +120,12 @@ def etat_initial_depuis_fiche(fiche):
     emo = dict(fiche["etat_initial"]["emotions"])
     conc = emo.pop("concentration")
     stock = {x["id"]: x["quantite"] for x in fiche["domicile"]["provisions_au_debut"] if x.get("suivi", True)}
-    return {"piece": fiche["etat_initial"]["piece"], "besoins": dict(fiche["etat_initial"]["besoins"]),
+    etat = {"piece": fiche["etat_initial"]["piece"], "besoins": dict(fiche["etat_initial"]["besoins"]),
             "emotions": emo, "concentration": conc, "lumieres": {}, "appareils": [], "positions": positions, "cafe": [],
             "stock": stock, "argent": argent_initial(fiche)}
+    if "commerce" in fiche:
+        etat["boutique"] = boutique_initiale(fiche)
+    return etat
 
 
 def etat_depuis_veille(chemin_json):
@@ -146,6 +168,9 @@ class Simulation:
         for l in self.PLAN["liaisons"]:
             self.graph.setdefault(l["a"], []).append((l["b"], l["distance_m"]))
             self.graph.setdefault(l["b"], []).append((l["a"], l["distance_m"]))
+        # escalier intérieur (maison sur deux niveaux) : compté dès qu'un chemin l'emprunte
+        self.ESCALIERS = {frozenset((l["a"], l["b"])) for l in self.PLAN["liaisons"] if l.get("escalier")}
+        self.CATALOGUE = {x["produit"]: x for x in fiche.get("commerce", {}).get("catalogue", [])}
 
         self.besoins = dict(etat["besoins"])
         self.emo = dict(etat["emotions"])
@@ -156,10 +181,12 @@ class Simulation:
         self.cafe = list(etat["cafe"])
         self.stock = dict(etat["stock"])
         self.argent = dict(etat.get("argent") or argent_initial(fiche))
+        self.boutique = dict(etat["boutique"]) if etat.get("boutique") is not None else (boutique_initiale(fiche) if self.CATALOGUE else None)
         self.base = {k: v for k, v in M["etat_de_base"].items() if k != "solitude"}
         self.piece = etat["piece"]
         self.stats = {"entre_pieces_m": 0.0, "dans_les_pieces_m": 0.0, "exterieur_m": 0.0, "foulees": 0.0,
-                      "passages_de_piece": 0, "marches": 0, "denivele_positif_m": 0, "denivele_negatif_m": 0, "lumiere_allumages": 0}
+                      "passages_de_piece": 0, "marches": 0, "denivele_positif_m": 0, "denivele_negatif_m": 0, "lumiere_allumages": 0,
+                      "voiture_m": 0.0}
         self.steps = []
 
     # ------------------------------------------------------------ outils
@@ -180,6 +207,10 @@ class Simulation:
 
     def besoin_lumiere(self, piece, i):
         return piece in self.PIECES and (not self.PIECES[piece]["fenetre"] or i < self.LEVER or i >= self.COUCHER)
+
+    def eclairage_auto(self, piece):
+        """Faux pour une pièce dont l'éclairage ne se commande qu'explicitement (boutique éclairée pendant l'ouverture)."""
+        return self.PIECES.get(piece, {}).get("eclairage") != "permanent"
 
     @staticmethod
     def negatif(e, d):
@@ -210,9 +241,9 @@ class Simulation:
         depart = self.piece
         arrivee = piece
         if st.get("sortie"):
-            arrivee = "palier"
+            arrivee = st["sortie"] if isinstance(st["sortie"], str) else "palier"
         if st.get("retour"):
-            depart = "palier"
+            depart = st["retour"] if isinstance(st["retour"], str) else "palier"
         etapes = [depart] + st.get("via", []) + [arrivee] + st.get("via_apres", [])
         if st.get("via_apres"):
             etapes.append(arrivee)
@@ -234,20 +265,36 @@ class Simulation:
             st_["passages_de_piece"] += len(parcours_app) - 1
             aller_retour = parcours_app[-1] == parcours_app[0]
             for a, b in zip(parcours_app, parcours_app[1:]):
-                if lumieres.get(a) and not (aller_retour and a == parcours_app[0]):
+                if lumieres.get(a) and self.eclairage_auto(a) and not (aller_retour and a == parcours_app[0]):
                     lumieres[a] = False
                     lum.append(f"éteint la lumière ({a})")
-                if self.besoin_lumiere(b, i) and not lumieres[b] and not (aller_retour and b == parcours_app[0]):
+                if self.besoin_lumiere(b, i) and self.eclairage_auto(b) and not lumieres[b] and not (aller_retour and b == parcours_app[0]):
                     lumieres[b] = True
                     st_["lumiere_allumages"] += 1
                     lum.append(f"allume la lumière ({b})")
-        elif not endormi and i == self.COUCHER and self.besoin_lumiere(piece, i) and not lumieres[piece]:
+        elif not endormi and i == self.COUCHER and self.besoin_lumiere(piece, i) and self.eclairage_auto(piece) and not lumieres[piece]:
             lumieres[piece] = True
             st_["lumiere_allumages"] += 1
             lum.append(f"allume la lumière ({piece}) : la nuit tombe")
 
         # ---- escalier et parcours extérieur
         effets_escalier = {}
+        passages = [(a, b) for a, b in zip(parcours_app, parcours_app[1:]) if frozenset((a, b)) in self.ESCALIERS]
+        if passages:
+            dimm = IMM["deplacement"]
+            marches, duree = 0, 0
+            for a, b in passages:
+                monte = PIECES.get(b, {}).get("niveau", 0) > PIECES.get(a, {}).get("niveau", 0)
+                marches += IMM["marches_par_etage"]
+                duree += IMM["marches_par_etage"] * dimm["montee_secondes_marche"] / IMM["marches_total"] if monte else dimm["descente_secondes"]
+                for n, v in (dimm["effets_montee"] if monte else dimm["effets_descente"]).items():
+                    effets_escalier[n] = effets_escalier.get(n, 0) + v
+            a, b = passages[0]
+            sens = "montee" if PIECES.get(b, {}).get("niveau", 0) > PIECES.get(a, {}).get("niveau", 0) else "descente"
+            dep["escalier"] = {"sens": sens, "etages": 1, "marches": marches, "duree_s": round(duree), "interieur": True} | (
+                {"passages": len(passages)} if len(passages) > 1 else {})
+            st_["marches"] += marches
+            st_["foulees"] += marches
         if "escalier" in st:
             sens = st["escalier"]["sens"]
             dimm = IMM["deplacement"]
@@ -259,16 +306,21 @@ class Simulation:
             effets_escalier = dimm["effets_descente"] if sens == "descente" else dimm["effets_montee"]
         if "parcours" in st:
             dep["parcours"] = st["parcours"]
+            a_pied = [x for x in st["parcours"] if x["moyen"] != "voiture"]
             for seg_ in st["parcours"]:
+                if seg_["moyen"] == "voiture":
+                    st_["voiture_m"] += seg_["distance_m"]
+                    continue
                 st_["exterieur_m"] += seg_["distance_m"]
                 st_["foulees"] += seg_["distance_m"] / (PLAN["longueur_foulee_course_m"] if seg_["moyen"] == "course" else PLAN["longueur_foulee_m"])
                 if seg_["denivele_m"] > 0:
                     st_["denivele_positif_m"] += seg_["denivele_m"]
                 else:
                     st_["denivele_negatif_m"] += -seg_["denivele_m"]
-            dep["foulees_exterieur"] = round(sum(
-                x["distance_m"] / (PLAN["longueur_foulee_course_m"] if x["moyen"] == "course" else PLAN["longueur_foulee_m"])
-                for x in st["parcours"]))
+            if a_pied:
+                dep["foulees_exterieur"] = round(sum(
+                    x["distance_m"] / (PLAN["longueur_foulee_course_m"] if x["moyen"] == "course" else PLAN["longueur_foulee_m"])
+                    for x in a_pied))
 
         # ---- appareils et lumières commandés explicitement
         for a in st.get("app", {}).get("allume", []):
@@ -324,13 +376,59 @@ class Simulation:
                     ligne["reste"] = self.stock[pid]
                 mouvements.setdefault(cle, []).append(ligne)
 
-        # ---- argent : espèces, compte, caisse ; jamais en dessous de zéro en espèces ni en caisse
-        if st.get("argent"):
-            for compte, montant in st["argent"].items():
+        # ---- magasin : livraisons et reprises, prélèvements pour la maison, puis ventes ; jamais en dessous de zéro
+        argent = dict(st.get("argent", {}))
+        if any(k in st for k in ("livraisons", "reprises", "prelevements", "ventes")):
+            if self.boutique is None:
+                raise Incoherence(f"{hm(i)} : pas de magasin dans la fiche")
+            def sortir(pid, q, quoi):
+                if pid not in self.CATALOGUE:
+                    raise Incoherence(f"{hm(i)} : produit inconnu au catalogue {pid}")
+                self.boutique[pid] = self.boutique.get(pid, 0) - q
+                if self.boutique[pid] < 0:
+                    raise Incoherence(f"{hm(i)} : {quoi} de {q} « {self.CATALOGUE[pid]['nom']} », il n'en reste que {self.boutique[pid] + q} en magasin")
+            for cle, sens in (("reprises", -1), ("livraisons", 1)):
+                for x in st.get(cle, []):
+                    pid, q = x["produit"], x["quantite"]
+                    if sens < 0:
+                        sortir(pid, q, "reprise")
+                    else:
+                        if pid not in self.CATALOGUE:
+                            raise Incoherence(f"{hm(i)} : produit inconnu au catalogue {pid}")
+                        self.boutique[pid] = self.boutique.get(pid, 0) + q
+                    mouvements.setdefault(cle, []).append({"produit": pid, "nom": self.CATALOGUE[pid]["nom"], "quantite": q,
+                                                           "reste": self.boutique[pid]} | ({"motif": x["motif"]} if x.get("motif") else {}))
+            for x in st.get("prelevements", []):
+                pid, q = x["produit"], x["quantite"]
+                sortir(pid, q, "prélèvement")
+                mid, qm = x["maison"], x["quantite_maison"]
+                if mid not in self.PRODUITS:
+                    raise Incoherence(f"{hm(i)} : provision inconnue {mid}")
+                self.stock[mid] = self.stock.get(mid, 0) + qm
+                mouvements.setdefault("prelevements", []).append({"produit": pid, "nom": self.CATALOGUE[pid]["nom"], "quantite": q,
+                                                                  "reste": self.boutique[pid], "maison": mid, "quantite_maison": qm,
+                                                                  "reste_maison": self.stock[mid]})
+            recu = {}
+            for x in st.get("ventes", []):
+                pid, q = x["produit"], x["quantite"]
+                sortir(pid, q, "vente")
+                montant = round(q * self.CATALOGUE[pid]["prix"], 2)
+                compte = {"especes": "caisse", "carte": "compte", "ardoise": "ardoises"}[x["paiement"]]
+                recu[compte] = round(recu.get(compte, 0) + montant, 2)
+                mouvements.setdefault("ventes", []).append({"produit": pid, "nom": self.CATALOGUE[pid]["nom"], "quantite": q,
+                                                            "prix": montant, "paiement": x["paiement"], "reste": self.boutique[pid]})
+            for compte, m in recu.items():
+                argent[compte] = round(argent.get(compte, 0) + m, 2)
+        if st.get("clients"):
+            mouvements["clients"] = st["clients"]
+
+        # ---- argent : espèces, compte, caisse, coffre ; seul le compte peut passer sous zéro
+        if argent:
+            for compte, montant in argent.items():
                 self.argent[compte] = round(self.argent.get(compte, 0) + montant, 2)
-                if compte in ("especes", "caisse") and self.argent[compte] < 0:
+                if compte != "compte" and self.argent[compte] < 0:
                     raise Incoherence(f"{hm(i)} : pas assez d'argent ({compte}) pour {-montant} €")
-            mouvements["argent"] = {"mouvements": st["argent"], "soldes": dict(self.argent)}
+            mouvements["argent"] = {"mouvements": argent, "soldes": dict(self.argent)}
 
         # ---- besoins
         def var(n, cle):
@@ -419,7 +517,7 @@ class Simulation:
                  "routine": s["routine"], "activite": s["titre"], "action": st["action"], "pensee": st["pensee"]}
         if dep:
             entry["deplacement"] = dep
-        for opt in ("phase_sommeil", "reve", "nouveaux_objets", "objets"):
+        for opt in ("phase_sommeil", "reve", "nouveaux_objets", "objets", "ruptures"):
             if st.get(opt):
                 entry[opt] = st[opt]
         entry.update(mouvements)
@@ -450,6 +548,8 @@ class Simulation:
                       "lumieres": {pc: v for pc, v in self.lumieres.items() if v}, "appareils": sorted(self.appareils),
                       "positions": self.positions, "cafe": [c - PAS_PAR_JOUR for c in self.cafe if c + 36 > PAS_PAR_JOUR],
                       "stock": self.stock, "argent": self.argent}
+        if self.boutique is not None:
+            etat_final["boutique"] = self.boutique
         st_["anxiete_extinction"] = emo_ext["anxiete"]
         st_["excitation_extinction"] = emo_ext["excitation"]
         st_["seuil_insomnie"] = seuil
@@ -471,6 +571,35 @@ def simuler(fiche, j, etat):
 
 
 # ---------------------------------------------------------------- sorties
+def bilan_magasin(fiche, steps, etat_final):
+    """Ventes, livraisons, reprises et prélèvements du jour, produit par produit."""
+    cat = fiche["commerce"]["catalogue"]
+    P = {c["produit"]: {"nom": c["nom"], "vendu": 0, "livre": 0, "repris": 0, "preleve": 0, "recette": 0.0,
+                        "stock": etat_final["boutique"].get(c["produit"], 0)} for c in cat}
+    esp = carte = ardoise = 0.0
+    clients = 0
+    ruptures = []
+    for s in steps:
+        for x in s.get("ventes", []):
+            P[x["produit"]]["vendu"] += x["quantite"]
+            P[x["produit"]]["recette"] = round(P[x["produit"]]["recette"] + x["prix"], 2)
+            if x["paiement"] == "especes":
+                esp += x["prix"]
+            elif x["paiement"] == "carte":
+                carte += x["prix"]
+            else:
+                ardoise += x["prix"]
+        for cle, champ in (("livraisons", "livre"), ("reprises", "repris"), ("prelevements", "preleve")):
+            for x in s.get(cle, []):
+                P[x["produit"]][champ] += x["quantite"]
+        clients += s.get("clients", 0)
+        for r in s.get("ruptures", []):
+            if r not in ruptures:
+                ruptures.append(r)
+    return {"clients": clients, "recette": round(esp + carte + ardoise, 2), "recette_especes": round(esp, 2), "recette_carte": round(carte, 2),
+            "a_credit": round(ardoise, 2), "ruptures": ruptures, "produits": P}
+
+
 def quantite(q, unite):
     """« 1 steak », « 0 cuisse », « 3 steaks » : 0 et 1 au singulier, comme en français."""
     if unite is None:
@@ -519,12 +648,15 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
         "exterieur_m": round(st_["exterieur_m"]), "total_m": round(total), "foulees_et_marches": round(st_["foulees"]),
         "passages_de_piece": st_["passages_de_piece"], "marches_d_escalier": st_["marches"],
         "denivele_positif_m": st_["denivele_positif_m"], "denivele_negatif_m": st_["denivele_negatif_m"]}
+    if st_.get("voiture_m"):
+        deplacements["voiture_m"] = round(st_["voiture_m"])
+    magasin = bilan_magasin(fiche, steps, etat_final) if "boutique" in etat_final else None
     out = {
         "meta": {
             "personnage": fiche["meta"]["id"], "fiche_version": fiche["meta"]["version"],
             "date": j.date, "jour": j.jour, "pas_minutes": 5, "nombre_de_pas": PAS_PAR_JOUR,
             "methode": getattr(j, "methode", None) or [
-                f"Rédigé à la main dans outils/journees/{j.date}.py : actions, pensées, rêves, événements vécus, objets déplacés, appareils utilisés.",
+                f"Rédigé à la main dans outils/journees/{getattr(j, 'personnage', fiche['meta']['id'])}/{j.date}.py : actions, pensées, rêves, événements vécus, objets déplacés, appareils utilisés.",
                 "Calculé par outils/moteur.py avec les règles de la fiche : déplacements, lumière, besoins, émotions et concentration.",
                 "Aucune émotion n'est fixée à la main : chaque variation provient d'un événement listé, d'un besoin ou du retour à l'état de base.",
                 "La journée part de l'état exact de la fin de la veille (etat_initial), ou de la fiche pour le premier jour.",
@@ -548,6 +680,7 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
             "plats_prepares": {k: quantite(v[0], v[1]) for k, v in prod.items()},
             "achats": {k: f"{quantite(v[0], v[1])} ({v[2]:.2f} €)" for k, v in achats.items()},
             "argent": {"mouvements_du_jour": depenses, "soldes_en_fin_de_journee": etat_final.get("argent", {})},
+            **({"magasin": magasin} if magasin else {}),
             "stock_en_fin_de_journee": stock_fin,
             "besoins_sous_le_seuil_d_alerte": alertes,
             "besoins_sous_le_seuil_pendant_le_sommeil_pas": alertes_sommeil,
@@ -598,6 +731,7 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
           f"- Dans les pièces (estimé selon l'activité) : **{deplacements['dans_les_pieces_m_estimes']} m**.",
           f"- À l'extérieur : **{deplacements['exterieur_m']} m** (dénivelé +{deplacements['denivele_positif_m']} m / -{deplacements['denivele_negatif_m']} m).",
           f"- Escaliers : **{deplacements['marches_d_escalier']} marches**.",
+          *([f"- En voiture : **{deplacements['voiture_m']} m**."] if deplacements.get("voiture_m") else []),
           f"- Total : **{deplacements['total_m']} m**, environ **{deplacements['foulees_et_marches']} foulées et marches**.",
           f"- Lumières allumées : **{st_['lumiere_allumages']} fois**.",
           "\nTrajets notables :\n"]
@@ -643,11 +777,23 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
         pid = next((x for x in noms if noms[x]["produit"] == k), None)
         L.append(f"| {k} (préparé : {quantite(v[0], v[1])}) | — | {quantite(etat_final['stock'].get(pid), v[1])} |")
 
+    if magasin:
+        M = magasin
+        L += ["\n## Magasin\n",
+              f"- Clients servis : **{M['clients']}** ; recette **{M['recette']:.2f} €** "
+              f"(espèces {M['recette_especes']:.2f} €, carte {M['recette_carte']:.2f} €"
+              + (f", à crédit sur l'ardoise {M['a_credit']:.2f} €" if M["a_credit"] else "") + ").",
+              *([f"- Ruptures : {', '.join(M['ruptures'])}."] if M.get("ruptures") else []),
+              "", "| Produit | Vendu | Livré | Repris | Prélevé | Stock en fin de journée |", "|---|---|---|---|---|---|"]
+        for pid, l in M["produits"].items():
+            if any(l[k] for k in ("vendu", "livre", "repris", "preleve")):
+                L.append(f"| {l['nom']} | {l['vendu'] or ''} | {l['livre'] or ''} | {l['repris'] or ''} | {l['preleve'] or ''} | {l['stock']} |")
     if achats:
         L += ["\n## Achats\n", "| Produit | Quantité | Prix |", "|---|---|---|"]
         L += [f"| {k} | {quantite(v[0], v[1])} | {v[2]:.2f} € |" for k, v in achats.items()]
     if depenses:
-        noms_comptes = {"especes": "espèces", "compte": "compte courant", "caisse": "caisse du magasin"}
+        noms_comptes = {"especes": "espèces", "compte": "compte courant", "caisse": "caisse du magasin", "coffre": "coffre du magasin",
+                        "ardoises": "ardoises des clients"}
         L.append("\nArgent : " + " ; ".join(f"{noms_comptes.get(c, c)} {m:+.2f} € (reste {etat_final['argent'].get(c, 0):.2f} €)"
                                             for c, m in depenses.items()) + ".")
     L += ["\n## Bilan\n"] + [f"- {x}" for x in j.bilan]
