@@ -1,59 +1,19 @@
 {
   "meta": {
     "id": "josiane-chazal",
-    "version": 1,
-    "description": "Josiane Chazal, l'épouse de Robert : fiche servant à la faire vivre par l'habitant générique, en même temps que Robert, dans la même maison.",
-    "periode": {
-      "debut": "2010-03-08T00:00",
-      "fin": "2010-03-14T23:55",
-      "pas_minutes": 5,
-      "nombre_de_pas": 2016,
-      "fuseau_horaire": "Europe/Paris"
-    },
-    "deterministe": true,
+    "version": 2,
+    "description": "Josiane Chazal, l'épouse de Robert. Fiche réduite à ce qui lui est propre ; le reste vient du monde (outils/fiches.py).",
     "contraintes_du_test": [
       "Vit avec Robert Chazal, simulé en même temps qu'elle pas à pas (outils/quartier.py) ; ils se rencontrent quand ils sont éveillés au même endroit.",
       "Leurs moments communs sont prévus dans leurs deux routines (avec_personnes) ; si l'autre n'est pas là au début d'un de ces moments, l'absence est remarquée.",
       "Collègues, patients, commerçants et les Morel ne sont pas simulés.",
       "Aucun contact à distance : ni téléphone, ni SMS, ni e-mail."
     ],
-    "echelles": {
-      "besoins": "0 à 100 (100 = pleinement satisfait, 0 = critique)",
-      "emotions_traits_souvenirs": "0 à 1",
-      "heures": "HH:MM, toujours multiple de 5 minutes"
-    },
-    "ephemerides_lyon_approximatives": {
-      "2010-03-08": {
-        "lever_soleil": "07:05",
-        "coucher_soleil": "18:40"
-      },
-      "2010-03-09": {
-        "lever_soleil": "07:05",
-        "coucher_soleil": "18:40"
-      },
-      "2010-03-10": {
-        "lever_soleil": "07:00",
-        "coucher_soleil": "18:45"
-      },
-      "2010-03-11": {
-        "lever_soleil": "07:00",
-        "coucher_soleil": "18:45"
-      },
-      "2010-03-12": {
-        "lever_soleil": "06:55",
-        "coucher_soleil": "18:45"
-      },
-      "2010-03-13": {
-        "lever_soleil": "06:55",
-        "coucher_soleil": "18:50"
-      },
-      "2010-03-14": {
-        "lever_soleil": "06:55",
-        "coucher_soleil": "18:50"
-      }
-    },
     "elements_fictifs": "Josiane, Robert, leur famille, les Morel, le cabinet médical et la maison de la rue des Glycines sont fictifs."
   },
+  "logements": [
+    "maison-chazal"
+  ],
   "identite": {
     "prenom": "Josiane",
     "nom": "Chazal",
@@ -79,38 +39,6 @@
     "cheveux": "courts, gris teints en châtain",
     "signes": "lunettes de lecture au bout d'une chaînette"
   },
-  "sante": {
-    "etat_general": "bon",
-    "chronotype": "intermédiaire",
-    "sommeil": {
-      "besoin_minutes": 480,
-      "endormissement_minutes_normal": 15,
-      "endormissement_minutes_si_anxieux": 45,
-      "seuil_anxiete_insomnie": 0.65,
-      "seuil_excitation_insomnie": 0.5,
-      "reveil_naturel_jour_libre": "07:30"
-    },
-    "conditions": [
-      {
-        "nom": "dos opéré en 2004",
-        "effet": "évite de porter lourd ; c'est pourquoi elle a quitté la boutique"
-      }
-    ],
-    "consommations": {
-      "cafe": "un bol au petit-déjeuner",
-      "alcool": "un verre de vin le samedi soir",
-      "tabac": "jamais"
-    },
-    "activite_physique": [
-      {
-        "activite": "randonnée dans les monts d'Or avec Robert",
-        "jours": [
-          "dimanche"
-        ],
-        "duree_minutes": 135
-      }
-    ]
-  },
   "personnalite": {
     "big_five": {
       "ouverture": 0.55,
@@ -134,424 +62,6 @@
       "s'inquiète pour le dos de Robert",
       "n'aime pas le football"
     ]
-  },
-  "vie_interieure": {
-    "valeurs": [
-      "la famille",
-      "le travail bien fait",
-      "la parole donnée"
-    ],
-    "desirs": [
-      {
-        "desir": "que Robert prenne enfin des vacances",
-        "intensite": 0.7
-      }
-    ],
-    "preoccupations_semaine": [
-      {
-        "id": "pr-anniversaire",
-        "sujet": "Les trente-quatre ans de mariage, mardi 16 mars : Robert va-t-il y penser ?",
-        "intensite_initiale": 0.4
-      }
-    ],
-    "declencheurs": [
-      {
-        "situation": "un moment avec Robert",
-        "reaction": "détente, complicité",
-        "evenement": "moment_robert"
-      },
-      {
-        "situation": "Robert n'est pas là quand elle l'attend",
-        "reaction": "inquiétude",
-        "evenement": "absence_conjoint"
-      },
-      {
-        "situation": "une sortie avec Robert",
-        "reaction": "plaisir",
-        "evenement": "sortie_couple"
-      }
-    ],
-    "loisirs": [
-      {
-        "loisir": "le cinéma avec Robert, le lundi soir ; c'est elle qui choisit le film"
-      },
-      {
-        "loisir": "le tricot"
-      },
-      {
-        "loisir": "la belote du samedi avec les Morel ; elle fait équipe avec Monique"
-      }
-    ]
-  },
-  "modele_emotionnel": {
-    "principe": "Les émotions ne sont jamais fixées à la main : elles découlent des événements vécus, des besoins et du retour progressif à l'état de base. Même modèle de calcul que pour Thomas Berthier.",
-    "etapes_de_calcul": [
-      "1. Retour vers l'état de base : e = base + (e - base) x 0,5^(1 / demi_vie). Pendant le sommeil, la demi-vie est divisée par deux.",
-      "2. Événements du pas : chaque événement ajoute ses effets. Les effets négatifs sont multipliés par (0,5 + névrosisme).",
-      "3. Influence des besoins (éveillé seulement), voir couplages_besoins.",
-      "4. Valeurs bornées entre 0 et 1."
-    ],
-    "etat_de_base": {
-      "joie": 0.5,
-      "tristesse": 0.2,
-      "anxiete": 0.3,
-      "colere": 0.04,
-      "fierte": 0.35,
-      "excitation": 0.18,
-      "solitude": "0,25 + 0,01 x max(0, 75 - besoin social)"
-    },
-    "demi_vie_pas": {
-      "joie": 6,
-      "tristesse": 12,
-      "anxiete": 10,
-      "colere": 4,
-      "fierte": 24,
-      "solitude": 12,
-      "excitation": 6
-    },
-    "couplages_besoins": [
-      {
-        "condition": "faim < 35",
-        "effet_par_pas": {
-          "colere": 0.01,
-          "joie": -0.005
-        }
-      },
-      {
-        "condition": "energie < 30",
-        "effet_par_pas": {
-          "joie": -0.005,
-          "colere": 0.005
-        }
-      },
-      {
-        "condition": "toilettes < 25",
-        "effet_par_pas": {
-          "anxiete": 0.01
-        }
-      },
-      {
-        "condition": "detente < 30",
-        "effet_par_pas": {
-          "colere": 0.005
-        }
-      }
-    ],
-    "concentration": {
-      "principe": "Converge à chaque pas vers une cible qui dépend de l'activité : c = c + (cible - c) x 0,5.",
-      "cibles": {
-        "precision": 0.7,
-        "simple": 0.55,
-        "lecture": 0.55,
-        "cuisine": 0.5,
-        "repos": 0.25,
-        "sommeil": 0.0
-      }
-    },
-    "seuil_insomnie": "si anxiete > 0,65 ou excitation > 0,5 au moment d'éteindre, l'endormissement passe de 15 à 45 minutes",
-    "evenements": {
-      "reveil_sonnerie": {
-        "description": "réveil par la sonnerie",
-        "effets": {
-          "colere": 0.03,
-          "excitation": 0.03
-        }
-      },
-      "plaisir_simple": {
-        "description": "café, bon repas, radio",
-        "effets": {
-          "joie": 0.04
-        }
-      },
-      "effort_physique": {
-        "description": "porter, soulever, monter l'escalier",
-        "effets": {
-          "anxiete": -0.01
-        }
-      },
-      "mal_de_dos": {
-        "description": "le dos tire après un effort",
-        "effets": {
-          "anxiete": 0.04,
-          "colere": 0.03
-        }
-      },
-      "anniversaire_mariage": {
-        "description": "penser à l'anniversaire de mariage et au cadeau",
-        "effets": {
-          "joie": 0.03,
-          "anxiete": 0.02
-        }
-      },
-      "pensee_claire": {
-        "description": "penser à sa fille et à ses petits-enfants",
-        "effets": {
-          "joie": 0.03,
-          "solitude": 0.02
-        }
-      },
-      "jardinage": {
-        "description": "travailler la terre au potager",
-        "effets": {
-          "joie": 0.05,
-          "anxiete": -0.04
-        }
-      },
-      "repos_merite": {
-        "description": "la journée de travail est finie",
-        "effets": {
-          "joie": 0.05,
-          "anxiete": -0.05
-        }
-      },
-      "reve_inquiet": {
-        "description": "rêve teinté d'inquiétude",
-        "effets": {
-          "anxiete": 0.03
-        }
-      },
-      "reve_souvenir": {
-        "description": "rêve d'autrefois",
-        "effets": {
-          "tristesse": 0.02,
-          "joie": 0.02
-        }
-      },
-      "anticipation_plaisir": {
-        "description": "attendre un moment agréable",
-        "effets": {
-          "excitation": 0.05,
-          "joie": 0.03
-        }
-      },
-      "match_tension": {
-        "description": "moment tendu d'un match de son équipe",
-        "effets": {
-          "anxiete": 0.015,
-          "excitation": 0.06
-        }
-      },
-      "but_adverse": {
-        "description": "but encaissé par son équipe",
-        "effets": {
-          "anxiete": 0.1,
-          "colere": 0.08,
-          "joie": -0.05,
-          "excitation": 0.1
-        }
-      },
-      "but_equipe": {
-        "description": "but marqué par son équipe",
-        "effets": {
-          "joie": 0.25,
-          "anxiete": -0.1,
-          "excitation": 0.25
-        }
-      },
-      "qualification_equipe": {
-        "description": "son équipe se qualifie",
-        "effets": {
-          "joie": 0.2,
-          "anxiete": -0.15,
-          "excitation": 0.2
-        }
-      },
-      "souvenir_excitant": {
-        "description": "repenser à un moment fort de la journée",
-        "effets": {
-          "excitation": 0.05,
-          "joie": 0.02
-        }
-      },
-      "rire": {
-        "description": "rire franchement (radio, client, ami)",
-        "effets": {
-          "joie": 0.06,
-          "anxiete": -0.02
-        }
-      },
-      "bavardage_voisin": {
-        "description": "quelques mots avec un voisin",
-        "effets": {
-          "joie": 0.03,
-          "solitude": -0.03
-        }
-      },
-      "sortie_couple": {
-        "description": "sortir avec Josiane",
-        "effets": {
-          "joie": 0.06,
-          "solitude": -0.05,
-          "anxiete": -0.02
-        }
-      },
-      "film_prenant": {
-        "description": "un film qui tient en haleine",
-        "effets": {
-          "excitation": 0.05,
-          "anxiete": 0.02
-        }
-      },
-      "nature": {
-        "description": "marcher au grand air, la vue sur les monts et la vallée",
-        "effets": {
-          "joie": 0.05,
-          "anxiete": -0.05
-        }
-      },
-      "belote_gagnee": {
-        "description": "gagner une partie de belote",
-        "effets": {
-          "joie": 0.06,
-          "fierte": 0.03,
-          "excitation": 0.03
-        }
-      },
-      "belote_perdue": {
-        "description": "perdre une partie de belote",
-        "effets": {
-          "colere": 0.02,
-          "joie": -0.01
-        }
-      },
-      "petit_oubli": {
-        "description": "s'apercevoir d'un oubli",
-        "effets": {
-          "colere": 0.03,
-          "anxiete": 0.01
-        }
-      },
-      "moment_robert": {
-        "description": "repas, conversation ou soirée avec Robert",
-        "effets": {
-          "joie": 0.04,
-          "solitude": -0.05,
-          "anxiete": -0.02
-        }
-      },
-      "absence_conjoint": {
-        "description": "Robert n'est pas là au moment prévu ensemble",
-        "effets": {
-          "anxiete": 0.08,
-          "tristesse": 0.03
-        }
-      }
-    }
-  },
-  "etat_initial": {
-    "date": "2010-03-08T00:00",
-    "lieu": "domicile",
-    "piece": "chambre",
-    "activite": "dort, à côté de Robert",
-    "tenue": "nuit",
-    "objets_portes": [],
-    "besoins": {
-      "faim": 65,
-      "soif": 66,
-      "energie": 45,
-      "hygiene": 74,
-      "toilettes": 72,
-      "social": 78,
-      "detente": 66
-    },
-    "emotions": {
-      "joie": 0.5,
-      "tristesse": 0.2,
-      "anxiete": 0.3,
-      "colere": 0.04,
-      "solitude": 0.25,
-      "fierte": 0.35,
-      "excitation": 0.18,
-      "concentration": 0.5
-    }
-  },
-  "besoins": {
-    "faim": {
-      "variation_par_pas": {
-        "eveille": -0.5,
-        "endormi": -0.2,
-        "effort_physique": -0.9
-      },
-      "seuil_alerte": 35,
-      "satisfaction": {
-        "repas_complet": 55,
-        "petit_dejeuner": 40,
-        "collation": 15
-      }
-    },
-    "soif": {
-      "variation_par_pas": {
-        "eveille": -0.7,
-        "endormi": -0.25,
-        "effort_physique": -1.4
-      },
-      "seuil_alerte": 40,
-      "satisfaction": {
-        "verre_eau": 20,
-        "boisson_chaude": 15
-      }
-    },
-    "energie": {
-      "variation_par_pas": {
-        "eveille": -0.4,
-        "effort_physique": -0.9,
-        "endormi": 1.15,
-        "sieste": 0.8
-      },
-      "seuil_alerte": 25,
-      "notes": "Le dos opéré la fatigue en fin de journée."
-    },
-    "hygiene": {
-      "variation_par_pas": {
-        "eveille": -0.12,
-        "endormi": -0.05,
-        "effort_physique": -0.5
-      },
-      "seuil_alerte": 40,
-      "satisfaction": {
-        "douche": 75,
-        "lavage_mains_visage": 10
-      }
-    },
-    "toilettes": {
-      "variation_par_pas": {
-        "eveille": -1.1,
-        "endormi": -0.35
-      },
-      "seuil_alerte": 25,
-      "satisfaction": {
-        "passage_toilettes": 100
-      }
-    },
-    "social": {
-      "variation_par_pas": {
-        "eveille": -0.06,
-        "endormi": 0
-      },
-      "seuil_alerte": 30,
-      "satisfaction": {
-        "radio_par_pas": 0.15,
-        "television_par_pas": 0.2,
-        "match_televise_par_pas": 0.1,
-        "robert_par_pas": 1.0,
-        "collegues": 10
-      },
-      "notes": "Robert, les collègues et les patients du cabinet, les commerçants de Cusset et les Morel nourrissent son besoin de contact."
-    },
-    "detente": {
-      "variation_par_pas": {
-        "travail": -0.2,
-        "eveille_autre": -0.05
-      },
-      "seuil_alerte": 30,
-      "satisfaction": {
-        "loisir_par_pas": 1.2,
-        "lecture_par_pas": 1.0,
-        "musique_par_pas": 0.8,
-        "course_par_pas": 0.6
-      },
-      "notes": "course_par_pas s'applique à tout effort de plein air choisi (jardin, randonnée)."
-    }
   },
   "competences": [
     {
@@ -589,721 +99,6 @@
       "evenement": "Opérée du dos, elle quitte la boutique et reprend un mi-temps de secrétaire médicale à Cusset."
     }
   ],
-  "personnes_en_memoire": [],
-  "personnes_du_quartier": [],
-  "personnes_presentes": [
-    {
-      "id": "robert-chazal",
-      "nom": "Robert Chazal",
-      "lien": "époux depuis 1976",
-      "simule": true,
-      "attachement": 0.95
-    }
-  ],
-  "relations": {
-    "robert-chazal": {
-      "nom": "Robert",
-      "evenement": "moment_robert",
-      "absence": "absence_conjoint",
-      "social_par_pas": 1.0
-    }
-  },
-  "economie": {
-    "devise": "EUR",
-    "revenu_mensuel": 900,
-    "especes_au_debut": 45,
-    "compte_courant_au_debut": 0
-  },
-  "lieux": [
-    {
-      "id": "domicile",
-      "nom": "Maison de la rue des Glycines",
-      "type": "maison",
-      "adresse": "rue des Glycines, Villeurbanne (quartier de Cusset)"
-    },
-    {
-      "id": "cabinet-medical",
-      "nom": "Cabinet médical de Cusset",
-      "type": "travail",
-      "adresse": "Cusset, Villeurbanne, à 10 minutes à pied"
-    },
-    {
-      "id": "commerces-cusset",
-      "nom": "Commerces et marché de Cusset",
-      "type": "commerce",
-      "adresse": "Cusset, Villeurbanne"
-    },
-    {
-      "id": "trajet-pied",
-      "nom": "Trajet à pied dans Cusset",
-      "type": "extérieur"
-    },
-    {
-      "id": "trajet-voiture",
-      "nom": "En Kangoo avec Robert",
-      "type": "extérieur"
-    },
-    {
-      "id": "cinema-ugc",
-      "nom": "UGC Ciné Cité Internationale",
-      "type": "cinéma"
-    },
-    {
-      "id": "bureau-de-vote",
-      "nom": "Bureau de vote de l'école du quartier",
-      "type": "public"
-    },
-    {
-      "id": "monts-d-or",
-      "nom": "Monts d'Or, boucle du mont Thou",
-      "type": "extérieur"
-    }
-  ],
-  "trajets": [],
-  "immeuble": {
-    "description": "Escalier de bois de la maison, entre l'entrée et le palier de l'étage.",
-    "etage_appartement": 1,
-    "ascenseur": false,
-    "marches_par_etage": 14,
-    "hauteur_marche_cm": 19,
-    "marches_total": 14,
-    "deplacement": {
-      "descente_secondes": 10,
-      "montee_secondes_marche": 15,
-      "montee_secondes_apres_course": 15,
-      "effets_montee": {
-        "energie": -0.3,
-        "soif": -0.1
-      },
-      "effets_descente": {
-        "energie": -0.1
-      }
-    }
-  },
-  "voiture": {
-    "nom_court": "Kangoo",
-    "passagere": true,
-    "stationnements": {
-      "maison": "garage"
-    }
-  },
-  "domicile": {
-    "lieu_id": "domicile",
-    "pieces": [
-      {
-        "id": "entree",
-        "nom": "Entrée",
-        "lieu": "maison",
-        "niveau": 0,
-        "surface_m2": 4.5,
-        "fenetre": false,
-        "mobilier": [
-          "portemanteau",
-          "meuble à chaussures",
-          "vide-poche",
-          "pied de l'escalier"
-        ]
-      },
-      {
-        "id": "sejour",
-        "nom": "Séjour",
-        "lieu": "maison",
-        "niveau": 0,
-        "surface_m2": 22,
-        "fenetre": true,
-        "mobilier": [
-          "fauteuil de Robert",
-          "canapé",
-          "télévision",
-          "table de salle à manger et quatre chaises",
-          "buffet avec les photos",
-          "table basse",
-          "porte-fenêtre sur le jardin"
-        ]
-      },
-      {
-        "id": "cuisine",
-        "nom": "Cuisine",
-        "lieu": "maison",
-        "niveau": 0,
-        "surface_m2": 11,
-        "fenetre": true,
-        "mobilier": [
-          "table et deux chaises",
-          "cuisinière à gaz",
-          "réfrigérateur",
-          "évier",
-          "cafetière électrique",
-          "poste de radio",
-          "placard à provisions"
-        ]
-      },
-      {
-        "id": "wc",
-        "nom": "WC",
-        "lieu": "maison",
-        "niveau": 0,
-        "surface_m2": 1.5,
-        "fenetre": false,
-        "mobilier": []
-      },
-      {
-        "id": "garage",
-        "nom": "Garage",
-        "lieu": "maison",
-        "niveau": 0,
-        "surface_m2": 16,
-        "fenetre": false,
-        "mobilier": [
-          "place de la Kangoo",
-          "établi de bricolage",
-          "congélateur coffre",
-          "outils de jardin",
-          "porte basculante"
-        ]
-      },
-      {
-        "id": "escalier-maison",
-        "nom": "Escalier",
-        "lieu": "maison",
-        "niveau": 0,
-        "surface_m2": 3,
-        "fenetre": false,
-        "mobilier": [
-          "quatorze marches de bois"
-        ]
-      },
-      {
-        "id": "palier-etage",
-        "nom": "Palier de l'étage",
-        "lieu": "maison",
-        "niveau": 1,
-        "surface_m2": 3,
-        "fenetre": false,
-        "mobilier": []
-      },
-      {
-        "id": "chambre",
-        "nom": "Chambre",
-        "lieu": "maison",
-        "niveau": 1,
-        "surface_m2": 13,
-        "fenetre": true,
-        "mobilier": [
-          "lit double",
-          "table de chevet de Robert",
-          "table de chevet de Josiane",
-          "armoire",
-          "commode"
-        ]
-      },
-      {
-        "id": "chambre-claire",
-        "nom": "Chambre de Claire",
-        "lieu": "maison",
-        "niveau": 1,
-        "surface_m2": 10,
-        "fenetre": true,
-        "mobilier": [
-          "lit d'une personne",
-          "lit d'appoint pour les petits",
-          "bureau",
-          "étagère de jouets"
-        ]
-      },
-      {
-        "id": "salle-de-bain",
-        "nom": "Salle de bain",
-        "lieu": "maison",
-        "niveau": 1,
-        "surface_m2": 6,
-        "fenetre": true,
-        "mobilier": [
-          "douche",
-          "lavabo",
-          "WC",
-          "armoire à pharmacie",
-          "panier à linge"
-        ]
-      }
-    ],
-    "plan": {
-      "principe": "Deux lieux privés, chacun un graphe de pièces : la maison et la boutique. Ils ne sont reliés que par la voiture ; les déplacements à l'intérieur suivent le chemin le plus court.",
-      "vitesse_marche_m_s": 1.0,
-      "longueur_foulee_m": 0.68,
-      "longueur_foulee_course_m": 1.0,
-      "noeuds_exterieurs": [
-        "rue-maison",
-        "jardin"
-      ],
-      "entrees": {
-        "maison": "entree"
-      },
-      "lieux_des_sites": {
-        "maison": "domicile"
-      },
-      "deplacements_dans_la_piece": {
-        "principe": "Petits déplacements à l'intérieur d'une pièce, estimés par pas de 5 minutes selon l'activité ; réduits quand il est assis ou allongé.",
-        "metres_par_pas": {
-          "precision": 1.0,
-          "simple": 6.0,
-          "cuisine": 10.0,
-          "lecture": 0.5,
-          "repos": 2.0,
-          "sommeil": 0.0
-        },
-        "facteur_assis_ou_allonge": 0.3
-      },
-      "liaisons": [
-        {
-          "a": "rue-maison",
-          "b": "entree",
-          "distance_m": 5.5,
-          "porte": "porte d'entrée"
-        },
-        {
-          "a": "entree",
-          "b": "sejour",
-          "distance_m": 4.9
-        },
-        {
-          "a": "entree",
-          "b": "cuisine",
-          "distance_m": 4.0
-        },
-        {
-          "a": "entree",
-          "b": "wc",
-          "distance_m": 1.1
-        },
-        {
-          "a": "entree",
-          "b": "garage",
-          "distance_m": 3.9,
-          "porte": "porte de communication"
-        },
-        {
-          "a": "garage",
-          "b": "rue-maison",
-          "distance_m": 5.9,
-          "porte": "porte basculante"
-        },
-        {
-          "a": "sejour",
-          "b": "jardin",
-          "distance_m": 6.4,
-          "porte": "porte-fenêtre"
-        },
-        {
-          "a": "entree",
-          "b": "escalier-maison",
-          "distance_m": 3.5
-        },
-        {
-          "a": "escalier-maison",
-          "b": "palier-etage",
-          "distance_m": 3.2,
-          "escalier": true
-        },
-        {
-          "a": "palier-etage",
-          "b": "chambre",
-          "distance_m": 2.6
-        },
-        {
-          "a": "palier-etage",
-          "b": "chambre-claire",
-          "distance_m": 3.2
-        },
-        {
-          "a": "palier-etage",
-          "b": "salle-de-bain",
-          "distance_m": 1.8
-        }
-      ]
-    },
-    "equipements": {
-      "chauffage": "chaudière au gaz à la maison, radiateur soufflant dans la boutique",
-      "television": "téléviseur à écran plat acheté pour la Coupe du monde 2006, dans le séjour",
-      "radio": "poste de radio dans la cuisine de la maison et radio de la boutique, sur RTL",
-      "caisse": "caisse enregistreuse à tiroir et terminal de carte bancaire sur le comptoir",
-      "voiture": "Renault Kangoo blanche"
-    },
-    "provisions_au_debut": [],
-    "produits_prepares": []
-  },
-  "menus_prevus": {
-    "regle": "Josiane cuisine le déjeuner et le dîner avec ce qu'elle achète à Cusset (viande, poisson) et ce que Robert rapporte de la boutique : à chaque départ de la boutique le soir, il prélève sur le stock du magasin ce qui manque à la maison pour le dîner du soir et le déjeuner du lendemain ; le dimanche midi, jusqu'au déjeuner du mardi, puisque le lundi il ne retourne à la boutique que pour prendre la recette. Le matin, il met de côté une baguette (deux le dimanche). Il complète aussi ses propres provisions quand elles baissent (fruits, fromage, beurre, café, vin, bière). Les quantités sont celles du repas du couple.",
-    "petit_dejeuner": {
-      "plat": "café, deux tartines beurre-confiture, comprimé pour la tension",
-      "ingredients": [
-        [
-          "cafe_moulu",
-          14
-        ],
-        [
-          "pain",
-          1
-        ],
-        [
-          "beurre",
-          10
-        ],
-        [
-          "confiture",
-          2
-        ],
-        [
-          "comprimes",
-          1
-        ]
-      ]
-    },
-    "lundi": {
-      "dejeuner": {
-        "plat": "gratin dauphinois préparé la veille, côtes de porc",
-        "ingredients": [
-          [
-            "pommes_de_terre",
-            1000
-          ],
-          [
-            "beurre",
-            20
-          ],
-          [
-            "pain",
-            2
-          ],
-          [
-            "fruits",
-            1
-          ],
-          [
-            "repas_josiane",
-            1
-          ]
-        ]
-      },
-      "diner": {
-        "plat": "soupe de légumes, comté, servie tôt avant le cinéma ; pas de vin, il conduit",
-        "ingredients": [
-          [
-            "carottes",
-            300
-          ],
-          [
-            "pommes_de_terre",
-            300
-          ],
-          [
-            "oignons",
-            1
-          ],
-          [
-            "fromage",
-            40
-          ],
-          [
-            "pain",
-            1
-          ]
-        ]
-      }
-    },
-    "mardi": {
-      "dejeuner": {
-        "plat": "reste de gratin, salade verte",
-        "ingredients": [
-          [
-            "salade",
-            1
-          ],
-          [
-            "pain",
-            2
-          ],
-          [
-            "fruits",
-            1
-          ]
-        ]
-      },
-      "diner": {
-        "plat": "omelette aux pommes de terre",
-        "ingredients": [
-          [
-            "oeufs",
-            6
-          ],
-          [
-            "pommes_de_terre",
-            500
-          ],
-          [
-            "oignons",
-            1
-          ],
-          [
-            "fromage",
-            40
-          ],
-          [
-            "pain",
-            1
-          ],
-          [
-            "vin_rouge",
-            12
-          ]
-        ]
-      }
-    },
-    "mercredi": {
-      "dejeuner": {
-        "plat": "poulet basquaise, riz",
-        "ingredients": [
-          [
-            "tomates",
-            500
-          ],
-          [
-            "oignons",
-            1
-          ],
-          [
-            "riz",
-            250
-          ],
-          [
-            "pain",
-            2
-          ],
-          [
-            "fruits",
-            1
-          ],
-          [
-            "repas_josiane",
-            1
-          ]
-        ]
-      },
-      "diner": {
-        "plat": "croque-monsieur devant le match, une bière",
-        "ingredients": [
-          [
-            "jambon",
-            4
-          ],
-          [
-            "fromage_rape",
-            100
-          ],
-          [
-            "beurre",
-            20
-          ],
-          [
-            "pain",
-            2
-          ],
-          [
-            "biere",
-            1
-          ]
-        ]
-      }
-    },
-    "jeudi": {
-      "dejeuner": {
-        "plat": "reste de poulet basquaise, riz",
-        "ingredients": [
-          [
-            "riz",
-            250
-          ],
-          [
-            "pain",
-            2
-          ],
-          [
-            "fruits",
-            1
-          ]
-        ]
-      },
-      "diner": {
-        "plat": "soupe de légumes, tartines de comté",
-        "ingredients": [
-          [
-            "carottes",
-            300
-          ],
-          [
-            "pommes_de_terre",
-            300
-          ],
-          [
-            "fromage",
-            60
-          ],
-          [
-            "pain",
-            1
-          ],
-          [
-            "vin_rouge",
-            12
-          ]
-        ]
-      }
-    },
-    "vendredi": {
-      "dejeuner": {
-        "plat": "filet de colin, pommes vapeur",
-        "ingredients": [
-          [
-            "pommes_de_terre",
-            600
-          ],
-          [
-            "pain",
-            2
-          ],
-          [
-            "fruits",
-            1
-          ],
-          [
-            "repas_josiane",
-            1
-          ]
-        ]
-      },
-      "diner": {
-        "plat": "pâtes au gratin",
-        "ingredients": [
-          [
-            "pates",
-            500
-          ],
-          [
-            "fromage_rape",
-            100
-          ],
-          [
-            "pain",
-            1
-          ],
-          [
-            "vin_rouge",
-            12
-          ]
-        ]
-      }
-    },
-    "samedi": {
-      "dejeuner": {
-        "plat": "steak haché, haricots verts",
-        "ingredients": [
-          [
-            "haricots_verts",
-            1
-          ],
-          [
-            "pain",
-            2
-          ],
-          [
-            "fruits",
-            1
-          ],
-          [
-            "repas_josiane",
-            1
-          ]
-        ]
-      },
-      "diner": {
-        "plat": "pizza maison de Josiane, avant la belote",
-        "ingredients": [
-          [
-            "farine",
-            250
-          ],
-          [
-            "tomates",
-            500
-          ],
-          [
-            "jambon",
-            4
-          ],
-          [
-            "fromage_rape",
-            100
-          ],
-          [
-            "vin_rouge",
-            12
-          ]
-        ]
-      }
-    },
-    "dimanche": {
-      "dejeuner": {
-        "plat": "rôti de bœuf, gratin dauphinois, tarte aux pommes ; pas de vin, il conduit l'après-midi",
-        "ingredients": [
-          [
-            "pommes_de_terre",
-            1000
-          ],
-          [
-            "beurre",
-            80
-          ],
-          [
-            "fruits",
-            5
-          ],
-          [
-            "farine",
-            200
-          ],
-          [
-            "sucre",
-            100
-          ],
-          [
-            "pain",
-            2
-          ],
-          [
-            "repas_josiane",
-            1
-          ]
-        ]
-      },
-      "diner": {
-        "plat": "restes du midi, comté",
-        "ingredients": [
-          [
-            "fromage",
-            50
-          ],
-          [
-            "pain",
-            1
-          ],
-          [
-            "vin_rouge",
-            12
-          ]
-        ]
-      }
-    }
-  },
   "objets": [
     {
       "id": "obj-cles-josiane",
@@ -1352,6 +147,141 @@
       "Robert part à la boutique vers 6 h 15 et rentre déjeuner vers 12 h 25, sauf le lundi.",
       "Le match Real Madrid – Lyon passe mercredi soir ; elle ira se coucher à la mi-temps."
     ]
+  },
+  "agenda_semaine": [
+    {
+      "id": "ag-cinema",
+      "debut": "2010-03-08T20:15",
+      "fin": "2010-03-08T22:40",
+      "lieu": "cinema-ugc",
+      "quoi": "Cinéma avec Robert : « The Ghost Writer »",
+      "engagement": "souple",
+      "objets_necessaires": [
+        "obj-sac-a-main"
+      ]
+    },
+    {
+      "id": "ag-vote",
+      "debut": "2010-03-14T14:30",
+      "fin": "2010-03-14T14:50",
+      "lieu": "bureau-de-vote",
+      "quoi": "Voter au premier tour des régionales, avec Robert",
+      "engagement": "ferme",
+      "objets_necessaires": [
+        "obj-sac-a-main"
+      ]
+    },
+    {
+      "id": "ag-randonnee",
+      "debut": "2010-03-14T15:30",
+      "fin": "2010-03-14T17:45",
+      "lieu": "monts-d-or",
+      "quoi": "Randonnée avec Robert",
+      "engagement": "souple",
+      "objets_necessaires": []
+    }
+  ],
+  "objectifs": [
+    {
+      "id": "ob-pull",
+      "description": "Finir le pull du petit-fils",
+      "priorite": 0.4
+    }
+  ],
+  "sante": {
+    "etat_general": "bon",
+    "chronotype": "intermédiaire",
+    "conditions": [
+      {
+        "nom": "dos opéré en 2004",
+        "effet": "évite de porter lourd ; c'est pourquoi elle a quitté la boutique"
+      }
+    ],
+    "consommations": {
+      "cafe": "un bol au petit-déjeuner",
+      "alcool": "un verre de vin le samedi soir",
+      "tabac": "jamais"
+    },
+    "activite_physique": [
+      {
+        "activite": "randonnée dans les monts d'Or avec Robert",
+        "jours": [
+          "dimanche"
+        ],
+        "duree_minutes": 135
+      }
+    ],
+    "sommeil": {
+      "besoin_minutes": 480,
+      "reveil_naturel_jour_libre": "07:30"
+    }
+  },
+  "vie_interieure": {
+    "valeurs": [
+      "la famille",
+      "le travail bien fait",
+      "la parole donnée"
+    ],
+    "desirs": [
+      {
+        "desir": "que Robert prenne enfin des vacances",
+        "intensite": 0.7
+      }
+    ],
+    "preoccupations_semaine": [
+      {
+        "id": "pr-anniversaire",
+        "sujet": "Les trente-quatre ans de mariage, mardi 16 mars : Robert va-t-il y penser ?",
+        "intensite_initiale": 0.4
+      }
+    ],
+    "declencheurs": [
+      {
+        "situation": "un moment avec Robert",
+        "reaction": "détente, complicité",
+        "evenement": "moment_proche"
+      },
+      {
+        "situation": "Robert n'est pas là quand elle l'attend",
+        "reaction": "inquiétude",
+        "evenement": "absence_proche"
+      },
+      {
+        "situation": "une sortie avec Robert",
+        "reaction": "plaisir",
+        "evenement": "sortie_couple"
+      }
+    ],
+    "loisirs": [
+      {
+        "loisir": "le cinéma avec Robert, le lundi soir ; c'est elle qui choisit le film"
+      },
+      {
+        "loisir": "le tricot"
+      },
+      {
+        "loisir": "la belote du samedi avec les Morel ; elle fait équipe avec Monique"
+      }
+    ]
+  },
+  "relations": {
+    "robert-chazal": {
+      "type": "conjoint"
+    },
+    "monique-morel": {
+      "type": "ami",
+      "social_par_pas": 1.0
+    },
+    "gerard-morel": {
+      "type": "ami"
+    }
+  },
+  "voiture": {
+    "nom_court": "Kangoo",
+    "passagere": true,
+    "stationnements": {
+      "maison-chazal": "garage"
+    }
   },
   "habitudes": {
     "automatismes": [
@@ -1771,7 +701,9 @@
             "action": "Belote avec Robert, Gérard et Monique Morel ; elle fait équipe avec Monique",
             "activite": "belote",
             "avec_personnes": [
-              "robert-chazal"
+              "robert-chazal",
+              "gerard-morel",
+              "monique-morel"
             ]
           },
           {
@@ -2139,49 +1071,5 @@
         ]
       }
     ]
-  },
-  "agenda_semaine": [
-    {
-      "id": "ag-cinema",
-      "debut": "2010-03-08T20:15",
-      "fin": "2010-03-08T22:40",
-      "lieu": "cinema-ugc",
-      "quoi": "Cinéma avec Robert : « The Ghost Writer »",
-      "engagement": "souple",
-      "objets_necessaires": [
-        "obj-sac-a-main"
-      ]
-    },
-    {
-      "id": "ag-vote",
-      "debut": "2010-03-14T14:30",
-      "fin": "2010-03-14T14:50",
-      "lieu": "bureau-de-vote",
-      "quoi": "Voter au premier tour des régionales, avec Robert",
-      "engagement": "ferme",
-      "objets_necessaires": [
-        "obj-sac-a-main"
-      ]
-    },
-    {
-      "id": "ag-randonnee",
-      "debut": "2010-03-14T15:30",
-      "fin": "2010-03-14T17:45",
-      "lieu": "monts-d-or",
-      "quoi": "Randonnée avec Robert",
-      "engagement": "souple",
-      "objets_necessaires": []
-    }
-  ],
-  "objectifs": [
-    {
-      "id": "ob-pull",
-      "description": "Finir le pull du petit-fils",
-      "priorite": 0.4
-    }
-  ],
-  "technologie_2010": {
-    "telephone": "fixe dans l'entrée, non utilisé pendant le test",
-    "television": "téléviseur du séjour"
   }
 }

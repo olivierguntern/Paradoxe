@@ -50,6 +50,38 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 | `agenda_semaine` | Activités datées de la semaine |
 | `objectifs` | Buts de la semaine, échéances, priorités |
 
+## Créer un nouvel habitant
+
+Une fiche ne décrit que ce qui est propre à la personne ; tout le reste vient du monde (`data/monde/`) et `outils/fiches.py` le complète au chargement. Une fiche minimale (voir `gerard-morel.json`) contient :
+
+| Section | Contenu |
+|---|---|
+| `meta` | `id`, `description` |
+| `logements` | Identifiants des logements de `data/monde/logements/` : le premier est chez lui, les suivants sont ceux où il va en visite (leurs pièces s'écrivent `logement:pièce`, par exemple `maison-chazal:sejour`) |
+| `identite` | `prenom`, `nom`, `genre` (`homme` ou `femme`), âge, métier… |
+| `personnalite.big_five` | Extraversion (qui parle le premier), agréabilité (comment il écoute), névrosisme (poids des émotions négatives)… |
+| `vie_interieure.preoccupations_semaine` | Ce qui le tracasse (`id`, `sujet`, `intensite_initiale`) : sujets de ses confidences |
+| `relations` | Pour chaque personne simulée qu'il connaît : `type` (`conjoint`, `famille`, `ami`, `voisin`, `collegue`, `client`, `commercant`, `connaissance`) ; chaque valeur du type peut être remplacée |
+| `habitudes.routines` | Ses journées : chaque étape a `debut`, `fin`, `lieu` (pièce ou lieu public), `action` (texte), `activite` (action de `data/monde/actions.json`), et au besoin `avec` (appareils d'ambiance) et `avec_personnes` (moment prévu avec quelqu'un) |
+
+Le reste est facultatif : une valeur écrite dans la fiche remplace toujours celle du monde (besoins, émotions de base, sommeil, objets, agenda…).
+
+| Fichier du monde | Contenu |
+|---|---|
+| `humain.json` | Valeurs par défaut de toute fiche : besoins, modèle émotionnel et catalogue d'événements communs, sommeil, état initial |
+| `calendrier.json` | Période simulée et éphémérides |
+| `lieux.json` | Lieux publics (bureau de vote, parc, cinéma…) |
+| `logements/<id>.json` | Logements partagés : pièces, liaisons, entrée et accès depuis la rue, escalier, équipements |
+| `actions.json` | Catalogue des actions |
+| `interactions.json` | Ce qui se passe entre habitants, par type de relation, et les modèles de conversation |
+
+Vérifier la fiche telle que le moteur la voit, puis la faire vivre avec les autres :
+
+```bash
+python3 outils/verifier_fiche.py data/personnages/gerard-morel.json
+python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages robert-chazal josiane-chazal gerard-morel monique-morel --dossier data/quartier
+```
+
 ## Timelines
 
 Les journées vécues sont stockées dans `data/timelines/<personnage>/<date>.json`, avec une version lisible `<date>.md`.

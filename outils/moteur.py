@@ -545,7 +545,7 @@ class Simulation:
                  "routine": s["routine"], "activite": s["titre"], "action": st["action"], "pensee": st["pensee"]}
         if dep:
             entry["deplacement"] = dep
-        for opt in ("phase_sommeil", "reve", "nouveaux_objets", "objets", "ruptures", "poste", "visiteurs", "ensemble"):
+        for opt in ("phase_sommeil", "reve", "nouveaux_objets", "objets", "ruptures", "poste", "visiteurs", "ensemble", "croise", "conversation"):
             if st.get(opt):
                 entry[opt] = st[opt]
         entry.update(mouvements)

@@ -1,0 +1,53 @@
+{
+  "principe": "Ce qui se passe quand des habitants simulés se trouvent ensemble (outils/quartier.py). Une fiche déclare ses relations par type (relations : { \"<id>\": { \"type\": \"ami\" } }) et peut en remplacer chaque valeur ; une personne simulée qu'elle ne connaît pas est une inconnue.",
+  "champs": {
+    "social_par_pas": "contact ajouté au besoin social à chaque pas passé ensemble",
+    "rencontre": "événement vécu au premier pas d'un moment ensemble",
+    "absence": "événement vécu quand la personne ne vient pas à un moment prévu ensemble (étape avec_personnes)",
+    "conversation": "probabilité, à chaque pas ensemble, qu'une conversation s'engage (tirage déterministe)"
+  },
+  "types": {
+    "conjoint": { "social_par_pas": 1.0, "rencontre": "moment_proche", "absence": "absence_proche", "conversation": 0.35 },
+    "famille": { "social_par_pas": 0.8, "rencontre": "moment_proche", "absence": "absence_proche", "conversation": 0.3 },
+    "ami": { "social_par_pas": 0.8, "rencontre": "rencontre_ami", "absence": "absence_ami", "conversation": 0.35 },
+    "voisin": { "social_par_pas": 0.4, "rencontre": "rencontre_voisin", "absence": null, "conversation": 0.3 },
+    "collegue": { "social_par_pas": 0.5, "rencontre": "rencontre_connaissance", "absence": null, "conversation": 0.2 },
+    "client": { "social_par_pas": 0.5, "rencontre": "rencontre_connaissance", "absence": null, "conversation": 0.3 },
+    "commercant": { "social_par_pas": 0.5, "rencontre": "rencontre_connaissance", "absence": null, "conversation": 0.3 },
+    "connaissance": { "social_par_pas": 0.2, "rencontre": "rencontre_connaissance", "absence": null, "conversation": 0.1 },
+    "inconnu": { "social_par_pas": 0.0, "rencontre": "inconnu_remarque", "absence": null, "conversation": 0.0 }
+  },
+  "conversation": {
+    "regles": [
+      "Une conversation s'engage entre deux habitants ensemble, éveillés, qui ne sont pas absorbés (charge precision ou conduite) ni occupés à une action intime ; au plus une toutes les 30 minutes par paire.",
+      "Celui qui parle est le plus extraverti des deux, sauf tirage contraire.",
+      "Sujet, par ordre de priorité : une préoccupation de la semaine dont il n'a pas encore parlé à cet interlocuteur (intensité d'au moins 0,4 ; pour un conjoint, la famille ou un ami seulement) ; ce qu'il a fait aujourd'hui sans l'autre ; l'activité qu'ils partagent (son sujet dans le catalogue d'actions : le repas, le match, la partie…) ; une banalité. Ce qui est banal (se lever, s'habiller, la vaisselle) ne se raconte pas.",
+      "L'interlocuteur retient ce qu'on lui a dit (mémoire de l'habitant, « appris ») : c'est ainsi qu'une information circule d'un habitant à l'autre."
+    ],
+    "sans_attention": ["precision", "conduite", "sommeil"],
+    "proches": ["conjoint", "famille", "ami"],
+    "intervalle_pas": 6,
+    "modeles": {
+      "preoccupation": [
+        "{A} parle à {B} de ce qui {leA} tracasse : {sujet}.",
+        "{A} confie à {B} : {sujet}."
+      ],
+      "journee": [
+        "{A} raconte à {B} : {fait}.",
+        "{A} parle à {B} de sa journée : {fait}."
+      ],
+      "activite": [
+        "{A} et {B} commentent {activite}.",
+        "{A} fait une remarque à {B} sur {activite}."
+      ],
+      "banalite": [
+        "{A} et {B} parlent du temps qu'il fait.",
+        "{A} et {B} échangent des nouvelles du quartier.",
+        "{A} et {B} évoquent la famille."
+      ],
+      "reponse_chaleureuse": "{B} écoute et {leA} rassure.",
+      "reponse_breve": "{B} hoche la tête."
+    },
+    "evenements": { "tous": "conversation_agreable", "confie": "confidence", "ecoute": "empathie" }
+  }
+}

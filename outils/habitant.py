@@ -42,6 +42,7 @@ class Habitant:
         self.EV = set(fiche["modele_emotionnel"]["evenements"])
         self.SITE = {pc["id"]: pc.get("lieu") for pc in self.PIECES}
         self.LIEU_DU_SITE = fiche["domicile"]["plan"].get("lieux_des_sites", {})
+        self.ACCES = fiche["domicile"]["plan"].get("acces", {})
         self.VEHICULE = fiche.get("voiture") or {}
         self.site = self.SITE.get(self.sim.piece)
         self.trajet = None       # trajet en véhicule en cours : site d'arrivée et distance par pas
@@ -60,6 +61,7 @@ class Habitant:
         self.coucher = None      # (pas d'extinction, pas d'endormissement)
         self.attente = None      # pas décidé, pas encore calculé : (st, s, titre, routine, suite)
         self.action_courante = {}  # action du catalogue du pas décidé
+        self.journal = []          # action du catalogue de chaque pas calculé
         self.etape_courante = None
         self.opportunites = {}   # début d'étape -> besoins satisfaits en s'y mettant
 
@@ -147,8 +149,9 @@ class Habitant:
         if premier:
             if a.get("effets"):
                 st["effets"] = dict(a["effets"])
-            if [e for e in a.get("ev", []) if e in self.EV]:
-                st["ev"] = [e for e in a["ev"] if e in self.EV]
+            evs = [e for e in a.get("ev", []) + a.get("ev_si_seul", []) if e in self.EV]
+            if evs:
+                st["ev"] = evs
         voulus = set(self.allumes) if garder_appareils else set(a.get("appareils", [])) | set(avec)
         app = {"allume": sorted(voulus - self.allumes), "eteint": sorted(self.allumes - voulus)}
         if premier:
@@ -182,6 +185,7 @@ class Habitant:
         st, s, titre, routine, suite = self.attente
         self.attente = None
         entree = self.sim.pas(st, s)
+        self.journal.append(self.action_courante)
         segs = self.j.segments
         if segs and segs[-1]["titre"] == titre and segs[-1]["routine"] == routine:
             segs[-1]["pas"].append(st)
@@ -269,6 +273,15 @@ class Habitant:
             if parking and parking in self.sim.graph and lieu != "exterieur":
                 extra["retour"] = parking
             self.trajet = None
+        # à pied : il sort par l'accès de son site (la rue) et entre par celui du site où il arrive
+        depuis, vers, G = self.SITE.get(self.sim.piece), self.SITE.get(piece), self.sim.graph
+        if depuis and vers != depuis and "sortie" not in extra and not a.get("vehicule"):
+            if vers is None and piece not in G and self.ACCES.get(depuis) in G:
+                extra["sortie"] = self.ACCES[depuis]
+            elif vers and self.ACCES.get(vers) in G:
+                extra["retour"] = self.ACCES[vers]
+        elif vers and not depuis and "retour" not in extra and self.sim.piece not in G and self.ACCES.get(vers) in G:
+            extra["retour"] = self.ACCES[vers]
         if piece in self.SITE and self.SITE[piece]:
             self.site = self.SITE[piece]
         premier = cle not in self.faits

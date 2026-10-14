@@ -15,6 +15,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import moteur
+from fiches import charger
 from habitant import Habitant
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -30,7 +31,7 @@ def main():
     ap.add_argument("--personnage", default="thomas-berthier")
     ap.add_argument("--dossier", required=True)
     a = ap.parse_args()
-    fiche = json.load(open(os.path.join(RACINE, "data", "personnages", f"{a.personnage}.json"), encoding="utf-8"))
+    fiche = charger(a.personnage)
     catalogue = json.load(open(os.path.join(RACINE, "data", "monde", "actions.json"), encoding="utf-8"))
     os.makedirs(a.dossier, exist_ok=True)
     d, fin = datetime.date.fromisoformat(a.debut), datetime.date.fromisoformat(a.fin)

@@ -181,17 +181,19 @@ python3 outils/simuler_habitant.py 2010-03-08 2010-03-14 --personnage robert-cha
 
 ## Quartier : plusieurs habitants ensemble
 
-`quartier.py` fait vivre plusieurs habitants génériques en même temps, pas à pas : chacun décide de son pas, le quartier ajoute les rencontres, puis chaque pas est calculé. Ce qui est propre à chacun est dans sa fiche, section `relations` (pour chaque personne simulée qu'il connaît : son nom, l'événement d'un moment ensemble, celui d'une absence, le contact social par pas).
+`quartier.py` fait vivre ensemble, pas à pas, n'importe quels habitants : chacun décide de son pas, le quartier ajoute les rencontres et les conversations, puis chaque pas est calculé. Les fiches sont chargées par `fiches.py`, qui les complète avec le monde (`data/monde/`, voir « Créer un nouvel habitant » dans `data/README.md`). Les règles sont générales ; leurs valeurs viennent de `data/monde/interactions.json`, par type de relation, et chaque fiche peut les remplacer dans `relations`.
 
-- **Ensemble** : deux habitants éveillés au même endroit (même lieu et même pièce, ou même véhicule), sans être occupés à une action intime (toilettes, douche), sont ensemble. Chacun gagne le contact social prévu ; le premier pas d'un moment ensemble fait vivre l'événement de la relation (`moment_josiane` pour Robert, `moment_robert` pour Josiane).
-- **Moment prévu ensemble** : une étape de routine peut nommer `avec_personnes`. Si la personne n'est venue ni au premier ni au deuxième pas de l'étape, l'absence est remarquée (« Robert n'est pas là ») et vécue (`absence_conjoint`). C'est par là qu'un retard provoqué chez l'un se propagera à l'autre.
+- **Ensemble** : deux habitants éveillés dans la même pièce du même logement (repère commun : logement et pièce, quelle que soit la fiche qui la décrit), le même lieu public ou le même véhicule, sans action intime en cours. Chacun gagne le contact social de la relation ; le premier pas fait vivre l'événement de rencontre (`moment_proche`, `rencontre_ami`, `rencontre_voisin`…). Une personne simulée inconnue est remarquée (`croise`). « Manger seul » n'est vécu que si l'on mange seul.
+- **Moment prévu ensemble** (`avec_personnes`) : si la personne n'est venue ni au premier ni au deuxième pas, l'absence est remarquée et vécue.
+- **Conversation** : entre deux habitants ensemble et disponibles, selon la probabilité de la relation, au plus une toutes les 30 minutes par paire. Le plus extraverti parle (sauf tirage). Sujet : une préoccupation de la semaine, confiée à un proche mais jamais à la personne qu'elle concerne ; ce qu'il a fait sans l'autre (ce qui est banal ne se raconte pas) ; l'activité partagée (`sujet` dans le catalogue : le repas, la partie, le match…) ; une banalité. Les textes viennent de modèles ; l'auditeur répond selon son agréabilité et **retient** ce qu'on lui a dit (mémoire `appris`, gardée d'un jour à l'autre).
+- **À pied d'un logement à l'autre** : il sort par l'accès de son logement (la rue) et entre par celui du logement où il va.
 
-Josiane Chazal (`data/personnages/josiane-chazal.json`), l'épouse de Robert, est le premier habitant créé pour ce moteur : même maison que Robert (pièces et plan repris de sa fiche), mi-temps de secrétaire médicale à Cusset, cuisine, belote du samedi, vote et randonnée du dimanche, cinéma du lundi. Sur la semaine, ils passent ensemble de 2 h 45 (mercredi : elle monte se coucher à la mi-temps du match) à 7 h 30 (dimanche), aux moments prévus par leurs deux routines, sans aucune absence. En avançant son déjeuner du mardi à 12:15 (Robert rentre à 12:25), elle remarque à 12:20 que Robert n'est pas là ; son anxiété monte, puis retombe quand il arrive.
+Exemple : Robert, Josiane et leurs voisins Gérard et Monique Morel (fiches minimales). Le samedi soir, les quatre jouent à la belote chez les Chazal ; Josiane et Monique se retrouvent au marché ; le dimanche, les deux couples se croisent au bureau de vote sans l'avoir prévu. Robert confie à Gérard et à Monique qu'il cherche un cadeau pour l'anniversaire de mariage, jamais à Josiane ; Josiane confie à Monique qu'elle se demande s'il y pensera : Monique sait les deux.
 
-Limite : chacun garde son propre état du monde (lumières, appareils, objets, provisions) ; la maison n'est pas encore un état partagé.
+Limite : chacun garde son propre état du monde (lumières, appareils, objets, provisions) ; les logements ne sont pas encore un état partagé.
 
 ```bash
-python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages robert-chazal josiane-chazal --dossier data/quartier
+python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages robert-chazal josiane-chazal gerard-morel monique-morel --dossier data/quartier
 ```
 
 ## Vue fil de fer

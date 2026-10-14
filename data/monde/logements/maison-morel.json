@@ -1,0 +1,139 @@
+{
+  "id": "maison-morel",
+  "nom": "Maison des Morel",
+  "type": "maison",
+  "adresse": "rue des Glycines, Villeurbanne, trois maisons plus loin que les Chazal",
+  "description": "Maison de plain-pied de Gérard et Monique Morel, avec une véranda et un potager.",
+  "pieces": [
+    {
+      "id": "entree",
+      "nom": "Entrée",
+      "surface_m2": 4,
+      "fenetre": false,
+      "mobilier": [
+        "portemanteau",
+        "vide-poche",
+        "meuble à chaussures"
+      ]
+    },
+    {
+      "id": "sejour",
+      "nom": "Séjour",
+      "surface_m2": 26,
+      "fenetre": true,
+      "mobilier": [
+        "canapé",
+        "fauteuil de Gérard",
+        "télévision",
+        "table de salle à manger",
+        "buffet"
+      ]
+    },
+    {
+      "id": "cuisine",
+      "nom": "Cuisine",
+      "surface_m2": 11,
+      "fenetre": true,
+      "mobilier": [
+        "table",
+        "cuisinière",
+        "réfrigérateur",
+        "évier",
+        "poste de radio",
+        "placard à provisions"
+      ]
+    },
+    {
+      "id": "veranda",
+      "nom": "Véranda",
+      "surface_m2": 10,
+      "fenetre": true,
+      "mobilier": [
+        "plantes",
+        "deux fauteuils en rotin",
+        "établi de rempotage"
+      ]
+    },
+    {
+      "id": "chambre",
+      "nom": "Chambre",
+      "surface_m2": 13,
+      "fenetre": true,
+      "mobilier": [
+        "lit double",
+        "armoire",
+        "commode"
+      ]
+    },
+    {
+      "id": "salle-de-bain",
+      "nom": "Salle de bain",
+      "surface_m2": 6,
+      "fenetre": true,
+      "mobilier": [
+        "douche",
+        "lavabo",
+        "panier à linge"
+      ]
+    },
+    {
+      "id": "wc",
+      "nom": "WC",
+      "surface_m2": 1.5,
+      "fenetre": false,
+      "mobilier": []
+    }
+  ],
+  "entree": "entree",
+  "liaisons": [
+    {
+      "a": "rue-maison",
+      "b": "entree",
+      "distance_m": 6.0
+    },
+    {
+      "a": "entree",
+      "b": "sejour",
+      "distance_m": 4.0
+    },
+    {
+      "a": "entree",
+      "b": "cuisine",
+      "distance_m": 4.5
+    },
+    {
+      "a": "entree",
+      "b": "wc",
+      "distance_m": 2.0
+    },
+    {
+      "a": "entree",
+      "b": "chambre",
+      "distance_m": 5.0
+    },
+    {
+      "a": "chambre",
+      "b": "salle-de-bain",
+      "distance_m": 2.5
+    },
+    {
+      "a": "sejour",
+      "b": "veranda",
+      "distance_m": 4.0
+    },
+    {
+      "a": "veranda",
+      "b": "jardin",
+      "distance_m": 3.0
+    }
+  ],
+  "noeuds_exterieurs": [
+    "rue-maison",
+    "jardin"
+  ],
+  "acces": "rue-maison",
+  "equipements": {
+    "television": "téléviseur du séjour",
+    "radio": "poste de radio de la cuisine"
+  }
+}

@@ -1,0 +1,502 @@
+{
+  "principe": "Valeurs par défaut de toute fiche d'habitant. Une fiche ne décrit que ce qui lui est propre ; outils/fiches.py complète le reste avec ce fichier, le calendrier, les lieux du monde et les logements qu'elle cite. Une valeur de la fiche l'emporte toujours.",
+  "meta": {
+    "deterministe": true
+  },
+  "personnalite": {
+    "big_five": {
+      "ouverture": 0.5,
+      "conscience": 0.5,
+      "extraversion": 0.5,
+      "agreabilite": 0.5,
+      "nevrosisme": 0.4
+    }
+  },
+  "sante": {
+    "sommeil": {
+      "besoin_minutes": 450,
+      "endormissement_minutes_normal": 15,
+      "endormissement_minutes_si_anxieux": 45,
+      "seuil_anxiete_insomnie": 0.65,
+      "seuil_excitation_insomnie": 0.5,
+      "reveil_naturel_jour_libre": "08:00"
+    }
+  },
+  "besoins": {
+    "faim": {
+      "variation_par_pas": {
+        "eveille": -0.5,
+        "endormi": -0.2,
+        "effort_physique": -0.9
+      },
+      "seuil_alerte": 35,
+      "satisfaction": {
+        "repas_complet": 55,
+        "petit_dejeuner": 40,
+        "collation": 15
+      }
+    },
+    "soif": {
+      "variation_par_pas": {
+        "eveille": -0.7,
+        "endormi": -0.25,
+        "effort_physique": -1.4
+      },
+      "seuil_alerte": 40,
+      "satisfaction": {
+        "verre_eau": 20,
+        "boisson_chaude": 15
+      }
+    },
+    "energie": {
+      "variation_par_pas": {
+        "eveille": -0.4,
+        "effort_physique": -0.9,
+        "endormi": 1.15,
+        "sieste": 0.8
+      },
+      "seuil_alerte": 25
+    },
+    "hygiene": {
+      "variation_par_pas": {
+        "eveille": -0.12,
+        "endormi": -0.05,
+        "effort_physique": -0.5
+      },
+      "seuil_alerte": 40,
+      "satisfaction": {
+        "douche": 75,
+        "lavage_mains_visage": 10
+      }
+    },
+    "toilettes": {
+      "variation_par_pas": {
+        "eveille": -1.1,
+        "endormi": -0.35
+      },
+      "seuil_alerte": 25,
+      "satisfaction": {
+        "passage_toilettes": 100
+      }
+    },
+    "social": {
+      "variation_par_pas": {
+        "eveille": -0.06,
+        "endormi": 0
+      },
+      "seuil_alerte": 30,
+      "satisfaction": {
+        "radio_par_pas": 0.15,
+        "television_par_pas": 0.2,
+        "match_televise_par_pas": 0.3,
+        "echange_bref": 5
+      },
+      "notes": "Les rencontres (data/monde/interactions.json) nourrissent le besoin de contact selon le type de relation."
+    },
+    "detente": {
+      "variation_par_pas": {
+        "travail": -0.2,
+        "eveille_autre": -0.05
+      },
+      "seuil_alerte": 30,
+      "satisfaction": {
+        "loisir_par_pas": 1.2,
+        "lecture_par_pas": 1.0,
+        "musique_par_pas": 0.8,
+        "course_par_pas": 0.6
+      }
+    }
+  },
+  "modele_emotionnel": {
+    "principe": "Les émotions ne sont jamais fixées à la main : elles découlent des événements vécus, des besoins et du retour progressif à l'état de base. Même modèle de calcul que pour Thomas Berthier.",
+    "etapes_de_calcul": [
+      "1. Retour vers l'état de base : e = base + (e - base) x 0,5^(1 / demi_vie). Pendant le sommeil, la demi-vie est divisée par deux.",
+      "2. Événements du pas : chaque événement ajoute ses effets. Les effets négatifs sont multipliés par (0,5 + névrosisme).",
+      "3. Influence des besoins (éveillé seulement), voir couplages_besoins.",
+      "4. Valeurs bornées entre 0 et 1."
+    ],
+    "etat_de_base": {
+      "joie": 0.45,
+      "tristesse": 0.2,
+      "anxiete": 0.28,
+      "colere": 0.05,
+      "fierte": 0.4,
+      "excitation": 0.2,
+      "solitude": "0,25 + 0,01 x max(0, 75 - besoin social)"
+    },
+    "demi_vie_pas": {
+      "joie": 6,
+      "tristesse": 12,
+      "anxiete": 10,
+      "colere": 4,
+      "fierte": 24,
+      "solitude": 12,
+      "excitation": 6
+    },
+    "couplages_besoins": [
+      {
+        "condition": "faim < 35",
+        "effet_par_pas": {
+          "colere": 0.01,
+          "joie": -0.005
+        }
+      },
+      {
+        "condition": "energie < 30",
+        "effet_par_pas": {
+          "joie": -0.005,
+          "colere": 0.005
+        }
+      },
+      {
+        "condition": "toilettes < 25",
+        "effet_par_pas": {
+          "anxiete": 0.01
+        }
+      },
+      {
+        "condition": "detente < 30",
+        "effet_par_pas": {
+          "colere": 0.005
+        }
+      }
+    ],
+    "concentration": {
+      "principe": "Converge à chaque pas vers une cible qui dépend de l'activité : c = c + (cible - c) x 0,5.",
+      "cibles": {
+        "precision": 0.75,
+        "service": 0.6,
+        "conduite": 0.7,
+        "simple": 0.55,
+        "lecture": 0.55,
+        "cuisine": 0.45,
+        "repos": 0.25,
+        "sommeil": 0.0
+      }
+    },
+    "seuil_insomnie": "si anxiete > 0,65 ou excitation > 0,5 au moment d'éteindre, l'endormissement passe de 15 à 45 minutes",
+    "evenements": {
+      "reveil_sonnerie": {
+        "description": "réveil par la sonnerie",
+        "effets": {
+          "colere": 0.03,
+          "excitation": 0.03
+        }
+      },
+      "plaisir_simple": {
+        "description": "café, bon repas, radio",
+        "effets": {
+          "joie": 0.04
+        }
+      },
+      "effort_physique": {
+        "description": "porter, soulever, monter l'escalier",
+        "effets": {
+          "anxiete": -0.01
+        }
+      },
+      "mal_de_dos": {
+        "description": "le dos tire après un effort",
+        "effets": {
+          "anxiete": 0.04,
+          "colere": 0.03
+        }
+      },
+      "jardinage": {
+        "description": "travailler la terre au potager",
+        "effets": {
+          "joie": 0.05,
+          "anxiete": -0.04
+        }
+      },
+      "repos_merite": {
+        "description": "la journée de travail est finie",
+        "effets": {
+          "joie": 0.05,
+          "anxiete": -0.05
+        }
+      },
+      "reve_inquiet": {
+        "description": "rêve teinté d'inquiétude",
+        "effets": {
+          "anxiete": 0.03
+        }
+      },
+      "anticipation_plaisir": {
+        "description": "attendre un moment agréable",
+        "effets": {
+          "excitation": 0.05,
+          "joie": 0.03
+        }
+      },
+      "match_tension": {
+        "description": "moment tendu d'un match de son équipe",
+        "effets": {
+          "anxiete": 0.015,
+          "excitation": 0.06
+        }
+      },
+      "but_adverse": {
+        "description": "but encaissé par son équipe",
+        "effets": {
+          "anxiete": 0.1,
+          "colere": 0.08,
+          "joie": -0.05,
+          "excitation": 0.1
+        }
+      },
+      "but_equipe": {
+        "description": "but marqué par son équipe",
+        "effets": {
+          "joie": 0.25,
+          "anxiete": -0.1,
+          "excitation": 0.25
+        }
+      },
+      "qualification_equipe": {
+        "description": "son équipe se qualifie",
+        "effets": {
+          "joie": 0.2,
+          "anxiete": -0.15,
+          "excitation": 0.2
+        }
+      },
+      "souvenir_excitant": {
+        "description": "repenser à un moment fort de la journée",
+        "effets": {
+          "excitation": 0.05,
+          "joie": 0.02
+        }
+      },
+      "rire": {
+        "description": "rire franchement (radio, client, ami)",
+        "effets": {
+          "joie": 0.06,
+          "anxiete": -0.02
+        }
+      },
+      "sortie_couple": {
+        "description": "sortir avec Josiane",
+        "effets": {
+          "joie": 0.06,
+          "solitude": -0.05,
+          "anxiete": -0.02
+        }
+      },
+      "film_prenant": {
+        "description": "un film qui tient en haleine",
+        "effets": {
+          "excitation": 0.05,
+          "anxiete": 0.02
+        }
+      },
+      "nature": {
+        "description": "marcher au grand air, la vue sur les monts et la vallée",
+        "effets": {
+          "joie": 0.05,
+          "anxiete": -0.05
+        }
+      },
+      "petit_oubli": {
+        "description": "s'apercevoir d'un oubli",
+        "effets": {
+          "colere": 0.03,
+          "anxiete": 0.01
+        }
+      },
+      "repas_seul": {
+        "description": "manger seul",
+        "effets": {
+          "solitude": 0.05,
+          "tristesse": 0.02
+        }
+      },
+      "fin_de_course": {
+        "description": "fin d'une sortie de course",
+        "effets": {
+          "anxiete": -0.2,
+          "joie": 0.1
+        }
+      },
+      "ecriture_carnet": {
+        "description": "écrire dans son carnet",
+        "effets": {
+          "anxiete": -0.08,
+          "tristesse": -0.03
+        }
+      },
+      "objet_deplace": {
+        "description": "un objet n'est pas là où il le croyait",
+        "effets": {
+          "anxiete": 0.15,
+          "colere": 0.05
+        }
+      },
+      "retard_planning": {
+        "description": "constat de retard sur le planning",
+        "effets": {
+          "anxiete": 0.15
+        }
+      },
+      "objet_retrouve": {
+        "description": "retrouver un objet perdu ou cherché",
+        "effets": {
+          "anxiete": -0.08,
+          "joie": 0.02
+        }
+      },
+      "moment_proche": {
+        "description": "un moment avec un proche (conjoint, famille)",
+        "effets": {
+          "joie": 0.04,
+          "solitude": -0.05,
+          "anxiete": -0.02
+        }
+      },
+      "absence_proche": {
+        "description": "un proche n'est pas là au moment prévu ensemble",
+        "effets": {
+          "anxiete": 0.08,
+          "tristesse": 0.03
+        }
+      },
+      "rencontre_ami": {
+        "description": "retrouver un ami",
+        "effets": {
+          "joie": 0.05,
+          "solitude": -0.04
+        }
+      },
+      "absence_ami": {
+        "description": "un ami ne vient pas au rendez-vous",
+        "effets": {
+          "tristesse": 0.03,
+          "colere": 0.02
+        }
+      },
+      "rencontre_voisin": {
+        "description": "croiser un voisin",
+        "effets": {
+          "joie": 0.02
+        }
+      },
+      "rencontre_connaissance": {
+        "description": "croiser quelqu'un qu'on connaît",
+        "effets": {
+          "joie": 0.01
+        }
+      },
+      "conversation_agreable": {
+        "description": "une conversation agréable",
+        "effets": {
+          "joie": 0.03,
+          "solitude": -0.03
+        }
+      },
+      "confidence": {
+        "description": "parler de ce qui le préoccupe",
+        "effets": {
+          "anxiete": -0.04
+        }
+      },
+      "empathie": {
+        "description": "écouter un proche parler de ce qui le préoccupe",
+        "effets": {
+          "anxiete": 0.02,
+          "tristesse": 0.01
+        }
+      },
+      "inconnu_remarque": {
+        "description": "remarquer un inconnu",
+        "effets": {
+          "excitation": 0.01
+        }
+      }
+    }
+  },
+  "etat_initial": {
+    "lieu": "domicile",
+    "tenue": "nuit",
+    "objets_portes": [],
+    "besoins": {
+      "faim": 65,
+      "soif": 66,
+      "energie": 45,
+      "hygiene": 72,
+      "toilettes": 70,
+      "social": 74,
+      "detente": 64
+    },
+    "emotions": {
+      "joie": 0.45,
+      "tristesse": 0.2,
+      "anxiete": 0.28,
+      "colere": 0.05,
+      "solitude": 0.25,
+      "fierte": 0.4,
+      "excitation": 0.2,
+      "concentration": 0.5
+    }
+  },
+  "vie_interieure": {
+    "declencheurs": [],
+    "preoccupations_semaine": []
+  },
+  "economie": {
+    "devise": "EUR",
+    "especes_au_debut": 40,
+    "compte_courant_au_debut": 500
+  },
+  "domicile": {
+    "plan": {
+      "vitesse_marche_m_s": 1.0,
+      "longueur_foulee_m": 0.68,
+      "longueur_foulee_course_m": 1.0,
+      "deplacements_dans_la_piece": {
+        "principe": "Petits déplacements à l'intérieur d'une pièce, estimés par pas de 5 minutes selon l'activité ; réduits quand il est assis ou allongé.",
+        "metres_par_pas": {
+          "precision": 1.0,
+          "service": 10.0,
+          "conduite": 0.0,
+          "simple": 5.0,
+          "cuisine": 8.0,
+          "lecture": 0.5,
+          "repos": 2.0,
+          "sommeil": 0.0
+        },
+        "facteur_assis_ou_allonge": 0.3
+      }
+    },
+    "equipements": {},
+    "provisions_au_debut": [],
+    "produits_prepares": []
+  },
+  "immeuble": {
+    "description": "Logement de plain-pied.",
+    "etage_appartement": 0,
+    "ascenseur": false,
+    "marches_par_etage": 0,
+    "marches_total": 0,
+    "deplacement": {
+      "descente_secondes": 0,
+      "montee_secondes_marche": 0,
+      "montee_secondes_apres_course": 0,
+      "effets_montee": {},
+      "effets_descente": {}
+    }
+  },
+  "objets": [],
+  "agenda_semaine": [],
+  "objectifs": [],
+  "personnes_presentes": [],
+  "personnes_en_memoire": [],
+  "personnes_du_quartier": [],
+  "relations": {},
+  "habitudes": {
+    "automatismes": [],
+    "routines": []
+  },
+  "connaissances": {
+    "regle": "Il connaît l'emplacement de ses objets ; des autres, il ne sait que ce qu'il voit ou ce qu'on lui dit."
+  }
+}

@@ -38,6 +38,7 @@
   },
   "evenements_vecus": {
    "plaisir_simple": 3,
+   "repas_seul": 2,
    "match_tension": 1
   },
   "objets_deplaces_position_finale": {},
@@ -443,10 +444,10 @@
   },
   "emotions": {
    "joie": 0.4487,
-   "tristesse": 0.18,
+   "tristesse": 0.1805,
    "anxiete": 0.25,
    "colere": 0.0502,
-   "solitude": 0.4527,
+   "solitude": 0.4539,
    "fierte": 0.4,
    "excitation": 0.2
   },
@@ -563,10 +564,10 @@
   },
   "emotions": {
    "joie": 0.4444,
-   "tristesse": 0.18,
+   "tristesse": 0.1807,
    "anxiete": 0.2506,
    "colere": 0.0514,
-   "solitude": 0.5116,
+   "solitude": 0.5133,
    "fierte": 0.4,
    "excitation": 0.2003
   },
@@ -698,7 +699,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.453,
+    "solitude": 0.454,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -731,7 +732,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.452,
+    "solitude": 0.453,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -764,7 +765,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.452,
+    "solitude": 0.453,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -797,7 +798,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.452,
+    "solitude": 0.453,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -830,7 +831,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.452,
+    "solitude": 0.453,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -863,7 +864,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.452,
+    "solitude": 0.453,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -896,7 +897,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.452,
+    "solitude": 0.453,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1424,7 +1425,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.451,
+    "solitude": 0.452,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1457,7 +1458,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.451,
+    "solitude": 0.452,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1490,7 +1491,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.451,
+    "solitude": 0.452,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1523,7 +1524,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.451,
+    "solitude": 0.452,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1556,7 +1557,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.451,
+    "solitude": 0.452,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2949,7 +2950,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.451,
+    "solitude": 0.452,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.338
@@ -6151,6 +6152,13 @@
      "effets": {
       "joie": 0.04
      }
+    },
+    {
+     "id": "repas_seul",
+     "effets": {
+      "solitude": 0.044,
+      "tristesse": 0.018
+     }
     }
    ],
    "besoins": {
@@ -6165,10 +6173,10 @@
    },
    "emotions": {
     "joie": 0.49,
-    "tristesse": 0.18,
+    "tristesse": 0.198,
     "anxiete": 0.26,
     "colere": 0.05,
-    "solitude": 0.495,
+    "solitude": 0.539,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.304
@@ -6214,10 +6222,10 @@
    },
    "emotions": {
     "joie": 0.486,
-    "tristesse": 0.18,
+    "tristesse": 0.197,
     "anxiete": 0.259,
     "colere": 0.05,
-    "solitude": 0.495,
+    "solitude": 0.537,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.427
@@ -6261,10 +6269,10 @@
    },
    "emotions": {
     "joie": 0.482,
-    "tristesse": 0.18,
+    "tristesse": 0.196,
     "anxiete": 0.259,
     "colere": 0.05,
-    "solitude": 0.496,
+    "solitude": 0.535,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.338
@@ -6293,10 +6301,10 @@
    },
    "emotions": {
     "joie": 0.478,
-    "tristesse": 0.18,
+    "tristesse": 0.195,
     "anxiete": 0.258,
     "colere": 0.05,
-    "solitude": 0.497,
+    "solitude": 0.534,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.294
@@ -6325,10 +6333,10 @@
    },
    "emotions": {
     "joie": 0.475,
-    "tristesse": 0.18,
+    "tristesse": 0.194,
     "anxiete": 0.258,
     "colere": 0.05,
-    "solitude": 0.497,
+    "solitude": 0.532,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.272
@@ -6357,10 +6365,10 @@
    },
    "emotions": {
     "joie": 0.472,
-    "tristesse": 0.18,
+    "tristesse": 0.193,
     "anxiete": 0.257,
     "colere": 0.05,
-    "solitude": 0.498,
+    "solitude": 0.531,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.261
@@ -6389,10 +6397,10 @@
    },
    "emotions": {
     "joie": 0.47,
-    "tristesse": 0.18,
+    "tristesse": 0.192,
     "anxiete": 0.257,
     "colere": 0.05,
-    "solitude": 0.498,
+    "solitude": 0.529,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.256
@@ -6421,10 +6429,10 @@
    },
    "emotions": {
     "joie": 0.468,
-    "tristesse": 0.18,
+    "tristesse": 0.192,
     "anxiete": 0.256,
     "colere": 0.05,
-    "solitude": 0.499,
+    "solitude": 0.528,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.253
@@ -6462,10 +6470,10 @@
    },
    "emotions": {
     "joie": 0.466,
-    "tristesse": 0.18,
+    "tristesse": 0.191,
     "anxiete": 0.256,
     "colere": 0.05,
-    "solitude": 0.5,
+    "solitude": 0.527,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.476
@@ -6503,10 +6511,10 @@
    },
    "emotions": {
     "joie": 0.464,
-    "tristesse": 0.18,
+    "tristesse": 0.19,
     "anxiete": 0.255,
     "colere": 0.05,
-    "solitude": 0.5,
+    "solitude": 0.526,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.588
@@ -6544,10 +6552,10 @@
    },
    "emotions": {
     "joie": 0.463,
-    "tristesse": 0.18,
+    "tristesse": 0.19,
     "anxiete": 0.255,
     "colere": 0.05,
-    "solitude": 0.501,
+    "solitude": 0.525,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.644
@@ -6593,10 +6601,10 @@
    },
    "emotions": {
     "joie": 0.461,
-    "tristesse": 0.18,
+    "tristesse": 0.189,
     "anxiete": 0.255,
     "colere": 0.05,
-    "solitude": 0.501,
+    "solitude": 0.525,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.622
@@ -6628,10 +6636,10 @@
    },
    "emotions": {
     "joie": 0.46,
-    "tristesse": 0.18,
+    "tristesse": 0.189,
     "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.502,
+    "solitude": 0.524,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.611
@@ -6663,10 +6671,10 @@
    },
    "emotions": {
     "joie": 0.459,
-    "tristesse": 0.18,
+    "tristesse": 0.188,
     "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.503,
+    "solitude": 0.523,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.606
@@ -6698,10 +6706,10 @@
    },
    "emotions": {
     "joie": 0.458,
-    "tristesse": 0.18,
+    "tristesse": 0.188,
     "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.503,
+    "solitude": 0.523,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.603
@@ -6733,10 +6741,10 @@
    },
    "emotions": {
     "joie": 0.457,
-    "tristesse": 0.18,
+    "tristesse": 0.187,
     "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.504,
+    "solitude": 0.522,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.601
@@ -6768,10 +6776,10 @@
    },
    "emotions": {
     "joie": 0.456,
-    "tristesse": 0.18,
+    "tristesse": 0.187,
     "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.504,
+    "solitude": 0.522,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.601
@@ -6803,10 +6811,10 @@
    },
    "emotions": {
     "joie": 0.456,
-    "tristesse": 0.18,
+    "tristesse": 0.187,
     "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.505,
+    "solitude": 0.521,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -6838,10 +6846,10 @@
    },
    "emotions": {
     "joie": 0.455,
-    "tristesse": 0.18,
+    "tristesse": 0.186,
     "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.506,
+    "solitude": 0.521,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -6873,10 +6881,10 @@
    },
    "emotions": {
     "joie": 0.454,
-    "tristesse": 0.18,
+    "tristesse": 0.186,
     "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.506,
+    "solitude": 0.521,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -6908,10 +6916,10 @@
    },
    "emotions": {
     "joie": 0.454,
-    "tristesse": 0.18,
+    "tristesse": 0.186,
     "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.507,
+    "solitude": 0.521,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -6943,10 +6951,10 @@
    },
    "emotions": {
     "joie": 0.454,
-    "tristesse": 0.18,
+    "tristesse": 0.185,
     "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.507,
+    "solitude": 0.52,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -6991,10 +6999,10 @@
    },
    "emotions": {
     "joie": 0.453,
-    "tristesse": 0.18,
+    "tristesse": 0.185,
     "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.508,
+    "solitude": 0.52,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.575
@@ -7038,10 +7046,10 @@
    },
    "emotions": {
     "joie": 0.453,
-    "tristesse": 0.18,
+    "tristesse": 0.185,
     "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.509,
+    "solitude": 0.52,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.588
@@ -7073,10 +7081,10 @@
    },
    "emotions": {
     "joie": 0.453,
-    "tristesse": 0.18,
+    "tristesse": 0.184,
     "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.509,
+    "solitude": 0.52,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.594
@@ -7108,10 +7116,10 @@
    },
    "emotions": {
     "joie": 0.452,
-    "tristesse": 0.18,
+    "tristesse": 0.184,
     "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.51,
+    "solitude": 0.52,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.597
@@ -7143,10 +7151,10 @@
    },
    "emotions": {
     "joie": 0.452,
-    "tristesse": 0.18,
+    "tristesse": 0.184,
     "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.51,
+    "solitude": 0.52,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.598
@@ -7178,10 +7186,10 @@
    },
    "emotions": {
     "joie": 0.452,
-    "tristesse": 0.18,
+    "tristesse": 0.184,
     "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.511,
+    "solitude": 0.52,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.599
@@ -7213,10 +7221,10 @@
    },
    "emotions": {
     "joie": 0.452,
-    "tristesse": 0.18,
+    "tristesse": 0.183,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.512,
+    "solitude": 0.52,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7248,10 +7256,10 @@
    },
    "emotions": {
     "joie": 0.451,
-    "tristesse": 0.18,
+    "tristesse": 0.183,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.512,
+    "solitude": 0.52,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7283,10 +7291,10 @@
    },
    "emotions": {
     "joie": 0.451,
-    "tristesse": 0.18,
+    "tristesse": 0.183,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.513,
+    "solitude": 0.52,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7318,10 +7326,10 @@
    },
    "emotions": {
     "joie": 0.451,
-    "tristesse": 0.18,
+    "tristesse": 0.183,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.513,
+    "solitude": 0.521,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7353,10 +7361,10 @@
    },
    "emotions": {
     "joie": 0.451,
-    "tristesse": 0.18,
+    "tristesse": 0.183,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.514,
+    "solitude": 0.521,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7388,10 +7396,10 @@
    },
    "emotions": {
     "joie": 0.451,
-    "tristesse": 0.18,
+    "tristesse": 0.183,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.515,
+    "solitude": 0.521,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7423,10 +7431,10 @@
    },
    "emotions": {
     "joie": 0.451,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.515,
+    "solitude": 0.521,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7458,10 +7466,10 @@
    },
    "emotions": {
     "joie": 0.451,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.516,
+    "solitude": 0.522,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7493,10 +7501,10 @@
    },
    "emotions": {
     "joie": 0.451,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.516,
+    "solitude": 0.522,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7528,10 +7536,10 @@
    },
    "emotions": {
     "joie": 0.451,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.517,
+    "solitude": 0.522,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7563,10 +7571,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.518,
+    "solitude": 0.522,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7598,10 +7606,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.518,
+    "solitude": 0.523,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7633,10 +7641,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.519,
+    "solitude": 0.523,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7668,10 +7676,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.519,
+    "solitude": 0.523,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7703,10 +7711,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.52,
+    "solitude": 0.524,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7738,10 +7746,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.521,
+    "solitude": 0.524,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7773,10 +7781,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.521,
+    "solitude": 0.525,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7808,10 +7816,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.522,
+    "solitude": 0.525,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7843,10 +7851,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.522,
+    "solitude": 0.525,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7878,10 +7886,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.523,
+    "solitude": 0.526,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7913,10 +7921,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.524,
+    "solitude": 0.526,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7948,10 +7956,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.524,
+    "solitude": 0.527,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -7983,10 +7991,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.525,
+    "solitude": 0.527,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8018,10 +8026,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.525,
+    "solitude": 0.528,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8053,10 +8061,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.526,
+    "solitude": 0.528,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8088,10 +8096,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.527,
+    "solitude": 0.529,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8123,10 +8131,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.527,
+    "solitude": 0.529,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8158,10 +8166,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.528,
+    "solitude": 0.53,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8193,10 +8201,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.528,
+    "solitude": 0.53,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8241,10 +8249,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.529,
+    "solitude": 0.531,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.575
@@ -8288,10 +8296,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.53,
+    "solitude": 0.531,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.587
@@ -8323,10 +8331,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.53,
+    "solitude": 0.532,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.594
@@ -8358,10 +8366,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.531,
+    "solitude": 0.532,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.597
@@ -8393,10 +8401,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.531,
+    "solitude": 0.533,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.598
@@ -8431,7 +8439,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.532,
+    "solitude": 0.533,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.599
@@ -8466,7 +8474,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.533,
+    "solitude": 0.534,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8501,7 +8509,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.533,
+    "solitude": 0.534,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8536,7 +8544,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.534,
+    "solitude": 0.535,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8571,7 +8579,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.534,
+    "solitude": 0.535,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8606,7 +8614,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.535,
+    "solitude": 0.536,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8676,7 +8684,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.536,
+    "solitude": 0.537,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -8762,7 +8770,7 @@
     "tristesse": 0.18,
     "anxiete": 0.259,
     "colere": 0.05,
-    "solitude": 0.537,
+    "solitude": 0.538,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8812,7 +8820,7 @@
     "tristesse": 0.18,
     "anxiete": 0.259,
     "colere": 0.05,
-    "solitude": 0.538,
+    "solitude": 0.539,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.575
@@ -8895,7 +8903,7 @@
     "tristesse": 0.18,
     "anxiete": 0.258,
     "colere": 0.05,
-    "solitude": 0.539,
+    "solitude": 0.54,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.569
@@ -8963,7 +8971,7 @@
     "tristesse": 0.18,
     "anxiete": 0.257,
     "colere": 0.05,
-    "solitude": 0.54,
+    "solitude": 0.541,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.555
@@ -9099,7 +9107,7 @@
     "tristesse": 0.18,
     "anxiete": 0.255,
     "colere": 0.05,
-    "solitude": 0.542,
+    "solitude": 0.543,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.682
@@ -9189,7 +9197,7 @@
     "tristesse": 0.18,
     "anxiete": 0.255,
     "colere": 0.05,
-    "solitude": 0.543,
+    "solitude": 0.544,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.57
@@ -9350,6 +9358,13 @@
      "effets": {
       "joie": 0.04
      }
+    },
+    {
+     "id": "repas_seul",
+     "effets": {
+      "solitude": 0.044,
+      "tristesse": 0.018
+     }
     }
    ],
    "besoins": {
@@ -9364,10 +9379,10 @@
    },
    "emotions": {
     "joie": 0.485,
-    "tristesse": 0.18,
+    "tristesse": 0.198,
     "anxiete": 0.253,
     "colere": 0.055,
-    "solitude": 0.546,
+    "solitude": 0.591,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.279
@@ -9398,10 +9413,10 @@
    },
    "emotions": {
     "joie": 0.476,
-    "tristesse": 0.18,
+    "tristesse": 0.197,
     "anxiete": 0.253,
     "colere": 0.059,
-    "solitude": 0.547,
+    "solitude": 0.589,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.189
@@ -9432,10 +9447,10 @@
    },
    "emotions": {
     "joie": 0.468,
-    "tristesse": 0.18,
+    "tristesse": 0.196,
     "anxiete": 0.253,
     "colere": 0.063,
-    "solitude": 0.548,
+    "solitude": 0.587,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.145
@@ -9466,10 +9481,10 @@
    },
    "emotions": {
     "joie": 0.461,
-    "tristesse": 0.18,
+    "tristesse": 0.195,
     "anxiete": 0.253,
     "colere": 0.066,
-    "solitude": 0.548,
+    "solitude": 0.585,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.122
@@ -9500,10 +9515,10 @@
    },
    "emotions": {
     "joie": 0.455,
-    "tristesse": 0.18,
+    "tristesse": 0.194,
     "anxiete": 0.253,
     "colere": 0.068,
-    "solitude": 0.549,
+    "solitude": 0.584,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.111
@@ -9534,10 +9549,10 @@
    },
    "emotions": {
     "joie": 0.45,
-    "tristesse": 0.18,
+    "tristesse": 0.193,
     "anxiete": 0.252,
     "colere": 0.07,
-    "solitude": 0.549,
+    "solitude": 0.583,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.106
@@ -9568,10 +9583,10 @@
    },
    "emotions": {
     "joie": 0.445,
-    "tristesse": 0.18,
+    "tristesse": 0.193,
     "anxiete": 0.252,
     "colere": 0.072,
-    "solitude": 0.55,
+    "solitude": 0.581,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.103
@@ -9602,10 +9617,10 @@
    },
    "emotions": {
     "joie": 0.44,
-    "tristesse": 0.18,
+    "tristesse": 0.192,
     "anxiete": 0.252,
     "colere": 0.074,
-    "solitude": 0.551,
+    "solitude": 0.58,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.101
@@ -9636,10 +9651,10 @@
    },
    "emotions": {
     "joie": 0.436,
-    "tristesse": 0.18,
+    "tristesse": 0.191,
     "anxiete": 0.252,
     "colere": 0.075,
-    "solitude": 0.551,
+    "solitude": 0.579,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.251
@@ -9696,10 +9711,10 @@
    },
    "emotions": {
     "joie": 0.433,
-    "tristesse": 0.18,
+    "tristesse": 0.191,
     "anxiete": 0.265,
     "colere": 0.076,
-    "solitude": 0.552,
+    "solitude": 0.578,
     "fierte": 0.4,
     "excitation": 0.26,
     "concentration": 0.175
@@ -9731,10 +9746,10 @@
    },
    "emotions": {
     "joie": 0.43,
-    "tristesse": 0.18,
+    "tristesse": 0.19,
     "anxiete": 0.264,
     "colere": 0.077,
-    "solitude": 0.552,
+    "solitude": 0.577,
     "fierte": 0.4,
     "excitation": 0.253,
     "concentration": 0.138
@@ -9766,10 +9781,10 @@
    },
    "emotions": {
     "joie": 0.427,
-    "tristesse": 0.18,
+    "tristesse": 0.189,
     "anxiete": 0.263,
     "colere": 0.077,
-    "solitude": 0.552,
+    "solitude": 0.575,
     "fierte": 0.4,
     "excitation": 0.248,
     "concentration": 0.119
@@ -9801,10 +9816,10 @@
    },
    "emotions": {
     "joie": 0.424,
-    "tristesse": 0.18,
+    "tristesse": 0.189,
     "anxiete": 0.262,
     "colere": 0.078,
-    "solitude": 0.552,
+    "solitude": 0.574,
     "fierte": 0.4,
     "excitation": 0.242,
     "concentration": 0.109
@@ -9836,10 +9851,10 @@
    },
    "emotions": {
     "joie": 0.422,
-    "tristesse": 0.18,
+    "tristesse": 0.188,
     "anxiete": 0.261,
     "colere": 0.079,
-    "solitude": 0.552,
+    "solitude": 0.573,
     "fierte": 0.4,
     "excitation": 0.238,
     "concentration": 0.105
@@ -9871,10 +9886,10 @@
    },
    "emotions": {
     "joie": 0.42,
-    "tristesse": 0.18,
+    "tristesse": 0.188,
     "anxiete": 0.261,
     "colere": 0.079,
-    "solitude": 0.551,
+    "solitude": 0.571,
     "fierte": 0.4,
     "excitation": 0.234,
     "concentration": 0.102
@@ -9906,10 +9921,10 @@
    },
    "emotions": {
     "joie": 0.418,
-    "tristesse": 0.18,
+    "tristesse": 0.187,
     "anxiete": 0.26,
     "colere": 0.079,
-    "solitude": 0.551,
+    "solitude": 0.57,
     "fierte": 0.4,
     "excitation": 0.23,
     "concentration": 0.101
@@ -9941,10 +9956,10 @@
    },
    "emotions": {
     "joie": 0.417,
-    "tristesse": 0.18,
+    "tristesse": 0.187,
     "anxiete": 0.259,
     "colere": 0.08,
-    "solitude": 0.551,
+    "solitude": 0.568,
     "fierte": 0.4,
     "excitation": 0.227,
     "concentration": 0.101
@@ -9976,10 +9991,10 @@
    },
    "emotions": {
     "joie": 0.416,
-    "tristesse": 0.18,
+    "tristesse": 0.187,
     "anxiete": 0.259,
     "colere": 0.08,
-    "solitude": 0.55,
+    "solitude": 0.567,
     "fierte": 0.4,
     "excitation": 0.224,
     "concentration": 0.1
@@ -10011,10 +10026,10 @@
    },
    "emotions": {
     "joie": 0.414,
-    "tristesse": 0.18,
+    "tristesse": 0.186,
     "anxiete": 0.258,
     "colere": 0.08,
-    "solitude": 0.549,
+    "solitude": 0.565,
     "fierte": 0.4,
     "excitation": 0.221,
     "concentration": 0.1
@@ -10046,10 +10061,10 @@
    },
    "emotions": {
     "joie": 0.413,
-    "tristesse": 0.18,
+    "tristesse": 0.186,
     "anxiete": 0.257,
     "colere": 0.08,
-    "solitude": 0.548,
+    "solitude": 0.563,
     "fierte": 0.4,
     "excitation": 0.219,
     "concentration": 0.1
@@ -10081,10 +10096,10 @@
    },
    "emotions": {
     "joie": 0.412,
-    "tristesse": 0.18,
+    "tristesse": 0.186,
     "anxiete": 0.257,
     "colere": 0.081,
-    "solitude": 0.548,
+    "solitude": 0.561,
     "fierte": 0.4,
     "excitation": 0.217,
     "concentration": 0.1
@@ -10116,10 +10131,10 @@
    },
    "emotions": {
     "joie": 0.411,
-    "tristesse": 0.18,
+    "tristesse": 0.185,
     "anxiete": 0.257,
     "colere": 0.081,
-    "solitude": 0.547,
+    "solitude": 0.56,
     "fierte": 0.4,
     "excitation": 0.215,
     "concentration": 0.1
@@ -10151,10 +10166,10 @@
    },
    "emotions": {
     "joie": 0.411,
-    "tristesse": 0.18,
+    "tristesse": 0.185,
     "anxiete": 0.256,
     "colere": 0.081,
-    "solitude": 0.545,
+    "solitude": 0.558,
     "fierte": 0.4,
     "excitation": 0.213,
     "concentration": 0.1
@@ -10186,10 +10201,10 @@
    },
    "emotions": {
     "joie": 0.41,
-    "tristesse": 0.18,
+    "tristesse": 0.185,
     "anxiete": 0.256,
     "colere": 0.081,
-    "solitude": 0.544,
+    "solitude": 0.556,
     "fierte": 0.4,
     "excitation": 0.212,
     "concentration": 0.1
@@ -10221,10 +10236,10 @@
    },
    "emotions": {
     "joie": 0.409,
-    "tristesse": 0.18,
+    "tristesse": 0.184,
     "anxiete": 0.255,
     "colere": 0.081,
-    "solitude": 0.543,
+    "solitude": 0.554,
     "fierte": 0.4,
     "excitation": 0.211,
     "concentration": 0.1
@@ -10256,10 +10271,10 @@
    },
    "emotions": {
     "joie": 0.409,
-    "tristesse": 0.18,
+    "tristesse": 0.184,
     "anxiete": 0.255,
     "colere": 0.081,
-    "solitude": 0.542,
+    "solitude": 0.552,
     "fierte": 0.4,
     "excitation": 0.209,
     "concentration": 0.1
@@ -10291,10 +10306,10 @@
    },
    "emotions": {
     "joie": 0.408,
-    "tristesse": 0.18,
+    "tristesse": 0.184,
     "anxiete": 0.255,
     "colere": 0.081,
-    "solitude": 0.541,
+    "solitude": 0.55,
     "fierte": 0.4,
     "excitation": 0.208,
     "concentration": 0.1
@@ -10326,10 +10341,10 @@
    },
    "emotions": {
     "joie": 0.408,
-    "tristesse": 0.18,
+    "tristesse": 0.184,
     "anxiete": 0.254,
     "colere": 0.081,
-    "solitude": 0.539,
+    "solitude": 0.548,
     "fierte": 0.4,
     "excitation": 0.208,
     "concentration": 0.1
@@ -10361,10 +10376,10 @@
    },
    "emotions": {
     "joie": 0.407,
-    "tristesse": 0.18,
+    "tristesse": 0.184,
     "anxiete": 0.254,
     "colere": 0.081,
-    "solitude": 0.538,
+    "solitude": 0.546,
     "fierte": 0.4,
     "excitation": 0.207,
     "concentration": 0.1
@@ -10396,10 +10411,10 @@
    },
    "emotions": {
     "joie": 0.407,
-    "tristesse": 0.18,
+    "tristesse": 0.183,
     "anxiete": 0.254,
     "colere": 0.081,
-    "solitude": 0.536,
+    "solitude": 0.544,
     "fierte": 0.4,
     "excitation": 0.206,
     "concentration": 0.1
@@ -10431,10 +10446,10 @@
    },
    "emotions": {
     "joie": 0.407,
-    "tristesse": 0.18,
+    "tristesse": 0.183,
     "anxiete": 0.253,
     "colere": 0.081,
-    "solitude": 0.535,
+    "solitude": 0.542,
     "fierte": 0.4,
     "excitation": 0.205,
     "concentration": 0.1
@@ -10466,10 +10481,10 @@
    },
    "emotions": {
     "joie": 0.406,
-    "tristesse": 0.18,
+    "tristesse": 0.183,
     "anxiete": 0.253,
     "colere": 0.081,
-    "solitude": 0.533,
+    "solitude": 0.54,
     "fierte": 0.4,
     "excitation": 0.205,
     "concentration": 0.1
@@ -10501,10 +10516,10 @@
    },
    "emotions": {
     "joie": 0.406,
-    "tristesse": 0.18,
+    "tristesse": 0.183,
     "anxiete": 0.253,
     "colere": 0.081,
-    "solitude": 0.531,
+    "solitude": 0.538,
     "fierte": 0.4,
     "excitation": 0.204,
     "concentration": 0.1
@@ -10552,10 +10567,10 @@
    },
    "emotions": {
     "joie": 0.406,
-    "tristesse": 0.18,
+    "tristesse": 0.183,
     "anxiete": 0.253,
     "colere": 0.081,
-    "solitude": 0.53,
+    "solitude": 0.536,
     "fierte": 0.4,
     "excitation": 0.204,
     "concentration": 0.25
@@ -10615,10 +10630,10 @@
    },
    "emotions": {
     "joie": 0.406,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.253,
     "colere": 0.081,
-    "solitude": 0.528,
+    "solitude": 0.534,
     "fierte": 0.4,
     "excitation": 0.203,
     "concentration": 0.325
@@ -10649,10 +10664,10 @@
    },
    "emotions": {
     "joie": 0.406,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.252,
     "colere": 0.081,
-    "solitude": 0.527,
+    "solitude": 0.533,
     "fierte": 0.4,
     "excitation": 0.203,
     "concentration": 0.363
@@ -10698,10 +10713,10 @@
    },
    "emotions": {
     "joie": 0.405,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.252,
     "colere": 0.081,
-    "solitude": 0.526,
+    "solitude": 0.531,
     "fierte": 0.4,
     "excitation": 0.203,
     "concentration": 0.231
@@ -10730,10 +10745,10 @@
    },
    "emotions": {
     "joie": 0.405,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.252,
     "colere": 0.081,
-    "solitude": 0.524,
+    "solitude": 0.53,
     "fierte": 0.4,
     "excitation": 0.202,
     "concentration": 0.166
@@ -10762,10 +10777,10 @@
    },
    "emotions": {
     "joie": 0.405,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.252,
     "colere": 0.081,
-    "solitude": 0.523,
+    "solitude": 0.528,
     "fierte": 0.4,
     "excitation": 0.202,
     "concentration": 0.133
@@ -10795,10 +10810,10 @@
    },
    "emotions": {
     "joie": 0.414,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.252,
     "colere": 0.072,
-    "solitude": 0.521,
+    "solitude": 0.526,
     "fierte": 0.4,
     "excitation": 0.202,
     "concentration": 0.066
@@ -10828,10 +10843,10 @@
    },
    "emotions": {
     "joie": 0.422,
-    "tristesse": 0.18,
+    "tristesse": 0.182,
     "anxiete": 0.252,
     "colere": 0.066,
-    "solitude": 0.52,
+    "solitude": 0.523,
     "fierte": 0.4,
     "excitation": 0.201,
     "concentration": 0.033
@@ -10861,10 +10876,10 @@
    },
    "emotions": {
     "joie": 0.428,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.251,
     "colere": 0.061,
-    "solitude": 0.518,
+    "solitude": 0.521,
     "fierte": 0.4,
     "excitation": 0.201,
     "concentration": 0.017
@@ -10894,10 +10909,10 @@
    },
    "emotions": {
     "joie": 0.432,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.251,
     "colere": 0.058,
-    "solitude": 0.517,
+    "solitude": 0.52,
     "fierte": 0.4,
     "excitation": 0.201,
     "concentration": 0.008
@@ -10927,10 +10942,10 @@
    },
    "emotions": {
     "joie": 0.436,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.251,
     "colere": 0.056,
-    "solitude": 0.515,
+    "solitude": 0.518,
     "fierte": 0.4,
     "excitation": 0.201,
     "concentration": 0.004
@@ -10960,10 +10975,10 @@
    },
    "emotions": {
     "joie": 0.439,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.251,
     "colere": 0.054,
-    "solitude": 0.514,
+    "solitude": 0.517,
     "fierte": 0.4,
     "excitation": 0.201,
     "concentration": 0.002
@@ -10993,10 +11008,10 @@
    },
    "emotions": {
     "joie": 0.441,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.251,
     "colere": 0.053,
-    "solitude": 0.513,
+    "solitude": 0.515,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.001
@@ -11026,10 +11041,10 @@
    },
    "emotions": {
     "joie": 0.443,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.251,
     "colere": 0.052,
-    "solitude": 0.512,
+    "solitude": 0.514,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.001
@@ -11059,10 +11074,10 @@
    },
    "emotions": {
     "joie": 0.444,
-    "tristesse": 0.18,
+    "tristesse": 0.181,
     "anxiete": 0.251,
     "colere": 0.051,
-    "solitude": 0.512,
+    "solitude": 0.513,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0

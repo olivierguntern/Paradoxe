@@ -1,0 +1,514 @@
+{
+  "meta": {
+    "id": "gerard-morel",
+    "version": 1,
+    "description": "Gérard Morel, voisin et ami de Robert, partenaire de belote du samedi."
+  },
+  "logements": [
+    "maison-morel",
+    "maison-chazal"
+  ],
+  "lieux": [],
+  "objets": [],
+  "identite": {
+    "prenom": "Gérard",
+    "nom": "Morel",
+    "genre": "homme",
+    "date_naissance": "1942-02-11",
+    "age": 68,
+    "situation_familiale": "marié à Monique depuis 1966, deux fils",
+    "metier": "retraité, ancien conducteur de train à la SNCF"
+  },
+  "personnalite": {
+    "big_five": {
+      "ouverture": 0.4,
+      "conscience": 0.6,
+      "extraversion": 0.75,
+      "agreabilite": 0.55,
+      "nevrosisme": 0.3
+    },
+    "traits": [
+      "blagueur",
+      "mauvais perdant à la belote",
+      "jardinier"
+    ]
+  },
+  "vie_interieure": {
+    "preoccupations_semaine": [
+      {
+        "id": "pr-genou",
+        "sujet": "Son genou qui le fait souffrir depuis l'hiver ; il refuse de voir le médecin",
+        "intensite_initiale": 0.5
+      },
+      {
+        "id": "pr-tomates",
+        "sujet": "Ses semis de tomates qui ne lèvent pas",
+        "intensite_initiale": 0.3
+      }
+    ]
+  },
+  "relations": {
+    "monique-morel": {
+      "type": "conjoint"
+    },
+    "robert-chazal": {
+      "type": "ami"
+    },
+    "josiane-chazal": {
+      "type": "ami"
+    }
+  },
+  "habitudes": {
+    "routines": [
+      {
+        "id": "r-gerard-semaine",
+        "nom": "Journée de retraité",
+        "jours": [
+          "lundi",
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "vendredi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:30",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:30",
+            "fin": "08:00",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, toilette, s'habille",
+            "activite": "toilette_matin"
+          },
+          {
+            "debut": "08:00",
+            "fin": "08:30",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec la radio",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "08:30",
+            "fin": "11:30",
+            "lieu": "veranda",
+            "action": "Bricole dans la véranda",
+            "activite": "bricolage"
+          },
+          {
+            "debut": "11:30",
+            "fin": "12:00",
+            "lieu": "cuisine",
+            "action": "Met la table",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "12:00",
+            "fin": "12:45",
+            "lieu": "cuisine",
+            "action": "Déjeune",
+            "activite": "repas",
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "12:45",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "13:00",
+            "fin": "14:00",
+            "lieu": "sejour",
+            "action": "Sieste",
+            "activite": "sieste"
+          },
+          {
+            "debut": "14:00",
+            "fin": "16:30",
+            "lieu": "parc-de-la-feyssine",
+            "action": "Promenade au parc de la Feyssine avec Monique",
+            "activite": "marche",
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "16:30",
+            "fin": "18:30",
+            "lieu": "veranda",
+            "action": "Rempote ses semis dans la véranda",
+            "activite": "jardinage"
+          },
+          {
+            "debut": "18:30",
+            "fin": "19:00",
+            "lieu": "cuisine",
+            "action": "Lit le journal",
+            "activite": "lecture"
+          },
+          {
+            "debut": "19:00",
+            "fin": "19:45",
+            "lieu": "cuisine",
+            "action": "Dîner",
+            "activite": "repas",
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "19:45",
+            "fin": "22:15",
+            "lieu": "sejour",
+            "action": "Télévision",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "22:15",
+            "fin": "22:30",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir",
+            "activite": "toilette_soir"
+          },
+          {
+            "debut": "22:30",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "r-gerard-samedi",
+        "nom": "Samedi : belote chez les Chazal",
+        "jours": [
+          "samedi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:30",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:30",
+            "fin": "08:00",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, toilette, s'habille",
+            "activite": "toilette_matin"
+          },
+          {
+            "debut": "08:00",
+            "fin": "08:30",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec la radio",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "08:30",
+            "fin": "11:30",
+            "lieu": "commerces-cusset",
+            "action": "Bricole dans la véranda",
+            "activite": "bricolage"
+          },
+          {
+            "debut": "11:30",
+            "fin": "12:00",
+            "lieu": "cuisine",
+            "action": "Met la table",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "12:00",
+            "fin": "12:45",
+            "lieu": "cuisine",
+            "action": "Déjeune",
+            "activite": "repas",
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "12:45",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "13:00",
+            "fin": "14:00",
+            "lieu": "sejour",
+            "action": "Sieste",
+            "activite": "sieste"
+          },
+          {
+            "debut": "14:00",
+            "fin": "16:30",
+            "lieu": "jardin",
+            "action": "Au jardin",
+            "activite": "jardinage"
+          },
+          {
+            "debut": "16:30",
+            "fin": "18:30",
+            "lieu": "veranda",
+            "action": "Rempote ses semis dans la véranda",
+            "activite": "jardinage"
+          },
+          {
+            "debut": "18:30",
+            "fin": "19:00",
+            "lieu": "cuisine",
+            "action": "Lit le journal",
+            "activite": "lecture"
+          },
+          {
+            "debut": "19:00",
+            "fin": "19:45",
+            "lieu": "cuisine",
+            "action": "Dîner",
+            "activite": "repas",
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "19:45",
+            "fin": "20:30",
+            "lieu": "sejour",
+            "action": "Se prépare pour la belote",
+            "activite": "temps_libre"
+          },
+          {
+            "debut": "20:30",
+            "fin": "20:40",
+            "lieu": "rue-des-glycines",
+            "action": "Remonte la rue des Glycines jusque chez les Chazal",
+            "activite": "marche",
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "20:40",
+            "fin": "23:00",
+            "lieu": "maison-chazal:sejour",
+            "action": "Belote chez les Chazal ; fait équipe avec Robert",
+            "activite": "belote",
+            "avec_personnes": [
+              "robert-chazal",
+              "josiane-chazal",
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "23:00",
+            "fin": "23:10",
+            "lieu": "rue-des-glycines",
+            "action": "Rentre à pied",
+            "activite": "marche",
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "23:10",
+            "fin": "23:25",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir",
+            "activite": "toilette_soir"
+          },
+          {
+            "debut": "23:25",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "r-gerard-dimanche",
+        "nom": "Dimanche : vote",
+        "jours": [
+          "dimanche"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:30",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:30",
+            "fin": "08:00",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, toilette, s'habille",
+            "activite": "toilette_matin"
+          },
+          {
+            "debut": "08:00",
+            "fin": "08:30",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec la radio",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "08:30",
+            "fin": "11:30",
+            "lieu": "sejour",
+            "action": "Lecture du journal",
+            "activite": "lecture"
+          },
+          {
+            "debut": "11:30",
+            "fin": "12:00",
+            "lieu": "cuisine",
+            "action": "Met la table",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "12:00",
+            "fin": "12:45",
+            "lieu": "cuisine",
+            "action": "Déjeune",
+            "activite": "repas",
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "12:45",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "13:00",
+            "fin": "14:00",
+            "lieu": "sejour",
+            "action": "Sieste",
+            "activite": "sieste"
+          },
+          {
+            "debut": "14:00",
+            "fin": "14:35",
+            "lieu": "sejour",
+            "action": "Mots croisés",
+            "activite": "temps_libre"
+          },
+          {
+            "debut": "14:35",
+            "fin": "14:55",
+            "lieu": "bureau-de-vote",
+            "action": "Va voter au premier tour des régionales",
+            "activite": "vote",
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "14:55",
+            "fin": "16:30",
+            "lieu": "parc-de-la-feyssine",
+            "action": "Promenade au parc de la Feyssine",
+            "activite": "marche",
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "16:30",
+            "fin": "18:30",
+            "lieu": "veranda",
+            "action": "Rempote ses semis dans la véranda",
+            "activite": "jardinage"
+          },
+          {
+            "debut": "18:30",
+            "fin": "19:00",
+            "lieu": "cuisine",
+            "action": "Lit le journal",
+            "activite": "lecture"
+          },
+          {
+            "debut": "19:00",
+            "fin": "19:45",
+            "lieu": "cuisine",
+            "action": "Dîner",
+            "activite": "repas",
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "19:45",
+            "fin": "22:15",
+            "lieu": "sejour",
+            "action": "Télévision",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "monique-morel"
+            ]
+          },
+          {
+            "debut": "22:15",
+            "fin": "22:30",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir",
+            "activite": "toilette_soir"
+          },
+          {
+            "debut": "22:30",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche",
+            "activite": "coucher"
+          }
+        ]
+      }
+    ]
+  }
+}

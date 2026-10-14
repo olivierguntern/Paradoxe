@@ -8,10 +8,13 @@ entrée), événements des déclencheurs présents dans le modèle émotionnel,
 routines sans trou ni chevauchement, capacité de travail ; pour un commerçant,
 produits des paniers et des habitués présents au catalogue, horaires.
 """
-import json, sys
+import json, os, sys
 sys.stdout.reconfigure(encoding="utf-8")
 sys.stderr.reconfigure(encoding="utf-8")
-d = json.load(open(sys.argv[1], encoding="utf-8"))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from fiches import completer_fiche
+# la fiche est vérifiée telle que le moteur la voit : complétée par le monde (data/monde/)
+d = completer_fiche(json.load(open(sys.argv[1], encoding="utf-8")), os.path.splitext(os.path.basename(sys.argv[1]))[0])
 lieux = {l['id'] for l in d['lieux']}
 objs = {o['id'] for o in d['objets']}
 pieces = {p['id'] for p in d['domicile']['pieces']}

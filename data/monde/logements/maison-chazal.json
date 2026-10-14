@@ -1,0 +1,235 @@
+{
+  "id": "maison-chazal",
+  "nom": "Maison des Chazal",
+  "type": "maison",
+  "adresse": "rue des Glycines, Villeurbanne (quartier de Cusset)",
+  "description": "Petite maison avec jardin sur deux niveaux, achetée par Robert et Josiane ; l'escalier de bois mène à l'étage.",
+  "pieces": [
+    {
+      "id": "entree",
+      "nom": "Entrée",
+      "niveau": 0,
+      "surface_m2": 4.5,
+      "fenetre": false,
+      "mobilier": [
+        "portemanteau",
+        "meuble à chaussures",
+        "vide-poche",
+        "pied de l'escalier"
+      ]
+    },
+    {
+      "id": "sejour",
+      "nom": "Séjour",
+      "niveau": 0,
+      "surface_m2": 22,
+      "fenetre": true,
+      "mobilier": [
+        "fauteuil de Robert",
+        "canapé",
+        "télévision",
+        "table de salle à manger et quatre chaises",
+        "buffet avec les photos",
+        "table basse",
+        "porte-fenêtre sur le jardin"
+      ]
+    },
+    {
+      "id": "cuisine",
+      "nom": "Cuisine",
+      "niveau": 0,
+      "surface_m2": 11,
+      "fenetre": true,
+      "mobilier": [
+        "table et deux chaises",
+        "cuisinière à gaz",
+        "réfrigérateur",
+        "évier",
+        "cafetière électrique",
+        "poste de radio",
+        "placard à provisions"
+      ]
+    },
+    {
+      "id": "wc",
+      "nom": "WC",
+      "niveau": 0,
+      "surface_m2": 1.5,
+      "fenetre": false,
+      "mobilier": []
+    },
+    {
+      "id": "garage",
+      "nom": "Garage",
+      "niveau": 0,
+      "surface_m2": 16,
+      "fenetre": false,
+      "mobilier": [
+        "place de la Kangoo",
+        "établi de bricolage",
+        "congélateur coffre",
+        "outils de jardin",
+        "porte basculante"
+      ]
+    },
+    {
+      "id": "escalier-maison",
+      "nom": "Escalier",
+      "niveau": 0,
+      "surface_m2": 3,
+      "fenetre": false,
+      "mobilier": [
+        "quatorze marches de bois"
+      ]
+    },
+    {
+      "id": "palier-etage",
+      "nom": "Palier de l'étage",
+      "niveau": 1,
+      "surface_m2": 3,
+      "fenetre": false,
+      "mobilier": []
+    },
+    {
+      "id": "chambre",
+      "nom": "Chambre",
+      "niveau": 1,
+      "surface_m2": 13,
+      "fenetre": true,
+      "mobilier": [
+        "lit double",
+        "table de chevet de Robert",
+        "table de chevet de Josiane",
+        "armoire",
+        "commode"
+      ]
+    },
+    {
+      "id": "chambre-claire",
+      "nom": "Chambre de Claire",
+      "niveau": 1,
+      "surface_m2": 10,
+      "fenetre": true,
+      "mobilier": [
+        "lit d'une personne",
+        "lit d'appoint pour les petits",
+        "bureau",
+        "étagère de jouets"
+      ]
+    },
+    {
+      "id": "salle-de-bain",
+      "nom": "Salle de bain",
+      "niveau": 1,
+      "surface_m2": 6,
+      "fenetre": true,
+      "mobilier": [
+        "douche",
+        "lavabo",
+        "WC",
+        "armoire à pharmacie",
+        "panier à linge"
+      ]
+    }
+  ],
+  "entree": "entree",
+  "liaisons": [
+    {
+      "a": "rue-maison",
+      "b": "entree",
+      "distance_m": 5.5,
+      "porte": "porte d'entrée"
+    },
+    {
+      "a": "entree",
+      "b": "sejour",
+      "distance_m": 4.9
+    },
+    {
+      "a": "entree",
+      "b": "cuisine",
+      "distance_m": 4.0
+    },
+    {
+      "a": "entree",
+      "b": "wc",
+      "distance_m": 1.1
+    },
+    {
+      "a": "entree",
+      "b": "garage",
+      "distance_m": 3.9,
+      "porte": "porte de communication"
+    },
+    {
+      "a": "garage",
+      "b": "rue-maison",
+      "distance_m": 5.9,
+      "porte": "porte basculante"
+    },
+    {
+      "a": "sejour",
+      "b": "jardin",
+      "distance_m": 6.4,
+      "porte": "porte-fenêtre"
+    },
+    {
+      "a": "entree",
+      "b": "escalier-maison",
+      "distance_m": 3.5
+    },
+    {
+      "a": "escalier-maison",
+      "b": "palier-etage",
+      "distance_m": 3.2,
+      "escalier": true
+    },
+    {
+      "a": "palier-etage",
+      "b": "chambre",
+      "distance_m": 2.6
+    },
+    {
+      "a": "palier-etage",
+      "b": "chambre-claire",
+      "distance_m": 3.2
+    },
+    {
+      "a": "palier-etage",
+      "b": "salle-de-bain",
+      "distance_m": 1.8
+    }
+  ],
+  "noeuds_exterieurs": [
+    "rue-maison",
+    "jardin"
+  ],
+  "acces": "rue-maison",
+  "escalier": {
+    "description": "Escalier de bois de la maison, entre l'entrée et le palier de l'étage.",
+    "etage_appartement": 1,
+    "ascenseur": false,
+    "marches_par_etage": 14,
+    "hauteur_marche_cm": 19,
+    "marches_total": 14,
+    "deplacement": {
+      "descente_secondes": 10,
+      "montee_secondes_marche": 15,
+      "montee_secondes_apres_course": 15,
+      "effets_montee": {
+        "energie": -0.3,
+        "soif": -0.1
+      },
+      "effets_descente": {
+        "energie": -0.1
+      }
+    }
+  },
+  "equipements": {
+    "chauffage": "chaudière au gaz à la maison, radiateur soufflant dans la boutique",
+    "television": "téléviseur à écran plat acheté pour la Coupe du monde 2006, dans le séjour",
+    "radio": "poste de radio dans la cuisine de la maison et radio de la boutique, sur RTL",
+    "caisse": "caisse enregistreuse à tiroir et terminal de carte bancaire sur le comptoir",
+    "voiture": "Renault Kangoo blanche"
+  }
+}

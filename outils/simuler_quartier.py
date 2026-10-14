@@ -14,6 +14,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import moteur
+from fiches import charger
 from quartier import Quartier
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -29,7 +30,7 @@ def main():
     ap.add_argument("--personnages", nargs="+", required=True)
     ap.add_argument("--dossier", required=True)
     a = ap.parse_args()
-    fiches = {p: json.load(open(os.path.join(RACINE, "data", "personnages", f"{p}.json"), encoding="utf-8")) for p in a.personnages}
+    fiches = {p: charger(p) for p in a.personnages}
     catalogue = json.load(open(os.path.join(RACINE, "data", "monde", "actions.json"), encoding="utf-8"))
     for p in fiches:
         os.makedirs(os.path.join(a.dossier, p), exist_ok=True)

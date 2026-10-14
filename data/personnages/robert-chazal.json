@@ -385,7 +385,9 @@
   ],
 
   "relations": {
-    "josiane-chazal": { "nom": "Josiane", "evenement": "moment_josiane", "absence": "absence_conjoint", "social_par_pas": 1.0 }
+    "josiane-chazal": { "type": "conjoint", "evenement": "moment_josiane", "absence": "absence_conjoint" },
+    "gerard-morel": { "type": "ami" },
+    "monique-morel": { "type": "ami" }
   },
   "personnes_presentes": [
     { "id": "josiane-chazal", "nom": "Josiane Chazal, née Moreau", "lien": "épouse depuis le 16 mars 1976, 56 ans", "simule": false, "attachement": 0.95,
@@ -642,6 +644,8 @@
       "noeuds_exterieurs": ["rue-maison", "jardin", "trottoir", "cour-epicerie"],
       "entrees": { "maison": "entree", "epicerie": "boutique" },
       "lieux_des_sites": { "maison": "domicile", "epicerie": "epicerie-chazal" },
+      "logements_des_sites": { "maison": "maison-chazal", "epicerie": "epicerie-chazal" },
+      "acces": { "maison": "rue-maison", "epicerie": "trottoir" },
       "deplacements_dans_la_piece": {
         "principe": "Petits déplacements à l'intérieur d'une pièce, estimés par pas de 5 minutes selon l'activité ; réduits quand il est assis ou allongé.",
         "metres_par_pas": { "precision": 1.0, "service": 12.0, "conduite": 0.0, "simple": 6.0, "cuisine": 8.0, "lecture": 0.5, "repos": 2.0, "sommeil": 0.0 },
@@ -820,7 +824,7 @@
         { "debut": "19:00", "fin": "19:15", "lieu": "arriere-boutique", "action": "Ferme, compte la caisse, range la recette au coffre", "activite": "fermeture_boutique" },
         { "debut": "19:15", "fin": "19:35", "lieu": "trajet-voiture", "action": "Rentre, dans les bouchons", "activite": "conduire" },
         { "debut": "19:35", "fin": "20:40", "lieu": "cuisine", "action": "Dîne avec Josiane : pizza maison", "activite": "repas", "avec_personnes": ["josiane-chazal"] },
-        { "debut": "20:40", "fin": "23:00", "lieu": "sejour", "action": "Belote avec Gérard et Monique Morel", "activite": "belote", "avec_personnes": ["josiane-chazal"] },
+        { "debut": "20:40", "fin": "23:00", "lieu": "sejour", "action": "Belote avec Gérard et Monique Morel", "activite": "belote", "avec_personnes": ["josiane-chazal", "gerard-morel", "monique-morel"] },
         { "debut": "23:00", "fin": "23:15", "lieu": "salle-de-bain", "action": "Toilette du soir", "activite": "toilette_soir" },
         { "debut": "23:15", "fin": null, "lieu": "chambre", "action": "Se couche", "activite": "coucher" }
       ] },
