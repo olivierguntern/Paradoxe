@@ -58,6 +58,9 @@ class Habitant:
         self.allumes = set(etat.get("appareils", []))
         self.faits = set()       # premiers pas déjà faits : (début d'étape, phase)
         self.coucher = None      # (pas d'extinction, pas d'endormissement)
+        self.attente = None      # pas décidé, pas encore calculé : (st, s, titre, routine, suite)
+        self.action_courante = {}  # action du catalogue du pas décidé
+        self.etape_courante = None
         self.opportunites = {}   # début d'étape -> besoins satisfaits en s'y mettant
 
     # ------------------------------------------------------------ fiche
@@ -95,6 +98,8 @@ class Habitant:
     def resoudre(self, d, f, e, i):
         """Action de l'étape au pas i : phase en cours et variantes selon les besoins."""
         a = dict(self.A[e["activite"]])
+        # besoins que l'action satisfait, toutes phases comprises (pas de fruit juste avant le repas)
+        a["satisfait"] = set(a.get("effets", {})) | {b for ph in a.get("phases", []) for b in ph.get("effets", {})}
         phase, debut = 0, d
         if a.get("phases"):
             n, cumul = f - d, 0.0
@@ -125,7 +130,7 @@ class Habitant:
         transition = i == d + self.opportunites.get(d, 0)
         for besoin, aid in self.BESOINS.items():
             v, s = self.sim.besoins[besoin], self.SEUILS[besoin]
-            if besoin in a.get("effets", {}) or self.piece_pour(self.A[aid]["lieu"], meme_site=True) is None:
+            if besoin in a.get("satisfait", ()) or self.piece_pour(self.A[aid]["lieu"], meme_site=True) is None:
                 continue
             if v < s:
                 scores.append((1 + (s - v) / s, aid))
@@ -135,6 +140,7 @@ class Habitant:
 
     # ------------------------------------------------------------ émission
     def emettre(self, a, titre, routine, piece, premier, avec=(), garder_appareils=False, lieu="domicile", extra=None):
+        self.action_courante = a
         st = {"action": a["texte"], "pensee": None, "piece": piece, "lieu": lieu, "mode": a.get("mode", "eveille"),
               "charge": a.get("charge", "simple"), "posture": a.get("posture", "debout")}
         st.update(extra or {})
@@ -166,15 +172,23 @@ class Habitant:
         self.pousser(st, titre, routine)
         return st
 
-    def pousser(self, st, titre, routine):
+    def pousser(self, st, titre, routine, suite=None):
+        """Le pas est décidé ; il sera calculé par executer(), après que le quartier y a ajouté les rencontres."""
         s = {"titre": titre, "routine": routine, "piece": st.pop("piece"), "lieu": st.pop("lieu"), "mode": st.pop("mode"),
              "charge": st.pop("charge"), "posture": st.pop("posture")}
+        self.attente = (st, s, titre, routine, suite)
+
+    def executer(self):
+        st, s, titre, routine, suite = self.attente
+        self.attente = None
         entree = self.sim.pas(st, s)
         segs = self.j.segments
         if segs and segs[-1]["titre"] == titre and segs[-1]["routine"] == routine:
             segs[-1]["pas"].append(st)
         else:
             segs.append({"debut": hm(entree["pas"]), "titre": titre, "routine": routine, "pas": [st]})
+        if suite:
+            suite(entree)
         return entree
 
     def dormir(self, titre):
@@ -191,62 +205,75 @@ class Habitant:
 
     # ------------------------------------------------------------ journée
     def vivre(self):
-        veille = JOURS[(JOURS.index(self.jour) - 1) % 7]
         while self.i < PAS_PAR_JOUR:
-            i = self.i
-            if self.coucher and i >= self.coucher[1]:
-                self.dormir("Sommeil")
-                continue
-            et = self.etape(i)
-            if et is None:
-                self.dormir(f"Nuit de {veille} à {self.jour}")
-                continue
-            d, f, e, r = et
-            a, cle, debut = self.resoudre(d, f, e, i)
-            if a.get("sommeil"):
-                self.endormir(a, e, r)
-                continue
-            if a.get("mode") == "sommeil":
-                self.dormir(e["action"])
-                continue
-            score, besoin = self.utilite(a, d, f, i)[0]
-            if besoin:
-                b = self.A[besoin]
-                piece = self.piece_pour(b["lieu"], meme_site=True)
-                v = round(self.sim.besoins[b["besoin"]], 1)
-                if v < self.SEUILS[b["besoin"]]:
-                    self.decisions.append(f"{hm(i)} : {b['besoin']} sous le seuil d'alerte ({v}, score {round(score, 2)}) ; interrompt « {e['action']} ».")
-                    self.emettre(b, "Besoin pressant", "interruption", piece, True, garder_appareils=True)
-                else:
-                    self.opportunites[d] = self.opportunites.get(d, 0) + 1
-                    self.emettre(dict(b, texte=b["texte"].replace("S'interrompt pour", "Avant de s'y mettre,")), e["action"], r, piece, True,
-                                 garder_appareils=True)
-                continue
-            lieu, extra = "domicile", {}
-            if a.get("vehicule"):
-                piece, lieu, extra = self.VEHICULE.get("nom_court", "véhicule"), e["lieu"], self.conduire(d, f, i)
-            elif a.get("exterieur"):
-                piece, lieu = e["lieu"], "exterieur"
-            elif a.get("lieu_phase"):
-                piece = self.piece_pour(a["lieu_phase"]) or e["lieu"]
-            elif e["lieu"] in self.sim.graph:
-                piece = e["lieu"]
-            else:
-                piece = self.piece_pour(a["lieu"]) or self.sim.piece
-            if lieu == "domicile":
-                lieu = self.LIEU_DU_SITE.get(self.SITE.get(piece), "domicile")
-            if self.trajet and not a.get("vehicule"):
-                # arrivée : il rentre par la place de stationnement du site où il arrive
-                parking = self.VEHICULE.get("stationnements", {}).get(self.SITE.get(piece))
-                if parking and parking in self.sim.graph and lieu != "exterieur":
-                    extra["retour"] = parking
-                self.trajet = None
-            if piece in self.SITE and self.SITE[piece]:
-                self.site = self.SITE[piece]
-            premier = cle not in self.faits
-            self.faits.add(cle)
-            self.emettre(a, e["action"], r, piece, premier, avec=e.get("avec", ()), lieu=lieu, extra=extra)
+            self.decider()
+            self.executer()
         return self.terminer()
+
+    def decider(self):
+        """Décide le pas en cours (sans le calculer)."""
+        veille = JOURS[(JOURS.index(self.jour) - 1) % 7]
+        i = self.i
+        self.etape_courante = None
+        self.action_courante = {}
+        if self.coucher:
+            if i >= self.coucher[1]:
+                self.dormir("Sommeil")
+            else:
+                lit = self.piece_pour(self.A["coucher"]["lieu"])
+                self.pousser({"action": "Cherche le sommeil.", "pensee": None, "piece": lit, "lieu": "domicile", "mode": "eveille",
+                              "charge": "repos", "posture": "allongé"}, "Endormissement", self.routine_coucher)
+            return
+        et = self.etape(i)
+        if et is None:
+            self.dormir(f"Nuit de {veille} à {self.jour}")
+            return
+        self.etape_courante = et
+        d, f, e, r = et
+        a, cle, debut = self.resoudre(d, f, e, i)
+        if a.get("sommeil"):
+            self.endormir(a, e, r)
+            return
+        if a.get("mode") == "sommeil":
+            self.dormir(e["action"])
+            return
+        score, besoin = self.utilite(a, d, f, i)[0]
+        if besoin:
+            b = self.A[besoin]
+            piece = self.piece_pour(b["lieu"], meme_site=True)
+            v = round(self.sim.besoins[b["besoin"]], 1)
+            if v < self.SEUILS[b["besoin"]]:
+                self.decisions.append(f"{hm(i)} : {b['besoin']} sous le seuil d'alerte ({v}, score {round(score, 2)}) ; interrompt « {e['action']} ».")
+                self.emettre(b, "Besoin pressant", "interruption", piece, True, garder_appareils=True)
+            else:
+                self.opportunites[d] = self.opportunites.get(d, 0) + 1
+                self.emettre(dict(b, texte=b["texte"].replace("S'interrompt pour", "Avant de s'y mettre,")), e["action"], r, piece, True,
+                             garder_appareils=True)
+            return
+        lieu, extra = "domicile", {}
+        if a.get("vehicule"):
+            piece, lieu, extra = self.VEHICULE.get("nom_court", "véhicule"), e["lieu"], self.conduire(d, f, i)
+        elif a.get("exterieur"):
+            piece, lieu = e["lieu"], "exterieur"
+        elif a.get("lieu_phase"):
+            piece = self.piece_pour(a["lieu_phase"]) or e["lieu"]
+        elif e["lieu"] in self.sim.graph:
+            piece = e["lieu"]
+        else:
+            piece = self.piece_pour(a["lieu"]) or self.sim.piece
+        if lieu == "domicile":
+            lieu = self.LIEU_DU_SITE.get(self.SITE.get(piece), "domicile")
+        if self.trajet and not a.get("vehicule"):
+            # arrivée : il rentre par la place de stationnement du site où il arrive
+            parking = self.VEHICULE.get("stationnements", {}).get(self.SITE.get(piece))
+            if parking and parking in self.sim.graph and lieu != "exterieur":
+                extra["retour"] = parking
+            self.trajet = None
+        if piece in self.SITE and self.SITE[piece]:
+            self.site = self.SITE[piece]
+        premier = cle not in self.faits
+        self.faits.add(cle)
+        self.emettre(a, e["action"], r, piece, premier, avec=e.get("avec", ()), lieu=lieu, extra=extra)
 
     def conduire(self, d, f, i):
         """Un pas en véhicule : au premier, il sort par la place de stationnement du site ; la distance de
@@ -271,14 +298,14 @@ class Habitant:
         st = {"action": a["texte"], "pensee": None, "piece": lit, "lieu": "domicile", "mode": "eveille", "charge": "repos", "posture": "allongé"}
         st["app"] = {"eteint": sorted(self.allumes) + [f"lumiere-{lit}"]}
         self.allumes = set()
-        entree = self.pousser(st, e["action"], r)
-        latence = self.sim.latence_endormissement(entree["emotions"])
-        self.j.extinction, self.j.endormissement = entree["heure"], latence
-        self.coucher = (entree["pas"], entree["pas"] + latence // 5)
-        self.mem["endormi_a"] = self.coucher[1] - PAS_PAR_JOUR
-        for _ in range(latence // 5 - 1):
-            self.pousser({"action": "Cherche le sommeil.", "pensee": None, "piece": lit, "lieu": "domicile", "mode": "eveille",
-                          "charge": "repos", "posture": "allongé"}, "Endormissement", r)
+        self.routine_coucher = r
+
+        def apres_extinction(entree):
+            latence = self.sim.latence_endormissement(entree["emotions"])
+            self.j.extinction, self.j.endormissement = entree["heure"], latence
+            self.coucher = (entree["pas"], entree["pas"] + latence // 5)
+            self.mem["endormi_a"] = self.coucher[1] - PAS_PAR_JOUR
+        self.pousser(st, e["action"], r, suite=apres_extinction)
 
     def terminer(self):
         etat_final, stats = self.sim.terminer(self.j.extinction, self.j.endormissement)

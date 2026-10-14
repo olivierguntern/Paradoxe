@@ -44,6 +44,7 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 | `voiture`, `vie_interieure.loisirs` | Chez Robert : la Kangoo ; cinéma, randonnée, belote, potager, journal, radio. Chez Thomas : course, montre du grand-père, lecture, musique, radio, forums d'horlogerie (en lecture), cinéma, promenade |
 | `objets` | Objets avec leur emplacement réel au départ |
 | `connaissances` | Ce que le personnage sait ; ses croyances sur l'emplacement des objets |
+| `relations` | Pour chaque personne simulée connue : nom, événement d'un moment ensemble, événement d'une absence, contact social par pas (quartier) |
 | `perception` | Chez Thomas : attention (pièce où il se tient, passage, effet de la concentration), appareils qu'il entend et leur portée, personnes simulées qu'il rencontre selon le lieu, règles de recherche d'un objet, noms des pièces |
 | `habitudes` | Automatismes (gestes systématiques) et routines horaires de chaque jour |
 | `agenda_semaine` | Activités datées de la semaine |

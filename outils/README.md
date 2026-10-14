@@ -179,6 +179,21 @@ Robert vit lui aussi avec ce moteur, sans code propre : ses routines nomment leu
 python3 outils/simuler_habitant.py 2010-03-08 2010-03-14 --personnage robert-chazal --dossier data/generique/robert-chazal
 ```
 
+## Quartier : plusieurs habitants ensemble
+
+`quartier.py` fait vivre plusieurs habitants génériques en même temps, pas à pas : chacun décide de son pas, le quartier ajoute les rencontres, puis chaque pas est calculé. Ce qui est propre à chacun est dans sa fiche, section `relations` (pour chaque personne simulée qu'il connaît : son nom, l'événement d'un moment ensemble, celui d'une absence, le contact social par pas).
+
+- **Ensemble** : deux habitants éveillés au même endroit (même lieu et même pièce, ou même véhicule), sans être occupés à une action intime (toilettes, douche), sont ensemble. Chacun gagne le contact social prévu ; le premier pas d'un moment ensemble fait vivre l'événement de la relation (`moment_josiane` pour Robert, `moment_robert` pour Josiane).
+- **Moment prévu ensemble** : une étape de routine peut nommer `avec_personnes`. Si la personne n'est venue ni au premier ni au deuxième pas de l'étape, l'absence est remarquée (« Robert n'est pas là ») et vécue (`absence_conjoint`). C'est par là qu'un retard provoqué chez l'un se propagera à l'autre.
+
+Josiane Chazal (`data/personnages/josiane-chazal.json`), l'épouse de Robert, est le premier habitant créé pour ce moteur : même maison que Robert (pièces et plan repris de sa fiche), mi-temps de secrétaire médicale à Cusset, cuisine, belote du samedi, vote et randonnée du dimanche, cinéma du lundi. Sur la semaine, ils passent ensemble de 2 h 45 (mercredi : elle monte se coucher à la mi-temps du match) à 7 h 30 (dimanche), aux moments prévus par leurs deux routines, sans aucune absence. En avançant son déjeuner du mardi à 12:15 (Robert rentre à 12:25), elle remarque à 12:20 que Robert n'est pas là ; son anxiété monte, puis retombe quand il arrive.
+
+Limite : chacun garde son propre état du monde (lumières, appareils, objets, provisions) ; la maison n'est pas encore un état partagé.
+
+```bash
+python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages robert-chazal josiane-chazal --dossier data/quartier
+```
+
 ## Vue fil de fer
 
 La semaine se rejoue dans une vue isométrique fil de fer (`vue/index.html`, à ouvrir dans un navigateur), à plusieurs échelles, les mêmes pour les deux personnages : le logement (l'appartement de Thomas, la boutique ou la maison de Robert), l'immeuble (ou la maison), la rue du lieu où se trouve le personnage suivi (pour Thomas, de chez lui à l'épicerie ; pour Robert, la Grande-Rue autour de l'épicerie, avec la place et la banque, ou la rue des Glycines), le parcours de course (pentes et quais de Saône), les sorties à pied de Thomas (vers le cinéma par la montée de la Boucle, le boulevard jusqu'à la mairie du 4e et au Gros Caillou), et pour Robert le trajet en Kangoo (Croix-Rousse, Rhône, Villeurbanne), le cinéma de la Cité internationale, l'école où il vote et les monts d'Or. On choisit le personnage suivi (Thomas ou Robert) ; l'autre reste visible. Le panneau donne l'état de chaque pas : activité, pensée, besoins, émotions, objets portés, argent, lumières et appareils.
