@@ -42,14 +42,14 @@ CABAS = "obj-cabas-boutique"
 class AgentEpicier:
     def __init__(self, fiche, dossier, date, etat):
         self.fiche = fiche
-        self.R = json.load(open(os.path.join(dossier, "regles.json")))
-        self.B = json.load(open(os.path.join(dossier, "blocs.json")))
-        self.P = json.load(open(os.path.join(dossier, "pensees.json")))
+        self.R = json.load(open(os.path.join(dossier, "regles.json"), encoding="utf-8"))
+        self.B = json.load(open(os.path.join(dossier, "blocs.json"), encoding="utf-8"))
+        self.P = json.load(open(os.path.join(dossier, "pensees.json"), encoding="utf-8"))
         self.racine = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(dossier))))
         self.C = fiche["commerce"]
         self.CAT = {c["produit"]: c for c in self.C["catalogue"]}
-        self.ECHANGES = json.load(open(os.path.join(self.racine, "data", "monde", "echanges.json")))[self.C["id"]]
-        self.MONDE_EV = json.load(open(os.path.join(self.racine, "data", "monde", "evenements.json")))
+        self.ECHANGES = json.load(open(os.path.join(self.racine, "data", "monde", "echanges.json"), encoding="utf-8"))[self.C["id"]]
+        self.MONDE_EV = json.load(open(os.path.join(self.racine, "data", "monde", "evenements.json"), encoding="utf-8"))
         self.PROV = {x["id"]: x for x in fiche["domicile"]["provisions_au_debut"]}
         self.MENUS = fiche["menus_prevus"]
         self.date = date
@@ -95,7 +95,7 @@ class AgentEpicier:
         chemin = os.path.join(self.racine, "data", "timelines", self.R["client"], f"{self.date}.json")
         if not os.path.exists(chemin):
             return {}
-        return {s["pas"]: s for s in json.load(open(chemin))["pas"] if s.get("lieu") == self.C["id"]}
+        return {s["pas"]: s for s in json.load(open(chemin, encoding="utf-8"))["pas"] if s.get("lieu") == self.C["id"]}
 
     # ------------------------------------------------------------ émission
     def lieu_de(self, piece):
@@ -559,7 +559,7 @@ class AgentEpicier:
             au_revoir = E["au_revoir_commercant"].get(self.jour, E["au_revoir_commercant"]["defaut"])
             self.faits.append(f"L'horloger est passé ({euros(total)})")
             self.decisions.append(f"{hm(self.i)} : sert Thomas Berthier ({liste}, {euros(total)}, {'espèces' if especes else 'carte'}).")
-            debut = (f"Retourne à la caisse : l'horloger pose son panier sur le comptoir. " if panier else "L'horloger s'avance jusqu'à la caisse. ") + \
+            debut = ("Retourne à la caisse : l'horloger pose son panier sur le comptoir. " if panier else "L'horloger s'avance jusqu'à la caisse. ") + \
                     (f"Il demande {enumerer(pain)} ; Robert le prend dans la panière. " if pain else "")
             return {"texte": debut + f"Robert tape les articles un à un : {liste}. « Ça fera {euros(total)}. » Il paie {'en espèces' if especes else 'par carte'}. "
                              f"« {E['au_revoir_client'][moment]} » — « {au_revoir} »", "ventes": ventes, "caisse": True,
@@ -580,7 +580,6 @@ class AgentEpicier:
         """Ce que Robert fait au comptoir en plus de servir : café, besoins, journal, voisin, radio, étal."""
         K, S, P = self.R["comptoir"], self.R["seuils"], self.P["comptoir"]
         h, b = self.i, self.sim.besoins
-        fait = self.faits_comptoir
         if hm(h) in K["cafes"]:
             n = {"action": P["cafe_toilettes"] if b["toilettes"] < S["toilettes_avant_cafe"] else P["cafe"],
                  "via": (["wc-boutique", "arriere-boutique"] if b["toilettes"] < S["toilettes_avant_cafe"] else ["arriere-boutique"]),
@@ -819,7 +818,6 @@ class AgentEpicier:
                 if m.get("fin"):
                     self.faits.append("Lyon qualifié au Bernabéu (1-1)")
             elif en_pause and mi_temps is not None and self.i == mi_temps + 1:
-                b = self.sim.besoins
                 st.update({"action": "Mi-temps. Josiane monte se coucher. Il passe aux toilettes et se sert un verre d'eau.", "via": ["wc", "cuisine"],
                            "effets": {"toilettes": "vide", "soif": 20}, "posture": "debout", "mode": "eveille"})
             elif en_pause:
@@ -949,7 +947,6 @@ class AgentEpicier:
         self.faits.append("Cinéma avec Josiane : « The Ghost Writer »")
         self.route("cinema_retour", "cinema_retour", depart="parking")
         self.jouer("lundi_coucher")
-        exc = self.sim.emo["excitation"]
         e = self.emettre({"action": "Éteint la lampe de chevet.", "piece": "chambre", "posture": "allongé", "charge": "repos", "app": {"eteint": ["lumiere-chambre"]},
                           "titre": "Endormissement", "routine": "rt-soir"})
         self.j.extinction = e["heure"]

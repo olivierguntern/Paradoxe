@@ -4,7 +4,7 @@ Course à pied le matin (escalier, pentes, quais de Saône), révision de la
 Rolex, montres à quartz, validation de l'Omega, puis deuxième séance sur
 l'axe de la montre de son grand-père : les pivots.
 """
-from moteur import Journee, c, pr, course, idx, marche, mv, off, on, onoff, p
+from moteur import Journee, c, course, idx, marche, mv, off, on, onoff, p
 
 
 def rediger():

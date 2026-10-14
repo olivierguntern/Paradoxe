@@ -18,7 +18,7 @@ KANGOO = "Kangoo"
 def rediger(etat):
     j = Journee("2010-03-08", "lundi", extinction="23:20")
     import json, os
-    fiche = json.load(open(os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "personnages", "robert-chazal.json")))
+    fiche = json.load(open(os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "personnages", "robert-chazal.json"), encoding="utf-8"))
     mag = Magasin(fiche, etat, "2010-03-08", "lundi")
 
     # ------------------------------------------------------------ nuit

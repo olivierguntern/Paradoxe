@@ -130,7 +130,7 @@ def etat_initial_depuis_fiche(fiche):
 
 
 def etat_depuis_veille(chemin_json):
-    return json.load(open(chemin_json))["etat_final"]
+    return json.load(open(chemin_json, encoding="utf-8"))["etat_final"]
 
 
 # ---------------------------------------------------------------- simulation
@@ -693,7 +693,7 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
         "etat_final": etat_final,
         "pas": steps,
     }
-    json.dump(out, open(chemin_json, "w"), ensure_ascii=False, indent=1)
+    json.dump(out, open(chemin_json, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
     an, mo, jr = map(int, j.date.split("-"))
@@ -804,5 +804,5 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
     L.append("- **Besoins passés sous le seuil d'alerte (éveillé)** : " + (", ".join(alertes) if alertes else "aucun."))
     if alertes_sommeil:
         L.append("- **Pendant le sommeil** : " + ", ".join(f"{n} sous le seuil pendant {k * 5} minutes" for n, k in alertes_sommeil.items()) + ".")
-    open(chemin_md, "w").write("\n".join(L) + "\n")
+    open(chemin_md, "w", encoding="utf-8").write("\n".join(L) + "\n")
     return out

@@ -18,7 +18,7 @@ FICHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..
 
 
 def rediger(etat):
-    fiche = json.load(open(FICHE))
+    fiche = json.load(open(FICHE, encoding="utf-8"))
     j = Journee("2010-03-09", "mardi", extinction="22:10")
     mag = Magasin(fiche, etat, "2010-03-09", "mardi")
     commande = mag.commande()  # le bon écrit dimanche à la fermeture : rien n'a bougé depuis

@@ -69,19 +69,19 @@ def phase_sommeil(minutes):
 class Agent:
     def __init__(self, fiche, dossier, date, etat):
         self.fiche = fiche
-        self.R = json.load(open(os.path.join(dossier, "regles.json")))
-        self.BLOCS = json.load(open(os.path.join(dossier, "blocs.json")))
-        self.TRAVAUX = json.load(open(os.path.join(dossier, "travaux.json")))
-        self.SEANCES = json.load(open(os.path.join(dossier, "seances.json")))
-        self.REPAS = json.load(open(os.path.join(dossier, "repas.json")))
-        self.PENSEES = json.load(open(os.path.join(dossier, "pensees.json")))
+        self.R = json.load(open(os.path.join(dossier, "regles.json"), encoding="utf-8"))
+        self.BLOCS = json.load(open(os.path.join(dossier, "blocs.json"), encoding="utf-8"))
+        self.TRAVAUX = json.load(open(os.path.join(dossier, "travaux.json"), encoding="utf-8"))
+        self.SEANCES = json.load(open(os.path.join(dossier, "seances.json"), encoding="utf-8"))
+        self.REPAS = json.load(open(os.path.join(dossier, "repas.json"), encoding="utf-8"))
+        self.PENSEES = json.load(open(os.path.join(dossier, "pensees.json"), encoding="utf-8"))
         self.sans_courses = False
         self.COMMERCE, self.ECHANGES = None, None
         if self.R.get("courses"):
             racine = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(dossier))))
             commercant = self.R["courses"]["commerce"]
-            self.COMMERCE = json.load(open(os.path.join(racine, "data", "personnages", f"{commercant}.json")))["commerce"]
-            self.ECHANGES = json.load(open(os.path.join(racine, "data", "monde", "echanges.json")))[self.COMMERCE["id"]]
+            self.COMMERCE = json.load(open(os.path.join(racine, "data", "personnages", f"{commercant}.json"), encoding="utf-8"))["commerce"]
+            self.ECHANGES = json.load(open(os.path.join(racine, "data", "monde", "echanges.json"), encoding="utf-8"))[self.COMMERCE["id"]]
         self.date = date
         d = datetime.date.fromisoformat(date)
         self.jour = JOURS[d.weekday()]

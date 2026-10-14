@@ -12,7 +12,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-from clientele import Comptoir, enumerer, euros, libelle  # noqa: E402
+from clientele import Comptoir, enumerer, euros, libelle  # noqa: E402,F401  (euros : réexporté pour les journées)
 from moteur import hm, idx, p, voiture  # noqa: E402
 
 BOUTIQUE = "epicerie-chazal"

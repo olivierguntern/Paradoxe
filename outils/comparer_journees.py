@@ -10,6 +10,8 @@ sont pas comparés.
 """
 import json
 import sys
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
 
 
 def positions_par_pas(j):
@@ -104,5 +106,5 @@ def comparer(ref, sim):
 
 
 if __name__ == "__main__":
-    r = comparer(json.load(open(sys.argv[1])), json.load(open(sys.argv[2])))
+    r = comparer(json.load(open(sys.argv[1], encoding="utf-8")), json.load(open(sys.argv[2], encoding="utf-8")))
     print(json.dumps(r, ensure_ascii=False, indent=1))

@@ -17,8 +17,8 @@ RACINE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".
 
 
 def rediger(etat):
-    fiche = json.load(open(os.path.join(RACINE, "data", "personnages", "robert-chazal.json")))
-    match = json.load(open(os.path.join(RACINE, "data", "monde", "evenements.json")))["match-real-lyon"]
+    fiche = json.load(open(os.path.join(RACINE, "data", "personnages", "robert-chazal.json"), encoding="utf-8"))
+    match = json.load(open(os.path.join(RACINE, "data", "monde", "evenements.json"), encoding="utf-8"))["match-real-lyon"]
     j = Journee("2010-03-10", "mercredi", extinction="23:00", endormissement=45)
     mag = Magasin(fiche, etat, "2010-03-10", "mercredi")
 

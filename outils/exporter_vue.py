@@ -28,6 +28,9 @@ import sys
 import zlib
 from collections import deque
 
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
+
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BESOINS = ["faim", "soif", "energie", "hygiene", "toilettes", "social", "detente"]
 EMOTIONS = ["joie", "tristesse", "anxiete", "colere", "solitude", "fierte", "excitation", "concentration"]

@@ -16,6 +16,8 @@ import importlib.util
 import inspect
 import os
 import sys
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import json
@@ -31,7 +33,7 @@ def main():
     ap.add_argument("--personnage", default="thomas-berthier")
     a = ap.parse_args()
 
-    fiche = json.load(open(os.path.join(RACINE, "data", "personnages", f"{a.personnage}.json")))
+    fiche = json.load(open(os.path.join(RACINE, "data", "personnages", f"{a.personnage}.json"), encoding="utf-8"))
     dossier = os.path.join(RACINE, "data", "references", a.personnage)
     os.makedirs(dossier, exist_ok=True)
 

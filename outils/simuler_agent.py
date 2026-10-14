@@ -14,6 +14,8 @@ import datetime
 import json
 import os
 import sys
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import moteur
@@ -32,7 +34,7 @@ def main():
     ap.add_argument("--memoire")
     ap.add_argument("--sans-courses", action="store_true", help="sans les courses à l'épicerie (pour rejouer les journées de référence)")
     a = ap.parse_args()
-    fiche = json.load(open(os.path.join(RACINE, "data", "personnages", f"{a.personnage}.json")))
+    fiche = json.load(open(os.path.join(RACINE, "data", "personnages", f"{a.personnage}.json"), encoding="utf-8"))
     dossier_agent = os.path.join(RACINE, "data", "agents", a.personnage)
     os.makedirs(a.dossier, exist_ok=True)
     d = datetime.date.fromisoformat(a.debut)
@@ -46,7 +48,7 @@ def main():
             etat = moteur.etat_depuis_veille(os.path.join(a.dossier, f"{veille}.json"))
             if a.memoire:
                 etat["agent"] = moteur.etat_depuis_veille(os.path.join(a.memoire, f"{veille}.json"))["agent"]
-        type_agent = json.load(open(os.path.join(dossier_agent, "regles.json"))).get("type")
+        type_agent = json.load(open(os.path.join(dossier_agent, "regles.json"), encoding="utf-8")).get("type")
         agent = (AgentEpicier if type_agent == "commerce" else Agent)(fiche, dossier_agent, date, etat)
         agent.sans_courses = a.sans_courses
         try:
