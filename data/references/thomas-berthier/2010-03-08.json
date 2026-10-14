@@ -1,7 +1,7 @@
 {
  "meta": {
   "personnage": "thomas-berthier",
-  "fiche_version": 10,
+  "fiche_version": 11,
   "date": "2010-03-08",
   "jour": "lundi",
   "pas_minutes": 5,
@@ -18,7 +18,9 @@
    "lumiere": "interrupteurs actionnés pendant le pas",
    "appareils_allumes": "appareils et lumières allumés à la fin du pas",
    "evenements": "événements vécus et effet appliqué sur chaque émotion (après modulation par la personnalité)",
-   "besoins.energie_ressentie": "énergie corrigée de l'effet du café"
+   "besoins.energie_ressentie": "énergie corrigée de l'effet du café",
+   "perception": "ce qu'il voit (objets remarqués), entend et remarque (écart entre ce qu'il croit et ce qu'il voit)",
+   "monde": "changements faits à son insu au début du pas (scénario)"
   }
  },
  "resume": {
@@ -160,7 +162,20 @@
    "18:20-18:45 : préparation de la soupe pendant le temps libre (cuisson de 30 min).",
    "19:20 : dîner plus tardif que la routine (19:00) à cause de la cuisson.",
    "22:35 : aller-retour au séjour pour chercher le livre oublié sur la table basse."
-  ]
+  ],
+  "perception": {
+   "pas_avec_objets_vus": 168,
+   "objets_vus": 32,
+   "entendu_pas": {
+    "la radio": 29,
+    "la machine à ultrasons": 8,
+    "le battement amplifié du chronocomparateur": 8,
+    "le tour": 9
+   },
+   "remarques": [],
+   "a_son_insu": [],
+   "croyances_fausses_en_fin_de_journee": {}
+  }
  },
  "etat_initial": {
   "piece": "chambre",
@@ -357,7 +372,8 @@
   "argent": {
    "especes": 35,
    "compte": 940
-  }
+  },
+  "croyances": {}
  },
  "pas": [
   {
@@ -3183,6 +3199,13 @@
    "activite": "Réveil",
    "action": "La sonnerie du réveil retentit. Il l'éteint du plat de la main, allume la lampe de chevet et reste allongé.",
    "pensee": "Encore l'atelier de grand-père. Qu'est-ce qu'il disait ?",
+   "perception": {
+    "vu": [
+     "obj-etendoir",
+     "obj-montre-poignet",
+     "obj-reveil"
+    ]
+   },
    "lumiere": [
     "allume la lumière (chambre)"
    ],
@@ -3295,6 +3318,11 @@
     "distance_m": 4.5,
     "duree_s": 4,
     "foulees": 6
+   },
+   "perception": {
+    "vu": [
+     "obj-panier-linge"
+    ]
    },
    "lumiere": [
     "éteint la lumière (wc)",
@@ -3429,6 +3457,11 @@
      "vers": "poignet gauche"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-reveil"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (couloir)",
@@ -3494,6 +3527,14 @@
      "reste": 271
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-reveil"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "lumiere": [
     "allume la lumière (couloir)",
     "éteint la lumière (couloir)",
@@ -3544,6 +3585,11 @@
      "reste": 22
     }
    ],
+   "perception": {
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "plaque-1",
     "radio"
@@ -3611,6 +3657,14 @@
      "reste": 35
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-poubelle"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -3653,6 +3707,14 @@
    "activite": "Petit-déjeuner",
    "action": "Mange debout près de la fenêtre en écoutant le journal.",
    "pensee": "Papa écoute la même radio, à Besançon. Il fait sûrement semblant d'aller bien.",
+   "perception": {
+    "vu": [
+     "obj-marmite"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -3708,6 +3770,14 @@
      "vers": "cuisine / égouttoir"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-poubelle"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -3753,6 +3823,16 @@
     "distance_m": 14.0,
     "duree_s": 14,
     "foulees": 19
+   },
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-livre",
+     "obj-portefeuille"
+    ],
+    "entend": [
+     "la radio"
+    ]
    },
    "lumiere": [
     "allume la lumière (entree)",
@@ -3821,6 +3901,15 @@
      "vers": "sejour / table basse"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles",
+     "obj-reveil"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "lumiere": [
     "allume la lumière (couloir)",
     "éteint la lumière (couloir)",
@@ -3862,6 +3951,15 @@
    "activite": "Lecture technique",
    "action": "Lit la procédure de démontage du mécanisme automatique.",
    "pensee": "L'inverseur, attention à l'inverseur.",
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-netbook"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "ordinateur",
     "radio"
@@ -3897,6 +3995,15 @@
    "activite": "Lecture technique",
    "action": "Lit la page sur le barillet et le ressort de remplacement.",
    "pensee": "Le ressort neuf est dans le tiroir de l'établi. Arrivé samedi avec les montres.",
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "ordinateur",
     "radio"
@@ -3932,6 +4039,11 @@
    "activite": "Lecture technique",
    "action": "Note mentalement l'ordre des huiles à utiliser.",
    "pensee": "Huile fine pour l'échappement, graisse pour le barillet. Comme toujours.",
+   "perception": {
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "ordinateur",
     "radio"
@@ -3967,6 +4079,11 @@
    "activite": "Lecture technique",
    "action": "Regarde les vues éclatées du mouvement.",
    "pensee": "Beau calibre. Simple et costaud.",
+   "perception": {
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "ordinateur",
     "radio"
@@ -4002,6 +4119,14 @@
    "activite": "Lecture technique",
    "action": "Lit la partie sur le réglage du spiral.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "ordinateur",
     "radio"
@@ -4037,6 +4162,14 @@
    "activite": "Lecture technique",
    "action": "Éteint l'ordinateur et regarde la cour par la fenêtre.",
    "pensee": "Le ciel est gris sur les toits d'en face.",
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4078,6 +4211,14 @@
      "vers": "sejour / bibliothèque, étagère du bas"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4112,6 +4253,14 @@
    "activite": "Lecture technique",
    "action": "Reste assis quelques minutes à écouter la radio.",
    "pensee": "Personne ne m'attend nulle part aujourd'hui. Ça a du bon.",
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4156,6 +4305,12 @@
     "distance_m": 8.5,
     "duree_s": 8,
     "foulees": 12
+   },
+   "perception": {
+    "vu": [
+     "obj-chaussures-course",
+     "obj-panier-linge"
+    ]
    },
    "lumiere": [
     "allume la lumière (entree)",
@@ -4251,6 +4406,21 @@
      "vers": "atelier / serrure du coffre"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cabas",
+     "obj-chaussures-course",
+     "obj-lunettes",
+     "obj-omega",
+     "obj-outils",
+     "obj-panier-linge",
+     "obj-ressort-rolex",
+     "obj-rolex",
+     "obj-telecommande",
+     "obj-zenith"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (couloir)",
@@ -4308,6 +4478,15 @@
      "vers": "sur son nez"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4376,6 +4555,20 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Lance le cycle : nettoyage, deux rinçages, séchage. Quarante minutes.",
    "pensee": "Quarante minutes. Je m'occupe de la boîte.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4411,6 +4604,18 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Retire les vieux joints du fond et de la couronne.",
    "pensee": "Durcis comme du bois. Ils n'avaient pas été changés depuis longtemps.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-lot-quartz",
+     "obj-photo-grand-pere",
+     "obj-rolex"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4446,6 +4651,17 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Nettoie la carrure et le fond au pinceau, sans polir.",
    "pensee": "On ne polit pas une boîte de 1962. On la nettoie, on la respecte.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-pendule"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4481,6 +4697,18 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Polit la glace en plexiglas avec un peu de pâte.",
    "pensee": "Henri disait : une montre, ça se respecte, même une à quartz.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4525,6 +4753,16 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Dépoussière le cadran et les aiguilles à la poire soufflante.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-omega",
+     "obj-outils"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4560,6 +4798,18 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Prépare les joints neufs dans une petite boîte.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-pendule"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4595,6 +4845,17 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Note l'état de la boîte sur la fiche de travail.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-outils",
+     "obj-pendule",
+     "obj-ressort-rolex"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4630,6 +4891,20 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Surveille la machine en rangeant le pinceau et la pâte.",
    "pensee": "Ce soir, le tour. Le premier copeau de l'axe.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -4665,6 +4940,14 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "La machine s'arrête. Sort les paniers et laisse sécher les pièces sous une cloche.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-omega",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4699,6 +4982,12 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Contrôle à la loupe les pivots du rouage, un par un.",
    "pensee": "Propres. Pas de rayure, pas d'usure.",
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4742,6 +5031,11 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Contrôle les dents de la roue d'échappement et les levées de l'ancre.",
    "pensee": "Les levées sont belles. Celui qui l'a révisée avant moi savait travailler.",
+   "perception": {
+    "vu": [
+     "obj-montre-gousset"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4785,6 +5079,14 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Graisse le ressort, referme le barillet et huile son arbre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4827,6 +5129,12 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Pose le barillet sur la platine.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4861,6 +5169,13 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Monte la roue de centre et la roue moyenne.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4903,6 +5218,12 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Monte la roue de seconde et la roue d'échappement, puis le pont de rouage.",
    "pensee": "Les pivots entrent seuls dans leurs trous. C'est le moment que je préfère.",
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-outils"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4947,6 +5268,13 @@
    "activite": "Omega : nettoyage et remontage du rouage",
    "action": "Souffle doucement sur le rouage : il tourne librement.",
    "pensee": "Libre. Parfait.",
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5009,6 +5337,12 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-chaussures-course",
+     "obj-cles-coffre"
+    ]
+   },
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -5072,6 +5406,12 @@
      "reste": 264
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-portefeuille"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (wc)",
     "allume la lumière (couloir)",
@@ -5121,6 +5461,12 @@
    "activite": "Pause café",
    "action": "Rince la tasse, fait quelques étirements en regardant par la fenêtre.",
    "pensee": "Les pigeons sur le toit d'en face. Toujours les mêmes, on dirait.",
+   "perception": {
+    "vu": [
+     "obj-marmite",
+     "obj-tasse"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5172,6 +5518,18 @@
      "vers": "sur son nez"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-rolex",
+     "obj-telecommande"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5214,6 +5572,13 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Termine l'huilage des pivots côté cadran.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5256,6 +5621,14 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Pose l'ancre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5298,6 +5671,11 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Pose le pont d'ancre et vérifie les ébats.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5332,6 +5710,14 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Huile les levées de l'ancre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-omega"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5374,6 +5760,14 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Pose le balancier-spiral.",
    "pensee": "Doucement. Le spiral, c'est un cheveu.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5416,6 +5810,14 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Visse le pont de balancier.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5450,6 +5852,13 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Donne quelques tours de remontoir : le balancier ne part pas encore, il manque l'huile des pierres de balancier.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5484,6 +5893,14 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Huile les pierres de balancier.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5526,6 +5943,16 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Le balancier oscille. Il écoute le tic-tac à la loupe.",
    "pensee": "Elle bat. Régulière.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-omega",
+     "obj-pendule",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5570,6 +5997,12 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Monte la minuterie et le mécanisme de mise à l'heure.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-omega"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5604,6 +6037,11 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Contrôle le passage de la mise à l'heure.",
    "pensee": "Un petit creux de faim. Le poulet.",
+   "perception": {
+    "vu": [
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5638,6 +6076,14 @@
    "activite": "Omega : huilage, échappement, balancier",
    "action": "Vérifie l'ensemble une dernière fois avant de s'arrêter.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5698,6 +6144,13 @@
      "reste": 0
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-photo-grand-pere",
+     "obj-poubelle"
+    ]
+   },
    "appareils_allumes": [
     "four",
     "lampe-etabli"
@@ -5756,6 +6209,11 @@
      "unite": null
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cafetiere"
+    ]
+   },
    "appareils_allumes": [
     "four",
     "lampe-etabli"
@@ -5808,6 +6266,16 @@
      "vers": "sur son nez"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-photo-grand-pere"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "four",
@@ -5844,6 +6312,14 @@
    "activite": "Omega : premier contrôle de marche",
    "action": "Lit le premier résultat : avance de quarante secondes par jour, amplitude correcte.",
    "pensee": "Quarante secondes. On réglera après le remontage complet.",
+   "perception": {
+    "vu": [
+     "obj-zenith"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "four",
@@ -5880,6 +6356,13 @@
    "activite": "Omega : premier contrôle de marche",
    "action": "Note les mesures sur la fiche de travail.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-omega",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "four",
     "lampe-etabli"
@@ -5915,6 +6398,12 @@
    "activite": "Omega : premier contrôle de marche",
    "action": "Range le mouvement dans un boîtier de protection.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "four",
     "lampe-etabli"
@@ -5950,6 +6439,13 @@
    "activite": "Omega : premier contrôle de marche",
    "action": "Nettoie ses brucelles et les aligne.",
    "pensee": "L'odeur du poulet arrive jusqu'ici.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-montre-gousset"
+    ]
+   },
    "appareils_allumes": [
     "four",
     "lampe-etabli"
@@ -6000,6 +6496,12 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-outils"
+    ]
+   },
    "appareils_allumes": [
     "four"
    ],
@@ -6042,6 +6544,12 @@
     "distance_m": 5.0,
     "duree_s": 5,
     "foulees": 7
+   },
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-netbook"
+    ]
    },
    "appareils_allumes": [
     "four"
@@ -6193,6 +6701,11 @@
      "reste": 1
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-marmite"
+    ]
+   },
    "appareils_allumes": [],
    "evenements": [
     {
@@ -6240,6 +6753,11 @@
    "activite": "Déjeuner",
    "action": "Termine son assiette.",
    "pensee": "Sophie aurait mis du thym. Elle mettait du thym partout.",
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ]
+   },
    "appareils_allumes": [],
    "evenements": [
     {
@@ -6281,6 +6799,15 @@
    "activite": "Déjeuner",
    "action": "Allume la radio pour le journal de 13 heures, débarrasse.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-netbook"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -6324,6 +6851,16 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-livre-courir",
+     "obj-netbook"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -6358,6 +6895,14 @@
    "activite": "Café et vaisselle",
    "action": "Met la cuisse restante et les pommes de terre dans une boîte au réfrigérateur.",
    "pensee": "Demain midi, avec du riz.",
+   "perception": {
+    "vu": [
+     "obj-cafetiere"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -6401,6 +6946,14 @@
      "reste": 257
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-tasse"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -6443,6 +6996,11 @@
    "activite": "Café et vaisselle",
    "action": "Lave le plat, l'assiette et les couverts.",
    "pensee": null,
+   "perception": {
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -6486,6 +7044,11 @@
     "distance_m": 9.0,
     "duree_s": 9,
     "foulees": 12
+   },
+   "perception": {
+    "vu": [
+     "obj-cafetiere"
+    ]
    },
    "appareils_allumes": [],
    "besoins": {
@@ -6570,6 +7133,11 @@
      "vers": "dans sa main"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-tenue-course"
+    ]
+   },
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -6618,6 +7186,14 @@
     "distance_m": 9.5,
     "duree_s": 10,
     "foulees": 13
+   },
+   "perception": {
+    "vu": [
+     "obj-chaussures-course",
+     "obj-livre-courir",
+     "obj-netbook",
+     "obj-tenue-course"
+    ]
    },
    "lumiere": [
     "allume la lumière (couloir)",
@@ -6736,6 +7312,11 @@
    "activite": "Lecture et courte sieste",
    "action": "Somnole.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 93.5,
@@ -6831,6 +7412,14 @@
      "vers": "sur son nez"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-outils"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -6865,6 +7454,13 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Huile les roues d'inverseur.",
    "pensee": "Les inverseurs, c'est là que les automatiques s'usent.",
+   "perception": {
+    "vu": [
+     "obj-outils",
+     "obj-pendule",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -6907,6 +7503,14 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Remonte le pont d'automatique.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-omega",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -6941,6 +7545,17 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Pose la masse oscillante.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -6975,6 +7590,13 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Fait tourner la masse à la main : le remontage s'entend.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-omega",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7018,6 +7640,14 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Contrôle le remontage automatique.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7052,6 +7682,14 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Pose le cadran.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-omega",
+     "obj-outils",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7094,6 +7732,13 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Chasse l'aiguille des heures et celle des minutes.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7136,6 +7781,14 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Pose l'aiguille des secondes.",
    "pensee": "La trotteuse, la plus délicate. Ne pas toucher le cadran.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7178,6 +7831,12 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Vérifie le parallélisme des aiguilles sur un tour complet.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7221,6 +7880,16 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Remet le mouvement sur le chronocomparateur, cadran en haut.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-photo-grand-pere"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -7256,6 +7925,17 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Mesure cadran en haut : plus 6 secondes par jour.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -7291,6 +7971,20 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Mesure couronne en bas : plus 9.",
    "pensee": "On peut faire mieux.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-omega",
+     "obj-outils",
+     "obj-pendule",
+     "obj-ressort-rolex"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -7326,6 +8020,17 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Déplace très légèrement la raquette.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cles-coffre",
+     "obj-pendule",
+     "obj-ressort-rolex"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -7369,6 +8074,16 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Nouvelle mesure : plus 3 cadran en haut.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-outils"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -7404,6 +8119,15 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Mesure couronne en bas : plus 5.",
    "pensee": "Plus 3, plus 5. Pour une montre de quarante-huit ans, c'est très bien.",
+   "perception": {
+    "vu": [
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -7449,6 +8173,13 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Mesure les autres positions pour vérifier l'écart.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-pendule",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7483,6 +8214,13 @@
    "activite": "Omega : automatique, cadran, réglage",
    "action": "Note les résultats sur la fiche de travail.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7536,6 +8274,11 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-rolex"
+    ]
+   },
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -7599,6 +8342,12 @@
      "reste": 5
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-poubelle",
+     "obj-tasse"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (wc)",
     "allume la lumière (couloir)",
@@ -7657,6 +8406,13 @@
      "vers": "sur son nez"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-lot-quartz",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7699,6 +8455,13 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Remet la tige et la couronne.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-montre-gousset",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7733,6 +8496,15 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Pose les joints neufs du fond et de la couronne.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7767,6 +8539,12 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Graisse légèrement les joints.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7801,6 +8579,16 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Ferme le fond à la clé.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-pendule",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7835,6 +8623,13 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Place la montre dans le contrôleur d'étanchéité.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "controleur-etancheite",
     "lampe-etabli"
@@ -7870,6 +8665,12 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Lance le test de pression.",
    "pensee": "Si ça fuit, on recommence les joints. Ça ne fuira pas.",
+   "perception": {
+    "vu": [
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "controleur-etancheite",
     "lampe-etabli"
@@ -7905,6 +8706,14 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Lit le résultat : aucune fuite.",
    "pensee": "Étanche. Enfin, pour une montre de 1962 : à la pluie, pas à la piscine.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-omega",
+     "obj-photo-grand-pere",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7948,6 +8757,13 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Remet le bracelet d'origine, nettoyé ce matin.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-omega",
+     "obj-pendule",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7982,6 +8798,12 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Fait tourner la montre dans sa main pour vérifier le remontage automatique.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8016,6 +8838,11 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "La met à l'heure d'après sa propre montre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-outils"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8050,6 +8877,11 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Remplit la fiche de travail : opérations, mesures, joints changés.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8084,6 +8916,12 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Nettoie l'établi.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8118,6 +8956,13 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Vide et rince les bacs de la machine à ultrasons.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-montre-gousset",
+     "obj-omega"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8152,6 +8997,13 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Range les huiles et les joints restants.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-lot-quartz",
+     "obj-outils"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8186,6 +9038,12 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Essuie la montre avec une peau de chamois.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8220,6 +9078,16 @@
    "activite": "Omega : emboîtage et contrôle final",
    "action": "Pose l'Omega cadran en haut sur un coussin pour vingt-quatre heures d'observation.",
    "pensee": "Terminée. Un jour d'avance sur le planning.",
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8278,6 +9146,11 @@
      "vers": "atelier / établi"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-montre-gousset"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8312,6 +9185,13 @@
    "activite": "Rolex : premier examen et début du démontage",
    "action": "Remplit la fiche d'état initial : boîte, verre, couronne, marche.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-omega",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8346,6 +9226,12 @@
    "activite": "Rolex : premier examen et début du démontage",
    "action": "Ouvre le fond avec la clé adaptée.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-montre-gousset"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8380,6 +9266,13 @@
    "activite": "Rolex : premier examen et début du démontage",
    "action": "Observe le mouvement à la loupe.",
    "pensee": "Propre, mais les huiles sont sèches. Le ressort est fatigué, comme prévu.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-pendule",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8414,6 +9307,13 @@
    "activite": "Rolex : premier examen et début du démontage",
    "action": "Vérifie dans le tiroir de l'établi le ressort de barillet neuf, dans son sachet.",
    "pensee": "Il est là. Bien.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-lot-quartz",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8457,6 +9357,12 @@
    "activite": "Rolex : premier examen et début du démontage",
    "action": "Démonte la masse oscillante.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-outils",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8491,6 +9397,15 @@
    "activite": "Rolex : premier examen et début du démontage",
    "action": "Sort le mouvement de la boîte.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-outils",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8533,6 +9448,11 @@
    "activite": "Rolex : premier examen et début du démontage",
    "action": "Retire les aiguilles avec un protège-cadran.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8575,6 +9495,15 @@
    "activite": "Rolex : premier examen et début du démontage",
    "action": "Retire le cadran et range les pièces dans un plateau compartimenté.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-omega",
+     "obj-pendule",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8621,6 +9550,13 @@
      "vers": "atelier / coffre-fort, remontée, en observation"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8667,6 +9603,15 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-pendule",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [],
    "evenements": [
     {
@@ -8717,6 +9662,15 @@
     "duree_s": 5,
     "foulees": 7
    },
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-omega"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -8751,6 +9705,14 @@
    "activite": "Temps libre",
    "action": "Écoute la radio, les jambes allongées.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -8785,6 +9747,15 @@
    "activite": "Temps libre",
    "action": "Regarde la lumière baisser sur les toits par la fenêtre.",
    "pensee": "Mars. Les jours rallongent, enfin.",
+   "perception": {
+    "vu": [
+     "obj-livre",
+     "obj-livre-courir"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -8827,6 +9798,16 @@
    "activite": "Temps libre",
    "action": "Ferme les yeux quelques minutes, sans dormir.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre",
+     "obj-netbook",
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -8886,6 +9867,15 @@
      "reste": 3
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-poubelle"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -8929,6 +9919,11 @@
      "reste": 1000
     }
    ],
+   "perception": {
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -8972,6 +9967,14 @@
      "reste": 3
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-tasse"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -9024,6 +10027,14 @@
      "reste": 220
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-tasse"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "plaque-1",
     "radio"
@@ -9059,6 +10070,14 @@
    "activite": "Préparation de la soupe",
    "action": "Ajoute l'eau, les pommes de terre et le sel. Couvre, laisse cuire trente minutes.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-tasse"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "lumiere": [
     "allume la lumière (cuisine) : la nuit tombe"
    ],
@@ -9107,6 +10126,11 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "perception": {
+    "vu": [
+     "obj-poubelle"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (cuisine)",
     "allume la lumière (sejour)"
@@ -9146,6 +10170,11 @@
    "activite": "Lecture pendant la cuisson",
    "action": "Lit sur le canapé.",
    "pensee": "Le père protège le fils de tout. Même de ce qu'il pense.",
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ]
+   },
    "appareils_allumes": [
     "plaque-1",
     "lumiere-sejour"
@@ -9196,6 +10225,12 @@
    "activite": "Lecture pendant la cuisson",
    "action": "Lit (page 130).",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre",
+     "obj-livre-courir"
+    ]
+   },
    "appareils_allumes": [
     "plaque-1",
     "lumiere-sejour"
@@ -9231,6 +10266,11 @@
    "activite": "Lecture pendant la cuisson",
    "action": "Pose le livre sur la table basse.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre"
+    ]
+   },
    "appareils_allumes": [
     "plaque-1",
     "lumiere-sejour"
@@ -9380,6 +10420,11 @@
      "reste": 21
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cafetiere"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-cuisine"
    ],
@@ -9476,6 +10521,12 @@
    "activite": "Dîner",
    "action": "Termine le comté.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-netbook"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-sejour"
    ],
@@ -9518,6 +10569,13 @@
     "distance_m": 4.5,
     "duree_s": 4,
     "foulees": 6
+   },
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-livre",
+     "obj-tasse"
+    ]
    },
    "lumiere": [
     "éteint la lumière (sejour)",
@@ -9598,6 +10656,11 @@
      "vers": "cuisine / réfrigérateur"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-tasse"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-cuisine"
    ],
@@ -9632,6 +10695,11 @@
    "activite": "Vaisselle",
    "action": "Fait la vaisselle : bol, couteau, mixeur.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-tasse"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-cuisine"
    ],
@@ -9721,6 +10789,11 @@
     "duree_s": 12,
     "foulees": 17
    },
+   "perception": {
+    "vu": [
+     "obj-veste"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (cuisine)",
     "allume la lumière (sejour)",
@@ -9784,6 +10857,17 @@
      "vers": "sur son nez"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-pendule",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (wc)",
     "allume la lumière (couloir)",
@@ -9838,6 +10922,15 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Prend l'ancien axe cassé dans le plateau de la montre de gousset et mesure sa hauteur totale au micromètre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-outils",
+     "obj-pendule",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -9873,6 +10966,12 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Mesure les diamètres des portées et des pivots.",
    "pensee": "Pivot : 0,09 ? Non, 0,10. On mesure trois fois.",
+   "perception": {
+    "vu": [
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -9916,6 +11015,13 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Reporte toutes les cotes sur une feuille.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-montre-gousset",
+     "obj-omega"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -9958,6 +11064,13 @@
      "vers": "atelier / tour d'horloger"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -9993,6 +11106,11 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Serre le barreau dans la pince du tour et le centre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10036,6 +11154,12 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Affûte le burin sur la pierre.",
    "pensee": "Un burin mal affûté, c'est un axe raté.",
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-omega"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10071,6 +11195,14 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Met le tour en marche et dégrossit le barreau au burin.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre"
+    ],
+    "entend": [
+     "le tour"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10107,6 +11239,16 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Continue le dégrossissage.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-rolex",
+     "obj-zenith"
+    ],
+    "entend": [
+     "le tour"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10143,6 +11285,15 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Contrôle le diamètre au micromètre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-zenith"
+    ],
+    "entend": [
+     "le tour"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10188,6 +11339,15 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Commence la portée du balancier.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-omega",
+     "obj-rolex"
+    ],
+    "entend": [
+     "le tour"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10232,6 +11392,17 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Travaille la portée du balancier.",
    "pensee": "Le copeau sort en spirale bleue. C'est beau.",
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ],
+    "entend": [
+     "le tour"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10282,6 +11453,19 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Termine la portée du balancier.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ],
+    "entend": [
+     "le tour"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10326,6 +11510,17 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Contrôle la cote : dans la tolérance.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ],
+    "entend": [
+     "le tour"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10371,6 +11566,17 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Commence la portée du plateau.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-omega",
+     "obj-rolex",
+     "obj-zenith"
+    ],
+    "entend": [
+     "le tour"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10415,6 +11621,17 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Travaille la portée du plateau.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-omega",
+     "obj-pendule",
+     "obj-zenith"
+    ],
+    "entend": [
+     "le tour"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "tour",
@@ -10459,6 +11676,16 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Termine la portée du plateau et arrête le tour.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-lot-quartz",
+     "obj-outils",
+     "obj-pendule",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10502,6 +11729,13 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Contrôle les cotes. Il reste les pivots, trop délicats pour être commencés si tard.",
    "pensee": "Pas de pivot à moins de trente minutes de la fin. C'est la règle.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-outils",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10546,6 +11780,13 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Note les cotes atteintes sur la feuille.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-omega"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10581,6 +11822,13 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Regarde l'ébauche sous la loupe.",
    "pensee": "Un quart du chemin.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-pendule",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10616,6 +11864,14 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Balaie les copeaux du tour.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-pendule",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10651,6 +11907,15 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Repense à son grand-père qui tournait ses axes à l'œil.",
    "pensee": "Grand-père tournait ses axes sans micromètre. Je n'en suis pas là.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10702,6 +11967,12 @@
      "vers": "atelier / établi, boîte à côté de la montre de gousset (ébauche d'axe)"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10737,6 +12008,16 @@
    "activite": "Montre du grand-père : tournage de l'axe (séance 1)",
    "action": "Aligne ses outils.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10772,6 +12053,14 @@
    "activite": "Rangement",
    "action": "Repose la cloche de verre sur la montre de gousset.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-pendule",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "lumiere-atelier"
@@ -10814,6 +12103,15 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-photo-grand-pere",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-atelier"
    ],
@@ -10867,6 +12165,17 @@
      "reste": 38
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-cles-coffre",
+     "obj-lunettes",
+     "obj-marmite",
+     "obj-montre-gousset",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (atelier)",
     "allume la lumière (sejour)",
@@ -10926,6 +12235,11 @@
     "distance_m": 12.5,
     "duree_s": 12,
     "foulees": 17
+   },
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ]
    },
    "lumiere": [
     "éteint la lumière (cuisine)",
@@ -11072,6 +12386,11 @@
      "vers": "chambre / table de chevet"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-etendoir"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (couloir)",
@@ -11133,6 +12452,11 @@
      "vers": "chambre / table de chevet"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-reveil"
+    ]
+   },
    "lumiere": [
     "allume la lumière (couloir)",
     "éteint la lumière (couloir)",
@@ -11187,6 +12511,11 @@
    "activite": "Coucher",
    "action": "Se couche et lit (page 134).",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-poignet"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-chambre"
    ],
@@ -11278,6 +12607,12 @@
      "vers": "chambre / table de chevet, sous le livre"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-reveil",
+     "obj-tenue-course"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-chambre"
    ],
@@ -11312,6 +12647,13 @@
    "activite": "Coucher",
    "action": "Lit encore (page 138).",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-carnet",
+     "obj-montre-poignet",
+     "obj-reveil"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-chambre"
    ],

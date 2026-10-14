@@ -9,6 +9,8 @@ trouvait bien là où la journée le prend, d'un jour à l'autre.
 import heapq
 import json
 
+from perception import Perception
+
 PAS_PAR_JOUR = 288
 
 
@@ -149,7 +151,7 @@ class Simulation:
     l'agent autonome, qui consulte l'état avant de décider de chaque pas.
     """
 
-    def __init__(self, fiche, date, etat):
+    def __init__(self, fiche, date, etat, perturbations=None):
         self.fiche = fiche
         self.date = date
         self.B = fiche["besoins"]
@@ -179,6 +181,11 @@ class Simulation:
         self.lumieres = {pc: bool(etat["lumieres"].get(pc)) for pc in self.PIECES}
         self.appareils = set(etat["appareils"])
         self.positions = dict(etat["positions"])
+        # ce que le personnage croit : égal à la réalité, sauf écarts hérités de la veille
+        self.croyances = dict(self.positions) | dict(etat.get("croyances") or {})
+        # changements du monde faits à son insu (scénario), appliqués au début de leur pas
+        self.perturbations = [x for x in (perturbations or []) if x["date"] == date]
+        self.monde = {}
         self.cafe = list(etat["cafe"])
         self.stock = dict(etat["stock"])
         self.argent = dict(etat.get("argent") or argent_initial(fiche))
@@ -189,6 +196,7 @@ class Simulation:
                       "passages_de_piece": 0, "marches": 0, "denivele_positif_m": 0, "denivele_negatif_m": 0, "lumiere_allumages": 0,
                       "voiture_m": 0.0}
         self.steps = []
+        self.PERCEPTION = Perception(fiche, self) if fiche.get("perception") else None
 
     # ------------------------------------------------------------ outils
     def chemin(self, a, b):
@@ -223,12 +231,26 @@ class Simulation:
         trop = emotions["anxiete"] > SOM["seuil_anxiete_insomnie"] or emotions["excitation"] > SOM["seuil_excitation_insomnie"]
         return SOM["endormissement_minutes_si_anxieux"] if trop else SOM["endormissement_minutes_normal"]
 
+    def changements_du_monde(self):
+        """Applique, une seule fois, les perturbations prévues au pas qui commence (la réalité change, pas les croyances)."""
+        i = len(self.steps)
+        if i not in self.monde:
+            self.monde[i] = []
+            for x in self.perturbations:
+                if idx(x["heure"]) == i:
+                    if x["objet"] not in self.positions:
+                        raise Incoherence(f"{hm(i)} : perturbation sur un objet inconnu {x['objet']}")
+                    self.monde[i].append({"objet": x["objet"], "de": self.positions[x["objet"]], "vers": x["vers"], "par": x.get("par", "voyageur")})
+                    self.positions[x["objet"]] = x["vers"]
+        return self.monde[i]
+
     # ------------------------------------------------------------ un pas
     def pas(self, st, s):
         """Applique un pas rédigé (st) dans son segment (s) et renvoie l'entrée de la timeline."""
         B, PLAN, IMM, PIECES = self.B, self.PLAN, self.IMM, self.PIECES
         besoins, emo, lumieres, appareils, st_ = self.besoins, self.emo, self.lumieres, self.appareils, self.stats
         i = len(self.steps)
+        monde = self.changements_du_monde()
         piece = st.get("piece", s["piece"])
         lieu = st.get("lieu", s["lieu"])
         mode = st.get("mode", s["mode"])
@@ -351,13 +373,13 @@ class Simulation:
         for o in st.get("nouveaux_objets", []):
             if o["id"] in self.positions:
                 raise Incoherence(f"{hm(i)} : l'objet {o['id']} existe déjà")
-            self.positions[o["id"]] = o["position"]
+            self.positions[o["id"]] = self.croyances[o["id"]] = o["position"]
         for o in st.get("objets", []):
             if o["objet"] not in self.positions:
                 raise Incoherence(f"{hm(i)} : objet inconnu {o['objet']}")
             if self.positions[o["objet"]] != o["de"]:
                 raise Incoherence(f"{hm(i)} : {o['objet']} est à « {self.positions[o['objet']]} », pas à « {o['de']} »")
-            self.positions[o["objet"]] = o["vers"]
+            self.positions[o["objet"]] = self.croyances[o["objet"]] = o["vers"]
 
         # ---- provisions : achats et production, puis consommation, jamais en dessous de zéro
         mouvements = {}
@@ -472,6 +494,11 @@ class Simulation:
             besoins[n] = _clamp(besoins[n])
         bonus = sum(8 if c <= i < c + 24 else (-4 if c + 24 <= i < c + 36 else 0) for c in self.cafe)
 
+        # ---- perception : ce qu'il voit, entend et remarque ; une remarque corrige sa croyance et se vit comme un événement
+        perception, ev_perception = None, []
+        if self.PERCEPTION:
+            perception, ev_perception = self.PERCEPTION.percevoir(i, lieu, piece, parcours_app, endormi, {o["objet"] for o in st.get("objets", [])})
+
         # ---- émotions : retour vers la base, événements, besoins
         self.base["solitude"] = 0.25 + 0.01 * max(0.0, 75 - besoins["social"])
         for e in emo:
@@ -479,7 +506,7 @@ class Simulation:
             emo[e] = self.base[e] + (emo[e] - self.base[e]) * 0.5 ** (1 / hl)
         ev_out = []
         bonus_conc = 0.0
-        for ev in st.get("ev", []):
+        for ev in st.get("ev", []) + [e for e in ev_perception if e not in st.get("ev", [])]:
             if ev not in self.EV:
                 raise Incoherence(f"{hm(i)} : événement inconnu {ev}")
             spec = self.EV[ev]
@@ -522,6 +549,10 @@ class Simulation:
             if st.get(opt):
                 entry[opt] = st[opt]
         entry.update(mouvements)
+        if perception:
+            entry["perception"] = perception
+        if monde:
+            entry["monde"] = monde
         if lum:
             entry["lumiere"] = lum
         entry["appareils_allumes"] = sorted(appareils) + [f"lumiere-{pc}" for pc, v in lumieres.items() if v]
@@ -551,6 +582,8 @@ class Simulation:
                       "stock": self.stock, "argent": self.argent}
         if self.boutique is not None:
             etat_final["boutique"] = self.boutique
+        if self.PERCEPTION:
+            etat_final["croyances"] = {k: v for k, v in self.croyances.items() if self.positions.get(k) != v}
         st_["anxiete_extinction"] = emo_ext["anxiete"]
         st_["excitation_extinction"] = emo_ext["excitation"]
         st_["seuil_insomnie"] = seuil
@@ -599,6 +632,31 @@ def bilan_magasin(fiche, steps, etat_final):
                 ruptures.append(r)
     return {"clients": clients, "recette": round(esp + carte + ardoise, 2), "recette_especes": round(esp, 2), "recette_carte": round(carte, 2),
             "a_credit": round(ardoise, 2), "ruptures": ruptures, "produits": P}
+
+
+def bilan_perception(fiche, steps, etat_final):
+    """Ce qu'il a remarqué et entendu dans la journée, ce qui a changé à son insu, ce qu'il croit à tort le soir."""
+    noms = {o["id"]: o["nom"] for o in fiche["objets"]}
+    vus, pas_vus, entendu, remarques, insu = set(), 0, {}, [], []
+    for s in steps:
+        P = s.get("perception") or {}
+        if P.get("vu"):
+            pas_vus += 1
+            vus.update(P["vu"])
+        for x in P.get("entend", []):
+            entendu[x] = entendu.get(x, 0) + 1
+        for r in P.get("remarques", []):
+            nom = noms.get(r["objet"], r["objet"])
+            if r["type"] == "absent":
+                remarques.append(f"{s['heure']} — {nom} : n'est plus à « {r['croyait']} »")
+            elif r["croyait"]:
+                remarques.append(f"{s['heure']} — {nom} : à « {r['voit']} » au lieu de « {r['croyait']} »")
+            else:
+                remarques.append(f"{s['heure']} — {nom} : à nouveau en vue, à « {r['voit']} »")
+        for m in s.get("monde", []):
+            insu.append(f"{s['heure']} — {m['par']} : {noms.get(m['objet'], m['objet'])}, de « {m['de']} » vers « {m['vers']} »")
+    return {"pas_avec_objets_vus": pas_vus, "objets_vus": len(vus), "entendu_pas": entendu, "remarques": remarques,
+            "a_son_insu": insu, "croyances_fausses_en_fin_de_journee": etat_final.get("croyances", {})}
 
 
 def quantite(q, unite):
@@ -652,6 +710,7 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
     if st_.get("voiture_m"):
         deplacements["voiture_m"] = round(st_["voiture_m"])
     magasin = bilan_magasin(fiche, steps, etat_final) if "boutique" in etat_final else None
+    perception = bilan_perception(fiche, steps, etat_final) if fiche.get("perception") else None
     out = {
         "meta": {
             "personnage": fiche["meta"]["id"], "fiche_version": fiche["meta"]["version"],
@@ -669,6 +728,8 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
                 "appareils_allumes": "appareils et lumières allumés à la fin du pas",
                 "evenements": "événements vécus et effet appliqué sur chaque émotion (après modulation par la personnalité)",
                 "besoins.energie_ressentie": "énergie corrigée de l'effet du café",
+                **({"perception": "ce qu'il voit (objets remarqués), entend et remarque (écart entre ce qu'il croit et ce qu'il voit)",
+                    "monde": "changements faits à son insu au début du pas (scénario)"} if fiche.get("perception") else {}),
             },
         },
         "resume": {
@@ -688,6 +749,7 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
             "endormissement": (f"extinction à {j.extinction} ; anxiété {st_['anxiete_extinction']} (seuil {st_['seuil_insomnie']}), "
                                f"excitation {st_['excitation_extinction']} (seuil {st_['seuil_excitation']}) : endormissement en {st_['endormissement_min']} minutes"),
             "ecarts_a_la_routine": j.ecarts,
+            **({"perception": perception} if perception else {}),
         },
         "etat_initial": etat_initial,
         "etat_final": etat_final,
@@ -797,6 +859,18 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
                         "ardoises": "ardoises des clients"}
         L.append("\nArgent : " + " ; ".join(f"{noms_comptes.get(c, c)} {m:+.2f} € (reste {etat_final['argent'].get(c, 0):.2f} €)"
                                             for c, m in depenses.items()) + ".")
+    if perception:
+        L += ["\n## Perception\n",
+              f"- Pas éveillés où il remarque au moins un objet : **{perception['pas_avec_objets_vus']}** ; objets remarqués dans la journée : **{perception['objets_vus']}**.",
+              "- Entendu : " + (", ".join(f"{k} ({v * 5} min)" for k, v in perception["entendu_pas"].items()) or "rien."),
+              "- Remarques (écart entre ce qu'il croit et ce qu'il voit) : " + ("aucune." if not perception["remarques"] else "")]
+        L += [f"  - {r}" for r in perception["remarques"]]
+        if perception["a_son_insu"]:
+            L.append("- À son insu :")
+            L += [f"  - {r}" for r in perception["a_son_insu"]]
+        fausses = perception["croyances_fausses_en_fin_de_journee"]
+        L.append("- Croyances fausses en fin de journée : " + (", ".join(
+            f"{k} (croit « {v} », en réalité « {etat_final['positions'].get(k)} »)" for k, v in fausses.items()) or "aucune."))
     L += ["\n## Bilan\n"] + [f"- {x}" for x in j.bilan]
     L.append(f"- **Endormissement** : {out['resume']['endormissement']}.")
     L.append("- **Écarts à la routine** :")

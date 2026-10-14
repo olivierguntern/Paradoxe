@@ -1,7 +1,7 @@
 {
  "meta": {
   "personnage": "thomas-berthier",
-  "fiche_version": 10,
+  "fiche_version": 11,
   "date": "2010-03-10",
   "jour": "mercredi",
   "pas_minutes": 5,
@@ -18,7 +18,9 @@
    "lumiere": "interrupteurs actionnés pendant le pas",
    "appareils_allumes": "appareils et lumières allumés à la fin du pas",
    "evenements": "événements vécus et effet appliqué sur chaque émotion (après modulation par la personnalité)",
-   "besoins.energie_ressentie": "énergie corrigée de l'effet du café"
+   "besoins.energie_ressentie": "énergie corrigée de l'effet du café",
+   "perception": "ce qu'il voit (objets remarqués), entend et remarque (écart entre ce qu'il croit et ce qu'il voit)",
+   "monde": "changements faits à son insu au début du pas (scénario)"
   }
  },
  "resume": {
@@ -168,7 +170,21 @@
   "ecarts_a_la_routine": [
    "06:55 : réveil naturel avant la sonnerie (sommeil long).",
    "23:10 : endormissement en 45 minutes (anxiété 0.209, excitation 0.6)."
-  ]
+  ],
+  "perception": {
+   "pas_avec_objets_vus": 168,
+   "objets_vus": 30,
+   "entendu_pas": {
+    "la radio": 15,
+    "le battement amplifié du chronocomparateur": 3,
+    "la machine à ultrasons": 7,
+    "la machine à laver": 1,
+    "la télévision": 22
+   },
+   "remarques": [],
+   "a_son_insu": [],
+   "croyances_fausses_en_fin_de_journee": {}
+  }
  },
  "etat_initial": {
   "piece": "chambre",
@@ -270,6 +286,7 @@
    "especes": 32.9,
    "compte": 940
   },
+  "croyances": {},
   "agent": {
    "endormi_a": -18,
    "habitudes": {
@@ -443,6 +460,7 @@
    "especes": 32.9,
    "compte": 940
   },
+  "croyances": {},
   "agent": {
    "endormi_a": -1,
    "habitudes": {
@@ -3356,6 +3374,11 @@
    "activite": "Lever",
    "action": "Coupe le réveil avant qu'il ne sonne et se lève.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-reveil"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 64.8,
@@ -3580,6 +3603,11 @@
      "vers": "poignet gauche"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-etendoir"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (couloir)",
@@ -3645,6 +3673,15 @@
      "reste": 229
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cabas",
+     "obj-tasse"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "lumiere": [
     "allume la lumière (couloir)",
     "éteint la lumière (couloir)",
@@ -3695,6 +3732,14 @@
      "reste": 17
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cafetiere"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "plaque-1",
     "radio"
@@ -3753,6 +3798,14 @@
      "reste": 31
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cafetiere"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -3795,6 +3848,14 @@
    "activite": "Petit-déjeuner",
    "action": "Mange près de la fenêtre.",
    "pensee": "Il faut que ce mois-ci tienne.",
+   "perception": {
+    "vu": [
+     "obj-cabas"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -3841,6 +3902,14 @@
      "vers": "cuisine / égouttoir"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-poubelle-2"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -3886,6 +3955,17 @@
     "distance_m": 14.0,
     "duree_s": 14,
     "foulees": 19
+   },
+   "perception": {
+    "vu": [
+     "obj-etendoir",
+     "obj-livre",
+     "obj-poubelle-2",
+     "obj-reveil"
+    ],
+    "entend": [
+     "la radio"
+    ]
    },
    "lumiere": [
     "allume la lumière (entree)",
@@ -3947,6 +4027,15 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-veste"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "lumiere": [
     "allume la lumière (couloir)",
     "éteint la lumière (couloir)",
@@ -3987,6 +4076,11 @@
    "activite": "Lecture technique : la trempe",
    "action": "Relit la température de trempe : rouge cerise, environ 800 degrés.",
    "pensee": null,
+   "perception": {
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4021,6 +4115,14 @@
    "activite": "Lecture technique : la trempe",
    "action": "Relit le revenu : le bleu, autour de 300 degrés.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4055,6 +4157,14 @@
    "activite": "Lecture technique : la trempe",
    "action": "Relit la protection au savon contre l'oxydation.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4089,6 +4199,15 @@
    "activite": "Lecture technique : la trempe",
    "action": "Note les étapes sur une fiche.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4123,6 +4242,14 @@
    "activite": "Lecture technique : la trempe",
    "action": "Écoute la radio, le manuel sur les genoux.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4157,6 +4284,15 @@
    "activite": "Lecture technique : la trempe",
    "action": "Range le manuel dans la bibliothèque.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4191,6 +4327,14 @@
    "activite": "Lecture technique : la trempe",
    "action": "Regarde la cour.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4225,6 +4369,11 @@
    "activite": "Lecture technique : la trempe",
    "action": "Reste assis à écouter la radio.",
    "pensee": null,
+   "perception": {
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4269,6 +4418,12 @@
     "distance_m": 8.5,
     "duree_s": 8,
     "foulees": 12
+   },
+   "perception": {
+    "vu": [
+     "obj-portefeuille",
+     "obj-tenue-course"
+    ]
    },
    "lumiere": [
     "allume la lumière (entree)",
@@ -4364,6 +4519,15 @@
      "vers": "atelier / serrure du coffre"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles",
+     "obj-montre-gousset",
+     "obj-netbook",
+     "obj-omega",
+     "obj-ressort-rolex"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (couloir)",
@@ -4426,6 +4590,14 @@
      "vers": "atelier / établi"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-outils"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -4461,6 +4633,15 @@
    "activite": "Rolex",
    "action": "Relevé : plus 10 secondes par jour cadran en haut, plus 13 couronne en bas.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-omega",
+     "obj-photo-grand-pere"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -4496,6 +4677,14 @@
    "activite": "Rolex",
    "action": "Déplace l'index de réglage d'un cheveu.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-zenith"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -4539,6 +4728,13 @@
    "activite": "Rolex",
    "action": "Nouveau relevé : plus 2, plus 4.",
    "pensee": "Propre.",
+   "perception": {
+    "vu": [
+     "obj-omega",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4583,6 +4779,12 @@
    "activite": "Rolex",
    "action": "Pose le cadran et les aiguilles, contrôle le passage de la date à minuit.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4625,6 +4827,11 @@
    "activite": "Rolex",
    "action": "Emboîte le mouvement et remonte la masse oscillante.",
    "pensee": "Ne pas trembler.",
+   "perception": {
+    "vu": [
+     "obj-montre-gousset"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4667,6 +4874,12 @@
    "activite": "Rolex",
    "action": "Change les joints du fond et de la couronne, ferme le fond.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-omega",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4701,6 +4914,13 @@
    "activite": "Rolex",
    "action": "Teste l'étanchéité : elle tient la pression.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4744,6 +4964,11 @@
    "activite": "Rolex",
    "action": "Remplit la fiche de travail.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4785,6 +5010,13 @@
      "vers": "atelier / coffre-fort, terminée, en observation"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-montre-gousset"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4836,6 +5068,11 @@
      "vers": "atelier / établi"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-classeur-compta"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4870,6 +5107,13 @@
    "activite": "Pendule",
    "action": "Ouvre la porte arrière, décroche le balancier.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-omega"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4904,6 +5148,17 @@
    "activite": "Pendule",
    "action": "Laisse descendre les ressorts des deux barillets avec la clé de remontage.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4946,6 +5201,15 @@
    "activite": "Pendule",
    "action": "Dévisse les pieds du mouvement et le sort de la caisse avec le cadran.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4988,6 +5252,13 @@
    "activite": "Pendule",
    "action": "Fait sonner la pendule à la main : douze coups au lieu de trois.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cles-coffre",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5022,6 +5293,11 @@
    "activite": "Pendule",
    "action": "Examine la roue de compte et son loquet à la loupe : le bout du loquet est usé.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5056,6 +5332,13 @@
    "activite": "Pendule",
    "action": "Retire le cadran et les aiguilles.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5090,6 +5373,12 @@
    "activite": "Pendule",
    "action": "Démonte la cadrature côté cadran.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5143,6 +5432,14 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-portefeuille"
+    ]
+   },
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -5206,6 +5503,11 @@
      "reste": 222
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cabas"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (wc)",
     "allume la lumière (couloir)",
@@ -5315,6 +5617,16 @@
      "vers": "sur son nez"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-outils",
+     "obj-pendule",
+     "obj-ressort-rolex",
+     "obj-rolex",
+     "obj-telecommande"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5357,6 +5669,15 @@
    "activite": "Pendule",
    "action": "Sort les deux barillets.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-pendule",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5391,6 +5712,13 @@
    "activite": "Pendule",
    "action": "Démonte les mobiles du rouage de sonnerie.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-omega",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5425,6 +5753,13 @@
    "activite": "Pendule",
    "action": "Démonte le rouage de mouvement.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5459,6 +5794,14 @@
    "activite": "Pendule",
    "action": "Ouvre les barillets et nettoie les ressorts.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-montre-gousset",
+     "obj-pendule",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5501,6 +5844,15 @@
    "activite": "Pendule",
    "action": "Met les petites pièces dans le grand panier de la machine à ultrasons et la lance.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-rolex"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -5536,6 +5888,18 @@
    "activite": "Pendule",
    "action": "Lave les platines au pinceau.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-omega",
+     "obj-rolex",
+     "obj-zenith"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -5571,6 +5935,17 @@
    "activite": "Pendule",
    "action": "Sèche les platines.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-omega",
+     "obj-pendule",
+     "obj-photo-grand-pere"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -5606,6 +5981,15 @@
    "activite": "Pendule",
    "action": "Polit les pivots usés au brunissoir.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-pendule"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -5649,6 +6033,16 @@
    "activite": "Pendule",
    "action": "Contrôle les trous des platines : un trou ovalisé côté sonnerie.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -5684,6 +6078,16 @@
    "activite": "Pendule",
    "action": "Alèse le trou ovalisé.",
    "pensee": "Lentement. C'est la pièce qui décide.",
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-photo-grand-pere"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -5727,6 +6131,20 @@
    "activite": "Pendule",
    "action": "Ajuste un bouchon en laiton et le chasse dans la platine.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-rolex"
+    ],
+    "entend": [
+     "la machine à ultrasons"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-ultrasons"
@@ -5770,6 +6188,17 @@
    "activite": "Pendule",
    "action": "La machine s'arrête. Alèse le bouchon au diamètre du pivot.",
    "pensee": "Un cheveu de trop, et c'est fini.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5812,6 +6241,14 @@
    "activite": "Pendule",
    "action": "Contrôle l'ébat du pivot dans son nouveau trou : juste ce qu'il faut.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-omega",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5856,6 +6293,13 @@
    "activite": "Pendule",
    "action": "Sort les petites pièces de la machine et les sèche.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5890,6 +6334,12 @@
    "activite": "Pendule",
    "action": "Contrôle les dents de la roue de compte.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5933,6 +6383,17 @@
    "activite": "Pendule",
    "action": "Reprend le bout du loquet usé à la lime fine.",
    "pensee": "Un cheveu de trop, et c'est fini.",
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-pendule",
+     "obj-ressort-rolex",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5975,6 +6436,17 @@
    "activite": "Pendule",
    "action": "Polit le loquet à la pierre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-omega",
+     "obj-outils",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -6009,6 +6481,15 @@
    "activite": "Pendule",
    "action": "Essaie le loquet sur la roue de compte, à la main : il accroche net.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-omega",
+     "obj-outils",
+     "obj-pendule",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -6053,6 +6534,12 @@
    "activite": "Pendule",
    "action": "Range les pièces propres sous une cloche.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -6094,6 +6581,16 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-omega",
+     "obj-pendule",
+     "obj-ressort-rolex",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 71.5,
@@ -6135,6 +6632,13 @@
     "distance_m": 9.5,
     "duree_s": 10,
     "foulees": 13
+   },
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-marmite",
+     "obj-netbook"
+    ]
    },
    "appareils_allumes": [
     "plaque-1"
@@ -6186,6 +6690,11 @@
      "reste": 1
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-marmite"
+    ]
+   },
    "appareils_allumes": [
     "plaque-1"
    ],
@@ -6228,6 +6737,13 @@
      "unite": null
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cabas",
+     "obj-cafetiere",
+     "obj-marmite"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 70.0,
@@ -6268,6 +6784,11 @@
     "distance_m": 4.5,
     "duree_s": 4,
     "foulees": 6
+   },
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ]
    },
    "appareils_allumes": [],
    "evenements": [
@@ -6310,6 +6831,12 @@
    "activite": "Déjeuner",
    "action": "Termine son assiette.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-netbook"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 99.5,
@@ -6342,6 +6869,11 @@
    "activite": "Déjeuner",
    "action": "Débarrasse.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 99.0,
@@ -6392,6 +6924,12 @@
      "reste": 215
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-marmite",
+     "obj-poubelle-2"
+    ]
+   },
    "appareils_allumes": [],
    "evenements": [
     {
@@ -6432,6 +6970,12 @@
    "activite": "Café et vaisselle",
    "action": "Lave la casserole et l'assiette.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cabas",
+     "obj-poubelle-2"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 98.0,
@@ -6464,6 +7008,11 @@
    "activite": "Café et vaisselle",
    "action": "Essuie et range.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cafetiere"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 97.5,
@@ -6528,6 +7077,12 @@
    "activite": "Café et vaisselle",
    "action": "Boit un verre d'eau.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-tasse"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 96.5,
@@ -6560,6 +7115,11 @@
    "activite": "Café et vaisselle",
    "action": "Regarde la cour par la fenêtre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cabas"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 96.0,
@@ -6611,6 +7171,13 @@
      "vers": "dans sa main"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-carnet",
+     "obj-etendoir",
+     "obj-netbook"
+    ]
+   },
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -6660,6 +7227,12 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "perception": {
+    "vu": [
+     "obj-chaussures-course",
+     "obj-livre-courir"
+    ]
+   },
    "lumiere": [
     "allume la lumière (couloir)",
     "éteint la lumière (couloir)",
@@ -6707,6 +7280,11 @@
    "activite": "Lecture",
    "action": "Lit (page 187).",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-telecommande"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 94.5,
@@ -6739,6 +7317,11 @@
    "activite": "Lecture",
    "action": "Lit (page 192).",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 94.0,
@@ -6887,6 +7470,17 @@
      "vers": "sur son nez"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-livre",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-veste",
+     "obj-zenith"
+    ]
+   },
    "lumiere": [
     "allume la lumière (couloir)",
     "éteint la lumière (couloir)",
@@ -6935,6 +7529,14 @@
    "activite": "Pendule",
    "action": "Pose les mobiles du rouage de mouvement sur la platine arrière.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cles-coffre",
+     "obj-omega",
+     "obj-outils"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -6969,6 +7571,13 @@
    "activite": "Pendule",
    "action": "Pose les mobiles du rouage de sonnerie.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7003,6 +7612,13 @@
    "activite": "Pendule",
    "action": "Présente la platine avant et guide les pivots un à un.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cles-coffre",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7045,6 +7661,13 @@
    "activite": "Pendule",
    "action": "Continue de guider les pivots.",
    "pensee": "Respirer, puis le geste.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-lot-quartz",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7087,6 +7710,14 @@
    "activite": "Pendule",
    "action": "Les pivots entrent. Il goupille les platines.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-pendule",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7131,6 +7762,13 @@
    "activite": "Pendule",
    "action": "Vérifie la liberté des deux rouages.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7174,6 +7812,16 @@
    "activite": "Pendule",
    "action": "Huile les pivots du rouage de mouvement.",
    "pensee": "Lentement. C'est la pièce qui décide.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7258,6 +7906,15 @@
    "activite": "Pendule",
    "action": "Pose l'ancre et son pont, huile les levées.",
    "pensee": "Lentement. C'est la pièce qui décide.",
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-omega",
+     "obj-pendule",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7300,6 +7957,16 @@
    "activite": "Pendule",
    "action": "Remonte la cadrature.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7334,6 +8001,15 @@
    "activite": "Pendule",
    "action": "Pose la roue de compte et son loquet repris.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-omega",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7368,6 +8044,14 @@
    "activite": "Pendule",
    "action": "Règle l'avertissement : la sonnerie doit se préparer juste avant l'heure.",
    "pensee": "Respirer, puis le geste.",
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7410,6 +8094,15 @@
    "activite": "Pendule",
    "action": "Accroche le mouvement sur un support d'essai, remonte un peu les deux ressorts.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-photo-grand-pere",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7444,6 +8137,14 @@
    "activite": "Pendule",
    "action": "Accroche le balancier et le lance : la pendule bat.",
    "pensee": "C'est entré seul. C'est ça, le métier.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7488,6 +8189,13 @@
    "activite": "Pendule",
    "action": "Écoute le battement : il boite légèrement.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7522,6 +8230,14 @@
    "activite": "Pendule",
    "action": "Tord délicatement la fourchette pour égaliser le battement.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7564,6 +8280,13 @@
    "activite": "Pendule",
    "action": "Le battement est égal.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-outils",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7626,6 +8349,11 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-omega"
+    ]
+   },
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -7747,6 +8475,13 @@
      "vers": "sur son nez"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7781,6 +8516,14 @@
    "activite": "Pendule",
    "action": "Continue jusqu'à l'heure suivante : quatre coups au lieu de trois.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-omega",
+     "obj-pendule",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7815,6 +8558,12 @@
    "activite": "Pendule",
    "action": "Soulève le loquet et fait tourner la roue de compte pour la caler sur les aiguilles.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7857,6 +8606,12 @@
    "activite": "Pendule",
    "action": "Nouvel essai : trois coups pour trois heures.",
    "pensee": "Propre.",
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7901,6 +8656,13 @@
    "activite": "Pendule",
    "action": "Fait passer les heures une à une jusqu'à midi : le compte est juste à chaque fois.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-outils"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7944,6 +8706,16 @@
    "activite": "Pendule",
    "action": "Remet le cadran et les aiguilles, à l'heure de sa montre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-pendule",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7978,6 +8750,14 @@
    "activite": "Pendule",
    "action": "Replace le mouvement dans la caisse en marbre et serre les pieds.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8020,6 +8800,15 @@
    "activite": "Pendule",
    "action": "Raccroche le balancier.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8054,6 +8843,11 @@
    "activite": "Pendule",
    "action": "Met la pendule d'aplomb sur l'établi.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8088,6 +8882,12 @@
    "activite": "Pendule",
    "action": "Remonte les deux ressorts à fond.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8122,6 +8922,12 @@
    "activite": "Pendule",
    "action": "Referme la porte arrière.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8156,6 +8962,15 @@
    "activite": "Pendule",
    "action": "Remplit la fiche : nettoyage, bouchon, loquet repris, sonnerie recalée.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8197,6 +9012,13 @@
      "vers": "atelier / étagère de fournitures, étage du bas, réparée, en observation"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8248,6 +9070,14 @@
      "vers": "atelier / établi"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cles-coffre",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8282,6 +9112,14 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "Polit à la pâte la boîte de la première montre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-outils",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8316,6 +9154,14 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "Polit la deuxième.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-omega",
+     "obj-outils",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8350,6 +9196,17 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "La pendule sonne cinq coups, au même instant que sa montre.",
    "pensee": "Voilà. Du premier coup.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8394,6 +9251,15 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "Polit la troisième, la montre de dame plaquée or, sans appuyer.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8428,6 +9294,15 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "Polit la quatrième.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8462,6 +9337,13 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "Polit la cinquième.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8496,6 +9378,14 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "Nettoie les traces de pâte au chiffon.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8530,6 +9420,12 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "Polit la sixième.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8564,6 +9460,16 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "La pendule sonne un coup pour la demie.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-omega",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8607,6 +9513,14 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "Contrôle les six boîtes sous la lampe.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8641,6 +9555,17 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "Range les six montres dans leur boîte.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-omega",
+     "obj-outils",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8675,6 +9600,12 @@
    "activite": "Montres à quartz : polissage des boîtes",
    "action": "Nettoie l'établi.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-pendule",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8721,6 +9652,16 @@
      "vers": "atelier / tiroir de l'établi, à droite"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8762,6 +9703,16 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-pendule",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [],
    "evenements": [
     {
@@ -8822,6 +9773,14 @@
      "vers": "dans ses bras"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-portefeuille"
+    ]
+   },
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -8887,6 +9846,14 @@
      "vers": "cuisine / machine à laver"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-chaussures-course",
+     "obj-poubelle-2",
+     "obj-tasse",
+     "obj-telecommande"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (couloir)",
@@ -8935,6 +9902,15 @@
      "reste": 9
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-panier-linge",
+     "obj-poubelle-2"
+    ],
+    "entend": [
+     "la machine à laver"
+    ]
+   },
    "appareils_allumes": [
     "machine-a-laver"
    ],
@@ -8986,6 +9962,13 @@
      "vers": "sur son nez"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-pendule",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-a-laver"
@@ -9030,6 +10013,13 @@
    "activite": "Montre du grand-père : trempe et revenu (séance 3)",
    "action": "Ouvre la fenêtre de l'atelier en grand.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cles-coffre",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-a-laver"
@@ -9107,6 +10097,12 @@
      "vers": "dans la pince de trempe"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-a-laver"
@@ -9150,6 +10146,14 @@
    "activite": "Montre du grand-père : trempe et revenu (séance 3)",
    "action": "Allume la lampe à alcool.",
    "pensee": "Doucement.",
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-photo-grand-pere",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-alcool",
     "lampe-etabli",
@@ -9194,6 +10198,15 @@
    "activite": "Montre du grand-père : trempe et revenu (séance 3)",
    "action": "Chauffe l'axe dans la flamme. Il passe au rouge sombre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-pendule",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-alcool",
     "lampe-etabli",
@@ -9238,6 +10251,14 @@
    "activite": "Montre du grand-père : trempe et revenu (séance 3)",
    "action": "Rouge cerise. Il le plonge d'un coup dans l'huile.",
    "pensee": "Doucement.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-ressort-rolex"
+    ]
+   },
    "lumiere": [
     "allume la lumière (atelier) : la nuit tombe"
    ],
@@ -9286,6 +10307,13 @@
    "activite": "Montre du grand-père : trempe et revenu (séance 3)",
    "action": "Sort l'axe de l'huile, l'essuie. Teste à la lime : elle glisse sans mordre.",
    "pensee": "Propre.",
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-alcool",
     "lampe-etabli",
@@ -9333,6 +10361,11 @@
    "activite": "Montre du grand-père : trempe et revenu (séance 3)",
    "action": "Blanchit une face de l'axe à la pierre pour voir monter les couleurs.",
    "pensee": "Ne pas trembler.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta"
+    ]
+   },
    "appareils_allumes": [
     "lampe-alcool",
     "lampe-etabli",
@@ -9378,6 +10411,12 @@
    "activite": "Montre du grand-père : trempe et revenu (séance 3)",
    "action": "Pose l'axe sur la plaque de laiton au-dessus de la flamme.",
    "pensee": "Doucement.",
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-alcool",
     "lampe-etabli",
@@ -9423,6 +10462,13 @@
    "activite": "Montre du grand-père : trempe et revenu (séance 3)",
    "action": "Regarde la couleur monter : paille, puis brun.",
    "pensee": "Grand-père aurait aimé voir ça.",
+   "perception": {
+    "vu": [
+     "obj-omega",
+     "obj-outils",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-alcool",
     "lampe-etabli",
@@ -9468,6 +10514,12 @@
    "activite": "Montre du grand-père : trempe et revenu (séance 3)",
    "action": "Pourpre, puis bleu. Il retire la plaque du feu.",
    "pensee": "C'est entré seul. C'est ça, le métier.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-alcool",
     "lampe-etabli",
@@ -9522,6 +10574,17 @@
      "vers": "atelier / établi, sur la plaque de laiton"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-a-laver",
@@ -9558,6 +10621,13 @@
    "activite": "Montre du grand-père : trempe et revenu (séance 3)",
    "action": "Nettoie l'axe à l'essence et l'examine à la loupe : aucune fissure.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-a-laver",
@@ -9603,6 +10673,16 @@
    "activite": "Montre du grand-père : trempe et revenu (séance 3)",
    "action": "Ferme la fenêtre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-a-laver",
@@ -9646,6 +10726,15 @@
      "vers": "atelier / établi, boîte à côté de la montre de gousset (axe trempé et revenu)"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-a-laver",
@@ -9682,6 +10771,15 @@
    "activite": "Rangement",
    "action": "Repose la cloche de verre sur la montre de gousset.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-omega",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli",
     "machine-a-laver",
@@ -9725,6 +10823,13 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "machine-a-laver",
     "lumiere-atelier"
@@ -9782,6 +10887,12 @@
      "vers": "panier à linge, mouillée"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (atelier)",
     "allume la lumière (sejour)",
@@ -9846,6 +10957,13 @@
      "vers": "chambre / sol"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-portefeuille",
+     "obj-tasse"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (cuisine)",
     "allume la lumière (sejour)",
@@ -9931,6 +11049,11 @@
      "vers": "chambre / étendoir"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-carnet"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-chambre"
    ],
@@ -9965,6 +11088,12 @@
    "activite": "Étendage",
    "action": "Étend le reste.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-carnet",
+     "obj-livre"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-chambre"
    ],
@@ -10077,6 +11206,16 @@
      "reste": 1
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-livre-courir",
+     "obj-marmite",
+     "obj-tasse",
+     "obj-telecommande",
+     "obj-veste"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (couloir)",
@@ -10121,6 +11260,12 @@
    "activite": "Dîner de match",
    "action": "Met l'eau des pâtes à bouillir.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cabas",
+     "obj-tasse"
+    ]
+   },
    "appareils_allumes": [
     "plaque-1",
     "lumiere-cuisine"
@@ -10201,6 +11346,14 @@
    "activite": "Dîner de match",
    "action": "Retourne le steak.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-marmite",
+     "obj-poubelle-2",
+     "obj-tasse"
+    ]
+   },
    "appareils_allumes": [
     "plaque-1",
     "plaque-2",
@@ -10245,6 +11398,12 @@
      "unite": null
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cabas",
+     "obj-cafetiere"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-cuisine"
    ],
@@ -10331,6 +11490,11 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "perception": {
+    "entend": [
+     "la télévision"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (cuisine)",
     "allume la lumière (sejour)"
@@ -10379,6 +11543,15 @@
    "activite": "Real Madrid – Lyon : première mi-temps",
    "action": "Cristiano Ronaldo ouvre le score pour le Real dès la sixième minute. Thomas mange sans quitter l'écran.",
    "pensee": "Déjà. Six minutes.",
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -10425,6 +11598,14 @@
    "activite": "Real Madrid – Lyon : première mi-temps",
    "action": "Le Real presse, Lyon recule.",
    "pensee": "Ils vont en prendre un deuxième.",
+   "perception": {
+    "vu": [
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -10469,6 +11650,11 @@
    "activite": "Real Madrid – Lyon : première mi-temps",
    "action": "Pose son assiette vide sur la table basse.",
    "pensee": "Julien doit hurler devant sa télé.",
+   "perception": {
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -10520,6 +11706,14 @@
    "activite": "Real Madrid – Lyon : première mi-temps",
    "action": "Lyon subit. Il ne quitte pas l'écran.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -10564,6 +11758,14 @@
    "activite": "Real Madrid – Lyon : première mi-temps",
    "action": "Le gardien lyonnais sauve encore.",
    "pensee": "Lloris. Heureusement qu'il est là.",
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -10608,6 +11810,11 @@
    "activite": "Real Madrid – Lyon : première mi-temps",
    "action": "Boit une gorgée de bière.",
    "pensee": "Un partout sur les deux matchs. Si ça reste comme ça, prolongation.",
+   "perception": {
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -10652,6 +11859,14 @@
    "activite": "Real Madrid – Lyon : première mi-temps",
    "action": "Le Real domine toujours.",
    "pensee": "Envie pressante. J'attendrai la mi-temps.",
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -10696,6 +11911,14 @@
    "activite": "Real Madrid – Lyon : première mi-temps",
    "action": "Fin de la première mi-temps qui approche.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -10749,6 +11972,11 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "perception": {
+    "entend": [
+     "la télévision"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (sejour)",
     "allume la lumière (cuisine)"
@@ -10799,6 +12027,16 @@
     "distance_m": 12.5,
     "duree_s": 12,
     "foulees": 17
+   },
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-livre-courir",
+     "obj-portefeuille"
+    ],
+    "entend": [
+     "la télévision"
+    ]
    },
    "lumiere": [
     "éteint la lumière (cuisine)",
@@ -10856,6 +12094,14 @@
     "duree_s": 8,
     "foulees": 11
    },
+   "perception": {
+    "vu": [
+     "obj-veste"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (wc)",
     "allume la lumière (couloir)",
@@ -10908,6 +12154,15 @@
    "activite": "Real Madrid – Lyon : seconde mi-temps",
    "action": "Reprise. Le Real attaque d'emblée.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -10952,6 +12207,14 @@
    "activite": "Real Madrid – Lyon : seconde mi-temps",
    "action": "Les occasions s'enchaînent devant le but lyonnais.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -10996,6 +12259,15 @@
    "activite": "Real Madrid – Lyon : seconde mi-temps",
    "action": "Lyon ressort un peu.",
    "pensee": "Ils respirent.",
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -11040,6 +12312,14 @@
    "activite": "Real Madrid – Lyon : seconde mi-temps",
    "action": "Se penche en avant, les coudes sur les genoux.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -11084,6 +12364,11 @@
    "activite": "Real Madrid – Lyon : seconde mi-temps",
    "action": "Le match se tend.",
    "pensee": null,
+   "perception": {
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -11128,6 +12413,16 @@
    "activite": "Real Madrid – Lyon : seconde mi-temps",
    "action": "Lyon pousse enfin.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-netbook",
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -11172,6 +12467,14 @@
    "activite": "Real Madrid – Lyon : seconde mi-temps",
    "action": "Miralem Pjanić égalise à la 75e minute. Thomas se lève d'un bond.",
    "pensee": "Pjanić ! Un partout !",
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -11217,6 +12520,11 @@
    "activite": "Real Madrid – Lyon : seconde mi-temps",
    "action": "Se rassoit. Le Real doit maintenant marquer deux fois.",
    "pensee": "Ils doivent en mettre deux. Tenir. Juste tenir.",
+   "perception": {
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -11261,6 +12569,15 @@
    "activite": "Real Madrid – Lyon : seconde mi-temps",
    "action": "Les dernières minutes défilent.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-netbook"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -11305,6 +12622,14 @@
    "activite": "Real Madrid – Lyon : seconde mi-temps",
    "action": "Arrêts de jeu. Il ne respire plus.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la télévision"
+    ]
+   },
    "appareils_allumes": [
     "television",
     "lumiere-sejour"
@@ -11349,6 +12674,12 @@
    "activite": "Qualification",
    "action": "Coup de sifflet final : 1-1. Lyon est qualifié pour les quarts de finale. Il éteint la télévision.",
    "pensee": "Qualifiés, au Bernabéu. Julien doit être dans la rue.",
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-netbook"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-sejour"
    ],
@@ -11409,6 +12740,12 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "perception": {
+    "vu": [
+     "obj-poubelle-2",
+     "obj-tasse"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (sejour)",
     "allume la lumière (cuisine)"
@@ -11458,6 +12795,11 @@
     "distance_m": 12.5,
     "duree_s": 12,
     "foulees": 17
+   },
+   "perception": {
+    "vu": [
+     "obj-cafetiere"
+    ]
    },
    "lumiere": [
     "éteint la lumière (cuisine)",
@@ -11604,6 +12946,12 @@
      "vers": "chambre / table de chevet"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-reveil",
+     "obj-tenue-course"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (couloir)",
@@ -11656,6 +13004,13 @@
      "vers": "chambre / table de chevet, sous le livre"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-etendoir",
+     "obj-livre",
+     "obj-reveil"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-chambre"
    ],

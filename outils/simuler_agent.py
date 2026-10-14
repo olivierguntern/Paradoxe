@@ -7,7 +7,10 @@ Usage :
 Chaque jour part de l'état final de la veille, lu dans --dossier (ou de la
 fiche pour le premier jour de la période). Avec --memoire, l'état physique
 vient de --dossier et la mémoire de l'agent (avancement des travaux,
-habitudes…) vient de la veille simulée dans --memoire.
+habitudes…) vient de la veille simulée dans --memoire. Avec --scenario, les
+perturbations du fichier (changements faits à l'insu du personnage) sont
+appliquées à leur heure :
+  python3 outils/simuler_agent.py 2010-03-08 2010-03-09 --dossier data/scenarios/cles-deplacees --scenario data/scenarios/cles-deplacees.json
 """
 import argparse
 import datetime
@@ -33,7 +36,9 @@ def main():
     ap.add_argument("--dossier", required=True)
     ap.add_argument("--memoire")
     ap.add_argument("--sans-courses", action="store_true", help="sans les courses à l'épicerie (pour rejouer les journées de référence)")
+    ap.add_argument("--scenario", help="fichier de perturbations faites à l'insu du personnage (data/scenarios/)")
     a = ap.parse_args()
+    perturbations = json.load(open(a.scenario, encoding="utf-8"))["perturbations"] if a.scenario else None
     fiche = json.load(open(os.path.join(RACINE, "data", "personnages", f"{a.personnage}.json"), encoding="utf-8"))
     dossier_agent = os.path.join(RACINE, "data", "agents", a.personnage)
     os.makedirs(a.dossier, exist_ok=True)
@@ -49,7 +54,12 @@ def main():
             if a.memoire:
                 etat["agent"] = moteur.etat_depuis_veille(os.path.join(a.memoire, f"{veille}.json"))["agent"]
         type_agent = json.load(open(os.path.join(dossier_agent, "regles.json"), encoding="utf-8")).get("type")
-        agent = (AgentEpicier if type_agent == "commerce" else Agent)(fiche, dossier_agent, date, etat)
+        if type_agent == "commerce":
+            if perturbations:
+                sys.exit("les perturbations ne s'appliquent pas encore à l'agent du commerçant")
+            agent = AgentEpicier(fiche, dossier_agent, date, etat)
+        else:
+            agent = Agent(fiche, dossier_agent, date, etat, perturbations)
         agent.sans_courses = a.sans_courses
         try:
             steps, etat_final, stats = agent.vivre()

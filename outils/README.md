@@ -123,6 +123,25 @@ Il ne s'interrompt pas si l'activité se termine dans les 10 minutes. Chaque int
 
 Avant une séance sur la montre du grand-père, il anticipe : si les toilettes ou la soif passeraient sous leur seuil avant la fin prévue de la séance, il y répond en allant s'installer (`regles.json`, section `anticipation_seance`).
 
+### Perception et croyances
+
+`perception.py` calcule à chaque pas éveillé ce que Thomas voit, entend et remarque (fiche, section `perception`). Ce qu'il croit est séparé de ce qui est réel : la simulation tient ses croyances sur l'emplacement de chaque objet, qui ne changent que par ses propres gestes ou par ce qu'il remarque.
+
+- **Voir** : les pièces qu'il traverse et celle où il se tient, si elle est éclairée ou s'il y fait jour. Il remarque un objet avec une probabilité `attention × (0,5 + 0,5 × importance) × (1 − 0,4 × concentration)` (attention 0,5 dans la pièce où il se tient, 0,2 en passant), tirée de façon déterministe.
+- **Remarquer** : un objet vu ailleurs que là où il le croyait, ou absent de là où il le croyait, corrige sa croyance et fait vivre l'événement `objet_deplace` (`objet_retrouve` quand il le revoit).
+- **Entendre** : les appareils allumés à portée (la pièce, les pièces voisines ou tout le logement).
+- **Rencontrer** : les personnes simulées du lieu (Robert à l'épicerie).
+
+L'agent décide d'après ses croyances : chaque geste sur un objet part de là où il le croit. Si l'objet n'y est pas, il le prend là où il l'a remarqué ; sinon il le cherche, d'abord dans la pièce, puis dans les pièces les plus proches, deux par pas de 5 minutes ; introuvable après 25 minutes, il renonce et fait sans.
+
+Sans perturbation, ses croyances restent égales à la réalité et la semaine est inchangée : seuls s'ajoutent les champs `perception` des pas.
+
+```bash
+# Rejouer la semaine avec un scénario de perturbations, puis la comparer à la semaine officielle
+python3 outils/simuler_agent.py 2010-03-08 2010-03-14 --dossier data/scenarios/cles-deplacees --scenario data/scenarios/cles-deplacees.json
+python3 outils/comparer_journees.py data/timelines/thomas-berthier/2010-03-09.json data/scenarios/cles-deplacees/2010-03-09.json
+```
+
 ### Livres
 
 Les livres à lire sont listés dans `regles.json` (section `lecture.livres`), dans l'ordre : objet de la fiche, titre, nombre de pages, page de départ, pensées de début et de fin. Il lit 5 pages par pas. Quand un livre est fini, il le range dans la bibliothèque du séjour à la séance de lecture suivante et prend le suivant. Le reste d'une plage de lecture, une fois le livre fini, devient de la musique.

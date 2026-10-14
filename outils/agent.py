@@ -22,7 +22,10 @@ Principales règles de décision :
 - sorties de la fin de semaine : forum d'horlogerie le vendredi soir, cinéma le
   samedi soir si l'épicier lui a conseillé un film, vote et promenade jusqu'au
   Gros Caillou le dimanche des élections ;
-- pensées et rêves choisis dans des modèles, de façon déterministe.
+- pensées et rêves choisis dans des modèles, de façon déterministe ;
+- chaque geste sur un objet part de là où il croit l'objet (ses croyances,
+  tenues par la simulation et corrigées par ce qu'il remarque) : s'il n'y est
+  pas, il le prend là où il l'a remarqué, le cherche, ou fait sans.
 """
 import copy
 import datetime
@@ -31,7 +34,8 @@ import math
 import os
 import zlib
 
-from moteur import PAS_PAR_JOUR, Incoherence, Journee, Simulation, hm, idx
+from moteur import PAS_PAR_JOUR, Incoherence, Journee, Simulation, etat_initial_depuis_fiche, hm, idx
+from perception import piece_de
 
 JOURS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
 MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
@@ -67,7 +71,7 @@ def phase_sommeil(minutes):
 
 
 class Agent:
-    def __init__(self, fiche, dossier, date, etat):
+    def __init__(self, fiche, dossier, date, etat, perturbations=None):
         self.fiche = fiche
         self.R = json.load(open(os.path.join(dossier, "regles.json"), encoding="utf-8"))
         self.BLOCS = json.load(open(os.path.join(dossier, "blocs.json"), encoding="utf-8"))
@@ -87,7 +91,10 @@ class Agent:
         self.jour = JOURS[d.weekday()]
         self.date_txt = f"{d.day} {MOIS[d.month - 1]}"
         self.etat_initial = copy.deepcopy(etat)
-        self.sim = Simulation(fiche, date, etat)
+        self.sim = Simulation(fiche, date, etat, perturbations)
+        self.HABITUELLES = etat_initial_depuis_fiche(fiche)["positions"]
+        self.NOMS = {o["id"]: o["nom"] for o in fiche["objets"]}
+        self.en_recherche = False
         self.mem = copy.deepcopy(etat.get("agent")) or self.memoire_initiale()
         self.mem["jour_index"] = self.mem.get("jour_index", -1) + 1
         self.mem["evocations_du_jour"] = {}
@@ -114,6 +121,89 @@ class Agent:
             "seance": {"numero": 1, "op": 0}, "evocations": {},
         }
 
+    # ------------------------------------------------------------ croyances
+    def croit(self, obj):
+        """Où il croit que se trouve un objet ; s'il l'a perdu de vue, sa place habituelle."""
+        b = self.sim.croyances.get(obj)
+        return b if b is not None else self.HABITUELLES.get(obj)
+
+    def croyances(self):
+        return {obj: self.croit(obj) for obj in self.sim.positions}
+
+    def verifier_objets(self, st, titre, routine):
+        """Avant un pas : chaque objet est pris là où il le croit. S'il n'y est pas, il le prend là où il l'a
+        remarqué, le cherche, ou fait sans (un objet qu'il croyait avoir sur lui et qu'il n'a pas)."""
+        if not st.get("objets") or self.en_recherche:
+            return
+        self.sim.changements_du_monde()
+        P = self.sim.PIECES
+        reel = dict(self.sim.positions) | {o["id"]: o["position"] for o in st.get("nouveaux_objets", [])}
+        garde = []
+        for o in st["objets"]:
+            obj, de, ou = o["objet"], o["de"], reel.get(o["objet"])
+            if ou != de:
+                nom = self.NOMS.get(obj, obj)
+                if self.sim.croyances.get(obj) == ou:
+                    # il sait où il est : il l'a remarqué ailleurs que d'habitude
+                    o = dict(o, de=ou)
+                    pc = piece_de(ou, P)
+                    if pc and pc != st.get("piece", self.sim.piece) and pc not in st.get("via", []):
+                        st["via"] = st.get("via", []) + [pc]
+                    lieu = f"{ou.split(' / ', 1)[1]}, dans {self.fiche['perception']['pieces'][pc]}" if pc else ou
+                    st["action"] = st["action"].rstrip() + f" {nom} : pas à sa place habituelle mais {lieu}, comme il s'en était aperçu."
+                    self.decisions.append(f"{hm(self.i)} : prend {nom[0].lower() + nom[1:]} là où il l'a remarqué ({ou}), et non à « {de} ».")
+                elif piece_de(de, P) is None:
+                    self.decisions.append(f"{hm(self.i)} : {nom} n'est pas « {de} » ; il fait sans.")
+                    continue
+                else:
+                    ou = self.chercher(obj, de, titre, routine)
+                    if ou is None:
+                        continue
+                    o = dict(o, de=ou)
+            garde.append(o)
+            reel[obj] = o["vers"]
+        st["objets"] = garde
+
+    def chercher(self, obj, de, titre, routine):
+        """Cherche un objet absent de là où il le croyait : cette pièce d'abord, puis les plus proches, quelques-unes par pas."""
+        R, NP, P = self.fiche["perception"]["recherche"], self.fiche["perception"]["pieces"], self.sim.PIECES
+        ordre, file = [piece_de(de, P)], [piece_de(de, P)]
+        while file:
+            x = file.pop(0)
+            for y, _ in sorted(self.sim.graph.get(x, []), key=lambda t: (t[1], t[0])):
+                if y in P and y not in ordre:
+                    ordre.append(y)
+                    file.append(y)
+        reel = self.sim.positions[obj]
+        ici, nom, n = piece_de(reel, P), self.NOMS.get(obj, obj), R["pieces_par_pas"]
+        self.decisions.append(f"{hm(self.i)} : {nom} n'est pas à « {de} » ; il le cherche.")
+        self.en_recherche = True
+        try:
+            for k in range(R["pas_max"]):
+                lot = ordre[k * n:(k + 1) * n]
+                if not lot:
+                    break
+                trouve = ici in lot
+                if trouve:
+                    lot = lot[:lot.index(ici) + 1]
+                pieces = [NP[x] for x in lot]
+                action = (f"{nom} : pas à « {de.split(' / ', 1)[1]} ». " if k == 0 else "") +                     f"Cherche dans {pieces[0] if len(pieces) == 1 else ', '.join(pieces[:-1]) + ' et ' + pieces[-1]}."
+                pas = {"action": action, "piece": lot[-1], "via": lot[:-1], "charge": "simple", "posture": "debout",
+                       "ev": ["objet_deplace"] if k == 0 else []}
+                if trouve:
+                    pas["action"] += f" Enfin : {reel.split(' / ', 1)[1]}."
+                    pas["ev"].append("objet_retrouve")
+                self.emettre(pas, titre, routine, bloc="recherche")
+                if trouve:
+                    self.sim.croyances[obj] = reel
+                    self.decisions.append(f"{hm(self.i - 1)} : retrouve {nom[0].lower() + nom[1:]} ({reel}) après {(k + 1) * 5} minutes de recherche.")
+                    return reel
+        finally:
+            self.en_recherche = False
+        self.sim.croyances[obj] = None
+        self.decisions.append(f"{hm(self.i - 1)} : {nom} reste introuvable ; il renonce et fait sans.")
+        return None
+
     def livre(self):
         """Livre en cours de lecture."""
         return self.R["lecture"]["livres"][self.mem.get("livre", 0)]
@@ -134,7 +224,7 @@ class Agent:
             st.pop(cle, None)
         # cohérence des lunettes : un geste déjà fait n'est pas refait
         if "objets" in st:
-            st["objets"] = [o for o in st["objets"] if not (o["objet"] == "obj-lunettes" and self.sim.positions["obj-lunettes"] != o["de"])]
+            st["objets"] = [o for o in st["objets"] if not (o["objet"] == "obj-lunettes" and self.croit("obj-lunettes") != o["de"])]
         # le livre des recettes est le livre en cours
         livre = self.livre()
         if livre["id"] != "obj-livre":
@@ -183,8 +273,7 @@ class Agent:
                     if modeles and tirage(self.date, self.i, ev) < self.PENSEES["frequence_evenements"]:
                         st["pensee"] = choix(modeles, self.date, self.i, ev)
                         break
-        if st.get("mode") == "sommeil" or s["mode"] == "sommeil":
-            pass
+        self.verifier_objets(st, titre, routine)
         entree = self.sim.pas(st, s)
         segs = self.j.segments
         if segs and segs[-1]["titre"] == titre and segs[-1].get("_bloc") == (bloc or titre):
@@ -267,7 +356,7 @@ class Agent:
 
     # ------------------------------------------------------------ lunettes et lampe
     def mettre_lunettes(self, pas, texte=True):
-        if self.sim.positions["obj-lunettes"] == ETUI:
+        if self.croit("obj-lunettes") == ETUI:
             pas.setdefault("objets", []).insert(0, {"objet": "obj-lunettes", "de": ETUI, "vers": NEZ})
             if texte:
                 if "lampe-etabli" not in self.sim.appareils:
@@ -277,7 +366,7 @@ class Agent:
                     pas["action"] = "Remet ses lunettes. " + pas["action"]
 
     def poser_lunettes(self, pas):
-        if self.sim.positions["obj-lunettes"] == NEZ:
+        if self.croit("obj-lunettes") == NEZ:
             pas.setdefault("objets", []).insert(0, {"objet": "obj-lunettes", "de": NEZ, "vers": ETUI})
 
     # ------------------------------------------------------------ nuit et réveil
@@ -374,7 +463,7 @@ class Agent:
             self.faits.append("7 km")
 
     def tenue_course(self):
-        ou = self.sim.positions["obj-tenue-course"]
+        ou = self.croit("obj-tenue-course")
         def tenue(k, pas):
             if ou != pas["objets"][0]["de"]:
                 support = ou.split(" / ", 1)[1]
@@ -555,7 +644,7 @@ class Agent:
                     m["machine_fin"] = None
             if tid not in (None, "attente_machine"):
                 t = T[tid]
-                pos = self.sim.positions.get(t["objet"], "")
+                pos = self.croit(t["objet"]) or ""
                 ph = self.phase(t)
                 if t.get("a_sortir") and not pos.startswith("atelier / établi") and not (ph and ph.get("validation")) \
                         and not any(o["objet"] == t["objet"] and o["de"] == pos for o in op.get("objets", [])):
@@ -586,7 +675,7 @@ class Agent:
     def rangement_atelier(self):
         objets = []
         for t in self.TRAVAUX["liste"]:
-            pos = self.sim.positions.get(t["objet"], "")
+            pos = self.croit(t["objet"]) or ""
             if pos.startswith("atelier / établi"):
                 m = self.mem["travaux"][t["id"]]
                 ph = self.phase(t)
@@ -745,7 +834,7 @@ class Agent:
                       "charge": "repos", "posture": "debout",
                       "objets": [{"objet": "obj-montre-poignet", "de": "poignet gauche", "vers": "chambre / table de chevet"}]}, T, "rt-soir")
         carnet = self.texte_carnet()
-        livre = self.sim.positions[self.livre()["id"]]
+        livre = self.croit(self.livre()["id"])
         if self.i >= cible:
             self.emettre({"action": "Se couche, écrit dans son carnet et le repose sous le livre.", "piece": "chambre", "charge": "repos",
                           "posture": "assis", "ev": ["ecriture_carnet"], "pensee": carnet,
@@ -889,14 +978,14 @@ class Agent:
         if n >= len(L["livres"]):
             return False
         ancien, nouveau = L["livres"][n - 1], L["livres"][n]
-        ou = self.sim.positions[ancien["id"]]
+        ou = self.croit(ancien["id"])
         piece = ou.split(" / ")[0]
         p = {"action": (f"Rapporte « {ancien['titre']} » de la chambre et le range dans la bibliothèque. " if piece == "chambre" else
                         f"Range « {ancien['titre']} » dans la bibliothèque. ") +
                        f"Prend « {nouveau['titre']} » de {nouveau['auteur']}, pas encore commencé.",
              "piece": "sejour", "charge": "repos", "posture": "debout", "ev": ["anticipation_plaisir"], "pensee": nouveau.get("pensee_debut"),
              "objets": [{"objet": ancien["id"], "de": ou, "vers": L["rangement_livre_fini"]},
-                        {"objet": nouveau["id"], "de": self.sim.positions[nouveau["id"]], "vers": "dans sa main"}]}
+                        {"objet": nouveau["id"], "de": self.croit(nouveau["id"]), "vers": "dans sa main"}]}
         if piece not in ("sejour", "dans sa main"):
             p["via"] = [piece]
         self.emettre(p, "Lecture", routine, bloc="nouveau_livre")
@@ -1065,7 +1154,7 @@ class Agent:
     def forum(self, n):
         """Le vendredi soir : un forum d'horlogerie sur le netbook, en lecture seule."""
         P, T, R = self.PENSEES["forum"], "Forum d'horlogerie", "rt-soir"
-        ou = self.sim.positions["obj-netbook"]
+        ou = self.croit("obj-netbook")
         p = {"action": P["ouvrir"], "piece": "sejour", "charge": "lecture", "posture": "assis", "app": {"allume": ["ordinateur"]},
              "objets": [{"objet": "obj-netbook", "de": ou, "vers": "sejour / table basse"}]}
         if not ou.startswith("sejour"):
@@ -1089,7 +1178,7 @@ class Agent:
         self.faits.append("Lu un forum d'horlogerie")
 
     def objets_depart(self):
-        pos = self.sim.positions
+        pos = self.croyances()
         return [{"objet": "obj-veste", "de": pos["obj-veste"], "vers": "porté"},
                 {"objet": "obj-portefeuille", "de": pos["obj-portefeuille"], "vers": "poche de la veste"},
                 {"objet": "obj-cles", "de": pos["obj-cles"], "vers": "poche de la veste"}]
@@ -1121,7 +1210,7 @@ class Agent:
         CINE, LIEU = C["cinema"], "cinema-ugc"
         self.remplir(C["verifier_horaire"], {"action": "Reste assis sur le canapé.", "piece": "sejour", "charge": "repos", "posture": "assis"},
                      "Repos", "rt-soir")
-        ou = self.sim.positions["obj-netbook"]
+        ou = self.croit("obj-netbook")
         self.emettre({"action": P["verifier"], "piece": "sejour", "charge": "simple", "posture": "assis", "ev": ["anticipation_plaisir"],
                       "pensee": P["verifier_pensee"], "app": {"allume": ["ordinateur"]},
                       "objets": [{"objet": "obj-netbook", "de": ou, "vers": "sejour / table basse"}]}, "Horaires du cinéma", "rt-soir")
@@ -1322,7 +1411,7 @@ class Agent:
         total = round(sum(x["prix"] for x in liste), 2)
         P = C["paiement"]
         especes = total <= P["especes_si_moins_de"] and self.sim.argent.get("especes", 0) - total >= P["garde_en_especes"]
-        pos = self.sim.positions
+        pos = self.croyances()
         self.decisions.append(f"{hm(self.i)} : courses à l'épicerie : {txt} ({self.euros(total)}, {'en espèces' if especes else 'par carte'}).")
 
         # 1. la liste

@@ -1,7 +1,7 @@
 {
   "meta": {
     "id": "thomas-berthier",
-    "version": 10,
+    "version": 11,
     "description": "Personnage d'étude n°1 : fiche complète servant de base à la génération de sa timeline sur une semaine, vécue seul.",
     "periode": {
       "debut": "2010-03-08T00:00",
@@ -264,6 +264,7 @@
       "constat_isolement": { "description": "prendre conscience de son isolement", "effets": { "solitude": 0.08, "tristesse": 0.04 } },
       "oubli_mineur": { "description": "constater un petit oubli de sa part", "effets": { "colere": 0.04 } },
       "objet_deplace": { "description": "un objet n'est pas là où il le croyait", "effets": { "anxiete": 0.15, "colere": 0.05 } },
+      "objet_retrouve": { "description": "retrouver un objet qu'il croyait perdu ou qu'il cherchait", "effets": { "anxiete": -0.08, "joie": 0.02 } },
       "ecriture_carnet": { "description": "écrire dans son carnet", "effets": { "anxiete": -0.08, "tristesse": -0.03 } },
       "effort_physique": { "description": "effort soutenu (course, escaliers)", "effets": { "anxiete": -0.02, "excitation": 0.03 } },
       "match_tension": { "description": "moment tendu d'un match de son équipe", "effets": { "anxiete": 0.015, "excitation": 0.06 } },
@@ -885,5 +886,38 @@
     "musique": "CD et radio sur la chaîne hi-fi",
     "television": "petit téléviseur, chaînes de la TNT",
     "heure_de_reference": "réveil radio-piloté"
+  },
+
+  "perception": {
+    "principe": "Ce qu'il croit est séparé de ce qui est réel. Ses croyances sur l'emplacement de ses objets ne changent que par ce qu'il fait lui-même ou par ce qu'il remarque. Éveillé, il voit les pièces qu'il traverse et celle où il se tient si elle est éclairée ou s'il y fait jour ; il remarque un objet selon l'attention (pièce où il se tient ou simple passage), l'importance de l'objet et sa concentration sur ce qu'il fait. Un objet vu ailleurs que là où il le croyait, ou absent de là où il le croyait, corrige sa croyance et se vit comme un événement.",
+    "attention": {
+      "piece": 0.5,
+      "passage": 0.2,
+      "effet_concentration": 0.4,
+      "regle": "probabilité de remarquer un objet d'une pièce vue = attention × (0,5 + 0,5 × importance de l'objet) × (1 − effet_concentration × concentration) ; tirage déterministe par date, pas et objet"
+    },
+    "evenements": { "deplace": "objet_deplace", "retrouve": "objet_retrouve" },
+    "ouie": {
+      "radio": { "piece": "sejour", "portee": "logement", "nom": "la radio" },
+      "lecteur-cd": { "piece": "sejour", "portee": "logement", "nom": "la musique" },
+      "television": { "piece": "sejour", "portee": "logement", "nom": "la télévision" },
+      "aspirateur": { "piece": null, "portee": "logement", "nom": "l'aspirateur" },
+      "machine-a-laver": { "piece": "cuisine", "portee": "voisines", "nom": "la machine à laver" },
+      "machine-ultrasons": { "piece": "atelier", "portee": "piece", "nom": "la machine à ultrasons" },
+      "tour": { "piece": "atelier", "portee": "piece", "nom": "le tour" },
+      "chronocomparateur": { "piece": "atelier", "portee": "piece", "nom": "le battement amplifié du chronocomparateur" }
+    },
+    "personnes": {
+      "epicerie-chazal": [ { "id": "robert-chazal", "nom": "Robert Chazal" } ]
+    },
+    "recherche": {
+      "pieces_par_pas": 2,
+      "pas_max": 5,
+      "regle": "un objet absent de là où il le croyait : il cherche d'abord dans cette pièce, puis dans les pièces les plus proches (deux par pas de 5 minutes) ; introuvable après cinq pas, il renonce et fait sans"
+    },
+    "pieces": {
+      "entree": "l'entrée", "couloir": "le couloir", "sejour": "le séjour", "atelier": "l'atelier", "cuisine": "la cuisine",
+      "chambre": "la chambre", "salle-de-bain": "la salle de bain", "wc": "les toilettes"
+    }
   }
 }

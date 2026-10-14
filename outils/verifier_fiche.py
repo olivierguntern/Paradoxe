@@ -63,6 +63,16 @@ if 'entrees' in d['domicile']['plan']:
         if lieu_de[pc] not in entrees: errs.append(f"pièce sans lieu connu : {pc}")
 for ev in [x['evenement'] for x in d['vie_interieure']['declencheurs']]:
     if ev not in d['modele_emotionnel']['evenements']: errs.append(f"événement inconnu : {ev}")
+if 'perception' in d:
+    pc = d['perception']
+    for cle, ev in pc['evenements'].items():
+        if ev not in d['modele_emotionnel']['evenements']: errs.append(f"perception : événement inconnu {ev} ({cle})")
+    for app, spec in pc['ouie'].items():
+        if spec.get('piece') and spec['piece'] not in pieces: errs.append(f"perception : pièce inconnue {spec['piece']} ({app})")
+        if spec['portee'] not in ('piece', 'voisines', 'logement'): errs.append(f"perception : portée inconnue {spec['portee']} ({app})")
+    for lieu in pc.get('personnes', {}):
+        if lieu not in lieux: errs.append(f"perception : lieu inconnu {lieu}")
+    for p in pieces - set(pc['pieces']): errs.append(f"perception : pièce sans nom {p}")
 valid_lieux = pieces | lieux | exterieurs | {'trajet'}
 jours = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche']
 for j in jours:

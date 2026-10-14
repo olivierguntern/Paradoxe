@@ -1,7 +1,7 @@
 {
  "meta": {
   "personnage": "thomas-berthier",
-  "fiche_version": 10,
+  "fiche_version": 11,
   "date": "2010-03-13",
   "jour": "samedi",
   "pas_minutes": 5,
@@ -18,7 +18,9 @@
    "lumiere": "interrupteurs actionnés pendant le pas",
    "appareils_allumes": "appareils et lumières allumés à la fin du pas",
    "evenements": "événements vécus et effet appliqué sur chaque émotion (après modulation par la personnalité)",
-   "besoins.energie_ressentie": "énergie corrigée de l'effet du café"
+   "besoins.energie_ressentie": "énergie corrigée de l'effet du café",
+   "perception": "ce qu'il voit (objets remarqués), entend et remarque (écart entre ce qu'il croit et ce qu'il voit)",
+   "monde": "changements faits à son insu au début du pas (scénario)"
   }
  },
  "resume": {
@@ -164,7 +166,20 @@
    "18:10 : « La Route » est fini ; prend « Courir » dans la bibliothèque.",
    "19:25 : soif à 61.8, sous le seuil d'alerte avant la fin prévue ; y répond avant de partir.",
    "22:40 : sort du cinéma, rentre à pied."
-  ]
+  ],
+  "perception": {
+   "pas_avec_objets_vus": 103,
+   "objets_vus": 32,
+   "entendu_pas": {
+    "la radio": 10,
+    "l'aspirateur": 6,
+    "le battement amplifié du chronocomparateur": 5,
+    "la musique": 5
+   },
+   "remarques": [],
+   "a_son_insu": [],
+   "croyances_fausses_en_fin_de_journee": {}
+  }
  },
  "etat_initial": {
   "piece": "chambre",
@@ -267,6 +282,7 @@
    "especes": 32.2,
    "compte": 940
   },
+  "croyances": {},
   "agent": {
    "endormi_a": -9,
    "habitudes": {
@@ -443,6 +459,7 @@
    "especes": 15.5,
    "compte": 940
   },
+  "croyances": {},
   "agent": {
    "endormi_a": 0,
    "habitudes": {
@@ -3685,6 +3702,13 @@
    "activite": "Grasse matinée",
    "action": "Somnole, sans se presser de se lever.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-carnet",
+     "obj-livre",
+     "obj-montre-poignet"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 59.8,
@@ -3717,6 +3741,11 @@
    "activite": "Grasse matinée",
    "action": "Somnole, sans se presser de se lever.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-poignet"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 59.3,
@@ -3749,6 +3778,13 @@
    "activite": "Grasse matinée",
    "action": "Somnole, sans se presser de se lever.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-carnet",
+     "obj-livre",
+     "obj-montre-poignet"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 58.8,
@@ -3781,6 +3817,14 @@
    "activite": "Grasse matinée",
    "action": "Somnole, sans se presser de se lever.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-carnet",
+     "obj-livre",
+     "obj-montre-poignet",
+     "obj-reveil"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 58.3,
@@ -3813,6 +3857,13 @@
    "activite": "Grasse matinée",
    "action": "Somnole, sans se presser de se lever.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-carnet",
+     "obj-etendoir",
+     "obj-livre"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 57.8,
@@ -3845,6 +3896,12 @@
    "activite": "Grasse matinée",
    "action": "Somnole, sans se presser de se lever.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-carnet",
+     "obj-reveil"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 57.3,
@@ -3877,6 +3934,12 @@
    "activite": "Grasse matinée",
    "action": "Somnole, sans se presser de se lever.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-carnet",
+     "obj-montre-poignet"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 56.8,
@@ -3909,6 +3972,12 @@
    "activite": "Grasse matinée",
    "action": "Somnole, sans se presser de se lever.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-carnet",
+     "obj-reveil"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 56.3,
@@ -3941,6 +4010,12 @@
    "activite": "Réveil sans sonnerie",
    "action": "Se réveille sans sonnerie. Reste un moment allongé dans la lumière du matin.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-carnet",
+     "obj-reveil"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 55.8,
@@ -3982,6 +4057,12 @@
     "distance_m": 6.0,
     "duree_s": 6,
     "foulees": 8
+   },
+   "perception": {
+    "vu": [
+     "obj-montre-poignet",
+     "obj-panier-linge"
+    ]
    },
    "lumiere": [
     "allume la lumière (couloir)",
@@ -4100,6 +4181,14 @@
      "reste": 166
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cabas"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (wc)",
     "allume la lumière (couloir)",
@@ -4151,6 +4240,11 @@
      "reste": 9
     }
    ],
+   "perception": {
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "plaque-1",
     "radio"
@@ -4209,6 +4303,14 @@
      "reste": 25
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cafetiere"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4251,6 +4353,11 @@
    "activite": "Petit-déjeuner du samedi",
    "action": "Déjeune sans se presser, en écoutant la radio.",
    "pensee": "Encore deux commandes et le loyer est assuré.",
+   "perception": {
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4285,6 +4392,14 @@
    "activite": "Petit-déjeuner du samedi",
    "action": "Écoute les informations.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cabas"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4319,6 +4434,16 @@
    "activite": "Petit-déjeuner du samedi",
    "action": "Écoute une chronique, la tasse entre les mains.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cabas",
+     "obj-cafetiere",
+     "obj-marmite"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4353,6 +4478,11 @@
    "activite": "Petit-déjeuner du samedi",
    "action": "Regarde la cour par la fenêtre.",
    "pensee": null,
+   "perception": {
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4399,6 +4529,11 @@
      "vers": "cuisine / égouttoir"
     }
    ],
+   "perception": {
+    "entend": [
+     "la radio"
+    ]
+   },
    "appareils_allumes": [
     "radio"
    ],
@@ -4452,6 +4587,19 @@
      "vers": "poignet gauche"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cabas",
+     "obj-carnet",
+     "obj-livre-courir",
+     "obj-netbook",
+     "obj-poubelle-3",
+     "obj-reveil"
+    ],
+    "entend": [
+     "la radio"
+    ]
+   },
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -4511,6 +4659,15 @@
     "distance_m": 9.5,
     "duree_s": 10,
     "foulees": 13
+   },
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-portefeuille"
+    ],
+    "entend": [
+     "la radio"
+    ]
    },
    "lumiere": [
     "allume la lumière (couloir)",
@@ -4646,6 +4803,11 @@
    "activite": "Douche et rasage",
    "action": "Se rase de près.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-tenue-course"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-salle-de-bain"
    ],
@@ -4680,6 +4842,11 @@
    "activite": "Douche et rasage",
    "action": "Se coupe les ongles, prend son temps.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-panier-linge"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-salle-de-bain"
    ],
@@ -4723,6 +4890,12 @@
     "distance_m": 6.0,
     "duree_s": 6,
     "foulees": 8
+   },
+   "perception": {
+    "vu": [
+     "obj-etendoir",
+     "obj-reveil"
+    ]
    },
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
@@ -4770,6 +4943,15 @@
     "distance_m": 5.5,
     "duree_s": 6,
     "foulees": 8
+   },
+   "perception": {
+    "vu": [
+     "obj-cles",
+     "obj-reveil"
+    ],
+    "entend": [
+     "l'aspirateur"
+    ]
    },
    "lumiere": [
     "allume la lumière (couloir)",
@@ -4820,6 +5002,15 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-telecommande"
+    ],
+    "entend": [
+     "l'aspirateur"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (entree)"
    ],
@@ -4857,6 +5048,11 @@
    "activite": "Ménage",
    "action": "Termine le séjour.",
    "pensee": null,
+   "perception": {
+    "entend": [
+     "l'aspirateur"
+    ]
+   },
    "appareils_allumes": [
     "aspirateur"
    ],
@@ -4901,6 +5097,11 @@
     "distance_m": 9.5,
     "duree_s": 10,
     "foulees": 13
+   },
+   "perception": {
+    "entend": [
+     "l'aspirateur"
+    ]
    },
    "lumiere": [
     "allume la lumière (entree)",
@@ -4951,6 +5152,14 @@
     "duree_s": 4,
     "foulees": 5
    },
+   "perception": {
+    "vu": [
+     "obj-carnet"
+    ],
+    "entend": [
+     "l'aspirateur"
+    ]
+   },
    "lumiere": [
     "allume la lumière (couloir)"
    ],
@@ -5000,6 +5209,18 @@
     "duree_s": 11,
     "foulees": 15
    },
+   "perception": {
+    "vu": [
+     "obj-cles",
+     "obj-lunettes",
+     "obj-omega",
+     "obj-ressort-rolex",
+     "obj-veste"
+    ],
+    "entend": [
+     "l'aspirateur"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (couloir)",
     "allume la lumière (entree)",
@@ -5048,6 +5269,16 @@
     "distance_m": 9.0,
     "duree_s": 9,
     "foulees": 12
+   },
+   "perception": {
+    "vu": [
+     "obj-livre-courir",
+     "obj-montre-gousset",
+     "obj-pendule",
+     "obj-portefeuille",
+     "obj-rolex",
+     "obj-veste"
+    ]
    },
    "lumiere": [
     "allume la lumière (entree)"
@@ -5136,6 +5367,11 @@
    "activite": "Ménage",
    "action": "Lave le miroir et le sol de la salle de bain.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-panier-linge"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-salle-de-bain"
    ],
@@ -5232,6 +5468,13 @@
     "duree_s": 12,
     "foulees": 17
    },
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-cles",
+     "obj-poubelle-3"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (wc)",
     "allume la lumière (couloir)",
@@ -5271,6 +5514,12 @@
    "activite": "Ménage",
    "action": "Nettoie l'évier.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cabas",
+     "obj-cafetiere"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 81.3,
@@ -5347,6 +5596,11 @@
     "duree_s": 14,
     "foulees": 19
    },
+   "perception": {
+    "vu": [
+     "obj-livre"
+    ]
+   },
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -5392,6 +5646,11 @@
      "vers": "chambre / replié derrière la porte"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-livre"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 79.8,
@@ -5424,6 +5683,11 @@
    "activite": "Ménage",
    "action": "Change les draps.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 79.3,
@@ -5517,6 +5781,12 @@
     "duree_s": 13,
     "foulees": 18
    },
+   "perception": {
+    "vu": [
+     "obj-cabas",
+     "obj-veste"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (couloir)",
@@ -5571,6 +5841,11 @@
    "activite": "Courses à l'épicerie",
    "action": "Ouvre le réfrigérateur et le placard, note sur un bout de papier ce qui manque : 2 pommes, un morceau de comté et un pain de campagne.",
    "pensee": "Une liste, comme pour une révision : rien d'oublié.",
+   "perception": {
+    "vu": [
+     "obj-tasse"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 77.8,
@@ -5795,6 +6070,11 @@
     "etal",
     "frais"
    ],
+   "perception": {
+    "personnes": [
+     "Robert Chazal"
+    ]
+   },
    "appareils_allumes": [],
    "evenements": [
     {
@@ -5878,6 +6158,11 @@
      "especes": 24.8,
      "compte": 940
     }
+   },
+   "perception": {
+    "personnes": [
+     "Robert Chazal"
+    ]
    },
    "appareils_allumes": [],
    "besoins": {
@@ -6047,6 +6332,12 @@
      "vers": "cuisine / plan de travail"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-tasse",
+     "obj-telecommande"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (entree)"
    ],
@@ -6090,6 +6381,11 @@
     "distance_m": 4.5,
     "duree_s": 4,
     "foulees": 6
+   },
+   "perception": {
+    "vu": [
+     "obj-telecommande"
+    ]
    },
    "appareils_allumes": [],
    "besoins": {
@@ -6155,6 +6451,11 @@
    "activite": "Repos",
    "action": "S'assoit un moment dans le canapé avant le déjeuner.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 72.3,
@@ -6296,6 +6597,12 @@
      "unite": null
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cabas",
+     "obj-marmite"
+    ]
+   },
    "appareils_allumes": [
     "plaque-1",
     "plaque-2"
@@ -6331,6 +6638,11 @@
    "activite": "Déjeuner",
    "action": "Égoutte les pâtes, mélange aux lardons et aux œufs hors du feu, éteint les plaques.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cafetiere"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 70.3,
@@ -6426,6 +6738,11 @@
    "activite": "Déjeuner",
    "action": "Termine son assiette.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 99.5,
@@ -6458,6 +6775,12 @@
    "activite": "Déjeuner",
    "action": "Reste à table un moment.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-telecommande"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 99.0,
@@ -6508,6 +6831,13 @@
      "reste": 159
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cabas",
+     "obj-cafetiere",
+     "obj-marmite"
+    ]
+   },
    "appareils_allumes": [],
    "evenements": [
     {
@@ -6548,6 +6878,12 @@
    "activite": "Café et vaisselle",
    "action": "Lave la casserole et la poêle.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-poubelle-4"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 98.0,
@@ -6644,6 +6980,11 @@
    "activite": "Café et vaisselle",
    "action": "Rince la tasse et la cafetière.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-tasse"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 96.5,
@@ -6685,6 +7026,11 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 96.0,
@@ -6717,6 +7063,11 @@
    "activite": "Sieste",
    "action": "Dort sur le canapé.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 95.5,
@@ -6781,6 +7132,11 @@
    "activite": "Sieste",
    "action": "Dort sur le canapé.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-telecommande"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 94.5,
@@ -6813,6 +7169,11 @@
    "activite": "Sieste",
    "action": "Dort sur le canapé.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 94.0,
@@ -6845,6 +7206,11 @@
    "activite": "Sieste",
    "action": "Dort sur le canapé.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 93.5,
@@ -6909,6 +7275,11 @@
    "activite": "Sieste",
    "action": "Dort sur le canapé.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 92.5,
@@ -6941,6 +7312,11 @@
    "activite": "Sieste",
    "action": "Dort sur le canapé.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 92.0,
@@ -7037,6 +7413,11 @@
    "activite": "Sieste",
    "action": "Se réveille et s'étire.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-telecommande"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 90.5,
@@ -7091,6 +7472,14 @@
      "vers": "sur son nez"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-veste"
+    ]
+   },
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -7153,6 +7542,12 @@
      "vers": "atelier / potence"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7187,6 +7582,16 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Pose le balancier sur la potence et présente l'axe.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-outils",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7229,6 +7634,15 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Chasse l'axe dans le balancier, petit coup par petit coup.",
    "pensee": "Respirer, puis le geste.",
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-pendule",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7271,6 +7685,12 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Contrôle : l'axe est droit, le balancier bien assis.",
    "pensee": "Tout est en ordre.",
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7314,6 +7734,14 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Chasse le plateau sur l'axe, la cheville d'ellipse à sa place.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-montre-gousset",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7356,6 +7784,15 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Met le balancier sur le compas d'équilibrage : un léger voile.",
    "pensee": "On mesure trois fois. Toujours.",
+   "perception": {
+    "vu": [
+     "obj-outils",
+     "obj-pendule",
+     "obj-ressort-rolex",
+     "obj-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7398,6 +7835,12 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Reprend le voile du bout des doigts.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-outils"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7440,6 +7883,15 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Plus de voile. Le balancier tourne rond.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-acier-axe",
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7483,6 +7935,14 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Contrôle l'équilibre : le balancier s'arrête n'importe où.",
    "pensee": "Tout est en ordre.",
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7533,6 +7993,13 @@
      "vers": "monté dans le balancier de la montre de gousset"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7617,6 +8084,15 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Présente le balancier dans le mouvement.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7659,6 +8135,14 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Pose le coq et serre sa vis.",
    "pensee": "Respirer, puis le geste.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7701,6 +8185,11 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Contrôle les ébats de l'axe entre les pierres : libre, sans jeu excessif.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7744,6 +8233,13 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Huile les pierres de balancier.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-lot-quartz",
+     "obj-outils"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7786,6 +8282,15 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Donne trois tours de remontoir. Le balancier hésite, puis s'arrête.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7828,6 +8333,13 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Contrôle la mise d'échappement : la cheville est un peu décalée.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7862,6 +8374,17 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Tourne la virole d'un cheveu pour corriger.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7904,6 +8427,13 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Remonte. Le balancier part.",
    "pensee": "Elle bat. Grand-père, elle bat.",
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -7957,6 +8487,11 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Écoute le tic-tac, l'oreille contre le mouvement, les yeux fermés.",
    "pensee": "Grand-père aurait aimé voir ça.",
+   "perception": {
+    "vu": [
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8006,6 +8541,18 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Pose le mouvement sur le chronocomparateur.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-rolex"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -8041,6 +8588,16 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Premier relevé : moins 40 secondes par jour, amplitude correcte pour son âge.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-pendule",
+     "obj-zenith"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -8076,6 +8633,16 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Déplace la raquette vers l'avance.",
    "pensee": "Doucement.",
+   "perception": {
+    "vu": [
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -8119,6 +8686,19 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Nouveau relevé : plus 8 secondes.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-omega",
+     "obj-photo-grand-pere",
+     "obj-rolex"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -8154,6 +8734,15 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Corrige encore d'un cheveu.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-montre-gousset",
+     "obj-photo-grand-pere"
+    ],
+    "entend": [
+     "le battement amplifié du chronocomparateur"
+    ]
+   },
    "appareils_allumes": [
     "chronocomparateur",
     "lampe-etabli"
@@ -8197,6 +8786,12 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Plus 2 secondes cadran en haut. Elle marche comme au premier jour.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-photo-grand-pere",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8241,6 +8836,16 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Remet le cadran émaillé et les aiguilles bleuies.",
    "pensee": "Doucement.",
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-lot-quartz",
+     "obj-montre-gousset",
+     "obj-pendule",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8283,6 +8888,14 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Remet le mouvement dans son boîtier d'argent.",
    "pensee": "Doucement.",
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-omega",
+     "obj-pendule",
+     "obj-ressort-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8332,6 +8945,14 @@
      "vers": "atelier / établi, sur un support, en marche"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-omega",
+     "obj-outils",
+     "obj-pendule",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8376,6 +8997,13 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Regarde l'aiguille des secondes tourner.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-omega",
+     "obj-pendule"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8419,6 +9047,13 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Pose la photo de René à côté de la montre.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-omega",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8453,6 +9088,15 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Écoute la montre, sans rien faire.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-montre-gousset",
+     "obj-outils",
+     "obj-photo-grand-pere",
+     "obj-zenith"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8487,6 +9131,14 @@
    "activite": "Montre du grand-père : montage de l'axe et remise en marche (séance 6)",
    "action": "Nettoie et range ses outils.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-lot-quartz",
+     "obj-pendule",
+     "obj-ressort-rolex",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8521,6 +9173,13 @@
    "activite": "Rangement",
    "action": "Repose la cloche de verre sur la montre de gousset.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-pendule",
+     "obj-photo-grand-pere",
+     "obj-rolex"
+    ]
+   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -8562,6 +9221,14 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles-coffre",
+     "obj-outils",
+     "obj-pendule",
+     "obj-photo-grand-pere"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 72.5,
@@ -8603,6 +9270,11 @@
     "duree_s": 5,
     "foulees": 7
    },
+   "perception": {
+    "entend": [
+     "la musique"
+    ]
+   },
    "appareils_allumes": [
     "lecteur-cd"
    ],
@@ -8637,6 +9309,14 @@
    "activite": "Musique",
    "action": "Écoute, allongé sur le canapé.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ],
+    "entend": [
+     "la musique"
+    ]
+   },
    "appareils_allumes": [
     "lecteur-cd"
    ],
@@ -8671,6 +9351,14 @@
    "activite": "Musique",
    "action": "Écoute, allongé sur le canapé.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ],
+    "entend": [
+     "la musique"
+    ]
+   },
    "appareils_allumes": [
     "lecteur-cd"
    ],
@@ -8705,6 +9393,15 @@
    "activite": "Musique",
    "action": "Écoute, allongé sur le canapé.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-telecommande"
+    ],
+    "entend": [
+     "la musique"
+    ]
+   },
    "appareils_allumes": [
     "lecteur-cd"
    ],
@@ -8739,6 +9436,11 @@
    "activite": "Musique",
    "action": "Écoute, allongé sur le canapé.",
    "pensee": null,
+   "perception": {
+    "entend": [
+     "la musique"
+    ]
+   },
    "appareils_allumes": [
     "lecteur-cd"
    ],
@@ -8773,6 +9475,11 @@
    "activite": "Musique",
    "action": "Arrête le disque.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 69.5,
@@ -8862,6 +9569,11 @@
      "vers": "sejour / bibliothèque, étagère du bas"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-livre-courir"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 68.5,
@@ -9003,6 +9715,11 @@
    "activite": "Lecture",
    "action": "Lit sur le canapé (page 10).",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 67.0,
@@ -9053,6 +9770,13 @@
      "vers": "chambre / table de chevet"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cles",
+     "obj-livre",
+     "obj-reveil"
+    ]
+   },
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -9128,6 +9852,13 @@
      "reste": 0
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-reveil",
+     "obj-tasse"
+    ]
+   },
    "lumiere": [
     "allume la lumière (couloir)",
     "éteint la lumière (couloir)",
@@ -9184,6 +9915,13 @@
      "reste": 41
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cafetiere",
+     "obj-marmite",
+     "obj-tasse"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 65.5,
@@ -9224,6 +9962,11 @@
     "distance_m": 4.5,
     "duree_s": 4,
     "foulees": 6
+   },
+   "perception": {
+    "vu": [
+     "obj-poubelle-4"
+    ]
    },
    "appareils_allumes": [],
    "evenements": [
@@ -9279,6 +10022,12 @@
    "activite": "Dîner",
    "action": "Boit son vin lentement.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-netbook",
+     "obj-telecommande"
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 99.5,
@@ -9311,6 +10060,12 @@
    "activite": "Dîner",
    "action": "Reste à table un moment.",
    "pensee": null,
+   "perception": {
+    "vu": [
+     "obj-livre",
+     "obj-netbook"
+    ]
+   },
    "lumiere": [
     "allume la lumière (sejour) : la nuit tombe"
    ],
@@ -9477,6 +10232,11 @@
      "vers": "cuisine / placard sous les plaques"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-cafetiere"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-cuisine"
    ],
@@ -9632,6 +10392,12 @@
      "vers": "poche de la veste"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-marmite",
+     "obj-tasse"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (wc)",
     "allume la lumière (couloir)",
@@ -11358,6 +12124,17 @@
     "duree_s": 9,
     "foulees": 12
    },
+   "perception": {
+    "vu": [
+     "obj-classeur-compta",
+     "obj-cles",
+     "obj-cles-coffre",
+     "obj-omega",
+     "obj-outils",
+     "obj-ressort-rolex",
+     "obj-zenith"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (entree)",
     "allume la lumière (sejour)",
@@ -11418,6 +12195,11 @@
     "distance_m": 13.0,
     "duree_s": 13,
     "foulees": 18
+   },
+   "perception": {
+    "vu": [
+     "obj-lunettes"
+    ]
    },
    "lumiere": [
     "éteint la lumière (atelier)",
@@ -11564,6 +12346,11 @@
      "vers": "chambre / table de chevet"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-carnet"
+    ]
+   },
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (couloir)",
@@ -11616,6 +12403,11 @@
      "vers": "chambre / table de chevet, sous le livre"
     }
    ],
+   "perception": {
+    "vu": [
+     "obj-montre-poignet"
+    ]
+   },
    "appareils_allumes": [
     "lumiere-chambre"
    ],

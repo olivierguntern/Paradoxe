@@ -20,7 +20,7 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 - Les passants, les autres clients, les livreurs, les spectateurs du cinéma et les assesseurs des bureaux de vote ne sont pas simulés.
 - Aucun contact à distance (téléphone, SMS, e-mail, réseau social).
 - Thomas reste chez lui, sauf pour courir seul, faire ses courses (mardi, jeudi, samedi) et, en fin de semaine, ses sorties à pied : le cinéma le samedi soir, sur le conseil de Robert, et le vote du dimanche suivi d'une promenade jusqu'au Gros Caillou. Robert va et vient en Kangoo entre sa maison de Villeurbanne et sa boutique ; ses autres sorties : le coffre de la banque le lundi matin, le cinéma avec Josiane le lundi soir, le vote et une randonnée dans les monts d'Or le dimanche.
-- Aucun paradoxe ni élément perturbateur : les croyances correspondent toujours à la réalité. Les paradoxes seront introduits plus tard, de l'extérieur.
+- Aucun paradoxe ni élément perturbateur dans la semaine officielle : les croyances correspondent toujours à la réalité. Les perturbations s'introduisent de l'extérieur, par des scénarios (`data/scenarios/`).
 
 ## Sections d'une fiche
 
@@ -44,6 +44,7 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 | `voiture`, `vie_interieure.loisirs` | Chez Robert : la Kangoo ; cinéma, randonnée, belote, potager, journal, radio. Chez Thomas : course, montre du grand-père, lecture, musique, radio, forums d'horlogerie (en lecture), cinéma, promenade |
 | `objets` | Objets avec leur emplacement réel au départ |
 | `connaissances` | Ce que le personnage sait ; ses croyances sur l'emplacement des objets |
+| `perception` | Chez Thomas : attention (pièce où il se tient, passage, effet de la concentration), appareils qu'il entend et leur portée, personnes simulées qu'il rencontre selon le lieu, règles de recherche d'un objet, noms des pièces |
 | `habitudes` | Automatismes (gestes systématiques) et routines horaires de chaque jour |
 | `agenda_semaine` | Activités datées de la semaine |
 | `objectifs` | Buts de la semaine, échéances, priorités |
@@ -54,7 +55,17 @@ Les journées vécues sont stockées dans `data/timelines/<personnage>/<date>.js
 
 Chaque pas de 5 minutes contient : heure, pièce, posture, routine suivie, activité, action, pensée (voix intérieure), rêve et phase de sommeil la nuit, déplacement (chemin, distance, durée, foulées, escalier, parcours à pied ou en voiture), interrupteurs actionnés, appareils allumés, objets déplacés, provisions consommées, achetées ou préparées avec le stock restant, mouvements d'argent (espèces, compte, caisse, coffre, ardoises), événements vécus avec leur effet sur chaque émotion, besoins et émotions à la fin du pas. Chez un commerçant : clients servis, ventes (produit, quantité, prix, paiement), livraisons, reprises d'invendus, prélèvements pour la maison, ruptures, et le stock du magasin restant.
 
+Chez Thomas, chaque pas éveillé contient aussi sa `perception` : objets remarqués (`vu`), appareils entendus (`entend`), personnes simulées présentes (`personnes`) et `remarques` (écart entre ce qu'il croit et ce qu'il voit). Un pas où le monde a changé à son insu porte `monde`. L'état de fin de journée garde ses `croyances` fausses (objet par objet : ce qu'il croit, `null` s'il ne sait plus où il est) ; sans perturbation, elles sont vides.
+
 Le stock de provisions est suivi d'un jour à l'autre : une journée qui consomme ce qui n'existe plus est refusée.
+
+## Scénarios
+
+Un scénario (`data/scenarios/<nom>.json`) liste des perturbations faites à l'insu du personnage : à une date et une heure, un objet change de place (`objet`, `vers`, `par`). La semaine rejouée avec ce scénario est écrite dans `data/scenarios/<nom>/` et se compare jour par jour à la semaine officielle.
+
+| Scénario | Perturbation | Ce qui se passe |
+|---|---|---|
+| `cles-deplacees` | Mardi 03:00, le voyageur pose les clés de Thomas sur la table du séjour | À 07:15, les clés ne sont pas dans le vide-poche : il les cherche dans l'entrée et le couloir, les retrouve sur la table à 07:20 et part courir avec dix minutes de retard. Le retard se répercute sur la matinée du mardi puis sur l'atelier du jeudi et du vendredi ; à partir du samedi, la semaine redevient identique à la semaine officielle |
 
 Les émotions ne sont jamais fixées à la main : elles sont calculées à partir des événements, des besoins et du retour à l'état de base, selon `modele_emotionnel`.
 

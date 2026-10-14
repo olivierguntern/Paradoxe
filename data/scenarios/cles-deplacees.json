@@ -1,0 +1,7 @@
+{
+  "description": "Test de la perception : dans la nuit du lundi au mardi, à 03:00, le voyageur prend les clés de Thomas dans le vide-poche de l'entrée et les laisse sur la table à manger du séjour. Thomas dort et n'en sait rien.",
+  "attendu": "Thomas croit ses clés dans le vide-poche. S'il les remarque sur la table en passant dans le séjour, il les y prend en partant courir ; sinon il ne les trouve pas dans le vide-poche, les cherche, part en retard, et ce retard se répercute sur sa matinée. Les autres jours reprennent leur cours.",
+  "perturbations": [
+    { "date": "2010-03-09", "heure": "03:00", "objet": "obj-cles", "vers": "sejour / table à manger", "par": "voyageur" }
+  ]
+}
