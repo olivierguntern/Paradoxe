@@ -735,19 +735,19 @@
         "nom": "Matin avec course à pied",
         "jours": ["mardi", "jeudi"],
         "etapes": [
-          { "debut": "07:00", "fin": "07:05", "lieu": "chambre", "action": "Réveil par la sonnerie, se lève, boit un verre d'eau" },
-          { "debut": "07:05", "fin": "07:10", "lieu": "wc", "action": "Passage aux toilettes" },
-          { "debut": "07:10", "fin": "07:15", "lieu": "chambre", "action": "Enfile sa tenue de course" },
-          { "debut": "07:15", "fin": "07:20", "lieu": "entree", "action": "Chausse ses chaussures, prend ses clés, ferme la porte et vérifie deux fois" },
-          { "debut": "07:20", "fin": "07:30", "lieu": "trajet", "action": "Descend les pentes en courant doucement" },
-          { "debut": "07:30", "fin": "07:55", "lieu": "quais-de-saone", "action": "Course le long de la Saône" },
-          { "debut": "07:55", "fin": "08:10", "lieu": "trajet", "action": "Remonte vers la Croix-Rousse, termine en marchant" },
-          { "debut": "08:10", "fin": "08:15", "lieu": "entree", "action": "Pose ses clés dans le vide-poche, retire ses chaussures" },
-          { "debut": "08:15", "fin": "08:30", "lieu": "salle-de-bain", "action": "Étirements puis douche ; rasage le mardi et le jeudi" },
-          { "debut": "08:30", "fin": "08:35", "lieu": "chambre", "action": "S'habille pour l'atelier" },
-          { "debut": "08:35", "fin": "08:50", "lieu": "cuisine", "action": "Petit-déjeuner avec yaourt et banane" },
-          { "debut": "08:50", "fin": "08:55", "lieu": "cuisine", "action": "Rince la tasse, remonte et règle sa montre" },
-          { "debut": "08:55", "fin": "09:00", "lieu": "atelier", "action": "Allume la lampe d'établi, aligne ses outils, ouvre le coffre" }
+          { "debut": "07:00", "fin": "07:05", "lieu": "chambre", "action": "Réveil par la sonnerie, se lève, boit un verre d'eau", "activite": "lever" },
+          { "debut": "07:05", "fin": "07:10", "lieu": "wc", "action": "Passage aux toilettes", "activite": "toilettes" },
+          { "debut": "07:10", "fin": "07:15", "lieu": "chambre", "action": "Enfile sa tenue de course", "activite": "habillage" },
+          { "debut": "07:15", "fin": "07:20", "lieu": "entree", "action": "Chausse ses chaussures, prend ses clés, ferme la porte et vérifie deux fois", "activite": "sortie" },
+          { "debut": "07:20", "fin": "07:30", "lieu": "trajet", "action": "Descend les pentes en courant doucement", "activite": "course" },
+          { "debut": "07:30", "fin": "07:55", "lieu": "quais-de-saone", "action": "Course le long de la Saône", "activite": "course" },
+          { "debut": "07:55", "fin": "08:10", "lieu": "trajet", "action": "Remonte vers la Croix-Rousse, termine en marchant", "activite": "course" },
+          { "debut": "08:10", "fin": "08:15", "lieu": "entree", "action": "Pose ses clés dans le vide-poche, retire ses chaussures", "activite": "retour" },
+          { "debut": "08:15", "fin": "08:30", "lieu": "salle-de-bain", "action": "Étirements puis douche ; rasage le mardi et le jeudi", "activite": "douche" },
+          { "debut": "08:30", "fin": "08:35", "lieu": "chambre", "action": "S'habille pour l'atelier", "activite": "habillage" },
+          { "debut": "08:35", "fin": "08:50", "lieu": "cuisine", "action": "Petit-déjeuner avec yaourt et banane", "activite": "petit_dejeuner" },
+          { "debut": "08:50", "fin": "08:55", "lieu": "cuisine", "action": "Rince la tasse, remonte et règle sa montre", "activite": "rangement_cuisine" },
+          { "debut": "08:55", "fin": "09:00", "lieu": "atelier", "action": "Allume la lampe d'établi, aligne ses outils, ouvre le coffre", "activite": "ouverture_atelier" }
         ]
       },
       {
@@ -755,15 +755,15 @@
         "nom": "Matin sans course",
         "jours": ["lundi", "mercredi", "vendredi"],
         "etapes": [
-          { "debut": "07:00", "fin": "07:05", "lieu": "chambre", "action": "Réveil par la sonnerie, reste allongé quelques minutes" },
-          { "debut": "07:05", "fin": "07:10", "lieu": "wc", "action": "Passage aux toilettes" },
-          { "debut": "07:10", "fin": "07:25", "lieu": "salle-de-bain", "action": "Douche ; rasage le lundi et le vendredi" },
-          { "debut": "07:25", "fin": "07:30", "lieu": "chambre", "action": "S'habille" },
-          { "debut": "07:30", "fin": "07:50", "lieu": "cuisine", "action": "Prépare un café, petit-déjeuner en écoutant la radio" },
-          { "debut": "07:50", "fin": "07:55", "lieu": "cuisine", "action": "Rince la tasse, remonte et règle sa montre" },
-          { "debut": "07:55", "fin": "08:45", "lieu": "sejour", "action": "Lecture ou documentation technique, radio en fond" },
-          { "debut": "08:45", "fin": "08:55", "lieu": "salle-de-bain", "action": "Étirements du dos" },
-          { "debut": "08:55", "fin": "09:00", "lieu": "atelier", "action": "Allume la lampe d'établi, aligne ses outils, ouvre le coffre" }
+          { "debut": "07:00", "fin": "07:05", "lieu": "chambre", "action": "Réveil par la sonnerie, reste allongé quelques minutes", "activite": "reveil" },
+          { "debut": "07:05", "fin": "07:10", "lieu": "wc", "action": "Passage aux toilettes", "activite": "toilettes" },
+          { "debut": "07:10", "fin": "07:25", "lieu": "salle-de-bain", "action": "Douche ; rasage le lundi et le vendredi", "activite": "douche" },
+          { "debut": "07:25", "fin": "07:30", "lieu": "chambre", "action": "S'habille", "activite": "habillage" },
+          { "debut": "07:30", "fin": "07:50", "lieu": "cuisine", "action": "Prépare un café, petit-déjeuner en écoutant la radio", "activite": "petit_dejeuner", "avec": ["radio"] },
+          { "debut": "07:50", "fin": "07:55", "lieu": "cuisine", "action": "Rince la tasse, remonte et règle sa montre", "activite": "rangement_cuisine", "avec": ["radio"] },
+          { "debut": "07:55", "fin": "08:45", "lieu": "sejour", "action": "Lecture ou documentation technique, radio en fond", "activite": "lecture_technique", "avec": ["radio", "ordinateur"] },
+          { "debut": "08:45", "fin": "08:55", "lieu": "salle-de-bain", "action": "Étirements du dos", "activite": "etirements" },
+          { "debut": "08:55", "fin": "09:00", "lieu": "atelier", "action": "Allume la lampe d'établi, aligne ses outils, ouvre le coffre", "activite": "ouverture_atelier" }
         ]
       },
       {
@@ -771,16 +771,16 @@
         "nom": "Journée à l'atelier",
         "jours": ["lundi", "mardi", "mercredi", "jeudi", "vendredi"],
         "etapes": [
-          { "debut": "09:00", "fin": "10:30", "lieu": "atelier", "action": "Travail de précision selon l'ordre de priorité" },
-          { "debut": "10:30", "fin": "10:45", "lieu": "cuisine", "action": "Pause café, verre d'eau, étirements" },
-          { "debut": "10:45", "fin": "12:30", "lieu": "atelier", "action": "Travail" },
-          { "debut": "12:30", "fin": "13:15", "lieu": "cuisine", "action": "Prépare et mange le déjeuner prévu" },
-          { "debut": "13:15", "fin": "13:30", "lieu": "cuisine", "action": "Café, vaisselle" },
-          { "debut": "13:30", "fin": "14:00", "lieu": "sejour", "action": "Repos sur le canapé, lecture ou courte sieste" },
-          { "debut": "14:00", "fin": "15:30", "lieu": "atelier", "action": "Travail" },
-          { "debut": "15:30", "fin": "15:40", "lieu": "cuisine", "action": "Pause, verre d'eau, un fruit, étirements" },
-          { "debut": "15:40", "fin": "17:50", "lieu": "atelier", "action": "Travail (jusqu'à 16:50 le vendredi, puis gestion)" },
-          { "debut": "17:50", "fin": "18:00", "lieu": "atelier", "action": "Range les montres dans le coffre, aligne les outils, éteint la lampe" }
+          { "debut": "09:00", "fin": "10:30", "lieu": "atelier", "action": "Travail de précision selon l'ordre de priorité", "activite": "travail" },
+          { "debut": "10:30", "fin": "10:45", "lieu": "cuisine", "action": "Pause café, verre d'eau, étirements", "activite": "pause_cafe" },
+          { "debut": "10:45", "fin": "12:30", "lieu": "atelier", "action": "Travail", "activite": "travail" },
+          { "debut": "12:30", "fin": "13:15", "lieu": "cuisine", "action": "Prépare et mange le déjeuner prévu", "activite": "repas" },
+          { "debut": "13:15", "fin": "13:30", "lieu": "cuisine", "action": "Café, vaisselle", "activite": "cafe_vaisselle" },
+          { "debut": "13:30", "fin": "14:00", "lieu": "sejour", "action": "Repos sur le canapé, lecture ou courte sieste", "activite": "repos" },
+          { "debut": "14:00", "fin": "15:30", "lieu": "atelier", "action": "Travail", "activite": "travail" },
+          { "debut": "15:30", "fin": "15:40", "lieu": "cuisine", "action": "Pause, verre d'eau, un fruit, étirements", "activite": "pause_fruit" },
+          { "debut": "15:40", "fin": "17:50", "lieu": "atelier", "action": "Travail (jusqu'à 16:50 le vendredi, puis gestion)", "activite": "travail" },
+          { "debut": "17:50", "fin": "18:00", "lieu": "atelier", "action": "Range les montres dans le coffre, aligne les outils, éteint la lampe", "activite": "rangement_atelier" }
         ]
       },
       {
@@ -788,14 +788,14 @@
         "nom": "Soirée ordinaire",
         "jours": ["lundi", "mardi", "jeudi", "vendredi", "samedi", "dimanche"],
         "etapes": [
-          { "debut": "18:00", "fin": "19:00", "lieu": "sejour", "action": "Temps libre : musique, radio, lecture" },
-          { "debut": "19:00", "fin": "19:45", "lieu": "cuisine", "action": "Prépare et mange le dîner prévu" },
-          { "debut": "19:45", "fin": "20:00", "lieu": "cuisine", "action": "Vaisselle" },
-          { "debut": "20:00", "fin": "22:00", "lieu": "atelier", "action": "Travail personnel sur la montre du grand-père (axe de balancier)" },
-          { "debut": "22:00", "fin": "22:15", "lieu": "atelier", "action": "Range ses outils, recouvre la montre de la cloche" },
-          { "debut": "22:15", "fin": "22:30", "lieu": "salle-de-bain", "action": "Toilette du soir" },
-          { "debut": "22:30", "fin": "23:00", "lieu": "chambre", "action": "Lecture au lit, écrit quelques lignes dans son carnet" },
-          { "debut": "23:00", "fin": null, "lieu": "chambre", "action": "Éteint la lumière, s'endort" }
+          { "debut": "18:00", "fin": "19:00", "lieu": "sejour", "action": "Temps libre : musique, radio, lecture", "activite": "temps_libre", "avec": ["radio"] },
+          { "debut": "19:00", "fin": "19:45", "lieu": "cuisine", "action": "Prépare et mange le dîner prévu", "activite": "repas" },
+          { "debut": "19:45", "fin": "20:00", "lieu": "cuisine", "action": "Vaisselle", "activite": "vaisselle" },
+          { "debut": "20:00", "fin": "22:00", "lieu": "atelier", "action": "Travail personnel sur la montre du grand-père (axe de balancier)", "activite": "travail_personnel" },
+          { "debut": "22:00", "fin": "22:15", "lieu": "atelier", "action": "Range ses outils, recouvre la montre de la cloche", "activite": "rangement_atelier" },
+          { "debut": "22:15", "fin": "22:30", "lieu": "salle-de-bain", "action": "Toilette du soir", "activite": "toilette_soir" },
+          { "debut": "22:30", "fin": "23:00", "lieu": "chambre", "action": "Lecture au lit, écrit quelques lignes dans son carnet", "activite": "lecture_lit" },
+          { "debut": "23:00", "fin": null, "lieu": "chambre", "action": "Éteint la lumière, s'endort", "activite": "coucher" }
         ]
       },
       {
@@ -803,14 +803,14 @@
         "nom": "Mercredi soir : lessive et match",
         "jours": ["mercredi"],
         "etapes": [
-          { "debut": "18:00", "fin": "18:15", "lieu": "cuisine", "action": "Trie le linge et lance la machine à laver (cycle de 90 minutes)" },
-          { "debut": "18:15", "fin": "19:45", "lieu": "atelier", "action": "Travail sur la montre du grand-père" },
-          { "debut": "19:45", "fin": "20:15", "lieu": "chambre", "action": "Déplie l'étendoir et étend le linge" },
-          { "debut": "20:15", "fin": "20:45", "lieu": "cuisine", "action": "Prépare le dîner, sort une bière" },
-          { "debut": "20:45", "fin": "22:40", "lieu": "sejour", "action": "Regarde Real Madrid – Lyon à la télévision en dînant" },
-          { "debut": "22:40", "fin": "23:00", "lieu": "cuisine", "action": "Vaisselle, toilette rapide" },
-          { "debut": "23:00", "fin": "23:30", "lieu": "chambre", "action": "Repense au match, a du mal à s'endormir" },
-          { "debut": "23:30", "fin": null, "lieu": "chambre", "action": "S'endort" }
+          { "debut": "18:00", "fin": "18:15", "lieu": "cuisine", "action": "Trie le linge et lance la machine à laver (cycle de 90 minutes)", "activite": "lessive" },
+          { "debut": "18:15", "fin": "19:45", "lieu": "atelier", "action": "Travail sur la montre du grand-père", "activite": "travail_personnel" },
+          { "debut": "19:45", "fin": "20:15", "lieu": "chambre", "action": "Déplie l'étendoir et étend le linge", "activite": "etendage" },
+          { "debut": "20:15", "fin": "20:45", "lieu": "cuisine", "action": "Prépare le dîner, sort une bière", "activite": "repas" },
+          { "debut": "20:45", "fin": "22:40", "lieu": "sejour", "action": "Regarde Real Madrid – Lyon à la télévision en dînant", "activite": "match", "avec": ["television"] },
+          { "debut": "22:40", "fin": "23:00", "lieu": "cuisine", "action": "Vaisselle, toilette rapide", "activite": "vaisselle" },
+          { "debut": "23:00", "fin": "23:30", "lieu": "chambre", "action": "Repense au match, a du mal à s'endormir", "activite": "eveille_au_lit" },
+          { "debut": "23:30", "fin": null, "lieu": "chambre", "action": "S'endort", "activite": "coucher" }
         ]
       },
       {
@@ -818,18 +818,18 @@
         "nom": "Samedi à la maison",
         "jours": ["samedi"],
         "etapes": [
-          { "debut": "08:30", "fin": "08:40", "lieu": "chambre", "action": "Réveil naturel, verre d'eau" },
-          { "debut": "08:40", "fin": "08:45", "lieu": "wc", "action": "Passage aux toilettes" },
-          { "debut": "08:45", "fin": "09:30", "lieu": "cuisine", "action": "Petit-déjeuner long avec la radio" },
-          { "debut": "09:30", "fin": "09:35", "lieu": "cuisine", "action": "Remonte et règle sa montre" },
-          { "debut": "09:35", "fin": "09:55", "lieu": "salle-de-bain", "action": "Douche, rasage" },
-          { "debut": "09:55", "fin": "10:00", "lieu": "chambre", "action": "S'habille" },
-          { "debut": "10:00", "fin": "11:30", "lieu": "domicile", "action": "Ménage : aspirateur, salle de bain, cuisine ; plie et range le linge sec" },
-          { "debut": "11:30", "fin": "12:30", "lieu": "sejour", "action": "Lecture" },
-          { "debut": "12:30", "fin": "13:30", "lieu": "cuisine", "action": "Prépare et mange le déjeuner prévu, vaisselle" },
-          { "debut": "13:30", "fin": "14:30", "lieu": "sejour", "action": "Sieste sur le canapé" },
-          { "debut": "14:30", "fin": "17:30", "lieu": "atelier", "action": "Longue séance sur la montre du grand-père" },
-          { "debut": "17:30", "fin": "18:00", "lieu": "sejour", "action": "Musique, lecture" }
+          { "debut": "08:30", "fin": "08:40", "lieu": "chambre", "action": "Réveil naturel, verre d'eau", "activite": "lever" },
+          { "debut": "08:40", "fin": "08:45", "lieu": "wc", "action": "Passage aux toilettes", "activite": "toilettes" },
+          { "debut": "08:45", "fin": "09:30", "lieu": "cuisine", "action": "Petit-déjeuner long avec la radio", "activite": "petit_dejeuner", "avec": ["radio"] },
+          { "debut": "09:30", "fin": "09:35", "lieu": "cuisine", "action": "Remonte et règle sa montre", "activite": "rangement_cuisine" },
+          { "debut": "09:35", "fin": "09:55", "lieu": "salle-de-bain", "action": "Douche, rasage", "activite": "douche" },
+          { "debut": "09:55", "fin": "10:00", "lieu": "chambre", "action": "S'habille", "activite": "habillage" },
+          { "debut": "10:00", "fin": "11:30", "lieu": "domicile", "action": "Ménage : aspirateur, salle de bain, cuisine ; plie et range le linge sec", "activite": "menage" },
+          { "debut": "11:30", "fin": "12:30", "lieu": "sejour", "action": "Lecture", "activite": "lecture" },
+          { "debut": "12:30", "fin": "13:30", "lieu": "cuisine", "action": "Prépare et mange le déjeuner prévu, vaisselle", "activite": "repas" },
+          { "debut": "13:30", "fin": "14:30", "lieu": "sejour", "action": "Sieste sur le canapé", "activite": "sieste" },
+          { "debut": "14:30", "fin": "17:30", "lieu": "atelier", "action": "Longue séance sur la montre du grand-père", "activite": "travail_personnel" },
+          { "debut": "17:30", "fin": "18:00", "lieu": "sejour", "action": "Musique, lecture", "activite": "temps_libre", "avec": ["lecteur-cd"] }
         ]
       },
       {
@@ -837,21 +837,21 @@
         "nom": "Dimanche",
         "jours": ["dimanche"],
         "etapes": [
-          { "debut": "08:30", "fin": "08:40", "lieu": "chambre", "action": "Réveil naturel, verre d'eau, une banane" },
-          { "debut": "08:40", "fin": "08:45", "lieu": "wc", "action": "Passage aux toilettes" },
-          { "debut": "08:45", "fin": "08:55", "lieu": "chambre", "action": "Enfile sa tenue de course" },
-          { "debut": "08:55", "fin": "09:00", "lieu": "entree", "action": "Chausse ses chaussures, prend ses clés, ferme la porte et vérifie deux fois" },
-          { "debut": "09:00", "fin": "09:10", "lieu": "trajet", "action": "Descend les pentes" },
-          { "debut": "09:10", "fin": "10:15", "lieu": "quais-de-saone", "action": "Sortie longue le long de la Saône" },
-          { "debut": "10:15", "fin": "10:30", "lieu": "trajet", "action": "Remonte vers la Croix-Rousse en marchant" },
-          { "debut": "10:30", "fin": "10:35", "lieu": "entree", "action": "Pose ses clés dans le vide-poche, retire ses chaussures" },
-          { "debut": "10:35", "fin": "10:55", "lieu": "salle-de-bain", "action": "Étirements et douche" },
-          { "debut": "10:55", "fin": "11:00", "lieu": "chambre", "action": "S'habille" },
-          { "debut": "11:00", "fin": "12:00", "lieu": "cuisine", "action": "Brunch, remonte et règle sa montre" },
-          { "debut": "12:00", "fin": "15:00", "lieu": "sejour", "action": "Lecture, musique, sieste" },
-          { "debut": "15:00", "fin": "17:00", "lieu": "atelier", "action": "Montre du grand-père" },
-          { "debut": "17:00", "fin": "17:30", "lieu": "sejour", "action": "Planifie les menus et le travail de la semaine suivante dans son carnet" },
-          { "debut": "17:30", "fin": "18:00", "lieu": "sejour", "action": "Écoute un disque" }
+          { "debut": "08:30", "fin": "08:40", "lieu": "chambre", "action": "Réveil naturel, verre d'eau, une banane", "activite": "lever" },
+          { "debut": "08:40", "fin": "08:45", "lieu": "wc", "action": "Passage aux toilettes", "activite": "toilettes" },
+          { "debut": "08:45", "fin": "08:55", "lieu": "chambre", "action": "Enfile sa tenue de course", "activite": "habillage" },
+          { "debut": "08:55", "fin": "09:00", "lieu": "entree", "action": "Chausse ses chaussures, prend ses clés, ferme la porte et vérifie deux fois", "activite": "sortie" },
+          { "debut": "09:00", "fin": "09:10", "lieu": "trajet", "action": "Descend les pentes", "activite": "course" },
+          { "debut": "09:10", "fin": "10:15", "lieu": "quais-de-saone", "action": "Sortie longue le long de la Saône", "activite": "course" },
+          { "debut": "10:15", "fin": "10:30", "lieu": "trajet", "action": "Remonte vers la Croix-Rousse en marchant", "activite": "course" },
+          { "debut": "10:30", "fin": "10:35", "lieu": "entree", "action": "Pose ses clés dans le vide-poche, retire ses chaussures", "activite": "retour" },
+          { "debut": "10:35", "fin": "10:55", "lieu": "salle-de-bain", "action": "Étirements et douche", "activite": "douche" },
+          { "debut": "10:55", "fin": "11:00", "lieu": "chambre", "action": "S'habille", "activite": "habillage" },
+          { "debut": "11:00", "fin": "12:00", "lieu": "cuisine", "action": "Brunch, remonte et règle sa montre", "activite": "repas", "avec": ["radio"] },
+          { "debut": "12:00", "fin": "15:00", "lieu": "sejour", "action": "Lecture, musique, sieste", "activite": "temps_libre" },
+          { "debut": "15:00", "fin": "17:00", "lieu": "atelier", "action": "Montre du grand-père", "activite": "travail_personnel" },
+          { "debut": "17:00", "fin": "17:30", "lieu": "sejour", "action": "Planifie les menus et le travail de la semaine suivante dans son carnet", "activite": "planification" },
+          { "debut": "17:30", "fin": "18:00", "lieu": "sejour", "action": "Écoute un disque", "activite": "temps_libre", "avec": ["lecteur-cd"] }
         ]
       }
     ]

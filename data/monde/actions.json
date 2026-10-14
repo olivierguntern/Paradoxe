@@ -1,0 +1,61 @@
+{
+  "principe": "Catalogue commun des actions du monde, à la manière d'objets intelligents : chaque action dit où elle se fait (un mot du nom ou du mobilier d'une pièce), dans quelle posture, avec quelle charge et quel mode pour le moteur, ce qu'elle apporte aux besoins, les appareils qu'elle allume et les événements qu'elle fait vivre. Aucune action n'est propre à un personnage : un habitant est décrit par sa fiche (besoins, routines dont chaque étape nomme une action, logement) et vit avec ce catalogue (outils/habitant.py).",
+  "champs": {
+    "lieu": "mot cherché dans l'identifiant, le nom ou le mobilier des pièces du logement, quand l'étape de routine ne donne pas la pièce",
+    "posture, charge, mode": "valeurs du moteur (charge : precision, simple, cuisine, lecture, repos, sommeil ; mode : eveille, travail, lecture, loisir, sieste, effort, sommeil)",
+    "effets": "appliqués au premier pas de l'action (ou de la phase) ; « vide » remet un besoin à 100, « cafe » déclenche l'effet du café",
+    "appareils": "allumés pendant l'action, éteints quand une action suivante ne les demande plus",
+    "phases": "découpage de l'action dans sa durée (part de la durée, posture, lieu, effets…)",
+    "variantes": "remplacent des champs selon l'état (besoin sous un seuil)",
+    "besoin": "action de réponse à un besoin pressant, choisie par l'utilité quand ce besoin passe sous son seuil d'alerte",
+    "ininterrompable": "l'utilité ne l'interrompt pas pour un besoin"
+  },
+  "actions": {
+    "sommeil": { "lieu": "lit", "posture": "allongé", "charge": "sommeil", "mode": "sommeil", "texte": "Dort.", "ininterrompable": true },
+    "reveil": { "lieu": "lit", "posture": "allongé", "charge": "repos", "texte": "La sonnerie retentit ; il l'éteint et reste allongé quelques minutes.", "ev": ["reveil_sonnerie"], "lumiere": true },
+    "lever": { "lieu": "lit", "posture": "debout", "charge": "simple", "texte": "Se lève et boit un verre d'eau.", "effets": { "soif": 20 }, "lumiere": true },
+    "toilettes": { "lieu": "wc", "posture": "debout", "charge": "simple", "texte": "Passe aux toilettes.", "effets": { "toilettes": "vide" }, "besoin": "toilettes" },
+    "boire": { "lieu": "évier", "posture": "debout", "charge": "simple", "texte": "S'interrompt pour boire un grand verre d'eau.", "effets": { "soif": 25 }, "besoin": "soif" },
+    "collation": { "lieu": "évier", "posture": "debout", "charge": "simple", "texte": "S'interrompt pour manger un fruit.", "effets": { "faim": 15 }, "besoin": "faim" },
+    "douche": { "lieu": "douche", "posture": "debout", "charge": "simple", "texte": "Prend sa douche.", "effets": { "hygiene": 75 } },
+    "habillage": { "lieu": "armoire", "posture": "debout", "charge": "simple", "texte": "S'habille." },
+    "petit_dejeuner": { "lieu": "évier", "posture": "debout", "charge": "cuisine", "texte": "Prépare le café et prend son petit-déjeuner.", "effets": { "faim": 40, "soif": 15, "cafe": true }, "ev": ["plaisir_simple"] },
+    "rangement_cuisine": { "lieu": "évier", "posture": "debout", "charge": "simple", "texte": "Rince sa tasse et range la cuisine." },
+    "lecture_technique": { "lieu": "canapé", "posture": "assis", "charge": "lecture", "mode": "lecture", "texte": "Lit de la documentation technique." },
+    "lecture": { "lieu": "canapé", "posture": "assis", "charge": "lecture", "mode": "lecture", "texte": "Lit." },
+    "etirements": { "lieu": "douche", "posture": "debout", "charge": "simple", "texte": "Fait ses étirements du dos." },
+    "ouverture_atelier": { "lieu": "établi", "posture": "debout", "charge": "simple", "texte": "Allume la lampe d'établi, aligne ses outils, ouvre le coffre.", "appareils": ["lampe-etabli"] },
+    "travail": { "lieu": "établi", "posture": "assis", "charge": "precision", "mode": "travail", "texte": "Travaille à l'établi.", "appareils": ["lampe-etabli"] },
+    "travail_personnel": { "lieu": "établi", "posture": "assis", "charge": "precision", "mode": "loisir", "texte": "Travaille sur son ouvrage personnel.", "appareils": ["lampe-etabli"], "ev": ["souvenir_grand_pere"] },
+    "rangement_atelier": { "lieu": "établi", "posture": "debout", "charge": "simple", "texte": "Range ses outils et éteint la lampe.", "ev": ["repos_merite"] },
+    "pause_cafe": { "lieu": "évier", "posture": "debout", "charge": "simple", "texte": "Pause : un café, un verre d'eau, quelques étirements.", "effets": { "soif": 20, "cafe": true }, "ev": ["plaisir_simple"] },
+    "pause_fruit": { "lieu": "évier", "posture": "debout", "charge": "simple", "texte": "Pause : un verre d'eau et un fruit.", "effets": { "soif": 20, "faim": 15 } },
+    "repas": {
+      "lieu": "évier", "texte": "Prépare son repas.",
+      "phases": [
+        { "part": 0.4, "posture": "debout", "charge": "cuisine", "texte": "Prépare son repas." },
+        { "part": 0.6, "lieu": "table à manger", "posture": "assis", "charge": "repos", "texte": "Mange.", "effets": { "faim": 55, "soif": 15 }, "ev": ["plaisir_simple", "repas_seul"] }
+      ]
+    },
+    "cafe_vaisselle": { "lieu": "évier", "posture": "debout", "charge": "simple", "texte": "Prend un café et fait la vaisselle.", "effets": { "cafe": true }, "ev": ["plaisir_simple"] },
+    "vaisselle": { "lieu": "évier", "posture": "debout", "charge": "simple", "texte": "Fait la vaisselle." },
+    "repos": {
+      "lieu": "canapé", "posture": "allongé", "charge": "repos", "mode": "lecture", "texte": "S'allonge sur le canapé avec son livre.",
+      "variantes": [ { "si_besoin_sous": { "energie": 45 }, "mode": "sieste", "texte": "S'allonge sur le canapé et s'assoupit." } ]
+    },
+    "sieste": { "lieu": "canapé", "posture": "allongé", "charge": "repos", "mode": "sieste", "texte": "Fait la sieste sur le canapé." },
+    "temps_libre": { "lieu": "canapé", "posture": "assis", "charge": "repos", "mode": "loisir", "texte": "Temps libre : musique et lecture." },
+    "planification": { "lieu": "table à manger", "posture": "assis", "charge": "simple", "texte": "Planifie la semaine suivante dans son carnet." },
+    "toilette_soir": { "lieu": "douche", "posture": "debout", "charge": "simple", "texte": "Toilette du soir.", "effets": { "hygiene": 10 } },
+    "lecture_lit": { "lieu": "lit", "posture": "allongé", "charge": "repos", "mode": "lecture", "texte": "Lit au lit, puis écrit quelques lignes dans son carnet.", "ev": ["ecriture_carnet"] },
+    "eveille_au_lit": { "lieu": "lit", "posture": "allongé", "charge": "repos", "texte": "Couché, il repense à sa soirée." },
+    "coucher": { "lieu": "lit", "posture": "allongé", "charge": "repos", "texte": "Éteint la lumière.", "sommeil": true, "ininterrompable": true },
+    "lessive": { "lieu": "machine à laver", "posture": "debout", "charge": "simple", "texte": "Trie le linge et lance la machine.", "appareils": ["machine-a-laver"] },
+    "etendage": { "lieu": "étendoir", "posture": "debout", "charge": "simple", "texte": "Déplie l'étendoir et étend le linge." },
+    "match": { "lieu": "téléviseur", "posture": "assis", "charge": "repos", "mode": "loisir", "texte": "Regarde le match à la télévision.", "tele": "match", "ev": ["match_tension"] },
+    "menage": { "lieu": "entree", "posture": "debout", "charge": "simple", "texte": "Fait le ménage.", "appareils": ["aspirateur"] },
+    "sortie": { "lieu": "entree", "posture": "debout", "charge": "simple", "texte": "Chausse ses chaussures, prend ses clés et sort.", "ininterrompable": true },
+    "course": { "exterieur": true, "posture": "en course", "charge": "simple", "mode": "effort", "texte": "Court.", "ev": ["effort_physique"], "ininterrompable": true },
+    "retour": { "lieu": "entree", "posture": "debout", "charge": "simple", "texte": "Rentre, pose ses clés et retire ses chaussures.", "ev": ["fin_de_course"] }
+  }
+}

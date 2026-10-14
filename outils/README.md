@@ -152,6 +152,27 @@ Le samedi et le dimanche n'ont pas de sonnerie : réveil naturel entre 07:30 et 
 
 Le résumé de chaque journée distingue les besoins passés sous le seuil d'alerte **éveillé** (à examiner) et **pendant le sommeil** (durée par besoin, attendu pour la soif la nuit).
 
+## Habitant générique
+
+`habitant.py` fait vivre n'importe quel habitant sans code qui lui soit propre, pour pouvoir peupler la ville. Un habitant, c'est sa fiche : besoins, logement et routines dont chaque étape nomme une action (`"activite"`, et `"avec"` pour les appareils d'ambiance comme la radio). Les actions sont décrites une fois pour toutes dans `data/monde/actions.json`, à la manière d'objets intelligents : où elles se font (un mot du mobilier ou du nom d'une pièce), posture, charge, besoins satisfaits, appareils, événements, phases (préparer puis manger), variantes (sieste si l'énergie est basse).
+
+À chaque pas, il donne un score aux actions possibles et fait la meilleure :
+
+| Action | Score |
+|---|---|
+| Étape de routine en cours (ancrage) | 1 |
+| Besoin sous son seuil d'alerte (toilettes, soif, faim) | 1 + (seuil − valeur) / seuil : il s'interrompt un pas |
+| Besoin sous le double de son seuil, au début d'une étape | 1 + 0,5 × (2 × seuil − valeur) / (2 × seuil) : il en profite avant de s'y mettre |
+
+Le moteur calcule ensuite déplacements, lumière, besoins et émotions comme pour les autres agents. La nuit s'enchaîne d'elle-même : l'étape `coucher` éteint, l'endormissement dure selon l'état émotionnel, puis il dort jusqu'à la première étape du lendemain.
+
+```bash
+python3 outils/simuler_habitant.py 2010-03-08 2010-03-14 --dossier data/generique/thomas-berthier
+python3 outils/comparer_journees.py data/references/thomas-berthier/2010-03-08.json data/generique/thomas-berthier/2010-03-08.json
+```
+
+Mesure sur Thomas, à partir de sa seule fiche (lundi, comparé à la journée de référence) : même pièce 91 % des pas, même lieu 100 %, même posture 88 %, mêmes appareils 76 % ; objets 31 % et provisions 31 %, pas encore gérés (les menus de la fiche sont du texte libre). Sur la semaine, comparé à l'agent écrit à la main : 84 à 91 % de pièces identiques du lundi au vendredi, 68 à 72 % le week-end, dont les sorties (cinéma, vote, courses) ne sont pas encore dans les routines.
+
 ## Vue fil de fer
 
 La semaine se rejoue dans une vue isométrique fil de fer (`vue/index.html`, à ouvrir dans un navigateur), à plusieurs échelles, les mêmes pour les deux personnages : le logement (l'appartement de Thomas, la boutique ou la maison de Robert), l'immeuble (ou la maison), la rue du lieu où se trouve le personnage suivi (pour Thomas, de chez lui à l'épicerie ; pour Robert, la Grande-Rue autour de l'épicerie, avec la place et la banque, ou la rue des Glycines), le parcours de course (pentes et quais de Saône), les sorties à pied de Thomas (vers le cinéma par la montée de la Boucle, le boulevard jusqu'à la mairie du 4e et au Gros Caillou), et pour Robert le trajet en Kangoo (Croix-Rousse, Rhône, Villeurbanne), le cinéma de la Cité internationale, l'école où il vote et les monts d'Or. On choisit le personnage suivi (Thomas ou Robert) ; l'autre reste visible. Le panneau donne l'état de chaque pas : activité, pensée, besoins, émotions, objets portés, argent, lumières et appareils.
