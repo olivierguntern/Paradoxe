@@ -173,6 +173,12 @@ python3 outils/comparer_journees.py data/references/thomas-berthier/2010-03-08.j
 
 Mesure sur Thomas, à partir de sa seule fiche (lundi, comparé à la journée de référence) : même pièce 91 % des pas, même lieu 100 %, même posture 88 %, mêmes appareils 76 % ; objets 31 % et provisions 31 %, pas encore gérés (les menus de la fiche sont du texte libre). Sur la semaine, comparé à l'agent écrit à la main : 84 à 91 % de pièces identiques du lundi au vendredi, 68 à 72 % le week-end, dont les sorties (cinéma, vote, courses) ne sont pas encore dans les routines.
 
+Robert vit lui aussi avec ce moteur, sans code propre : ses routines nomment leurs actions, et sa fiche dit où il gare la Kangoo sur chaque site (`voiture.stationnements`), la distance entre ses sites (`voiture.itineraires`) et le lieu de chaque site (`domicile.plan.lieux_des_sites`). Règles générales ajoutées pour lui : une pièce se cherche d'abord sur le site où il se trouve, un besoin pressant ne l'envoie que dans une pièce de ce site, il éteint tout en quittant un site, et un événement que sa fiche ne connaît pas n'a pas d'effet sur lui. Mardi, comparé à sa journée de référence : même pièce 90 %, même lieu 99 %, même posture 91 %, mêmes appareils 88 % ; la vente au comptoir (clients, caisse, stock du magasin) n'est pas encore gérée.
+
+```bash
+python3 outils/simuler_habitant.py 2010-03-08 2010-03-14 --personnage robert-chazal --dossier data/generique/robert-chazal
+```
+
 ## Vue fil de fer
 
 La semaine se rejoue dans une vue isométrique fil de fer (`vue/index.html`, à ouvrir dans un navigateur), à plusieurs échelles, les mêmes pour les deux personnages : le logement (l'appartement de Thomas, la boutique ou la maison de Robert), l'immeuble (ou la maison), la rue du lieu où se trouve le personnage suivi (pour Thomas, de chez lui à l'épicerie ; pour Robert, la Grande-Rue autour de l'épicerie, avec la place et la banque, ou la rue des Glycines), le parcours de course (pentes et quais de Saône), les sorties à pied de Thomas (vers le cinéma par la montée de la Boucle, le boulevard jusqu'à la mairie du 4e et au Gros Caillou), et pour Robert le trajet en Kangoo (Croix-Rousse, Rhône, Villeurbanne), le cinéma de la Cité internationale, l'école où il vote et les monts d'Or. On choisit le personnage suivi (Thomas ou Robert) ; l'autre reste visible. Le panneau donne l'état de chaque pas : activité, pensée, besoins, émotions, objets portés, argent, lumières et appareils.

@@ -56,6 +56,22 @@
     "menage": { "lieu": "entree", "posture": "debout", "charge": "simple", "texte": "Fait le ménage.", "appareils": ["aspirateur"] },
     "sortie": { "lieu": "entree", "posture": "debout", "charge": "simple", "texte": "Chausse ses chaussures, prend ses clés et sort.", "ininterrompable": true },
     "course": { "exterieur": true, "posture": "en course", "charge": "simple", "mode": "effort", "texte": "Court.", "ev": ["effort_physique"], "ininterrompable": true },
-    "retour": { "lieu": "entree", "posture": "debout", "charge": "simple", "texte": "Rentre, pose ses clés et retire ses chaussures.", "ev": ["fin_de_course"] }
+    "retour": { "lieu": "entree", "posture": "debout", "charge": "simple", "texte": "Rentre, pose ses clés et retire ses chaussures.", "ev": ["fin_de_course"] },
+    "toilette_matin": { "lieu": "douche", "posture": "debout", "charge": "simple", "texte": "Toilette, douche, rasage, habillage.", "effets": { "toilettes": "vide", "hygiene": 75 } },
+    "depart_voiture": { "lieu": "garage", "posture": "debout", "charge": "simple", "texte": "Prend sa veste et ses clés, sort la voiture." },
+    "conduire": { "vehicule": true, "posture": "assis", "charge": "conduite", "texte": "Conduit.", "ininterrompable": true },
+    "ouverture_boutique": { "lieu": "comptoir", "posture": "debout", "charge": "simple", "texte": "Reçoit les livraisons, met en rayon et lève le rideau.", "allume": ["lumiere-{piece}"] },
+    "tenir_boutique": { "lieu": "comptoir", "posture": "debout", "charge": "service", "mode": "travail", "texte": "Tient la boutique et sert les clients." },
+    "travail_boutique": { "lieu": "comptoir", "posture": "debout", "charge": "simple", "mode": "travail", "texte": "Trie, range et fait les comptes." },
+    "fermeture_boutique": { "lieu": "coffre", "posture": "debout", "charge": "simple", "texte": "Baisse le rideau, compte la caisse.", "eteint": ["lumiere-boutique"] },
+    "television": { "lieu": "télévision", "posture": "assis", "charge": "repos", "mode": "loisir", "texte": "Regarde la télévision." },
+    "belote": { "lieu": "table", "posture": "assis", "charge": "simple", "mode": "loisir", "texte": "Joue à la belote avec des amis.", "effets": { "social": 15 }, "ev": ["plaisir_simple"] },
+    "jardinage": { "lieu": "jardin", "posture": "debout", "charge": "simple", "mode": "loisir", "texte": "Jardine." },
+    "bricolage": { "lieu": "établi", "posture": "debout", "charge": "simple", "mode": "loisir", "texte": "Bricole." },
+    "preparatifs_sortie": { "lieu": "entree", "posture": "debout", "charge": "simple", "texte": "Se prépare à sortir." },
+    "banque": { "exterieur": true, "posture": "debout", "charge": "simple", "texte": "Dépose la recette à la banque." },
+    "vote": { "exterieur": true, "posture": "debout", "charge": "simple", "texte": "Va voter." },
+    "cinema": { "exterieur": true, "posture": "assis", "charge": "repos", "mode": "loisir", "texte": "Au cinéma." },
+    "randonnee": { "exterieur": true, "posture": "en marche", "charge": "simple", "mode": "effort", "texte": "Randonnée.", "ininterrompable": true }
   }
 }
