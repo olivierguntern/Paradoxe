@@ -125,6 +125,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
 } }
 </script>
 <script src="sims.js"></script>
+<script>
+// si le chargement échoue, le dire au lieu de rester sur « Chargement du quartier… »
+const echecChargement = t => { const c = document.getElementById("chargement"); if (c) c.textContent = t; };
+window.addEventListener("error", e => echecChargement(e.message ? `Erreur : ${e.message}` : `Impossible de charger ${e.target.src || "un script"} (three.js vient de cdn.jsdelivr.net).`), true);
+window.addEventListener("unhandledrejection", e => echecChargement(`Erreur : ${e.reason}`));
+setTimeout(() => echecChargement("Toujours rien après 20 s : three.js (cdn.jsdelivr.net) ne répond pas ? Ouvre la console (F12) pour voir l'erreur."), 20000);
+</script>
 </head>
 <body>
 <div id="scene"></div>
