@@ -141,6 +141,7 @@ Un scénario du voyageur (`data/voyageur/<nom>.json`) liste ses interventions da
 | `mission-plein-jour` | Mission de la branche fossilisée, le samedi après-midi pendant que Robert tient la boutique | Mission échouée : Robert entend la scie à béton à 15:00, va voir, surprend John qui s'enfuit ; la police vient, la serrure est changée ; la branche n'est pas brûlée ; la rumeur gagne Josiane et les Morel ; paradoxe |
 | `mission-retour` | Surpris le samedi, John revient le dimanche après-midi, pendant la randonnée de Robert | Mission échouée : la serrure a été changée, elle ne se crochète plus |
 | `mission-baclee` | La même mission le lundi, porte forcée, sans rien effacer | Mission échouée : la branche est brûlée, mais mardi à 06:30 Robert trouve la serrure forcée et la poussière, porte plainte et ouvre la boutique en retard ; Thomas, Josiane et les Morel l'apprennent ; paradoxe |
+| `mission-lundi-tot` | Le lundi dès 08:00, comme si la boutique était vide toute la journée | Mission échouée : à 09:10, Robert entre par la porte de derrière prendre la recette au coffre et surprend John la scie à la main |
 | `mission-soignee` | Le lundi, serrure crochetée, puis palettes remises, poussière nettoyée, boutique aérée | Mission réussie, parfaitement : Robert ne remarque rien, aucun fait ne change |
 | `compatible` | Le même achat, avec un téléphone à clapet et un billet de la première série | Aucune divergence : seuls des détails changent (une bouteille d'eau, la caisse de Robert) |
 

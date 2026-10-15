@@ -1,0 +1,2262 @@
+{
+ "habitants": [
+  "gerard-morel",
+  "josiane-chazal",
+  "monique-morel",
+  "robert-chazal",
+  "thomas-berthier"
+ ],
+ "cibles": [
+  "robert-chazal"
+ ],
+ "verdict": "paradoxe : 5 habitants touchés, jusqu'à 11 faits différents dans une heure",
+ "touches": [
+  "gerard-morel",
+  "josiane-chazal",
+  "monique-morel",
+  "robert-chazal",
+  "thomas-berthier"
+ ],
+ "cascade": [
+  "gerard-morel",
+  "josiane-chazal",
+  "monique-morel",
+  "thomas-berthier"
+ ],
+ "premier_fait": {
+  "robert-chazal": {
+   "date": "2010-03-08",
+   "heure": "09:10",
+   "genre": "anomalie",
+   "detail": "remarque : une fine poussière de béton sur les rayons et le comptoir"
+  },
+  "josiane-chazal": {
+   "date": "2010-03-08",
+   "heure": "17:35",
+   "genre": "appris",
+   "detail": "ne sait pas : catalogue de graines, petit bricolage, jardin, légumes de la soupe pour Josiane"
+  },
+  "thomas-berthier": {
+   "date": "2010-03-09",
+   "heure": "18:25",
+   "genre": "anomalie",
+   "detail": "entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie"
+  },
+  "monique-morel": {
+   "date": "2010-03-14",
+   "heure": "14:35",
+   "genre": "appris",
+   "detail": "ne sait pas : prépare le déjeuner du dimanche"
+  },
+  "gerard-morel": {
+   "date": "2010-03-14",
+   "heure": "15:50",
+   "genre": "anomalie",
+   "detail": "entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie"
+  }
+ },
+ "par_habitant": {
+  "gerard-morel": {
+   "pas_divergents": 98,
+   "faits": 1
+  },
+  "josiane-chazal": {
+   "pas_divergents": 1805,
+   "faits": 6
+  },
+  "monique-morel": {
+   "pas_divergents": 113,
+   "faits": 2
+  },
+  "robert-chazal": {
+   "pas_divergents": 1906,
+   "faits": 9
+  },
+  "thomas-berthier": {
+   "pas_divergents": 1507,
+   "faits": 2
+  }
+ },
+ "exemples": {
+  "robert-chazal": {
+   "anomalie": [
+    "2010-03-08",
+    "09:10",
+    "remarque : une fine poussière de béton sur les rayons et le comptoir"
+   ],
+   "lieu": [
+    "2010-03-08",
+    "09:15",
+    "banque → arriere-boutique"
+   ],
+   "activité": [
+    "2010-03-08",
+    "09:15",
+    "Dépose la recette au coffre de la banque ; quelques mots avec M. Garnier → Un cambrioleur dans l'arrière-boutique"
+   ]
+  },
+  "josiane-chazal": {
+   "appris": [
+    "2010-03-08",
+    "17:35",
+    "ne sait pas : catalogue de graines, petit bricolage, jardin, légumes de la soupe pour Josiane"
+   ],
+   "anomalie": [
+    "2010-03-08",
+    "17:35",
+    "entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie"
+   ]
+  },
+  "thomas-berthier": {
+   "anomalie": [
+    "2010-03-09",
+    "18:25",
+    "entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie"
+   ]
+  },
+  "monique-morel": {
+   "appris": [
+    "2010-03-14",
+    "14:35",
+    "ne sait pas : prépare le déjeuner du dimanche"
+   ],
+   "anomalie": [
+    "2010-03-14",
+    "14:35",
+    "entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie"
+   ]
+  },
+  "gerard-morel": {
+   "anomalie": [
+    "2010-03-14",
+    "15:50",
+    "entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie"
+   ]
+  }
+ },
+ "heures": [
+  {
+   "date": "2010-03-08",
+   "heure": "00:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "01:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "02:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "03:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "04:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "05:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "06:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "07:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "08:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "09:00",
+   "faits": 9,
+   "habitants": [
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "10:00",
+   "faits": 4,
+   "habitants": [
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "11:00",
+   "faits": 2,
+   "habitants": [
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "12:00",
+   "faits": 2,
+   "habitants": [
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "13:00",
+   "faits": 2,
+   "habitants": [
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "14:00",
+   "faits": 2,
+   "habitants": [
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "15:00",
+   "faits": 2,
+   "habitants": [
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "16:00",
+   "faits": 2,
+   "habitants": [
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "17:00",
+   "faits": 4,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "18:00",
+   "faits": 4,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "19:00",
+   "faits": 4,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "20:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "21:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "22:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "23:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "00:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "01:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "02:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "03:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "04:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "05:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "06:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "07:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "08:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "09:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "10:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "11:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "12:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "13:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "14:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "15:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "16:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "17:00",
+   "faits": 6,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "18:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "19:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "20:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "21:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "22:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "23:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "00:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "01:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "02:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "03:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "04:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "05:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "06:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "07:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "08:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "09:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "10:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "11:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "12:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "13:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "14:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "15:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "16:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "17:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "18:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "19:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "20:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "21:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "22:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "23:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "00:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "01:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "02:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "03:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "04:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "05:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "06:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "07:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "08:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "09:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "10:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "11:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "12:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "13:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "14:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "15:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "16:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "17:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "18:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "19:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "20:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "21:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "22:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "23:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "00:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "01:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "02:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "03:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "04:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "05:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "06:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "07:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "08:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "09:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "10:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "11:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "12:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "13:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "14:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "15:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "16:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "17:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "18:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "19:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "20:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "21:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "22:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "23:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "00:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "01:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "02:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "03:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "04:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "05:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "06:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "07:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "08:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "09:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "10:00",
+   "faits": 7,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "11:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "12:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "13:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "14:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "15:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "16:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "17:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "18:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "19:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "20:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "21:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "22:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "23:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "00:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "01:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "02:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "03:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "04:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "05:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "06:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "07:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "08:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "09:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "10:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "11:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "12:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "13:00",
+   "faits": 8,
+   "habitants": [
+    "josiane-chazal",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "14:00",
+   "faits": 10,
+   "habitants": [
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "15:00",
+   "faits": 11,
+   "habitants": [
+    "gerard-morel",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "16:00",
+   "faits": 11,
+   "habitants": [
+    "gerard-morel",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "17:00",
+   "faits": 11,
+   "habitants": [
+    "gerard-morel",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "18:00",
+   "faits": 11,
+   "habitants": [
+    "gerard-morel",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "19:00",
+   "faits": 11,
+   "habitants": [
+    "gerard-morel",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "20:00",
+   "faits": 11,
+   "habitants": [
+    "gerard-morel",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "21:00",
+   "faits": 11,
+   "habitants": [
+    "gerard-morel",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "22:00",
+   "faits": 11,
+   "habitants": [
+    "gerard-morel",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "23:00",
+   "faits": 11,
+   "habitants": [
+    "gerard-morel",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "thomas-berthier"
+   ]
+  }
+ ],
+ "fin": {
+  "faits": 11,
+  "habitants": [
+   "gerard-morel",
+   "josiane-chazal",
+   "monique-morel",
+   "robert-chazal",
+   "thomas-berthier"
+  ]
+ },
+ "causes": {
+  "interventions": [
+   {
+    "id": "V1",
+    "date": "2010-03-08",
+    "heure": "08:00",
+    "pas": 96,
+    "fin": 102,
+    "type": "geste",
+    "habitant": null,
+    "texte": "crocheter la serrure de la porte de la cour (30 min)"
+   },
+   {
+    "id": "V2",
+    "date": "2010-03-08",
+    "heure": "08:30",
+    "pas": 102,
+    "fin": 126,
+    "type": "geste",
+    "habitant": null,
+    "texte": "découper la dalle de béton à la scie (120 min)"
+   },
+   {
+    "id": "V3",
+    "date": "2010-03-08",
+    "heure": "10:30",
+    "pas": 126,
+    "fin": 174,
+    "type": "geste",
+    "habitant": null,
+    "texte": "creuser sous la dalle (240 min)"
+   },
+   {
+    "id": "V4",
+    "date": "2010-03-08",
+    "heure": "14:30",
+    "pas": 174,
+    "fin": 180,
+    "type": "geste",
+    "habitant": null,
+    "texte": "brûler la branche fossilisée (30 min)"
+   },
+   {
+    "id": "V5",
+    "date": "2010-03-08",
+    "heure": "15:00",
+    "pas": 180,
+    "fin": 198,
+    "type": "geste",
+    "habitant": null,
+    "texte": "reboucher le trou (90 min)"
+   },
+   {
+    "id": "V6",
+    "date": "2010-03-08",
+    "heure": "16:30",
+    "pas": 198,
+    "fin": 210,
+    "type": "geste",
+    "habitant": null,
+    "texte": "couler une chape de béton (60 min)"
+   },
+   {
+    "id": "V7",
+    "date": "2010-03-08",
+    "heure": "17:30",
+    "pas": 210,
+    "fin": 216,
+    "type": "geste",
+    "habitant": null,
+    "texte": "remettre les palettes et les cartons sur la réparation (30 min)"
+   },
+   {
+    "id": "V8",
+    "date": "2010-03-08",
+    "heure": "18:00",
+    "pas": 216,
+    "fin": 228,
+    "type": "geste",
+    "habitant": null,
+    "texte": "nettoyer la poussière (60 min)"
+   },
+   {
+    "id": "V9",
+    "date": "2010-03-08",
+    "heure": "19:00",
+    "pas": 228,
+    "fin": 240,
+    "type": "geste",
+    "habitant": null,
+    "texte": "aérer la boutique (60 min)"
+   }
+  ],
+  "faits": [
+   {
+    "id": "F1",
+    "habitant": "robert-chazal",
+    "genre": "anomalie",
+    "detail": "remarque : une fine poussière de béton sur les rayons et le comptoir",
+    "date": "2010-03-08",
+    "heure": "09:10",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "V2",
+    "supposee": false
+   },
+   {
+    "id": "F2",
+    "habitant": "robert-chazal",
+    "genre": "anomalie",
+    "detail": "remarque : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
+    "date": "2010-03-08",
+    "heure": "09:10",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "V2",
+    "supposee": false
+   },
+   {
+    "id": "F3",
+    "habitant": "robert-chazal",
+    "genre": "lieu",
+    "detail": "banque → arriere-boutique",
+    "date": "2010-03-08",
+    "heure": "09:15",
+    "fin_date": "2010-03-08",
+    "fin_heure": "09:25",
+    "cause": "F2",
+    "supposee": false
+   },
+   {
+    "id": "F4",
+    "habitant": "robert-chazal",
+    "genre": "activité",
+    "detail": "Dépose la recette au coffre de la banque ; quelques mots avec M. Garnier → Un cambrioleur dans l'arrière-boutique",
+    "date": "2010-03-08",
+    "heure": "09:15",
+    "fin_date": "2010-03-08",
+    "fin_heure": "09:25",
+    "cause": "F2",
+    "supposee": false
+   },
+   {
+    "id": "F5",
+    "habitant": "robert-chazal",
+    "genre": "activité",
+    "detail": "Revient par la cour et vérifie que la porte de derrière est bien fermée → Un cambrioleur dans l'arrière-boutique",
+    "date": "2010-03-08",
+    "heure": "09:30",
+    "fin_date": "2010-03-08",
+    "fin_heure": "09:30",
+    "cause": "F2",
+    "supposee": false
+   },
+   {
+    "id": "F6",
+    "habitant": "robert-chazal",
+    "genre": "lieu",
+    "detail": "Kangoo → arriere-boutique",
+    "date": "2010-03-08",
+    "heure": "09:35",
+    "fin_date": "2010-03-08",
+    "fin_heure": "09:50",
+    "cause": "F2",
+    "supposee": false
+   },
+   {
+    "id": "F7",
+    "habitant": "robert-chazal",
+    "genre": "activité",
+    "detail": "Rentre → Un cambrioleur dans l'arrière-boutique",
+    "date": "2010-03-08",
+    "heure": "09:35",
+    "fin_date": "2010-03-08",
+    "fin_heure": "09:50",
+    "cause": "F2",
+    "supposee": false
+   },
+   {
+    "id": "F8",
+    "habitant": "robert-chazal",
+    "genre": "lieu",
+    "detail": "sejour → arriere-boutique",
+    "date": "2010-03-08",
+    "heure": "09:55",
+    "fin_date": "2010-03-08",
+    "fin_heure": "10:30",
+    "cause": "F2",
+    "supposee": false
+   },
+   {
+    "id": "F9",
+    "habitant": "robert-chazal",
+    "genre": "activité",
+    "detail": "Catalogue de graines, petit bricolage, jardin, légumes de la soupe pour Josiane → Un cambrioleur dans l'arrière-boutique",
+    "date": "2010-03-08",
+    "heure": "09:55",
+    "fin_date": "2010-03-08",
+    "fin_heure": "10:30",
+    "cause": "F2",
+    "supposee": false
+   },
+   {
+    "id": "F10",
+    "habitant": "josiane-chazal",
+    "genre": "anomalie",
+    "detail": "entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
+    "date": "2010-03-08",
+    "heure": "17:35",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F2",
+    "supposee": false
+   },
+   {
+    "id": "F11",
+    "habitant": "josiane-chazal",
+    "genre": "appris",
+    "detail": "ne sait pas : catalogue de graines, petit bricolage, jardin, légumes de la soupe pour Josiane",
+    "date": "2010-03-08",
+    "heure": "17:35",
+    "fin_date": "2010-03-08",
+    "fin_heure": "22:15",
+    "cause": "F9",
+    "supposee": false
+   },
+   {
+    "id": "F12",
+    "habitant": "josiane-chazal",
+    "genre": "anomalie",
+    "detail": "entend parler de : une fine poussière de béton sur les rayons et le comptoir",
+    "date": "2010-03-08",
+    "heure": "20:20",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F1",
+    "supposee": false
+   },
+   {
+    "id": "F13",
+    "habitant": "josiane-chazal",
+    "genre": "appris",
+    "detail": "ne sait pas : potager : retourne la terre, sème les radis",
+    "date": "2010-03-08",
+    "heure": "20:20",
+    "fin_date": "2010-03-08",
+    "fin_heure": "21:00",
+    "cause": "F9",
+    "supposee": false
+   },
+   {
+    "id": "F14",
+    "habitant": "josiane-chazal",
+    "genre": "appris",
+    "detail": "ne sait pas : café, radio, mots croisés",
+    "date": "2010-03-08",
+    "heure": "21:05",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F9",
+    "supposee": false
+   },
+   {
+    "id": "F15",
+    "habitant": "josiane-chazal",
+    "genre": "appris",
+    "detail": "ne sait pas : sieste",
+    "date": "2010-03-08",
+    "heure": "22:20",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F9",
+    "supposee": false
+   },
+   {
+    "id": "F16",
+    "habitant": "thomas-berthier",
+    "genre": "anomalie",
+    "detail": "entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
+    "date": "2010-03-09",
+    "heure": "18:25",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F2",
+    "supposee": false
+   },
+   {
+    "id": "F17",
+    "habitant": "thomas-berthier",
+    "genre": "anomalie",
+    "detail": "entend parler de : une fine poussière de béton sur les rayons et le comptoir",
+    "date": "2010-03-13",
+    "heure": "11:50",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F1",
+    "supposee": false
+   },
+   {
+    "id": "F18",
+    "habitant": "monique-morel",
+    "genre": "anomalie",
+    "detail": "entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
+    "date": "2010-03-14",
+    "heure": "14:35",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F10",
+    "supposee": false
+   },
+   {
+    "id": "F19",
+    "habitant": "monique-morel",
+    "genre": "appris",
+    "detail": "ne sait pas : prépare le déjeuner du dimanche",
+    "date": "2010-03-14",
+    "heure": "14:35",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F15",
+    "supposee": false
+   },
+   {
+    "id": "F20",
+    "habitant": "gerard-morel",
+    "genre": "anomalie",
+    "detail": "entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
+    "date": "2010-03-14",
+    "heure": "15:50",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F18",
+    "supposee": false
+   }
+  ]
+ },
+ "arbre": [
+  "- **Le voyageur**, lundi 8 08:00 — crocheter la serrure de la porte de la cour (30 min)",
+  "- **Le voyageur**, lundi 8 08:30 — découper la dalle de béton à la scie (120 min)",
+  "  - **Robert**, lundi 8 09:10, jusqu'au dimanche 14 23:55 — anomalie : remarque : une fine poussière de béton sur les rayons et le comptoir",
+  "    - **Josiane**, lundi 8 20:20, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : une fine poussière de béton sur les rayons et le comptoir",
+  "    - **Thomas**, samedi 13 11:50, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : une fine poussière de béton sur les rayons et le comptoir",
+  "  - **Robert**, lundi 8 09:10, jusqu'au dimanche 14 23:55 — anomalie : remarque : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
+  "    - **Robert**, lundi 8 09:15, jusqu'à 09:25 — lieu : banque → arriere-boutique",
+  "    - **Robert**, lundi 8 09:15, jusqu'à 09:25 — activité : Dépose la recette au coffre de la banque ; quelques mots avec M. Garnier → Un cambrioleur dans l'arrière-boutique",
+  "    - **Robert**, lundi 8 09:30 — activité : Revient par la cour et vérifie que la porte de derrière est bien fermée → Un cambrioleur dans l'arrière-boutique",
+  "    - **Robert**, lundi 8 09:35, jusqu'à 09:50 — lieu : Kangoo → arriere-boutique",
+  "    - **Robert**, lundi 8 09:35, jusqu'à 09:50 — activité : Rentre → Un cambrioleur dans l'arrière-boutique",
+  "    - **Robert**, lundi 8 09:55, jusqu'à 10:30 — lieu : sejour → arriere-boutique",
+  "    - **Robert**, lundi 8 09:55, jusqu'à 10:30 — activité : Catalogue de graines, petit bricolage, jardin, légumes de la soupe pour Josiane → Un cambrioleur dans l'arrière-boutique",
+  "      - **Josiane**, lundi 8 17:35, jusqu'à 22:15 — appris : ne sait pas : catalogue de graines, petit bricolage, jardin, légumes de la soupe pour Josiane",
+  "      - **Josiane**, lundi 8 20:20, jusqu'à 21:00 — appris : ne sait pas : potager : retourne la terre, sème les radis",
+  "      - **Josiane**, lundi 8 21:05, jusqu'au dimanche 14 23:55 — appris : ne sait pas : café, radio, mots croisés",
+  "      - **Josiane**, lundi 8 22:20, jusqu'au dimanche 14 23:55 — appris : ne sait pas : sieste",
+  "        - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — appris : ne sait pas : prépare le déjeuner du dimanche",
+  "    - **Josiane**, lundi 8 17:35, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
+  "      - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — anomalie : entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
+  "        - **Gérard**, dimanche 14 15:50, jusqu'à 23:55 — anomalie : entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
+  "    - … et 1 autre fait",
+  "- **Le voyageur**, lundi 8 10:30 — creuser sous la dalle (240 min)",
+  "- **Le voyageur**, lundi 8 14:30 — brûler la branche fossilisée (30 min)",
+  "- **Le voyageur**, lundi 8 15:00 — reboucher le trou (90 min)",
+  "- **Le voyageur**, lundi 8 16:30 — couler une chape de béton (60 min)",
+  "- **Le voyageur**, lundi 8 17:30 — remettre les palettes et les cartons sur la réparation (30 min)",
+  "- **Le voyageur**, lundi 8 18:00 — nettoyer la poussière (60 min)",
+  "- **Le voyageur**, lundi 8 19:00 — aérer la boutique (60 min)"
+ ],
+ "details_fin": {
+  "gerard-morel": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "josiane-chazal": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "monique-morel": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "robert-chazal": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 2
+  },
+  "thomas-berthier": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  }
+ },
+ "mission": {
+  "id": "branche-fossile",
+  "titre": "La branche fossilisée",
+  "resultat": "échouée",
+  "reussie": false,
+  "raison": "Objectif non atteint : branche doit être « brulee » (est « rien »).",
+  "avancement": {
+   "acces": "ouvert"
+  },
+  "echecs": [
+   "2010-03-08 09:15 : découper la dalle de béton à la scie interrompu, le voyageur s'enfuit",
+   "2010-03-08 10:30 : creuser sous la dalle n'a pas lieu (il a été surpris ici aujourd'hui et s'est enfui)",
+   "2010-03-08 14:30 : brûler la branche fossilisée n'a pas lieu (il a été surpris ici aujourd'hui et s'est enfui)",
+   "2010-03-08 15:00 : reboucher le trou n'a pas lieu (il a été surpris ici aujourd'hui et s'est enfui)",
+   "2010-03-08 16:30 : couler une chape de béton n'a pas lieu (il a été surpris ici aujourd'hui et s'est enfui)",
+   "2010-03-08 17:30 : remettre les palettes et les cartons sur la réparation n'a pas lieu (il a été surpris ici aujourd'hui et s'est enfui)",
+   "2010-03-08 18:00 : nettoyer la poussière n'a pas lieu (il a été surpris ici aujourd'hui et s'est enfui)",
+   "2010-03-08 19:00 : aérer la boutique n'a pas lieu (il a été surpris ici aujourd'hui et s'est enfui)"
+  ]
+ },
+ "voyageur": [
+  {
+   "date": "2010-03-08",
+   "heure": "08:00",
+   "action": "crocheter la serrure de la porte de la cour (30 min)"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "08:30",
+   "action": "découper la dalle de béton à la scie (120 min)"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "09:10",
+   "action": "Robert remarque : un inconnu en train de découper le sol de l'arrière-boutique à la scie"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "09:10",
+   "action": "Robert réagit : surprendre"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "09:10",
+   "action": "surpris, le voyageur s'enfuit ; il ne revient pas dans ce lieu aujourd'hui"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "09:10",
+   "action": "Robert remarque : une fine poussière de béton sur les rayons et le comptoir"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "10:30",
+   "action": "ne peut pas creuser sous la dalle : il a été surpris ici aujourd'hui et s'est enfui"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "14:30",
+   "action": "ne peut pas brûler la branche fossilisée : il a été surpris ici aujourd'hui et s'est enfui"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "15:00",
+   "action": "ne peut pas reboucher le trou : il a été surpris ici aujourd'hui et s'est enfui"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "16:30",
+   "action": "ne peut pas couler une chape de béton : il a été surpris ici aujourd'hui et s'est enfui"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "17:30",
+   "action": "ne peut pas remettre les palettes et les cartons sur la réparation : il a été surpris ici aujourd'hui et s'est enfui"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "18:00",
+   "action": "ne peut pas nettoyer la poussière : il a été surpris ici aujourd'hui et s'est enfui"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "19:00",
+   "action": "ne peut pas aérer la boutique : il a été surpris ici aujourd'hui et s'est enfui"
+  }
+ ]
+}

@@ -22,18 +22,19 @@
  },
  "resume": {
   "deplacements": {
-   "entre_pieces_m": 139,
-   "dans_les_pieces_m_estimes": 451,
+   "entre_pieces_m": 174,
+   "dans_les_pieces_m_estimes": 463,
    "exterieur_m": 0,
-   "total_m": 590,
-   "foulees_et_marches": 910,
-   "passages_de_piece": 39,
+   "total_m": 637,
+   "foulees_et_marches": 979,
+   "passages_de_piece": 47,
    "marches_d_escalier": 42,
    "denivele_positif_m": 0,
-   "denivele_negatif_m": 0
+   "denivele_negatif_m": 0,
+   "voiture_m": 10400
   },
   "lumiere": {
-   "allumages": 30
+   "allumages": 34
   },
   "evenements_vecus": {
    "plaisir_simple": 3,
@@ -408,7 +409,7 @@
   "besoins_sous_le_seuil_pendant_le_sommeil_pas": {},
   "endormissement": "extinction à 23:15 ; anxiété 0.223 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
   "ecarts_a_la_routine": [
-   "09:10 : dépose la recette du coffre à la banque : 1184,60 €.",
+   "09:15 : dépose la recette du coffre à la banque : 1184,60 €.",
    "22:25 : toilettes sous le seuil d'alerte (24.1) ; y répond sur place, pendant « Cinéma avec Josiane : « The Ghost Writer » »."
   ]
  },
@@ -4305,6 +4306,15 @@
    "activite": "Route vers la Croix-Rousse",
    "action": "Conduit.",
    "pensee": null,
+   "deplacement": {
+    "parcours": [
+     {
+      "moyen": "voiture",
+      "distance_m": 1040,
+      "denivele_m": 0
+     }
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 75.1,
@@ -4337,6 +4347,15 @@
    "activite": "Route vers la Croix-Rousse",
    "action": "Conduit.",
    "pensee": null,
+   "deplacement": {
+    "parcours": [
+     {
+      "moyen": "voiture",
+      "distance_m": 1040,
+      "denivele_m": 0
+     }
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 74.6,
@@ -4369,6 +4388,15 @@
    "activite": "Route vers la Croix-Rousse",
    "action": "Conduit.",
    "pensee": null,
+   "deplacement": {
+    "parcours": [
+     {
+      "moyen": "voiture",
+      "distance_m": 1040,
+      "denivele_m": 0
+     }
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 74.1,
@@ -4401,6 +4429,15 @@
    "activite": "Route vers la Croix-Rousse",
    "action": "Conduit.",
    "pensee": null,
+   "deplacement": {
+    "parcours": [
+     {
+      "moyen": "voiture",
+      "distance_m": 1040,
+      "denivele_m": 0
+     }
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 73.6,
@@ -4433,6 +4470,15 @@
    "activite": "Route vers la Croix-Rousse",
    "action": "Conduit.",
    "pensee": null,
+   "deplacement": {
+    "parcours": [
+     {
+      "moyen": "voiture",
+      "distance_m": 1040,
+      "denivele_m": 0
+     }
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 73.1,
@@ -4458,27 +4504,31 @@
   {
    "pas": 110,
    "heure": "09:10",
-   "lieu": "exterieur",
-   "piece": "banque",
+   "lieu": "epicerie-chazal",
+   "piece": "arriere-boutique",
    "posture": "debout",
    "routine": "rt-lundi",
-   "activite": "Prend la recette au coffre de l'arrière-boutique, rideau baissé, la dépose au coffre de la banque ; quelques mots avec M. Garnier",
-   "action": "Dépose la recette à la banque.",
+   "activite": "Entre par la porte de derrière, rideau baissé, et prend la recette de la semaine au coffre",
+   "action": "Entre par la porte de derrière, rideau baissé, et prend la recette au coffre.",
    "pensee": null,
-   "argent": {
-    "mouvements": {
-     "coffre": -1184.6,
-     "compte": 1184.6
-    },
-    "soldes": {
-     "especes": 60,
-     "compte": 3484.6,
-     "caisse": 150,
-     "coffre": 0.0,
-     "ardoises": 46.3
-    }
+   "deplacement": {
+    "chemin": [
+     "cour-epicerie",
+     "reserve",
+     "arriere-boutique"
+    ],
+    "distance_m": 8.9,
+    "duree_s": 9,
+    "foulees": 13
    },
-   "appareils_allumes": [],
+   "lumiere": [
+    "allume la lumière (reserve)",
+    "éteint la lumière (reserve)",
+    "allume la lumière (arriere-boutique)"
+   ],
+   "appareils_allumes": [
+    "lumiere-arriere-boutique"
+   ],
    "besoins": {
     "faim": 72.6,
     "soif": 90.2,
@@ -4507,9 +4557,35 @@
    "piece": "banque",
    "posture": "debout",
    "routine": "rt-lundi",
-   "activite": "Prend la recette au coffre de l'arrière-boutique, rideau baissé, la dépose au coffre de la banque ; quelques mots avec M. Garnier",
+   "activite": "Dépose la recette au coffre de la banque ; quelques mots avec M. Garnier",
    "action": "Dépose la recette à la banque.",
    "pensee": null,
+   "deplacement": {
+    "chemin": [
+     "arriere-boutique",
+     "boutique",
+     "trottoir"
+    ],
+    "distance_m": 8.5,
+    "duree_s": 8,
+    "foulees": 12
+   },
+   "argent": {
+    "mouvements": {
+     "coffre": -1184.6,
+     "compte": 1184.6
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3484.6,
+     "caisse": 150,
+     "coffre": 0.0,
+     "ardoises": 46.3
+    }
+   },
+   "lumiere": [
+    "éteint la lumière (arriere-boutique)"
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 72.1,
@@ -4539,7 +4615,7 @@
    "piece": "banque",
    "posture": "debout",
    "routine": "rt-lundi",
-   "activite": "Prend la recette au coffre de l'arrière-boutique, rideau baissé, la dépose au coffre de la banque ; quelques mots avec M. Garnier",
+   "activite": "Dépose la recette au coffre de la banque ; quelques mots avec M. Garnier",
    "action": "Dépose la recette à la banque.",
    "pensee": null,
    "appareils_allumes": [],
@@ -4571,7 +4647,7 @@
    "piece": "banque",
    "posture": "debout",
    "routine": "rt-lundi",
-   "activite": "Prend la recette au coffre de l'arrière-boutique, rideau baissé, la dépose au coffre de la banque ; quelques mots avec M. Garnier",
+   "activite": "Dépose la recette au coffre de la banque ; quelques mots avec M. Garnier",
    "action": "Dépose la recette à la banque.",
    "pensee": null,
    "appareils_allumes": [],
@@ -4599,14 +4675,29 @@
   {
    "pas": 114,
    "heure": "09:30",
-   "lieu": "exterieur",
-   "piece": "banque",
+   "lieu": "epicerie-chazal",
+   "piece": "arriere-boutique",
    "posture": "debout",
    "routine": "rt-lundi",
-   "activite": "Prend la recette au coffre de l'arrière-boutique, rideau baissé, la dépose au coffre de la banque ; quelques mots avec M. Garnier",
-   "action": "Dépose la recette à la banque.",
+   "activite": "Revient par la cour et vérifie que la porte de derrière est bien fermée",
+   "action": "Vérifie que la porte de derrière est bien fermée.",
    "pensee": null,
-   "appareils_allumes": [],
+   "deplacement": {
+    "chemin": [
+     "trottoir",
+     "boutique",
+     "arriere-boutique"
+    ],
+    "distance_m": 8.5,
+    "duree_s": 8,
+    "foulees": 12
+   },
+   "lumiere": [
+    "allume la lumière (arriere-boutique)"
+   ],
+   "appareils_allumes": [
+    "lumiere-arriere-boutique"
+   ],
    "besoins": {
     "faim": 70.6,
     "soif": 87.4,
@@ -4638,6 +4729,28 @@
    "activite": "Rentre",
    "action": "Conduit.",
    "pensee": null,
+   "deplacement": {
+    "chemin": [
+     "arriere-boutique",
+     "reserve",
+     "cour-epicerie"
+    ],
+    "distance_m": 8.9,
+    "duree_s": 9,
+    "foulees": 13,
+    "parcours": [
+     {
+      "moyen": "voiture",
+      "distance_m": 1300,
+      "denivele_m": 0
+     }
+    ]
+   },
+   "lumiere": [
+    "éteint la lumière (arriere-boutique)",
+    "allume la lumière (reserve)",
+    "éteint la lumière (reserve)"
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 70.1,
@@ -4670,6 +4783,15 @@
    "activite": "Rentre",
    "action": "Conduit.",
    "pensee": null,
+   "deplacement": {
+    "parcours": [
+     {
+      "moyen": "voiture",
+      "distance_m": 1300,
+      "denivele_m": 0
+     }
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 69.6,
@@ -4702,6 +4824,15 @@
    "activite": "Rentre",
    "action": "Conduit.",
    "pensee": null,
+   "deplacement": {
+    "parcours": [
+     {
+      "moyen": "voiture",
+      "distance_m": 1300,
+      "denivele_m": 0
+     }
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 69.1,
@@ -4734,6 +4865,15 @@
    "activite": "Rentre",
    "action": "Conduit.",
    "pensee": null,
+   "deplacement": {
+    "parcours": [
+     {
+      "moyen": "voiture",
+      "distance_m": 1300,
+      "denivele_m": 0
+     }
+    ]
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 68.6,
