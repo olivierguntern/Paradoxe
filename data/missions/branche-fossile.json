@@ -4,7 +4,22 @@
   "histoire": "2035 : un virus végétal a détruit toute végétation sur Terre et la plupart des hommes sont morts de faim. Il dormait dans une branche fossilisée, enfouie sous la dalle de béton et deux mètres de terre de l'arrière-boutique de l'épicerie Chazal ; la démolition de la boutique, en 2012, la mettra à l'air libre. John est envoyé en mars 2010 pour la trouver et la brûler sur place, sans provoquer de paradoxe.",
   "lieu": "epicerie-chazal",
   "piece": "arriere-boutique",
-  "objectif": { "branche": "brulee" },
-  "contraintes": { "verdicts_interdits": ["paradoxe"] },
-  "reussite_parfaite": "aucune divergence : la branche est brûlée et aucun fait de la vie des habitants n'a changé"
+  "objectif": {
+    "branche": "brulee"
+  },
+  "contraintes": {
+    "verdicts_interdits": [
+      "paradoxe"
+    ]
+  },
+  "reussite_parfaite": "aucune divergence : la branche est brûlée et aucun fait de la vie des habitants n'a changé",
+  "indices": [
+    "La branche est sous la dalle de béton de l'arrière-boutique, à deux mètres de profondeur : il faut découper la dalle, creuser (environ quatre heures), puis la brûler sur place.",
+    "Robert Chazal tient la boutique du mardi au samedi de 06:30 à 19:15 (il rentre déjeuner chez lui de 12:10 à 13:45), et le dimanche de 06:30 à 12:45.",
+    "Le lundi, la boutique est fermée ; Robert y passe pourtant vers 09:10 prendre la recette au coffre de l'arrière-boutique, et revient vérifier la porte de derrière à 09:30.",
+    "Une scie à béton s'entend dans toute la boutique ; un inconnu au travail se voit de l'arrière-boutique.",
+    "La poussière, l'odeur de brûlé, le béton neuf, une serrure forcée se remarquent ensuite ; nettoyer, aérer, remettre les palettes les font oublier.",
+    "Une serrure crochetée ne laisse pas de trace ; forcée, elle se voit. Si Robert a déjà été cambriolé, il change la serrure et devient plus attentif.",
+    "Un geste ne doit pas passer minuit : coupe-le en deux."
+  ]
 }

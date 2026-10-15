@@ -49,6 +49,26 @@ def numero(dates, date, heure):
     return dates.index(date) * PAS + (int(heure[:2]) * 60 + int(heure[3:])) // 5
 
 
+def scenario_page(nom, sc, r, dossier, habitants, dates, ref, T):
+    """Un scénario au format de la page : le monde joué (pas qui diffèrent de la référence ref), les faits, leurs causes."""
+    joue = {}
+    for p in habitants:
+        diff = {}
+        for k, x in enumerate(etat(s) for J in journees(dossier, p, dates) for s in J["pas"]):
+            if x != ref[p][k]:
+                diff[k] = [T(x[0]), T(x[1]), T(x[2]), T(x[3])]
+        joue[p] = diff
+    faits = [{"id": n["id"], "habitant": n["habitant"], "genre": n["genre"], "detail": n["detail"],
+              "debut": numero(dates, n["date"], n["heure"]), "fin": numero(dates, n["fin_date"], n["fin_heure"]),
+              "cause": n["cause"], "via": n.get("via"), "supposee": n["supposee"]} for n in r["causes"]["faits"]]
+    racines = [{"id": v["id"], "pas": numero(dates, v["date"], v["heure"]), "fin": dates.index(v["date"]) * PAS + v["fin"],
+                "type": v["type"], "habitant": v["habitant"], "texte": v["texte"]} for v in r["causes"]["interventions"]]
+    return {"id": nom, "description": sc.get("description", ""), "attendu": sc.get("attendu", ""), "porte": sc.get("porte", []),
+            "verdict": r["verdict"], "touches": r["touches"], "cascade": r["cascade"], "cibles": r["cibles"],
+            "voyageur": r.get("voyageur", []), "racines": racines, "faits": faits, "joue": joue,
+            "heures": [h["faits"] for h in r["heures"]], "mission": r.get("mission")}
+
+
 def exporter(reference, sortie):
     T = Textes()
     habitants = sorted(d for d in os.listdir(reference) if os.path.isdir(os.path.join(reference, d)))
@@ -63,25 +83,10 @@ def exporter(reference, sortie):
         if not all(os.path.exists(os.path.join(dossier, p, f"{dates[-1]}.json")) for p in habitants):
             print(f"{nom} : monde joué absent, simulation…")
             subprocess.run([sys.executable, os.path.join(RACINE, "outils", "simuler_voyageur.py"), chemin, "--reference", reference], check=True)
-        sc = json.load(open(chemin, encoding="utf-8"))
-        r = json.load(open(os.path.join(dossier, "divergence.json"), encoding="utf-8"))
-        joue = {}
-        for p in habitants:
-            diff = {}
-            for k, x in enumerate(etat(s) for J in journees(dossier, p, dates) for s in J["pas"]):
-                if x != ref[p][k]:
-                    diff[k] = [T(x[0]), T(x[1]), T(x[2]), T(x[3])]
-            joue[p] = diff
-        faits = [{"id": n["id"], "habitant": n["habitant"], "genre": n["genre"], "detail": n["detail"],
-                  "debut": numero(dates, n["date"], n["heure"]), "fin": numero(dates, n["fin_date"], n["fin_heure"]),
-                  "cause": n["cause"], "via": n.get("via"), "supposee": n["supposee"]} for n in r["causes"]["faits"]]
-        racines = [{"id": v["id"], "pas": numero(dates, v["date"], v["heure"]), "fin": dates.index(v["date"]) * PAS + v["fin"],
-                    "type": v["type"], "habitant": v["habitant"], "texte": v["texte"]} for v in r["causes"]["interventions"]]
-        donnees["scenarios"].append({
-            "id": nom, "description": sc.get("description", ""), "attendu": sc.get("attendu", ""), "porte": sc.get("porte", []),
-            "verdict": r["verdict"], "touches": r["touches"], "cascade": r["cascade"], "cibles": r["cibles"],
-            "voyageur": r.get("voyageur", []), "racines": racines, "faits": faits, "joue": joue,
-            "heures": [h["faits"] for h in r["heures"]], "mission": r.get("mission")})
+        s = scenario_page(nom, json.load(open(chemin, encoding="utf-8")), json.load(open(os.path.join(dossier, "divergence.json"), encoding="utf-8")),
+                          dossier, habitants, dates, ref, T)
+        donnees["scenarios"].append(s)
+        faits, joue, r = s["faits"], s["joue"], s
         print(f"{nom} : {len(faits)} faits, {sum(len(v) for v in joue.values())} pas différents — {r['verdict']}")
     donnees["textes"] = T.liste
     with open(sortie, "w", encoding="utf-8") as f:

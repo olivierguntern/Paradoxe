@@ -117,6 +117,7 @@ button { font: inherit; color: inherit; }
     <h1>John, le voyageur <span>— deux mondes, un écart</span></h1>
     <a href="index.html">La semaine en fil de fer</a>
     <a href="quartier.html">Le quartier</a>
+    <a href="jouer.html">Jouer John</a>
   </header>
   <nav class="groupe" id="scenarios" aria-label="Scénario du voyageur"><span class="etiq">Scénario</span></nav>
   <section class="carte resume" id="resume" aria-live="polite"></section>
@@ -377,7 +378,22 @@ function choisirFait(id) {
   dessiner(); instant();
 }
 
-choisir(S);
+// une partie jouée (serveur du jeu : divergence.html?partie) : elle s'ajoute aux scénarios et s'affiche
+if (/[?&]partie/.test(location.search) && window.fetch) {
+  fetch("/api/partie").then(r => r.json()).then(P => {
+    if (!P.scenario) { choisir(S); return; }
+    if (D.textes.length === P.base) D.textes.push(...P.textes);
+    P.scenario.id = "votre partie";
+    D.scenarios.unshift(P.scenario);
+    const b = el("button", { type: "button", "aria-pressed": "false", title: P.scenario.verdict });
+    const p = el("span", { class: "pastille" }); p.style.background = couleurVerdict(P.scenario.verdict);
+    b.append(p, document.createTextNode("votre partie")); b.onclick = () => choisir(P.scenario); P.scenario.bouton = b;
+    nav.insertBefore(b, nav.children[1]);
+    choisir(P.scenario);
+  }).catch(() => choisir(S));
+} else {
+  choisir(S);
+}
 </script>
 </body>
 </html>

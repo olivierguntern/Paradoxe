@@ -270,7 +270,13 @@ Le scénario `temoin` (aucune intervention) vérifie que le monde joué reprodui
 
 ## Vue fil de fer
 
-Trois pages, à ouvrir dans un navigateur : `vue/index.html`, la semaine en fil de fer (ci-dessous) ; `vue/quartier.html`, le contrôle visuel du quartier ; `vue/divergence.html`, le voyageur.
+Quatre pages : `vue/index.html`, la semaine en fil de fer (ci-dessous) ; `vue/quartier.html`, le contrôle visuel du quartier ; `vue/divergence.html`, le voyageur ; `vue/jouer.html`, jouer John (avec le serveur du jeu).
+
+**Jouer John** (`vue/jouer.html`, servie par `outils/serveur_jeu.py`) : la mission et ce que John sait (indices de `data/missions/<id>.json`), le plan à composer (jour, heure, geste ou autre intervention, ce qu'il porte), en partant d'un scénario existant ou d'un plan vide ; « Lancer la semaine » rejoue le quartier avec ce plan et donne le résultat de la mission, la divergence, le journal de John et la chaîne des causes ; la partie s'ouvre ensuite sur la frise de la page du voyageur (`divergence.html?partie`). Les jours qui précèdent la première intervention sont recopiés du monde de référence : une partie se joue en quelques secondes. La partie est écrite dans `data/voyageur/parties/` (non versionné) ; le serveur n'écoute que sur la machine (127.0.0.1).
+
+```bash
+python3 outils/serveur_jeu.py          # puis ouvrir http://127.0.0.1:8010/jouer.html
+```
 
 **Le quartier** (`vue/quartier.html`) : une ligne par habitant, sur un jour ou la semaine (`quartier.html#semaine`, `#samedi`…) ; la couleur dit où il est (endormi, chez lui, chez quelqu'un, au commerce, dehors, en voiture), un filet violet marque les moments passés avec quelqu'un, des triangles rouges les alertes du contrôle. À l'instant choisi : pour chacun, l'activité, l'endroit, avec qui, l'action et ses besoins, en jauges avec leur seuil d'alerte. La liste des alertes mène à leur instant.
 

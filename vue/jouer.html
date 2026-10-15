@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jouer John</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap">
+<style>
+/* Jouer John : la mission et ce qu'il sait, le plan à composer, le résultat de la semaine rejouée. */
+:root {
+  --papier: #e9eef0; --planche: #f4f7f8; --encre: #1c2a33; --trait: #3b5466; --trait-leger: #a7b5bd; --trait-fin: #c9d3d8;
+  --laiton: #9a6a14; --brique: #9b3f2a; --verre: #3f86ab; --alerte: #b8402e; --regle: #cbd4d9; --mousse: #4f7a3a;
+  --f-titre: "Barlow Semi Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-texte: "Barlow Semi Condensed", "Helvetica Neue", Arial, sans-serif;
+  --f-pensee: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-chiffres: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --papier: #0d1519; --planche: #121c22; --encre: #dbe4e9; --trait: #8fb0c2; --trait-leger: #3a4c57; --trait-fin: #26343d;
+    --laiton: #e3a943; --brique: #e8866b; --verre: #6db1d4; --alerte: #ec7a62; --regle: #26353f; --mousse: #8cc06f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --papier: #0d1519; --planche: #121c22; --encre: #dbe4e9; --trait: #8fb0c2; --trait-leger: #3a4c57; --trait-fin: #26343d;
+  --laiton: #e3a943; --brique: #e8866b; --verre: #6db1d4; --alerte: #ec7a62; --regle: #26353f; --mousse: #8cc06f;
+  color-scheme: dark;
+}
+body { background: var(--papier); color: var(--encre); font-family: var(--f-texte); font-size: 15px; line-height: 1.4; margin: 0; padding: 12px 16px 40px; }
+* { box-sizing: border-box; }
+button, select, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--laiton); outline-offset: 2px; }
+.app { max-width: 1200px; margin: 0 auto; display: grid; gap: 12px; }
+.bandeau { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; }
+.bandeau h1 { font-family: var(--f-titre); font-weight: 600; font-size: 1.25rem; letter-spacing: .02em; margin: 0; }
+.bandeau h1 span { font-weight: 400; color: var(--trait); }
+.bandeau a { color: var(--trait); font-size: .85rem; }
+.etiq { font-family: var(--f-titre); font-size: .7rem; text-transform: uppercase; letter-spacing: .09em; color: var(--trait); }
+.carte { background: var(--planche); border: 1px solid var(--regle); padding: 12px 14px; }
+h2 { font-family: var(--f-titre); font-weight: 600; font-size: 1.05rem; margin: 0 0 8px; }
+.mission { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 8px 24px; }
+.mission .histoire { font-family: var(--f-pensee); font-style: italic; color: var(--trait); margin: 0; }
+.mission ul { margin: 4px 0 0; padding-left: 18px; font-size: .9rem; }
+.mission li { margin: 2px 0; }
+.alerte-serveur { border-left: 3px solid var(--alerte); padding: 8px 12px; background: var(--planche); }
+.alerte-serveur code { font-family: var(--f-chiffres); font-size: .85rem; }
+.outils { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; margin-bottom: 8px; }
+select, input[type="text"], input[type="time"], input[type="number"] {
+  border: 1px solid var(--regle); background: var(--papier); padding: 3px 6px; border-radius: 3px; min-width: 0; }
+input[type="number"] { width: 72px; }
+.bouton { border: 1px solid var(--regle); background: var(--planche); padding: 4px 10px; border-radius: 3px; cursor: pointer; }
+.bouton.principal { border-color: var(--laiton); box-shadow: inset 0 -2px 0 var(--laiton); font-weight: 600; }
+.bouton:disabled { opacity: .5; cursor: wait; }
+.plan { display: grid; gap: 6px; }
+.ligne { display: grid; grid-template-columns: 112px 88px 120px minmax(0, 1fr) auto; gap: 6px; align-items: center;
+  border-top: 1px solid var(--trait-fin); padding-top: 6px; }
+.ligne .details { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.ligne .details input[type="text"] { flex: 1 1 180px; }
+.ligne .fin { font-family: var(--f-chiffres); font-size: .78rem; color: var(--trait); }
+.ligne .fin.trop { color: var(--alerte); }
+.ligne .actions { display: flex; gap: 2px; }
+.ligne .actions button { border: 1px solid var(--regle); background: var(--planche); border-radius: 3px; cursor: pointer; padding: 0 7px; }
+.vide { color: var(--trait); font-size: .9rem; }
+.porte { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .88rem; }
+.porte label { display: inline-flex; gap: 5px; align-items: center; }
+.porte .an { color: var(--alerte); font-size: .75rem; }
+.resultat .bandeau-res { border-left: 4px solid var(--etat, var(--trait)); padding: 6px 12px; margin-bottom: 8px; }
+.resultat .bandeau-res .titre { font-family: var(--f-titre); font-weight: 600; font-size: 1.15rem; }
+.resultat .bandeau-res .titre b { color: var(--etat); }
+.resultat p { margin: 4px 0; }
+.resultat .journal { font-size: .9rem; padding-left: 18px; margin: 4px 0; }
+.resultat .arbre { font-size: .85rem; white-space: pre-wrap; font-family: var(--f-texte); background: var(--papier); padding: 8px 10px; border-radius: 3px; max-height: 360px; overflow: auto; margin: 6px 0 0; }
+.attente { color: var(--trait); font-style: italic; }
+@media (max-width: 760px) {
+  .mission { grid-template-columns: minmax(0, 1fr); }
+  .ligne { grid-template-columns: 1fr 1fr; }
+  .ligne .details { grid-column: 1 / -1; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="bandeau">
+    <h1>Jouer John <span>— 2035 envoie un homme en mars 2010</span></h1>
+    <a href="divergence.html">John, le voyageur</a>
+    <a href="quartier.html">Le quartier</a>
+    <a href="index.html">La semaine en fil de fer</a>
+  </header>
+  <div id="serveur" class="alerte-serveur" hidden>
+    Cette page a besoin du serveur du jeu, qui rejoue la semaine du quartier avec ton plan. Lance-le depuis le dossier du projet :
+    <code>python outils/serveur_jeu.py</code>, puis ouvre <code>http://127.0.0.1:8010/jouer.html</code>.
+  </div>
+  <section class="carte mission" id="mission"></section>
+  <section class="carte">
+    <h2>Le plan de John</h2>
+    <div class="outils">
+      <label><span class="etiq">Partir de</span> <select id="modele"></select></label>
+      <button type="button" class="bouton" id="ajouter">Ajouter une intervention</button>
+      <button type="button" class="bouton principal" id="lancer">Lancer la semaine</button>
+    </div>
+    <div class="plan" id="plan"></div>
+    <div style="margin-top: 10px">
+      <div class="etiq">Ce que porte John</div>
+      <div class="porte" id="porte"></div>
+    </div>
+  </section>
+  <section class="carte resultat" id="resultat" aria-live="polite" hidden></section>
+</div>
+<script>
+const el = (tag, attrs = {}, txt) => { const e = document.createElement(tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (txt != null) e.textContent = txt; return e; };
+const JOURS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
+const TYPES = { geste: "un geste", retenir: "retenir quelqu'un", acheter: "acheter", parler: "parler à quelqu'un", passer: "passer dans un lieu", deplacer: "déplacer un objet" };
+let C = null, plan = [], porte = [], mission = null;
+const jour = d => { const x = new Date(d + "T12:00"); return `${JOURS[(x.getDay() + 6) % 7]} ${x.getDate()}`; };
+const minutes = h => { const [a, b] = h.split(":").map(Number); return a * 60 + b; };
+const hhmm = m => `${String(Math.floor(m / 60) % 24).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`;
+
+fetch("/api/catalogue").then(r => r.json()).then(c => { C = c; demarrer(); }).catch(() => { document.getElementById("serveur").hidden = false; });
+
+function demarrer() {
+  const M = C.missions["branche-fossile"]; mission = "branche-fossile";
+  const S = document.getElementById("mission");
+  const a = el("div"); a.append(el("h2", {}, `Mission : ${M.titre}`), el("p", { class: "histoire" }, M.histoire));
+  a.append(el("p", {}, "Objectif : la branche brûlée avant la fin de la semaine (dimanche 14 mars à minuit), sans paradoxe. Parfait si aucun fait de la vie des habitants n'a changé."));
+  const b = el("div"); b.append(el("div", { class: "etiq" }, "Ce que John sait"));
+  const ul = el("ul"); for (const i of M.indices || []) ul.append(el("li", {}, i)); b.append(ul);
+  S.append(a, b);
+  const sel = document.getElementById("modele");
+  sel.append(el("option", { value: "" }, "un plan vide"));
+  for (const s of C.scenarios) sel.append(el("option", { value: s.id }, s.id + (s.mission ? " (mission)" : "")));
+  sel.onchange = () => {
+    const s = C.scenarios.find(x => x.id === sel.value);
+    plan = s ? JSON.parse(JSON.stringify(s.interventions)).map(x => { delete x._n; delete x._duree; return x; }) : [];
+    porte = s ? [...s.porte] : []; dessinerPorte(); dessinerPlan();
+  };
+  sel.value = "mission-soignee"; sel.onchange();
+  document.getElementById("ajouter").onclick = () => {
+    const der = plan[plan.length - 1];
+    plan.push({ date: der ? der.date : C.dates[0], heure: der ? hhmm(minutes(der.heure) + duree(der)) : "10:00", type: "geste", geste: "crocheter", lieu: "epicerie-chazal", piece: "arriere-boutique" });
+    dessinerPlan();
+  };
+  document.getElementById("lancer").onclick = lancer;
+}
+
+function duree(x) {
+  if (x.type === "geste") return Number(x.duree_minutes || (C.gestes[x.geste] || {}).duree || 5);
+  if (x.type === "retenir" || x.type === "passer") return Number(x.duree_minutes || 5);
+  return 5;
+}
+
+function dessinerPorte() {
+  const P = document.getElementById("porte"); P.textContent = "";
+  const E = C.epoque;
+  for (const [id, o] of Object.entries(E.objets)) {
+    const l = el("label"), c = el("input", { type: "checkbox" }); c.checked = porte.includes(id);
+    c.onchange = () => { porte = c.checked ? [...porte, id] : porte.filter(x => x !== id); };
+    l.append(c, document.createTextNode(o.nom));
+    if (o.apparition > E.annee) l.append(el("span", { class: "an" }, `(${o.apparition})`));
+    P.append(l);
+  }
+}
+
+function champ(x, cle, attrs = {}) {
+  const i = el("input", Object.assign({ type: "text" }, attrs)); i.value = x[cle] ?? "";
+  i.oninput = () => { x[cle] = i.type === "number" ? (i.value === "" ? undefined : Number(i.value)) : i.value; majFins(); };
+  return i;
+}
+function liste(x, cle, options, onchange) {
+  const s = el("select"); for (const [v, t] of options) s.append(el("option", { value: v }, t)); s.value = x[cle] ?? options[0][0];
+  x[cle] = s.value; s.onchange = () => { x[cle] = s.value; if (onchange) onchange(); majFins(); }; return s;
+}
+const habitants = () => C.habitants.map(h => [h.id, h.prenom]);
+
+function dessinerPlan() {
+  const P = document.getElementById("plan"); P.textContent = "";
+  if (!plan.length) { P.append(el("p", { class: "vide" }, "Aucune intervention : John ne fait rien (le témoin).")); return; }
+  plan.forEach((x, n) => {
+    const L = el("div", { class: "ligne" });
+    L.append(liste(x, "date", C.dates.map(d => [d, jour(d)])));
+    const h = el("input", { type: "time", step: 300 }); h.value = x.heure; h.oninput = () => { x.heure = h.value; majFins(); }; L.append(h);
+    L.append(liste(x, "type", Object.entries(TYPES), () => {
+      const base = { date: x.date, heure: x.heure, type: x.type };
+      if (x.type === "geste") Object.assign(base, { geste: "crocheter", lieu: "epicerie-chazal", piece: "arriere-boutique" });
+      if (x.type === "retenir") Object.assign(base, { habitant: "robert-chazal", duree_minutes: 15 });
+      if (x.type === "acheter") Object.assign(base, { commerce: "robert-chazal", produit: "eau", quantite: 1 });
+      if (x.type === "parler") Object.assign(base, { habitant: "robert-chazal", quoi: "" });
+      if (x.type === "passer") Object.assign(base, { lieu: "epicerie-chazal", piece: "boutique", duree_minutes: 15 });
+      if (x.type === "deplacer") Object.assign(base, { habitant: "thomas-berthier", objet: "obj-cles", vers: "" });
+      plan[n] = base; dessinerPlan();
+    }));
+    const D = el("div", { class: "details" });
+    if (x.type === "geste") {
+      D.append(liste(x, "geste", Object.entries(C.gestes).map(([id, g]) => [id, `${g.nom} (${g.duree} min)`])),
+               champ(x, "duree_minutes", { type: "number", min: 5, step: 5, placeholder: "durée", title: "durée en minutes (vide : celle du catalogue)" }));
+      x.lieu = x.lieu || "epicerie-chazal"; x.piece = x.piece || "arriere-boutique";
+    } else if (x.type === "retenir") {
+      D.append(liste(x, "habitant", habitants()), champ(x, "duree_minutes", { type: "number", min: 5, step: 5, title: "minutes" }), champ(x, "texte", { placeholder: "comment il le retient (facultatif)" }));
+    } else if (x.type === "acheter") {
+      D.append(liste(x, "commerce", [["robert-chazal", "épicerie Chazal"]]), champ(x, "produit", { placeholder: "produit (eau, pain_campagne…)" }), champ(x, "quantite", { type: "number", min: 1 }));
+      const u = el("select", { title: "ce dont il se sert pour payer" }); u.append(el("option", { value: "" }, "paie en espèces"), el("option", { value: "paiement_telephone" }, "paie avec son téléphone"), el("option", { value: "billet_europe" }, "billet de la série Europe"));
+      u.value = (x.utilise || [""])[0] || ""; u.onchange = () => { x.utilise = u.value ? (u.value === "paiement_telephone" ? ["smartphone_ecran", "paiement_telephone"] : [u.value]) : []; }; D.append(u);
+    } else if (x.type === "parler") {
+      D.append(liste(x, "habitant", habitants()), champ(x, "quoi", { placeholder: "ce qu'il lui dit" }));
+    } else if (x.type === "passer") {
+      D.append(liste(x, "piece", [["boutique", "dans la boutique"], ["arriere-boutique", "dans l'arrière-boutique"]]), champ(x, "duree_minutes", { type: "number", min: 5, step: 5, title: "minutes" }));
+      x.lieu = "epicerie-chazal";
+    } else if (x.type === "deplacer") {
+      D.append(liste(x, "habitant", habitants()), champ(x, "objet", { placeholder: "objet (obj-cles…)" }), champ(x, "vers", { placeholder: "vers (pièce / support)" }));
+    }
+    const f = el("span", { class: "fin", "data-n": n }); D.append(f);
+    L.append(D);
+    const A = el("div", { class: "actions" });
+    for (const [t, d, aria] of [["↑", -1, "monter"], ["↓", 1, "descendre"], ["×", 0, "retirer"]]) {
+      const b = el("button", { type: "button", "aria-label": aria }, t);
+      b.onclick = () => { if (!d) plan.splice(n, 1); else if (plan[n + d]) [plan[n], plan[n + d]] = [plan[n + d], plan[n]]; dessinerPlan(); };
+      A.append(b);
+    }
+    L.append(A); P.append(L);
+  });
+  majFins();
+}
+function majFins() {
+  document.querySelectorAll(".ligne .fin").forEach(f => {
+    const x = plan[Number(f.dataset.n)]; if (!x || !x.heure) return;
+    const fin = minutes(x.heure) + duree(x);
+    f.textContent = x.type === "geste" || x.type === "retenir" || x.type === "passer" ? `→ ${hhmm(fin)}` : "";
+    f.classList.toggle("trop", fin > 24 * 60);
+    if (fin > 24 * 60) f.textContent += " (passe minuit)";
+  });
+}
+
+function lancer() {
+  const sc = { description: "Votre partie.", mission, porte, interventions: plan.slice().sort((a, b) => (a.date + a.heure).localeCompare(b.date + b.heure)) };
+  const R = document.getElementById("resultat"); R.hidden = false; R.textContent = "";
+  R.append(el("p", { class: "attente" }, "Le quartier revit la semaine avec John… (une minute environ)"));
+  const btn = document.getElementById("lancer"); btn.disabled = true;
+  fetch("/api/simuler", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(sc) })
+    .then(r => r.json().then(j => ({ ok: r.ok, j })))
+    .then(({ ok, j }) => { btn.disabled = false; R.textContent = ""; if (!ok) { R.append(el("p", { style: "color: var(--alerte)" }, "Plan refusé : " + j.erreur)); return; } resultat(j); })
+    .catch(e => { btn.disabled = false; R.textContent = ""; R.append(el("p", { style: "color: var(--alerte)" }, "Le serveur ne répond pas : " + e)); });
+}
+function resultat(j) {
+  const R = document.getElementById("resultat");
+  const m = j.mission, box = el("div", { class: "bandeau-res" });
+  box.style.setProperty("--etat", m ? (m.reussie ? "var(--mousse)" : "var(--alerte)") : "var(--trait)");
+  const t = el("div", { class: "titre" });
+  if (m) t.append(document.createTextNode("Mission : "), el("b", {}, m.resultat)); else t.append(document.createTextNode("Semaine rejouée"));
+  box.append(t);
+  if (m) box.append(el("p", {}, m.raison));
+  box.append(el("p", {}, "Divergence : " + j.verdict + "."));
+  if (m) box.append(el("p", { class: "etiq" }, "Avancement : " + (Object.entries(m.avancement).map(([k, v]) => `${k} ${v}`).join(" · ") || "rien")));
+  R.append(box);
+  R.append(el("div", { class: "etiq" }, "Ce que John a fait, et ce qu'on a remarqué"));
+  const ul = el("ul", { class: "journal" });
+  for (const x of j.voyageur) ul.append(el("li", {}, `${jour(x.date)} ${x.heure} : ${x.action}`));
+  R.append(ul);
+  if (j.arbre && j.arbre.length) {
+    R.append(el("div", { class: "etiq" }, "Chaîne des causes"));
+    R.append(el("pre", { class: "arbre" }, j.arbre.map(l => l.replaceAll("**", "").replace(/^(\s*)- /, "$1• ")).join("\n")));
+  }
+  const a = el("p"); a.append(el("a", { href: "divergence.html?partie" }, "Voir la partie sur la frise, habitant par habitant →")); R.append(a);
+  R.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+</script>
+</body>
+</html>
