@@ -387,6 +387,11 @@ def ecrire_md(r, scenario, journal, chemin):
               "Avancement : " + (", ".join(f"{k} : {v}" for k, v in m["avancement"].items()) or "rien") + "."]
         if m["echecs"]:
             L += ["", "Gestes impossibles :", ""] + [f"- {e}" for e in m["echecs"]]
+        if m.get("avenir"):
+            a = m["avenir"]
+            L += ["", f"### L'avenir : {a['titre']}", ""] + [f"- **{x['quand']}** : {x['texte']}" for x in a["frise"]]
+            if a.get("nuance"):
+                L += ["", a["nuance"]]
         L += [""]
     L += ["## Ce que le voyageur a fait", ""]
     L += [f"- {d} {h} : {t}" for d, h, t in journal] or ["- rien"]

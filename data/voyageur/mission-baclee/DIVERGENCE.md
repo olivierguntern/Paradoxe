@@ -10,6 +10,12 @@ L'objectif est atteint, mais au prix d'un paradoxe : paradoxe : 5 habitants touc
 
 Avancement : acces : ouvert, dalle : refaite, trou : rebouche, profondeur_m : 2.0, branche : brulee.
 
+### L'avenir : Un avenir qui ne tient plus
+
+- **mars 2010** : La branche est brûlée, mais la semaine du quartier a pris un autre cours : trop de vies ont changé.
+- **2012** : La démolition, l'immeuble, ceux qui y vivront : plus rien de ce que John savait n'est sûr.
+- **2035** : L'avenir dont John est parti n'existe plus. Rien ne dit qu'il soit sauvé, ni que John y soit jamais né pour venir brûler la branche.
+
 ## Ce que le voyageur a fait
 
 - 2010-03-08 10:00 : forcer la porte de la cour au pied-de-biche (5 min)

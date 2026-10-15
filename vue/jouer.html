@@ -69,6 +69,12 @@ input[type="number"] { width: 72px; }
 .resultat .bandeau-res { border-left: 4px solid var(--etat, var(--trait)); padding: 6px 12px; margin-bottom: 8px; }
 .resultat .bandeau-res .titre { font-family: var(--f-titre); font-weight: 600; font-size: 1.15rem; }
 .resultat .bandeau-res .titre b { color: var(--etat); }
+.avenir { margin-top: 8px; }
+.avenir .tete { font-family: var(--f-titre); font-weight: 600; font-size: .95rem; }
+.avenir ol { list-style: none; margin: 4px 0; padding: 0; }
+.avenir li { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 2px 10px; font-size: .88rem; margin: 3px 0; }
+.avenir .quand { font-family: var(--f-titre); font-weight: 600; color: var(--etat, var(--trait)); }
+.avenir .nuance { font-family: var(--f-pensee); font-style: italic; color: var(--trait); font-size: .88rem; }
 .resultat p { margin: 4px 0; }
 .resultat .journal { font-size: .9rem; padding-left: 18px; margin: 4px 0; }
 .resultat .arbre { font-size: .85rem; white-space: pre-wrap; font-family: var(--f-texte); background: var(--papier); padding: 8px 10px; border-radius: 3px; max-height: 360px; overflow: auto; margin: 6px 0 0; }
@@ -241,6 +247,16 @@ function lancer() {
     .then(({ ok, j }) => { btn.disabled = false; R.textContent = ""; if (!ok) { R.append(el("p", { style: "color: var(--alerte)" }, "Plan refusé : " + j.erreur)); return; } resultat(j); })
     .catch(e => { btn.disabled = false; R.textContent = ""; R.append(el("p", { style: "color: var(--alerte)" }, "Le serveur ne répond pas : " + e)); });
 }
+// l'avenir après la semaine (avenirs de la mission) : sa frise, de mars 2010 à 2035
+function avenir(a) {
+  const b = el("div", { class: "avenir" });
+  b.append(el("div", { class: "tete" }, "L'avenir : " + a.titre));
+  const ol = el("ol");
+  for (const x of a.frise) { const li = el("li"); li.append(el("span", { class: "quand" }, x.quand), el("span", {}, x.texte)); ol.append(li); }
+  b.append(ol);
+  if (a.nuance) b.append(el("p", { class: "nuance" }, a.nuance));
+  return b;
+}
 function resultat(j) {
   const R = document.getElementById("resultat");
   const m = j.mission, box = el("div", { class: "bandeau-res" });
@@ -251,6 +267,7 @@ function resultat(j) {
   if (m) box.append(el("p", {}, m.raison));
   box.append(el("p", {}, "Divergence : " + j.verdict + "."));
   if (m) box.append(el("p", { class: "etiq" }, "Avancement : " + (Object.entries(m.avancement).map(([k, v]) => `${k} ${v}`).join(" · ") || "rien")));
+  if (m && m.avenir) box.append(avenir(m.avenir));
   R.append(box);
   R.append(el("div", { class: "etiq" }, "Ce que John a fait, et ce qu'on a remarqué"));
   const ul = el("ul", { class: "journal" });

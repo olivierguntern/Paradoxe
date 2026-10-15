@@ -18,6 +18,12 @@ Gestes impossibles :
 - 2010-03-13 21:30 : reboucher le trou n'a pas lieu (il a été surpris ici aujourd'hui et s'est enfui)
 - 2010-03-13 23:00 : couler une chape de béton n'a pas lieu (il a été surpris ici aujourd'hui et s'est enfui)
 
+### L'avenir : L'avenir de John
+
+- **mars 2010** : La branche fossilisée dort toujours sous la dalle de béton et deux mètres de terre de l'arrière-boutique.
+- **2012** : L'épicerie Chazal est démolie pour construire un immeuble ; les pelleteuses mettent la branche à l'air libre. Le virus s'en échappe.
+- **2035** : Toute végétation a disparu ; la plupart des hommes sont morts de faim. Un homme, John, est envoyé en mars 2010.
+
 ## Ce que le voyageur a fait
 
 - 2010-03-13 14:30 : crocheter la serrure de la porte de la cour (30 min)

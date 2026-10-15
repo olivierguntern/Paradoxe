@@ -41,7 +41,22 @@ def evaluer_mission(mid, v, verdict):
     else:
         resultat, raison = "réussie", f"Objectif atteint ; la divergence reste sous le seuil du paradoxe : {verdict}."
     return {"id": mid, "titre": M["titre"], "resultat": resultat, "reussie": resultat.startswith("réussie"), "raison": raison,
-            "avancement": v.avancement, "echecs": v.echecs}
+            "avancement": v.avancement, "echecs": v.echecs, "avenir": avenir(M, v.avancement, verdict)}
+
+
+def avenir(M, avancement, verdict):
+    """L'avenir après la semaine (avenirs de la mission) : le premier qui convient à l'avancement et au verdict, ou None."""
+    for a in M.get("avenirs", []):
+        if any(avancement.get(k, "rien") != val for k, val in a.get("si", {}).items()):
+            continue
+        if any(verdict.startswith(x) for x in a.get("sauf_verdicts", [])):
+            continue
+        if a.get("verdicts") and not any(verdict.startswith(x) for x in a["verdicts"]):
+            continue
+        n = a.get("nuances", {})
+        nuance = next((t for k, t in n.items() if k != "autrement" and verdict.startswith(k)), n.get("autrement"))
+        return {"id": a["id"], "titre": a["titre"], "frise": a["frise"], "nuance": nuance}
+    return None
 
 
 def main():

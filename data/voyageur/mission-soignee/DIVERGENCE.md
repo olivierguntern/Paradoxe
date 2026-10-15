@@ -10,6 +10,14 @@ aucune divergence : la branche est brûlée et aucun fait de la vie des habitant
 
 Avancement : acces : ouvert, dalle : refaite, trou : rebouche, profondeur_m : 2.0, branche : brulee.
 
+### L'avenir : Un printemps comme les autres
+
+- **mars 2010** : La branche fossilisée n'est plus que cendres, sous la dalle de l'arrière-boutique de l'épicerie Chazal.
+- **2012** : L'épicerie est démolie pour construire un immeuble. Les pelleteuses retournent la terre de l'arrière-boutique : il n'y a plus rien à mettre à l'air libre.
+- **2035** : Les platanes du boulevard de la Croix-Rousse reverdissent chaque printemps. Personne n'a entendu parler du virus, ni de John.
+
+La semaine de mars 2010 s'est passée exactement comme dans les souvenirs de John : l'avenir qu'il a quitté est le même, la famine en moins.
+
 ## Ce que le voyageur a fait
 
 - 2010-03-08 10:00 : crocheter la serrure de la porte de la cour (30 min)

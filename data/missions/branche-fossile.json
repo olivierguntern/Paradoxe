@@ -21,5 +21,119 @@
     "La poussière, l'odeur de brûlé, le béton neuf, une serrure forcée se remarquent ensuite ; nettoyer, aérer, remettre les palettes les font oublier.",
     "Une serrure crochetée ne laisse pas de trace ; forcée, elle se voit. Si Robert a déjà été cambriolé, il change la serrure et devient plus attentif.",
     "Un geste ne doit pas passer minuit : coupe-le en deux."
+  ],
+  "avenirs_principe": "Après la semaine, l'avenir : le premier qui convient à l'état de la mission à la fin (avancement) et au verdict de la divergence. « si » : l'avancement voulu (« rien » : pas commencé) ; « verdicts » : ceux qui le donnent, « sauf_verdicts » : ceux qui l'empêchent ; « nuances » : une phrase de plus selon le verdict (« autrement » sinon).",
+  "avenirs": [
+    {
+      "id": "sauve",
+      "titre": "Un printemps comme les autres",
+      "si": {
+        "branche": "brulee"
+      },
+      "sauf_verdicts": [
+        "paradoxe"
+      ],
+      "frise": [
+        {
+          "quand": "mars 2010",
+          "texte": "La branche fossilisée n'est plus que cendres, sous la dalle de l'arrière-boutique de l'épicerie Chazal."
+        },
+        {
+          "quand": "2012",
+          "texte": "L'épicerie est démolie pour construire un immeuble. Les pelleteuses retournent la terre de l'arrière-boutique : il n'y a plus rien à mettre à l'air libre."
+        },
+        {
+          "quand": "2035",
+          "texte": "Les platanes du boulevard de la Croix-Rousse reverdissent chaque printemps. Personne n'a entendu parler du virus, ni de John."
+        }
+      ],
+      "nuances": {
+        "aucune divergence : rien": "La semaine de mars 2010 s'est passée exactement comme dans les souvenirs de John : l'avenir qu'il a quitté est le même, la famine en moins.",
+        "autrement": "Quelques détails de la semaine de mars 2010 ont changé ; le temps les a absorbés."
+      }
+    },
+    {
+      "id": "paradoxe",
+      "titre": "Un avenir qui ne tient plus",
+      "si": {
+        "branche": "brulee"
+      },
+      "frise": [
+        {
+          "quand": "mars 2010",
+          "texte": "La branche est brûlée, mais la semaine du quartier a pris un autre cours : trop de vies ont changé."
+        },
+        {
+          "quand": "2012",
+          "texte": "La démolition, l'immeuble, ceux qui y vivront : plus rien de ce que John savait n'est sûr."
+        },
+        {
+          "quand": "2035",
+          "texte": "L'avenir dont John est parti n'existe plus. Rien ne dit qu'il soit sauvé, ni que John y soit jamais né pour venir brûler la branche."
+        }
+      ]
+    },
+    {
+      "id": "trop-tot",
+      "titre": "Deux ans trop tôt",
+      "si": {
+        "branche": "trouvee",
+        "trou": "ouvert"
+      },
+      "frise": [
+        {
+          "quand": "mars 2010",
+          "texte": "John a laissé la branche fossilisée au fond d'un trou ouvert, dans l'arrière-boutique : elle est à l'air libre."
+        },
+        {
+          "quand": "printemps 2010",
+          "texte": "Le virus s'en échappe aussitôt. Les plantes en pot de la boutique, puis les platanes du boulevard, sont les premiers touchés."
+        },
+        {
+          "quand": "2033",
+          "texte": "La famine arrive avec deux ans d'avance : en voulant sauver l'avenir, John l'a précipité."
+        }
+      ]
+    },
+    {
+      "id": "rendue",
+      "titre": "Rendue à la terre",
+      "si": {
+        "branche": "trouvee"
+      },
+      "frise": [
+        {
+          "quand": "mars 2010",
+          "texte": "John a trouvé la branche fossilisée, mais ne l'a pas brûlée : elle est retournée sous la terre de l'arrière-boutique."
+        },
+        {
+          "quand": "2012",
+          "texte": "L'épicerie est démolie ; les pelleteuses la ramènent à l'air libre, moins profond encore qu'avant. Le virus s'en échappe."
+        },
+        {
+          "quand": "2035",
+          "texte": "Toute végétation a disparu ; la plupart des hommes sont morts de faim. On prépare un nouveau voyage dans le temps."
+        }
+      ]
+    },
+    {
+      "id": "intacte",
+      "titre": "L'avenir de John",
+      "si": {},
+      "frise": [
+        {
+          "quand": "mars 2010",
+          "texte": "La branche fossilisée dort toujours sous la dalle de béton et deux mètres de terre de l'arrière-boutique."
+        },
+        {
+          "quand": "2012",
+          "texte": "L'épicerie Chazal est démolie pour construire un immeuble ; les pelleteuses mettent la branche à l'air libre. Le virus s'en échappe."
+        },
+        {
+          "quand": "2035",
+          "texte": "Toute végétation a disparu ; la plupart des hommes sont morts de faim. Un homme, John, est envoyé en mars 2010."
+        }
+      ]
+    }
   ]
 }

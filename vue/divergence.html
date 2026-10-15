@@ -58,6 +58,12 @@ button { font: inherit; color: inherit; }
 .mission .titre b { color: var(--etat); }
 .mission p { font-size: .9rem; }
 .mission .avancement { font-size: .82rem; color: var(--trait); }
+.avenir { margin-top: 8px; }
+.avenir .tete { font-family: var(--f-titre); font-weight: 600; font-size: .95rem; }
+.avenir ol { list-style: none; margin: 4px 0; padding: 0; }
+.avenir li { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 2px 10px; font-size: .88rem; margin: 3px 0; }
+.avenir .quand { font-family: var(--f-titre); font-weight: 600; color: var(--etat, var(--trait)); }
+.avenir .nuance { font-family: var(--f-pensee); font-style: italic; color: var(--trait); font-size: .88rem; }
 
 .frise-tete { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; margin-bottom: 6px; }
 .legende { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .8rem; color: var(--trait); }
@@ -182,6 +188,16 @@ function choisir(s) {
   resume(); zooms(); causes(); dessiner(); instant();
 }
 
+// l'avenir après la semaine (avenirs de la mission) : sa frise, de mars 2010 à 2035
+function avenir(a) {
+  const b = el("div", { class: "avenir" });
+  b.append(el("div", { class: "tete" }, "L'avenir : " + a.titre));
+  const ol = el("ol");
+  for (const x of a.frise) { const li = el("li"); li.append(el("span", { class: "quand" }, x.quand), el("span", {}, x.texte)); ol.append(li); }
+  b.append(ol);
+  if (a.nuance) b.append(el("p", { class: "nuance" }, a.nuance));
+  return b;
+}
 function resume() {
   const R = document.getElementById("resume"); R.textContent = "";
   const v = el("div", { class: "verdict" }); const p = el("span", { class: "pastille" }); p.style.background = couleurVerdict(S.verdict);
@@ -193,6 +209,7 @@ function resume() {
     box.append(ti, el("p", {}, m.raison),
       el("p", { class: "avancement" }, "Avancement : " + (Object.entries(m.avancement).map(([k, v]) => `${k.replace("_m", " (m)")} ${String(v).replace("_", " ")}`).join(" · ") || "rien")));
     for (const e of m.echecs) box.append(el("p", { class: "avancement" }, "Geste impossible : " + e));
+    if (m.avenir) box.append(avenir(m.avenir));
     R.append(box);
   }
   const g = el("div"); g.append(el("p", {}, S.description));

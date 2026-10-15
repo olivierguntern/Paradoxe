@@ -15,6 +15,12 @@ Gestes impossibles :
 - 2010-03-13 15:10 : découper la dalle de béton à la scie interrompu, le voyageur s'enfuit
 - 2010-03-14 15:30 : crocheter la serrure de la porte de la cour n'a pas lieu (la serrure a été changée : elle ne se crochète plus)
 
+### L'avenir : L'avenir de John
+
+- **mars 2010** : La branche fossilisée dort toujours sous la dalle de béton et deux mètres de terre de l'arrière-boutique.
+- **2012** : L'épicerie Chazal est démolie pour construire un immeuble ; les pelleteuses mettent la branche à l'air libre. Le virus s'en échappe.
+- **2035** : Toute végétation a disparu ; la plupart des hommes sont morts de faim. Un homme, John, est envoyé en mars 2010.
+
 ## Ce que le voyageur a fait
 
 - 2010-03-13 14:30 : crocheter la serrure de la porte de la cour (30 min)
