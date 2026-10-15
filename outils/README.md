@@ -256,6 +256,19 @@ Le scénario `temoin` (aucune intervention) vérifie que le monde joué reprodui
 
 ## Vue fil de fer
 
+Deux pages, à ouvrir dans un navigateur : `vue/index.html`, la semaine en fil de fer (ci-dessous), et `vue/divergence.html`, le voyageur.
+
+**Le voyageur** (`vue/divergence.html`) : on choisit un scénario (pastille de la couleur du verdict) ; une frise montre, habitant par habitant, chaque fait qui diffère du monde de référence, en bandes par genre (endroit et activité, rencontres, objets et achats, ce qu'on a appris, anachronismes), avec les interventions du voyageur en traits rouges, sur six heures autour de l'instant, un jour ou la semaine. En cliquant sur la frise (ou avec les flèches), on choisit l'instant : pour chaque habitant, ce qu'il fait dans le monde de référence et, s'il diffère, dans le monde joué, avec les faits en cours. La chaîne des causes est un arbre dont chaque fait mène à son instant sur la frise. Le scénario affiché se retrouve dans l'adresse (`divergence.html#scenario=belote`).
+
+```bash
+# Recalculer les données de la page du voyageur (rejoue un scénario dont le monde joué manque)
+python3 outils/exporter_divergence.py
+```
+
+L'export (`vue/divergence.js`) écrit le monde de référence une seule fois et, pour chaque scénario, seulement les pas qui en diffèrent, les faits (épisodes) et leurs causes.
+
+### La semaine en fil de fer
+
 La semaine se rejoue dans une vue isométrique fil de fer (`vue/index.html`, à ouvrir dans un navigateur), à plusieurs échelles, les mêmes pour les deux personnages : le logement (l'appartement de Thomas, la boutique ou la maison de Robert), l'immeuble (ou la maison), la rue du lieu où se trouve le personnage suivi (pour Thomas, de chez lui à l'épicerie ; pour Robert, la Grande-Rue autour de l'épicerie, avec la place et la banque, ou la rue des Glycines), le parcours de course (pentes et quais de Saône), les sorties à pied de Thomas (vers le cinéma par la montée de la Boucle, le boulevard jusqu'à la mairie du 4e et au Gros Caillou), et pour Robert le trajet en Kangoo (Croix-Rousse, Rhône, Villeurbanne), le cinéma de la Cité internationale, l'école où il vote et les monts d'Or. On choisit le personnage suivi (Thomas ou Robert) ; l'autre reste visible. Le panneau donne l'état de chaque pas : activité, pensée, besoins, émotions, objets portés, argent, lumières et appareils.
 
 La lecture va de 5 minutes simulées par seconde à 4 heures par seconde, ou en **temps réel** (1 s = 1 s) : les actions restent celles des pas de 5 minutes ; l'horloge avance à la seconde, un déplacement dans un logement se fait au pas (1,3 m/s) puis le personnage reste à son poste, et un trajet dehors (marche, course, voiture) s'étale sur tout le pas. Les pièces de chaque logement portent leur nom, y compris sur un écran de téléphone.

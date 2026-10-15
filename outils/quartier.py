@@ -52,8 +52,9 @@ class Quartier:
         self.fiches = fiches
         self.date = date
         self.V = voyageur       # interventions du voyageur (voyageur.py), ou None : le monde de référence
+        # toujours dans le même ordre (identifiants triés), quel que soit l'ordre donné : le même quartier donne les mêmes textes
         self.H = {pid: Habitant(fiches[pid], catalogue, date, etats[pid], voyageur.objets(pid, date) if voyageur else None)
-                  for pid in fiches}
+                  for pid in sorted(fiches)}
         self.ensemble = set()   # paires (habitant, autre) ensemble au pas précédent
         self.vus = set()        # (habitant, début d'étape, autre) : l'autre est venu pendant l'étape prévue ensemble
         self.absences = set()   # (habitant, début d'étape, autre) : absence déjà remarquée
