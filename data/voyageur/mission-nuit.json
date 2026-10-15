@@ -1,0 +1,42 @@
+{
+  "description": "John attend la nuit du lundi pour ne croiser personne : il crochète la porte de la cour à 19:00, découpe la dalle de 19:30 à 21:30, creuse jusqu'à minuit, puis de minuit à 01:30.",
+  "attendu": "La scie hurle le soir, quand les voisins du dessus sont rentrés : ils le racontent à Robert dès qu'il arrive mardi matin, et Robert va voir l'arrière-boutique.",
+  "mission": "branche-fossile",
+  "porte": [],
+  "interventions": [
+    {
+      "date": "2010-03-08",
+      "heure": "19:00",
+      "type": "geste",
+      "geste": "crocheter",
+      "lieu": "epicerie-chazal",
+      "piece": "arriere-boutique"
+    },
+    {
+      "date": "2010-03-08",
+      "heure": "19:30",
+      "type": "geste",
+      "geste": "decouper_dalle",
+      "lieu": "epicerie-chazal",
+      "piece": "arriere-boutique"
+    },
+    {
+      "date": "2010-03-08",
+      "heure": "21:30",
+      "type": "geste",
+      "geste": "creuser",
+      "lieu": "epicerie-chazal",
+      "piece": "arriere-boutique",
+      "duree_minutes": 150
+    },
+    {
+      "date": "2010-03-09",
+      "heure": "00:00",
+      "type": "geste",
+      "geste": "creuser",
+      "lieu": "epicerie-chazal",
+      "piece": "arriere-boutique",
+      "duree_minutes": 90
+    }
+  ]
+}

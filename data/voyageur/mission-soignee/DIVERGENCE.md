@@ -1,6 +1,6 @@
-# Divergence : Le lundi, John crochète la porte de la cour à 10:00, découpe la dalle, creuse deux mètres, brûle la branche, rebouche, coule le béton, puis remet les palettes et les cartons sur la réparation, nettoie la poussière et aère jusqu'à 22:00.
+# Divergence : Le lundi, John crochète la porte de la cour à 10:00, découpe la dalle, creuse deux mètres, brûle la branche, rebouche et coule le béton ; il s'arrête à 19:30, se repose pendant que le béton prend, puis revient dans la nuit, à 01:30, remettre les palettes et les cartons, nettoyer la poussière et aérer jusqu'à 04:00.
 
-**Attendu.** Robert revient mardi à 06:30 : plus de poussière, presque plus d'odeur, la réparation cachée sous les palettes. S'il ne remarque rien, la mission est réussie sans que la vie des habitants ait changé.
+**Attendu.** Neuf heures et demie de travail, six heures de repos : John n'est pas épuisé, le béton a pris sous les palettes. La scie a hurlé en semaine, en pleine journée, quand les voisins du dessus sont au travail. Robert revient mardi à 06:30 : s'il ne remarque rien, la mission est réussie sans que la vie des habitants ait changé.
 
 **Verdict : aucune divergence : rien n'a changé dans la vie des habitants.**
 
@@ -27,9 +27,9 @@ La semaine de mars 2010 s'est passée exactement comme dans les souvenirs de Joh
 - 2010-03-08 16:30 : brûler la branche fossilisée (30 min)
 - 2010-03-08 17:00 : reboucher le trou (90 min)
 - 2010-03-08 18:30 : couler une chape de béton (60 min)
-- 2010-03-08 19:30 : remettre les palettes et les cartons sur la réparation (30 min)
-- 2010-03-08 20:00 : nettoyer la poussière (60 min)
-- 2010-03-08 21:00 : aérer la boutique (60 min)
+- 2010-03-09 01:30 : remettre les palettes et les cartons sur la réparation (30 min)
+- 2010-03-09 02:00 : nettoyer la poussière (60 min)
+- 2010-03-09 03:00 : aérer la boutique (60 min)
 
 ## Propagation
 
@@ -46,9 +46,9 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 - **Le voyageur**, lundi 8 16:30 — brûler la branche fossilisée (30 min)
 - **Le voyageur**, lundi 8 17:00 — reboucher le trou (90 min)
 - **Le voyageur**, lundi 8 18:30 — couler une chape de béton (60 min)
-- **Le voyageur**, lundi 8 19:30 — remettre les palettes et les cartons sur la réparation (30 min)
-- **Le voyageur**, lundi 8 20:00 — nettoyer la poussière (60 min)
-- **Le voyageur**, lundi 8 21:00 — aérer la boutique (60 min)
+- **Le voyageur**, mardi 9 01:30 — remettre les palettes et les cartons sur la réparation (30 min)
+- **Le voyageur**, mardi 9 02:00 — nettoyer la poussière (60 min)
+- **Le voyageur**, mardi 9 03:00 — aérer la boutique (60 min)
 
 ## Faits par habitant
 

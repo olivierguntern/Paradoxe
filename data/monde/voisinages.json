@@ -1,0 +1,80 @@
+{
+  "principe": "Voisins que le quartier ne simule pas, mais qui entendent : pour un lieu, quand ils sont là (« presents », par jour), combien ils prêtent l'oreille (« attention », qui multiplie la visibilité du bruit d'un geste), plus la nuit (« nuit » : ils dorment, le bruit les réveille). Un bruit entendu, ils le racontent à l'habitant (« racontent_a ») la prochaine fois qu'il est dans le lieu : il le remarque comme un bruit, et réagit comme à un bruit (data/monde/reactions.json).",
+  "voisinages": {
+    "epicerie-chazal": {
+      "nom": "les voisins du dessus",
+      "presents": {
+        "lundi": [
+          [
+            "00:00",
+            "08:00"
+          ],
+          [
+            "18:30",
+            "24:00"
+          ]
+        ],
+        "mardi": [
+          [
+            "00:00",
+            "08:00"
+          ],
+          [
+            "18:30",
+            "24:00"
+          ]
+        ],
+        "mercredi": [
+          [
+            "00:00",
+            "08:00"
+          ],
+          [
+            "18:30",
+            "24:00"
+          ]
+        ],
+        "jeudi": [
+          [
+            "00:00",
+            "08:00"
+          ],
+          [
+            "18:30",
+            "24:00"
+          ]
+        ],
+        "vendredi": [
+          [
+            "00:00",
+            "08:00"
+          ],
+          [
+            "18:30",
+            "24:00"
+          ]
+        ],
+        "samedi": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "dimanche": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ]
+      },
+      "attention": 0.9,
+      "nuit": {
+        "de": "22:00",
+        "a": "07:00",
+        "facteur": 1.5
+      },
+      "racontent_a": "robert-chazal",
+      "remarque": "les voisins du dessus se plaignent : {bruit}, {quand}"
+    }
+  }
+}

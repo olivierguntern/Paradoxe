@@ -30,6 +30,7 @@ Gestes impossibles :
 - 2010-03-13 15:00 : découper la dalle de béton à la scie (120 min)
 - 2010-03-13 15:00 : Robert remarque : le hurlement d'une scie à béton dans l'arrière-boutique
 - 2010-03-13 15:00 : Robert réagit : aller voir
+- 2010-03-13 15:00 : les voisins du dessus entendent : le hurlement d'une scie à béton dans l'arrière-boutique
 - 2010-03-13 15:00 : Robert remarque : une fine poussière de béton sur les rayons et le comptoir
 - 2010-03-13 15:00 : Robert réagit : plainte
 - 2010-03-13 15:05 : Robert remarque : un inconnu en train de découper le sol de l'arrière-boutique à la scie

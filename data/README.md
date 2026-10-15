@@ -142,7 +142,9 @@ Un scénario du voyageur (`data/voyageur/<nom>.json`) liste ses interventions da
 | `mission-retour` | Surpris le samedi, John revient le dimanche après-midi, pendant la randonnée de Robert | Mission échouée : la serrure a été changée, elle ne se crochète plus |
 | `mission-baclee` | La même mission le lundi, porte forcée, sans rien effacer | Mission échouée : la branche est brûlée, mais mardi à 06:30 Robert trouve la serrure forcée et la poussière, porte plainte et ouvre la boutique en retard ; Thomas, Josiane et les Morel l'apprennent ; paradoxe |
 | `mission-lundi-tot` | Le lundi dès 08:00, comme si la boutique était vide toute la journée | Mission échouée : à 09:10, Robert entre par la porte de derrière prendre la recette au coffre et surprend John la scie à la main |
-| `mission-soignee` | Le lundi, serrure crochetée, puis palettes remises, poussière nettoyée, boutique aérée | Mission réussie, parfaitement : Robert ne remarque rien, aucun fait ne change |
+| `mission-soignee` | Le lundi de 10:00 à 19:30, serrure crochetée, branche brûlée, béton coulé ; six heures de repos, puis dans la nuit palettes remises, poussière nettoyée, boutique aérée | Mission réussie, parfaitement : Robert ne remarque rien, aucun fait ne change |
+| `mission-pressee` | Le même travail d'une traite, de 10:00 à 22:00 | Mission échouée : les palettes s'enfoncent dans le béton frais, John épuisé nettoie mal ; Robert porte plainte |
+| `mission-nuit` | Le lundi soir et la nuit : la scie à 19:30, puis creuser jusqu'à 01:30 | Les voisins du dessus entendent et le racontent à Robert mardi matin ; il va voir |
 | `mission-abandon` | Le lundi, serrure crochetée, dalle découpée, branche trouvée puis laissée au fond du trou ouvert | Mission échouée et paradoxe ; l'avenir « Deux ans trop tôt » : le virus s'échappe dès 2010 |
 | `compatible` | Le même achat, avec un téléphone à clapet et un billet de la première série | Aucune divergence : seuls des détails changent (une bouteille d'eau, la caisse de Robert) |
 
