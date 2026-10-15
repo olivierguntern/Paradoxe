@@ -10,7 +10,7 @@
 
 ## Propagation
 
-Premier fait différent pour chaque habitant touché (habitants visés : robert-chazal) :
+Premier fait différent pour chaque habitant touché (habitants touchés directement, visés ou témoins : robert-chazal) :
 
 - **robert-chazal** : le mercredi 10 mars à 10:00, appris (apprend : Ce soir, Lyon passe, vous verrez : Pjanić à la 75e.)
 

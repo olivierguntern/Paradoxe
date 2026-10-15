@@ -10,7 +10,7 @@
 
 ## Propagation
 
-Premier fait différent pour chaque habitant touché (habitants visés : robert-chazal) :
+Premier fait différent pour chaque habitant touché (habitants touchés directement, visés ou témoins : robert-chazal) :
 
 - **thomas-berthier** (cascade) : le samedi 13 mars à 11:55, achat ([('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)])
 

@@ -10,7 +10,7 @@
 
 ## Propagation
 
-Premier fait différent pour chaque habitant touché (habitants visés : thomas-berthier) :
+Premier fait différent pour chaque habitant touché (habitants touchés directement, visés ou témoins : thomas-berthier) :
 
 - **thomas-berthier** : le mardi 9 mars à 17:55, activité (Range les montres dans le coffre, aligne les outils, éteint la lampe → Retenu par un passant)
 - **robert-chazal** (cascade) : le mardi 9 mars à 18:20, rencontre (sans Thomas)

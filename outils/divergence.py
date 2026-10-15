@@ -6,14 +6,15 @@ Les deux mondes sont comparés pas à pas, habitant par habitant, en deux
 niveaux (CONCEPTION.md, « Mesure envisagée ») :
 - les faits, comptés dans la divergence : l'endroit où il est, l'activité, les
   personnes avec qui il est, la place de chaque objet, ce qu'il achète, ce
-  qu'il a appris ;
+  qu'il a appris, les anachronismes qu'il a remarqués ou dont il a entendu
+  parler ;
 - les détails, tolérés : besoins, émotions, quantités en stock (maison et
   magasin), argent. Ils sont mesurés, pas comptés.
 
 La divergence suit, heure par heure, le nombre de faits différents (chacun
 compté une fois dans l'heure, même s'il dure) et le nombre d'habitants
 touchés. Un habitant touché sans être visé par une
-intervention l'est par cascade. Chaque fait différent reçoit sa cause (classe Causes) : l'arbre remonte une
+intervention ni témoin d'un anachronisme l'est par cascade. Chaque fait différent reçoit sa cause (classe Causes) : l'arbre remonte une
 cascade jusqu'à l'intervention du voyageur. Le verdict, selon les seuils de
 data/monde/paradoxe.json : aucune divergence, divergence absorbée (plus aucun
 fait différent à la fin), persistante, en cascade, ou paradoxe.
@@ -52,6 +53,13 @@ def quand(date, heure=None):
     return txt
 
 
+def anomalies_au_pas(j, heure):
+    """Les anachronismes qu'il a remarqués ou dont il a entendu parler jusqu'à ce pas : (objet, qui le lui a dit ou None)."""
+    date = j["meta"]["date"]
+    return {(x["objet"], x.get("par"), x["quoi"]) for x in (j["etat_final"].get("habitant") or {}).get("anomalies", [])
+            if (x["date"], x["heure"]) <= (date, heure)}
+
+
 def faits_du_pas(a, b, pa, pb, ja, jb, infos=None):
     """Faits différents entre deux pas d'un même habitant : liste de (genre, détail). Si infos (dict) est donné, il reçoit
     pour chaque fait ce qui sert à en trouver la cause : personnes concernées, objet, produits, qui a dit quoi."""
@@ -78,6 +86,14 @@ def faits_du_pas(a, b, pa, pb, ja, jb, infos=None):
     for x in sorted(sa ^ sb):
         out.append(("appris", f"{'ne sait pas' if x in sa else 'apprend'} : {x[1]}"))
         infos[out[-1]] = {"de": x[0]}
+    sa, sb = anomalies_au_pas(ja, a["heure"]), anomalies_au_pas(jb, b["heure"])
+    for o, par, quoi in sorted(sa ^ sb, key=str):
+        if (o, par, quoi) in sa:
+            verbe = "ne remarque pas" if par is None else "n'entend pas parler de"
+        else:
+            verbe = "remarque" if par is None else "entend parler de"
+        out.append(("anomalie", f"{verbe} : {quoi}"))
+        infos[out[-1]] = {"anomalie": o, "par": par}
     return out
 
 
@@ -95,6 +111,8 @@ class Causes:
     """Chaîne des causes : chaque fait différent qui dure forme un épisode (habitant, genre, détail, début, fin), et chaque
     épisode reçoit, quand il commence, la cause la plus directe :
     1. une intervention du voyageur sur cet habitant à ce moment (il le retient, déplace son objet, lui dit quelque chose) ;
+       un anachronisme remarqué : l'intervention pendant laquelle le voyageur a été vu ; entendu raconter : celui qui
+       l'a raconté ;
     2. une rencontre manquée ou nouvelle avec quelqu'un : ce qui a changé pour l'autre à ce moment (son endroit, son
        activité), sinon pour lui-même ;
     3. quelque chose appris (ou non) de quelqu'un : la dernière rencontre différente avec lui, sinon ce qui a changé
@@ -104,7 +122,7 @@ class Causes:
     5. sinon, son propre épisode précédent (la suite de ce qui a déjà changé pour lui) ; à défaut, le dernier fait
        différent du quartier, en lien supposé."""
 
-    ORDRE = ["lieu", "activité", "objet", "achat", "rencontre", "appris"]
+    ORDRE = ["lieu", "activité", "objet", "achat", "anomalie", "rencontre", "appris"]
 
     def __init__(self, interventions, prenoms):
         self.prenoms = prenoms                       # habitant -> prénom (les rencontres nomment les gens par leur prénom)
@@ -117,7 +135,8 @@ class Causes:
                      "deplacer": f"déplace {x.get('objet')} de {prenoms.get(qui, qui)} vers « {x.get('vers')} »",
                      "acheter": f"achète {x.get('quantite')} × {x.get('produit')} chez {prenoms.get(qui, qui)}",
                      "parler": f"dit à {prenoms.get(qui, qui)} : « {x.get('quoi')} »"}.get(x["type"], x["type"])
-            self.V.append({"id": f"V{n}", "date": x["date"], "heure": x["heure"], "pas": d, "fin": d + max(1, x.get("duree_minutes", 5) // 5),
+            self.V.append({"id": f"V{n}", "date": x["date"], "heure": x["heure"], "pas": d,
+                           "fin": d + max(1, x.get("duree_minutes", 5) // 5) if x["type"] in ("retenir", "passer") else d + 1,
                            "type": x["type"], "habitant": qui, "x": x, "texte": texte})
         self.noeuds = []
         self.actifs = {}      # habitant -> {(genre, détail): épisode}
@@ -175,6 +194,16 @@ class Causes:
                 return v["id"], False
             if v["type"] == "parler" and v["habitant"] == p and g == "appris" and info.get("de") == "voyageur":
                 return v["id"], False
+        # un anachronisme : vu pendant une intervention du voyageur, ou entendu de quelqu'un qui l'a vu ou entendu
+        if g == "anomalie":
+            if info.get("par") is None:
+                v = next((v for v in self.V if v["date"] == date and v["pas"] <= k < v["fin"]), None)                     or next((v for v in reversed(self.V) if (v["date"], v["pas"]) <= (date, k)), None)
+                if v:
+                    return v["id"], False
+            elif info["par"] in self.prenoms:
+                n = next((n for n in reversed(self.histoire.get(info["par"], [])) if n["genre"] == "anomalie"), None) or self.recent(info["par"])
+                if n:
+                    return n["id"], False
         # 2. rencontre
         if g == "rencontre":
             for nom in info.get("autres", []):
@@ -309,7 +338,9 @@ def comparer_mondes(ref, joue, cibles=(), interventions=()):
     cascade = [p for p in touches_total if p not in cibles]
     max_faits = max((h["faits"] for h in heures), default=0)
     if not touches_total:
-        verdict = "aucune divergence : rien n'a changé dans la vie des habitants"
+        ecarts = [p for p, v in details_fin.items() if v[0] >= 0.05 or v[1] >= 0.005 or any(v[2:])]
+        verdict = (f"aucune divergence : seuls des détails changent ({', '.join(ecarts)}), que le temps absorbe" if ecarts
+                   else "aucune divergence : rien n'a changé dans la vie des habitants")
     elif len(touches_total) >= S["seuil_habitants"] or max_faits >= S["seuil_faits"]:
         verdict = f"paradoxe : {len(touches_total)} habitants touchés, jusqu'à {max_faits} faits différents dans une heure"
     elif dernier[0] == 0:
@@ -336,7 +367,7 @@ def ecrire_md(r, scenario, journal, chemin):
         L += [f"**Attendu.** {scenario['attendu']}", ""]
     L += [f"**Verdict : {r['verdict']}.**", "", "## Ce que le voyageur a fait", ""]
     L += [f"- {d} {h} : {t}" for d, h, t in journal] or ["- rien"]
-    L += ["", "## Propagation", "", "Premier fait différent pour chaque habitant touché (habitants visés : " + (", ".join(r["cibles"]) or "aucun") + ") :", ""]
+    L += ["", "## Propagation", "", "Premier fait différent pour chaque habitant touché (habitants touchés directement, visés ou témoins : " + (", ".join(r["cibles"]) or "aucun") + ") :", ""]
     for p, x in sorted(r["premier_fait"].items(), key=lambda kv: (kv[1]["date"], kv[1]["heure"])):
         L.append(f"- **{p}**{' (cascade)' if p in r['cascade'] else ''} : {quand(x['date'])} à {x['heure']}, {x['genre']} ({x['detail']})")
     L += ["", "## Chaîne des causes", "", "Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué : l'intervention du voyageur, "

@@ -10,7 +10,7 @@
 
 ## Propagation
 
-Premier fait différent pour chaque habitant touché (habitants visés : aucun) :
+Premier fait différent pour chaque habitant touché (habitants touchés directement, visés ou témoins : aucun) :
 
 
 ## Chaîne des causes

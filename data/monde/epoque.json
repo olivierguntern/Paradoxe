@@ -1,0 +1,23 @@
+{
+  "principe": "Ce qui existe ou non en mars 2010, pour les anachronismes du voyageur (outils/voyageur.py). Un objet ou un comportement apparu après l'année de l'époque est une anomalie qu'un habitant présent peut remarquer : à chaque pas où il est au même endroit que le voyageur, éveillé, avec une probabilité visibilite (ou visibilite_utilise quand le voyageur s'en sert) × (attention ÷ attention_ordinaire) × (1 − effet_concentration × concentration), multipliée par face_a_face si le voyageur s'adresse à lui, au plus 1. L'attention est celle de la fiche (perception.attention.piece), sinon l'attention ordinaire : un habitant plus attentif que la moyenne remarque davantage, un distrait moins. Un objet apparu avant ne surprend personne.",
+  "annee": 2010,
+  "attention_ordinaire": 0.5,
+  "effet_concentration": 0.4,
+  "face_a_face": 1.5,
+  "objets": {
+    "smartphone_ecran": { "nom": "téléphone tout en écran, sans un bouton", "apparition": 2017, "visibilite": 0.15, "visibilite_utilise": 0.6,
+      "remarque": "un passant avec un téléphone entièrement fait d'écran, sans un seul bouton" },
+    "paiement_telephone": { "nom": "paiement en approchant son téléphone du terminal", "apparition": 2016, "visibilite": 0.0, "visibilite_utilise": 0.9,
+      "remarque": "un client qui a payé en posant son téléphone sur le terminal de carte" },
+    "billet_europe": { "nom": "billet de 20 € de la série Europe", "apparition": 2015, "visibilite": 0.0, "visibilite_utilise": 0.25,
+      "remarque": "un billet de 20 € qui ne ressemblait pas aux autres, avec une fenêtre transparente et un portrait" },
+    "ecouteurs_sans_fil": { "nom": "écouteurs blancs sans fil", "apparition": 2016, "visibilite": 0.2, "visibilite_utilise": 0.3,
+      "remarque": "un passant avec de petits écouteurs blancs sans fil dans les oreilles" },
+    "montre_connectee": { "nom": "montre à écran à qui l'on parle", "apparition": 2015, "visibilite": 0.1, "visibilite_utilise": 0.7,
+      "remarque": "un passant qui parlait à sa montre, et la montre lui répondait" },
+    "trottinette_electrique": { "nom": "trottinette électrique", "apparition": 2018, "visibilite": 0.9, "visibilite_utilise": 0.9,
+      "remarque": "un homme filant sans bruit sur une trottinette à moteur" },
+    "telephone_a_clapet": { "nom": "téléphone à clapet", "apparition": 2004, "visibilite": 0.2, "visibilite_utilise": 0.4 },
+    "billet_2002": { "nom": "billet de 20 € de la première série", "apparition": 2002, "visibilite": 0.0, "visibilite_utilise": 0.25 }
+  }
+}

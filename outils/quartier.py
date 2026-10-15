@@ -17,7 +17,8 @@ relation) et de la section `relations` de chaque fiche, qui peut les remplacer.
   probabilité de leur relation. Celui qui parle choisit son sujet : une
   préoccupation (à un proche, jamais à la personne qu'elle concerne), ce qu'il
   a fait sans l'autre (pas à un commerçant ni à un client), l'activité
-  partagée, une banalité. Les textes viennent
+  partagée, une banalité. Ce qu'on a vu d'étrange (un anachronisme du
+  voyageur) ou entendu dire se raconte à tout le monde, et se répète. Les textes viennent
   de modèles ; l'interlocuteur retient ce qu'on lui a dit.
 - Commerce : quand un habitant achète dans le commerce d'un autre habitant du
   quartier, c'est ce commerçant qui le sert : la vente sort du stock de son
@@ -231,6 +232,12 @@ class Quartier:
                 if p.get("intensite_initiale", 0) >= 0.4 and p["id"] not in dit and prenomB not in p["sujet"]:
                     dit.append(p["id"])
                     return "preoccupation", minuscule(p["sujet"]), True
+        # ce qu'il a vu d'étrange (ou entendu dire), pas encore raconté à l'autre : on le raconte à tout le monde
+        for x in hA.mem.get("anomalies", []):
+            cle = "anomalie:" + x["objet"]
+            if cle not in dit and x.get("par") != B:
+                dit.append(cle)
+                return ("anomalie_rapportee" if x.get("par") else "anomalie"), x, False
         # ce qu'il a fait aujourd'hui sans l'autre, le plus long d'abord (pas à un commerçant ni à un client)
         faits = {}
         raconte = self.relation(A, B)["type"] in C.get("racontent_leur_journee", C["proches"])
@@ -251,9 +258,17 @@ class Quartier:
         genre, quoi, retenir = self.sujet(A, B, C)
         M = C["modeles"]
         leA = "la" if self.fiches[A]["identite"].get("genre") == "femme" else "le"
+        anomalie = quoi if genre.startswith("anomalie") else None
+        if anomalie:
+            quoi = anomalie["quoi"]
         v = {"A": self.prenom(A), "B": self.prenom(B), "leA": leA, "sujet": quoi, "fait": quoi, "activite": quoi,
-             "activite_min": minuscule(quoi or "")}
+             "activite_min": minuscule(quoi or ""), "source": self.prenom(anomalie["par"]) if anomalie and anomalie.get("par") else ""}
         texte = choix(M[genre], self.date, i, A, B, genre).format(**v).replace("?.", " ?").replace("!.", " !").replace("  ", " ")
+        if anomalie:
+            texte += " " + M["reponse_etonnee"].format(**v)
+            hB = self.H[B]
+            if anomalie["objet"] not in {x["objet"] for x in hB.mem.get("anomalies", [])}:
+                hB.mem.setdefault("anomalies", []).append({"date": self.date, "heure": hm(i), "objet": anomalie["objet"], "quoi": quoi, "par": A})
         if genre in ("preoccupation", "journee"):
             agreable = self.fiches[B]["personnalite"]["big_five"]["agreabilite"] >= 0.6
             texte += " " + (M["reponse_chaleureuse"] if agreable and genre == "preoccupation" else M["reponse_breve"]).format(**v)

@@ -10,7 +10,7 @@
 
 ## Propagation
 
-Premier fait différent pour chaque habitant touché (habitants visés : robert-chazal) :
+Premier fait différent pour chaque habitant touché (habitants touchés directement, visés ou témoins : robert-chazal) :
 
 - **robert-chazal** : le samedi 13 mars à 20:35, activité (Dîne avec Josiane : pizza maison → Retenu par un passant)
 - **gerard-morel** (cascade) : le samedi 13 mars à 20:45, rencontre (sans Robert)

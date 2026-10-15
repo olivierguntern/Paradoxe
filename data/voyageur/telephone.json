@@ -1,0 +1,9 @@
+{
+  "description": "Samedi 11:40, le voyageur entre à l'épicerie Chazal avec ses écouteurs sans fil, achète une bouteille d'eau et paie en posant son téléphone sur le terminal. Thomas arrive quelques minutes plus tard.",
+  "attendu": "Robert, qui lui fait face à la caisse, remarque sans doute le paiement par téléphone ; il le racontera, à Thomas qui arrive, à Josiane le soir, aux Morel à la belote. Un anachronisme remarqué se répand de bouche à oreille.",
+  "porte": ["ecouteurs_sans_fil", "smartphone_ecran"],
+  "interventions": [
+    { "date": "2010-03-13", "heure": "11:40", "type": "acheter", "commerce": "robert-chazal", "produit": "eau", "quantite": 1,
+      "utilise": ["smartphone_ecran", "paiement_telephone"] }
+  ]
+}

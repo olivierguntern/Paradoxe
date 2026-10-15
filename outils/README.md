@@ -221,14 +221,16 @@ python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages thomas-be
 
 Le monde de référence est le quartier (`data/quartier`) ; le monde joué est le même quartier rejoué avec les interventions du voyageur (`voyageur.py`, scénarios dans `data/voyageur/`). Pour les habitants, le voyageur n'est qu'un passant. À chaque pas, le quartier lui demande s'il retient un habitant (avant que celui-ci décide : il reste où il est, et ce qu'il devait faire n'est pas fait ; des courses qui auraient dû commencer sont abandonnées), puis, une fois les décisions prises, s'il achète dans un commerce ou parle à quelqu'un ; un objet qu'il déplace change de place avant que l'habitant décide, sans que celui-ci le sache.
 
+**Anachronismes.** Le voyageur porte des objets (`porte`) et peut s'en servir pendant une intervention (`utilise`) ; `data/monde/epoque.json` dit ce qui existe en 2010. Pendant chaque intervention, il est quelque part : auprès de l'habitant qu'il retient ou à qui il parle, dans la salle du commerce où il achète, dans le lieu où il passe. Chaque habitant éveillé au même endroit peut remarquer un objet apparu après 2010, avec une probabilité qui tient à sa visibilité (plus grande s'il s'en sert), à l'attention de l'habitant (relative à l'attention ordinaire), à sa concentration, et au face-à-face (tirage déterministe). Une anomalie remarquée fait vivre l'événement `anachronisme_remarque`, reste en mémoire (`anomalies`) et devient le premier sujet de conversation après les confidences : on la raconte à tout le monde, et qui l'a entendue la répète. Un téléphone à clapet ou un billet de la première série ne surprend personne.
+
 `divergence.py` compare les deux mondes pas à pas, habitant par habitant, selon les deux niveaux de `CONCEPTION.md` :
 
 | Niveau | Ce qui est comparé | Traitement |
 |---|---|---|
-| Faits | Endroit (lieu et pièce), activité, personnes avec qui il est, place de chaque objet, achats, ce qu'il a appris (qui le lui a dit, et quoi) | Comptés : chaque fait différent une fois par heure, même s'il dure |
+| Faits | Endroit (lieu et pièce), activité, personnes avec qui il est, place de chaque objet, achats, ce qu'il a appris (qui le lui a dit, et quoi), les anachronismes qu'il a remarqués ou dont il a entendu parler | Comptés : chaque fait différent une fois par heure, même s'il dure |
 | Détails | Besoins, émotions, quantités en stock (maison et magasin), argent | Mesurés à la fin, tolérés |
 
-Un habitant touché sans être visé par une intervention l'est par cascade ; le premier fait différent de chacun montre la propagation.
+Un habitant touché sans être visé par une intervention ni témoin d'un anachronisme l'est par cascade ; le premier fait différent de chacun montre la propagation.
 
 **Chaîne des causes.** Un fait différent qui dure forme un épisode, et chaque épisode reçoit, quand il commence, sa cause la plus directe : l'intervention du voyageur qui le vise (il le retient, déplace son objet, lui dit quelque chose) ; pour une rencontre manquée, ce qui a changé pour l'autre à ce moment (son endroit, son activité), sinon pour lui-même ; pour ce qu'on apprend ou pas de quelqu'un, la dernière rencontre différente avec lui ; pour un achat, sa journée changée ou un achat du voyageur sur ce produit ; pour un objet, ce qu'il était en train de faire ; sinon, le premier changement de sa journée dont il découle, « par ses besoins décalés » si ses besoins diffèrent à ce moment. `DIVERGENCE.md` en dessine l'arbre, du voyageur au dernier fait. Par exemple, pour la belote :
 

@@ -126,7 +126,7 @@ Toutes les journées de `timelines/` sont vécues par les agents autonomes (`out
 
 ## Le voyageur
 
-Un scénario du voyageur (`data/voyageur/<nom>.json`) liste ses interventions dans le quartier, chacune à une date et une heure : `deplacer` (un objet d'un habitant, à son insu), `retenir` (un habitant, `duree_minutes`), `acheter` (dans un commerce, `produit`, `quantite`), `parler` (à un habitant éveillé, `quoi`). Le monde joué est écrit dans `data/voyageur/<nom>/` (non versionné : il se régénère à l'identique), avec `DIVERGENCE.md` et `divergence.json` (versionnés) : le verdict, ce que le voyageur a fait, la propagation, les faits heure par heure, les détails tolérés.
+Un scénario du voyageur (`data/voyageur/<nom>.json`) liste ses interventions dans le quartier, chacune à une date et une heure : `deplacer` (un objet d'un habitant, à son insu), `retenir` (un habitant, `duree_minutes`), `acheter` (dans un commerce, `produit`, `quantite`), `parler` (à un habitant éveillé, `quoi`), `passer` (se tenir un moment dans un lieu : `lieu` et `piece`, ou là où est un `habitant`, `duree_minutes`). Ce qu'il porte (`porte`) et ce dont il se sert pendant une intervention (`utilise`) sont des objets de `data/monde/epoque.json` : un objet apparu après 2010 est un anachronisme que les habitants présents peuvent remarquer. Le monde joué est écrit dans `data/voyageur/<nom>/` (non versionné : il se régénère à l'identique), avec `DIVERGENCE.md` et `divergence.json` (versionnés) : le verdict, ce que le voyageur a fait, la propagation, les faits heure par heure, les détails tolérés.
 
 | Scénario | Intervention | Verdict |
 |---|---|---|
@@ -137,6 +137,8 @@ Un scénario du voyageur (`data/voyageur/<nom>.json`) liste ses interventions da
 | `courses-manquees` | Mardi 17:55, retient Thomas trois quarts d'heure sur son palier | Absorbée jeudi soir, après une cascade jusqu'à Robert : pas de courses, pas de rencontre, plus d'achats le jeudi |
 | `confidence` | Mercredi 10:00, glisse à Robert le score du match du soir | Persistante : Robert le sait désormais, sans cascade |
 | `belote` | Samedi 20:35, garde Robert une demi-heure au téléphone à l'heure de la belote | Paradoxe : Josiane, Gérard et Monique remarquent son absence ; quatre habitants touchés |
+| `telephone` | Samedi 11:40, achète une bouteille d'eau chez Robert et paie en posant son téléphone sur le terminal | Paradoxe : Robert remarque le paiement ; il le raconte à Thomas, puis à Josiane, qui le répète à Monique, qui le répète à Gérard ; cinq habitants touchés |
+| `compatible` | Le même achat, avec un téléphone à clapet et un billet de la première série | Aucune divergence : seuls des détails changent (une bouteille d'eau, la caisse de Robert) |
 
 ## Monde
 
@@ -145,6 +147,7 @@ Un scénario du voyageur (`data/voyageur/<nom>.json`) liste ses interventions da
 | `monde/croix-rousse.json` | Géométrie partagée, dans un seul repère : relief (plateau, pentes vers la Saône et le Rhône, monts d'Or), rues de la Croix-Rousse et de Villeurbanne, place, immeubles de Thomas et de l'épicerie, maison de Robert (étages, escaliers), logements (pièces, portes, fenêtres, mobilier, emplacements des objets, postes), Saône, Rhône, trajets de course, d'épicerie, en Kangoo et à pied. **Proposition à valider.** |
 | `monde/croix-rousse.json` (boutique) | Places précises de la boutique (rayons et caisse pour un client, places de travail de Robert) et allées (`circulation`) que suit un client entre deux rayons |
 | `monde/echanges.json` | Répliques partagées par deux personnages qui se rencontrent (Thomas et Robert au comptoir, dont le conseil de film du samedi qui décide la soirée de Thomas) |
+| `monde/epoque.json` | Ce qui existe ou non en 2010 : objets et gestes du voyageur, année d'apparition, visibilité (porté, utilisé), et règle de la probabilité qu'un habitant les remarque |
 | `monde/paradoxe.json` | Seuils de la mesure du paradoxe : habitants touchés, faits différents dans une heure |
 | `monde/evenements.json` | Événements réels vécus aux mêmes minutes par plusieurs habitants (match Real Madrid – Lyon) |
 
