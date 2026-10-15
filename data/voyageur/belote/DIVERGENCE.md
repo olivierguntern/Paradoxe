@@ -17,6 +17,28 @@ Premier fait différent pour chaque habitant touché (habitants visés : robert-
 - **josiane-chazal** (cascade) : le samedi 13 mars à 20:45, rencontre (sans Robert)
 - **monique-morel** (cascade) : le samedi 13 mars à 20:45, rencontre (sans Robert)
 
+## Chaîne des causes
+
+Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué : l'intervention du voyageur, le changement chez l'autre pour une rencontre, la dernière rencontre pour ce qu'on apprend, sinon la suite de ce qui a déjà changé pour lui.
+
+- **Le voyageur**, samedi 13 20:35 — retient Robert 30 minutes
+  - **Robert**, samedi 13 20:35 — activité : Dîne avec Josiane : pizza maison → Retenu par un passant
+  - **Robert**, samedi 13 20:40, jusqu'à 21:00 — activité : Belote avec Gérard et Monique Morel → Retenu par un passant
+  - **Robert**, samedi 13 20:45, jusqu'à 21:00 — lieu : sejour → cuisine
+    - **Gérard**, samedi 13 20:45, jusqu'à 21:00 — rencontre : sans Robert
+    - **Josiane**, samedi 13 20:45, jusqu'à 21:00 — rencontre : sans Robert
+      - **Josiane**, samedi 13 21:40, jusqu'au dimanche 14 23:55 — appris : apprend : retenu par un passant
+      - **Josiane**, dimanche 14 17:05, jusqu'à 23:55 — appris : ne sait pas : courte sieste
+    - **Monique**, samedi 13 20:45, jusqu'à 21:00 — rencontre : sans Robert
+    - **Robert**, samedi 13 20:45, jusqu'à 21:00 — rencontre : sans Gérard, Josiane, Monique
+      - **Robert**, samedi 13 20:55, jusqu'à 22:40 — appris : ne sait pas : son genou qui le fait souffrir depuis l'hiver ; il refuse de voir le médecin
+      - **Robert**, samedi 13 22:45, jusqu'au dimanche 14 23:55 — appris : ne sait pas : bricole dans la véranda
+    - **Robert**, dimanche 14 07:00 — activité : Sert les clients du dimanche → Besoin pressant (par ses besoins décalés)
+    - **Robert**, dimanche 14 07:05 — lieu : wc-boutique → boutique (par ses besoins décalés)
+    - **Robert**, dimanche 14 08:55 — lieu : boutique → wc-boutique (par ses besoins décalés)
+    - **Robert**, dimanche 14 08:55 — activité : Sert les clients du dimanche → Besoin pressant (par ses besoins décalés)
+    - … et 9 autres faits
+
 ## Faits par habitant
 
 | Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |

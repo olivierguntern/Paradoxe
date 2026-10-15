@@ -1071,6 +1071,38 @@
   "faits": 0,
   "habitants": []
  },
+ "causes": {
+  "interventions": [
+   {
+    "id": "V1",
+    "date": "2010-03-13",
+    "heure": "11:00",
+    "pas": 132,
+    "fin": 133,
+    "type": "acheter",
+    "habitant": "robert-chazal",
+    "texte": "achète 20 × pain_campagne chez Robert"
+   }
+  ],
+  "faits": [
+   {
+    "id": "F1",
+    "habitant": "thomas-berthier",
+    "genre": "achat",
+    "detail": "[('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)]",
+    "date": "2010-03-13",
+    "heure": "11:55",
+    "fin_date": "2010-03-13",
+    "fin_heure": "11:55",
+    "cause": "V1",
+    "supposee": false
+   }
+  ]
+ },
+ "arbre": [
+  "- **Le voyageur**, samedi 13 11:00 — achète 20 × pain_campagne chez Robert",
+  "  - **Thomas**, samedi 13 11:55 — achat : [('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)]"
+ ],
  "details_fin": {
   "gerard-morel": {
    "besoins": 0.0,

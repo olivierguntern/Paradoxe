@@ -14,6 +14,13 @@ Premier fait différent pour chaque habitant touché (habitants visés : robert-
 
 - **robert-chazal** : le mercredi 10 mars à 10:00, appris (apprend : Ce soir, Lyon passe, vous verrez : Pjanić à la 75e.)
 
+## Chaîne des causes
+
+Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué : l'intervention du voyageur, le changement chez l'autre pour une rencontre, la dernière rencontre pour ce qu'on apprend, sinon la suite de ce qui a déjà changé pour lui.
+
+- **Le voyageur**, mercredi 10 10:00 — dit à Robert : « Ce soir, Lyon passe, vous verrez : Pjanić à la 75e. »
+  - **Robert**, mercredi 10 10:00, jusqu'au dimanche 14 23:55 — appris : apprend : Ce soir, Lyon passe, vous verrez : Pjanić à la 75e.
+
 ## Faits par habitant
 
 | Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |

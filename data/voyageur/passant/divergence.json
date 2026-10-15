@@ -1069,6 +1069,38 @@
   "faits": 0,
   "habitants": []
  },
+ "causes": {
+  "interventions": [
+   {
+    "id": "V1",
+    "date": "2010-03-09",
+    "heure": "18:15",
+    "pas": 219,
+    "fin": 220,
+    "type": "retenir",
+    "habitant": "thomas-berthier",
+    "texte": "retient Thomas 5 minutes"
+   }
+  ],
+  "faits": [
+   {
+    "id": "F1",
+    "habitant": "thomas-berthier",
+    "genre": "activité",
+    "detail": "Courses à l'épicerie de la Grande-Rue, sur son temps libre → Retenu par un passant",
+    "date": "2010-03-09",
+    "heure": "18:15",
+    "fin_date": "2010-03-09",
+    "fin_heure": "18:15",
+    "cause": "V1",
+    "supposee": false
+   }
+  ]
+ },
+ "arbre": [
+  "- **Le voyageur**, mardi 9 18:15 — retient Thomas 5 minutes",
+  "  - **Thomas**, mardi 9 18:15 — activité : Courses à l'épicerie de la Grande-Rue, sur son temps libre → Retenu par un passant"
+ ],
  "details_fin": {
   "gerard-morel": {
    "besoins": 0.0,

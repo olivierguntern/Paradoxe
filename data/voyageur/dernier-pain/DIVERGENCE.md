@@ -14,6 +14,13 @@ Premier fait différent pour chaque habitant touché (habitants visés : robert-
 
 - **thomas-berthier** (cascade) : le samedi 13 mars à 11:55, achat ([('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)])
 
+## Chaîne des causes
+
+Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué : l'intervention du voyageur, le changement chez l'autre pour une rencontre, la dernière rencontre pour ce qu'on apprend, sinon la suite de ce qui a déjà changé pour lui.
+
+- **Le voyageur**, samedi 13 11:00 — achète 20 × pain_campagne chez Robert
+  - **Thomas**, samedi 13 11:55 — achat : [('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)]
+
 ## Faits par habitant
 
 | Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |

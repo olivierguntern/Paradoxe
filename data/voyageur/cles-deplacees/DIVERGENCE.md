@@ -14,6 +14,15 @@ Premier fait différent pour chaque habitant touché (habitants visés : thomas-
 
 - **thomas-berthier** : le mardi 9 mars à 03:00, objet (obj-cles : entree / vide-poche de la commode → sejour / table à manger)
 
+## Chaîne des causes
+
+Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué : l'intervention du voyageur, le changement chez l'autre pour une rencontre, la dernière rencontre pour ce qu'on apprend, sinon la suite de ce qui a déjà changé pour lui.
+
+- **Le voyageur**, mardi 9 03:00 — déplace obj-cles de Thomas vers « sejour / table à manger »
+  - **Thomas**, mardi 9 03:00, jusqu'à 07:10 — objet : obj-cles : entree / vide-poche de la commode → sejour / table à manger
+    - **Thomas**, mardi 9 07:15, jusqu'à 08:05 — objet : obj-cles : poche du coupe-vent → sejour / table à manger
+      - **Thomas**, mardi 9 08:10, jusqu'à 18:00 — objet : obj-cles : entree / vide-poche de la commode → sejour / table à manger
+
 ## Faits par habitant
 
 | Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |

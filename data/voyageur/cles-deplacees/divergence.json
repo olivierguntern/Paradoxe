@@ -1099,6 +1099,64 @@
   "faits": 0,
   "habitants": []
  },
+ "causes": {
+  "interventions": [
+   {
+    "id": "V1",
+    "date": "2010-03-09",
+    "heure": "03:00",
+    "pas": 36,
+    "fin": 37,
+    "type": "deplacer",
+    "habitant": "thomas-berthier",
+    "texte": "déplace obj-cles de Thomas vers « sejour / table à manger »"
+   }
+  ],
+  "faits": [
+   {
+    "id": "F1",
+    "habitant": "thomas-berthier",
+    "genre": "objet",
+    "detail": "obj-cles : entree / vide-poche de la commode → sejour / table à manger",
+    "date": "2010-03-09",
+    "heure": "03:00",
+    "fin_date": "2010-03-09",
+    "fin_heure": "07:10",
+    "cause": "V1",
+    "supposee": false
+   },
+   {
+    "id": "F2",
+    "habitant": "thomas-berthier",
+    "genre": "objet",
+    "detail": "obj-cles : poche du coupe-vent → sejour / table à manger",
+    "date": "2010-03-09",
+    "heure": "07:15",
+    "fin_date": "2010-03-09",
+    "fin_heure": "08:05",
+    "cause": "F1",
+    "supposee": false
+   },
+   {
+    "id": "F3",
+    "habitant": "thomas-berthier",
+    "genre": "objet",
+    "detail": "obj-cles : entree / vide-poche de la commode → sejour / table à manger",
+    "date": "2010-03-09",
+    "heure": "08:10",
+    "fin_date": "2010-03-09",
+    "fin_heure": "18:00",
+    "cause": "F2",
+    "supposee": false
+   }
+  ]
+ },
+ "arbre": [
+  "- **Le voyageur**, mardi 9 03:00 — déplace obj-cles de Thomas vers « sejour / table à manger »",
+  "  - **Thomas**, mardi 9 03:00, jusqu'à 07:10 — objet : obj-cles : entree / vide-poche de la commode → sejour / table à manger",
+  "    - **Thomas**, mardi 9 07:15, jusqu'à 08:05 — objet : obj-cles : poche du coupe-vent → sejour / table à manger",
+  "      - **Thomas**, mardi 9 08:10, jusqu'à 18:00 — objet : obj-cles : entree / vide-poche de la commode → sejour / table à manger"
+ ],
  "details_fin": {
   "gerard-morel": {
    "besoins": 0.0,

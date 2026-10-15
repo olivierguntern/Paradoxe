@@ -15,6 +15,38 @@ Premier fait différent pour chaque habitant touché (habitants visés : thomas-
 - **thomas-berthier** : le mardi 9 mars à 17:55, activité (Range les montres dans le coffre, aligne les outils, éteint la lampe → Retenu par un passant)
 - **robert-chazal** (cascade) : le mardi 9 mars à 18:20, rencontre (sans Thomas)
 
+## Chaîne des causes
+
+Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué : l'intervention du voyageur, le changement chez l'autre pour une rencontre, la dernière rencontre pour ce qu'on apprend, sinon la suite de ce qui a déjà changé pour lui.
+
+- **Le voyageur**, mardi 9 17:55 — retient Thomas 45 minutes
+  - **Thomas**, mardi 9 17:55 — activité : Range les montres dans le coffre, aligne les outils, éteint la lampe → Retenu par un passant
+  - **Thomas**, mardi 9 18:00 — lieu : wc → atelier
+  - **Thomas**, mardi 9 18:00, jusqu'à 18:35 — activité : Courses à l'épicerie de la Grande-Rue, sur son temps libre → Retenu par un passant
+    - **Thomas**, mardi 9 18:05, jusqu'à 18:35 — objet : obj-cabas : dans sa main → entree / porte-manteau
+    - **Thomas**, mardi 9 18:05, jusqu'à 18:30 — objet : obj-cles : poche de la veste → entree / vide-poche de la commode
+    - **Thomas**, mardi 9 18:05, jusqu'à 18:30 — objet : obj-portefeuille : poche de la veste → entree / tiroir de la commode
+    - **Thomas**, mardi 9 18:05, jusqu'à 18:30 — objet : obj-veste : porté → entree / porte-manteau
+  - **Thomas**, mardi 9 18:05 — lieu : entree → atelier
+  - **Thomas**, mardi 9 18:10, jusqu'à 18:15 — lieu : trajet → atelier
+  - **Thomas**, mardi 9 18:20, jusqu'à 18:25 — lieu : boutique → atelier
+    - **Robert**, mardi 9 18:20, jusqu'à 18:25 — rencontre : sans Thomas
+    - **Thomas**, mardi 9 18:20, jusqu'à 18:25 — rencontre : sans Robert
+    - **Thomas**, mardi 9 18:25 — achat : [('bananes', 3), ('oranges', 2), ('pommes', 4)] → []
+  - **Thomas**, mardi 9 18:30 — lieu : trajet → atelier
+  - **Thomas**, mardi 9 18:35 — lieu : entree → atelier
+    - **Thomas**, mardi 9 18:40 — lieu : cuisine → wc (par ses besoins décalés)
+    - **Thomas**, mardi 9 18:40 — activité : Courses à l'épicerie de la Grande-Rue, sur son temps libre → Besoin pressant (par ses besoins décalés)
+    - **Thomas**, mardi 9 22:00 — lieu : wc → cuisine (par ses besoins décalés)
+    - **Thomas**, mardi 9 22:15 — lieu : cuisine → salle-de-bain (par ses besoins décalés)
+    - **Thomas**, mercredi 10 07:55 — lieu : cuisine → sejour (par ses besoins décalés)
+      - **Thomas**, mercredi 10 07:55 — objet : obj-netbook : sejour / bibliothèque, étagère du bas → sejour / table basse
+    - **Thomas**, mercredi 10 19:45 — lieu : chambre → cuisine (par ses besoins décalés)
+    - **Thomas**, mercredi 10 23:00 — lieu : chambre → cuisine (par ses besoins décalés)
+    - **Thomas**, jeudi 11 09:00 — lieu : cuisine → atelier (par ses besoins décalés)
+      - **Thomas**, jeudi 11 09:00 — objet : obj-lunettes : atelier / établi, dans leur étui → sur son nez
+    - … et 1 autre fait
+
 ## Faits par habitant
 
 | Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |

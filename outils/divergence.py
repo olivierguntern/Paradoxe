@@ -13,7 +13,8 @@ niveaux (CONCEPTION.md, « Mesure envisagée ») :
 La divergence suit, heure par heure, le nombre de faits différents (chacun
 compté une fois dans l'heure, même s'il dure) et le nombre d'habitants
 touchés. Un habitant touché sans être visé par une
-intervention l'est par cascade. Le verdict, selon les seuils de
+intervention l'est par cascade. Chaque fait différent reçoit sa cause (classe Causes) : l'arbre remonte une
+cascade jusqu'à l'intervention du voyageur. Le verdict, selon les seuils de
 data/monde/paradoxe.json : aucune divergence, divergence absorbée (plus aucun
 fait différent à la fin), persistante, en cascade, ou paradoxe.
 """
@@ -23,7 +24,8 @@ import os
 import sys
 
 from comparer_journees import positions_par_pas
-from fiches import MONDE, lire
+from fiches import MONDE, RACINE, lire
+from moteur import idx
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -50,9 +52,11 @@ def quand(date, heure=None):
     return txt
 
 
-def faits_du_pas(a, b, pa, pb, ja, jb):
-    """Faits différents entre deux pas d'un même habitant : liste de (genre, détail)."""
+def faits_du_pas(a, b, pa, pb, ja, jb, infos=None):
+    """Faits différents entre deux pas d'un même habitant : liste de (genre, détail). Si infos (dict) est donné, il reçoit
+    pour chaque fait ce qui sert à en trouver la cause : personnes concernées, objet, produits, qui a dit quoi."""
     out = []
+    infos = {} if infos is None else infos
     if (a["lieu"], a["piece"]) != (b["lieu"], b["piece"]):
         out.append(("lieu", f"{a['piece']} → {b['piece']}"))
     if a["activite"] != b["activite"]:
@@ -60,16 +64,20 @@ def faits_du_pas(a, b, pa, pb, ja, jb):
     ea, eb = set(a.get("ensemble", [])), set(b.get("ensemble", []))
     if ea != eb:
         out.append(("rencontre", "; ".join(([f"sans {', '.join(sorted(ea - eb))}"] if ea - eb else []) + ([f"avec {', '.join(sorted(eb - ea))}"] if eb - ea else []))))
+        infos[out[-1]] = {"autres": sorted(ea ^ eb)}
     for o in sorted(set(pa[0]) | set(pb[0])):
         if pa[0].get(o) != pb[0].get(o):
             out.append(("objet", f"{o} : {pa[0].get(o)} → {pb[0].get(o)}"))
+            infos[out[-1]] = {"objet": o}
     aa = sorted((x["produit"], x["quantite"]) for x in a.get("achats", []))
     ab = sorted((x["produit"], x["quantite"]) for x in b.get("achats", []))
     if aa != ab:
         out.append(("achat", f"{aa} → {ab}"))
+        infos[out[-1]] = {"produits": sorted({x[0] for x in set(aa) ^ set(ab)})}
     sa, sb = appris_au_pas(ja, a["heure"]), appris_au_pas(jb, b["heure"])
     for x in sorted(sa ^ sb):
         out.append(("appris", f"{'ne sait pas' if x in sa else 'apprend'} : {x[1]}"))
+        infos[out[-1]] = {"de": x[0]}
     return out
 
 
@@ -83,7 +91,175 @@ def details_du_pas(a, b, pa, pb):
     return besoins, emotions, stock, magasin, argent
 
 
-def comparer_mondes(ref, joue, cibles=()):
+class Causes:
+    """Chaîne des causes : chaque fait différent qui dure forme un épisode (habitant, genre, détail, début, fin), et chaque
+    épisode reçoit, quand il commence, la cause la plus directe :
+    1. une intervention du voyageur sur cet habitant à ce moment (il le retient, déplace son objet, lui dit quelque chose) ;
+    2. une rencontre manquée ou nouvelle avec quelqu'un : ce qui a changé pour l'autre à ce moment (son endroit, son
+       activité), sinon pour lui-même ;
+    3. quelque chose appris (ou non) de quelqu'un : la dernière rencontre différente avec lui, sinon ce qui a changé
+       dans sa journée ;
+    4. un achat différent : sa propre journée changée, sinon un achat du voyageur sur ce produit ; un objet pris ou
+       laissé autrement : ce qu'il était en train de faire ;
+    5. sinon, son propre épisode précédent (la suite de ce qui a déjà changé pour lui) ; à défaut, le dernier fait
+       différent du quartier, en lien supposé."""
+
+    ORDRE = ["lieu", "activité", "objet", "achat", "rencontre", "appris"]
+
+    def __init__(self, interventions, prenoms):
+        self.prenoms = prenoms                       # habitant -> prénom (les rencontres nomment les gens par leur prénom)
+        self.par_prenom = {v: k for k, v in prenoms.items()}
+        self.V = []
+        for n, x in enumerate(interventions, 1):
+            qui = x.get("habitant") or x.get("commerce")
+            d = idx(x["heure"])
+            texte = {"retenir": f"retient {prenoms.get(qui, qui)} {x.get('duree_minutes', 5)} minutes",
+                     "deplacer": f"déplace {x.get('objet')} de {prenoms.get(qui, qui)} vers « {x.get('vers')} »",
+                     "acheter": f"achète {x.get('quantite')} × {x.get('produit')} chez {prenoms.get(qui, qui)}",
+                     "parler": f"dit à {prenoms.get(qui, qui)} : « {x.get('quoi')} »"}.get(x["type"], x["type"])
+            self.V.append({"id": f"V{n}", "date": x["date"], "heure": x["heure"], "pas": d, "fin": d + max(1, x.get("duree_minutes", 5) // 5),
+                           "type": x["type"], "habitant": qui, "x": x, "texte": texte})
+        self.noeuds = []
+        self.actifs = {}      # habitant -> {(genre, détail): épisode}
+        self.histoire = {}    # habitant -> épisodes dans l'ordre où ils ont commencé
+
+    def pas(self, date, k, heure, faits, infos, besoins=None):
+        """faits : habitant -> [(genre, détail)] du pas ; infos : habitant -> {(genre, détail): informations} ;
+        besoins : habitant -> écart moyen des besoins à ce pas (un détail, qui peut décaler un geste)."""
+        self.besoins = besoins or {}
+        for p in set(self.actifs) | set(faits):
+            presents = set(faits.get(p, []))
+            for cle in [c for c in self.actifs.get(p, {}) if c not in presents]:
+                del self.actifs[p][cle]
+        nouveaux = [(p, f) for p, fs in faits.items() for f in fs if f not in self.actifs.get(p, {})]
+        nouveaux.sort(key=lambda x: self.ORDRE.index(x[1][0]))
+        for p, (g, d) in nouveaux:
+            n = {"id": f"F{len(self.noeuds) + 1}", "habitant": p, "genre": g, "detail": d, "date": date, "heure": heure,
+                 "fin_date": date, "fin_heure": heure, "cause": None, "supposee": False}
+            self.via = None
+            n["cause"], n["supposee"] = self.cause(p, g, infos.get(p, {}).get((g, d), {}), date, k)
+            if self.via:
+                n["via"] = self.via
+            self.noeuds.append(n)
+            self.actifs.setdefault(p, {})[(g, d)] = n
+            self.histoire.setdefault(p, []).append(n)
+        for p, fs in faits.items():
+            for f in fs:
+                self.actifs[p][f]["fin_date"], self.actifs[p][f]["fin_heure"] = date, heure
+
+    @staticmethod
+    def nombre(n, autre=""):
+        """« 1 autre fait », « 3 autres faits »."""
+        return f"{n} {autre}fait" if n == 1 else f"{n} {autre.replace('autre ', 'autres ')}faits"
+
+    def noeud(self, nid):
+        return self.noeuds[int(nid[1:]) - 1]
+
+    def actif(self, p, genres):
+        ns = [n for (g, _), n in self.actifs.get(p, {}).items() if g in genres]
+        return min(ns, key=lambda n: ("lieu", "activité", "objet", "achat", "rencontre", "appris").index(n["genre"])) if ns else None
+
+    def recent(self, p, genres=None, avant=None):
+        ns = [n for n in self.histoire.get(p, []) if (genres is None or n["genre"] in genres) and n is not avant]
+        return ns[-1] if ns else None
+
+    def cause(self, p, g, info, date, k):
+        # 1. intervention du voyageur
+        for v in self.V:
+            if v["date"] != date and v["type"] != "deplacer":
+                continue
+            if v["type"] == "retenir" and v["habitant"] == p and v["pas"] <= k < v["fin"] and g in ("lieu", "activité"):
+                return v["id"], False
+            if v["type"] == "deplacer" and v["habitant"] == p and g == "objet" and info.get("objet") == v["x"]["objet"] \
+                    and (date, k) >= (v["date"], v["pas"]) and not any(n["genre"] == "objet" and n["detail"].startswith(v["x"]["objet"]) for n in self.histoire.get(p, [])):
+                return v["id"], False
+            if v["type"] == "parler" and v["habitant"] == p and g == "appris" and info.get("de") == "voyageur":
+                return v["id"], False
+        # 2. rencontre
+        if g == "rencontre":
+            for nom in info.get("autres", []):
+                q = self.par_prenom.get(nom)
+                n = self.actif(q, ("lieu", "activité")) if q else None
+                if n:
+                    return n["id"], False
+            n = self.actif(p, ("lieu", "activité"))
+            if n:
+                return n["id"], False
+            for nom in info.get("autres", []):
+                n = self.recent(self.par_prenom.get(nom), ("lieu", "activité", "objet", "achat"))
+                if n:
+                    return n["id"], False
+        # 3. ce qu'on apprend de quelqu'un
+        if g == "appris" and info.get("de") in self.prenoms:
+            q, nom = info["de"], self.prenoms[info["de"]]
+            n = next((n for n in reversed(self.histoire.get(p, [])) if n["genre"] == "rencontre" and nom in n["detail"]), None) \
+                or self.recent(q)
+            if n:
+                return n["id"], False
+        # un objet pris ou laissé autrement : ce qu'il était en train de faire à ce moment
+        if g == "objet":
+            n = self.actif(p, ("activité",)) or self.actif(p, ("lieu",))
+            if n:
+                return n["id"], False
+        # 4. achat
+        if g == "achat":
+            n = self.actif(p, ("lieu", "activité"))
+            if n:
+                return n["id"], False
+            for v in self.V:
+                if v["type"] == "acheter" and v["date"] == date and v["pas"] <= k and v["x"]["produit"] in info.get("produits", []):
+                    return v["id"], False
+        # 5. la suite de ce qui a déjà changé pour lui : un endroit ou une activité se rattache au premier changement
+        #    de sa journée dont il découle (par ses besoins décalés, si c'est le cas) ; sinon son dernier fait ;
+        #    à défaut, le dernier fait du quartier (lien supposé)
+        if g in ("lieu", "activité"):
+            n = self.recent(p, ("lieu", "activité"))
+            while n and n["cause"] and n["cause"].startswith("F") and self.noeud(n["cause"])["habitant"] == p                     and self.noeud(n["cause"])["genre"] in ("lieu", "activité"):
+                n = self.noeud(n["cause"])
+            if n:
+                self.via = "par ses besoins décalés" if self.besoins.get(p, 0) >= 0.5 else None
+                return n["id"], False
+        n = self.recent(p)
+        if n:
+            return n["id"], False
+        if self.noeuds:
+            return self.noeuds[-1]["id"], True
+        return None, True
+
+    def arbre(self, limite_enfants=8, profondeur=10):
+        """Lignes Markdown de l'arbre des causes, des interventions du voyageur aux derniers faits."""
+        enfants = {}
+        for n in self.noeuds:
+            enfants.setdefault(n["cause"], []).append(n)
+        L = []
+        def court(date):
+            d = datetime.date.fromisoformat(date)
+            return f"{JOURS[d.weekday()]} {d.day}"
+        def ligne(n, niveau):
+            duree = "" if (n["date"], n["heure"]) == (n["fin_date"], n["fin_heure"]) else (
+                f", jusqu'à {n['fin_heure']}" if n["fin_date"] == n["date"] else f", jusqu'au {court(n['fin_date'])} {n['fin_heure']}")
+            L.append("  " * niveau + f"- **{self.prenoms.get(n['habitant'], n['habitant'])}**, {court(n['date'])} {n['heure']}{duree} — "
+                     f"{n['genre']} : {n['detail'][:160]}{' (' + n['via'] + ')' if n.get('via') else ''}{' (lien supposé)' if n['supposee'] else ''}")
+            ens = enfants.get(n["id"], [])
+            if niveau >= profondeur and ens:
+                L.append("  " * (niveau + 1) + f"- … {self.nombre(len(ens))} qui en découle{'nt' if len(ens) > 1 else ''}")
+                return
+            for e in ens[:limite_enfants]:
+                ligne(e, niveau + 1)
+            if len(ens) > limite_enfants:
+                L.append("  " * (niveau + 1) + f"- … et {self.nombre(len(ens) - limite_enfants, 'autre ')}")
+        for v in self.V:
+            L.append(f"- **Le voyageur**, {court(v['date'])} {v['heure']} — {v['texte']}")
+            for e in enfants.get(v["id"], [])[:limite_enfants]:
+                ligne(e, 1)
+            if len(enfants.get(v["id"], [])) > limite_enfants:
+                L.append(f"  - … et {self.nombre(len(enfants[v['id']]) - limite_enfants, 'autre ')}")
+        for e in enfants.get(None, []):
+            ligne(e, 0)
+        return L
+
+
+def comparer_mondes(ref, joue, cibles=(), interventions=()):
     S = lire(os.path.join(MONDE, "paradoxe.json"))
     habitants = sorted(d for d in os.listdir(joue) if os.path.isdir(os.path.join(joue, d)))
     dates = sorted(f[:-5] for f in os.listdir(os.path.join(joue, habitants[0])) if f.endswith(".json"))
@@ -93,6 +269,8 @@ def comparer_mondes(ref, joue, cibles=()):
     details_fin = {}
     exemples = {}
     distincts = {}       # habitant -> faits différents (genre, détail), chacun compté une fois
+    prenoms = {p: lire(os.path.join(RACINE, "data", "personnages", f"{p}.json"))["identite"]["prenom"] for p in habitants}
+    causes = Causes(interventions, prenoms)
     for date in dates:
         J = {p: (json.load(open(os.path.join(ref, p, f"{date}.json"), encoding="utf-8")),
                  json.load(open(os.path.join(joue, p, f"{date}.json"), encoding="utf-8"))) for p in habitants}
@@ -100,11 +278,14 @@ def comparer_mondes(ref, joue, cibles=()):
         faits_h, touches_h = set(), set()
         for k in range(len(J[habitants[0]][0]["pas"])):
             faits, touches = 0, set()
+            du_pas, infos = {}, {}
             for p in habitants:
                 ja, jb = J[p]
                 a, b = ja["pas"][k], jb["pas"][k]
-                f = faits_du_pas(a, b, P[p][0][k], P[p][1][k], ja, jb)
+                infos[p] = {}
+                f = faits_du_pas(a, b, P[p][0][k], P[p][1][k], ja, jb, infos[p])
                 if f:
+                    du_pas[p] = f
                     faits += len(f)
                     touches.add(p)
                     faits_h |= {(p, g, d) for g, d in f}
@@ -116,6 +297,9 @@ def comparer_mondes(ref, joue, cibles=()):
                         exemples.setdefault(p, {}).setdefault(g, (date, a["heure"], d))
                 if k == len(ja["pas"]) - 1 and date == dates[-1]:
                     details_fin[p] = details_du_pas(a, b, P[p][0][k], P[p][1][k])
+            ecarts = {p: sum(abs(J[p][0]["pas"][k]["besoins"][x] - J[p][1]["pas"][k]["besoins"][x]) for x in J[p][0]["pas"][k]["besoins"])
+                         / len(J[p][0]["pas"][k]["besoins"]) for p in du_pas}
+            causes.pas(date, k, J[habitants[0]][0]["pas"][k]["heure"], du_pas, infos, ecarts)
             touches_h |= touches
             if k % 12 == 11:
                 heures.append({"date": date, "heure": J[habitants[0]][0]["pas"][k - 11]["heure"], "faits": len(faits_h), "habitants": sorted(touches_h)})
@@ -140,6 +324,8 @@ def comparer_mondes(ref, joue, cibles=()):
     return {"habitants": habitants, "cibles": list(cibles), "verdict": verdict, "touches": touches_total, "cascade": cascade,
             "premier_fait": premier, "par_habitant": par_habitant, "exemples": exemples, "heures": heures,
             "fin": {"faits": dernier[0], "habitants": dernier[1]},
+            "causes": {"interventions": [{k: v for k, v in x.items() if k != "x"} for x in causes.V], "faits": causes.noeuds},
+            "arbre": causes.arbre(),
             "details_fin": {p: {"besoins": round(v[0], 2), "emotions": round(v[1], 3), "produits_maison": v[2], "produits_magasin": v[3],
                                 "comptes": v[4]} for p, v in details_fin.items()}}
 
@@ -153,6 +339,9 @@ def ecrire_md(r, scenario, journal, chemin):
     L += ["", "## Propagation", "", "Premier fait différent pour chaque habitant touché (habitants visés : " + (", ".join(r["cibles"]) or "aucun") + ") :", ""]
     for p, x in sorted(r["premier_fait"].items(), key=lambda kv: (kv[1]["date"], kv[1]["heure"])):
         L.append(f"- **{p}**{' (cascade)' if p in r['cascade'] else ''} : {quand(x['date'])} à {x['heure']}, {x['genre']} ({x['detail']})")
+    L += ["", "## Chaîne des causes", "", "Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué : l'intervention du voyageur, "
+          "le changement chez l'autre pour une rencontre, la dernière rencontre pour ce qu'on apprend, sinon la suite de ce qui a déjà changé pour lui.", ""]
+    L += r["arbre"] or ["- aucun fait différent"]
     L += ["", "## Faits par habitant", "", "| Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |", "|---|---|---|---|"]
     for p, v in r["par_habitant"].items():
         ex = " ; ".join(f"{g} {d} {h} : {t}" for g, (d, h, t) in r["exemples"].get(p, {}).items())

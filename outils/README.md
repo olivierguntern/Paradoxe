@@ -228,7 +228,21 @@ Le monde de référence est le quartier (`data/quartier`) ; le monde joué est l
 | Faits | Endroit (lieu et pièce), activité, personnes avec qui il est, place de chaque objet, achats, ce qu'il a appris (qui le lui a dit, et quoi) | Comptés : chaque fait différent une fois par heure, même s'il dure |
 | Détails | Besoins, émotions, quantités en stock (maison et magasin), argent | Mesurés à la fin, tolérés |
 
-Un habitant touché sans être visé par une intervention l'est par cascade ; le premier fait différent de chacun montre la propagation. Le verdict : aucune divergence ; absorbée (plus aucun fait différent à la fin de la période) ; persistante ; en cascade ; paradoxe, si la divergence touche au moins 3 habitants ou compte au moins 40 faits différents dans une heure (`data/monde/paradoxe.json`).
+Un habitant touché sans être visé par une intervention l'est par cascade ; le premier fait différent de chacun montre la propagation.
+
+**Chaîne des causes.** Un fait différent qui dure forme un épisode, et chaque épisode reçoit, quand il commence, sa cause la plus directe : l'intervention du voyageur qui le vise (il le retient, déplace son objet, lui dit quelque chose) ; pour une rencontre manquée, ce qui a changé pour l'autre à ce moment (son endroit, son activité), sinon pour lui-même ; pour ce qu'on apprend ou pas de quelqu'un, la dernière rencontre différente avec lui ; pour un achat, sa journée changée ou un achat du voyageur sur ce produit ; pour un objet, ce qu'il était en train de faire ; sinon, le premier changement de sa journée dont il découle, « par ses besoins décalés » si ses besoins diffèrent à ce moment. `DIVERGENCE.md` en dessine l'arbre, du voyageur au dernier fait. Par exemple, pour la belote :
+
+```
+Le voyageur, samedi 20:35 — retient Robert 30 minutes
+  Robert 20:45 — lieu : séjour → cuisine
+    Gérard, Josiane, Monique 20:45 — rencontre : sans Robert
+      Josiane 21:40 — apprend : retenu par un passant (Robert le lui raconte)
+    Robert 20:45 — rencontre : sans Gérard, Josiane, Monique
+      Robert 20:55 — ne sait pas : son genou… (Monique ne le lui a pas confié)
+    Robert, dimanche 07:00 — activité : passe aux toilettes à un autre moment (par ses besoins décalés)
+```
+
+Les causes se déduisent des deux mondes, sans trace gardée par le moteur : c'est une reconstruction, qui marque « lien supposé » un fait dont la cause n'a pas pu être trouvée. Le verdict : aucune divergence ; absorbée (plus aucun fait différent à la fin de la période) ; persistante ; en cascade ; paradoxe, si la divergence touche au moins 3 habitants ou compte au moins 40 faits différents dans une heure (`data/monde/paradoxe.json`).
 
 ```bash
 # Le monde de référence (une fois), puis chaque scénario

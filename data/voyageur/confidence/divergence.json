@@ -1289,6 +1289,38 @@
    "robert-chazal"
   ]
  },
+ "causes": {
+  "interventions": [
+   {
+    "id": "V1",
+    "date": "2010-03-10",
+    "heure": "10:00",
+    "pas": 120,
+    "fin": 121,
+    "type": "parler",
+    "habitant": "robert-chazal",
+    "texte": "dit à Robert : « Ce soir, Lyon passe, vous verrez : Pjanić à la 75e. »"
+   }
+  ],
+  "faits": [
+   {
+    "id": "F1",
+    "habitant": "robert-chazal",
+    "genre": "appris",
+    "detail": "apprend : Ce soir, Lyon passe, vous verrez : Pjanić à la 75e.",
+    "date": "2010-03-10",
+    "heure": "10:00",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "V1",
+    "supposee": false
+   }
+  ]
+ },
+ "arbre": [
+  "- **Le voyageur**, mercredi 10 10:00 — dit à Robert : « Ce soir, Lyon passe, vous verrez : Pjanić à la 75e. »",
+  "  - **Robert**, mercredi 10 10:00, jusqu'au dimanche 14 23:55 — appris : apprend : Ce soir, Lyon passe, vous verrez : Pjanić à la 75e."
+ ],
  "details_fin": {
   "gerard-morel": {
    "besoins": 0.0,

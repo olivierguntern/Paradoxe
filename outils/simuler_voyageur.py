@@ -6,6 +6,7 @@ Usage :
 Le monde joué est écrit dans data/voyageur/<nom>/ (une journée par habitant
 et par jour, comme le quartier), avec DIVERGENCE.md et divergence.json : le
 verdict, ce que le voyageur a fait, la propagation habitant par habitant,
+la chaîne des causes (de l'intervention au dernier fait),
 les faits heure par heure et les détails tolérés. Les habitants et la
 période sont ceux du monde de référence.
 """
@@ -33,7 +34,7 @@ def main():
     dates = sorted(f[:-5] for f in os.listdir(os.path.join(a.reference, personnages[0])) if f.endswith(".json"))
     v = Voyageur(scenario)
     simuler(personnages, dates[0], dates[-1], dossier, v, bavard=False)
-    r = comparer_mondes(a.reference, dossier, v.cibles())
+    r = comparer_mondes(a.reference, dossier, v.cibles(), scenario["interventions"])
     r["voyageur"] = [{"date": d, "heure": h, "action": t} for d, h, t in v.journal]
     json.dump(r, open(os.path.join(dossier, "divergence.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     ecrire_md(r, scenario, v.journal, os.path.join(dossier, "DIVERGENCE.md"))
