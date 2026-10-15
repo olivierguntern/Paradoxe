@@ -185,7 +185,7 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 conteneur.append(renderer.domElement);
 const scene = new THREE.Scene();
-const camera = new THREE.OrthographicCamera(-10, 10, 10, -10, -200, 400);
+const camera = new THREE.OrthographicCamera(-10, 10, 10, -10, -3000, 6000);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; controls.dampingFactor = 0.12;
 controls.minPolarAngle = 0.45; controls.maxPolarAngle = 1.25;
@@ -200,8 +200,10 @@ Object.assign(soleil.shadow.camera, { left: -25, right: 25, top: 25, bottom: -25
 scene.add(soleil, soleil.target);
 const lampes = Array.from({ length: 10 }, () => { const l = new THREE.PointLight(0xffc77a, 0, 7, 1.6); scene.add(l); return l; });
 
+let echelle = 9;
+let sauter = false;                 // demi-hauteur de la vue, en mètres : un logement, ou une rue
 function cadrer() {
-  const w = window.innerWidth, h = window.innerHeight, s = 9;
+  const w = window.innerWidth, h = window.innerHeight, s = echelle;
   camera.left = -s * w / h; camera.right = s * w / h; camera.top = s; camera.bottom = -s;
   camera.updateProjectionMatrix(); renderer.setSize(w, h);
 }
@@ -238,6 +240,8 @@ let murs = [], parNiveau = {}, centreLot = new THREE.Vector3(), piecesLot = [];
 function construire(n) {
   groupeLot.clear(); murs = []; parNiveau = {};
   const L = D.lots[n], H = L.hauteur;
+  soleil.castShadow = L.type !== "rue";
+  if (L.type === "rue") return construireRue(L);
   const ajout = (obj, niv) => { (parNiveau[niv] ??= []).push(obj); groupeLot.add(obj); return obj; };
   // l'emprise
   let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
@@ -254,45 +258,48 @@ function construire(n) {
     m.userData = { sol: true, piece: p };
     ajout(m, p.niveau);
   }
-  // les murs : chaque bord de pièce intérieure, une seule fois, moins les portes ; les fenêtres en verre
-  const vus = new Set();
-  const ouvertures = (niv, ax, ay, bx, by) => {
-    const sur = (seg) => { const [[px, py], [qx, qy]] = seg; return Math.abs((bx - ax) * (py - ay) - (by - ay) * (px - ax)) < 1e-3 && Math.abs((bx - ax) * (qy - ay) - (by - ay) * (qx - ax)) < 1e-3; };
-    return [...L.portes.filter(d => d.niveau === niv && !d.escalier && sur(d.segment)).map(d => ({ seg: d.segment, type: "porte" })),
-            ...L.fenetres.filter(f => f.niveau === niv && sur(f.segment)).map(f => ({ seg: f.segment, type: "fenetre" }))];
-  };
+  // les murs : sur chaque ligne de mur, découpés aux coins de toutes les pièces ; chaque morceau, une seule fois, sait quelles pièces
+  // il borde (leur normale vers l'extérieur) ; moins les portes ; les fenêtres en verre
+  const lignes = {};   // (niveau, sens, coordonnée) -> bords de pièces sur cette ligne
   for (const p of L.pieces) {
     if (p.zone) continue;
-    const [a, b, c, d] = p.rect, niv = p.niveau, z = niv * H;
-    for (const [ax, ay, bx, by] of [[a, b, c, b], [c, b, c, d], [a, d, c, d], [a, b, a, d]]) {
-      const cle = [niv, Math.min(ax, bx), Math.min(ay, by), Math.max(ax, bx), Math.max(ay, by)].map(v => v.toFixed(2)).join();
-      if (vus.has(cle)) continue; vus.add(cle);
-      const len = Math.hypot(bx - ax, by - ay), ux = (bx - ax) / len, uy = (by - ay) / len;
-      // découpe en tronçons : mur plein, porte (rien), fenêtre (allège + verre + linteau)
-      const trous = ouvertures(niv, ax, ay, bx, by).map(o => {
-        const s0 = (o.seg[0][0] - ax) * ux + (o.seg[0][1] - ay) * uy, s1 = (o.seg[1][0] - ax) * ux + (o.seg[1][1] - ay) * uy;
-        return { s0: Math.min(s0, s1), s1: Math.max(s0, s1), type: o.type };
-      }).sort((u, v) => u.s0 - v.s0);
-      let s = 0;
-      const troncon = (s0, s1, bas, haut, materiau) => {
-        if (s1 - s0 < 0.01) return;
-        const g = new THREE.BoxGeometry(s1 - s0, haut - bas, 0.12);
-        const m = new THREE.Mesh(g, materiau);
-        const mx = ax + ux * (s0 + s1) / 2, my = ay + uy * (s0 + s1) / 2;
-        m.position.copy(P(mx, my, z + (bas + haut) / 2));
-        m.rotation.y = Math.atan2(uy, ux);
-        m.castShadow = materiau.transparent !== true; m.receiveShadow = true;
-        m.userData = { mur: true, bas, haut, z, mx, my, verre: materiau.transparent === true };
-        murs.push(m); ajout(m, niv);
-      };
-      const plein = mat("#f1ece3"), verre = mat("#9fd3ee", { transparent: true, opacity: 0.35, roughness: 0.1 });
-      for (const o of trous) {
-        troncon(s, o.s0, 0, H, plein);
-        if (o.type === "fenetre") { troncon(o.s0, o.s1, 0, 0.9, plein); troncon(o.s0, o.s1, 0.9, 2.1, verre); troncon(o.s0, o.s1, 2.1, H, plein); }
-        else troncon(o.s0, o.s1, 2.1, H, plein);
-        s = o.s1;
+    const [a, b, c, d] = p.rect, niv = p.niveau;
+    for (const [sens, k, s0, s1, nx, ny] of [["h", b, a, c, 0, -1], ["v", c, b, d, 1, 0], ["h", d, a, c, 0, 1], ["v", a, b, d, -1, 0]])
+      (lignes[[niv, sens, k.toFixed(2)].join("|")] ??= []).push({ niv, sens, k, s0, s1, n: [nx, ny] });
+  }
+  const plein = mat("#f1ece3"), verre = mat("#9fd3ee", { transparent: true, opacity: 0.35, roughness: 0.1 });
+  for (const bords of Object.values(lignes)) {
+    const { niv, sens, k } = bords[0], z = niv * H;
+    const coupes = [...new Set(bords.flatMap(e => [e.s0, e.s1]).map(v => +v.toFixed(3)))].sort((u, v) => u - v);
+    // les ouvertures de cette ligne : portes et fenêtres, en abscisse le long de la ligne
+    const surLigne = seg => sens === "h" ? Math.abs(seg[0][1] - k) < 1e-3 && Math.abs(seg[1][1] - k) < 1e-3 : Math.abs(seg[0][0] - k) < 1e-3 && Math.abs(seg[1][0] - k) < 1e-3;
+    const abs = q => sens === "h" ? q[0] : q[1];
+    const trous = [...L.portes.filter(d => d.niveau === niv && !d.escalier && surLigne(d.segment)).map(d => ({ s0: Math.min(abs(d.segment[0]), abs(d.segment[1])), s1: Math.max(abs(d.segment[0]), abs(d.segment[1])), type: "porte" })),
+                   ...L.fenetres.filter(f => f.niveau === niv && surLigne(f.segment)).map(f => ({ s0: Math.min(abs(f.segment[0]), abs(f.segment[1])), s1: Math.max(abs(f.segment[0]), abs(f.segment[1])), type: "fenetre" }))];
+    const troncon = (s0, s1, bas, haut, materiau, normales) => {
+      if (s1 - s0 < 0.01) return;
+      const m = new THREE.Mesh(new THREE.BoxGeometry(s1 - s0, haut - bas, 0.12), materiau);
+      const mx = sens === "h" ? (s0 + s1) / 2 : k, my = sens === "h" ? k : (s0 + s1) / 2;
+      m.position.copy(P(mx, my, z + (bas + haut) / 2));
+      m.rotation.y = sens === "h" ? 0 : Math.PI / 2;
+      m.castShadow = materiau.transparent !== true; m.receiveShadow = true;
+      m.userData = { mur: true, bas, haut, z, mx, my, verre: materiau.transparent === true, normales };
+      murs.push(m); ajout(m, niv);
+    };
+    for (let q = 0; q + 1 < coupes.length; q++) {
+      const a = coupes[q], b = coupes[q + 1], milieu = (a + b) / 2;
+      const normales = bords.filter(e => e.s0 - 1e-3 <= milieu && milieu <= e.s1 + 1e-3).map(e => e.n);
+      if (!normales.length) continue;
+      // ce morceau, découpé par les ouvertures qui le traversent
+      let s = a;
+      for (const o of trous.filter(o => o.s1 > a && o.s0 < b).sort((u, v) => u.s0 - v.s0)) {
+        const o0 = Math.max(a, o.s0), o1 = Math.min(b, o.s1);
+        troncon(s, o0, 0, H, plein, normales);
+        if (o.type === "fenetre") { troncon(o0, o1, 0, 0.9, plein, normales); troncon(o0, o1, 0.9, 2.1, verre, normales); troncon(o0, o1, 2.1, H, plein, normales); }
+        else troncon(o0, o1, 2.1, H, plein, normales);
+        s = o1;
       }
-      troncon(s, len, 0, H, plein);
+      troncon(s, b, 0, H, plein, normales);
     }
   }
   // le mobilier
@@ -302,7 +309,64 @@ function construire(n) {
   }
   majEtages(); majMurs();
 }
+// la rue : chaussées, places, immeubles ou maisons, étals, arbres, endroits connus
+function construireRue(L) {
+  const [x0, y0, x1, y1] = L.cadre, vert = L.id === "glycines";
+  piecesLot = [];
+  const ajout = o => { (parNiveau[0] ??= []).push(o); groupeLot.add(o); return o; };
+  const sol = new THREE.Mesh(new THREE.BoxGeometry(x1 - x0, 0.4, y1 - y0), mat(vert ? "#8fbf68" : "#cfc8bb"));
+  sol.position.copy(P((x0 + x1) / 2, (y0 + y1) / 2, -0.21)); sol.receiveShadow = true; ajout(sol);
+  centreLot = P((x0 + x1) / 2, (y0 + y1) / 2);
+  for (const z of L.zones) {
+    const [a, b, c, d] = z.rect;
+    const m = new THREE.Mesh(new THREE.BoxGeometry(c - a, 0.1, d - b), mat(z.couleur)); m.position.copy(P((a + c) / 2, (b + d) / 2, 0.02)); ajout(m);
+    if (z.etals) for (let x = a + 4; x < c - 3; x += 9) {
+      const e = new THREE.Group(), coul = ["#c0392b", "#2f7fd1", "#3fae49", "#e0b21f"][Math.floor(x / 9) % 4];
+      const tbl = new THREE.Mesh(new THREE.BoxGeometry(5, 0.9, 2.2), mat("#a27a50")); tbl.position.y = 0.45; e.add(tbl);
+      const toile = new THREE.Mesh(new THREE.BoxGeometry(5.4, 0.12, 2.8), mat(coul)); toile.position.y = 2.4; e.add(toile);
+      e.position.copy(P(x, (b + d) / 2)); ajout(e);
+    }
+    if (z.arbres) for (let k = 0; k < 26; k++) ajout(arbre(a + 5 + ((k * 37) % (c - a - 10)), b + 5 + ((k * 53) % (d - b - 10)), 1.2));
+  }
+  for (const r of L.rues) for (let k = 0; k + 1 < r.axe.length; k++) {
+    const [ax, ay] = r.axe[k], [bx, by] = r.axe[k + 1], len = Math.hypot(bx - ax, by - ay);
+    const m = new THREE.Mesh(new THREE.BoxGeometry(len + r.largeur * 0.6, 0.08, r.largeur * 0.62), mat("#5f6368"));
+    m.position.copy(P((ax + bx) / 2, (ay + by) / 2, 0.03)); m.rotation.y = Math.atan2(by - ay, bx - ax); m.receiveShadow = true; ajout(m);
+    const tr = new THREE.Mesh(new THREE.BoxGeometry(len + r.largeur * 0.6, 0.06, r.largeur), mat(vert ? "#c9c3b5" : "#b8b1a4"));
+    tr.position.copy(P((ax + bx) / 2, (ay + by) / 2, 0.01)); tr.rotation.y = m.rotation.y; ajout(tr);
+    if (r.largeur >= 20) for (let s = 10; s < len; s += 18) for (const c of [-1, 1]) {   // les arbres du boulevard
+      const ux = (bx - ax) / len, uy = (by - ay) / len, px = ax + ux * s - uy * c * r.largeur * 0.4, py = ay + uy * s + ux * c * r.largeur * 0.4;
+      if (px > x0 && px < x1 && py > y0 && py < y1) ajout(arbre(px, py, 1));
+    }
+  }
+  for (const b of L.batiments) {
+    const [a, bb, c, d] = b.rect, g = new THREE.Group();
+    const corps = new THREE.Mesh(new THREE.BoxGeometry(c - a, b.h, d - bb), mat(b.couleur)); corps.position.y = b.h / 2; corps.castShadow = corps.receiveShadow = true; g.add(corps);
+    if (b.toit) { const t = new THREE.Mesh(new THREE.ConeGeometry(Math.hypot(c - a, d - bb) / 2, 3, 4), mat("#b5523b")); t.rotation.y = Math.PI / 4; t.scale.set((c - a) / Math.hypot(c - a, d - bb) * 1.42, 1, (d - bb) / Math.hypot(c - a, d - bb) * 1.42); t.position.y = b.h + 1.5; g.add(t); }
+    else { const toit = new THREE.Mesh(new THREE.BoxGeometry(c - a + 0.3, 0.4, d - bb + 0.3), mat("#9c8f80")); toit.position.y = b.h + 0.2; g.add(toit); }
+    if (b.enseigne) { const e = new THREE.Mesh(new THREE.BoxGeometry(c - a + 0.4, 0.8, d - bb + 0.4), mat(b.enseigne)); e.position.y = 3.4; g.add(e); }
+    if (b.clocher) { const cl = new THREE.Mesh(new THREE.BoxGeometry(6, b.h + 16, 6), mat("#c7bda9")); cl.position.set((c - a) / 2 - 3, (b.h + 16) / 2, 0); g.add(cl); }
+    g.position.copy(P((a + c) / 2, (bb + d) / 2)); ajout(g);
+  }
+  for (const r of L.reperes) { const s = etiquette(r.nom, "#1d2b38", "#ffffffd9"); s.position.copy(P(r.x, r.y, 14)); s.scale.set(16, 4, 1); ajout(s); }
+  majEtages(); majMurs();
+}
+function arbre(x, y, k) {
+  const g = new THREE.Group();
+  const tronc = new THREE.Mesh(new THREE.CylinderGeometry(0.25 * k, 0.35 * k, 3 * k, 6), mat("#7a5a3a")); tronc.position.y = 1.5 * k; g.add(tronc);
+  const f = new THREE.Mesh(new THREE.IcosahedronGeometry(2.6 * k, 0), mat("#4f8f3f")); f.position.y = 4.6 * k; f.castShadow = true; g.add(f);
+  g.position.copy(P(x, y)); return g;
+}
+function etiquette(txt, couleur, fond) {
+  const c = document.createElement("canvas"); c.width = 512; c.height = 128;
+  const x = c.getContext("2d"); x.font = "800 56px Nunito, sans-serif"; x.textAlign = "center"; x.textBaseline = "middle";
+  if (fond) { const w = Math.min(500, x.measureText(txt).width + 60); x.fillStyle = fond; x.beginPath(); x.roundRect(256 - w / 2, 14, w, 100, 50); x.fill(); }
+  x.fillStyle = couleur; x.fillText(txt, 256, 66);
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthTest: false }));
+  s.renderOrder = 10; return s;
+}
 const piece = id => piecesLot.find(p => p.id === id);
+const nivMax = L => L.pieces.length ? Math.max(...L.pieces.map(p => p.niveau)) : 0;
 function meuble(nom, a, b, c, d, h, z, pc) {
   const g = new THREE.Group(), coul = couleurMeuble(nom), w = c - a, p = d - b;
   const n = nom.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
@@ -338,7 +402,7 @@ function meuble(nom, a, b, c, d, h, z, pc) {
 
 // ---------------------------------------------------------------- étages et murs
 function majEtages() {
-  const L = D.lots[lot], niveaux = [...new Set(L.pieces.map(p => p.niveau))].sort();
+  const L = D.lots[lot], niveaux = L.pieces.length ? [...new Set(L.pieces.map(p => p.niveau))].sort() : [0];
   const E = document.getElementById("etages"); E.textContent = "";
   if (niveaux.length > 1) {
     for (const v of niveaux) {
@@ -361,7 +425,8 @@ const vue = new THREE.Vector3();
 function couperMurs() {
   camera.getWorldDirection(vue); vue.y = 0; vue.normalize();
   for (const m of murs) {
-    const u = m.userData, devant = (u.mx - centreLot.x) * -vue.x + (-u.my - centreLot.z) * -vue.z > 0.5;
+    // un mur est coupé s'il est le mur de devant d'une pièce qu'il borde (sa normale vers l'extérieur regarde la caméra)
+    const u = m.userData, devant = u.normales.some(([nx, ny]) => nx * -vue.x + -ny * -vue.z > 0.2);
     const plafond = mursBas || devant ? 0.9 : Infinity;
     const haut = Math.min(u.haut, plafond), bas = u.bas;
     if (haut <= bas) { m.visible = false; continue; }
@@ -371,34 +436,94 @@ function couperMurs() {
   }
 }
 function estVisible(m) {
-  const L = D.lots[lot], niveaux = [...new Set(L.pieces.map(p => p.niveau))];
-  const visible = etage ?? Math.max(...niveaux);
+  const L = D.lots[lot];
+  const visible = etage ?? nivMax(L);
   return Math.round(m.userData.z / L.hauteur) <= visible;
 }
 
 // ---------------------------------------------------------------- les habitants
+const STYLES = {
+  "thomas-berthier": { cheveux: "#4a3423", coupe: "court", pantalon: "#33415a" },
+  "robert-chazal": { cheveux: "#9c9c9c", coupe: "court", moustache: true, ventre: true, pantalon: "#5a4a3c" },
+  "josiane-chazal": { cheveux: "#7a4a2a", coupe: "carre", jupe: "#4b3f5c" },
+  "gerard-morel": { cheveux: "#d0d0d0", coupe: "chauve", pantalon: "#3d4a3a" },
+  "monique-morel": { cheveux: "#bcbcbc", coupe: "boucles", jupe: "#6b4f3a" },
+  "henri-vial": { cheveux: "#eeeeee", coupe: "chauve", lunettes: true, pantalon: "#4a4a55" },
+  "simone-vial": { cheveux: "#f3f3f3", coupe: "chignon", lunettes: true, jupe: "#2f3f5c" },
+  "john": { cheveux: "#1b1b1b", coupe: "court", manteau: "#2b2b2b", pantalon: "#1f1f1f" },
+};
 function personnage(h) {
+  const st = STYLES[h.id] || { cheveux: "#555", coupe: "court" };
   const g = new THREE.Group(), corps = new THREE.Group();
-  const peau = mat("#e8bf99"), habit = mat(h.couleur), pantalon = mat(h.genre === "femme" ? "#4b3f5c" : "#2f3b4f");
-  const vieux = (h.age || 30) > 65;
-  const cheveux = mat(vieux ? "#d9d9d9" : h.id === "thomas-berthier" ? "#4a3423" : "#8a8a8a");
-  const cyl = (r, l, m) => { const x = new THREE.Mesh(new THREE.CylinderGeometry(r, r, l, 10), m); x.castShadow = true; return x; };
-  const jambes = [-0.09, 0.09].map(dz => { const j = new THREE.Group(); const c = cyl(0.065, 0.78, pantalon); c.position.y = -0.39; j.add(c); j.position.set(0, 0.8, dz); corps.add(j); return j; });
-  const tronc = cyl(0.17, 0.62, habit); tronc.position.y = 1.1; corps.add(tronc);
-  if (h.genre === "femme") { const jupe = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.24, 0.35, 12), habit); jupe.position.y = 0.72; jupe.castShadow = true; corps.add(jupe); }
-  const bras = [-0.23, 0.23].map(dz => { const b = new THREE.Group(); const c = cyl(0.05, 0.6, habit); c.position.y = -0.3; b.add(c); b.position.set(0, 1.38, dz); corps.add(b); return b; });
-  const tete = new THREE.Mesh(new THREE.SphereGeometry(0.15, 16, 12), peau); tete.position.y = 1.58; tete.castShadow = true; corps.add(tete);
-  const coiffe = new THREE.Mesh(new THREE.SphereGeometry(0.16, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2), cheveux); coiffe.position.set(-0.02, 1.6, 0); corps.add(coiffe);
-  const nez = new THREE.Mesh(new THREE.SphereGeometry(0.03, 8, 6), peau); nez.position.set(0.15, 1.57, 0); corps.add(nez);
+  const peau = mat("#e8bf99"), habit = mat(h.couleur), bas = mat(st.pantalon || "#2f3b4f"), chaussure = mat("#2a2420"), poil = mat(st.cheveux), noir = mat("#1b1b1b");
+  const cyl = (r, l, m, r2 = r) => { const x = new THREE.Mesh(new THREE.CylinderGeometry(r, r2, l, 12), m); x.castShadow = true; return x; };
+  const sph = (r, m) => { const x = new THREE.Mesh(new THREE.SphereGeometry(r, 14, 10), m); x.castShadow = true; return x; };
+  // jambes (pivot à la hanche), chaussures
+  const jambes = [-0.09, 0.09].map(dz => {
+    const j = new THREE.Group(), c = cyl(0.068, 0.74, bas, 0.06); c.position.y = -0.37; j.add(c);
+    const ch = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.08, 0.11), chaussure); ch.position.set(0.05, -0.76, 0); ch.castShadow = true; j.add(ch);
+    j.position.set(0, 0.8, dz); corps.add(j); return j;
+  });
+  // tronc
+  const tronc = new THREE.Mesh(new THREE.CapsuleGeometry(0.16, 0.34, 4, 12), habit); tronc.position.y = 1.12; tronc.castShadow = true;
+  if (st.ventre) tronc.scale.set(1.25, 1, 1.1);
+  corps.add(tronc);
+  if (st.jupe) { const j = cyl(0.17, 0.42, mat(st.jupe), 0.26); j.position.y = 0.7; corps.add(j); }
+  if (st.manteau) { const m = cyl(0.19, 0.95, mat(st.manteau), 0.24); m.position.y = 0.9; corps.add(m); }
+  const cou = cyl(0.05, 0.08, peau); cou.position.y = 1.44; corps.add(cou);
+  // bras (pivot à l'épaule) et mains
+  const bras = [-0.22, 0.22].map(dz => {
+    const b = new THREE.Group(), c = cyl(0.05, 0.56, st.manteau ? mat(st.manteau) : habit, 0.045); c.position.y = -0.28; b.add(c);
+    const main = sph(0.05, peau); main.position.y = -0.6; b.add(main);
+    b.position.set(0, 1.38, dz); corps.add(b); return b;
+  });
+  // tête : visage, yeux, bouche, coiffure
+  const tete = new THREE.Group(); tete.position.y = 1.6; corps.add(tete);
+  tete.add(sph(0.15, peau));
+  for (const dz of [-0.05, 0.05]) { const o = sph(0.018, noir); o.position.set(0.137, 0.03, dz); tete.add(o); }
+  const nez = sph(0.026, peau); nez.position.set(0.15, -0.01, 0); tete.add(nez);
+  const bouche = new THREE.Mesh(new THREE.BoxGeometry(0.01, 0.012, 0.06), mat("#9a4a3a")); bouche.position.set(0.142, -0.06, 0); tete.add(bouche);
+  const calotte = (tl) => { const c = new THREE.Mesh(new THREE.SphereGeometry(0.158, 16, 10, 0, Math.PI * 2, 0, tl), poil); c.rotation.z = 0.35; c.position.x = -0.012; c.castShadow = true; return c; };
+  if (st.coupe === "court") tete.add(calotte(Math.PI * 0.42));
+  else if (st.coupe === "carre") { tete.add(calotte(Math.PI * 0.62)); }
+  else if (st.coupe === "chauve") { const c = new THREE.Mesh(new THREE.SphereGeometry(0.158, 16, 6, Math.PI * 0.6, Math.PI * 0.8, Math.PI * 0.38, Math.PI * 0.22), poil); tete.add(c); }
+  else if (st.coupe === "boucles") { for (let k = 0; k < 9; k++) { const b = sph(0.06, poil); const a = (k / 9) * Math.PI * 2; b.position.set(Math.cos(a) * 0.1 - 0.03, 0.1 + (k % 2) * 0.03, Math.sin(a) * 0.11); tete.add(b); } }
+  else if (st.coupe === "chignon") { tete.add(calotte(Math.PI * 0.45)); const b = sph(0.07, poil); b.position.set(-0.15, 0.06, 0); tete.add(b); }
+  if (st.moustache) { const m = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.025, 0.1), poil); m.position.set(0.15, -0.035, 0); tete.add(m); }
+  if (st.lunettes) for (const dz of [-0.052, 0.052]) { const l = new THREE.Mesh(new THREE.TorusGeometry(0.03, 0.006, 6, 14), noir); l.rotation.y = Math.PI / 2; l.position.set(0.155, 0.03, dz); tete.add(l); }
+  // ce qu'il tient : un livre, des cartes
+  const livre = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.22, 0.03), mat("#8a2d2d")); livre.position.set(0.36, 1.1, 0); livre.rotation.z = 0.5; livre.visible = false; corps.add(livre);
+  const cartes = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.12, 0.09), mat("#ffffff")); cartes.position.set(0.38, 1.12, 0.1); cartes.visible = false; corps.add(cartes);
   g.add(corps);
-  // le diamant au-dessus de la tête (l'humeur), seulement pour l'habitant choisi
   const losange = new THREE.Mesh(new THREE.OctahedronGeometry(0.13, 0), new THREE.MeshStandardMaterial({ color: "#3fae49", emissive: "#1d6b25", roughness: 0.3 }));
   losange.scale.y = 1.7; losange.position.y = 2.1; g.add(losange);
-  const zzz = sprite("Zzz", "#5d7183"); zzz.position.set(0, 1.0, 0); zzz.visible = false; g.add(zzz);
-  g.userData = { h, corps, jambes, bras, losange, zzz };
+  const nom = etiquette(h.prenom, "#1d2b38", "#ffffffe6"); nom.scale.set(1.6, 0.4, 1); nom.position.y = 2.15; nom.visible = false; g.add(nom);
+  const pensee = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthTest: false })); pensee.renderOrder = 11; pensee.scale.set(0.7, 0.7, 1); pensee.visible = false; g.add(pensee);
+  g.userData = { h, corps, jambes, bras, tete, losange, livre, cartes, nom, pensee, icone: null };
   g.traverse(o => { o.userData.habitant = h.id; });
   scene.add(g);
   return g;
+}
+// les bulles de pensée : un pictogramme, dessiné une fois
+const bulles = {};
+function imageBulle(icone) {
+  if (bulles[icone]) return bulles[icone];
+  const c = document.createElement("canvas"); c.width = c.height = 128;
+  const x = c.getContext("2d");
+  x.fillStyle = "#ffffff"; x.strokeStyle = "#c9d9e6"; x.lineWidth = 4;
+  x.beginPath(); x.arc(64, 54, 46, 0, Math.PI * 2); x.fill(); x.stroke();
+  for (const [cx, cy, r] of [[40, 108, 9], [28, 122, 5]]) { x.beginPath(); x.arc(cx, cy, r, 0, Math.PI * 2); x.fill(); x.stroke(); }
+  x.font = "54px 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif"; x.textAlign = "center"; x.textBaseline = "middle";
+  x.fillText(icone, 64, 58);
+  return (bulles[icone] = new THREE.CanvasTexture(c));
+}
+const ICONES_GESTES = { 1: "🍳", 2: "🍽️", 3: "📖", 4: "🔧", 5: "🧹", 6: "📺", 7: "🧺", 8: "🚿", 9: "🃏", 10: "☕", 11: "⚪", 12: "🎵", 13: "💬" };
+function icone(r, choisiIci) {
+  if (r[F.dort]) return "💤";
+  const b = k => r[F[k]];
+  const urgent = b("toilettes") < 30 ? "🚽" : b("faim") < 30 ? "🍔" : b("soif") < 30 ? "💧" : b("energie") < 25 ? "😴" : b("hygiene") < 30 ? "🛁" : b("social") < 25 ? "💬" : b("detente") < 25 ? "🎈" : null;
+  if (urgent) return urgent;
+  return choisiIci ? (ICONES_GESTES[r[F.geste]] || null) : null;
 }
 function sprite(txt, couleur) {
   const c = document.createElement("canvas"); c.width = 128; c.height = 64;
@@ -413,10 +538,16 @@ function placer(id, tt) {
   const g = persos[id], u = g.userData;
   const i = Math.floor(tt), f = tt - i, r = ligne(id, i), L = D.lots[lot];
   if (r[F.lot] !== lot) { g.visible = false; return; }
-  const visibleEtage = etage ?? Math.max(...L.pieces.map(p => p.niveau));
+  const visibleEtage = etage ?? nivMax(L);
   g.visible = r[F.niveau] <= visibleEtage;
-  const H = L.hauteur;
+  const H = L.hauteur, rue = L.type === "rue";
   let x = r[F.x], y = r[F.y], z = r[F.niveau] * H + r[F.z], ang = r[F.angle], pose = r[F.pose], marche = false;
+  g.scale.setScalar(rue ? 6 : 1);
+  u.nom.visible = rue;
+  if (rue) {                   // dans la rue : il avance d'un pas à l'autre
+    const s = ligne(id, i + 1);
+    if (s[F.lot] === lot && (s[F.x] !== x || s[F.y] !== y)) { x += (s[F.x] - x) * f; y += (s[F.y] - y) * f; ang = Math.atan2(s[F.y] - r[F.y], s[F.x] - r[F.x]); marche = true; pose = 3; }
+  }
   // en chemin : les premiers instants du pas, le long du chemin porte par porte
   const ch = r[F.chemin] >= 0 ? D.chemins[r[F.chemin]] : null;
   const part = 0.45;
@@ -435,6 +566,7 @@ function placer(id, tt) {
   const c = u.corps;
   c.rotation.set(0, 0, 0); c.position.set(0, 0, 0);
   u.jambes.forEach(j => j.rotation.set(0, 0, 0)); u.bras.forEach(b => b.rotation.set(0, 0, 0));
+  if (!marche && pose !== 1 && pose !== 2) c.scale.y = 1 + 0.008 * Math.sin(performance.now() / 900);   // il respire
   if (pose === 1) {            // assis : le bassin à la hauteur du siège, les cuisses à l'horizontale
     c.position.y = -0.8;
     u.jambes.forEach(j => { j.rotation.z = Math.PI / 2; });
@@ -446,15 +578,37 @@ function placer(id, tt) {
     u.jambes[0].rotation.z = s * 0.5; u.jambes[1].rotation.z = -s * 0.5;
     u.bras[0].rotation.z = -s * 0.4; u.bras[1].rotation.z = s * 0.4;
   }
-  const dort = r[F.dort] === 1 || r[F.dort] === true;
-  u.zzz.visible = dort && pose === 2;
-  u.zzz.position.y = 1.0 + 0.1 * Math.sin(performance.now() / 500);
+  // le geste de l'action, une fois installé
+  u.livre.visible = u.cartes.visible = false; u.tete.rotation.set(0, 0, 0);
+  if (!marche) {
+    const k = r[F.geste], now = performance.now(), [bg, bd] = u.bras;
+    const s1 = Math.sin(now / 180), s2 = Math.sin(now / 500);
+    if (k === 1) { bd.rotation.z = 1.25 + 0.25 * s1; bg.rotation.z = 0.9; }
+    else if (k === 2) { bd.rotation.z = 0.9 + 1.0 * Math.max(0, s2); bg.rotation.z = 0.7; }
+    else if (k === 3) { bd.rotation.z = bg.rotation.z = 1.1; u.livre.visible = true; u.tete.rotation.z = -0.25; }
+    else if (k === 4) { bd.rotation.z = 1.0 + 0.15 * s1; bg.rotation.z = 1.0 - 0.15 * s1; u.tete.rotation.z = -0.3; }
+    else if (k === 5) { bd.rotation.z = 0.7 + 0.55 * Math.sin(now / 300); bd.rotation.x = 0.3 * Math.sin(now / 300); bg.rotation.z = 0.4; }
+    else if (k === 7) { bd.rotation.z = bg.rotation.z = 0.95; u.tete.rotation.z = 0.12 * Math.sin(now / 700); }
+    else if (k === 8) { bd.rotation.z = 2.6 + 0.15 * s1; bg.rotation.z = 2.5 - 0.15 * s1; }
+    else if (k === 9) { bd.rotation.z = bg.rotation.z = 1.05; u.cartes.visible = true; }
+    else if (k === 10) { bd.rotation.z = 1.5 + 0.35 * Math.max(0, s2); }
+    else if (k === 11) { bd.rotation.z = 1.4 * Math.sin(now / 450); u.corps.rotation.z = 0.15 * Math.max(0, Math.sin(now / 450)); }
+    else if (k === 12) { bd.rotation.z = bg.rotation.z = 0.45; u.corps.rotation.x = 0.06 * Math.sin(now / 600); }
+    else if (k === 13) { bd.rotation.z = 0.8 + 0.35 * Math.sin(now / 400); }
+  }
+  // la bulle de pensée : un besoin pressant, le sommeil, ou ce que fait l'habitant suivi
+  const ic = icone(r, id === choisi);
+  u.pensee.visible = !!ic && !rue;
+  if (ic && ic !== u.icone) { u.pensee.material.map = imageBulle(ic); u.pensee.material.needsUpdate = true; u.icone = ic; }
+  u.pensee.position.set(0, pose === 2 ? 1.0 : pose === 1 ? 1.75 : 2.25, 0);
+  if (id === choisi) u.pensee.position.y += 0.45;
   u.losange.visible = id === choisi;
   if (u.losange.visible) {
     u.losange.rotation.y = performance.now() / 600;
     const m = r[F.humeur], col = m > 0.25 ? "#3fae49" : m > -0.1 ? "#e0b21f" : "#d6493a";
     u.losange.material.color.set(col); u.losange.material.emissive.set(col).multiplyScalar(0.45);
     u.losange.position.y = pose === 2 ? 0.9 : pose === 1 ? 1.75 : 2.1;
+    if (rue) u.losange.position.y += 0.6;
   }
 }
 
@@ -473,7 +627,7 @@ function eclairer(tt) {
   soleil.target.position.copy(centreLot);
   // lampes des pièces éclairées (la nuit surtout)
   const allumees = (D.lumieres[i] || []).filter(([n]) => n === lot);
-  const L = D.lots[lot], visible = etage ?? Math.max(...L.pieces.map(p => p.niveau));
+  const L = D.lots[lot], visible = etage ?? nivMax(L);
   lampes.forEach((l, k) => {
     const x = allumees[k], pc = x ? L.pieces[x[1]] : null;
     if (!pc || pc.niveau > visible) { l.intensity = 0; return; }
@@ -487,9 +641,15 @@ const T_ = document.getElementById("terrains");
 D.lots.forEach((L, n) => { const b = el("button", { "aria-pressed": "false", title: L.adresse }, L.nom); b.onclick = () => { suivre = false; changerLot(n); majFiche(true); }; T_.append(b); });
 function changerLot(n) {
   if (n === lot && groupeLot.children.length) return;
-  lot = n; etage = null; construire(n);
+  lot = n; etage = null;
+  const L = D.lots[n], rue = L.type === "rue";
+  echelle = rue ? 45 : 9;   // dans la rue : de quoi voir l'habitant suivi et ses alentours ; on peut s'éloigner jusqu'à tout le quartier
+  camera.zoom = 1; controls.minZoom = rue ? 0.12 : 0.5; controls.maxZoom = rue ? 4 : 4; cadrer();
+  construire(n);
   [...T_.children].forEach((b, k) => b.setAttribute("aria-pressed", String(k === n)));
-  controls.target.copy(centreLot); camera.position.copy(centreLot).add(new THREE.Vector3(18, 16, 18)); controls.update();
+  const d = rue ? 300 : 18;
+  controls.target.copy(centreLot); camera.position.copy(centreLot).add(new THREE.Vector3(d, d * 0.9, d)); controls.update();
+  sauter = true;   // la caméra rejoint d'un coup l'habitant suivi sur ce terrain
 }
 const J = document.getElementById("jours");
 D.dates.forEach((d, k) => { const b = el("button", {}, `${JOURS[k % 7].slice(0, 3)} ${Number(d.slice(8))}`); b.onclick = () => { t = k * PJ + 84; }; J.append(b); });
@@ -515,8 +675,9 @@ for (const h of D.habitants) {
 function ouEst(id, i) {
   const r = ligne(id, i);
   if (r[F.lot] < 0) return "Dehors : " + T[r[F.piece]];
-  const L = D.lots[r[F.lot]], pc = L.pieces[r[F.piece]];
-  return `${L.nom} · ${pc.nom}`;
+  const L = D.lots[r[F.lot]];
+  if (L.type === "rue") return `${L.nom} · ${T[r[F.piece]]}`;
+  return `${L.nom} · ${L.pieces[r[F.piece]].nom}`;
 }
 function majFiche(force) {
   const i = Math.floor(t), FI = document.getElementById("fiche");
@@ -557,7 +718,7 @@ renderer.domElement.addEventListener("click", e => {
     return;
   }
   if (!JEU || vitesse) return;
-  const sols = [], visible = etage ?? Math.max(...D.lots[lot].pieces.map(p => p.niveau));
+  const sols = [], visible = etage ?? nivMax(D.lots[lot]);
   groupeLot.traverse(o => { if (o.userData.sol && o.userData.piece.niveau <= visible) sols.push(o); });
   const s = ray.intersectObjects(sols, false)[0];
   if (s) ouvrirMenu(e.clientX, e.clientY, { piece: s.object.userData.piece });
@@ -580,8 +741,9 @@ function boucle(maintenant) {
   // John agit sur ce terrain et personne d'ici n'est suivi : on montre son étage
   if (john.userData.niveau != null && (!suivre || r[F.lot] !== lot) && etage !== john.userData.niveau) { etage = john.userData.niveau; majEtages(); placerJohn(t); }
   if (suivre && persos[choisi].visible) {
-    const cible = persos[choisi].position.clone(); cible.y = 0.8;
-    const ecart = cible.clone().sub(controls.target).multiplyScalar(0.08);
+    const cible = persos[choisi].position.clone(); cible.y = D.lots[lot].type === "rue" ? 4 : 0.8;
+    const ecart = cible.clone().sub(controls.target).multiplyScalar(sauter ? 1 : 0.08);
+    sauter = false;
     controls.target.add(ecart); camera.position.add(ecart);
   }
   eclairer(t);
@@ -596,7 +758,7 @@ function boucle(maintenant) {
   majFiche(false);
   const g = persos[choisi];
   if (g.visible) {
-    const v = g.position.clone(); v.y += r[F.pose] === 2 ? 1.2 : 2.45; v.project(camera);
+    const v = g.position.clone(); v.y += (r[F.pose] === 2 ? 1.2 : 2.45) * g.scale.y; v.project(camera);
     bulle.style.display = "block"; bulle.style.left = ((v.x + 1) / 2 * window.innerWidth) + "px"; bulle.style.top = ((1 - v.y) / 2 * window.innerHeight) + "px";
     bulle.textContent = T[r[F.activite]];
   } else bulle.style.display = "none";
@@ -608,7 +770,7 @@ let plan = [];                     // les interventions de John
 try { plan = JSON.parse(localStorage.getItem("paradoxe-plan") || "[]"); } catch (e) {}
 const garderPlan = () => { try { localStorage.setItem("paradoxe-plan", JSON.stringify(plan)); } catch (e) {} };
 const john = personnage({ id: "john", prenom: "John", nom: "", genre: "homme", age: 40, couleur: "#2b2b2b" });
-john.userData.losange.visible = false;
+john.userData.losange.visible = false; john.userData.pensee.visible = false;
 const PANJ = document.getElementById("john"), MENU = document.getElementById("menu"), ATT = document.getElementById("attente");
 let dernier = null;                // le dernier résultat de la partie
 
@@ -622,6 +784,7 @@ const libelle = x => {
   if (x.type === "parler") return `parler à ${qui(x.habitant)} : « ${x.quoi} »` + (x.explique ? (x.lieu ? " (annonce : la boutique)" : " (annonce des travaux)") : "");
   if (x.type === "acheter") return `acheter ${x.quantite} × ${x.produit}`;
   if (x.type === "passer") return `passer ${x.duree_minutes} min`;
+  if (x.type === "deplacer") { const h = JEU?.habitants.find(y => y.id === x.habitant); const o = h?.objets.find(([id]) => id === x.objet); return `déplacer ${o ? o[1] : x.objet} (${x.vers})`; }
   return x.type;
 };
 
@@ -634,6 +797,12 @@ function ouvrirMenu(cx, cy, cible) {
     if (!r[F.dort]) {
       ajouter("Le retenir 15 min", () => agir({ type: "retenir", habitant: h, duree_minutes: 15 }));
       ajouter("Lui parler…", () => formParler(cx, cy, h));
+    }
+  } else if (cible.piece && HABITANTS_DE[cible.piece.id.split("/")[0]]) {
+    // chez des habitants : déplacer un de leurs objets, ici
+    for (const qui of HABITANTS_DE[cible.piece.id.split("/")[0]]) {
+      const h = JEU.habitants.find(x => x.id === qui);
+      if (h && h.objets.length) ajouter(`Déplacer un objet de ${h.prenom}…`, () => formDeplacer(cx, cy, h, cible.piece));
     }
   } else if (cible.piece && lotId === "epicerie") {
     const loc = cible.piece.local;
@@ -666,6 +835,22 @@ function fermerMenu() { MENU.style.display = "none"; MENU.textContent = ""; }
 document.addEventListener("keydown", e => { if (e.key === "Escape") fermerMenu(); });
 renderer.domElement.addEventListener("pointerdown", () => fermerMenu());
 
+const HABITANTS_DE = { "appartement-vial": ["henri-vial", "simone-vial"], "maison-chazal": ["robert-chazal", "josiane-chazal"],
+  "maison-morel": ["gerard-morel", "monique-morel"], "domicile-thomas": ["thomas-berthier"] };
+function formDeplacer(cx, cy, h, pc) {
+  MENU.querySelectorAll("button").forEach(b => b.remove());
+  const f = el("form");
+  f.append(el("div", { style: "font-weight: 800; font-size: .85rem" }, `John déplace, à l'insu de ${h.prenom} :`));
+  const o = el("select", { "aria-label": "objet" });
+  for (const [id, nom] of h.objets) o.append(el("option", { value: id }, nom));
+  const meubles = D.lots[lot].mobilier.filter(m => m.piece === pc.id).map(m => m.nom);
+  const v = el("select", { "aria-label": "où le poser" });
+  for (const lieu of [...meubles.map(m => `sur ${m}`), ...(meubles.some(m => /lit/.test(m)) ? ["sous le lit"] : []), "par terre", "dans un tiroir"])
+    v.append(el("option", { value: `${pc.local} / ${lieu}` }, `${pc.nom} : ${lieu}`));
+  f.append(o, v, el("button", { type: "submit" }, "Déplacer"));
+  f.onsubmit = ev => { ev.preventDefault(); agir({ type: "deplacer", habitant: h.id, objet: o.value, vers: v.value }); };
+  MENU.append(f); o.focus();
+}
 function formParler(cx, cy, h) {
   MENU.querySelectorAll("button").forEach(b => b.remove());
   const f = el("form");
@@ -723,7 +908,7 @@ function majPlan() {
   if (!JEU) return;
   PANJ.style.display = "block"; PANJ.textContent = "";
   PANJ.append(el("h3", {}, "Le plan de John"),
-    el("p", { class: "aide" }, "Mets en pause, puis clique sur le sol de l'arrière-boutique, la cour, la boutique ou un habitant : John agit à cet instant, et la semaine est rejouée."));
+    el("p", { class: "aide" }, "Mets en pause, puis clique sur le sol de l'arrière-boutique, la cour, la boutique, une pièce chez un habitant, ou un habitant : John agit à cet instant, et la semaine est rejouée."));
   if (dernier) {
     const R = el("div", { id: "resultat" });
     if (dernier.erreur) { R.style.setProperty("--etat", "var(--rouge)"); R.append(el("div", {}, "Action refusée : " + dernier.erreur)); }
@@ -781,7 +966,7 @@ function placerJohn(tt) {
   }
   if (!pos) return;
   john.userData.niveau = Math.round(pos[2] / L.hauteur);
-  const visible = etage ?? Math.max(...L.pieces.map(p => p.niveau));
+  const visible = etage ?? nivMax(L);
   if (pos[2] / L.hauteur > visible) return;
   john.visible = true;
   john.position.copy(P(pos[0], pos[1], pos[2])); john.rotation.set(0, ang, 0);
@@ -800,6 +985,7 @@ fetch("/api/catalogue").then(r => r.ok ? r.json() : null).then(c => {
   } else if (plan.length) rejouer();
 }).catch(() => {});
 
+window.paradoxe = { scene, groupeLot, camera, D };   // pour inspecter la scène depuis la console
 const depart = ligne(choisi, Math.floor(t));
 changerLot(depart[F.lot] >= 0 ? depart[F.lot] : 0);
 majVitesse(); majFiche(true);
