@@ -33,7 +33,7 @@
    "denivele_negatif_m": 0
   },
   "lumiere": {
-   "allumages": 32
+   "allumages": 31
   },
   "evenements_vecus": {
    "plaisir_simple": 3,
@@ -52,7 +52,31 @@
     "compte": 500
    }
   },
-  "stock_en_fin_de_journee": {},
+  "stock_en_fin_de_journee": {
+   "cafe_moulu": "358",
+   "cafe_boutique": "150",
+   "pain": "1",
+   "beurre": "110",
+   "confiture": "24",
+   "fromage": "340",
+   "fruits": "5",
+   "vin_rouge": "213",
+   "biere": "1",
+   "comprimes": "15",
+   "pommes_de_terre": "1900",
+   "carottes": "900",
+   "oignons": "0",
+   "oeufs": "2",
+   "salade": "0",
+   "tomates": "0",
+   "jambon": "0",
+   "fromage_rape": "100",
+   "riz": "1050",
+   "pates": "500",
+   "haricots_verts": "0",
+   "farine": "400",
+   "sucre": "300"
+  },
   "besoins_sous_le_seuil_d_alerte": [],
   "besoins_sous_le_seuil_pendant_le_sommeil_pas": {},
   "endormissement": "extinction à 21:45 ; anxiété 0.274 (seuil 0.65), excitation 0.215 (seuil 0.5) : endormissement en 15 minutes",
@@ -85,10 +109,57 @@
    "obj-cles-josiane": "entree / vide-poche",
    "obj-sac-a-main": "entree / portemanteau",
    "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
-   "obj-tricot": "sejour / canapé"
+   "obj-tricot": "sejour / canapé",
+   "obj-cles": "entree / vide-poche",
+   "obj-cles-kangoo": "entree / vide-poche",
+   "obj-kangoo": "garage / place de la Kangoo",
+   "obj-portefeuille": "entree / vide-poche",
+   "obj-veste": "entree / portemanteau",
+   "obj-montre": "chambre / table de chevet de Robert",
+   "obj-lunettes": "chambre / table de chevet de Robert",
+   "obj-medicaments": "cuisine / placard à provisions",
+   "obj-blouse": "arriere-boutique / patère",
+   "obj-sacoche": "arriere-boutique / coffre",
+   "obj-cahier-comptes": "arriere-boutique / bureau",
+   "obj-bon-commande": "arriere-boutique / bureau",
+   "obj-carnet-credit": "boutique / comptoir, sous la caisse",
+   "obj-tasse-boutique": "arriere-boutique / évier",
+   "obj-photo-famille": "sejour / buffet",
+   "obj-telecommande": "sejour / accoudoir du fauteuil",
+   "obj-mots-croises": "sejour / table basse",
+   "obj-outils-jardin": "garage / outils de jardin",
+   "obj-chaussures-marche": "entree / meuble à chaussures",
+   "obj-casquette": "entree / portemanteau",
+   "obj-sac-a-dos": "garage / étagère",
+   "obj-jeu-de-cartes": "sejour / tiroir du buffet",
+   "obj-cabas-boutique": "entree / portemanteau"
   },
   "cafe": [],
-  "stock": {},
+  "stock": {
+   "cafe_moulu": 372,
+   "cafe_boutique": 150,
+   "pain": 2,
+   "beurre": 140,
+   "confiture": 26,
+   "fromage": 340,
+   "fruits": 6,
+   "vin_rouge": 213,
+   "biere": 2,
+   "comprimes": 16,
+   "pommes_de_terre": 1900,
+   "carottes": 900,
+   "oignons": 1,
+   "oeufs": 2,
+   "salade": 0,
+   "tomates": 500,
+   "jambon": 0,
+   "fromage_rape": 0,
+   "riz": 300,
+   "pates": 500,
+   "haricots_verts": 0,
+   "farine": 400,
+   "sucre": 300
+  },
   "argent": {
    "especes": 40,
    "compte": 500
@@ -213,10 +284,57 @@
    "obj-cles-josiane": "entree / vide-poche",
    "obj-sac-a-main": "entree / portemanteau",
    "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
-   "obj-tricot": "sejour / canapé"
+   "obj-tricot": "sejour / canapé",
+   "obj-cles": "entree / vide-poche",
+   "obj-cles-kangoo": "entree / vide-poche",
+   "obj-kangoo": "garage / place de la Kangoo",
+   "obj-portefeuille": "entree / vide-poche",
+   "obj-veste": "entree / portemanteau",
+   "obj-montre": "chambre / table de chevet de Robert",
+   "obj-lunettes": "chambre / table de chevet de Robert",
+   "obj-medicaments": "cuisine / placard à provisions",
+   "obj-blouse": "arriere-boutique / patère",
+   "obj-sacoche": "arriere-boutique / coffre",
+   "obj-cahier-comptes": "arriere-boutique / bureau",
+   "obj-bon-commande": "arriere-boutique / bureau",
+   "obj-carnet-credit": "boutique / comptoir, sous la caisse",
+   "obj-tasse-boutique": "arriere-boutique / évier",
+   "obj-photo-famille": "sejour / buffet",
+   "obj-telecommande": "sejour / accoudoir du fauteuil",
+   "obj-mots-croises": "sejour / table basse",
+   "obj-outils-jardin": "garage / outils de jardin",
+   "obj-chaussures-marche": "entree / meuble à chaussures",
+   "obj-casquette": "entree / portemanteau",
+   "obj-sac-a-dos": "garage / étagère",
+   "obj-jeu-de-cartes": "sejour / tiroir du buffet",
+   "obj-cabas-boutique": "entree / portemanteau"
   },
   "cafe": [],
-  "stock": {},
+  "stock": {
+   "cafe_moulu": 358,
+   "cafe_boutique": 150,
+   "pain": 1,
+   "beurre": 110,
+   "confiture": 24,
+   "fromage": 340,
+   "fruits": 5,
+   "vin_rouge": 213,
+   "biere": 1,
+   "comprimes": 15,
+   "pommes_de_terre": 1900,
+   "carottes": 900,
+   "oignons": 0,
+   "oeufs": 2,
+   "salade": 0,
+   "tomates": 0,
+   "jambon": 0,
+   "fromage_rape": 100,
+   "riz": 1050,
+   "pates": 500,
+   "haricots_verts": 0,
+   "farine": 400,
+   "sucre": 300
+  },
   "argent": {
    "especes": 40,
    "compte": 500
@@ -2537,7 +2655,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-wc"
+   ],
    "besoins": {
     "faim": 68.7,
     "soif": 57.3,
@@ -2570,7 +2690,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 68.5,
     "soif": 57.1,
@@ -2603,7 +2725,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 68.3,
     "soif": 56.8,
@@ -2636,7 +2760,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 68.1,
     "soif": 56.6,
@@ -2669,7 +2795,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 67.9,
     "soif": 56.3,
@@ -2702,7 +2830,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 67.7,
     "soif": 56.1,
@@ -2735,7 +2865,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 67.5,
     "soif": 55.8,
@@ -2768,7 +2900,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 67.3,
     "soif": 55.6,
@@ -2801,7 +2935,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "paradoxal",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 67.1,
     "soif": 55.3,
@@ -8941,7 +9077,8 @@
     "allume la lumière (wc)"
    ],
    "appareils_allumes": [
-    "lumiere-wc"
+    "lumiere-wc",
+    "television"
    ],
    "besoins": {
     "faim": 96.0,
@@ -8962,6 +9099,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.4
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "television"
+    ]
    }
   },
   {
@@ -8990,8 +9132,7 @@
    "lumiere": [
     "éteint la lumière (wc)",
     "allume la lumière (entree)",
-    "éteint la lumière (entree)",
-    "allume la lumière (sejour)"
+    "éteint la lumière (entree)"
    ],
    "appareils_allumes": [
     "television",
@@ -9409,7 +9550,8 @@
     "allume la lumière (salle-de-bain)"
    ],
    "appareils_allumes": [
-    "lumiere-salle-de-bain"
+    "lumiere-salle-de-bain",
+    "television"
    ],
    "besoins": {
     "faim": 91.0,
@@ -9430,6 +9572,11 @@
     "fierte": 0.4,
     "excitation": 0.221,
     "concentration": 0.255
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "television"
+    ]
    }
   },
   {
@@ -9443,7 +9590,9 @@
    "action": "Toilette du soir.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-salle-de-bain"
+    "lumiere-salle-de-bain",
+    "lumiere-sejour",
+    "television"
    ],
    "besoins": {
     "faim": 90.5,
@@ -9464,6 +9613,11 @@
     "fierte": 0.4,
     "excitation": 0.219,
     "concentration": 0.327
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "television"
+    ]
    }
   },
   {
@@ -9477,7 +9631,9 @@
    "action": "Toilette du soir.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-salle-de-bain"
+    "lumiere-salle-de-bain",
+    "lumiere-sejour",
+    "television"
    ],
    "besoins": {
     "faim": 90.0,
@@ -9498,6 +9654,11 @@
     "fierte": 0.4,
     "excitation": 0.217,
     "concentration": 0.364
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "television"
+    ]
    }
   },
   {
@@ -9527,7 +9688,10 @@
     "allume la lumière (chambre)",
     "éteint la lumière (chambre)"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour",
+    "television"
+   ],
    "besoins": {
     "faim": 89.5,
     "soif": 83.1,
@@ -9547,6 +9711,11 @@
     "fierte": 0.4,
     "excitation": 0.215,
     "concentration": 0.232
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "television"
+    ]
    }
   },
   {
@@ -9559,7 +9728,10 @@
    "activite": "Endormissement",
    "action": "Cherche le sommeil.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour",
+    "television"
+   ],
    "besoins": {
     "faim": 89.0,
     "soif": 82.4,
@@ -9579,6 +9751,11 @@
     "fierte": 0.4,
     "excitation": 0.213,
     "concentration": 0.166
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "television"
+    ]
    }
   },
   {
@@ -9591,7 +9768,10 @@
    "activite": "Endormissement",
    "action": "Cherche le sommeil.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour",
+    "television"
+   ],
    "besoins": {
     "faim": 88.5,
     "soif": 81.7,
@@ -9611,6 +9791,11 @@
     "fierte": 0.4,
     "excitation": 0.212,
     "concentration": 0.133
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "television"
+    ]
    }
   },
   {
@@ -9624,7 +9809,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour"
+   ],
    "besoins": {
     "faim": 88.3,
     "soif": 81.4,
@@ -9657,7 +9844,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour"
+   ],
    "besoins": {
     "faim": 88.1,
     "soif": 81.2,
@@ -9690,7 +9879,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour"
+   ],
    "besoins": {
     "faim": 87.9,
     "soif": 80.9,
@@ -9723,7 +9914,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour"
+   ],
    "besoins": {
     "faim": 87.7,
     "soif": 80.7,
@@ -9756,7 +9949,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour"
+   ],
    "besoins": {
     "faim": 87.5,
     "soif": 80.4,
@@ -9789,7 +9984,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour"
+   ],
    "besoins": {
     "faim": 87.3,
     "soif": 80.2,
@@ -9822,7 +10019,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour"
+   ],
    "besoins": {
     "faim": 87.1,
     "soif": 79.9,
@@ -9855,7 +10054,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour"
+   ],
    "besoins": {
     "faim": 86.9,
     "soif": 79.7,
@@ -9888,7 +10089,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour"
+   ],
    "besoins": {
     "faim": 86.7,
     "soif": 79.4,
@@ -9921,7 +10124,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-sejour"
+   ],
    "besoins": {
     "faim": 86.5,
     "soif": 79.2,
@@ -9954,7 +10159,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-wc"
+   ],
    "besoins": {
     "faim": 86.3,
     "soif": 78.9,
@@ -9987,7 +10194,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-salle-de-bain"
+   ],
    "besoins": {
     "faim": 86.1,
     "soif": 78.7,
@@ -10020,7 +10229,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-salle-de-bain"
+   ],
    "besoins": {
     "faim": 85.9,
     "soif": 78.4,

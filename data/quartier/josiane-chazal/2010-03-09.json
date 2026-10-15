@@ -51,7 +51,31 @@
     "compte": 500
    }
   },
-  "stock_en_fin_de_journee": {},
+  "stock_en_fin_de_journee": {
+   "cafe_moulu": "372",
+   "cafe_boutique": "150",
+   "pain": "2",
+   "beurre": "140",
+   "confiture": "26",
+   "fromage": "340",
+   "fruits": "6",
+   "vin_rouge": "213",
+   "biere": "2",
+   "comprimes": "16",
+   "pommes_de_terre": "1900",
+   "carottes": "900",
+   "oignons": "1",
+   "oeufs": "2",
+   "salade": "0",
+   "tomates": "500",
+   "jambon": "0",
+   "fromage_rape": "0",
+   "riz": "300",
+   "pates": "500",
+   "haricots_verts": "0",
+   "farine": "400",
+   "sucre": "300"
+  },
   "besoins_sous_le_seuil_d_alerte": [
    "06:45 toilettes = 0.0 (seuil 25)",
    "06:50 toilettes = 0.0 (seuil 25)",
@@ -91,10 +115,57 @@
    "obj-cles-josiane": "entree / vide-poche",
    "obj-sac-a-main": "entree / portemanteau",
    "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
-   "obj-tricot": "sejour / canapé"
+   "obj-tricot": "sejour / canapé",
+   "obj-cles": "entree / vide-poche",
+   "obj-cles-kangoo": "entree / vide-poche",
+   "obj-kangoo": "garage / place de la Kangoo",
+   "obj-portefeuille": "entree / vide-poche",
+   "obj-veste": "entree / portemanteau",
+   "obj-montre": "chambre / table de chevet de Robert",
+   "obj-lunettes": "chambre / table de chevet de Robert",
+   "obj-medicaments": "cuisine / placard à provisions",
+   "obj-blouse": "arriere-boutique / patère",
+   "obj-sacoche": "arriere-boutique / coffre",
+   "obj-cahier-comptes": "arriere-boutique / bureau",
+   "obj-bon-commande": "arriere-boutique / bureau",
+   "obj-carnet-credit": "boutique / comptoir, sous la caisse",
+   "obj-tasse-boutique": "arriere-boutique / évier",
+   "obj-photo-famille": "sejour / buffet",
+   "obj-telecommande": "sejour / accoudoir du fauteuil",
+   "obj-mots-croises": "sejour / table basse",
+   "obj-outils-jardin": "garage / outils de jardin",
+   "obj-chaussures-marche": "entree / meuble à chaussures",
+   "obj-casquette": "entree / portemanteau",
+   "obj-sac-a-dos": "garage / étagère",
+   "obj-jeu-de-cartes": "sejour / tiroir du buffet",
+   "obj-cabas-boutique": "entree / portemanteau"
   },
   "cafe": [],
-  "stock": {},
+  "stock": {
+   "cafe_moulu": 386,
+   "cafe_boutique": 150,
+   "pain": 2,
+   "beurre": 150,
+   "confiture": 28,
+   "fromage": 380,
+   "fruits": 7,
+   "vin_rouge": 225,
+   "biere": 2,
+   "comprimes": 17,
+   "pommes_de_terre": 2400,
+   "carottes": 900,
+   "oignons": 1,
+   "oeufs": 2,
+   "salade": 1,
+   "tomates": 0,
+   "jambon": 0,
+   "fromage_rape": 0,
+   "riz": 300,
+   "pates": 500,
+   "haricots_verts": 0,
+   "farine": 400,
+   "sucre": 300
+  },
   "argent": {
    "especes": 40,
    "compte": 500
@@ -197,10 +268,57 @@
    "obj-cles-josiane": "entree / vide-poche",
    "obj-sac-a-main": "entree / portemanteau",
    "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
-   "obj-tricot": "sejour / canapé"
+   "obj-tricot": "sejour / canapé",
+   "obj-cles": "entree / vide-poche",
+   "obj-cles-kangoo": "entree / vide-poche",
+   "obj-kangoo": "garage / place de la Kangoo",
+   "obj-portefeuille": "entree / vide-poche",
+   "obj-veste": "entree / portemanteau",
+   "obj-montre": "chambre / table de chevet de Robert",
+   "obj-lunettes": "chambre / table de chevet de Robert",
+   "obj-medicaments": "cuisine / placard à provisions",
+   "obj-blouse": "arriere-boutique / patère",
+   "obj-sacoche": "arriere-boutique / coffre",
+   "obj-cahier-comptes": "arriere-boutique / bureau",
+   "obj-bon-commande": "arriere-boutique / bureau",
+   "obj-carnet-credit": "boutique / comptoir, sous la caisse",
+   "obj-tasse-boutique": "arriere-boutique / évier",
+   "obj-photo-famille": "sejour / buffet",
+   "obj-telecommande": "sejour / accoudoir du fauteuil",
+   "obj-mots-croises": "sejour / table basse",
+   "obj-outils-jardin": "garage / outils de jardin",
+   "obj-chaussures-marche": "entree / meuble à chaussures",
+   "obj-casquette": "entree / portemanteau",
+   "obj-sac-a-dos": "garage / étagère",
+   "obj-jeu-de-cartes": "sejour / tiroir du buffet",
+   "obj-cabas-boutique": "entree / portemanteau"
   },
   "cafe": [],
-  "stock": {},
+  "stock": {
+   "cafe_moulu": 372,
+   "cafe_boutique": 150,
+   "pain": 2,
+   "beurre": 140,
+   "confiture": 26,
+   "fromage": 340,
+   "fruits": 6,
+   "vin_rouge": 213,
+   "biere": 2,
+   "comprimes": 16,
+   "pommes_de_terre": 1900,
+   "carottes": 900,
+   "oignons": 1,
+   "oeufs": 2,
+   "salade": 0,
+   "tomates": 500,
+   "jambon": 0,
+   "fromage_rape": 0,
+   "riz": 300,
+   "pates": 500,
+   "haricots_verts": 0,
+   "farine": 400,
+   "sucre": 300
+  },
   "argent": {
    "especes": 40,
    "compte": 500
@@ -2499,7 +2617,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 59.2,
     "soif": 44.9,
@@ -2532,7 +2652,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-salle-de-bain"
+   ],
    "besoins": {
     "faim": 59.0,
     "soif": 44.6,
@@ -2565,7 +2687,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-salle-de-bain"
+   ],
    "besoins": {
     "faim": 58.8,
     "soif": 44.4,
@@ -2598,7 +2722,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-salle-de-bain"
+   ],
    "besoins": {
     "faim": 58.6,
     "soif": 44.1,
@@ -2631,7 +2757,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-salle-de-bain"
+   ],
    "besoins": {
     "faim": 58.4,
     "soif": 43.9,
@@ -2664,7 +2792,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 58.2,
     "soif": 43.6,
@@ -2697,7 +2827,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 58.0,
     "soif": 43.4,
@@ -2730,7 +2862,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 57.8,
     "soif": 43.1,
@@ -2763,7 +2897,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-garage"
+   ],
    "besoins": {
     "faim": 57.6,
     "soif": 42.9,
@@ -8872,7 +9008,8 @@
    ],
    "appareils_allumes": [
     "television",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-cuisine"
    ],
    "evenements": [
     {

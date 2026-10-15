@@ -695,7 +695,8 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
         for x in s.get("production", []):
             prod.setdefault(x["nom"], [0, x["unite"]])[0] += x["quantite"]
     noms = {x["id"]: x for x in fiche["domicile"]["provisions_au_debut"] + fiche["domicile"]["produits_prepares"]}
-    stock_fin = {noms[k]["produit"]: quantite(v, noms[k]["unite"]) for k, v in etat_final["stock"].items()}
+    # un stock commun (foyer du quartier) peut compter des provisions que sa fiche ne décrit pas : leur identifiant
+    stock_fin = {noms[k]["produit"] if k in noms else k: quantite(v, noms[k]["unite"]) if k in noms else str(v) for k, v in etat_final["stock"].items()}
     nb_ev = {}
     for s in steps:
         for e in s.get("evenements", []):

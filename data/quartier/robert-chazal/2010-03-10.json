@@ -34,7 +34,7 @@
    "voiture_m": 20797
   },
   "lumiere": {
-   "allumages": 35
+   "allumages": 34
   },
   "evenements_vecus": {
    "plaisir_simple": 3,
@@ -482,6 +482,10 @@
   "lumieres": {},
   "appareils": [],
   "positions": {
+   "obj-cles-josiane": "entree / vide-poche",
+   "obj-sac-a-main": "entree / portemanteau",
+   "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
+   "obj-tricot": "sejour / canapé",
    "obj-cles": "entree / vide-poche",
    "obj-cles-kangoo": "entree / vide-poche",
    "obj-kangoo": "garage / place de la Kangoo",
@@ -668,6 +672,10 @@
   "lumieres": {},
   "appareils": [],
   "positions": {
+   "obj-cles-josiane": "entree / vide-poche",
+   "obj-sac-a-main": "entree / portemanteau",
+   "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
+   "obj-tricot": "sejour / canapé",
    "obj-cles": "entree / vide-poche",
    "obj-cles-kangoo": "entree / vide-poche",
    "obj-kangoo": "garage / place de la Kangoo",
@@ -3734,6 +3742,7 @@
    "action": "Reçoit les livraisons, met en rayon et lève le rideau.",
    "pensee": null,
    "appareils_allumes": [
+    "lumiere-cuisine",
     "lumiere-boutique"
    ],
    "besoins": {
@@ -3768,6 +3777,7 @@
    "action": "Reçoit les livraisons, met en rayon et lève le rideau.",
    "pensee": null,
    "appareils_allumes": [
+    "lumiere-cuisine",
     "lumiere-boutique"
    ],
    "besoins": {
@@ -3814,6 +3824,7 @@
     "allume la lumière (arriere-boutique)"
    ],
    "appareils_allumes": [
+    "lumiere-cuisine",
     "lumiere-boutique",
     "lumiere-arriere-boutique"
    ],
@@ -4554,6 +4565,7 @@
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
+    "lumiere-entree",
     "lumiere-boutique"
    ],
    "besoins": {
@@ -4590,6 +4602,7 @@
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
+    "lumiere-entree",
     "lumiere-boutique"
    ],
    "besoins": {
@@ -7713,7 +7726,9 @@
    "ensemble": [
     "Josiane"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-wc"
+   ],
    "evenements": [
     {
      "id": "moment_josiane",
@@ -9018,7 +9033,8 @@
    "pensee": null,
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 86.5,
@@ -9053,7 +9069,8 @@
    "pensee": null,
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 86.0,
@@ -9101,6 +9118,7 @@
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
+    "lumiere-entree",
     "lumiere-arriere-boutique"
    ],
    "besoins": {
@@ -9148,7 +9166,8 @@
    ],
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "evenements": [
     {
@@ -9191,7 +9210,8 @@
    "pensee": null,
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 84.5,
@@ -9226,7 +9246,8 @@
    "pensee": null,
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 84.0,
@@ -9292,7 +9313,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 83.5,
@@ -9327,7 +9349,8 @@
    "pensee": null,
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 83.0,
@@ -9401,7 +9424,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 82.5,
@@ -9459,7 +9483,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "evenements": [
     {
@@ -9502,7 +9527,8 @@
    "pensee": null,
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 81.5,
@@ -9568,7 +9594,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "evenements": [
     {
@@ -9659,7 +9686,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 80.5,
@@ -9733,7 +9761,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 80.0,
@@ -9815,7 +9844,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "evenements": [
     {
@@ -9889,7 +9919,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 79.0,
@@ -9971,7 +10002,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 78.5,
@@ -10006,7 +10038,8 @@
    "pensee": null,
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 78.0,
@@ -10107,7 +10140,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-wc"
    ],
    "besoins": {
     "faim": 77.0,
@@ -11974,7 +12008,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-cuisine"
    ],
    "evenements": [
     {
@@ -12056,7 +12091,8 @@
    },
    "appareils_allumes": [
     "caisse",
-    "radio-boutique"
+    "radio-boutique",
+    "lumiere-cuisine"
    ],
    "besoins": {
     "faim": 63.5,
@@ -12104,6 +12140,7 @@
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
+    "lumiere-cuisine",
     "lumiere-arriere-boutique"
    ],
    "besoins": {
@@ -12180,6 +12217,7 @@
     }
    },
    "appareils_allumes": [
+    "lumiere-cuisine",
     "lumiere-arriere-boutique"
    ],
    "besoins": {
@@ -12214,6 +12252,7 @@
    "action": "Baisse le rideau, compte la caisse.",
    "pensee": null,
    "appareils_allumes": [
+    "lumiere-cuisine",
     "lumiere-arriere-boutique"
    ],
    "besoins": {
@@ -12267,7 +12306,8 @@
    "lumiere": [
     "éteint la lumière (arriere-boutique)",
     "allume la lumière (reserve)",
-    "éteint la lumière (reserve)"
+    "éteint la lumière (reserve)",
+    "éteint la lumière (cuisine)"
    ],
    "appareils_allumes": [],
    "besoins": {
@@ -12310,7 +12350,9 @@
      }
     ]
    },
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 61.0,
     "soif": 79.5,
@@ -12351,7 +12393,9 @@
      }
     ]
    },
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 60.5,
     "soif": 78.8,
@@ -12392,7 +12436,9 @@
      }
     ]
    },
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 60.0,
     "soif": 78.1,
@@ -12482,8 +12528,7 @@
    ],
    "lumiere": [
     "allume la lumière (entree)",
-    "éteint la lumière (entree)",
-    "allume la lumière (cuisine)"
+    "éteint la lumière (entree)"
    ],
    "appareils_allumes": [
     "lumiere-cuisine"
@@ -13068,7 +13113,8 @@
    ],
    "appareils_allumes": [
     "television",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-wc"
    ],
    "evenements": [
     {
@@ -13482,7 +13528,8 @@
    "pensee": null,
    "appareils_allumes": [
     "television",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-salle-de-bain"
    ],
    "besoins": {
     "faim": 90.5,
@@ -13517,7 +13564,8 @@
    "pensee": null,
    "appareils_allumes": [
     "television",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-salle-de-bain"
    ],
    "besoins": {
     "faim": 90.0,
@@ -13552,7 +13600,8 @@
    "pensee": null,
    "appareils_allumes": [
     "television",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-salle-de-bain"
    ],
    "besoins": {
     "faim": 89.5,

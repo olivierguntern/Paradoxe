@@ -219,7 +219,7 @@ Thomas y vit aussi, avec sa fiche complète : le mardi, le jeudi et le samedi, i
 python3 outils/controler_quartier.py
 ```
 
-Limite : chacun garde son propre état du monde (lumières, appareils, objets, provisions) ; les logements ne sont pas encore un état partagé. Seul le stock d'un commerce est commun, par les ventes du commerçant.
+**Logements partagés** (`logements.py`). Quand plusieurs habitants ont les pièces d'un même logement (Robert et Josiane chez eux, les Morel chez eux, les Morel en visite chez les Chazal), le quartier en tient l'état commun : une pièce reste éclairée tant qu'un occupant éveillé y est (celui qui sort n'éteint plus sur la tête de l'autre, celui qui entre ne rallume pas) ; la télévision ou la radio voulue par un occupant éveillé s'entend chez tous ceux qui sont dans le logement (`partage` dans leur pas : ce qui est allumé par d'autres ; Robert, couché, entend la télévision que Josiane regarde encore) ; un foyer (ceux qui y dorment) a un seul garde-manger (Josiane voit ce que Robert rapporte de la boutique) et connaît tous les objets de la maison, chacun gardant ses croyances. Un logement que personne d'autre n'a (la boutique de Robert) garde ses règles ordinaires ; le stock d'un commerce est commun par les ventes du commerçant.
 
 ```bash
 python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages thomas-berthier robert-chazal josiane-chazal gerard-morel monique-morel --dossier data/quartier

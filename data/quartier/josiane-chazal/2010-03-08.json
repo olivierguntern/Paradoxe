@@ -52,7 +52,31 @@
     "compte": 500
    }
   },
-  "stock_en_fin_de_journee": {},
+  "stock_en_fin_de_journee": {
+   "cafe_moulu": "386",
+   "cafe_boutique": "150",
+   "pain": "2",
+   "beurre": "150",
+   "confiture": "28",
+   "fromage": "380",
+   "fruits": "7",
+   "vin_rouge": "225",
+   "biere": "2",
+   "comprimes": "17",
+   "pommes_de_terre": "2400",
+   "carottes": "900",
+   "oignons": "1",
+   "oeufs": "2",
+   "salade": "1",
+   "tomates": "0",
+   "jambon": "0",
+   "fromage_rape": "0",
+   "riz": "300",
+   "pates": "500",
+   "haricots_verts": "0",
+   "farine": "400",
+   "sucre": "300"
+  },
   "besoins_sous_le_seuil_d_alerte": [
    "12:50 toilettes = 24.1 (seuil 25)",
    "22:10 energie = 24.8 (seuil 25)",
@@ -144,10 +168,57 @@
    "obj-cles-josiane": "entree / vide-poche",
    "obj-sac-a-main": "entree / portemanteau",
    "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
-   "obj-tricot": "sejour / canapé"
+   "obj-tricot": "sejour / canapé",
+   "obj-cles": "entree / vide-poche",
+   "obj-cles-kangoo": "entree / vide-poche",
+   "obj-kangoo": "garage / place de la Kangoo",
+   "obj-portefeuille": "entree / vide-poche",
+   "obj-veste": "entree / portemanteau",
+   "obj-montre": "chambre / table de chevet de Robert",
+   "obj-lunettes": "chambre / table de chevet de Robert",
+   "obj-medicaments": "cuisine / placard à provisions",
+   "obj-blouse": "arriere-boutique / patère",
+   "obj-sacoche": "arriere-boutique / coffre",
+   "obj-cahier-comptes": "arriere-boutique / bureau",
+   "obj-bon-commande": "arriere-boutique / bureau",
+   "obj-carnet-credit": "boutique / comptoir, sous la caisse",
+   "obj-tasse-boutique": "arriere-boutique / évier",
+   "obj-photo-famille": "sejour / buffet",
+   "obj-telecommande": "sejour / accoudoir du fauteuil",
+   "obj-mots-croises": "sejour / table basse",
+   "obj-outils-jardin": "garage / outils de jardin",
+   "obj-chaussures-marche": "entree / meuble à chaussures",
+   "obj-casquette": "entree / portemanteau",
+   "obj-sac-a-dos": "garage / étagère",
+   "obj-jeu-de-cartes": "sejour / tiroir du buffet",
+   "obj-cabas-boutique": "entree / portemanteau"
   },
   "cafe": [],
-  "stock": {},
+  "stock": {
+   "cafe_moulu": 386,
+   "cafe_boutique": 150,
+   "pain": 2,
+   "beurre": 150,
+   "confiture": 28,
+   "fromage": 380,
+   "fruits": 7,
+   "vin_rouge": 225,
+   "biere": 2,
+   "comprimes": 17,
+   "pommes_de_terre": 2400,
+   "carottes": 900,
+   "oignons": 1,
+   "oeufs": 2,
+   "salade": 1,
+   "tomates": 0,
+   "jambon": 0,
+   "fromage_rape": 0,
+   "riz": 300,
+   "pates": 500,
+   "haricots_verts": 0,
+   "farine": 400,
+   "sucre": 300
+  },
   "argent": {
    "especes": 40,
    "compte": 500
@@ -3220,7 +3291,8 @@
     "texte": "Josiane et Robert échangent des nouvelles du quartier."
    },
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-wc"
    ],
    "evenements": [
     {
@@ -3431,7 +3503,8 @@
     "allume la lumière (entree)"
    ],
    "appareils_allumes": [
-    "lumiere-entree"
+    "lumiere-entree",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 97.0,
@@ -3452,6 +3525,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.501
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -5189,7 +5267,9 @@
    "ensemble": [
     "Robert"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-wc"
+   ],
    "evenements": [
     {
      "id": "moment_proche",
@@ -7139,7 +7219,8 @@
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-wc"
    ],
    "besoins": {
     "faim": 75.5,
@@ -7173,7 +7254,8 @@
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-garage"
    ],
    "besoins": {
     "faim": 75.0,
@@ -7207,7 +7289,8 @@
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-garage"
    ],
    "besoins": {
     "faim": 74.5,
@@ -7241,7 +7324,8 @@
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-garage"
    ],
    "besoins": {
     "faim": 74.0,
@@ -7275,7 +7359,8 @@
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-garage"
    ],
    "besoins": {
     "faim": 73.5,
@@ -7309,7 +7394,8 @@
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-garage"
    ],
    "besoins": {
     "faim": 73.0,
@@ -7343,7 +7429,8 @@
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-garage"
    ],
    "besoins": {
     "faim": 72.5,
@@ -7377,7 +7464,8 @@
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-garage"
    ],
    "besoins": {
     "faim": 72.0,
@@ -7411,7 +7499,8 @@
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-garage"
    ],
    "besoins": {
     "faim": 71.5,
@@ -7445,7 +7534,8 @@
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-garage"
    ],
    "besoins": {
     "faim": 71.0,
@@ -7482,7 +7572,8 @@
     "Robert"
    ],
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-garage"
    ],
    "evenements": [
     {
@@ -8044,6 +8135,7 @@
     "Robert"
    ],
    "appareils_allumes": [
+    "lumiere-sejour",
     "lumiere-cuisine"
    ],
    "evenements": [

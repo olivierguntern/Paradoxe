@@ -33,7 +33,7 @@
    "denivele_negatif_m": 0
   },
   "lumiere": {
-   "allumages": 30
+   "allumages": 29
   },
   "evenements_vecus": {
    "plaisir_simple": 3,
@@ -52,7 +52,31 @@
     "compte": 500
    }
   },
-  "stock_en_fin_de_journee": {},
+  "stock_en_fin_de_journee": {
+   "cafe_moulu": "302",
+   "cafe_boutique": "150",
+   "pain": "6",
+   "beurre": "240",
+   "confiture": "16",
+   "fromage": "230",
+   "fruits": "1",
+   "vin_rouge": "165",
+   "biere": "5",
+   "comprimes": "11",
+   "pommes_de_terre": "0",
+   "carottes": "600",
+   "oignons": "0",
+   "oeufs": "2",
+   "salade": "0",
+   "tomates": "0",
+   "jambon": "0",
+   "fromage_rape": "100",
+   "riz": "800",
+   "pates": "0",
+   "haricots_verts": "0",
+   "farine": "950",
+   "sucre": "200"
+  },
   "besoins_sous_le_seuil_d_alerte": [
    "17:55 soif = 39.9 (seuil 40)",
    "18:00 soif = 39.2 (seuil 40)",
@@ -108,10 +132,57 @@
    "obj-cles-josiane": "entree / vide-poche",
    "obj-sac-a-main": "entree / portemanteau",
    "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
-   "obj-tricot": "sejour / canapé"
+   "obj-tricot": "sejour / canapé",
+   "obj-cles": "entree / vide-poche",
+   "obj-cles-kangoo": "entree / vide-poche",
+   "obj-kangoo": "garage / place de la Kangoo",
+   "obj-portefeuille": "entree / vide-poche",
+   "obj-veste": "entree / portemanteau",
+   "obj-montre": "chambre / table de chevet de Robert",
+   "obj-lunettes": "chambre / table de chevet de Robert",
+   "obj-medicaments": "cuisine / placard à provisions",
+   "obj-blouse": "arriere-boutique / patère",
+   "obj-sacoche": "arriere-boutique / coffre",
+   "obj-cahier-comptes": "arriere-boutique / bureau",
+   "obj-bon-commande": "arriere-boutique / bureau",
+   "obj-carnet-credit": "boutique / comptoir, sous la caisse",
+   "obj-tasse-boutique": "arriere-boutique / évier",
+   "obj-photo-famille": "sejour / buffet",
+   "obj-telecommande": "sejour / accoudoir du fauteuil",
+   "obj-mots-croises": "sejour / table basse",
+   "obj-outils-jardin": "garage / outils de jardin",
+   "obj-chaussures-marche": "entree / meuble à chaussures",
+   "obj-casquette": "entree / portemanteau",
+   "obj-sac-a-dos": "garage / étagère",
+   "obj-jeu-de-cartes": "sejour / tiroir du buffet",
+   "obj-cabas-boutique": "entree / portemanteau"
   },
   "cafe": [],
-  "stock": {},
+  "stock": {
+   "cafe_moulu": 316,
+   "cafe_boutique": 150,
+   "pain": 2,
+   "beurre": 330,
+   "confiture": 18,
+   "fromage": 280,
+   "fruits": 6,
+   "vin_rouge": 177,
+   "biere": 5,
+   "comprimes": 12,
+   "pommes_de_terre": 1000,
+   "carottes": 600,
+   "oignons": 0,
+   "oeufs": 2,
+   "salade": 0,
+   "tomates": 0,
+   "jambon": 0,
+   "fromage_rape": 100,
+   "riz": 800,
+   "pates": 0,
+   "haricots_verts": 0,
+   "farine": 150,
+   "sucre": 300
+  },
   "argent": {
    "especes": 40,
    "compte": 500
@@ -345,10 +416,57 @@
    "obj-cles-josiane": "entree / vide-poche",
    "obj-sac-a-main": "entree / portemanteau",
    "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
-   "obj-tricot": "sejour / canapé"
+   "obj-tricot": "sejour / canapé",
+   "obj-cles": "entree / vide-poche",
+   "obj-cles-kangoo": "entree / vide-poche",
+   "obj-kangoo": "garage / place de la Kangoo",
+   "obj-portefeuille": "entree / vide-poche",
+   "obj-veste": "entree / portemanteau",
+   "obj-montre": "chambre / table de chevet de Robert",
+   "obj-lunettes": "chambre / table de chevet de Robert",
+   "obj-medicaments": "cuisine / placard à provisions",
+   "obj-blouse": "arriere-boutique / patère",
+   "obj-sacoche": "arriere-boutique / coffre",
+   "obj-cahier-comptes": "arriere-boutique / bureau",
+   "obj-bon-commande": "arriere-boutique / bureau",
+   "obj-carnet-credit": "boutique / comptoir, sous la caisse",
+   "obj-tasse-boutique": "arriere-boutique / évier",
+   "obj-photo-famille": "sejour / buffet",
+   "obj-telecommande": "sejour / accoudoir du fauteuil",
+   "obj-mots-croises": "sejour / table basse",
+   "obj-outils-jardin": "garage / outils de jardin",
+   "obj-chaussures-marche": "entree / meuble à chaussures",
+   "obj-casquette": "entree / portemanteau",
+   "obj-sac-a-dos": "garage / étagère",
+   "obj-jeu-de-cartes": "sejour / tiroir du buffet",
+   "obj-cabas-boutique": "entree / portemanteau"
   },
   "cafe": [],
-  "stock": {},
+  "stock": {
+   "cafe_moulu": 302,
+   "cafe_boutique": 150,
+   "pain": 6,
+   "beurre": 240,
+   "confiture": 16,
+   "fromage": 230,
+   "fruits": 1,
+   "vin_rouge": 165,
+   "biere": 5,
+   "comprimes": 11,
+   "pommes_de_terre": 0,
+   "carottes": 600,
+   "oignons": 0,
+   "oeufs": 2,
+   "salade": 0,
+   "tomates": 0,
+   "jambon": 0,
+   "fromage_rape": 100,
+   "riz": 800,
+   "pates": 0,
+   "haricots_verts": 0,
+   "farine": 950,
+   "sucre": 200
+  },
   "argent": {
    "especes": 40,
    "compte": 500
@@ -2778,7 +2896,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 64.7,
     "soif": 56.8,
@@ -2811,7 +2931,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 64.5,
     "soif": 56.5,
@@ -2844,7 +2966,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 64.3,
     "soif": 56.3,
@@ -2877,7 +3001,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 64.1,
     "soif": 56.0,
@@ -2910,7 +3036,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "profond",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 63.9,
     "soif": 55.8,
@@ -2943,7 +3071,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 63.7,
     "soif": 55.5,
@@ -2976,7 +3106,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 63.5,
     "soif": 55.3,
@@ -3009,7 +3141,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 63.3,
     "soif": 55.0,
@@ -3042,7 +3176,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 63.1,
     "soif": 54.8,
@@ -8206,7 +8342,9 @@
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "radio-cuisine"
+   ],
    "evenements": [
     {
      "id": "conversation_agreable",
@@ -8235,6 +8373,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.252
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8261,7 +8404,9 @@
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "radio-cuisine"
+   ],
    "besoins": {
     "faim": 60.7,
     "soif": 61.4,
@@ -8281,6 +8426,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.351
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8305,11 +8455,11 @@
    },
    "lumiere": [
     "allume la lumière (entree)",
-    "éteint la lumière (entree)",
-    "allume la lumière (wc)"
+    "éteint la lumière (entree)"
    ],
    "appareils_allumes": [
-    "lumiere-wc"
+    "lumiere-wc",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 60.2,
@@ -8330,6 +8480,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.451
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8360,7 +8515,9 @@
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "radio-cuisine"
+   ],
    "evenements": [
     {
      "id": "moment_proche",
@@ -8390,6 +8547,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.35
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8405,7 +8567,9 @@
    "ensemble": [
     "Robert"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "radio-cuisine"
+   ],
    "besoins": {
     "faim": 59.2,
     "soif": 59.3,
@@ -8425,6 +8589,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.3
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8440,7 +8609,9 @@
    "ensemble": [
     "Robert"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "radio-cuisine"
+   ],
    "besoins": {
     "faim": 58.7,
     "soif": 58.6,
@@ -8460,6 +8631,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.275
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8486,7 +8662,9 @@
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "radio-cuisine"
+   ],
    "besoins": {
     "faim": 58.2,
     "soif": 82.9,
@@ -8506,6 +8684,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.413
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8522,7 +8705,8 @@
     "allume la lumière (cuisine) : la nuit tombe"
    ],
    "appareils_allumes": [
-    "lumiere-cuisine"
+    "lumiere-cuisine",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 72.7,
@@ -8543,6 +8727,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.481
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8556,7 +8745,9 @@
    "action": "Cuisine.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-cuisine"
+    "lumiere-cuisine",
+    "lumiere-sejour",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 72.2,
@@ -8577,6 +8768,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.466
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8590,7 +8786,9 @@
    "action": "Cuisine.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-cuisine"
+    "lumiere-cuisine",
+    "lumiere-sejour",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 71.7,
@@ -8611,6 +8809,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.458
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8624,7 +8827,9 @@
    "action": "Cuisine.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-cuisine"
+    "lumiere-cuisine",
+    "lumiere-sejour",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 71.2,
@@ -8645,6 +8850,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.454
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8658,7 +8868,9 @@
    "action": "Cuisine.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-cuisine"
+    "lumiere-cuisine",
+    "lumiere-sejour",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 70.7,
@@ -8679,6 +8891,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.452
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8692,7 +8909,9 @@
    "action": "Cuisine.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-cuisine"
+    "lumiere-cuisine",
+    "lumiere-sejour",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 70.2,
@@ -8713,6 +8932,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.451
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8726,7 +8950,9 @@
    "action": "Cuisine.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-cuisine"
+    "lumiere-cuisine",
+    "lumiere-sejour",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 69.7,
@@ -8747,6 +8973,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.375
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8760,7 +8991,9 @@
    "action": "Cuisine.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-cuisine"
+    "lumiere-cuisine",
+    "lumiere-sejour",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 69.2,
@@ -8781,6 +9014,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.338
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8797,6 +9035,7 @@
     "Robert"
    ],
    "appareils_allumes": [
+    "lumiere-sejour",
     "lumiere-cuisine"
    ],
    "evenements": [
@@ -9213,7 +9452,8 @@
    ],
    "appareils_allumes": [
     "television",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-cuisine"
    ],
    "evenements": [
     {

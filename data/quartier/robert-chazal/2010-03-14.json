@@ -34,7 +34,7 @@
    "voiture_m": 10399
   },
   "lumiere": {
-   "allumages": 30
+   "allumages": 28
   },
   "evenements_vecus": {
    "plaisir_simple": 3,
@@ -489,6 +489,10 @@
   "lumieres": {},
   "appareils": [],
   "positions": {
+   "obj-cles-josiane": "entree / vide-poche",
+   "obj-sac-a-main": "entree / portemanteau",
+   "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
+   "obj-tricot": "sejour / canapé",
    "obj-cles": "entree / vide-poche",
    "obj-cles-kangoo": "entree / vide-poche",
    "obj-kangoo": "garage / place de la Kangoo",
@@ -765,6 +769,10 @@
   "lumieres": {},
   "appareils": [],
   "positions": {
+   "obj-cles-josiane": "entree / vide-poche",
+   "obj-sac-a-main": "entree / portemanteau",
+   "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
+   "obj-tricot": "sejour / canapé",
    "obj-cles": "entree / vide-poche",
    "obj-cles-kangoo": "entree / vide-poche",
    "obj-kangoo": "garage / place de la Kangoo",
@@ -8234,7 +8242,9 @@
    "activite": "Fin de semaine : tri des produits frais périmés, ménage, comptes de la semaine, bon de commande pour mardi",
    "action": "Trie, range et fait les comptes.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-wc"
+   ],
    "besoins": {
     "faim": 72.0,
     "soif": 87.9,
@@ -11014,7 +11024,8 @@
     "éteint la lumière (entree)"
    ],
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-wc"
    ],
    "evenements": [
     {
@@ -11205,7 +11216,8 @@
    "pensee": null,
    "appareils_allumes": [
     "radio-cuisine",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-cuisine"
    ],
    "besoins": {
     "faim": 57.2,
@@ -11240,7 +11252,8 @@
    "pensee": null,
    "appareils_allumes": [
     "radio-cuisine",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-cuisine"
    ],
    "besoins": {
     "faim": 56.7,
@@ -11275,7 +11288,8 @@
    "pensee": null,
    "appareils_allumes": [
     "radio-cuisine",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-cuisine"
    ],
    "besoins": {
     "faim": 56.2,
@@ -11310,7 +11324,8 @@
    "pensee": null,
    "appareils_allumes": [
     "radio-cuisine",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-cuisine"
    ],
    "besoins": {
     "faim": 55.7,
@@ -11345,7 +11360,8 @@
    "pensee": null,
    "appareils_allumes": [
     "radio-cuisine",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-cuisine"
    ],
    "besoins": {
     "faim": 55.2,
@@ -11380,7 +11396,8 @@
    "pensee": null,
    "appareils_allumes": [
     "radio-cuisine",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-cuisine"
    ],
    "besoins": {
     "faim": 54.7,
@@ -11415,7 +11432,8 @@
    "pensee": null,
    "appareils_allumes": [
     "radio-cuisine",
-    "lumiere-sejour"
+    "lumiere-sejour",
+    "lumiere-cuisine"
    ],
    "besoins": {
     "faim": 54.2,
@@ -11487,8 +11505,7 @@
    "lumiere": [
     "éteint la lumière (sejour)",
     "allume la lumière (entree)",
-    "éteint la lumière (entree)",
-    "allume la lumière (cuisine)"
+    "éteint la lumière (entree)"
    ],
    "appareils_allumes": [
     "lumiere-cuisine"
@@ -11852,7 +11869,8 @@
    "action": "Avant de s'y mettre, boire un grand verre d'eau.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-cuisine"
+    "lumiere-cuisine",
+    "television"
    ],
    "besoins": {
     "faim": 97.5,
@@ -11873,6 +11891,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.253
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "television"
+    ]
    }
   },
   {
@@ -11901,8 +11924,7 @@
    "lumiere": [
     "éteint la lumière (cuisine)",
     "allume la lumière (entree)",
-    "éteint la lumière (entree)",
-    "allume la lumière (sejour)"
+    "éteint la lumière (entree)"
    ],
    "appareils_allumes": [
     "television",

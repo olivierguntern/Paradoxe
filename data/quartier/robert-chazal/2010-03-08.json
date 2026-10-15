@@ -34,7 +34,7 @@
    "voiture_m": 10400
   },
   "lumiere": {
-   "allumages": 34
+   "allumages": 32
   },
   "evenements_vecus": {
    "plaisir_simple": 3,
@@ -554,6 +554,10 @@
   "lumieres": {},
   "appareils": [],
   "positions": {
+   "obj-cles-josiane": "entree / vide-poche",
+   "obj-sac-a-main": "entree / portemanteau",
+   "obj-lunettes-josiane": "chambre / table de chevet de Josiane",
+   "obj-tricot": "sejour / canapé",
    "obj-cles": "entree / vide-poche",
    "obj-cles-kangoo": "entree / vide-poche",
    "obj-kangoo": "garage / place de la Kangoo",
@@ -3407,7 +3411,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 45.4,
     "soif": 45.2,
@@ -3440,7 +3446,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 45.2,
     "soif": 45.0,
@@ -3473,7 +3481,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 45.0,
     "soif": 44.8,
@@ -3506,7 +3516,9 @@
    "action": "Dort.",
    "pensee": null,
    "phase_sommeil": "léger",
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-cuisine"
+   ],
    "besoins": {
     "faim": 44.8,
     "soif": 44.5,
@@ -3600,7 +3612,8 @@
     "allume la lumière (wc)"
    ],
    "appareils_allumes": [
-    "lumiere-wc"
+    "lumiere-wc",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 44.1,
@@ -3621,6 +3634,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.275
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -3934,7 +3952,8 @@
    "action": "Prépare le café et prend son petit-déjeuner.",
    "pensee": null,
    "appareils_allumes": [
-    "radio-cuisine"
+    "radio-cuisine",
+    "lumiere-entree"
    ],
    "besoins": {
     "faim": 80.6,
@@ -6238,7 +6257,9 @@
    "ensemble": [
     "Josiane"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-wc"
+   ],
    "evenements": [
     {
      "id": "moment_josiane",
@@ -7095,7 +7116,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 85.0,
     "soif": 80.5,
@@ -7127,7 +7150,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 84.5,
     "soif": 79.8,
@@ -7159,7 +7184,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 84.0,
     "soif": 79.1,
@@ -7191,7 +7218,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 83.5,
     "soif": 78.4,
@@ -7223,7 +7252,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 83.0,
     "soif": 77.7,
@@ -7255,7 +7286,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 82.5,
     "soif": 77.0,
@@ -7287,7 +7320,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 82.0,
     "soif": 76.3,
@@ -7319,7 +7354,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 81.5,
     "soif": 75.6,
@@ -7351,7 +7388,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 81.0,
     "soif": 74.9,
@@ -7383,7 +7422,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 80.5,
     "soif": 74.2,
@@ -7415,7 +7456,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 80.0,
     "soif": 73.5,
@@ -7447,7 +7490,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 79.5,
     "soif": 72.8,
@@ -7479,7 +7524,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 79.0,
     "soif": 72.1,
@@ -7511,7 +7558,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 78.5,
     "soif": 71.4,
@@ -7543,7 +7592,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 78.0,
     "soif": 70.7,
@@ -7575,7 +7626,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 77.5,
     "soif": 70.0,
@@ -7607,7 +7660,9 @@
    "activite": "Potager : retourne la terre, sème les radis",
    "action": "Jardine.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-entree"
+   ],
    "besoins": {
     "faim": 77.0,
     "soif": 69.3,
@@ -7654,10 +7709,11 @@
     "Josiane"
    ],
    "lumiere": [
-    "allume la lumière (entree)",
     "éteint la lumière (entree)"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "aspirateur"
+   ],
    "evenements": [
     {
      "id": "moment_josiane",
@@ -7687,6 +7743,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "aspirateur"
+    ]
    }
   },
   {
@@ -7715,7 +7776,8 @@
     "allume la lumière (wc)"
    ],
    "appareils_allumes": [
-    "lumiere-wc"
+    "lumiere-wc",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 76.0,
@@ -7736,6 +7798,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -7765,7 +7832,8 @@
     "allume la lumière (garage)"
    ],
    "appareils_allumes": [
-    "lumiere-garage"
+    "lumiere-garage",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 75.5,
@@ -7786,6 +7854,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -7799,7 +7872,8 @@
    "action": "Bricole.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-garage"
+    "lumiere-garage",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 75.0,
@@ -7820,6 +7894,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -7833,7 +7912,8 @@
    "action": "Bricole.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-garage"
+    "lumiere-garage",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 74.5,
@@ -7854,6 +7934,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -7867,7 +7952,8 @@
    "action": "Bricole.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-garage"
+    "lumiere-garage",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 74.0,
@@ -7888,6 +7974,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -7901,7 +7992,8 @@
    "action": "Bricole.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-garage"
+    "lumiere-garage",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 73.5,
@@ -7922,6 +8014,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -7935,7 +8032,8 @@
    "action": "Bricole.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-garage"
+    "lumiere-garage",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 73.0,
@@ -7956,6 +8054,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -7969,7 +8072,8 @@
    "action": "Bricole.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-garage"
+    "lumiere-garage",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 72.5,
@@ -7990,6 +8094,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8003,7 +8112,8 @@
    "action": "Bricole.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-garage"
+    "lumiere-garage",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 72.0,
@@ -8024,6 +8134,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8037,7 +8152,8 @@
    "action": "Bricole.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-garage"
+    "lumiere-garage",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 71.5,
@@ -8058,6 +8174,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8071,7 +8192,8 @@
    "action": "Bricole.",
    "pensee": null,
    "appareils_allumes": [
-    "lumiere-garage"
+    "lumiere-garage",
+    "radio-cuisine"
    ],
    "besoins": {
     "faim": 71.0,
@@ -8092,6 +8214,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8122,7 +8249,9 @@
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "radio-cuisine"
+   ],
    "evenements": [
     {
      "id": "moment_josiane",
@@ -8152,6 +8281,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.4
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8173,7 +8307,9 @@
     "sujet": "journee",
     "texte": "Robert raconte à Josiane : catalogue de graines, petit bricolage, jardin, légumes de la soupe pour Josiane. Josiane hoche la tête."
    },
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "radio-cuisine"
+   ],
    "evenements": [
     {
      "id": "conversation_agreable",
@@ -8202,6 +8338,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.325
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8217,7 +8358,9 @@
    "ensemble": [
     "Josiane"
    ],
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "radio-cuisine"
+   ],
    "besoins": {
     "faim": 69.5,
     "soif": 83.8,
@@ -8237,6 +8380,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.287
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8249,7 +8397,9 @@
    "activite": "Café, radio, mots croisés",
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "radio-cuisine"
+   ],
    "besoins": {
     "faim": 69.0,
     "soif": 83.1,
@@ -8269,6 +8419,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.269
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8281,7 +8436,10 @@
    "activite": "Café, radio, mots croisés",
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "lumiere-wc",
+    "radio-cuisine"
+   ],
    "besoins": {
     "faim": 68.5,
     "soif": 82.4,
@@ -8301,6 +8459,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.259
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8313,7 +8476,9 @@
    "activite": "Café, radio, mots croisés",
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
-   "appareils_allumes": [],
+   "appareils_allumes": [
+    "radio-cuisine"
+   ],
    "besoins": {
     "faim": 68.0,
     "soif": 81.7,
@@ -8333,6 +8498,11 @@
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.255
+   },
+   "partage": {
+    "allumes_par_d_autres": [
+     "radio-cuisine"
+    ]
    }
   },
   {
@@ -8691,8 +8861,7 @@
    "lumiere": [
     "éteint la lumière (sejour)",
     "allume la lumière (entree)",
-    "éteint la lumière (entree)",
-    "allume la lumière (cuisine)"
+    "éteint la lumière (entree)"
    ],
    "appareils_allumes": [
     "lumiere-cuisine"

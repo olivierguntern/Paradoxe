@@ -20,6 +20,9 @@ relation) et de la section `relations` de chaque fiche, qui peut les remplacer.
   partagée, une banalité. Ce qu'on a vu d'étrange (un anachronisme du
   voyageur) ou entendu dire se raconte à tout le monde, et se répète. Les textes viennent
   de modèles ; l'interlocuteur retient ce qu'on lui a dit.
+- Logements partagés (logements.py) : sous le même toit, ou en visite, les
+  lumières et les appareils sont ceux de tous ; un foyer a un seul
+  garde-manger et connaît tous les objets de la maison.
 - Commerce : quand un habitant achète dans le commerce d'un autre habitant du
   quartier, c'est ce commerçant qui le sert : la vente sort du stock de son
   magasin (dans la limite de ce qui reste en rayon) et la recette va dans sa
@@ -30,6 +33,7 @@ import zlib
 
 from fiches import MONDE, lire
 from habitant import Habitant
+from logements import Logements
 from moteur import PAS_PAR_JOUR, hm
 
 
@@ -59,6 +63,7 @@ class Quartier:
         self.vus = set()        # (habitant, début d'étape, autre) : l'autre est venu pendant l'étape prévue ensemble
         self.absences = set()   # (habitant, début d'étape, autre) : absence déjà remarquée
         self.derniere = {}      # paire -> dernier pas de conversation
+        self.L = Logements(self)  # lumières, appareils, provisions et objets des logements partagés (logements.py)
 
     # ------------------------------------------------------------ journée
     def vivre(self):
@@ -73,6 +78,7 @@ class Quartier:
                 self.V.agir(self)
             for h in self.H.values():
                 h.executer()
+            self.L.apres_pas()
         out = {pid: h.terminer() for pid, h in self.H.items()}
         for pid, h in self.H.items():
             h.j.bilan += self.bilan(h)
