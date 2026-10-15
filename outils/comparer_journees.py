@@ -4,7 +4,7 @@ Usage : python3 outils/comparer_journees.py REFERENCE.json SIMULATION.json [--de
 
 Faits comparés à chaque pas : pièce, lieu, posture, appareils et lumières
 allumés, position de chaque objet, stock de chaque provision ; pour un
-commerçant, stock du magasin et argent (caisse, coffre, compte, ardoises). Les besoins et
+commerçant, stock du magasin ; argent (espèces, compte et, pour un commerçant, caisse, coffre, ardoises). Les besoins et
 les émotions sont comparés en écart moyen. Les textes (actions, pensées) ne
 sont pas comparés.
 
@@ -67,7 +67,9 @@ def comparer(ref, sim):
     pr, ps = positions_par_pas(ref), positions_par_pas(sim)
     criteres = {"pièce": [], "lieu": [], "posture": [], "appareils": [], "objets": [], "stock": []}
     if ref["etat_initial"].get("boutique"):
-        criteres.update({"magasin": [], "argent": []})
+        criteres["magasin"] = []
+    if ref["etat_initial"].get("argent"):
+        criteres["argent"] = []
     objets_diff = {}
     for k, (a, b) in enumerate(zip(R, S)):
         h = a["heure"]

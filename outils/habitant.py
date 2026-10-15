@@ -39,9 +39,12 @@ usage (collations), en alternant les choix d'un jour à l'autre. Il n'utilise
 que ce qu'il a ; ce qui manque est noté dans les écarts.
 """
 import datetime
+import math
 
 from agent import JOURS, phase_sommeil
 from moteur import PAS_PAR_JOUR, Journee, Simulation, hm, idx, position_initiale
+
+COMMERCES = {}   # commerces des autres habitants, lus une fois
 
 
 class Habitant:
@@ -83,6 +86,18 @@ class Habitant:
         self.COLLATIONS = fiche.get("collations") or {}
         self.tenus = {}          # rôle -> état des objets gardés pendant l'action en cours
         self.collations_du_jour = 0
+        self.APPRO = fiche.get("approvisionnement") or {}
+        self.COMMERCE = self.commerce(self.APPRO["commerce"]) if self.APPRO else {}
+        self.listes = {}         # début d'une étape de courses -> liste établie en partant (None : il n'y va pas)
+
+    def commerce(self, pid):
+        """Le commerce où il s'approvisionne : celui de sa propre fiche (il prélève), ou celui d'un autre habitant (il achète)."""
+        if pid == self.fiche["meta"].get("id"):
+            return self.fiche["commerce"]
+        if pid not in COMMERCES:
+            from fiches import charger
+            COMMERCES[pid] = charger(pid)["commerce"]
+        return COMMERCES[pid]
 
     # ------------------------------------------------------------ fiche
     def etapes_du_jour(self, jour):
@@ -114,7 +129,10 @@ class Habitant:
 
     # ------------------------------------------------------------ décision
     def etape(self, i):
-        return next(((d, f, e, r) for d, f, e, r in self.etapes if d <= i < f), None)
+        """Étape en cours ; si deux étapes se recouvrent, la plus courte l'emporte (des courses prises sur le temps libre).
+        Des courses qui n'ont pas lieu (commerce fermé, rien ne manque) rendent la place à l'étape qu'elles recouvrent."""
+        en_cours = [(d, f, e, r) for d, f, e, r in self.etapes if d <= i < f and not self.sans_courses(d, e)]
+        return min(en_cours, key=lambda x: x[1] - x[0]) if en_cours else None
 
     def resoudre(self, d, f, e, i):
         """Action de l'étape au pas i : phase en cours et variantes selon les besoins."""
@@ -122,6 +140,7 @@ class Habitant:
         # besoins que l'action satisfait, toutes phases comprises (pas de fruit juste avant le repas)
         a["satisfait"] = set(a.get("effets", {})) | {b for ph in a.get("phases", []) for b in ph.get("effets", {})}
         phase, debut = 0, d
+        a["duree_phase"] = f - d
         if a.get("phases"):
             n, cumul = f - d, 0.0
             for k, ph in enumerate(a["phases"]):
@@ -131,6 +150,7 @@ class Habitant:
                     if "lieu" in ph:
                         a["lieu_phase"] = ph["lieu"]
                     phase, debut = k, d + round(n * cumul)
+                    a["duree_phase"] = max(1, fin_ph - debut)
                     break
                 cumul += ph["part"]
             for x in ("effets", "ev"):
@@ -145,6 +165,8 @@ class Habitant:
                 a[x] = {**self.etats(a.get(x)), **self.etats(e[x])}
         if "consomme" in e:
             a["consomme"] = a.get("consomme", []) + e["consomme"]
+        if e.get("approvisionne"):
+            a["approvisionne"] = True
         a["vivres"] = self.menu_du_pas(a, e, d, phase)
         return a, (d, phase), debut
 
@@ -157,7 +179,8 @@ class Habitant:
     def position(self, o, etat):
         if etat == "rangement":
             return o.get("positions", {}).get("rangement") or position_initiale(o)
-        return o.get("positions", {}).get(etat) or {"porte": "dans sa main"}.get(etat)
+        # un état que la fiche ne décrit pas pour cet objet : porté sur lui
+        return o.get("positions", {}).get(etat) or o.get("positions", {}).get("porte") or "dans sa main"
 
     def gestes(self, a, premier):
         """Déplacements d'objets du pas : ceux de l'action au premier pas, ceux qu'elle garde en main, et ceux qu'il
@@ -190,20 +213,26 @@ class Habitant:
         plat préparé et portion au début du repas proprement dit (dernière phase). Le repas se lit dans la fiche
         (menus_prevus, menu du jour puis menu de tous les jours) : celui que nomme l'étape (« repas »), sinon
         celui que nomme l'action, sinon le déjeuner avant 16:00 (ou le brunch) et le dîner après."""
-        moment = e.get("repas") or a.get("menu")
-        if not moment:
+        m = self.menu(self.jour, a, e, d)
+        if m is None:
             return None
-        if moment is True:
-            moment = "dejeuner" if d < idx("16:00") else "diner"
-        jour = self.MENUS.get(self.jour) or {}
-        m = jour.get(moment) or self.MENUS.get(moment) or (jour.get("brunch") if moment == "dejeuner" else None)
-        if not isinstance(m, dict):
-            return None
+        moment = m.get("plat")
         derniere = phase == max(0, len(a.get("phases", [])) - 1)
         return {"plat": m.get("plat", moment),
                 "ingredients": m.get("ingredients", []) if phase == 0 else [],
                 "prepare": m.get("prepare", []) if derniere else [],
                 "portion": m.get("portion", []) if derniere else []}
+
+    def menu(self, jour, a, e, d):
+        """Le repas de la fiche que sert l'étape (début d), ou None."""
+        moment = e.get("repas") or a.get("menu")
+        if not moment:
+            return None
+        if moment is True:
+            moment = "dejeuner" if d < idx("16:00") else "diner"
+        menus = self.MENUS.get(jour) or {}
+        m = menus.get(moment) or self.MENUS.get(moment) or (menus.get("brunch") if moment == "dejeuner" else None)
+        return m if isinstance(m, dict) else None
 
     def disponibles(self, conso, prod=()):
         """Ce qui peut être consommé avec le stock (et ce qui vient d'être préparé), et ce qui manque."""
@@ -251,19 +280,137 @@ class Habitant:
         if conso:
             st["consommation"] = conso
 
+    # ------------------------------------------------------------ approvisionnement
+    def approvisionne(self, e):
+        return bool(e.get("approvisionne") or self.A[e["activite"]].get("courses"))
+
+    def sans_courses(self, d, e):
+        """Des courses (action « courses ») n'ont pas lieu si le commerce est fermé ou si rien ne manque ; décidé une fois,
+        en partant."""
+        if not self.A[e["activite"]].get("courses"):
+            return False
+        if d not in self.listes:
+            ouvert = any(idx(a) <= d and d + 6 <= idx(b) for a, b in self.COMMERCE.get("horaires", {}).get(self.jour, []))
+            lignes = self.liste_de_courses(d) if ouvert else []
+            if not ouvert:
+                self.decisions.append(f"{hm(d)} : {self.COMMERCE.get('nom', 'le commerce')} est fermé à cette heure ; pas de courses.")
+            elif not lignes:
+                self.decisions.append(f"{hm(d)} : rien ne manque ; pas de courses.")
+            self.listes[d] = lignes or None
+        return self.listes[d] is None
+
+    def besoins_repas(self, depuis):
+        """Ce que demandent les repas de la fiche (menus_prevus) d'ici au prochain approvisionnement prévu par ses
+        routines (au plus tard la fin de la semaine)."""
+        j0 = JOURS.index(self.jour)
+        fin = (7, 0)
+        for k in range(j0, 7):
+            fin = next(((k, d) for d, f, e, r in self.etapes_du_jour(JOURS[k]) if (k, d) > (j0, depuis) and self.approvisionne(e)), fin)
+            if fin != (7, 0):
+                break
+        besoin = {}
+        for k in range(j0, min(fin[0], 6) + 1):
+            for d, f, e, r in self.etapes_du_jour(JOURS[k]):
+                m = self.menu(JOURS[k], self.A[e["activite"]], e, d) if (j0, depuis) < (k, d) < fin else None
+                for pid, q in (m or {}).get("ingredients", []) + (m or {}).get("portion", []):
+                    besoin[pid] = besoin.get(pid, 0) + q
+        return besoin
+
+    def liste_de_courses(self, depuis):
+        """Ce qu'il rapporte du commerce : ce qui est sous sa cible ou son seuil (approvisionnement.liste), ce que demandent
+        ses repas d'ici au prochain approvisionnement, et les envies du jour. Chaque provision se trouve au catalogue sous
+        son identifiant (ou celui que donne « magasin »), « par_unite » de la provision (ou « quantite » du catalogue) par
+        unité vendue."""
+        A, P = self.APPRO, self.sim.PRODUITS
+        cat = {c["produit"]: c for c in self.COMMERCE.get("catalogue", [])}
+        lignes = {}
+        def unite(pid):
+            spec = P.get(pid)
+            c = cat.get(spec.get("magasin", pid)) if spec else None
+            return (c, spec.get("par_unite") or c["quantite"]) if c else (None, None)
+        def ajouter(pid, n):
+            c, u = unite(pid)
+            if c and n > 0:
+                x = lignes.setdefault(pid, {"maison": pid, "c": c, "u": u, "n": 0})
+                x["n"] += n
+        stock = lambda pid: self.sim.stock.get(pid, 0) + (lignes[pid]["n"] * lignes[pid]["u"] if pid in lignes else 0)
+        for l in A.get("liste", []):
+            c, u = unite(l["produit"])
+            if not c:
+                continue
+            if "cible" in l:
+                manque = l["cible"] - stock(l["produit"])
+                if manque >= l.get("minimum", 1):
+                    ajouter(l["produit"], math.ceil(manque / u))
+            elif stock(l["produit"]) < l["seuil"]:
+                ajouter(l["produit"], max(1, math.ceil(l["achat"] / u)))
+        for pid, q in self.besoins_repas(depuis).items():
+            c, u = unite(pid)
+            if c and P[pid].get("suivi", True) and q > stock(pid):
+                ajouter(pid, math.ceil((q - stock(pid)) / u))
+        for x in A.get("envies", []):
+            if x["jour"] == self.jour:
+                ajouter(x["produit"], x["unites"])
+        return list(lignes.values())
+
+    @staticmethod
+    def libelle(x):
+        nom = x["c"]["nom"].split(" (")[0]
+        return nom if x["n"] == 1 else f"{x['n']} × {nom}"
+
+    def approvisionner(self, st):
+        """Au commerce : il achète sa liste et paie (espèces sous un montant, s'il lui en reste assez, sinon carte) ;
+        dans son propre commerce, il la prélève sur le stock du magasin, dans la limite de ce qui reste."""
+        d = self.etape_courante[0] if self.etape_courante else self.i
+        lignes = self.listes.get(d) or self.liste_de_courses(self.i)
+        if not lignes:
+            return
+        if self.COMMERCE is self.fiche.get("commerce"):
+            pris, textes, manques, reste = [], [], [], dict(self.sim.boutique)
+            for x in lignes:
+                cid = x["c"]["produit"]
+                n = min(x["n"], reste.get(cid, 0))
+                reste[cid] = reste.get(cid, 0) - n
+                if n < x["n"]:
+                    manques.append(x["c"]["nom"].split(" (")[0])
+                if n > 0:
+                    pris.append({"produit": cid, "quantite": n, "maison": x["maison"], "quantite_maison": n * x["u"]})
+                    textes.append(self.libelle(dict(x, n=n)))
+            if pris:
+                st["prelevements"] = pris
+            self.decisions.append(f"{hm(self.i)} : prend au magasin pour la maison : {', '.join(textes) or 'rien'}"
+                                  + (f" ; plus de {', '.join(manques)} en rayon." if manques else "."))
+            return
+        achats = [{"produit": x["maison"], "quantite": x["n"] * x["u"], "prix": round(x["n"] * x["c"]["prix"], 2)} for x in lignes]
+        total = round(sum(x["prix"] for x in achats), 2)
+        P = self.APPRO.get("paiement", {})
+        especes = total <= P.get("especes_si_moins_de", 0) and self.sim.argent.get("especes", 0) - total >= P.get("garde_en_especes", 0)
+        st["achats"] = achats
+        st["argent"] = {"especes" if especes else "compte": -total}
+        self.decisions.append(f"{hm(self.i)} : courses : {', '.join(self.libelle(x) for x in lignes)} "
+                              f"({f'{total:.2f}'.replace('.', ',')} €, {'en espèces' if especes else 'par carte'}).")
+
     def utilite(self, a, d, f, i):
         """Scores des actions possibles : l'ancrage vaut 1 ; un besoin pressant (sous son seuil d'alerte) peut
         l'emporter à tout moment ; au début d'une étape, un besoin simplement inconfortable (sous le double de
-        son seuil) aussi, avec un score moindre : il en profite avant de s'y mettre."""
+        son seuil) aussi, avec un score moindre : il en profite avant de s'y mettre. Avant une action qui anticipe
+        (une sortie qu'il ne peut pas interrompre), il répond à un besoin qui passerait sous son seuil avant la fin."""
         scores = [(1.0, None)]
-        if a.get("ininterrompable") or f - i <= 2 or self.sim.piece not in self.sim.graph:
+        if self.sim.piece not in self.sim.graph:
             return scores
         transition = i == d + self.opportunites.get(d, 0)
+        anticipe = transition and a.get("anticipe")
+        if not anticipe and (a.get("ininterrompable") or f - i <= 2):
+            return scores
         for besoin, aid in self.BESOINS.items():
             v, s = self.sim.besoins[besoin], self.SEUILS[besoin]
             if besoin in a.get("satisfait", ()) or self.piece_pour(self.A[aid]["lieu"], meme_site=True) is None:
                 continue
-            if v < s:
+            if anticipe:
+                prevu = v + self.fiche["besoins"][besoin]["variation_par_pas"]["eveille"] * (f - i)
+                if prevu < s:
+                    scores.append((1 + (s - prevu) / s, aid))
+            elif v < s:
                 scores.append((1 + (s - v) / s, aid))
             elif transition and v < 2 * s:
                 scores.append((1 + 0.5 * (2 * s - v) / (2 * s), aid))
@@ -282,6 +429,8 @@ class Habitant:
             if evs:
                 st["ev"] = evs
             self.provisions(a, st)
+            if a.get("approvisionne"):
+                self.approvisionner(st)
         objets = self.gestes(a, premier)
         if objets:
             st["objets"] = objets
@@ -393,8 +542,10 @@ class Habitant:
         lieu, extra = "domicile", {}
         if a.get("vehicule"):
             piece, lieu, extra = self.VEHICULE.get("nom_court", "véhicule"), e["lieu"], self.conduire(d, f, i)
+        elif a.get("au_commerce"):
+            piece = lieu = e["lieu"]
         elif a.get("exterieur"):
-            piece, lieu = e["lieu"], "exterieur"
+            piece, lieu = a.get("piece", e["lieu"]), "exterieur"
         elif a.get("lieu_phase"):
             piece = self.piece_pour(a["lieu_phase"]) or e["lieu"]
         elif e["lieu"] in self.sim.graph:
@@ -422,6 +573,21 @@ class Habitant:
             self.site = self.SITE[piece]
         premier = cle not in self.faits
         self.faits.add(cle)
+        # à pied depuis un logement sans site (immeuble) : il sort sur le palier, descend, marche, remonte
+        etage = (self.fiche.get("immeuble") or {}).get("etage_appartement")
+        if premier and a.get("sort") and "sortie" not in extra:
+            extra["sortie"] = True
+            if etage:
+                extra["escalier"] = {"sens": "descente"}
+        if premier and a.get("rentre") and "retour" not in extra:
+            extra["retour"] = True
+            if etage:
+                extra["escalier"] = {"sens": "montee"}
+        if a.get("trajet") and self.APPRO.get("distance_m"):
+            extra["parcours"] = [{"moyen": "marche", "distance_m": round(self.APPRO["distance_m"] / a["duree_phase"]), "denivele_m": 0}]
+        if "{liste}" in a.get("texte", ""):
+            lignes = self.listes.get(d) or []
+            a["texte"] = a["texte"].replace("{liste}", ", ".join(self.libelle(x) for x in lignes) or "rien")
         self.emettre(a, e["action"], r, piece, premier, avec=e.get("avec", ()), lieu=lieu, extra=extra)
 
     def conduire(self, d, f, i):

@@ -709,6 +709,20 @@
     "produits_prepares": []
   },
 
+  "approvisionnement": {
+    "principe": "Il se sert dans sa propre boutique : en fermant le soir, et le dimanche à midi (étapes « approvisionne » de ses routines), il prélève sur le stock du magasin ce que demandent les repas de la maison jusqu'à son prochain passage, puis ce qui passe sous son seuil. Chaque provision dit sous quel produit du catalogue elle se trouve (magasin) et combien une unité vendue en donne (par_unite).",
+    "commerce": "robert-chazal",
+    "liste": [
+      { "produit": "fruits", "seuil": 4, "achat": 4 },
+      { "produit": "fromage", "seuil": 150, "achat": 250 },
+      { "produit": "beurre", "seuil": 100, "achat": 250 },
+      { "produit": "vin_rouge", "seuil": 75, "achat": 150 },
+      { "produit": "biere", "seuil": 2, "achat": 4 },
+      { "produit": "cafe_moulu", "seuil": 150, "achat": 250 },
+      { "produit": "cafe_boutique", "seuil": 50, "achat": 250 }
+    ]
+  },
+
   "menus_prevus": {
     "regle": "Josiane cuisine le déjeuner et le dîner avec ce qu'elle achète à Cusset (viande, poisson) et ce que Robert rapporte de la boutique : à chaque départ de la boutique le soir, il prélève sur le stock du magasin ce qui manque à la maison pour le dîner du soir et le déjeuner du lendemain ; le dimanche midi, jusqu'au déjeuner du mardi, puisque le lundi il ne retourne à la boutique que pour prendre la recette. Le matin, il met de côté une baguette (deux le dimanche). Il complète aussi ses propres provisions quand elles baissent (fruits, fromage, beurre, café, vin, bière). Les quantités sont celles du repas du couple.",
     "petit_dejeuner": { "plat": "café, deux tartines beurre-confiture, comprimé pour la tension", "ingredients": [["cafe_moulu", 14], ["pain", 1], ["beurre", 10], ["confiture", 2], ["comprimes", 1]] },
@@ -799,7 +813,7 @@
         { "debut": "13:30", "fin": "13:45", "lieu": "trajet-voiture", "action": "Retour à la boutique", "activite": "conduire" },
         { "debut": "13:45", "fin": "14:00", "lieu": "boutique", "action": "Prépare la réouverture", "activite": "ouverture_boutique" },
         { "debut": "14:00", "fin": "19:00", "lieu": "boutique", "action": "Sert les clients ; café à 16:30", "activite": "tenir_boutique", "avec": ["caisse", "radio-boutique"] },
-        { "debut": "19:00", "fin": "19:15", "lieu": "arriere-boutique", "action": "Ferme, compte la caisse, range la recette au coffre", "activite": "fermeture_boutique" },
+        { "debut": "19:00", "fin": "19:15", "lieu": "arriere-boutique", "action": "Ferme, compte la caisse, range la recette au coffre", "activite": "fermeture_boutique", "approvisionne": true },
         { "debut": "19:15", "fin": "19:35", "lieu": "trajet-voiture", "action": "Rentre, dans les bouchons", "activite": "conduire" },
         { "debut": "19:35", "fin": "20:30", "lieu": "cuisine", "action": "Raconte sa journée à Josiane, dîne", "activite": "repas", "avec_personnes": ["josiane-chazal"] },
         { "debut": "20:30", "fin": "22:15", "lieu": "sejour", "action": "Télévision avec Josiane", "activite": "television", "avec": ["television"], "avec_personnes": ["josiane-chazal"] },
@@ -821,7 +835,7 @@
         { "debut": "13:30", "fin": "13:45", "lieu": "trajet-voiture", "action": "Retour à la boutique", "activite": "conduire" },
         { "debut": "13:45", "fin": "14:00", "lieu": "boutique", "action": "Prépare la réouverture", "activite": "ouverture_boutique" },
         { "debut": "14:00", "fin": "19:00", "lieu": "boutique", "action": "Sert les clients ; café à 16:30", "activite": "tenir_boutique", "avec": ["caisse", "radio-boutique"] },
-        { "debut": "19:00", "fin": "19:15", "lieu": "arriere-boutique", "action": "Ferme, compte la caisse, range la recette au coffre", "activite": "fermeture_boutique" },
+        { "debut": "19:00", "fin": "19:15", "lieu": "arriere-boutique", "action": "Ferme, compte la caisse, range la recette au coffre", "activite": "fermeture_boutique", "approvisionne": true },
         { "debut": "19:15", "fin": "19:35", "lieu": "trajet-voiture", "action": "Rentre, dans les bouchons", "activite": "conduire" },
         { "debut": "19:35", "fin": "20:40", "lieu": "cuisine", "action": "Dîne avec Josiane : pizza maison", "activite": "repas", "avec_personnes": ["josiane-chazal"] },
         { "debut": "20:40", "fin": "23:00", "lieu": "sejour", "action": "Belote avec Gérard et Monique Morel", "activite": "belote", "avec_personnes": ["josiane-chazal", "gerard-morel", "monique-morel"] },
@@ -839,7 +853,7 @@
         { "debut": "12:25", "fin": "13:30", "lieu": "cuisine", "action": "Déjeuner et sieste", "activite": "repas", "avec_personnes": ["josiane-chazal"] },
         { "debut": "13:30", "fin": "13:45", "lieu": "trajet-voiture", "action": "Retour à la boutique", "activite": "conduire" },
         { "debut": "13:45", "fin": "19:00", "lieu": "boutique", "action": "Réouverture, sert les clients ; parle du match avec les habitués", "activite": "tenir_boutique", "avec": ["caisse", "radio-boutique"] },
-        { "debut": "19:00", "fin": "19:15", "lieu": "arriere-boutique", "action": "Ferme et compte la caisse", "activite": "fermeture_boutique" },
+        { "debut": "19:00", "fin": "19:15", "lieu": "arriere-boutique", "action": "Ferme et compte la caisse", "activite": "fermeture_boutique", "approvisionne": true },
         { "debut": "19:15", "fin": "19:35", "lieu": "trajet-voiture", "action": "Rentre", "activite": "conduire" },
         { "debut": "19:35", "fin": "20:40", "lieu": "cuisine", "action": "Dîne avec Josiane", "activite": "repas", "avec_personnes": ["josiane-chazal"] },
         { "debut": "20:40", "fin": "22:45", "lieu": "sejour", "action": "Regarde Real Madrid – Lyon ; Josiane monte se coucher à la mi-temps", "activite": "match", "avec": ["television"] },
@@ -852,7 +866,7 @@
         { "debut": "06:15", "fin": "06:30", "lieu": "trajet-voiture", "action": "Route vers la Croix-Rousse, rues vides", "activite": "conduire" },
         { "debut": "06:30", "fin": "07:00", "lieu": "boutique", "action": "Pain, lève le rideau", "activite": "ouverture_boutique" },
         { "debut": "07:00", "fin": "12:00", "lieu": "boutique", "action": "Sert les clients du dimanche", "activite": "tenir_boutique", "avec": ["caisse", "radio-boutique"] },
-        { "debut": "12:00", "fin": "12:10", "lieu": "arriere-boutique", "action": "Ferme et compte la caisse", "activite": "fermeture_boutique" },
+        { "debut": "12:00", "fin": "12:10", "lieu": "arriere-boutique", "action": "Ferme et compte la caisse", "activite": "fermeture_boutique", "approvisionne": true },
         { "debut": "12:10", "fin": "12:45", "lieu": "boutique", "action": "Fin de semaine : tri des produits frais périmés, ménage, comptes de la semaine, bon de commande pour mardi", "activite": "travail_boutique" },
         { "debut": "12:45", "fin": "13:05", "lieu": "trajet-voiture", "action": "Rentre, le cabas rempli jusqu'au déjeuner de mardi", "activite": "conduire" },
         { "debut": "13:05", "fin": "14:15", "lieu": "sejour", "action": "Déjeuner du dimanche avec Josiane", "activite": "repas", "avec_personnes": ["josiane-chazal"] },

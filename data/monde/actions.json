@@ -17,7 +17,11 @@
     "objets": "objets déplacés au premier pas, par rôle (la fiche dit quel objet tient le rôle et où il se trouve dans chaque état : porte, usage… ; rangement est sa place de départ)",
     "tient": "objets gardés pendant toute l'action (liste de rôles : portés), reposés à leur place dès que le pas suivant ne les demande plus",
     "menu": "repas de la fiche (menus_prevus) consommé par l'action : son nom, ou true pour le déjeuner avant 16:00 et le dîner après",
-    "consomme": "usages de la fiche (collations) dont il prend une portion au premier pas, le premier possible dans l'ordre"
+    "consomme": "usages de la fiche (collations) dont il prend une portion au premier pas, le premier possible dans l'ordre",
+    "courses": "aller au commerce de la fiche (approvisionnement), y acheter ce qui manque et rentrer ; n'a pas lieu si le commerce est fermé ou si rien ne manque",
+    "anticipe": "avant de s'y mettre, il répond aux besoins qui passeraient sous leur seuil d'alerte avant la fin (toilettes, verre d'eau avant de sortir)",
+    "approvisionne": "phase (ou étape de routine) où il achète sa liste au commerce, ou la prélève dans son propre commerce",
+    "sort, rentre, trajet, au_commerce": "phases d'une sortie à pied : il sort sur le palier (et descend l'escalier), marche (distance de approvisionnement), est au commerce (lieu de l'étape), rentre"
   },
   "actions": {
     "sommeil": { "banal": true, "lieu": "lit", "posture": "allongé", "charge": "sommeil", "mode": "sommeil", "texte": "Dort.", "ininterrompable": true },
@@ -86,6 +90,18 @@
     "travail_bureau": { "exterieur": true, "posture": "assis", "charge": "simple", "mode": "travail", "texte": "Travaille au bureau.", "effets": { "social": 10 } },
     "courses_quartier": { "sujet": "les prix", "exterieur": true, "posture": "debout", "charge": "simple", "texte": "Fait ses courses dans le quartier.", "effets": { "social": 5 } },
     "passager": { "banal": true, "vehicule": true, "posture": "assis", "charge": "repos", "texte": "En voiture, passager.", "ininterrompable": true },
+    "courses": { "sujet": "les prix", "courses": true, "ininterrompable": true, "anticipe": true, "lieu": "évier", "texte": "Fait ses courses.",
+      "phases": [
+        { "part": 0.12, "posture": "debout", "charge": "simple", "texte": "Ouvre le réfrigérateur et le placard et note ce qui manque : {liste}." },
+        { "part": 0.11, "lieu": "entree", "posture": "debout", "charge": "simple", "texte": "Enfile sa veste, prend son sac de courses, son portefeuille et ses clés, et ferme la porte.", "objets": { "veste": "porte", "cabas": "porte", "portefeuille": "poche", "cles": "poche" } },
+        { "part": 0.22, "exterieur": true, "piece": "trajet", "sort": true, "trajet": true, "posture": "en marche", "charge": "simple", "texte": "Marche jusqu'au commerce." },
+        { "part": 0.11, "au_commerce": true, "posture": "debout", "charge": "simple", "texte": "Fait le tour des rayons : {liste}.", "ev": ["echange_commercant"], "effets": { "social": 5 } },
+        { "part": 0.11, "au_commerce": true, "posture": "debout", "charge": "simple", "texte": "Passe à la caisse, paie et range ses achats dans son sac.", "approvisionne": true },
+        { "part": 0.11, "exterieur": true, "piece": "trajet", "trajet": true, "posture": "en marche", "charge": "simple", "texte": "Rentre, son sac à la main." },
+        { "part": 0.11, "lieu": "entree", "rentre": true, "posture": "debout", "charge": "simple", "texte": "Rentre, accroche sa veste, pose ses clés et range son portefeuille.", "objets": { "veste": "rangement", "cles": "rangement", "portefeuille": "rangement" } },
+        { "part": 0.11, "posture": "debout", "charge": "simple", "texte": "Range ses courses.", "objets": { "cabas": "rangement" } }
+      ]
+    },
     "randonnee": { "sujet": "le paysage", "exterieur": true, "posture": "en marche", "charge": "simple", "mode": "effort", "texte": "Randonnée.", "ininterrompable": true }
   }
 }

@@ -47,6 +47,7 @@
    "beurre": "10 g",
    "confiture d'abricots de Josiane": "2 cuillères",
    "comprimés pour la tension": "1 comprimé",
+   "riz": "250 g",
    "fruits de la boutique": "1 fruit",
    "carottes": "300 g",
    "pommes de terre": "300 g",
@@ -116,7 +117,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 14
+     "stock": 13
     },
     "beurre": {
      "nom": "beurre (plaquette de 250 g)",
@@ -143,7 +144,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 9
+     "stock": 8
     },
     "jambon": {
      "nom": "jambon blanc (4 tranches)",
@@ -152,7 +153,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 12
+     "stock": 11
     },
     "cafe_moulu": {
      "nom": "café moulu (paquet de 250 g)",
@@ -188,7 +189,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 15
+     "stock": 14
     },
     "thon": {
      "nom": "thon (boîte)",
@@ -240,9 +241,9 @@
      "vendu": 0,
      "livre": 0,
      "repris": 0,
-     "preleve": 0,
+     "preleve": 4,
      "recette": 0.0,
-     "stock": 40
+     "stock": 36
     },
     "vin_rouge": {
      "nom": "vin rouge, côtes-du-rhône (bouteille de 75 cl)",
@@ -305,7 +306,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 10
+     "stock": 9
     },
     "pommes_de_terre": {
      "nom": "pommes de terre (sac de 2,5 kg)",
@@ -332,7 +333,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 30
+     "stock": 29
     },
     "salade": {
      "nom": "laitue",
@@ -381,7 +382,7 @@
    "fromage (comté)": "280 g",
    "fruits de la boutique": "4 fruits",
    "vin rouge (côtes-du-rhône)": "201 cl",
-   "bière": "1 bouteille",
+   "bière": "5 bouteilles",
    "comprimés pour la tension": "14 comprimés",
    "pommes de terre": "1600 g",
    "carottes": "600 g",
@@ -390,8 +391,8 @@
    "laitue": "0 laitue",
    "tomates": "0 g",
    "jambon blanc": "0 tranche",
-   "emmental râpé": "0 g",
-   "riz": "50 g",
+   "emmental râpé": "100 g",
+   "riz": "800 g",
    "pâtes": "500 g",
    "haricots verts en boîte": "0 boîte",
    "farine": "400 g",
@@ -425,8 +426,9 @@
   "ecarts_a_la_routine": [
    "05:55 : café, deux tartines beurre-confiture, comprimé pour la tension sans pain (baguettes mises de côté à la boutique) (plus en stock).",
    "11:30 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 09:30 ».",
-   "12:25 : reste de poulet basquaise, riz sans riz, pain (baguettes mises de côté à la boutique) (plus en stock).",
+   "12:25 : reste de poulet basquaise, riz sans pain (baguettes mises de côté à la boutique) (plus en stock).",
    "17:20 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 16:30 ».",
+   "19:05 : prend au magasin pour la maison : 4 × bière ; plus de baguette en rayon.",
    "19:35 : soupe de légumes, tartines de comté sans pain (baguettes mises de côté à la boutique) (plus en stock)."
   ]
  },
@@ -497,8 +499,8 @@
    "salade": 0,
    "tomates": 0,
    "jambon": 0,
-   "fromage_rape": 0,
-   "riz": 50,
+   "fromage_rape": 100,
+   "riz": 1050,
    "pates": 500,
    "haricots_verts": 0,
    "farine": 400,
@@ -516,15 +518,15 @@
    "pain_campagne": 0,
    "lait_uht": 30,
    "yaourts": 14,
-   "oeufs": 14,
+   "oeufs": 13,
    "beurre": 10,
    "comte": 8,
-   "fromage_rape": 9,
-   "jambon": 12,
+   "fromage_rape": 8,
+   "jambon": 11,
    "cafe_moulu": 20,
    "chocolat_noir": 15,
    "pates": 30,
-   "riz": 15,
+   "riz": 14,
    "thon": 20,
    "haricots_verts": 18,
    "sucre": 10,
@@ -537,10 +539,10 @@
    "pommes": 55,
    "oranges": 44,
    "bananes": 40,
-   "tomates": 10,
+   "tomates": 9,
    "pommes_de_terre": 7,
    "carottes": 9,
-   "oignons": 30,
+   "oignons": 29,
    "salade": 3,
    "papier_toilette": 8,
    "lessive": 4,
@@ -668,7 +670,7 @@
    "fromage": 280,
    "fruits": 4,
    "vin_rouge": 201,
-   "biere": 1,
+   "biere": 5,
    "comprimes": 14,
    "pommes_de_terre": 1600,
    "carottes": 600,
@@ -677,8 +679,8 @@
    "salade": 0,
    "tomates": 0,
    "jambon": 0,
-   "fromage_rape": 0,
-   "riz": 50,
+   "fromage_rape": 100,
+   "riz": 800,
    "pates": 500,
    "haricots_verts": 0,
    "farine": 400,
@@ -696,31 +698,31 @@
    "pain_campagne": 0,
    "lait_uht": 30,
    "yaourts": 14,
-   "oeufs": 14,
+   "oeufs": 13,
    "beurre": 10,
    "comte": 8,
-   "fromage_rape": 9,
-   "jambon": 12,
+   "fromage_rape": 8,
+   "jambon": 11,
    "cafe_moulu": 20,
    "chocolat_noir": 15,
    "pates": 30,
-   "riz": 15,
+   "riz": 14,
    "thon": 20,
    "haricots_verts": 18,
    "sucre": 10,
    "farine": 8,
    "huile": 8,
-   "biere": 40,
+   "biere": 36,
    "vin_rouge": 18,
    "eau": 30,
    "jus_orange": 12,
    "pommes": 55,
    "oranges": 44,
    "bananes": 40,
-   "tomates": 10,
+   "tomates": 9,
    "pommes_de_terre": 7,
    "carottes": 9,
-   "oignons": 30,
+   "oignons": 29,
    "salade": 3,
    "papier_toilette": 8,
    "lessive": 4,
@@ -6193,6 +6195,13 @@
    },
    "consommation": [
     {
+     "produit": "riz",
+     "nom": "riz",
+     "quantite": 250,
+     "unite": "g",
+     "reste": 800
+    },
+    {
      "produit": "fruits",
      "nom": "fruits de la boutique",
      "quantite": 1,
@@ -9190,6 +9199,17 @@
    "activite": "Ferme, compte la caisse, range la recette au coffre",
    "action": "Baisse le rideau, compte la caisse.",
    "pensee": null,
+   "prelevements": [
+    {
+     "produit": "biere",
+     "nom": "bière (bouteille de 33 cl)",
+     "quantite": 4,
+     "reste": 36,
+     "maison": "biere",
+     "quantite_maison": 4,
+     "reste_maison": 5
+    }
+   ],
    "lumiere": [
     "éteint la lumière (boutique)"
    ],

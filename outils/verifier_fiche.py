@@ -5,7 +5,7 @@ Usage : python3 outils/verifier_fiche.py data/personnages/thomas-berthier.json
 Contrôles : lieux, pièces et objets référencés, heures multiples de 5 minutes,
 plan connexe (pour chaque lieu privé, toutes ses pièces atteintes depuis son
 entrée), événements des déclencheurs présents dans le modèle émotionnel,
-routines sans trou ni chevauchement, capacité de travail ; pour un commerçant,
+routines sans trou ni chevauchement (une étape comprise dans une autre s'y insère), capacité de travail ; pour un commerçant,
 produits des paniers et des habitués présents au catalogue, horaires.
 """
 import json, os, sys
@@ -87,11 +87,15 @@ for j in jours:
                 if e['lieu'] not in valid_lieux: errs.append(f"lieu d'étape inconnu {e['lieu']} ({r['id']})")
                 fin = m(e['fin']) if e['fin'] else 24*60
                 steps.append((m(e['debut']), fin, r['id'], e['action'][:40]))
-    steps.sort()
+    steps.sort(key=lambda x: (x[0], -x[1]))
+    # une étape entièrement comprise dans une autre s'y insère (des courses prises sur le temps libre) : l'habitant
+    # générique fait la plus courte ; le reste de la journée doit s'enchaîner sans trou ni chevauchement
+    inserees = [s for s in steps if any(o is not s and o[0] <= s[0] and s[1] <= o[1] and (o[1] - o[0]) > (s[1] - s[0]) for o in steps)]
+    steps = [s for s in steps if s not in inserees]
     for a, b in zip(steps, steps[1:]):
         if b[0] < a[1]: errs.append(f"{j}: chevauchement {a[2]} {a[0]//60:02}:{a[0]%60:02}-{a[1]//60:02}:{a[1]%60:02} / {b[2]} {b[0]//60:02}:{b[0]%60:02}")
         elif b[0] > a[1]: errs.append(f"{j}: trou {a[1]//60:02}:{a[1]%60:02}-{b[0]//60:02}:{b[0]%60:02}")
-    print(j, f"{steps[0][0]//60:02}:{steps[0][0]%60:02} → coucher", f"{len(steps)} étapes")
+    print(j, f"{steps[0][0]//60:02}:{steps[0][0]%60:02} → coucher", f"{len(steps)} étapes" + (f", {len(inserees)} insérée(s)" if inserees else ""))
 C = d.get('commerce')
 if C:
     cat = {x['produit'] for x in C['catalogue']}

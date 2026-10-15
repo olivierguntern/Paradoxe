@@ -50,6 +50,7 @@
    "comprimés pour la tension": "1 comprimé",
    "laitue": "1 laitue",
    "fruits de la boutique": "1 fruit",
+   "œufs": "6 œufs",
    "pommes de terre": "500 g",
    "oignons": "1 oignon",
    "fromage (comté)": "40 g",
@@ -116,9 +117,9 @@
      "vendu": 0,
      "livre": 0,
      "repris": 0,
-     "preleve": 0,
+     "preleve": 1,
      "recette": 0.0,
-     "stock": 14
+     "stock": 13
     },
     "beurre": {
      "nom": "beurre (plaquette de 250 g)",
@@ -305,9 +306,9 @@
      "vendu": 0,
      "livre": 0,
      "repris": 0,
-     "preleve": 0,
+     "preleve": 1,
      "recette": 0.0,
-     "stock": 10
+     "stock": 9
     },
     "pommes_de_terre": {
      "nom": "pommes de terre (sac de 2,5 kg)",
@@ -332,9 +333,9 @@
      "vendu": 0,
      "livre": 0,
      "repris": 0,
-     "preleve": 0,
+     "preleve": 1,
      "recette": 0.0,
-     "stock": 30
+     "stock": 29
     },
     "salade": {
      "nom": "laitue",
@@ -387,10 +388,10 @@
    "comprimés pour la tension": "16 comprimés",
    "pommes de terre": "1900 g",
    "carottes": "900 g",
-   "oignons": "0 oignon",
+   "oignons": "1 oignon",
    "œufs": "2 œufs",
    "laitue": "0 laitue",
-   "tomates": "0 g",
+   "tomates": "500 g",
    "jambon blanc": "0 tranche",
    "emmental râpé": "0 g",
    "riz": "300 g",
@@ -436,7 +437,7 @@
    "11:25 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 09:30 ».",
    "12:25 : reste de gratin, salade verte sans pain (baguettes mises de côté à la boutique) (plus en stock).",
    "17:15 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 16:30 ».",
-   "19:35 : omelette aux pommes de terre sans œufs (plus en stock)."
+   "19:05 : prend au magasin pour la maison : œufs, oignons, tomates ; plus de baguette en rayon."
   ]
  },
  "etat_initial": {
@@ -671,10 +672,10 @@
    "comprimes": 16,
    "pommes_de_terre": 1900,
    "carottes": 900,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
-   "tomates": 0,
+   "tomates": 500,
    "jambon": 0,
    "fromage_rape": 0,
    "riz": 300,
@@ -695,7 +696,7 @@
    "pain_campagne": 0,
    "lait_uht": 30,
    "yaourts": 14,
-   "oeufs": 14,
+   "oeufs": 13,
    "beurre": 10,
    "comte": 8,
    "fromage_rape": 9,
@@ -716,10 +717,10 @@
    "pommes": 55,
    "oranges": 44,
    "bananes": 40,
-   "tomates": 10,
+   "tomates": 9,
    "pommes_de_terre": 7,
    "carottes": 9,
-   "oignons": 30,
+   "oignons": 29,
    "salade": 3,
    "papier_toilette": 8,
    "lessive": 4,
@@ -9203,6 +9204,35 @@
    "activite": "Ferme, compte la caisse, range la recette au coffre",
    "action": "Baisse le rideau, compte la caisse.",
    "pensee": null,
+   "prelevements": [
+    {
+     "produit": "oeufs",
+     "nom": "œufs (boîte de 6)",
+     "quantite": 1,
+     "reste": 13,
+     "maison": "oeufs",
+     "quantite_maison": 6,
+     "reste_maison": 8
+    },
+    {
+     "produit": "oignons",
+     "nom": "oignons",
+     "quantite": 1,
+     "reste": 29,
+     "maison": "oignons",
+     "quantite_maison": 1,
+     "reste_maison": 2
+    },
+    {
+     "produit": "tomates",
+     "nom": "tomates (barquette de 500 g)",
+     "quantite": 1,
+     "reste": 9,
+     "maison": "tomates",
+     "quantite_maison": 500,
+     "reste_maison": 500
+    }
+   ],
    "lumiere": [
     "éteint la lumière (boutique)"
    ],
@@ -9472,6 +9502,13 @@
    },
    "consommation": [
     {
+     "produit": "oeufs",
+     "nom": "œufs",
+     "quantite": 6,
+     "unite": "œufs",
+     "reste": 2
+    },
+    {
      "produit": "pommes_de_terre",
      "nom": "pommes de terre",
      "quantite": 500,
@@ -9483,7 +9520,7 @@
      "nom": "oignons",
      "quantite": 1,
      "unite": "oignons",
-     "reste": 0
+     "reste": 1
     },
     {
      "produit": "fromage",

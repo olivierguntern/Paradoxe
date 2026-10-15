@@ -47,9 +47,13 @@
    "beurre": "30 g",
    "confiture d'abricots de Josiane": "2 cuillères",
    "comprimés pour la tension": "1 comprimé",
+   "tomates": "500 g",
+   "oignons": "1 oignon",
    "riz": "250 g",
    "fruits de la boutique": "1 fruit",
    "viande, poisson et ingrédients achetés par Josiane à Cusset": "utilisés (non suivis)",
+   "jambon blanc": "4 tranches",
+   "emmental râpé": "100 g",
    "bière": "1 bouteille"
   },
   "plats_prepares": {},
@@ -115,7 +119,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 14
+     "stock": 13
     },
     "beurre": {
      "nom": "beurre (plaquette de 250 g)",
@@ -140,18 +144,18 @@
      "vendu": 0,
      "livre": 0,
      "repris": 0,
-     "preleve": 0,
+     "preleve": 1,
      "recette": 0.0,
-     "stock": 9
+     "stock": 8
     },
     "jambon": {
      "nom": "jambon blanc (4 tranches)",
      "vendu": 0,
      "livre": 0,
      "repris": 0,
-     "preleve": 0,
+     "preleve": 1,
      "recette": 0.0,
-     "stock": 12
+     "stock": 11
     },
     "cafe_moulu": {
      "nom": "café moulu (paquet de 250 g)",
@@ -185,9 +189,9 @@
      "vendu": 0,
      "livre": 0,
      "repris": 0,
-     "preleve": 0,
+     "preleve": 1,
      "recette": 0.0,
-     "stock": 15
+     "stock": 14
     },
     "thon": {
      "nom": "thon (boîte)",
@@ -304,7 +308,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 10
+     "stock": 9
     },
     "pommes_de_terre": {
      "nom": "pommes de terre (sac de 2,5 kg)",
@@ -331,7 +335,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 30
+     "stock": 29
     },
     "salade": {
      "nom": "laitue",
@@ -389,8 +393,8 @@
    "laitue": "0 laitue",
    "tomates": "0 g",
    "jambon blanc": "0 tranche",
-   "emmental râpé": "0 g",
-   "riz": "50 g",
+   "emmental râpé": "100 g",
+   "riz": "1050 g",
    "pâtes": "500 g",
    "haricots verts en boîte": "0 boîte",
    "farine": "400 g",
@@ -435,12 +439,13 @@
   "endormissement": "extinction à 23:00 ; anxiété 0.252 (seuil 0.65), excitation 0.203 (seuil 0.5) : endormissement en 15 minutes",
   "ecarts_a_la_routine": [
    "05:30 : café, deux tartines beurre-confiture, comprimé pour la tension sans pain (baguettes mises de côté à la boutique) (plus en stock).",
-   "12:25 : poulet basquaise, riz sans tomates, oignons, pain (baguettes mises de côté à la boutique) (plus en stock).",
+   "12:25 : poulet basquaise, riz sans pain (baguettes mises de côté à la boutique) (plus en stock).",
    "12:55 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Déjeuner et sieste ».",
    "14:40 : soif sous le seuil d'alerte (39.4, score 1.01) ; interrompt « Réouverture, sert les clients ; parle du match avec les habitués ».",
    "17:35 : soif sous le seuil d'alerte (39.9, score 1.0) ; interrompt « Réouverture, sert les clients ; parle du match avec les habitués ».",
    "18:45 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Réouverture, sert les clients ; parle du match avec les habitués ».",
-   "19:35 : croque-monsieur devant le match, une bière sans jambon blanc, emmental râpé, pain (baguettes mises de côté à la boutique) (plus en stock)."
+   "19:05 : prend au magasin pour la maison : jambon blanc, emmental râpé, riz ; plus de baguette en rayon.",
+   "19:35 : croque-monsieur devant le match, une bière sans pain (baguettes mises de côté à la boutique) (plus en stock)."
   ]
  },
  "etat_initial": {
@@ -505,10 +510,10 @@
    "comprimes": 16,
    "pommes_de_terre": 1900,
    "carottes": 900,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
-   "tomates": 0,
+   "tomates": 500,
    "jambon": 0,
    "fromage_rape": 0,
    "riz": 300,
@@ -529,7 +534,7 @@
    "pain_campagne": 0,
    "lait_uht": 30,
    "yaourts": 14,
-   "oeufs": 14,
+   "oeufs": 13,
    "beurre": 10,
    "comte": 8,
    "fromage_rape": 9,
@@ -550,10 +555,10 @@
    "pommes": 55,
    "oranges": 44,
    "bananes": 40,
-   "tomates": 10,
+   "tomates": 9,
    "pommes_de_terre": 7,
    "carottes": 9,
-   "oignons": 30,
+   "oignons": 29,
    "salade": 3,
    "papier_toilette": 8,
    "lessive": 4,
@@ -630,8 +635,8 @@
    "salade": 0,
    "tomates": 0,
    "jambon": 0,
-   "fromage_rape": 0,
-   "riz": 50,
+   "fromage_rape": 100,
+   "riz": 1050,
    "pates": 500,
    "haricots_verts": 0,
    "farine": 400,
@@ -649,15 +654,15 @@
    "pain_campagne": 0,
    "lait_uht": 30,
    "yaourts": 14,
-   "oeufs": 14,
+   "oeufs": 13,
    "beurre": 10,
    "comte": 8,
-   "fromage_rape": 9,
-   "jambon": 12,
+   "fromage_rape": 8,
+   "jambon": 11,
    "cafe_moulu": 20,
    "chocolat_noir": 15,
    "pates": 30,
-   "riz": 15,
+   "riz": 14,
    "thon": 20,
    "haricots_verts": 18,
    "sucre": 10,
@@ -670,10 +675,10 @@
    "pommes": 55,
    "oranges": 44,
    "bananes": 40,
-   "tomates": 10,
+   "tomates": 9,
    "pommes_de_terre": 7,
    "carottes": 9,
-   "oignons": 30,
+   "oignons": 29,
    "salade": 3,
    "papier_toilette": 8,
    "lessive": 4,
@@ -6025,6 +6030,20 @@
    },
    "consommation": [
     {
+     "produit": "tomates",
+     "nom": "tomates",
+     "quantite": 500,
+     "unite": "g",
+     "reste": 0
+    },
+    {
+     "produit": "oignons",
+     "nom": "oignons",
+     "quantite": 1,
+     "unite": "oignons",
+     "reste": 0
+    },
+    {
      "produit": "riz",
      "nom": "riz",
      "quantite": 250,
@@ -8983,6 +9002,35 @@
    "activite": "Ferme et compte la caisse",
    "action": "Baisse le rideau, compte la caisse.",
    "pensee": null,
+   "prelevements": [
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "reste": 11,
+     "maison": "jambon",
+     "quantite_maison": 4,
+     "reste_maison": 4
+    },
+    {
+     "produit": "fromage_rape",
+     "nom": "emmental râpé (sachet de 200 g)",
+     "quantite": 1,
+     "reste": 8,
+     "maison": "fromage_rape",
+     "quantite_maison": 200,
+     "reste_maison": 200
+    },
+    {
+     "produit": "riz",
+     "nom": "riz (paquet d'un kilo)",
+     "quantite": 1,
+     "reste": 14,
+     "maison": "riz",
+     "quantite_maison": 1000,
+     "reste_maison": 1050
+    }
+   ],
    "appareils_allumes": [
     "lumiere-arriere-boutique"
    ],
@@ -9239,6 +9287,20 @@
     "foulees": 12
    },
    "consommation": [
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc",
+     "quantite": 4,
+     "unite": "tranches",
+     "reste": 0
+    },
+    {
+     "produit": "fromage_rape",
+     "nom": "emmental râpé",
+     "quantite": 100,
+     "unite": "g",
+     "reste": 100
+    },
     {
      "produit": "beurre",
      "nom": "beurre",

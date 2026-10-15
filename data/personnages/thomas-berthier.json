@@ -691,6 +691,28 @@
     }
   },
 
+  "approvisionnement": {
+    "principe": "Tous les deux jours (routines rt-courses), il complète ses provisions à l'épicerie de Robert Chazal, à 500 m : la corbeille de fruits, les yaourts et les œufs jusqu'à leur cible, ce qui passe sous son seuil, puis ce que demandent ses menus jusqu'aux prochaines courses, et les envies du jour. Il paie en espèces une petite somme s'il lui en reste assez, sinon par carte.",
+    "commerce": "robert-chazal",
+    "distance_m": 500,
+    "liste": [
+      { "produit": "pommes", "cible": 8, "minimum": 2 },
+      { "produit": "oranges", "cible": 6, "minimum": 2 },
+      { "produit": "bananes", "cible": 6, "minimum": 2 },
+      { "produit": "yaourts", "cible": 8, "minimum": 4 },
+      { "produit": "oeufs", "cible": 12, "minimum": 6 },
+      { "produit": "lait_uht", "seuil": 1000, "achat": 1000 },
+      { "produit": "beurre", "seuil": 150, "achat": 250 },
+      { "produit": "cafe_moulu", "seuil": 160, "achat": 250 },
+      { "produit": "chocolat_noir", "seuil": 25, "achat": 20 },
+      { "produit": "comte", "seuil": 300, "achat": 250 }
+    ],
+    "paiement": { "especes_si_moins_de": 15, "garde_en_especes": 5 },
+    "envies": [
+      { "jour": "samedi", "produit": "pain_campagne", "unites": 1, "pour": "le brunch de dimanche" }
+    ]
+  },
+
   "collations": {
     "principe": "Ce qu'il prend pour chaque usage (café, fruit d'une pause ou d'un petit creux, biscottes à défaut, chocolat du soir) : plusieurs choix possibles, alternés d'un jour à l'autre parmi ceux qui sont en stock.",
     "cafe": [{ "cafe_moulu": 7 }],
@@ -700,12 +722,12 @@
   },
 
   "objets": [
-    { "id": "obj-cles", "nom": "Trousseau de clés", "description": "Clé de l'appartement et clé de la boîte aux lettres, porte-clés en laiton fait main.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "vide-poche de la commode" }, "importance": 0.9, "usage": "fermer l'appartement pendant les sorties de course", "role": "cles", "positions": { "porte": "poche du coupe-vent" } },
+    { "id": "obj-cles", "nom": "Trousseau de clés", "description": "Clé de l'appartement et clé de la boîte aux lettres, porte-clés en laiton fait main.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "vide-poche de la commode" }, "importance": 0.9, "usage": "fermer l'appartement pendant les sorties de course", "role": "cles", "positions": { "porte": "poche du coupe-vent", "poche": "poche de la veste" } },
     { "id": "obj-montre-poignet", "nom": "Montre mécanique LIP Himalaya des années 1970", "description": "Remontage manuel ; Thomas la remonte chaque matin. Réserve de marche : 40 h.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.8, "role": "montre", "positions": { "porte": "poignet gauche" } },
     { "id": "obj-reveil", "nom": "Réveil radio-piloté", "description": "Se règle seul sur le signal horaire officiel ; sert de référence pour régler les montres. Sonnerie à 07:00 du lundi au vendredi.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.7 },
-    { "id": "obj-portefeuille", "nom": "Portefeuille en cuir", "contenu": ["35 € en espèces", "carte bancaire", "carte Vitale", "carte d'identité", "carte d'électeur"], "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "tiroir de la commode" }, "importance": 0.6, "usage": "courses à l'épicerie, cinéma, vote" },
-    { "id": "obj-cabas", "nom": "Cabas en toile", "description": "Sac de courses en toile écrue, rapporté d'un salon d'horlogerie à Besançon.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-manteau" }, "importance": 0.1 },
-    { "id": "obj-veste", "nom": "Veste en laine gris foncé", "description": "Sa veste de tous les jours pour sortir.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-manteau" }, "importance": 0.1 },
+    { "id": "obj-portefeuille", "nom": "Portefeuille en cuir", "contenu": ["35 € en espèces", "carte bancaire", "carte Vitale", "carte d'identité", "carte d'électeur"], "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "tiroir de la commode" }, "importance": 0.6, "usage": "courses à l'épicerie, cinéma, vote", "role": "portefeuille", "positions": { "poche": "poche de la veste" } },
+    { "id": "obj-cabas", "nom": "Cabas en toile", "description": "Sac de courses en toile écrue, rapporté d'un salon d'horlogerie à Besançon.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-manteau" }, "importance": 0.1, "role": "cabas" },
+    { "id": "obj-veste", "nom": "Veste en laine gris foncé", "description": "Sa veste de tous les jours pour sortir.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-manteau" }, "importance": 0.1, "role": "veste", "positions": { "porte": "porté" } },
     { "id": "obj-carnet", "nom": "Carnet noir", "description": "Journal personnel, listes et réflexions du soir.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet, sous le livre" }, "importance": 0.7, "role": "carnet", "positions": { "usage": "sejour / table à manger" } },
     { "id": "obj-livre", "nom": "Livre « La Route » de Cormac McCarthy", "description": "Marque-page à la page 112 sur 252 ; lit environ 20 pages par séance.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.2, "role": "livre" },
     { "id": "obj-livre-courir", "nom": "Livre « Courir » de Jean Echenoz", "description": "Roman sur le coureur Emil Zátopek (Éditions de Minuit, 2008, 142 pages). Pas encore commencé.", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "bibliothèque" }, "importance": 0.2 },
@@ -844,6 +866,22 @@
           { "debut": "22:40", "fin": "23:00", "lieu": "cuisine", "action": "Vaisselle, toilette rapide", "activite": "vaisselle" },
           { "debut": "23:00", "fin": "23:30", "lieu": "chambre", "action": "Repense au match, a du mal à s'endormir", "activite": "eveille_au_lit" },
           { "debut": "23:30", "fin": null, "lieu": "chambre", "action": "S'endort", "activite": "coucher" }
+        ]
+      },
+      {
+        "id": "rt-courses",
+        "nom": "Courses à l'épicerie après l'atelier",
+        "jours": ["mardi", "jeudi"],
+        "etapes": [
+          { "debut": "18:00", "fin": "18:45", "lieu": "epicerie-chazal", "action": "Courses à l'épicerie de la Grande-Rue, sur son temps libre", "activite": "courses" }
+        ]
+      },
+      {
+        "id": "rt-courses-samedi",
+        "nom": "Courses à l'épicerie après le ménage",
+        "jours": ["samedi"],
+        "etapes": [
+          { "debut": "11:30", "fin": "12:15", "lieu": "epicerie-chazal", "action": "Courses à l'épicerie de la Grande-Rue, avant le déjeuner", "activite": "courses" }
         ]
       },
       {

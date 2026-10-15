@@ -24,12 +24,12 @@
  },
  "resume": {
   "deplacements": {
-   "entre_pieces_m": 193,
-   "dans_les_pieces_m_estimes": 283,
+   "entre_pieces_m": 184,
+   "dans_les_pieces_m_estimes": 279,
    "exterieur_m": 0,
-   "total_m": 476,
-   "foulees_et_marches": 662,
-   "passages_de_piece": 54,
+   "total_m": 463,
+   "foulees_et_marches": 643,
+   "passages_de_piece": 52,
    "marches_d_escalier": 0,
    "denivele_positif_m": 0,
    "denivele_negatif_m": 0
@@ -56,13 +56,13 @@
    "obj-livre": "chambre / table de chevet"
   },
   "provisions_consommees": {
-   "pommes": "1 pomme",
-   "oranges": "3 oranges",
    "café moulu": "7 g",
    "œufs": "2 œufs",
    "beurre": "10 g",
    "pain de campagne en tranches": "2 tranches",
    "comté": "50 g",
+   "oranges": "2 oranges",
+   "pommes": "1 pomme",
    "riz": "80 g",
    "ratatouille en conserve": "1 boîte",
    "chocolat noir": "2 carrés"
@@ -72,14 +72,14 @@
   "argent": {
    "mouvements_du_jour": {},
    "soldes_en_fin_de_journee": {
-    "especes": 35,
+    "especes": 22.8,
     "compte": 940
    }
   },
   "stock_en_fin_de_journee": {
    "café moulu": "159 g",
    "pain de campagne en tranches": "6 tranches",
-   "pain de campagne frais": "0 pain",
+   "pain de campagne frais": "1 pain",
    "biscottes": "30 biscottes",
    "beurre": "140 g",
    "confiture d'abricot": "25 cuillères",
@@ -89,7 +89,7 @@
    "cuisses de poulet crues": "0 cuisse",
    "lardons": "100 g",
    "saucisse de Morteau": "0 saucisse",
-   "comté": "240 g",
+   "comté": "490 g",
    "steaks hachés surgelés": "1 steak",
    "poisson pané surgelé": "7 pièces",
    "pâtes": "625 g",
@@ -102,9 +102,9 @@
    "poireaux": "3 poireaux",
    "carottes": "800 g",
    "oignons": "3 oignons",
-   "pommes": "0 pomme",
-   "oranges": "0 orange",
-   "bananes": "0 banane",
+   "pommes": "7 pommes",
+   "oranges": "4 oranges",
+   "bananes": "6 bananes",
    "chocolat noir": "28 carrés",
    "bière": "3 bouteilles",
    "vin rouge (Côtes-du-Rhône)": "41 cl",
@@ -114,18 +114,16 @@
    "soupe poireaux-pommes de terre": "0 portion"
   },
   "besoins_sous_le_seuil_d_alerte": [
-   "10:25 soif = 39.9 (seuil 40)",
-   "10:30 soif = 39.2 (seuil 40)",
-   "10:35 soif = 38.5 (seuil 40)",
-   "10:40 soif = 37.8 (seuil 40)",
-   "10:45 soif = 37.1 (seuil 40)",
-   "10:50 soif = 36.4 (seuil 40)",
-   "10:55 soif = 35.7 (seuil 40)",
-   "11:00 soif = 35.0 (seuil 40)",
-   "11:05 soif = 34.3 (seuil 40)",
-   "11:10 soif = 33.6 (seuil 40)",
-   "11:15 soif = 32.9 (seuil 40)",
-   "11:20 soif = 32.2 (seuil 40)",
+   "10:35 faim = 34.6 (seuil 35)",
+   "10:40 faim = 34.1 (seuil 35)",
+   "10:45 faim = 33.6 (seuil 35)",
+   "10:50 faim = 33.1 (seuil 35)",
+   "10:55 faim = 32.6 (seuil 35)",
+   "11:00 faim = 32.1 (seuil 35)",
+   "11:05 faim = 31.6 (seuil 35)",
+   "11:10 faim = 31.1 (seuil 35)",
+   "11:15 faim = 30.6 (seuil 35)",
+   "11:20 faim = 30.1 (seuil 35)",
    "14:25 toilettes = 24.1 (seuil 25)",
    "22:35 energie = 24.8 (seuil 25)",
    "22:40 energie = 24.4 (seuil 25)",
@@ -144,10 +142,10 @@
    "14:30 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Lecture, musique, sieste »."
   ],
   "perception": {
-   "pas_avec_objets_vus": 118,
+   "pas_avec_objets_vus": 117,
    "objets_vus": 28,
    "entendu_pas": {
-    "la radio": 27,
+    "la radio": 25,
     "la musique": 6
    },
    "remarques": [],
@@ -159,11 +157,11 @@
   "piece": "chambre",
   "besoins": {
    "faim": 75.2,
-   "soif": 76.65,
-   "energie": 51.4,
+   "soif": 77.5,
+   "energie": 48.9,
    "hygiene": 89.99,
    "toilettes": 84.75,
-   "social": 47.32,
+   "social": 60.18,
    "detente": 99.85
   },
   "emotions": {
@@ -171,7 +169,7 @@
    "tristesse": 0.1959,
    "anxiete": 0.2538,
    "colere": 0.03,
-   "solitude": 0.5259,
+   "solitude": 0.3973,
    "fierte": 0.35,
    "excitation": 0.2
   },
@@ -216,7 +214,7 @@
   "stock": {
    "cafe_moulu": 166,
    "pain_tranches": 8,
-   "pain_campagne": 0,
+   "pain_campagne": 1,
    "biscottes": 30,
    "beurre": 150,
    "confiture_abricot": 25,
@@ -226,7 +224,7 @@
    "cuisses_poulet": 0,
    "lardons": 100,
    "saucisse_morteau": 0,
-   "comte": 290,
+   "comte": 540,
    "steaks_haches": 1,
    "poisson_pane": 7,
    "pates": 625,
@@ -239,9 +237,9 @@
    "poireaux": 3,
    "carottes": 800,
    "oignons": 3,
-   "pommes": 1,
-   "oranges": 3,
-   "bananes": 0,
+   "pommes": 8,
+   "oranges": 6,
+   "bananes": 6,
    "chocolat_noir": 30,
    "biere": 3,
    "vin_rouge": 41,
@@ -251,7 +249,7 @@
    "soupe_poireaux": 0
   },
   "argent": {
-   "especes": 35,
+   "especes": 22.8,
    "compte": 940
   },
   "croyances": {},
@@ -263,11 +261,11 @@
   "piece": "chambre",
   "besoins": {
    "faim": 75.2,
-   "soif": 85.6,
+   "soif": 86.45,
    "energie": 31.0,
    "hygiene": 91.67,
    "toilettes": 41.85,
-   "social": 44.29,
+   "social": 56.85,
    "detente": 99.85
   },
   "emotions": {
@@ -275,7 +273,7 @@
    "tristesse": 0.1959,
    "anxiete": 0.2538,
    "colere": 0.0314,
-   "solitude": 0.5563,
+   "solitude": 0.4307,
    "fierte": 0.35,
    "excitation": 0.2
   },
@@ -320,7 +318,7 @@
   "stock": {
    "cafe_moulu": 159,
    "pain_tranches": 6,
-   "pain_campagne": 0,
+   "pain_campagne": 1,
    "biscottes": 30,
    "beurre": 140,
    "confiture_abricot": 25,
@@ -330,7 +328,7 @@
    "cuisses_poulet": 0,
    "lardons": 100,
    "saucisse_morteau": 0,
-   "comte": 240,
+   "comte": 490,
    "steaks_haches": 1,
    "poisson_pane": 7,
    "pates": 625,
@@ -343,9 +341,9 @@
    "poireaux": 3,
    "carottes": 800,
    "oignons": 3,
-   "pommes": 0,
-   "oranges": 0,
-   "bananes": 0,
+   "pommes": 7,
+   "oranges": 4,
+   "bananes": 6,
    "chocolat_noir": 28,
    "biere": 3,
    "vin_rouge": 41,
@@ -355,7 +353,7 @@
    "soupe_poireaux": 0
   },
   "argent": {
-   "especes": 35,
+   "especes": 22.8,
    "compte": 940
   },
   "croyances": {},
@@ -378,20 +376,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 75.0,
-    "soif": 76.4,
-    "energie": 52.4,
+    "soif": 77.2,
+    "energie": 49.9,
     "hygiene": 89.9,
     "toilettes": 84.4,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 52.4
+    "energie_ressentie": 49.9
    },
    "emotions": {
     "joie": 0.401,
     "tristesse": 0.196,
     "anxiete": 0.257,
     "colere": 0.03,
-    "solitude": 0.526,
+    "solitude": 0.397,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -411,20 +409,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 74.8,
-    "soif": 76.2,
-    "energie": 53.4,
+    "soif": 77.0,
+    "energie": 50.9,
     "hygiene": 89.9,
     "toilettes": 84.1,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 53.4
+    "energie_ressentie": 50.9
    },
    "emotions": {
     "joie": 0.401,
     "tristesse": 0.197,
     "anxiete": 0.259,
     "colere": 0.03,
-    "solitude": 0.526,
+    "solitude": 0.397,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -444,20 +442,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 74.6,
-    "soif": 75.9,
-    "energie": 54.4,
+    "soif": 76.8,
+    "energie": 51.9,
     "hygiene": 89.8,
     "toilettes": 83.7,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 54.4
+    "energie_ressentie": 51.9
    },
    "emotions": {
     "joie": 0.401,
     "tristesse": 0.197,
     "anxiete": 0.261,
     "colere": 0.03,
-    "solitude": 0.526,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -477,20 +475,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 74.4,
-    "soif": 75.7,
-    "energie": 55.4,
+    "soif": 76.5,
+    "energie": 52.9,
     "hygiene": 89.8,
     "toilettes": 83.4,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 55.4
+    "energie_ressentie": 52.9
    },
    "emotions": {
     "joie": 0.401,
     "tristesse": 0.197,
     "anxiete": 0.263,
     "colere": 0.03,
-    "solitude": 0.526,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -510,20 +508,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 74.2,
-    "soif": 75.4,
-    "energie": 56.4,
+    "soif": 76.2,
+    "energie": 53.9,
     "hygiene": 89.7,
     "toilettes": 83.0,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 56.4
+    "energie_ressentie": 53.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.198,
     "anxiete": 0.265,
     "colere": 0.03,
-    "solitude": 0.526,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -543,20 +541,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 74.0,
-    "soif": 75.2,
-    "energie": 57.4,
+    "soif": 76.0,
+    "energie": 54.9,
     "hygiene": 89.7,
     "toilettes": 82.7,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 57.4
+    "energie_ressentie": 54.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.198,
     "anxiete": 0.267,
     "colere": 0.03,
-    "solitude": 0.526,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -576,20 +574,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 73.8,
-    "soif": 74.9,
-    "energie": 58.4,
+    "soif": 75.8,
+    "energie": 55.9,
     "hygiene": 89.6,
     "toilettes": 82.3,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 58.4
+    "energie_ressentie": 55.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.198,
     "anxiete": 0.268,
     "colere": 0.03,
-    "solitude": 0.526,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -609,20 +607,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 73.6,
-    "soif": 74.7,
-    "energie": 59.4,
+    "soif": 75.5,
+    "energie": 56.9,
     "hygiene": 89.6,
     "toilettes": 82.0,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 59.4
+    "energie_ressentie": 56.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.198,
     "anxiete": 0.27,
     "colere": 0.03,
-    "solitude": 0.526,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -642,20 +640,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 73.4,
-    "soif": 74.4,
-    "energie": 60.4,
+    "soif": 75.2,
+    "energie": 57.9,
     "hygiene": 89.5,
     "toilettes": 81.6,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 60.4
+    "energie_ressentie": 57.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.199,
     "anxiete": 0.271,
     "colere": 0.03,
-    "solitude": 0.526,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -675,20 +673,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 73.2,
-    "soif": 74.2,
-    "energie": 61.4,
+    "soif": 75.0,
+    "energie": 58.9,
     "hygiene": 89.5,
     "toilettes": 81.3,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 61.4
+    "energie_ressentie": 58.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.199,
     "anxiete": 0.272,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -708,20 +706,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 73.0,
-    "soif": 73.9,
-    "energie": 62.4,
+    "soif": 74.8,
+    "energie": 59.9,
     "hygiene": 89.4,
     "toilettes": 80.9,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 62.4
+    "energie_ressentie": 59.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.199,
     "anxiete": 0.273,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -741,20 +739,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 72.8,
-    "soif": 73.7,
-    "energie": 63.4,
+    "soif": 74.5,
+    "energie": 60.9,
     "hygiene": 89.4,
     "toilettes": 80.6,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 63.4
+    "energie_ressentie": 60.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.199,
     "anxiete": 0.273,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -774,20 +772,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 72.6,
-    "soif": 73.4,
-    "energie": 64.4,
+    "soif": 74.2,
+    "energie": 61.9,
     "hygiene": 89.3,
     "toilettes": 80.2,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 64.4
+    "energie_ressentie": 61.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.199,
     "anxiete": 0.274,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -807,20 +805,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 72.4,
-    "soif": 73.2,
-    "energie": 65.4,
+    "soif": 74.0,
+    "energie": 62.9,
     "hygiene": 89.3,
     "toilettes": 79.9,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 65.4
+    "energie_ressentie": 62.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.199,
     "anxiete": 0.275,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -840,20 +838,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 72.2,
-    "soif": 72.9,
-    "energie": 66.4,
+    "soif": 73.8,
+    "energie": 63.9,
     "hygiene": 89.2,
     "toilettes": 79.5,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 66.4
+    "energie_ressentie": 63.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.199,
     "anxiete": 0.275,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -873,20 +871,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 72.0,
-    "soif": 72.7,
-    "energie": 67.4,
+    "soif": 73.5,
+    "energie": 64.9,
     "hygiene": 89.2,
     "toilettes": 79.2,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 67.4
+    "energie_ressentie": 64.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.199,
     "anxiete": 0.276,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -906,20 +904,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 71.8,
-    "soif": 72.4,
-    "energie": 68.4,
+    "soif": 73.2,
+    "energie": 65.9,
     "hygiene": 89.1,
     "toilettes": 78.8,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 68.4
+    "energie_ressentie": 65.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.199,
     "anxiete": 0.276,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -939,20 +937,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 71.6,
-    "soif": 72.2,
-    "energie": 69.4,
+    "soif": 73.0,
+    "energie": 66.9,
     "hygiene": 89.1,
     "toilettes": 78.5,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 69.4
+    "energie_ressentie": 66.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.199,
     "anxiete": 0.277,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -972,20 +970,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 71.4,
-    "soif": 71.9,
-    "energie": 70.4,
+    "soif": 72.8,
+    "energie": 67.9,
     "hygiene": 89.0,
     "toilettes": 78.1,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 70.4
+    "energie_ressentie": 67.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.277,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1005,20 +1003,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 71.2,
-    "soif": 71.7,
-    "energie": 71.4,
+    "soif": 72.5,
+    "energie": 68.9,
     "hygiene": 89.0,
     "toilettes": 77.8,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 71.4
+    "energie_ressentie": 68.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.277,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1038,20 +1036,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 71.0,
-    "soif": 71.4,
-    "energie": 72.4,
+    "soif": 72.2,
+    "energie": 69.9,
     "hygiene": 88.9,
     "toilettes": 77.4,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 72.4
+    "energie_ressentie": 69.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1071,20 +1069,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 70.8,
-    "soif": 71.2,
-    "energie": 73.4,
+    "soif": 72.0,
+    "energie": 70.9,
     "hygiene": 88.9,
     "toilettes": 77.1,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 73.4
+    "energie_ressentie": 70.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1104,20 +1102,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 70.6,
-    "soif": 70.9,
-    "energie": 74.4,
+    "soif": 71.8,
+    "energie": 71.9,
     "hygiene": 88.8,
     "toilettes": 76.7,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 74.4
+    "energie_ressentie": 71.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1137,20 +1135,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 70.4,
-    "soif": 70.7,
-    "energie": 75.4,
+    "soif": 71.5,
+    "energie": 72.9,
     "hygiene": 88.8,
     "toilettes": 76.4,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 75.4
+    "energie_ressentie": 72.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1170,20 +1168,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 70.2,
-    "soif": 70.4,
-    "energie": 76.4,
+    "soif": 71.2,
+    "energie": 73.9,
     "hygiene": 88.7,
     "toilettes": 76.0,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 76.4
+    "energie_ressentie": 73.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1203,20 +1201,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 70.0,
-    "soif": 70.2,
-    "energie": 77.4,
+    "soif": 71.0,
+    "energie": 74.9,
     "hygiene": 88.7,
     "toilettes": 75.7,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 77.4
+    "energie_ressentie": 74.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1236,20 +1234,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 69.8,
-    "soif": 69.9,
-    "energie": 78.4,
+    "soif": 70.8,
+    "energie": 75.9,
     "hygiene": 88.6,
     "toilettes": 75.3,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 78.4
+    "energie_ressentie": 75.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1269,20 +1267,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 69.6,
-    "soif": 69.7,
-    "energie": 79.4,
+    "soif": 70.5,
+    "energie": 76.9,
     "hygiene": 88.6,
     "toilettes": 75.0,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 79.4
+    "energie_ressentie": 76.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1302,20 +1300,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 69.4,
-    "soif": 69.4,
-    "energie": 80.4,
+    "soif": 70.2,
+    "energie": 77.9,
     "hygiene": 88.5,
     "toilettes": 74.6,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 80.4
+    "energie_ressentie": 77.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1335,20 +1333,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 69.2,
-    "soif": 69.2,
-    "energie": 81.4,
+    "soif": 70.0,
+    "energie": 78.9,
     "hygiene": 88.5,
     "toilettes": 74.3,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 81.4
+    "energie_ressentie": 78.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1368,20 +1366,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 69.0,
-    "soif": 68.9,
-    "energie": 82.4,
+    "soif": 69.8,
+    "energie": 79.9,
     "hygiene": 88.4,
     "toilettes": 73.9,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 82.4
+    "energie_ressentie": 79.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1401,20 +1399,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 68.8,
-    "soif": 68.7,
-    "energie": 83.4,
+    "soif": 69.5,
+    "energie": 80.9,
     "hygiene": 88.4,
     "toilettes": 73.6,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 83.4
+    "energie_ressentie": 80.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1434,20 +1432,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 68.6,
-    "soif": 68.4,
-    "energie": 84.4,
+    "soif": 69.2,
+    "energie": 81.9,
     "hygiene": 88.3,
     "toilettes": 73.2,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 84.4
+    "energie_ressentie": 81.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1467,20 +1465,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 68.4,
-    "soif": 68.2,
-    "energie": 85.4,
+    "soif": 69.0,
+    "energie": 82.9,
     "hygiene": 88.3,
     "toilettes": 72.9,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 85.4
+    "energie_ressentie": 82.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1500,20 +1498,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 68.2,
-    "soif": 67.9,
-    "energie": 86.4,
+    "soif": 68.8,
+    "energie": 83.9,
     "hygiene": 88.2,
     "toilettes": 72.5,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 86.4
+    "energie_ressentie": 83.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1533,20 +1531,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 68.0,
-    "soif": 67.7,
-    "energie": 87.4,
+    "soif": 68.5,
+    "energie": 84.9,
     "hygiene": 88.2,
     "toilettes": 72.2,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 87.4
+    "energie_ressentie": 84.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1566,20 +1564,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 67.8,
-    "soif": 67.4,
-    "energie": 88.4,
+    "soif": 68.2,
+    "energie": 85.9,
     "hygiene": 88.1,
     "toilettes": 71.8,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 88.4
+    "energie_ressentie": 85.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1599,20 +1597,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 67.6,
-    "soif": 67.2,
-    "energie": 89.4,
+    "soif": 68.0,
+    "energie": 86.9,
     "hygiene": 88.1,
     "toilettes": 71.5,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 89.4
+    "energie_ressentie": 86.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1632,20 +1630,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 67.4,
-    "soif": 66.9,
-    "energie": 90.4,
+    "soif": 67.8,
+    "energie": 87.9,
     "hygiene": 88.0,
     "toilettes": 71.1,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 90.4
+    "energie_ressentie": 87.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1665,20 +1663,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 67.2,
-    "soif": 66.7,
-    "energie": 91.4,
+    "soif": 67.5,
+    "energie": 88.9,
     "hygiene": 88.0,
     "toilettes": 70.8,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 91.4
+    "energie_ressentie": 88.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1698,20 +1696,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 67.0,
-    "soif": 66.4,
-    "energie": 92.4,
+    "soif": 67.2,
+    "energie": 89.9,
     "hygiene": 87.9,
     "toilettes": 70.4,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 92.4
+    "energie_ressentie": 89.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1731,20 +1729,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 66.8,
-    "soif": 66.2,
-    "energie": 93.4,
+    "soif": 67.0,
+    "energie": 90.9,
     "hygiene": 87.9,
     "toilettes": 70.1,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 93.4
+    "energie_ressentie": 90.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1764,20 +1762,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 66.6,
-    "soif": 65.9,
-    "energie": 94.4,
+    "soif": 66.8,
+    "energie": 91.9,
     "hygiene": 87.8,
     "toilettes": 69.7,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 94.4
+    "energie_ressentie": 91.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1797,20 +1795,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 66.4,
-    "soif": 65.7,
-    "energie": 95.4,
+    "soif": 66.5,
+    "energie": 92.9,
     "hygiene": 87.8,
     "toilettes": 69.4,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 95.4
+    "energie_ressentie": 92.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1830,20 +1828,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 66.2,
-    "soif": 65.4,
-    "energie": 96.4,
+    "soif": 66.2,
+    "energie": 93.9,
     "hygiene": 87.7,
     "toilettes": 69.0,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 96.4
+    "energie_ressentie": 93.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1863,20 +1861,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 66.0,
-    "soif": 65.2,
-    "energie": 97.4,
+    "soif": 66.0,
+    "energie": 94.9,
     "hygiene": 87.7,
     "toilettes": 68.7,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 97.4
+    "energie_ressentie": 94.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1896,20 +1894,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 65.8,
-    "soif": 64.9,
-    "energie": 98.4,
+    "soif": 65.8,
+    "energie": 95.9,
     "hygiene": 87.6,
     "toilettes": 68.3,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 98.4
+    "energie_ressentie": 95.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1929,20 +1927,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 65.6,
-    "soif": 64.7,
-    "energie": 99.4,
+    "soif": 65.5,
+    "energie": 96.9,
     "hygiene": 87.6,
     "toilettes": 68.0,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 99.4
+    "energie_ressentie": 96.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1962,20 +1960,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 65.4,
-    "soif": 64.4,
-    "energie": 100.0,
+    "soif": 65.2,
+    "energie": 97.9,
     "hygiene": 87.5,
     "toilettes": 67.6,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 100.0
+    "energie_ressentie": 97.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1995,20 +1993,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 65.2,
-    "soif": 64.2,
-    "energie": 100.0,
+    "soif": 65.0,
+    "energie": 98.9,
     "hygiene": 87.5,
     "toilettes": 67.3,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 100.0
+    "energie_ressentie": 98.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2028,20 +2026,20 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 65.0,
-    "soif": 63.9,
-    "energie": 100.0,
+    "soif": 64.8,
+    "energie": 99.9,
     "hygiene": 87.4,
     "toilettes": 66.9,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
-    "energie_ressentie": 100.0
+    "energie_ressentie": 99.9
    },
    "emotions": {
     "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2061,11 +2059,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 64.8,
-    "soif": 63.7,
+    "soif": 64.5,
     "energie": 100.0,
     "hygiene": 87.4,
     "toilettes": 66.6,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2074,7 +2072,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2094,11 +2092,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 64.6,
-    "soif": 63.4,
+    "soif": 64.2,
     "energie": 100.0,
     "hygiene": 87.3,
     "toilettes": 66.2,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2107,7 +2105,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2127,11 +2125,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 64.4,
-    "soif": 63.2,
+    "soif": 64.0,
     "energie": 100.0,
     "hygiene": 87.3,
     "toilettes": 65.9,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2140,7 +2138,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2160,11 +2158,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 64.2,
-    "soif": 62.9,
+    "soif": 63.8,
     "energie": 100.0,
     "hygiene": 87.2,
     "toilettes": 65.5,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2173,7 +2171,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2193,11 +2191,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 64.0,
-    "soif": 62.7,
+    "soif": 63.5,
     "energie": 100.0,
     "hygiene": 87.2,
     "toilettes": 65.2,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2206,7 +2204,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2226,11 +2224,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 63.8,
-    "soif": 62.4,
+    "soif": 63.2,
     "energie": 100.0,
     "hygiene": 87.1,
     "toilettes": 64.8,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2239,7 +2237,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2259,11 +2257,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 63.6,
-    "soif": 62.2,
+    "soif": 63.0,
     "energie": 100.0,
     "hygiene": 87.1,
     "toilettes": 64.5,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2272,7 +2270,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2292,11 +2290,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 63.4,
-    "soif": 61.9,
+    "soif": 62.8,
     "energie": 100.0,
     "hygiene": 87.0,
     "toilettes": 64.1,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2305,7 +2303,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2325,11 +2323,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 63.2,
-    "soif": 61.7,
+    "soif": 62.5,
     "energie": 100.0,
     "hygiene": 87.0,
     "toilettes": 63.8,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2338,7 +2336,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2358,11 +2356,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 63.0,
-    "soif": 61.4,
+    "soif": 62.2,
     "energie": 100.0,
     "hygiene": 86.9,
     "toilettes": 63.4,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2371,7 +2369,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2391,11 +2389,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 62.8,
-    "soif": 61.2,
+    "soif": 62.0,
     "energie": 100.0,
     "hygiene": 86.9,
     "toilettes": 63.1,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2404,7 +2402,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2424,11 +2422,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 62.6,
-    "soif": 60.9,
+    "soif": 61.8,
     "energie": 100.0,
     "hygiene": 86.8,
     "toilettes": 62.7,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2437,7 +2435,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2457,11 +2455,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 62.4,
-    "soif": 60.7,
+    "soif": 61.5,
     "energie": 100.0,
     "hygiene": 86.8,
     "toilettes": 62.4,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2470,7 +2468,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2490,11 +2488,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 62.2,
-    "soif": 60.4,
+    "soif": 61.2,
     "energie": 100.0,
     "hygiene": 86.7,
     "toilettes": 62.0,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2503,7 +2501,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2523,11 +2521,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 62.0,
-    "soif": 60.2,
+    "soif": 61.0,
     "energie": 100.0,
     "hygiene": 86.7,
     "toilettes": 61.7,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2536,7 +2534,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2556,11 +2554,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 61.8,
-    "soif": 59.9,
+    "soif": 60.8,
     "energie": 100.0,
     "hygiene": 86.6,
     "toilettes": 61.3,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2569,7 +2567,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2589,11 +2587,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 61.6,
-    "soif": 59.7,
+    "soif": 60.5,
     "energie": 100.0,
     "hygiene": 86.6,
     "toilettes": 61.0,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2602,7 +2600,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2622,11 +2620,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 61.4,
-    "soif": 59.4,
+    "soif": 60.2,
     "energie": 100.0,
     "hygiene": 86.5,
     "toilettes": 60.6,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2635,7 +2633,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2655,11 +2653,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 61.2,
-    "soif": 59.2,
+    "soif": 60.0,
     "energie": 100.0,
     "hygiene": 86.5,
     "toilettes": 60.3,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2668,7 +2666,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2688,11 +2686,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 61.0,
-    "soif": 58.9,
+    "soif": 59.8,
     "energie": 100.0,
     "hygiene": 86.4,
     "toilettes": 59.9,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2701,7 +2699,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2721,11 +2719,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 60.8,
-    "soif": 58.7,
+    "soif": 59.5,
     "energie": 100.0,
     "hygiene": 86.4,
     "toilettes": 59.6,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2734,7 +2732,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2754,11 +2752,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 60.6,
-    "soif": 58.4,
+    "soif": 59.2,
     "energie": 100.0,
     "hygiene": 86.3,
     "toilettes": 59.2,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2767,7 +2765,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2787,11 +2785,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 60.4,
-    "soif": 58.2,
+    "soif": 59.0,
     "energie": 100.0,
     "hygiene": 86.3,
     "toilettes": 58.9,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2800,7 +2798,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2820,11 +2818,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 60.2,
-    "soif": 57.9,
+    "soif": 58.8,
     "energie": 100.0,
     "hygiene": 86.2,
     "toilettes": 58.5,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2833,7 +2831,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2853,11 +2851,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 60.0,
-    "soif": 57.7,
+    "soif": 58.5,
     "energie": 100.0,
     "hygiene": 86.2,
     "toilettes": 58.2,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2866,7 +2864,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2886,11 +2884,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 59.8,
-    "soif": 57.4,
+    "soif": 58.2,
     "energie": 100.0,
     "hygiene": 86.1,
     "toilettes": 57.8,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2899,7 +2897,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2919,11 +2917,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 59.6,
-    "soif": 57.2,
+    "soif": 58.0,
     "energie": 100.0,
     "hygiene": 86.1,
     "toilettes": 57.5,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2932,7 +2930,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2952,11 +2950,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 59.4,
-    "soif": 56.9,
+    "soif": 57.8,
     "energie": 100.0,
     "hygiene": 86.0,
     "toilettes": 57.1,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2965,7 +2963,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2985,11 +2983,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 59.2,
-    "soif": 56.7,
+    "soif": 57.5,
     "energie": 100.0,
     "hygiene": 86.0,
     "toilettes": 56.8,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -2998,7 +2996,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3018,11 +3016,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 59.0,
-    "soif": 56.4,
+    "soif": 57.2,
     "energie": 100.0,
     "hygiene": 85.9,
     "toilettes": 56.4,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3031,7 +3029,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3051,11 +3049,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 58.8,
-    "soif": 56.2,
+    "soif": 57.0,
     "energie": 100.0,
     "hygiene": 85.9,
     "toilettes": 56.1,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3064,7 +3062,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3084,11 +3082,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 58.6,
-    "soif": 55.9,
+    "soif": 56.8,
     "energie": 100.0,
     "hygiene": 85.8,
     "toilettes": 55.7,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3097,7 +3095,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3117,11 +3115,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 58.4,
-    "soif": 55.7,
+    "soif": 56.5,
     "energie": 100.0,
     "hygiene": 85.8,
     "toilettes": 55.4,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3130,7 +3128,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3150,11 +3148,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 58.2,
-    "soif": 55.4,
+    "soif": 56.2,
     "energie": 100.0,
     "hygiene": 85.7,
     "toilettes": 55.0,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3163,7 +3161,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3183,11 +3181,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 58.0,
-    "soif": 55.2,
+    "soif": 56.0,
     "energie": 100.0,
     "hygiene": 85.7,
     "toilettes": 54.7,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3196,7 +3194,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3216,11 +3214,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 57.8,
-    "soif": 54.9,
+    "soif": 55.8,
     "energie": 100.0,
     "hygiene": 85.6,
     "toilettes": 54.3,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3229,7 +3227,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3249,11 +3247,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 57.6,
-    "soif": 54.7,
+    "soif": 55.5,
     "energie": 100.0,
     "hygiene": 85.6,
     "toilettes": 54.0,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3262,7 +3260,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3282,11 +3280,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 57.4,
-    "soif": 54.4,
+    "soif": 55.2,
     "energie": 100.0,
     "hygiene": 85.5,
     "toilettes": 53.6,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3295,7 +3293,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3315,11 +3313,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 57.2,
-    "soif": 54.2,
+    "soif": 55.0,
     "energie": 100.0,
     "hygiene": 85.5,
     "toilettes": 53.3,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3328,7 +3326,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3348,11 +3346,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 57.0,
-    "soif": 53.9,
+    "soif": 54.8,
     "energie": 100.0,
     "hygiene": 85.4,
     "toilettes": 52.9,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3361,7 +3359,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3381,11 +3379,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 56.8,
-    "soif": 53.7,
+    "soif": 54.5,
     "energie": 100.0,
     "hygiene": 85.4,
     "toilettes": 52.6,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3394,7 +3392,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3414,11 +3412,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 56.6,
-    "soif": 53.4,
+    "soif": 54.2,
     "energie": 100.0,
     "hygiene": 85.3,
     "toilettes": 52.2,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3427,7 +3425,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3447,11 +3445,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 56.4,
-    "soif": 53.2,
+    "soif": 54.0,
     "energie": 100.0,
     "hygiene": 85.3,
     "toilettes": 51.9,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3460,7 +3458,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3480,11 +3478,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 56.2,
-    "soif": 52.9,
+    "soif": 53.8,
     "energie": 100.0,
     "hygiene": 85.2,
     "toilettes": 51.5,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3493,7 +3491,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3513,11 +3511,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 56.0,
-    "soif": 52.7,
+    "soif": 53.5,
     "energie": 100.0,
     "hygiene": 85.2,
     "toilettes": 51.2,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3526,7 +3524,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3546,11 +3544,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 55.8,
-    "soif": 52.4,
+    "soif": 53.2,
     "energie": 100.0,
     "hygiene": 85.1,
     "toilettes": 50.8,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3559,7 +3557,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3579,11 +3577,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 55.6,
-    "soif": 52.2,
+    "soif": 53.0,
     "energie": 100.0,
     "hygiene": 85.1,
     "toilettes": 50.5,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3592,7 +3590,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3612,11 +3610,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 55.4,
-    "soif": 51.9,
+    "soif": 52.8,
     "energie": 100.0,
     "hygiene": 85.0,
     "toilettes": 50.1,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3625,7 +3623,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3645,11 +3643,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 55.2,
-    "soif": 51.7,
+    "soif": 52.5,
     "energie": 100.0,
     "hygiene": 85.0,
     "toilettes": 49.8,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3658,7 +3656,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3678,11 +3676,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 55.0,
-    "soif": 51.4,
+    "soif": 52.2,
     "energie": 100.0,
     "hygiene": 84.9,
     "toilettes": 49.4,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3691,7 +3689,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3711,11 +3709,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 54.8,
-    "soif": 51.2,
+    "soif": 52.0,
     "energie": 100.0,
     "hygiene": 84.9,
     "toilettes": 49.1,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 99.8,
     "energie_ressentie": 100.0
    },
@@ -3724,7 +3722,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3749,11 +3747,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 54.3,
-    "soif": 70.5,
+    "soif": 71.3,
     "energie": 99.6,
     "hygiene": 84.8,
     "toilettes": 48.0,
-    "social": 47.3,
+    "social": 60.1,
     "detente": 99.8,
     "energie_ressentie": 99.6
    },
@@ -3762,7 +3760,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.325
@@ -3786,11 +3784,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 53.8,
-    "soif": 69.8,
+    "soif": 70.6,
     "energie": 99.2,
     "hygiene": 84.7,
     "toilettes": 46.9,
-    "social": 47.2,
+    "social": 60.1,
     "detente": 99.8,
     "energie_ressentie": 99.2
    },
@@ -3799,7 +3797,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.488
@@ -3841,11 +3839,11 @@
    ],
    "besoins": {
     "faim": 53.3,
-    "soif": 69.0,
+    "soif": 69.9,
     "energie": 98.8,
     "hygiene": 84.5,
     "toilettes": 100.0,
-    "social": 47.2,
+    "social": 60.1,
     "detente": 99.7,
     "energie_ressentie": 98.8
    },
@@ -3854,7 +3852,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.569
@@ -3901,11 +3899,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 52.8,
-    "soif": 68.3,
+    "soif": 69.2,
     "energie": 98.4,
     "hygiene": 84.4,
     "toilettes": 98.9,
-    "social": 47.2,
+    "social": 60.0,
     "detente": 99.7,
     "energie_ressentie": 98.4
    },
@@ -3914,7 +3912,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.398,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.609
@@ -3939,11 +3937,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 52.3,
-    "soif": 67.6,
+    "soif": 68.5,
     "energie": 98.0,
     "hygiene": 84.3,
     "toilettes": 97.8,
-    "social": 47.1,
+    "social": 60.0,
     "detente": 99.6,
     "energie_ressentie": 98.0
    },
@@ -3952,7 +3950,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.399,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.63
@@ -4006,11 +4004,11 @@
    ],
    "besoins": {
     "faim": 51.8,
-    "soif": 66.9,
+    "soif": 67.8,
     "energie": 97.6,
     "hygiene": 84.2,
     "toilettes": 96.7,
-    "social": 47.1,
+    "social": 59.9,
     "detente": 99.6,
     "energie_ressentie": 97.6
    },
@@ -4019,7 +4017,7 @@
     "tristesse": 0.2,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.399,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.64
@@ -4049,11 +4047,11 @@
    ],
    "besoins": {
     "faim": 50.9,
-    "soif": 65.4,
+    "soif": 66.3,
     "energie": 96.8,
     "hygiene": 83.4,
     "toilettes": 95.6,
-    "social": 47.0,
+    "social": 59.9,
     "detente": 100.0,
     "energie_ressentie": 96.8
    },
@@ -4062,7 +4060,7 @@
     "tristesse": 0.2,
     "anxiete": 0.26,
     "colere": 0.03,
-    "solitude": 0.527,
+    "solitude": 0.399,
     "fierte": 0.35,
     "excitation": 0.23,
     "concentration": 0.645
@@ -4083,11 +4081,11 @@
    ],
    "besoins": {
     "faim": 50.0,
-    "soif": 63.9,
+    "soif": 64.8,
     "energie": 96.0,
     "hygiene": 82.6,
     "toilettes": 94.5,
-    "social": 47.0,
+    "social": 59.9,
     "detente": 100.0,
     "energie_ressentie": 96.0
    },
@@ -4096,7 +4094,7 @@
     "tristesse": 0.2,
     "anxiete": 0.261,
     "colere": 0.03,
-    "solitude": 0.528,
+    "solitude": 0.399,
     "fierte": 0.35,
     "excitation": 0.227,
     "concentration": 0.647
@@ -4126,11 +4124,11 @@
    ],
    "besoins": {
     "faim": 49.1,
-    "soif": 62.4,
+    "soif": 63.3,
     "energie": 95.2,
     "hygiene": 81.8,
     "toilettes": 93.4,
-    "social": 47.0,
+    "social": 59.8,
     "detente": 100.0,
     "energie_ressentie": 95.2
    },
@@ -4139,7 +4137,7 @@
     "tristesse": 0.2,
     "anxiete": 0.242,
     "colere": 0.03,
-    "solitude": 0.528,
+    "solitude": 0.399,
     "fierte": 0.35,
     "excitation": 0.254,
     "concentration": 0.649
@@ -4160,11 +4158,11 @@
    ],
    "besoins": {
     "faim": 48.2,
-    "soif": 60.9,
+    "soif": 61.8,
     "energie": 94.4,
     "hygiene": 81.0,
     "toilettes": 92.3,
-    "social": 46.9,
+    "social": 59.8,
     "detente": 100.0,
     "energie_ressentie": 94.4
    },
@@ -4173,7 +4171,7 @@
     "tristesse": 0.2,
     "anxiete": 0.244,
     "colere": 0.03,
-    "solitude": 0.528,
+    "solitude": 0.399,
     "fierte": 0.35,
     "excitation": 0.248,
     "concentration": 0.649
@@ -4194,11 +4192,11 @@
    ],
    "besoins": {
     "faim": 47.3,
-    "soif": 59.4,
+    "soif": 60.3,
     "energie": 93.6,
     "hygiene": 80.2,
     "toilettes": 91.2,
-    "social": 46.9,
+    "social": 59.7,
     "detente": 100.0,
     "energie_ressentie": 93.6
    },
@@ -4207,7 +4205,7 @@
     "tristesse": 0.2,
     "anxiete": 0.246,
     "colere": 0.03,
-    "solitude": 0.528,
+    "solitude": 0.399,
     "fierte": 0.35,
     "excitation": 0.243,
     "concentration": 0.65
@@ -4228,11 +4226,11 @@
    ],
    "besoins": {
     "faim": 46.4,
-    "soif": 57.9,
+    "soif": 58.8,
     "energie": 92.8,
     "hygiene": 79.4,
     "toilettes": 90.1,
-    "social": 46.8,
+    "social": 59.7,
     "detente": 100.0,
     "energie_ressentie": 92.8
    },
@@ -4241,7 +4239,7 @@
     "tristesse": 0.2,
     "anxiete": 0.248,
     "colere": 0.03,
-    "solitude": 0.528,
+    "solitude": 0.4,
     "fierte": 0.35,
     "excitation": 0.238,
     "concentration": 0.65
@@ -4262,11 +4260,11 @@
    ],
    "besoins": {
     "faim": 45.5,
-    "soif": 56.4,
+    "soif": 57.3,
     "energie": 92.0,
     "hygiene": 78.6,
     "toilettes": 89.0,
-    "social": 46.8,
+    "social": 59.7,
     "detente": 100.0,
     "energie_ressentie": 92.0
    },
@@ -4275,7 +4273,7 @@
     "tristesse": 0.2,
     "anxiete": 0.25,
     "colere": 0.03,
-    "solitude": 0.528,
+    "solitude": 0.4,
     "fierte": 0.35,
     "excitation": 0.234,
     "concentration": 0.65
@@ -4296,11 +4294,11 @@
    ],
    "besoins": {
     "faim": 44.6,
-    "soif": 54.9,
+    "soif": 55.8,
     "energie": 91.2,
     "hygiene": 77.8,
     "toilettes": 87.9,
-    "social": 46.8,
+    "social": 59.6,
     "detente": 100.0,
     "energie_ressentie": 91.2
    },
@@ -4309,7 +4307,7 @@
     "tristesse": 0.2,
     "anxiete": 0.252,
     "colere": 0.03,
-    "solitude": 0.529,
+    "solitude": 0.4,
     "fierte": 0.35,
     "excitation": 0.23,
     "concentration": 0.65
@@ -4330,11 +4328,11 @@
    ],
    "besoins": {
     "faim": 43.7,
-    "soif": 53.4,
+    "soif": 54.3,
     "energie": 90.4,
     "hygiene": 77.0,
     "toilettes": 86.8,
-    "social": 46.7,
+    "social": 59.6,
     "detente": 100.0,
     "energie_ressentie": 90.4
    },
@@ -4343,7 +4341,7 @@
     "tristesse": 0.2,
     "anxiete": 0.253,
     "colere": 0.03,
-    "solitude": 0.529,
+    "solitude": 0.4,
     "fierte": 0.35,
     "excitation": 0.227,
     "concentration": 0.65
@@ -4364,11 +4362,11 @@
    ],
    "besoins": {
     "faim": 42.8,
-    "soif": 51.9,
+    "soif": 52.8,
     "energie": 89.6,
     "hygiene": 76.2,
     "toilettes": 85.7,
-    "social": 46.7,
+    "social": 59.5,
     "detente": 100.0,
     "energie_ressentie": 89.6
    },
@@ -4377,7 +4375,7 @@
     "tristesse": 0.2,
     "anxiete": 0.255,
     "colere": 0.03,
-    "solitude": 0.529,
+    "solitude": 0.401,
     "fierte": 0.35,
     "excitation": 0.224,
     "concentration": 0.65
@@ -4398,11 +4396,11 @@
    ],
    "besoins": {
     "faim": 41.9,
-    "soif": 50.4,
+    "soif": 51.3,
     "energie": 88.8,
     "hygiene": 75.4,
     "toilettes": 84.6,
-    "social": 46.6,
+    "social": 59.5,
     "detente": 100.0,
     "energie_ressentie": 88.8
    },
@@ -4411,7 +4409,7 @@
     "tristesse": 0.2,
     "anxiete": 0.256,
     "colere": 0.03,
-    "solitude": 0.529,
+    "solitude": 0.401,
     "fierte": 0.35,
     "excitation": 0.221,
     "concentration": 0.65
@@ -4432,11 +4430,11 @@
    ],
    "besoins": {
     "faim": 41.0,
-    "soif": 48.9,
+    "soif": 49.8,
     "energie": 88.0,
     "hygiene": 74.6,
     "toilettes": 83.5,
-    "social": 46.6,
+    "social": 59.5,
     "detente": 100.0,
     "energie_ressentie": 88.0
    },
@@ -4445,7 +4443,7 @@
     "tristesse": 0.2,
     "anxiete": 0.258,
     "colere": 0.03,
-    "solitude": 0.53,
+    "solitude": 0.401,
     "fierte": 0.35,
     "excitation": 0.219,
     "concentration": 0.65
@@ -4466,11 +4464,11 @@
    ],
    "besoins": {
     "faim": 40.1,
-    "soif": 47.4,
+    "soif": 48.3,
     "energie": 87.2,
     "hygiene": 73.8,
     "toilettes": 82.4,
-    "social": 46.6,
+    "social": 59.4,
     "detente": 100.0,
     "energie_ressentie": 87.2
    },
@@ -4479,7 +4477,7 @@
     "tristesse": 0.2,
     "anxiete": 0.259,
     "colere": 0.03,
-    "solitude": 0.53,
+    "solitude": 0.401,
     "fierte": 0.35,
     "excitation": 0.217,
     "concentration": 0.65
@@ -4500,11 +4498,11 @@
    ],
    "besoins": {
     "faim": 39.2,
-    "soif": 45.9,
+    "soif": 46.8,
     "energie": 86.4,
     "hygiene": 73.0,
     "toilettes": 81.3,
-    "social": 46.5,
+    "social": 59.4,
     "detente": 100.0,
     "energie_ressentie": 86.4
    },
@@ -4513,7 +4511,7 @@
     "tristesse": 0.2,
     "anxiete": 0.26,
     "colere": 0.03,
-    "solitude": 0.53,
+    "solitude": 0.402,
     "fierte": 0.35,
     "excitation": 0.215,
     "concentration": 0.65
@@ -4534,11 +4532,11 @@
    ],
    "besoins": {
     "faim": 38.3,
-    "soif": 44.4,
+    "soif": 45.3,
     "energie": 85.6,
     "hygiene": 72.2,
     "toilettes": 80.2,
-    "social": 46.5,
+    "social": 59.3,
     "detente": 100.0,
     "energie_ressentie": 85.6
    },
@@ -4547,7 +4545,7 @@
     "tristesse": 0.2,
     "anxiete": 0.261,
     "colere": 0.03,
-    "solitude": 0.53,
+    "solitude": 0.402,
     "fierte": 0.35,
     "excitation": 0.213,
     "concentration": 0.65
@@ -4577,11 +4575,11 @@
    ],
    "besoins": {
     "faim": 37.4,
-    "soif": 42.9,
+    "soif": 43.8,
     "energie": 84.8,
     "hygiene": 71.4,
     "toilettes": 79.1,
-    "social": 46.4,
+    "social": 59.3,
     "detente": 100.0,
     "energie_ressentie": 84.8
    },
@@ -4590,7 +4588,7 @@
     "tristesse": 0.2,
     "anxiete": 0.242,
     "colere": 0.03,
-    "solitude": 0.531,
+    "solitude": 0.402,
     "fierte": 0.35,
     "excitation": 0.242,
     "concentration": 0.65
@@ -4611,11 +4609,11 @@
    ],
    "besoins": {
     "faim": 36.5,
-    "soif": 41.4,
+    "soif": 42.3,
     "energie": 84.0,
     "hygiene": 70.6,
     "toilettes": 78.0,
-    "social": 46.4,
+    "social": 59.3,
     "detente": 100.0,
     "energie_ressentie": 84.0
    },
@@ -4624,7 +4622,7 @@
     "tristesse": 0.2,
     "anxiete": 0.244,
     "colere": 0.03,
-    "solitude": 0.531,
+    "solitude": 0.402,
     "fierte": 0.35,
     "excitation": 0.237,
     "concentration": 0.65
@@ -4645,11 +4643,11 @@
    ],
    "besoins": {
     "faim": 35.6,
-    "soif": 39.9,
+    "soif": 40.8,
     "energie": 83.2,
     "hygiene": 69.8,
     "toilettes": 76.9,
-    "social": 46.4,
+    "social": 59.2,
     "detente": 100.0,
     "energie_ressentie": 83.2
    },
@@ -4658,7 +4656,7 @@
     "tristesse": 0.2,
     "anxiete": 0.246,
     "colere": 0.03,
-    "solitude": 0.531,
+    "solitude": 0.403,
     "fierte": 0.35,
     "excitation": 0.233,
     "concentration": 0.65
@@ -4700,11 +4698,11 @@
    ],
    "besoins": {
     "faim": 35.1,
-    "soif": 39.2,
+    "soif": 40.1,
     "energie": 82.8,
     "hygiene": 69.7,
     "toilettes": 75.8,
-    "social": 46.3,
+    "social": 59.2,
     "detente": 100.0,
     "energie_ressentie": 82.8
    },
@@ -4713,7 +4711,7 @@
     "tristesse": 0.2,
     "anxiete": 0.048,
     "colere": 0.03,
-    "solitude": 0.532,
+    "solitude": 0.403,
     "fierte": 0.35,
     "excitation": 0.23,
     "concentration": 0.65
@@ -4727,7 +4725,7 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Étirements et douche",
-   "action": "Avant de s'y mettre, manger un fruit.",
+   "action": "Avant de s'y mettre, boire un grand verre d'eau.",
    "pensee": null,
    "deplacement": {
     "chemin": [
@@ -4739,15 +4737,6 @@
     "duree_s": 8,
     "foulees": 12
    },
-   "consommation": [
-    {
-     "produit": "pommes",
-     "nom": "pommes",
-     "quantite": 1,
-     "unite": "pommes",
-     "reste": 0
-    }
-   ],
    "perception": {
     "vu": [
      "obj-chaussures-course",
@@ -4759,21 +4748,21 @@
    ],
    "appareils_allumes": [],
    "besoins": {
-    "faim": 49.6,
-    "soif": 38.5,
+    "faim": 34.6,
+    "soif": 64.4,
     "energie": 82.4,
     "hygiene": 69.5,
     "toilettes": 74.7,
-    "social": 46.3,
+    "social": 59.1,
     "detente": 99.9,
     "energie_ressentie": 82.4
    },
    "emotions": {
-    "joie": 0.489,
+    "joie": 0.484,
     "tristesse": 0.2,
     "anxiete": 0.061,
-    "colere": 0.03,
-    "solitude": 0.532,
+    "colere": 0.04,
+    "solitude": 0.403,
     "fierte": 0.35,
     "excitation": 0.226,
     "concentration": 0.65
@@ -4787,34 +4776,25 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Étirements et douche",
-   "action": "Avant de s'y mettre, manger un fruit.",
+   "action": "Avant de s'y mettre, boire un grand verre d'eau.",
    "pensee": null,
-   "consommation": [
-    {
-     "produit": "oranges",
-     "nom": "oranges",
-     "quantite": 1,
-     "unite": "oranges",
-     "reste": 2
-    }
-   ],
    "appareils_allumes": [],
    "besoins": {
-    "faim": 64.1,
-    "soif": 37.8,
+    "faim": 34.1,
+    "soif": 88.7,
     "energie": 82.0,
     "hygiene": 69.4,
     "toilettes": 73.6,
-    "social": 46.2,
+    "social": 59.1,
     "detente": 99.9,
     "energie_ressentie": 82.0
    },
    "emotions": {
-    "joie": 0.479,
+    "joie": 0.47,
     "tristesse": 0.2,
     "anxiete": 0.073,
-    "colere": 0.03,
-    "solitude": 0.532,
+    "colere": 0.048,
+    "solitude": 0.404,
     "fierte": 0.35,
     "excitation": 0.224,
     "concentration": 0.65
@@ -4865,21 +4845,21 @@
     "lumiere-salle-de-bain"
    ],
    "besoins": {
-    "faim": 63.6,
-    "soif": 37.1,
+    "faim": 33.6,
+    "soif": 88.0,
     "energie": 81.6,
     "hygiene": 100.0,
     "toilettes": 72.5,
-    "social": 46.2,
+    "social": 59.1,
     "detente": 99.8,
     "energie_ressentie": 81.6
    },
    "emotions": {
-    "joie": 0.471,
+    "joie": 0.457,
     "tristesse": 0.2,
     "anxiete": 0.085,
-    "colere": 0.03,
-    "solitude": 0.533,
+    "colere": 0.055,
+    "solitude": 0.404,
     "fierte": 0.35,
     "excitation": 0.221,
     "concentration": 0.65
@@ -4899,21 +4879,21 @@
     "lumiere-salle-de-bain"
    ],
    "besoins": {
-    "faim": 63.1,
-    "soif": 36.4,
+    "faim": 33.1,
+    "soif": 87.3,
     "energie": 81.2,
     "hygiene": 99.9,
     "toilettes": 71.4,
-    "social": 46.2,
+    "social": 59.0,
     "detente": 99.8,
     "energie_ressentie": 81.2
    },
    "emotions": {
-    "joie": 0.463,
+    "joie": 0.446,
     "tristesse": 0.2,
     "anxiete": 0.096,
-    "colere": 0.03,
-    "solitude": 0.533,
+    "colere": 0.061,
+    "solitude": 0.404,
     "fierte": 0.35,
     "excitation": 0.219,
     "concentration": 0.65
@@ -4953,21 +4933,21 @@
    ],
    "appareils_allumes": [],
    "besoins": {
-    "faim": 62.6,
-    "soif": 35.7,
+    "faim": 32.6,
+    "soif": 86.6,
     "energie": 80.8,
     "hygiene": 99.8,
     "toilettes": 70.3,
-    "social": 46.1,
+    "social": 59.0,
     "detente": 99.7,
     "energie_ressentie": 80.8
    },
    "emotions": {
-    "joie": 0.456,
+    "joie": 0.436,
     "tristesse": 0.2,
     "anxiete": 0.106,
-    "colere": 0.03,
-    "solitude": 0.533,
+    "colere": 0.066,
+    "solitude": 0.405,
     "fierte": 0.35,
     "excitation": 0.217,
     "concentration": 0.65
@@ -5048,21 +5028,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 62.1,
-    "soif": 35.0,
+    "faim": 32.1,
+    "soif": 85.9,
     "energie": 80.4,
     "hygiene": 99.6,
     "toilettes": 69.2,
-    "social": 46.2,
+    "social": 59.1,
     "detente": 100.0,
     "energie_ressentie": 80.4
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.427,
     "tristesse": 0.2,
     "anxiete": 0.116,
-    "colere": 0.03,
-    "solitude": 0.534,
+    "colere": 0.071,
+    "solitude": 0.405,
     "fierte": 0.35,
     "excitation": 0.215,
     "concentration": 0.55
@@ -5090,21 +5070,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 61.6,
-    "soif": 34.3,
+    "faim": 31.6,
+    "soif": 85.2,
     "energie": 80.0,
     "hygiene": 99.5,
     "toilettes": 68.1,
-    "social": 46.3,
+    "social": 59.2,
     "detente": 100.0,
     "energie_ressentie": 80.0
    },
    "emotions": {
-    "joie": 0.445,
+    "joie": 0.419,
     "tristesse": 0.2,
     "anxiete": 0.125,
-    "colere": 0.03,
-    "solitude": 0.534,
+    "colere": 0.074,
+    "solitude": 0.405,
     "fierte": 0.35,
     "excitation": 0.213,
     "concentration": 0.5
@@ -5132,21 +5112,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 61.1,
-    "soif": 33.6,
+    "faim": 31.1,
+    "soif": 84.5,
     "energie": 79.6,
     "hygiene": 99.4,
     "toilettes": 67.0,
-    "social": 46.5,
+    "social": 59.3,
     "detente": 100.0,
     "energie_ressentie": 79.6
    },
    "emotions": {
-    "joie": 0.44,
+    "joie": 0.412,
     "tristesse": 0.2,
     "anxiete": 0.134,
-    "colere": 0.03,
-    "solitude": 0.534,
+    "colere": 0.077,
+    "solitude": 0.405,
     "fierte": 0.35,
     "excitation": 0.212,
     "concentration": 0.475
@@ -5175,21 +5155,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 60.6,
-    "soif": 32.9,
+    "faim": 30.6,
+    "soif": 83.8,
     "energie": 79.2,
     "hygiene": 99.3,
     "toilettes": 65.9,
-    "social": 46.6,
+    "social": 59.4,
     "detente": 100.0,
     "energie_ressentie": 79.2
    },
    "emotions": {
-    "joie": 0.435,
+    "joie": 0.406,
     "tristesse": 0.2,
     "anxiete": 0.142,
-    "colere": 0.03,
-    "solitude": 0.534,
+    "colere": 0.08,
+    "solitude": 0.405,
     "fierte": 0.35,
     "excitation": 0.21,
     "concentration": 0.462
@@ -5214,21 +5194,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 60.1,
-    "soif": 32.2,
+    "faim": 30.1,
+    "soif": 83.1,
     "energie": 78.8,
     "hygiene": 99.2,
     "toilettes": 64.8,
-    "social": 46.7,
+    "social": 59.5,
     "detente": 100.0,
     "energie_ressentie": 78.8
    },
    "emotions": {
-    "joie": 0.431,
+    "joie": 0.4,
     "tristesse": 0.2,
     "anxiete": 0.15,
-    "colere": 0.03,
-    "solitude": 0.534,
+    "colere": 0.082,
+    "solitude": 0.405,
     "fierte": 0.35,
     "excitation": 0.209,
     "concentration": 0.456
@@ -5259,14 +5239,14 @@
      "nom": "comté",
      "quantite": 50,
      "unite": "g",
-     "reste": 240
+     "reste": 490
     },
     {
      "produit": "oranges",
      "nom": "oranges",
      "quantite": 1,
      "unite": "oranges",
-     "reste": 1
+     "reste": 5
     }
    ],
    "perception": {
@@ -5296,21 +5276,21 @@
     }
    ],
    "besoins": {
-    "faim": 100.0,
-    "soif": 46.5,
+    "faim": 84.6,
+    "soif": 97.4,
     "energie": 78.4,
     "hygiene": 99.0,
     "toilettes": 63.7,
-    "social": 46.8,
+    "social": 59.6,
     "detente": 100.0,
     "energie_ressentie": 78.4
    },
    "emotions": {
-    "joie": 0.468,
+    "joie": 0.44,
     "tristesse": 0.22,
     "anxiete": 0.157,
-    "colere": 0.03,
-    "solitude": 0.585,
+    "colere": 0.074,
+    "solitude": 0.456,
     "fierte": 0.35,
     "excitation": 0.208,
     "concentration": 0.353
@@ -5338,21 +5318,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 99.5,
-    "soif": 45.8,
+    "faim": 84.1,
+    "soif": 96.7,
     "energie": 78.0,
     "hygiene": 98.9,
     "toilettes": 62.6,
-    "social": 46.9,
+    "social": 59.8,
     "detente": 100.0,
     "energie_ressentie": 78.0
    },
    "emotions": {
-    "joie": 0.461,
+    "joie": 0.436,
     "tristesse": 0.219,
     "anxiete": 0.164,
-    "colere": 0.03,
-    "solitude": 0.582,
+    "colere": 0.067,
+    "solitude": 0.453,
     "fierte": 0.35,
     "excitation": 0.207,
     "concentration": 0.302
@@ -5380,21 +5360,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 99.0,
-    "soif": 45.1,
+    "faim": 83.6,
+    "soif": 96.0,
     "energie": 77.6,
     "hygiene": 98.8,
     "toilettes": 61.5,
-    "social": 47.0,
+    "social": 59.9,
     "detente": 100.0,
     "energie_ressentie": 77.6
    },
    "emotions": {
-    "joie": 0.454,
+    "joie": 0.432,
     "tristesse": 0.218,
     "anxiete": 0.171,
-    "colere": 0.03,
-    "solitude": 0.579,
+    "colere": 0.061,
+    "solitude": 0.45,
     "fierte": 0.35,
     "excitation": 0.207,
     "concentration": 0.276
@@ -5422,21 +5402,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 98.5,
-    "soif": 44.4,
+    "faim": 83.1,
+    "soif": 95.3,
     "energie": 77.2,
     "hygiene": 98.7,
     "toilettes": 60.4,
-    "social": 47.1,
+    "social": 60.0,
     "detente": 100.0,
     "energie_ressentie": 77.2
    },
    "emotions": {
-    "joie": 0.448,
+    "joie": 0.428,
     "tristesse": 0.217,
     "anxiete": 0.177,
-    "colere": 0.03,
-    "solitude": 0.576,
+    "colere": 0.056,
+    "solitude": 0.447,
     "fierte": 0.35,
     "excitation": 0.206,
     "concentration": 0.263
@@ -5465,21 +5445,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 98.0,
-    "soif": 43.7,
+    "faim": 82.6,
+    "soif": 94.6,
     "energie": 76.8,
     "hygiene": 98.6,
     "toilettes": 59.3,
-    "social": 47.2,
+    "social": 60.1,
     "detente": 100.0,
     "energie_ressentie": 76.8
    },
    "emotions": {
-    "joie": 0.443,
+    "joie": 0.425,
     "tristesse": 0.216,
     "anxiete": 0.183,
-    "colere": 0.03,
-    "solitude": 0.573,
+    "colere": 0.052,
+    "solitude": 0.445,
     "fierte": 0.35,
     "excitation": 0.205,
     "concentration": 0.256
@@ -5504,21 +5484,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 97.5,
-    "soif": 43.0,
+    "faim": 82.1,
+    "soif": 93.9,
     "energie": 76.4,
     "hygiene": 98.4,
     "toilettes": 58.2,
-    "social": 47.3,
+    "social": 60.2,
     "detente": 100.0,
     "energie_ressentie": 76.4
    },
    "emotions": {
-    "joie": 0.438,
+    "joie": 0.423,
     "tristesse": 0.215,
     "anxiete": 0.188,
-    "colere": 0.03,
-    "solitude": 0.571,
+    "colere": 0.048,
+    "solitude": 0.442,
     "fierte": 0.35,
     "excitation": 0.205,
     "concentration": 0.253
@@ -5543,21 +5523,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 97.0,
-    "soif": 42.3,
+    "faim": 81.6,
+    "soif": 93.2,
     "energie": 76.0,
     "hygiene": 98.3,
     "toilettes": 57.1,
-    "social": 47.4,
+    "social": 60.3,
     "detente": 100.0,
     "energie_ressentie": 76.0
    },
    "emotions": {
-    "joie": 0.434,
+    "joie": 0.42,
     "tristesse": 0.214,
     "anxiete": 0.193,
-    "colere": 0.03,
-    "solitude": 0.568,
+    "colere": 0.045,
+    "solitude": 0.44,
     "fierte": 0.35,
     "excitation": 0.204,
     "concentration": 0.252
@@ -5567,93 +5547,74 @@
    "pas": 144,
    "heure": "12:00",
    "lieu": "domicile",
-   "piece": "cuisine",
-   "posture": "debout",
+   "piece": "sejour",
+   "posture": "assis",
    "routine": "rt-dimanche",
    "activite": "Lecture, musique, sieste",
-   "action": "Avant de s'y mettre, boire un grand verre d'eau.",
+   "action": "Temps libre : musique et lecture.",
    "pensee": null,
-   "deplacement": {
-    "chemin": [
-     "sejour",
-     "cuisine"
-    ],
-    "distance_m": 4.5,
-    "duree_s": 4,
-    "foulees": 6
-   },
    "perception": {
     "vu": [
-     "obj-cafetiere"
-    ],
-    "entend": [
-     "la radio"
+     "obj-telecommande"
     ]
    },
-   "appareils_allumes": [
-    "radio"
-   ],
+   "appareils_allumes": [],
    "besoins": {
-    "faim": 96.5,
-    "soif": 66.6,
+    "faim": 81.1,
+    "soif": 92.5,
     "energie": 75.6,
     "hygiene": 98.2,
     "toilettes": 56.0,
-    "social": 47.6,
+    "social": 60.3,
     "detente": 100.0,
     "energie_ressentie": 75.6
    },
    "emotions": {
-    "joie": 0.43,
+    "joie": 0.418,
     "tristesse": 0.214,
     "anxiete": 0.198,
-    "colere": 0.03,
-    "solitude": 0.566,
+    "colere": 0.043,
+    "solitude": 0.437,
     "fierte": 0.35,
     "excitation": 0.204,
-    "concentration": 0.451
+    "concentration": 0.251
    }
   },
   {
    "pas": 145,
    "heure": "12:05",
    "lieu": "domicile",
-   "piece": "cuisine",
-   "posture": "debout",
+   "piece": "sejour",
+   "posture": "assis",
    "routine": "rt-dimanche",
    "activite": "Lecture, musique, sieste",
-   "action": "Avant de s'y mettre, boire un grand verre d'eau.",
+   "action": "Temps libre : musique et lecture.",
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-cafetiere"
-    ],
-    "entend": [
-     "la radio"
+     "obj-netbook"
     ]
    },
-   "appareils_allumes": [
-    "radio"
-   ],
+   "appareils_allumes": [],
    "besoins": {
-    "faim": 96.0,
-    "soif": 90.9,
+    "faim": 80.6,
+    "soif": 91.8,
     "energie": 75.2,
     "hygiene": 98.1,
     "toilettes": 54.9,
-    "social": 47.7,
+    "social": 60.2,
     "detente": 100.0,
     "energie_ressentie": 75.2
    },
    "emotions": {
-    "joie": 0.427,
+    "joie": 0.416,
     "tristesse": 0.213,
     "anxiete": 0.203,
-    "colere": 0.03,
-    "solitude": 0.563,
+    "colere": 0.041,
+    "solitude": 0.435,
     "fierte": 0.35,
     "excitation": 0.203,
-    "concentration": 0.55
+    "concentration": 0.25
    }
   },
   {
@@ -5666,43 +5627,32 @@
    "activite": "Lecture, musique, sieste",
    "action": "Temps libre : musique et lecture.",
    "pensee": null,
-   "deplacement": {
-    "chemin": [
-     "cuisine",
-     "sejour"
-    ],
-    "distance_m": 4.5,
-    "duree_s": 4,
-    "foulees": 6
-   },
    "perception": {
     "vu": [
      "obj-livre-courir",
-     "obj-marmite",
-     "obj-netbook",
-     "obj-poubelle"
+     "obj-netbook"
     ]
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 95.5,
-    "soif": 90.2,
+    "faim": 80.1,
+    "soif": 91.1,
     "energie": 74.8,
     "hygiene": 98.0,
     "toilettes": 53.8,
-    "social": 47.6,
+    "social": 60.2,
     "detente": 100.0,
     "energie_ressentie": 74.8
    },
    "emotions": {
-    "joie": 0.424,
+    "joie": 0.414,
     "tristesse": 0.212,
     "anxiete": 0.207,
-    "colere": 0.03,
-    "solitude": 0.561,
+    "colere": 0.039,
+    "solitude": 0.433,
     "fierte": 0.35,
     "excitation": 0.203,
-    "concentration": 0.4
+    "concentration": 0.25
    }
   },
   {
@@ -5717,24 +5667,24 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 95.0,
-    "soif": 89.5,
+    "faim": 79.6,
+    "soif": 90.4,
     "energie": 74.4,
     "hygiene": 97.8,
     "toilettes": 52.7,
-    "social": 47.6,
+    "social": 60.1,
     "detente": 100.0,
     "energie_ressentie": 74.4
    },
    "emotions": {
-    "joie": 0.421,
+    "joie": 0.413,
     "tristesse": 0.211,
     "anxiete": 0.211,
-    "colere": 0.03,
-    "solitude": 0.559,
+    "colere": 0.038,
+    "solitude": 0.431,
     "fierte": 0.35,
     "excitation": 0.203,
-    "concentration": 0.325
+    "concentration": 0.25
    }
   },
   {
@@ -5755,24 +5705,24 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 94.5,
-    "soif": 88.8,
+    "faim": 79.1,
+    "soif": 89.7,
     "energie": 74.0,
     "hygiene": 97.7,
     "toilettes": 51.6,
-    "social": 47.5,
+    "social": 60.1,
     "detente": 100.0,
     "energie_ressentie": 74.0
    },
    "emotions": {
-    "joie": 0.419,
+    "joie": 0.411,
     "tristesse": 0.211,
     "anxiete": 0.215,
-    "colere": 0.03,
-    "solitude": 0.557,
+    "colere": 0.036,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.202,
-    "concentration": 0.288
+    "concentration": 0.25
    }
   },
   {
@@ -5787,24 +5737,24 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 94.0,
-    "soif": 88.1,
+    "faim": 78.6,
+    "soif": 89.0,
     "energie": 73.6,
     "hygiene": 97.6,
     "toilettes": 50.5,
-    "social": 47.5,
+    "social": 60.1,
     "detente": 100.0,
     "energie_ressentie": 73.6
    },
    "emotions": {
-    "joie": 0.417,
+    "joie": 0.41,
     "tristesse": 0.21,
     "anxiete": 0.219,
-    "colere": 0.03,
-    "solitude": 0.555,
+    "colere": 0.035,
+    "solitude": 0.428,
     "fierte": 0.35,
     "excitation": 0.202,
-    "concentration": 0.269
+    "concentration": 0.25
    }
   },
   {
@@ -5825,24 +5775,24 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 93.5,
-    "soif": 87.4,
+    "faim": 78.1,
+    "soif": 88.3,
     "energie": 73.2,
     "hygiene": 97.5,
     "toilettes": 49.4,
-    "social": 47.5,
+    "social": 60.0,
     "detente": 100.0,
     "energie_ressentie": 73.2
    },
    "emotions": {
-    "joie": 0.415,
+    "joie": 0.409,
     "tristesse": 0.21,
     "anxiete": 0.222,
-    "colere": 0.03,
-    "solitude": 0.554,
+    "colere": 0.035,
+    "solitude": 0.426,
     "fierte": 0.35,
     "excitation": 0.202,
-    "concentration": 0.259
+    "concentration": 0.25
    }
   },
   {
@@ -5862,24 +5812,24 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 93.0,
-    "soif": 86.7,
+    "faim": 77.6,
+    "soif": 87.6,
     "energie": 72.8,
     "hygiene": 97.4,
     "toilettes": 48.3,
-    "social": 47.4,
+    "social": 60.0,
     "detente": 100.0,
     "energie_ressentie": 72.8
    },
    "emotions": {
-    "joie": 0.414,
+    "joie": 0.408,
     "tristesse": 0.209,
     "anxiete": 0.225,
-    "colere": 0.03,
-    "solitude": 0.552,
+    "colere": 0.034,
+    "solitude": 0.425,
     "fierte": 0.35,
     "excitation": 0.202,
-    "concentration": 0.255
+    "concentration": 0.25
    }
   },
   {
@@ -5894,24 +5844,24 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 92.5,
-    "soif": 86.0,
+    "faim": 77.1,
+    "soif": 86.9,
     "energie": 72.4,
     "hygiene": 97.2,
     "toilettes": 47.2,
-    "social": 47.4,
+    "social": 59.9,
     "detente": 100.0,
     "energie_ressentie": 72.4
    },
    "emotions": {
-    "joie": 0.412,
+    "joie": 0.407,
     "tristesse": 0.209,
     "anxiete": 0.228,
-    "colere": 0.03,
-    "solitude": 0.551,
+    "colere": 0.033,
+    "solitude": 0.423,
     "fierte": 0.35,
     "excitation": 0.201,
-    "concentration": 0.252
+    "concentration": 0.25
    }
   },
   {
@@ -5931,24 +5881,24 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 92.0,
-    "soif": 85.3,
+    "faim": 76.6,
+    "soif": 86.2,
     "energie": 72.0,
     "hygiene": 97.1,
     "toilettes": 46.1,
-    "social": 47.3,
+    "social": 59.9,
     "detente": 100.0,
     "energie_ressentie": 72.0
    },
    "emotions": {
-    "joie": 0.411,
+    "joie": 0.406,
     "tristesse": 0.208,
     "anxiete": 0.231,
-    "colere": 0.03,
-    "solitude": 0.549,
+    "colere": 0.033,
+    "solitude": 0.422,
     "fierte": 0.35,
     "excitation": 0.201,
-    "concentration": 0.251
+    "concentration": 0.25
    }
   },
   {
@@ -5969,24 +5919,24 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 91.5,
-    "soif": 84.6,
+    "faim": 76.1,
+    "soif": 85.5,
     "energie": 71.6,
     "hygiene": 97.0,
     "toilettes": 45.0,
-    "social": 47.3,
+    "social": 59.9,
     "detente": 100.0,
     "energie_ressentie": 71.6
    },
    "emotions": {
-    "joie": 0.41,
+    "joie": 0.406,
     "tristesse": 0.208,
     "anxiete": 0.234,
-    "colere": 0.03,
-    "solitude": 0.548,
+    "colere": 0.032,
+    "solitude": 0.421,
     "fierte": 0.35,
     "excitation": 0.201,
-    "concentration": 0.251
+    "concentration": 0.25
    }
   },
   {
@@ -6006,21 +5956,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 91.0,
-    "soif": 83.9,
+    "faim": 75.6,
+    "soif": 84.8,
     "energie": 71.2,
     "hygiene": 96.9,
     "toilettes": 43.9,
-    "social": 47.3,
+    "social": 59.8,
     "detente": 100.0,
     "energie_ressentie": 71.2
    },
    "emotions": {
-    "joie": 0.409,
+    "joie": 0.405,
     "tristesse": 0.207,
     "anxiete": 0.237,
-    "colere": 0.03,
-    "solitude": 0.547,
+    "colere": 0.032,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.201,
     "concentration": 0.25
@@ -6038,21 +5988,21 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 90.5,
-    "soif": 83.2,
+    "faim": 75.1,
+    "soif": 84.1,
     "energie": 70.8,
     "hygiene": 96.8,
     "toilettes": 42.8,
-    "social": 47.2,
+    "social": 59.8,
     "detente": 100.0,
     "energie_ressentie": 70.8
    },
    "emotions": {
-    "joie": 0.408,
+    "joie": 0.404,
     "tristesse": 0.207,
     "anxiete": 0.239,
-    "colere": 0.03,
-    "solitude": 0.546,
+    "colere": 0.032,
+    "solitude": 0.419,
     "fierte": 0.35,
     "excitation": 0.201,
     "concentration": 0.25
@@ -6075,21 +6025,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 90.0,
-    "soif": 82.5,
+    "faim": 74.6,
+    "soif": 83.4,
     "energie": 70.4,
     "hygiene": 96.6,
     "toilettes": 41.7,
-    "social": 47.2,
+    "social": 59.7,
     "detente": 100.0,
     "energie_ressentie": 70.4
    },
    "emotions": {
-    "joie": 0.407,
+    "joie": 0.404,
     "tristesse": 0.206,
     "anxiete": 0.241,
-    "colere": 0.03,
-    "solitude": 0.545,
+    "colere": 0.031,
+    "solitude": 0.418,
     "fierte": 0.35,
     "excitation": 0.201,
     "concentration": 0.25
@@ -6112,21 +6062,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 89.5,
-    "soif": 81.8,
+    "faim": 74.1,
+    "soif": 82.7,
     "energie": 70.0,
     "hygiene": 96.5,
     "toilettes": 40.6,
-    "social": 47.1,
+    "social": 59.7,
     "detente": 100.0,
     "energie_ressentie": 70.0
    },
    "emotions": {
-    "joie": 0.406,
+    "joie": 0.404,
     "tristesse": 0.206,
     "anxiete": 0.243,
-    "colere": 0.03,
-    "solitude": 0.544,
+    "colere": 0.031,
+    "solitude": 0.417,
     "fierte": 0.35,
     "excitation": 0.201,
     "concentration": 0.25
@@ -6149,21 +6099,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 89.0,
-    "soif": 81.1,
+    "faim": 73.6,
+    "soif": 82.0,
     "energie": 69.6,
     "hygiene": 96.4,
     "toilettes": 39.5,
-    "social": 47.1,
+    "social": 59.7,
     "detente": 100.0,
     "energie_ressentie": 69.6
    },
    "emotions": {
-    "joie": 0.405,
+    "joie": 0.403,
     "tristesse": 0.206,
     "anxiete": 0.246,
-    "colere": 0.03,
-    "solitude": 0.543,
+    "colere": 0.031,
+    "solitude": 0.416,
     "fierte": 0.35,
     "excitation": 0.201,
     "concentration": 0.25
@@ -6181,21 +6131,21 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 88.5,
-    "soif": 80.4,
+    "faim": 73.1,
+    "soif": 81.3,
     "energie": 69.2,
     "hygiene": 96.3,
     "toilettes": 38.4,
-    "social": 47.1,
+    "social": 59.6,
     "detente": 100.0,
     "energie_ressentie": 69.2
    },
    "emotions": {
-    "joie": 0.405,
+    "joie": 0.403,
     "tristesse": 0.205,
     "anxiete": 0.247,
-    "colere": 0.03,
-    "solitude": 0.542,
+    "colere": 0.031,
+    "solitude": 0.416,
     "fierte": 0.35,
     "excitation": 0.201,
     "concentration": 0.25
@@ -6213,21 +6163,21 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 88.0,
-    "soif": 79.7,
+    "faim": 72.6,
+    "soif": 80.6,
     "energie": 68.8,
     "hygiene": 96.2,
     "toilettes": 37.3,
-    "social": 47.0,
+    "social": 59.6,
     "detente": 100.0,
     "energie_ressentie": 68.8
    },
    "emotions": {
-    "joie": 0.404,
+    "joie": 0.403,
     "tristesse": 0.205,
     "anxiete": 0.249,
-    "colere": 0.03,
-    "solitude": 0.542,
+    "colere": 0.031,
+    "solitude": 0.415,
     "fierte": 0.35,
     "excitation": 0.201,
     "concentration": 0.25
@@ -6245,21 +6195,21 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 87.5,
-    "soif": 79.0,
+    "faim": 72.1,
+    "soif": 79.9,
     "energie": 68.4,
     "hygiene": 96.0,
     "toilettes": 36.2,
-    "social": 47.0,
+    "social": 59.5,
     "detente": 100.0,
     "energie_ressentie": 68.4
    },
    "emotions": {
-    "joie": 0.404,
+    "joie": 0.402,
     "tristesse": 0.205,
     "anxiete": 0.251,
-    "colere": 0.03,
-    "solitude": 0.541,
+    "colere": 0.031,
+    "solitude": 0.414,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -6283,21 +6233,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 87.0,
-    "soif": 78.3,
+    "faim": 71.6,
+    "soif": 79.2,
     "energie": 68.0,
     "hygiene": 95.9,
     "toilettes": 35.1,
-    "social": 46.9,
+    "social": 59.5,
     "detente": 100.0,
     "energie_ressentie": 68.0
    },
    "emotions": {
-    "joie": 0.403,
+    "joie": 0.402,
     "tristesse": 0.205,
     "anxiete": 0.253,
     "colere": 0.03,
-    "solitude": 0.54,
+    "solitude": 0.414,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -6315,21 +6265,21 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 86.5,
-    "soif": 77.6,
+    "faim": 71.1,
+    "soif": 78.5,
     "energie": 67.6,
     "hygiene": 95.8,
     "toilettes": 34.0,
-    "social": 46.9,
+    "social": 59.5,
     "detente": 100.0,
     "energie_ressentie": 67.6
    },
    "emotions": {
-    "joie": 0.403,
+    "joie": 0.402,
     "tristesse": 0.204,
     "anxiete": 0.254,
     "colere": 0.03,
-    "solitude": 0.54,
+    "solitude": 0.413,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -6353,21 +6303,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 86.0,
-    "soif": 76.9,
+    "faim": 70.6,
+    "soif": 77.8,
     "energie": 67.2,
     "hygiene": 95.7,
     "toilettes": 32.9,
-    "social": 46.9,
+    "social": 59.4,
     "detente": 100.0,
     "energie_ressentie": 67.2
    },
    "emotions": {
-    "joie": 0.403,
+    "joie": 0.402,
     "tristesse": 0.204,
     "anxiete": 0.256,
     "colere": 0.03,
-    "solitude": 0.539,
+    "solitude": 0.413,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -6390,21 +6340,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 85.5,
-    "soif": 76.2,
+    "faim": 70.1,
+    "soif": 77.1,
     "energie": 66.8,
     "hygiene": 95.6,
     "toilettes": 31.8,
-    "social": 46.8,
+    "social": 59.4,
     "detente": 100.0,
     "energie_ressentie": 66.8
    },
    "emotions": {
-    "joie": 0.402,
+    "joie": 0.401,
     "tristesse": 0.204,
     "anxiete": 0.257,
     "colere": 0.03,
-    "solitude": 0.539,
+    "solitude": 0.413,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -6427,21 +6377,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 85.0,
-    "soif": 75.5,
+    "faim": 69.6,
+    "soif": 76.4,
     "energie": 66.4,
     "hygiene": 95.4,
     "toilettes": 30.7,
-    "social": 46.8,
+    "social": 59.3,
     "detente": 100.0,
     "energie_ressentie": 66.4
    },
    "emotions": {
-    "joie": 0.402,
+    "joie": 0.401,
     "tristesse": 0.204,
     "anxiete": 0.258,
     "colere": 0.03,
-    "solitude": 0.539,
+    "solitude": 0.412,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -6459,21 +6409,21 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 84.5,
-    "soif": 74.8,
+    "faim": 69.1,
+    "soif": 75.7,
     "energie": 66.0,
     "hygiene": 95.3,
     "toilettes": 29.6,
-    "social": 46.7,
+    "social": 59.3,
     "detente": 100.0,
     "energie_ressentie": 66.0
    },
    "emotions": {
-    "joie": 0.402,
+    "joie": 0.401,
     "tristesse": 0.203,
     "anxiete": 0.26,
     "colere": 0.03,
-    "solitude": 0.538,
+    "solitude": 0.412,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -6491,21 +6441,21 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 84.0,
-    "soif": 74.1,
+    "faim": 68.6,
+    "soif": 75.0,
     "energie": 65.6,
     "hygiene": 95.2,
     "toilettes": 28.5,
-    "social": 46.7,
+    "social": 59.3,
     "detente": 100.0,
     "energie_ressentie": 65.6
    },
    "emotions": {
-    "joie": 0.402,
+    "joie": 0.401,
     "tristesse": 0.203,
     "anxiete": 0.261,
     "colere": 0.03,
-    "solitude": 0.538,
+    "solitude": 0.412,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -6523,21 +6473,21 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 83.5,
-    "soif": 73.4,
+    "faim": 68.1,
+    "soif": 74.3,
     "energie": 65.2,
     "hygiene": 95.1,
     "toilettes": 27.4,
-    "social": 46.7,
+    "social": 59.2,
     "detente": 100.0,
     "energie_ressentie": 65.2
    },
    "emotions": {
-    "joie": 0.402,
+    "joie": 0.401,
     "tristesse": 0.203,
     "anxiete": 0.262,
     "colere": 0.03,
-    "solitude": 0.538,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -6560,12 +6510,12 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 83.0,
-    "soif": 72.7,
+    "faim": 67.6,
+    "soif": 73.6,
     "energie": 64.8,
     "hygiene": 95.0,
     "toilettes": 26.3,
-    "social": 46.6,
+    "social": 59.2,
     "detente": 100.0,
     "energie_ressentie": 64.8
    },
@@ -6574,7 +6524,7 @@
     "tristesse": 0.203,
     "anxiete": 0.263,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -6597,12 +6547,12 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 82.5,
-    "soif": 72.0,
+    "faim": 67.1,
+    "soif": 72.9,
     "energie": 64.4,
     "hygiene": 94.8,
     "toilettes": 25.2,
-    "social": 46.6,
+    "social": 59.1,
     "detente": 100.0,
     "energie_ressentie": 64.4
    },
@@ -6611,7 +6561,7 @@
     "tristesse": 0.203,
     "anxiete": 0.264,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -6635,12 +6585,12 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 82.0,
-    "soif": 71.3,
+    "faim": 66.6,
+    "soif": 72.2,
     "energie": 64.0,
     "hygiene": 94.7,
     "toilettes": 24.1,
-    "social": 46.5,
+    "social": 59.1,
     "detente": 100.0,
     "energie_ressentie": 64.0
    },
@@ -6649,7 +6599,7 @@
     "tristesse": 0.203,
     "anxiete": 0.275,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.2
@@ -6692,12 +6642,12 @@
     "lumiere-wc"
    ],
    "besoins": {
-    "faim": 81.5,
-    "soif": 70.6,
+    "faim": 66.1,
+    "soif": 71.5,
     "energie": 63.6,
     "hygiene": 94.6,
     "toilettes": 100.0,
-    "social": 46.5,
+    "social": 59.1,
     "detente": 100.0,
     "energie_ressentie": 63.6
    },
@@ -6706,7 +6656,7 @@
     "tristesse": 0.202,
     "anxiete": 0.275,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.425
@@ -6742,21 +6692,21 @@
    ],
    "appareils_allumes": [],
    "besoins": {
-    "faim": 81.0,
-    "soif": 69.9,
+    "faim": 65.6,
+    "soif": 70.8,
     "energie": 63.2,
     "hygiene": 94.5,
     "toilettes": 98.9,
-    "social": 46.5,
+    "social": 59.0,
     "detente": 100.0,
     "energie_ressentie": 63.2
    },
    "emotions": {
-    "joie": 0.401,
+    "joie": 0.4,
     "tristesse": 0.202,
     "anxiete": 0.275,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.338
@@ -6774,21 +6724,21 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 80.5,
-    "soif": 69.2,
+    "faim": 65.1,
+    "soif": 70.1,
     "energie": 62.8,
     "hygiene": 94.4,
     "toilettes": 97.8,
-    "social": 46.4,
+    "social": 59.0,
     "detente": 100.0,
     "energie_ressentie": 62.8
    },
    "emotions": {
-    "joie": 0.401,
+    "joie": 0.4,
     "tristesse": 0.202,
     "anxiete": 0.276,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.294
@@ -6811,21 +6761,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 80.0,
-    "soif": 68.5,
+    "faim": 64.6,
+    "soif": 69.4,
     "energie": 62.4,
     "hygiene": 94.2,
     "toilettes": 96.7,
-    "social": 46.4,
+    "social": 58.9,
     "detente": 100.0,
     "energie_ressentie": 62.4
    },
    "emotions": {
-    "joie": 0.401,
+    "joie": 0.4,
     "tristesse": 0.202,
     "anxiete": 0.276,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.272
@@ -6849,21 +6799,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 79.5,
-    "soif": 67.8,
+    "faim": 64.1,
+    "soif": 68.7,
     "energie": 62.0,
     "hygiene": 94.1,
     "toilettes": 95.6,
-    "social": 46.3,
+    "social": 58.9,
     "detente": 100.0,
     "energie_ressentie": 62.0
    },
    "emotions": {
-    "joie": 0.401,
+    "joie": 0.4,
     "tristesse": 0.202,
     "anxiete": 0.276,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.261
@@ -6887,21 +6837,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 79.0,
-    "soif": 67.1,
+    "faim": 63.6,
+    "soif": 68.0,
     "energie": 61.6,
     "hygiene": 94.0,
     "toilettes": 94.5,
-    "social": 46.3,
+    "social": 58.9,
     "detente": 100.0,
     "energie_ressentie": 61.6
    },
    "emotions": {
-    "joie": 0.401,
+    "joie": 0.4,
     "tristesse": 0.202,
     "anxiete": 0.276,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.255
@@ -6934,12 +6884,12 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 78.5,
-    "soif": 91.4,
+    "faim": 63.1,
+    "soif": 92.3,
     "energie": 61.2,
     "hygiene": 93.9,
     "toilettes": 93.4,
-    "social": 46.3,
+    "social": 58.8,
     "detente": 100.0,
     "energie_ressentie": 61.2
    },
@@ -6948,7 +6898,7 @@
     "tristesse": 0.202,
     "anxiete": 0.276,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.453
@@ -6957,6 +6907,47 @@
   {
    "pas": 181,
    "heure": "15:05",
+   "lieu": "domicile",
+   "piece": "cuisine",
+   "posture": "debout",
+   "routine": "rt-dimanche",
+   "activite": "Montre du grand-père",
+   "action": "Avant de s'y mettre, manger un fruit.",
+   "pensee": null,
+   "consommation": [
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 1,
+     "unite": "pommes",
+     "reste": 7
+    }
+   ],
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 77.6,
+    "soif": 91.6,
+    "energie": 60.8,
+    "hygiene": 93.8,
+    "toilettes": 92.3,
+    "social": 58.8,
+    "detente": 99.9,
+    "energie_ressentie": 60.8
+   },
+   "emotions": {
+    "joie": 0.4,
+    "tristesse": 0.202,
+    "anxiete": 0.277,
+    "colere": 0.03,
+    "solitude": 0.411,
+    "fierte": 0.35,
+    "excitation": 0.2,
+    "concentration": 0.551
+   }
+  },
+  {
+   "pas": 182,
+   "heure": "15:10",
    "lieu": "domicile",
    "piece": "atelier",
    "posture": "assis",
@@ -6983,9 +6974,9 @@
    ],
    "perception": {
     "vu": [
-     "obj-lot-quartz",
-     "obj-netbook",
-     "obj-omega"
+     "obj-outils",
+     "obj-ressort-rolex",
+     "obj-zenith"
     ]
    },
    "appareils_allumes": [
@@ -7001,64 +6992,24 @@
     }
    ],
    "besoins": {
-    "faim": 78.0,
-    "soif": 90.7,
-    "energie": 60.8,
-    "hygiene": 93.8,
-    "toilettes": 92.3,
-    "social": 46.2,
+    "faim": 77.1,
+    "soif": 90.9,
+    "energie": 60.4,
+    "hygiene": 93.6,
+    "toilettes": 91.2,
+    "social": 58.7,
     "detente": 100.0,
-    "energie_ressentie": 60.8
+    "energie_ressentie": 60.4
    },
    "emotions": {
     "joie": 0.43,
     "tristesse": 0.253,
     "anxiete": 0.277,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.701
-   }
-  },
-  {
-   "pas": 182,
-   "heure": "15:10",
-   "lieu": "domicile",
-   "piece": "atelier",
-   "posture": "assis",
-   "routine": "rt-dimanche",
-   "activite": "Montre du grand-père",
-   "action": "Travaille sur son ouvrage personnel.",
-   "pensee": null,
-   "perception": {
-    "vu": [
-     "obj-ressort-rolex",
-     "obj-zenith"
-    ]
-   },
-   "appareils_allumes": [
-    "lampe-etabli"
-   ],
-   "besoins": {
-    "faim": 77.5,
-    "soif": 90.0,
-    "energie": 60.4,
-    "hygiene": 93.6,
-    "toilettes": 91.2,
-    "social": 46.2,
-    "detente": 100.0,
-    "energie_ressentie": 60.4
-   },
-   "emotions": {
-    "joie": 0.427,
-    "tristesse": 0.25,
-    "anxiete": 0.277,
-    "colere": 0.03,
-    "solitude": 0.537,
-    "fierte": 0.35,
-    "excitation": 0.2,
-    "concentration": 0.776
+    "concentration": 0.751
    }
   },
   {
@@ -7083,24 +7034,24 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 77.0,
-    "soif": 89.3,
+    "faim": 76.6,
+    "soif": 90.2,
     "energie": 60.0,
     "hygiene": 93.5,
     "toilettes": 90.1,
-    "social": 46.1,
+    "social": 58.7,
     "detente": 100.0,
     "energie_ressentie": 60.0
    },
    "emotions": {
-    "joie": 0.424,
-    "tristesse": 0.247,
+    "joie": 0.427,
+    "tristesse": 0.25,
     "anxiete": 0.277,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.813
+    "concentration": 0.8
    }
   },
   {
@@ -7124,24 +7075,24 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 76.5,
-    "soif": 88.6,
+    "faim": 76.1,
+    "soif": 89.5,
     "energie": 59.6,
     "hygiene": 93.4,
     "toilettes": 89.0,
-    "social": 46.1,
+    "social": 58.7,
     "detente": 100.0,
     "energie_ressentie": 59.6
    },
    "emotions": {
-    "joie": 0.422,
-    "tristesse": 0.244,
+    "joie": 0.424,
+    "tristesse": 0.247,
     "anxiete": 0.277,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.831
+    "concentration": 0.825
    }
   },
   {
@@ -7164,24 +7115,24 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 76.0,
-    "soif": 87.9,
+    "faim": 75.6,
+    "soif": 88.8,
     "energie": 59.2,
     "hygiene": 93.3,
     "toilettes": 87.9,
-    "social": 46.1,
+    "social": 58.6,
     "detente": 100.0,
     "energie_ressentie": 59.2
    },
    "emotions": {
-    "joie": 0.419,
-    "tristesse": 0.242,
+    "joie": 0.421,
+    "tristesse": 0.244,
     "anxiete": 0.277,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.411,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.841
+    "concentration": 0.838
    }
   },
   {
@@ -7206,24 +7157,24 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 75.5,
-    "soif": 87.2,
+    "faim": 75.1,
+    "soif": 88.1,
     "energie": 58.8,
     "hygiene": 93.2,
     "toilettes": 86.8,
-    "social": 46.0,
+    "social": 58.6,
     "detente": 100.0,
     "energie_ressentie": 58.8
    },
    "emotions": {
-    "joie": 0.417,
-    "tristesse": 0.239,
+    "joie": 0.419,
+    "tristesse": 0.242,
     "anxiete": 0.277,
     "colere": 0.03,
-    "solitude": 0.537,
+    "solitude": 0.412,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.845
+    "concentration": 0.844
    }
   },
   {
@@ -7247,24 +7198,24 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 75.0,
-    "soif": 86.5,
+    "faim": 74.6,
+    "soif": 87.4,
     "energie": 58.4,
     "hygiene": 93.0,
     "toilettes": 85.7,
-    "social": 46.0,
+    "social": 58.5,
     "detente": 100.0,
     "energie_ressentie": 58.4
    },
    "emotions": {
-    "joie": 0.415,
-    "tristesse": 0.237,
+    "joie": 0.417,
+    "tristesse": 0.239,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.538,
+    "solitude": 0.412,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.848
+    "concentration": 0.847
    }
   },
   {
@@ -7289,24 +7240,24 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 74.5,
-    "soif": 85.8,
+    "faim": 74.1,
+    "soif": 86.7,
     "energie": 58.0,
     "hygiene": 92.9,
     "toilettes": 84.6,
-    "social": 45.9,
+    "social": 58.5,
     "detente": 100.0,
     "energie_ressentie": 58.0
    },
    "emotions": {
-    "joie": 0.414,
-    "tristesse": 0.235,
+    "joie": 0.415,
+    "tristesse": 0.237,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.538,
+    "solitude": 0.412,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.849
+    "concentration": 0.848
    }
   },
   {
@@ -7331,21 +7282,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 74.0,
-    "soif": 85.1,
+    "faim": 73.6,
+    "soif": 86.0,
     "energie": 57.6,
     "hygiene": 92.8,
     "toilettes": 83.5,
-    "social": 45.9,
+    "social": 58.5,
     "detente": 100.0,
     "energie_ressentie": 57.6
    },
    "emotions": {
-    "joie": 0.412,
-    "tristesse": 0.233,
+    "joie": 0.413,
+    "tristesse": 0.235,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.538,
+    "solitude": 0.412,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.849
@@ -7374,21 +7325,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 73.5,
-    "soif": 84.4,
+    "faim": 73.1,
+    "soif": 85.3,
     "energie": 57.2,
     "hygiene": 92.7,
     "toilettes": 82.4,
-    "social": 45.9,
+    "social": 58.4,
     "detente": 100.0,
     "energie_ressentie": 57.2
    },
    "emotions": {
-    "joie": 0.411,
-    "tristesse": 0.231,
+    "joie": 0.412,
+    "tristesse": 0.233,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.538,
+    "solitude": 0.412,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7416,21 +7367,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 73.0,
-    "soif": 83.7,
+    "faim": 72.6,
+    "soif": 84.6,
     "energie": 56.8,
     "hygiene": 92.6,
     "toilettes": 81.3,
-    "social": 45.8,
+    "social": 58.4,
     "detente": 100.0,
     "energie_ressentie": 56.8
    },
    "emotions": {
-    "joie": 0.41,
-    "tristesse": 0.23,
+    "joie": 0.411,
+    "tristesse": 0.231,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.538,
+    "solitude": 0.413,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7459,21 +7410,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 72.5,
-    "soif": 83.0,
+    "faim": 72.1,
+    "soif": 83.9,
     "energie": 56.4,
     "hygiene": 92.4,
     "toilettes": 80.2,
-    "social": 45.8,
+    "social": 58.3,
     "detente": 100.0,
     "energie_ressentie": 56.4
    },
    "emotions": {
-    "joie": 0.409,
-    "tristesse": 0.228,
+    "joie": 0.41,
+    "tristesse": 0.229,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.539,
+    "solitude": 0.413,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7502,21 +7453,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 72.0,
-    "soif": 82.3,
+    "faim": 71.6,
+    "soif": 83.2,
     "energie": 56.0,
     "hygiene": 92.3,
     "toilettes": 79.1,
-    "social": 45.7,
+    "social": 58.3,
     "detente": 100.0,
     "energie_ressentie": 56.0
    },
    "emotions": {
     "joie": 0.408,
-    "tristesse": 0.226,
+    "tristesse": 0.228,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.539,
+    "solitude": 0.413,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7543,21 +7494,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 71.5,
-    "soif": 81.6,
+    "faim": 71.1,
+    "soif": 82.5,
     "energie": 55.6,
     "hygiene": 92.2,
     "toilettes": 78.0,
-    "social": 45.7,
+    "social": 58.3,
     "detente": 100.0,
     "energie_ressentie": 55.6
    },
    "emotions": {
-    "joie": 0.407,
-    "tristesse": 0.225,
+    "joie": 0.408,
+    "tristesse": 0.226,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.539,
+    "solitude": 0.413,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7586,21 +7537,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 71.0,
-    "soif": 80.9,
+    "faim": 70.6,
+    "soif": 81.8,
     "energie": 55.2,
     "hygiene": 92.1,
     "toilettes": 76.9,
-    "social": 45.7,
+    "social": 58.2,
     "detente": 100.0,
     "energie_ressentie": 55.2
    },
    "emotions": {
-    "joie": 0.406,
-    "tristesse": 0.223,
+    "joie": 0.407,
+    "tristesse": 0.225,
     "anxiete": 0.278,
     "colere": 0.03,
-    "solitude": 0.539,
+    "solitude": 0.414,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7626,21 +7577,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 70.5,
-    "soif": 80.2,
+    "faim": 70.1,
+    "soif": 81.1,
     "energie": 54.8,
     "hygiene": 92.0,
     "toilettes": 75.8,
-    "social": 45.6,
+    "social": 58.2,
     "detente": 100.0,
     "energie_ressentie": 54.8
    },
    "emotions": {
-    "joie": 0.405,
-    "tristesse": 0.222,
+    "joie": 0.406,
+    "tristesse": 0.223,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.54,
+    "solitude": 0.414,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7666,21 +7617,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 70.0,
-    "soif": 79.5,
+    "faim": 69.6,
+    "soif": 80.4,
     "energie": 54.4,
     "hygiene": 91.8,
     "toilettes": 74.7,
-    "social": 45.6,
+    "social": 58.1,
     "detente": 100.0,
     "energie_ressentie": 54.4
    },
    "emotions": {
     "joie": 0.405,
-    "tristesse": 0.221,
+    "tristesse": 0.222,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.54,
+    "solitude": 0.414,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7706,21 +7657,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 69.5,
-    "soif": 78.8,
+    "faim": 69.1,
+    "soif": 79.7,
     "energie": 54.0,
     "hygiene": 91.7,
     "toilettes": 73.6,
-    "social": 45.5,
+    "social": 58.1,
     "detente": 100.0,
     "energie_ressentie": 54.0
    },
    "emotions": {
-    "joie": 0.404,
-    "tristesse": 0.22,
+    "joie": 0.405,
+    "tristesse": 0.221,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.54,
+    "solitude": 0.414,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7750,21 +7701,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 69.0,
-    "soif": 78.1,
+    "faim": 68.6,
+    "soif": 79.0,
     "energie": 53.6,
     "hygiene": 91.6,
     "toilettes": 72.5,
-    "social": 45.5,
+    "social": 58.1,
     "detente": 100.0,
     "energie_ressentie": 53.6
    },
    "emotions": {
     "joie": 0.404,
-    "tristesse": 0.219,
+    "tristesse": 0.22,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.54,
+    "solitude": 0.415,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7793,21 +7744,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 68.5,
-    "soif": 77.4,
+    "faim": 68.1,
+    "soif": 78.3,
     "energie": 53.2,
     "hygiene": 91.5,
     "toilettes": 71.4,
-    "social": 45.5,
+    "social": 58.0,
     "detente": 100.0,
     "energie_ressentie": 53.2
    },
    "emotions": {
-    "joie": 0.403,
-    "tristesse": 0.218,
+    "joie": 0.404,
+    "tristesse": 0.219,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.541,
+    "solitude": 0.415,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7835,21 +7786,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 68.0,
-    "soif": 76.7,
+    "faim": 67.6,
+    "soif": 77.6,
     "energie": 52.8,
     "hygiene": 91.4,
     "toilettes": 70.3,
-    "social": 45.4,
+    "social": 58.0,
     "detente": 100.0,
     "energie_ressentie": 52.8
    },
    "emotions": {
     "joie": 0.403,
-    "tristesse": 0.217,
+    "tristesse": 0.218,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.541,
+    "solitude": 0.415,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7878,21 +7829,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 67.5,
-    "soif": 76.0,
+    "faim": 67.1,
+    "soif": 76.9,
     "energie": 52.4,
     "hygiene": 91.2,
     "toilettes": 69.2,
-    "social": 45.4,
+    "social": 57.9,
     "detente": 100.0,
     "energie_ressentie": 52.4
    },
    "emotions": {
     "joie": 0.403,
-    "tristesse": 0.216,
+    "tristesse": 0.217,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.541,
+    "solitude": 0.416,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7919,21 +7870,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 67.0,
-    "soif": 75.3,
+    "faim": 66.6,
+    "soif": 76.2,
     "energie": 52.0,
     "hygiene": 91.1,
     "toilettes": 68.1,
-    "social": 45.3,
+    "social": 57.9,
     "detente": 100.0,
     "energie_ressentie": 52.0
    },
    "emotions": {
-    "joie": 0.402,
-    "tristesse": 0.215,
+    "joie": 0.403,
+    "tristesse": 0.216,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.542,
+    "solitude": 0.416,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -7947,7 +7898,7 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Planifie les menus et le travail de la semaine suivante dans son carnet",
-   "action": "Avant de s'y mettre, boire un grand verre d'eau.",
+   "action": "Avant de s'y mettre, manger un fruit.",
    "pensee": null,
    "deplacement": {
     "chemin": [
@@ -7966,6 +7917,15 @@
      "vers": "atelier / établi, dans leur étui"
     }
    ],
+   "consommation": [
+    {
+     "produit": "oranges",
+     "nom": "oranges",
+     "quantite": 1,
+     "unite": "oranges",
+     "reste": 4
+    }
+   ],
    "perception": {
     "vu": [
      "obj-marmite"
@@ -7975,21 +7935,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 66.5,
-    "soif": 99.6,
+    "faim": 81.1,
+    "soif": 75.5,
     "energie": 51.6,
     "hygiene": 91.0,
     "toilettes": 67.0,
-    "social": 45.3,
+    "social": 57.9,
     "detente": 100.0,
     "energie_ressentie": 51.6
    },
    "emotions": {
     "joie": 0.402,
-    "tristesse": 0.214,
+    "tristesse": 0.215,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.542,
+    "solitude": 0.416,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.75
@@ -8003,17 +7963,8 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Planifie les menus et le travail de la semaine suivante dans son carnet",
-   "action": "Avant de s'y mettre, manger un fruit.",
+   "action": "Avant de s'y mettre, boire un grand verre d'eau.",
    "pensee": null,
-   "consommation": [
-    {
-     "produit": "oranges",
-     "nom": "oranges",
-     "quantite": 1,
-     "unite": "oranges",
-     "reste": 0
-    }
-   ],
    "perception": {
     "vu": [
      "obj-poubelle",
@@ -8024,21 +7975,21 @@
     "lampe-etabli"
    ],
    "besoins": {
-    "faim": 81.0,
-    "soif": 98.9,
+    "faim": 80.6,
+    "soif": 99.8,
     "energie": 51.2,
     "hygiene": 90.9,
     "toilettes": 65.9,
-    "social": 45.3,
+    "social": 57.8,
     "detente": 99.9,
     "energie_ressentie": 51.2
    },
    "emotions": {
     "joie": 0.402,
-    "tristesse": 0.213,
+    "tristesse": 0.214,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.542,
+    "solitude": 0.416,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.7
@@ -8077,21 +8028,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 80.5,
-    "soif": 98.2,
+    "faim": 80.1,
+    "soif": 99.1,
     "energie": 50.8,
     "hygiene": 90.8,
     "toilettes": 64.8,
-    "social": 45.2,
+    "social": 57.8,
     "detente": 99.9,
     "energie_ressentie": 50.8
    },
    "emotions": {
     "joie": 0.402,
-    "tristesse": 0.212,
+    "tristesse": 0.213,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.542,
+    "solitude": 0.417,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.675
@@ -8109,12 +8060,12 @@
    "pensee": null,
    "appareils_allumes": [],
    "besoins": {
-    "faim": 80.0,
-    "soif": 97.5,
+    "faim": 79.6,
+    "soif": 98.4,
     "energie": 50.4,
     "hygiene": 90.6,
     "toilettes": 63.7,
-    "social": 45.2,
+    "social": 57.7,
     "detente": 99.8,
     "energie_ressentie": 50.4
    },
@@ -8123,7 +8074,7 @@
     "tristesse": 0.212,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.543,
+    "solitude": 0.417,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.662
@@ -8148,21 +8099,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 79.5,
-    "soif": 96.8,
+    "faim": 79.1,
+    "soif": 97.7,
     "energie": 50.0,
     "hygiene": 90.5,
     "toilettes": 62.6,
-    "social": 45.1,
+    "social": 57.7,
     "detente": 99.8,
     "energie_ressentie": 50.0
    },
    "emotions": {
     "joie": 0.401,
-    "tristesse": 0.211,
+    "tristesse": 0.212,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.543,
+    "solitude": 0.417,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.656
@@ -8185,21 +8136,21 @@
    },
    "appareils_allumes": [],
    "besoins": {
-    "faim": 79.0,
-    "soif": 96.1,
+    "faim": 78.6,
+    "soif": 97.0,
     "energie": 49.6,
     "hygiene": 90.4,
     "toilettes": 61.5,
-    "social": 45.1,
+    "social": 57.7,
     "detente": 99.7,
     "energie_ressentie": 49.6
    },
    "emotions": {
     "joie": 0.401,
-    "tristesse": 0.21,
+    "tristesse": 0.211,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.543,
+    "solitude": 0.418,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.653
@@ -8231,12 +8182,12 @@
     "lecteur-cd"
    ],
    "besoins": {
-    "faim": 78.5,
-    "soif": 95.4,
+    "faim": 78.1,
+    "soif": 96.3,
     "energie": 49.2,
     "hygiene": 90.3,
     "toilettes": 60.4,
-    "social": 45.1,
+    "social": 57.6,
     "detente": 100.0,
     "energie_ressentie": 49.2
    },
@@ -8245,7 +8196,7 @@
     "tristesse": 0.21,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.544,
+    "solitude": 0.418,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.452
@@ -8273,21 +8224,21 @@
     "lecteur-cd"
    ],
    "besoins": {
-    "faim": 78.0,
-    "soif": 94.7,
+    "faim": 77.6,
+    "soif": 95.6,
     "energie": 48.8,
     "hygiene": 90.2,
     "toilettes": 59.3,
-    "social": 45.0,
+    "social": 57.6,
     "detente": 100.0,
     "energie_ressentie": 48.8
    },
    "emotions": {
     "joie": 0.401,
-    "tristesse": 0.209,
+    "tristesse": 0.21,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.544,
+    "solitude": 0.418,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.351
@@ -8312,12 +8263,12 @@
     "lecteur-cd"
    ],
    "besoins": {
-    "faim": 77.5,
-    "soif": 94.0,
+    "faim": 77.1,
+    "soif": 94.9,
     "energie": 48.4,
     "hygiene": 90.0,
     "toilettes": 58.2,
-    "social": 45.0,
+    "social": 57.5,
     "detente": 100.0,
     "energie_ressentie": 48.4
    },
@@ -8326,7 +8277,7 @@
     "tristesse": 0.209,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.544,
+    "solitude": 0.419,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.3
@@ -8354,21 +8305,21 @@
     "lecteur-cd"
    ],
    "besoins": {
-    "faim": 77.0,
-    "soif": 93.3,
+    "faim": 76.6,
+    "soif": 94.2,
     "energie": 48.0,
     "hygiene": 89.9,
     "toilettes": 57.1,
-    "social": 44.9,
+    "social": 57.5,
     "detente": 100.0,
     "energie_ressentie": 48.0
    },
    "emotions": {
     "joie": 0.401,
-    "tristesse": 0.208,
+    "tristesse": 0.209,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.545,
+    "solitude": 0.419,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.275
@@ -8393,12 +8344,12 @@
     "lecteur-cd"
    ],
    "besoins": {
-    "faim": 76.5,
-    "soif": 92.6,
+    "faim": 76.1,
+    "soif": 93.5,
     "energie": 47.6,
     "hygiene": 89.8,
     "toilettes": 56.0,
-    "social": 44.9,
+    "social": 57.5,
     "detente": 100.0,
     "energie_ressentie": 47.6
    },
@@ -8407,7 +8358,7 @@
     "tristesse": 0.208,
     "anxiete": 0.279,
     "colere": 0.03,
-    "solitude": 0.545,
+    "solitude": 0.419,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.263
@@ -8432,21 +8383,21 @@
     "lecteur-cd"
    ],
    "besoins": {
-    "faim": 76.0,
-    "soif": 91.9,
+    "faim": 75.6,
+    "soif": 92.8,
     "energie": 47.2,
     "hygiene": 89.7,
     "toilettes": 54.9,
-    "social": 44.9,
+    "social": 57.4,
     "detente": 100.0,
     "energie_ressentie": 47.2
    },
    "emotions": {
     "joie": 0.401,
-    "tristesse": 0.207,
+    "tristesse": 0.208,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.545,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.256
@@ -8471,12 +8422,12 @@
     "radio"
    ],
    "besoins": {
-    "faim": 75.5,
-    "soif": 91.2,
+    "faim": 75.1,
+    "soif": 92.1,
     "energie": 46.8,
     "hygiene": 89.6,
     "toilettes": 53.8,
-    "social": 45.0,
+    "social": 57.5,
     "detente": 100.0,
     "energie_ressentie": 46.8
    },
@@ -8485,7 +8436,7 @@
     "tristesse": 0.207,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.546,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.253
@@ -8514,21 +8465,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 75.0,
-    "soif": 90.5,
+    "faim": 74.6,
+    "soif": 91.4,
     "energie": 46.4,
     "hygiene": 89.4,
     "toilettes": 52.7,
-    "social": 45.1,
+    "social": 57.6,
     "detente": 100.0,
     "energie_ressentie": 46.4
    },
    "emotions": {
-    "joie": 0.4,
+    "joie": 0.401,
     "tristesse": 0.207,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.546,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.252
@@ -8553,21 +8504,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 74.5,
-    "soif": 89.8,
+    "faim": 74.1,
+    "soif": 90.7,
     "energie": 46.0,
     "hygiene": 89.3,
     "toilettes": 51.6,
-    "social": 45.2,
+    "social": 57.8,
     "detente": 100.0,
     "energie_ressentie": 46.0
    },
    "emotions": {
     "joie": 0.4,
-    "tristesse": 0.206,
+    "tristesse": 0.207,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.546,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.251
@@ -8596,12 +8547,12 @@
     "radio"
    ],
    "besoins": {
-    "faim": 74.0,
-    "soif": 89.1,
+    "faim": 73.6,
+    "soif": 90.0,
     "energie": 45.6,
     "hygiene": 89.2,
     "toilettes": 50.5,
-    "social": 45.3,
+    "social": 57.9,
     "detente": 100.0,
     "energie_ressentie": 45.6
    },
@@ -8610,7 +8561,7 @@
     "tristesse": 0.206,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.546,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -8638,12 +8589,12 @@
     "radio"
    ],
    "besoins": {
-    "faim": 73.5,
-    "soif": 88.4,
+    "faim": 73.1,
+    "soif": 89.3,
     "energie": 45.2,
     "hygiene": 89.1,
     "toilettes": 49.4,
-    "social": 45.4,
+    "social": 58.0,
     "detente": 100.0,
     "energie_ressentie": 45.2
    },
@@ -8652,7 +8603,7 @@
     "tristesse": 0.206,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.546,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -8677,21 +8628,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 73.0,
-    "soif": 87.7,
+    "faim": 72.6,
+    "soif": 88.6,
     "energie": 44.8,
     "hygiene": 89.0,
     "toilettes": 48.3,
-    "social": 45.5,
+    "social": 58.1,
     "detente": 100.0,
     "energie_ressentie": 44.8
    },
    "emotions": {
     "joie": 0.4,
-    "tristesse": 0.205,
+    "tristesse": 0.206,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.546,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -8719,12 +8670,12 @@
     "radio"
    ],
    "besoins": {
-    "faim": 72.5,
-    "soif": 87.0,
+    "faim": 72.1,
+    "soif": 87.9,
     "energie": 44.4,
     "hygiene": 88.8,
     "toilettes": 47.2,
-    "social": 45.6,
+    "social": 58.2,
     "detente": 100.0,
     "energie_ressentie": 44.4
    },
@@ -8733,7 +8684,7 @@
     "tristesse": 0.205,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.546,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -8758,12 +8709,12 @@
     "radio"
    ],
    "besoins": {
-    "faim": 72.0,
-    "soif": 86.3,
+    "faim": 71.6,
+    "soif": 87.2,
     "energie": 44.0,
     "hygiene": 88.7,
     "toilettes": 46.1,
-    "social": 45.7,
+    "social": 58.3,
     "detente": 100.0,
     "energie_ressentie": 44.0
    },
@@ -8772,7 +8723,7 @@
     "tristesse": 0.205,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.546,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -8802,21 +8753,21 @@
     "radio"
    ],
    "besoins": {
-    "faim": 71.5,
-    "soif": 85.6,
+    "faim": 71.1,
+    "soif": 86.5,
     "energie": 43.6,
     "hygiene": 88.6,
     "toilettes": 45.0,
-    "social": 45.9,
+    "social": 58.4,
     "detente": 100.0,
     "energie_ressentie": 43.6
    },
    "emotions": {
     "joie": 0.4,
-    "tristesse": 0.204,
+    "tristesse": 0.205,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.545,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -8845,12 +8796,12 @@
     "radio"
    ],
    "besoins": {
-    "faim": 71.0,
-    "soif": 84.9,
+    "faim": 70.6,
+    "soif": 85.8,
     "energie": 43.2,
     "hygiene": 88.5,
     "toilettes": 43.9,
-    "social": 46.0,
+    "social": 58.5,
     "detente": 100.0,
     "energie_ressentie": 43.2
    },
@@ -8859,7 +8810,7 @@
     "tristesse": 0.204,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.545,
+    "solitude": 0.42,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -8891,12 +8842,12 @@
     "lumiere-sejour"
    ],
    "besoins": {
-    "faim": 70.5,
-    "soif": 84.2,
+    "faim": 70.1,
+    "soif": 85.1,
     "energie": 42.8,
     "hygiene": 88.4,
     "toilettes": 42.8,
-    "social": 46.1,
+    "social": 58.6,
     "detente": 100.0,
     "energie_ressentie": 42.8
    },
@@ -8905,7 +8856,7 @@
     "tristesse": 0.204,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.545,
+    "solitude": 0.419,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -8935,12 +8886,12 @@
     "lumiere-sejour"
    ],
    "besoins": {
-    "faim": 70.0,
-    "soif": 83.5,
+    "faim": 69.6,
+    "soif": 84.4,
     "energie": 42.4,
     "hygiene": 88.2,
     "toilettes": 41.7,
-    "social": 46.2,
+    "social": 58.7,
     "detente": 100.0,
     "energie_ressentie": 42.4
    },
@@ -8949,7 +8900,7 @@
     "tristesse": 0.204,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.544,
+    "solitude": 0.419,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.25
@@ -8997,21 +8948,21 @@
     "lumiere-wc"
    ],
    "besoins": {
-    "faim": 69.5,
-    "soif": 82.8,
+    "faim": 69.1,
+    "soif": 83.7,
     "energie": 42.0,
     "hygiene": 88.1,
     "toilettes": 100.0,
-    "social": 46.3,
+    "social": 58.9,
     "detente": 100.0,
     "energie_ressentie": 42.0
    },
    "emotions": {
     "joie": 0.4,
-    "tristesse": 0.203,
+    "tristesse": 0.204,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.544,
+    "solitude": 0.418,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.45
@@ -9074,12 +9025,12 @@
     "lumiere-cuisine"
    ],
    "besoins": {
-    "faim": 69.0,
-    "soif": 82.1,
+    "faim": 68.6,
+    "soif": 83.0,
     "energie": 41.6,
     "hygiene": 88.0,
     "toilettes": 98.9,
-    "social": 46.3,
+    "social": 58.8,
     "detente": 100.0,
     "energie_ressentie": 41.6
    },
@@ -9088,7 +9039,7 @@
     "tristesse": 0.203,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.544,
+    "solitude": 0.418,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.45
@@ -9108,12 +9059,12 @@
     "lumiere-cuisine"
    ],
    "besoins": {
-    "faim": 68.5,
-    "soif": 81.4,
+    "faim": 68.1,
+    "soif": 82.3,
     "energie": 41.2,
     "hygiene": 87.9,
     "toilettes": 97.8,
-    "social": 46.2,
+    "social": 58.8,
     "detente": 99.9,
     "energie_ressentie": 41.2
    },
@@ -9122,7 +9073,7 @@
     "tristesse": 0.203,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.543,
+    "solitude": 0.418,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.45
@@ -9148,12 +9099,12 @@
     "lumiere-cuisine"
    ],
    "besoins": {
-    "faim": 68.0,
-    "soif": 80.7,
+    "faim": 67.6,
+    "soif": 81.6,
     "energie": 40.8,
     "hygiene": 87.8,
     "toilettes": 96.7,
-    "social": 46.2,
+    "social": 58.7,
     "detente": 99.9,
     "energie_ressentie": 40.8
    },
@@ -9162,7 +9113,7 @@
     "tristesse": 0.203,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.543,
+    "solitude": 0.417,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.45
@@ -9211,11 +9162,11 @@
    ],
    "besoins": {
     "faim": 100.0,
-    "soif": 95.0,
+    "soif": 95.9,
     "energie": 40.4,
     "hygiene": 87.6,
     "toilettes": 95.6,
-    "social": 46.1,
+    "social": 58.7,
     "detente": 99.8,
     "energie_ressentie": 40.4
    },
@@ -9224,7 +9175,7 @@
     "tristesse": 0.223,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.594,
+    "solitude": 0.468,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.35
@@ -9251,11 +9202,11 @@
    ],
    "besoins": {
     "faim": 99.5,
-    "soif": 94.3,
+    "soif": 95.2,
     "energie": 40.0,
     "hygiene": 87.5,
     "toilettes": 94.5,
-    "social": 46.1,
+    "social": 58.7,
     "detente": 99.8,
     "energie_ressentie": 40.0
    },
@@ -9264,7 +9215,7 @@
     "tristesse": 0.222,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.591,
+    "solitude": 0.465,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.3
@@ -9285,11 +9236,11 @@
    ],
    "besoins": {
     "faim": 99.0,
-    "soif": 93.6,
+    "soif": 94.5,
     "energie": 39.6,
     "hygiene": 87.4,
     "toilettes": 93.4,
-    "social": 46.1,
+    "social": 58.6,
     "detente": 99.7,
     "energie_ressentie": 39.6
    },
@@ -9298,7 +9249,7 @@
     "tristesse": 0.221,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.588,
+    "solitude": 0.462,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.275
@@ -9324,20 +9275,20 @@
    ],
    "besoins": {
     "faim": 98.5,
-    "soif": 92.9,
+    "soif": 93.8,
     "energie": 39.2,
     "hygiene": 87.3,
     "toilettes": 92.3,
-    "social": 46.0,
+    "social": 58.6,
     "detente": 99.7,
     "energie_ressentie": 39.2
    },
    "emotions": {
     "joie": 0.428,
-    "tristesse": 0.219,
+    "tristesse": 0.22,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.585,
+    "solitude": 0.46,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.263
@@ -9358,20 +9309,20 @@
    ],
    "besoins": {
     "faim": 98.0,
-    "soif": 92.2,
+    "soif": 93.1,
     "energie": 38.8,
     "hygiene": 87.2,
     "toilettes": 91.2,
-    "social": 46.0,
+    "social": 58.5,
     "detente": 99.6,
     "energie_ressentie": 38.8
    },
    "emotions": {
     "joie": 0.425,
-    "tristesse": 0.218,
+    "tristesse": 0.219,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.583,
+    "solitude": 0.457,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.256
@@ -9405,20 +9356,20 @@
    ],
    "besoins": {
     "faim": 97.5,
-    "soif": 91.5,
+    "soif": 92.4,
     "energie": 38.4,
     "hygiene": 87.0,
     "toilettes": 90.1,
-    "social": 45.9,
+    "social": 58.5,
     "detente": 99.6,
     "energie_ressentie": 38.4
    },
    "emotions": {
-    "joie": 0.422,
+    "joie": 0.423,
     "tristesse": 0.217,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.58,
+    "solitude": 0.455,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.453
@@ -9444,11 +9395,11 @@
    ],
    "besoins": {
     "faim": 97.0,
-    "soif": 90.8,
+    "soif": 91.7,
     "energie": 38.0,
     "hygiene": 86.9,
     "toilettes": 89.0,
-    "social": 45.9,
+    "social": 58.5,
     "detente": 99.5,
     "energie_ressentie": 38.0
    },
@@ -9457,7 +9408,7 @@
     "tristesse": 0.216,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.578,
+    "solitude": 0.453,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.552
@@ -9484,20 +9435,20 @@
    ],
    "besoins": {
     "faim": 96.5,
-    "soif": 90.1,
+    "soif": 91.0,
     "energie": 37.6,
     "hygiene": 86.8,
     "toilettes": 87.9,
-    "social": 45.9,
+    "social": 58.4,
     "detente": 99.5,
     "energie_ressentie": 37.6
    },
    "emotions": {
     "joie": 0.418,
-    "tristesse": 0.215,
+    "tristesse": 0.216,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.576,
+    "solitude": 0.45,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.601
@@ -9558,11 +9509,11 @@
    ],
    "besoins": {
     "faim": 96.0,
-    "soif": 89.4,
+    "soif": 90.3,
     "energie": 37.2,
     "hygiene": 86.7,
     "toilettes": 86.8,
-    "social": 45.8,
+    "social": 58.4,
     "detente": 100.0,
     "energie_ressentie": 37.2
    },
@@ -9571,7 +9522,7 @@
     "tristesse": 0.266,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.574,
+    "solitude": 0.449,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.775
@@ -9593,11 +9544,11 @@
    ],
    "besoins": {
     "faim": 95.5,
-    "soif": 88.7,
+    "soif": 89.6,
     "energie": 36.8,
     "hygiene": 86.6,
     "toilettes": 85.7,
-    "social": 45.8,
+    "social": 58.3,
     "detente": 100.0,
     "energie_ressentie": 36.8
    },
@@ -9606,7 +9557,7 @@
     "tristesse": 0.262,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.572,
+    "solitude": 0.447,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.813
@@ -9635,20 +9586,20 @@
    ],
    "besoins": {
     "faim": 95.0,
-    "soif": 88.0,
+    "soif": 88.9,
     "energie": 36.4,
     "hygiene": 86.4,
     "toilettes": 84.6,
-    "social": 45.7,
+    "social": 58.3,
     "detente": 100.0,
     "energie_ressentie": 36.4
    },
    "emotions": {
     "joie": 0.436,
-    "tristesse": 0.258,
+    "tristesse": 0.259,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.571,
+    "solitude": 0.445,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.831
@@ -9677,11 +9628,11 @@
    ],
    "besoins": {
     "faim": 94.5,
-    "soif": 87.3,
+    "soif": 88.2,
     "energie": 36.0,
     "hygiene": 86.3,
     "toilettes": 83.5,
-    "social": 45.7,
+    "social": 58.3,
     "detente": 100.0,
     "energie_ressentie": 36.0
    },
@@ -9690,7 +9641,7 @@
     "tristesse": 0.255,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.569,
+    "solitude": 0.444,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.841
@@ -9720,11 +9671,11 @@
    ],
    "besoins": {
     "faim": 94.0,
-    "soif": 86.6,
+    "soif": 87.5,
     "energie": 35.6,
     "hygiene": 86.2,
     "toilettes": 82.4,
-    "social": 45.7,
+    "social": 58.2,
     "detente": 100.0,
     "energie_ressentie": 35.6
    },
@@ -9733,7 +9684,7 @@
     "tristesse": 0.252,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.568,
+    "solitude": 0.442,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.845
@@ -9764,11 +9715,11 @@
    ],
    "besoins": {
     "faim": 93.5,
-    "soif": 85.9,
+    "soif": 86.8,
     "energie": 35.2,
     "hygiene": 86.1,
     "toilettes": 81.3,
-    "social": 45.6,
+    "social": 58.2,
     "detente": 100.0,
     "energie_ressentie": 35.2
    },
@@ -9777,7 +9728,7 @@
     "tristesse": 0.249,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.566,
+    "solitude": 0.441,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.848
@@ -9807,11 +9758,11 @@
    ],
    "besoins": {
     "faim": 93.0,
-    "soif": 85.2,
+    "soif": 86.1,
     "energie": 34.8,
     "hygiene": 86.0,
     "toilettes": 80.2,
-    "social": 45.6,
+    "social": 58.1,
     "detente": 100.0,
     "energie_ressentie": 34.8
    },
@@ -9820,7 +9771,7 @@
     "tristesse": 0.246,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.565,
+    "solitude": 0.44,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.849
@@ -9849,11 +9800,11 @@
    ],
    "besoins": {
     "faim": 92.5,
-    "soif": 84.5,
+    "soif": 85.4,
     "energie": 34.4,
     "hygiene": 85.8,
     "toilettes": 79.1,
-    "social": 45.5,
+    "social": 58.1,
     "detente": 100.0,
     "energie_ressentie": 34.4
    },
@@ -9862,7 +9813,7 @@
     "tristesse": 0.244,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.564,
+    "solitude": 0.438,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.849
@@ -9890,11 +9841,11 @@
    ],
    "besoins": {
     "faim": 92.0,
-    "soif": 83.8,
+    "soif": 84.7,
     "energie": 34.0,
     "hygiene": 85.7,
     "toilettes": 78.0,
-    "social": 45.5,
+    "social": 58.1,
     "detente": 100.0,
     "energie_ressentie": 34.0
    },
@@ -9903,7 +9854,7 @@
     "tristesse": 0.241,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.563,
+    "solitude": 0.437,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -9933,11 +9884,11 @@
    ],
    "besoins": {
     "faim": 91.5,
-    "soif": 83.1,
+    "soif": 84.0,
     "energie": 33.6,
     "hygiene": 85.6,
     "toilettes": 76.9,
-    "social": 45.5,
+    "social": 58.0,
     "detente": 100.0,
     "energie_ressentie": 33.6
    },
@@ -9946,7 +9897,7 @@
     "tristesse": 0.239,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.562,
+    "solitude": 0.436,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -9974,11 +9925,11 @@
    ],
    "besoins": {
     "faim": 91.0,
-    "soif": 82.4,
+    "soif": 83.3,
     "energie": 33.2,
     "hygiene": 85.5,
     "toilettes": 75.8,
-    "social": 45.4,
+    "social": 58.0,
     "detente": 100.0,
     "energie_ressentie": 33.2
    },
@@ -9987,7 +9938,7 @@
     "tristesse": 0.237,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.561,
+    "solitude": 0.435,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10016,11 +9967,11 @@
    ],
    "besoins": {
     "faim": 90.5,
-    "soif": 81.7,
+    "soif": 82.6,
     "energie": 32.8,
     "hygiene": 85.4,
     "toilettes": 74.7,
-    "social": 45.4,
+    "social": 57.9,
     "detente": 100.0,
     "energie_ressentie": 32.8
    },
@@ -10029,7 +9980,7 @@
     "tristesse": 0.235,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.56,
+    "solitude": 0.435,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10058,11 +10009,11 @@
    ],
    "besoins": {
     "faim": 90.0,
-    "soif": 81.0,
+    "soif": 81.9,
     "energie": 32.4,
     "hygiene": 85.2,
     "toilettes": 73.6,
-    "social": 45.3,
+    "social": 57.9,
     "detente": 100.0,
     "energie_ressentie": 32.4
    },
@@ -10071,7 +10022,7 @@
     "tristesse": 0.233,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.559,
+    "solitude": 0.434,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10101,11 +10052,11 @@
    ],
    "besoins": {
     "faim": 89.5,
-    "soif": 80.3,
+    "soif": 81.2,
     "energie": 32.0,
     "hygiene": 85.1,
     "toilettes": 72.5,
-    "social": 45.3,
+    "social": 57.9,
     "detente": 100.0,
     "energie_ressentie": 32.0
    },
@@ -10114,7 +10065,7 @@
     "tristesse": 0.231,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.559,
+    "solitude": 0.433,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10144,11 +10095,11 @@
    ],
    "besoins": {
     "faim": 89.0,
-    "soif": 79.6,
+    "soif": 80.5,
     "energie": 31.6,
     "hygiene": 85.0,
     "toilettes": 71.4,
-    "social": 45.3,
+    "social": 57.8,
     "detente": 100.0,
     "energie_ressentie": 31.6
    },
@@ -10157,7 +10108,7 @@
     "tristesse": 0.229,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.558,
+    "solitude": 0.433,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10189,11 +10140,11 @@
    ],
    "besoins": {
     "faim": 88.5,
-    "soif": 78.9,
+    "soif": 79.8,
     "energie": 31.2,
     "hygiene": 84.9,
     "toilettes": 70.3,
-    "social": 45.2,
+    "social": 57.8,
     "detente": 100.0,
     "energie_ressentie": 31.2
    },
@@ -10202,7 +10153,7 @@
     "tristesse": 0.228,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.558,
+    "solitude": 0.432,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10232,11 +10183,11 @@
    ],
    "besoins": {
     "faim": 88.0,
-    "soif": 78.2,
+    "soif": 79.1,
     "energie": 30.8,
     "hygiene": 84.8,
     "toilettes": 69.2,
-    "social": 45.2,
+    "social": 57.7,
     "detente": 100.0,
     "energie_ressentie": 30.8
    },
@@ -10245,7 +10196,7 @@
     "tristesse": 0.226,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.557,
+    "solitude": 0.431,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10273,11 +10224,11 @@
    ],
    "besoins": {
     "faim": 87.5,
-    "soif": 77.5,
+    "soif": 78.4,
     "energie": 30.4,
     "hygiene": 84.6,
     "toilettes": 68.1,
-    "social": 45.1,
+    "social": 57.7,
     "detente": 100.0,
     "energie_ressentie": 30.4
    },
@@ -10286,7 +10237,7 @@
     "tristesse": 0.225,
     "anxiete": 0.28,
     "colere": 0.03,
-    "solitude": 0.557,
+    "solitude": 0.431,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.85
@@ -10318,11 +10269,11 @@
    ],
    "besoins": {
     "faim": 87.0,
-    "soif": 76.8,
+    "soif": 77.7,
     "energie": 30.0,
     "hygiene": 84.5,
     "toilettes": 67.0,
-    "social": 45.1,
+    "social": 57.7,
     "detente": 100.0,
     "energie_ressentie": 30.0
    },
@@ -10331,7 +10282,7 @@
     "tristesse": 0.223,
     "anxiete": 0.28,
     "colere": 0.035,
-    "solitude": 0.556,
+    "solitude": 0.431,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.775
@@ -10361,11 +10312,11 @@
    ],
    "besoins": {
     "faim": 86.5,
-    "soif": 76.1,
+    "soif": 77.0,
     "energie": 29.6,
     "hygiene": 84.4,
     "toilettes": 65.9,
-    "social": 45.1,
+    "social": 57.6,
     "detente": 100.0,
     "energie_ressentie": 29.6
    },
@@ -10374,7 +10325,7 @@
     "tristesse": 0.222,
     "anxiete": 0.28,
     "colere": 0.039,
-    "solitude": 0.556,
+    "solitude": 0.43,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.737
@@ -10403,11 +10354,11 @@
    ],
    "besoins": {
     "faim": 86.0,
-    "soif": 75.4,
+    "soif": 76.3,
     "energie": 29.2,
     "hygiene": 84.3,
     "toilettes": 64.8,
-    "social": 45.0,
+    "social": 57.6,
     "detente": 100.0,
     "energie_ressentie": 29.2
    },
@@ -10416,7 +10367,7 @@
     "tristesse": 0.221,
     "anxiete": 0.28,
     "colere": 0.043,
-    "solitude": 0.555,
+    "solitude": 0.43,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.719
@@ -10447,11 +10398,11 @@
    ],
    "besoins": {
     "faim": 85.5,
-    "soif": 74.7,
+    "soif": 75.6,
     "energie": 28.8,
     "hygiene": 84.2,
     "toilettes": 63.7,
-    "social": 45.0,
+    "social": 57.5,
     "detente": 100.0,
     "energie_ressentie": 28.8
    },
@@ -10460,7 +10411,7 @@
     "tristesse": 0.22,
     "anxiete": 0.28,
     "colere": 0.046,
-    "solitude": 0.555,
+    "solitude": 0.43,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.709
@@ -10490,11 +10441,11 @@
    ],
    "besoins": {
     "faim": 85.0,
-    "soif": 74.0,
+    "soif": 74.9,
     "energie": 28.4,
     "hygiene": 84.0,
     "toilettes": 62.6,
-    "social": 44.9,
+    "social": 57.5,
     "detente": 100.0,
     "energie_ressentie": 28.4
    },
@@ -10503,7 +10454,7 @@
     "tristesse": 0.218,
     "anxiete": 0.28,
     "colere": 0.048,
-    "solitude": 0.555,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.705
@@ -10531,11 +10482,11 @@
    ],
    "besoins": {
     "faim": 84.5,
-    "soif": 73.3,
+    "soif": 74.2,
     "energie": 28.0,
     "hygiene": 83.9,
     "toilettes": 61.5,
-    "social": 44.9,
+    "social": 57.5,
     "detente": 100.0,
     "energie_ressentie": 28.0
    },
@@ -10544,7 +10495,7 @@
     "tristesse": 0.217,
     "anxiete": 0.28,
     "colere": 0.05,
-    "solitude": 0.555,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.702
@@ -10596,11 +10547,11 @@
    ],
    "besoins": {
     "faim": 84.0,
-    "soif": 97.6,
+    "soif": 98.5,
     "energie": 27.6,
     "hygiene": 83.8,
     "toilettes": 60.4,
-    "social": 44.9,
+    "social": 57.4,
     "detente": 100.0,
     "energie_ressentie": 27.6
    },
@@ -10609,7 +10560,7 @@
     "tristesse": 0.216,
     "anxiete": 0.28,
     "colere": 0.052,
-    "solitude": 0.555,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.601
@@ -10673,20 +10624,20 @@
    ],
    "besoins": {
     "faim": 83.5,
-    "soif": 96.9,
+    "soif": 97.8,
     "energie": 27.2,
     "hygiene": 83.7,
     "toilettes": 59.3,
-    "social": 44.8,
+    "social": 57.4,
     "detente": 99.9,
     "energie_ressentie": 27.2
    },
    "emotions": {
     "joie": 0.425,
-    "tristesse": 0.215,
+    "tristesse": 0.216,
     "anxiete": 0.23,
     "colere": 0.054,
-    "solitude": 0.554,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.551
@@ -10717,11 +10668,11 @@
    ],
    "besoins": {
     "faim": 83.0,
-    "soif": 96.2,
+    "soif": 97.1,
     "energie": 26.8,
     "hygiene": 83.6,
     "toilettes": 58.2,
-    "social": 44.8,
+    "social": 57.3,
     "detente": 99.9,
     "energie_ressentie": 26.8
    },
@@ -10730,7 +10681,7 @@
     "tristesse": 0.215,
     "anxiete": 0.233,
     "colere": 0.055,
-    "solitude": 0.554,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.525
@@ -10782,11 +10733,11 @@
    ],
    "besoins": {
     "faim": 82.5,
-    "soif": 95.5,
+    "soif": 96.4,
     "energie": 26.4,
     "hygiene": 93.4,
     "toilettes": 57.1,
-    "social": 44.7,
+    "social": 57.3,
     "detente": 99.8,
     "energie_ressentie": 26.4
    },
@@ -10795,7 +10746,7 @@
     "tristesse": 0.214,
     "anxiete": 0.235,
     "colere": 0.056,
-    "solitude": 0.554,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.513
@@ -10821,11 +10772,11 @@
    ],
    "besoins": {
     "faim": 82.0,
-    "soif": 94.8,
+    "soif": 95.7,
     "energie": 26.0,
     "hygiene": 93.3,
     "toilettes": 56.0,
-    "social": 44.7,
+    "social": 57.3,
     "detente": 99.8,
     "energie_ressentie": 26.0
    },
@@ -10834,7 +10785,7 @@
     "tristesse": 0.213,
     "anxiete": 0.238,
     "colere": 0.057,
-    "solitude": 0.554,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.506
@@ -10855,11 +10806,11 @@
    ],
    "besoins": {
     "faim": 81.5,
-    "soif": 94.1,
+    "soif": 95.0,
     "energie": 25.6,
     "hygiene": 93.2,
     "toilettes": 54.9,
-    "social": 44.7,
+    "social": 57.2,
     "detente": 99.7,
     "energie_ressentie": 25.6
    },
@@ -10868,7 +10819,7 @@
     "tristesse": 0.212,
     "anxiete": 0.24,
     "colere": 0.057,
-    "solitude": 0.554,
+    "solitude": 0.428,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.503
@@ -10931,11 +10882,11 @@
    ],
    "besoins": {
     "faim": 81.0,
-    "soif": 93.4,
+    "soif": 94.3,
     "energie": 25.2,
     "hygiene": 93.1,
     "toilettes": 53.8,
-    "social": 44.6,
+    "social": 57.2,
     "detente": 100.0,
     "energie_ressentie": 25.2
    },
@@ -10944,7 +10895,7 @@
     "tristesse": 0.182,
     "anxiete": 0.163,
     "colere": 0.058,
-    "solitude": 0.554,
+    "solitude": 0.428,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.302
@@ -10971,11 +10922,11 @@
    ],
    "besoins": {
     "faim": 80.5,
-    "soif": 92.7,
+    "soif": 93.6,
     "energie": 24.8,
     "hygiene": 93.0,
     "toilettes": 52.7,
-    "social": 44.6,
+    "social": 57.1,
     "detente": 100.0,
     "energie_ressentie": 24.8
    },
@@ -10984,7 +10935,7 @@
     "tristesse": 0.183,
     "anxiete": 0.169,
     "colere": 0.059,
-    "solitude": 0.554,
+    "solitude": 0.428,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.201
@@ -11005,11 +10956,11 @@
    ],
    "besoins": {
     "faim": 80.0,
-    "soif": 92.0,
+    "soif": 92.9,
     "energie": 24.4,
     "hygiene": 92.8,
     "toilettes": 51.6,
-    "social": 44.5,
+    "social": 57.1,
     "detente": 100.0,
     "energie_ressentie": 24.4
    },
@@ -11018,7 +10969,7 @@
     "tristesse": 0.184,
     "anxiete": 0.175,
     "colere": 0.059,
-    "solitude": 0.554,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.15
@@ -11044,11 +10995,11 @@
    ],
    "besoins": {
     "faim": 79.5,
-    "soif": 91.3,
+    "soif": 92.2,
     "energie": 24.0,
     "hygiene": 92.7,
     "toilettes": 50.5,
-    "social": 44.5,
+    "social": 57.1,
     "detente": 100.0,
     "energie_ressentie": 24.0
    },
@@ -11057,7 +11008,7 @@
     "tristesse": 0.185,
     "anxiete": 0.181,
     "colere": 0.059,
-    "solitude": 0.554,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.125
@@ -11078,11 +11029,11 @@
    ],
    "besoins": {
     "faim": 79.0,
-    "soif": 90.6,
+    "soif": 91.5,
     "energie": 23.6,
     "hygiene": 92.6,
     "toilettes": 49.4,
-    "social": 44.5,
+    "social": 57.0,
     "detente": 100.0,
     "energie_ressentie": 23.6
    },
@@ -11091,7 +11042,7 @@
     "tristesse": 0.185,
     "anxiete": 0.187,
     "colere": 0.06,
-    "solitude": 0.554,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.113
@@ -11117,11 +11068,11 @@
    ],
    "besoins": {
     "faim": 78.5,
-    "soif": 89.9,
+    "soif": 90.8,
     "energie": 23.2,
     "hygiene": 92.5,
     "toilettes": 48.3,
-    "social": 44.4,
+    "social": 57.0,
     "detente": 100.0,
     "energie_ressentie": 23.2
    },
@@ -11130,7 +11081,7 @@
     "tristesse": 0.186,
     "anxiete": 0.192,
     "colere": 0.06,
-    "solitude": 0.554,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.106
@@ -11159,11 +11110,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 78.0,
-    "soif": 89.2,
+    "soif": 90.1,
     "energie": 22.8,
     "hygiene": 92.4,
     "toilettes": 47.2,
-    "social": 44.4,
+    "social": 56.9,
     "detente": 100.0,
     "energie_ressentie": 22.8
    },
@@ -11172,7 +11123,7 @@
     "tristesse": 0.187,
     "anxiete": 0.197,
     "colere": 0.06,
-    "solitude": 0.554,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.103
@@ -11191,11 +11142,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 77.5,
-    "soif": 88.5,
+    "soif": 89.4,
     "energie": 22.4,
     "hygiene": 92.2,
     "toilettes": 46.1,
-    "social": 44.3,
+    "social": 56.9,
     "detente": 99.9,
     "energie_ressentie": 22.4
    },
@@ -11204,7 +11155,7 @@
     "tristesse": 0.188,
     "anxiete": 0.202,
     "colere": 0.06,
-    "solitude": 0.555,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.102
@@ -11223,11 +11174,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 77.0,
-    "soif": 87.8,
+    "soif": 88.7,
     "energie": 22.0,
     "hygiene": 92.1,
     "toilettes": 45.0,
-    "social": 44.3,
+    "social": 56.9,
     "detente": 99.9,
     "energie_ressentie": 22.0
    },
@@ -11236,7 +11187,7 @@
     "tristesse": 0.188,
     "anxiete": 0.206,
     "colere": 0.061,
-    "solitude": 0.555,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.101
@@ -11256,11 +11207,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 76.8,
-    "soif": 87.6,
+    "soif": 88.4,
     "energie": 23.0,
     "hygiene": 92.1,
     "toilettes": 44.7,
-    "social": 44.3,
+    "social": 56.9,
     "detente": 99.9,
     "energie_ressentie": 23.0
    },
@@ -11269,7 +11220,7 @@
     "tristesse": 0.19,
     "anxiete": 0.214,
     "colere": 0.052,
-    "solitude": 0.555,
+    "solitude": 0.429,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.05
@@ -11289,11 +11240,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 76.6,
-    "soif": 87.3,
+    "soif": 88.2,
     "energie": 24.0,
     "hygiene": 92.0,
     "toilettes": 44.3,
-    "social": 44.3,
+    "social": 56.9,
     "detente": 99.9,
     "energie_ressentie": 24.0
    },
@@ -11302,7 +11253,7 @@
     "tristesse": 0.191,
     "anxiete": 0.221,
     "colere": 0.045,
-    "solitude": 0.555,
+    "solitude": 0.43,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.025
@@ -11322,11 +11273,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 76.4,
-    "soif": 87.1,
+    "soif": 87.9,
     "energie": 25.0,
     "hygiene": 92.0,
     "toilettes": 44.0,
-    "social": 44.3,
+    "social": 56.9,
     "detente": 99.9,
     "energie_ressentie": 25.0
    },
@@ -11335,7 +11286,7 @@
     "tristesse": 0.192,
     "anxiete": 0.228,
     "colere": 0.041,
-    "solitude": 0.555,
+    "solitude": 0.43,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.013
@@ -11355,11 +11306,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 76.2,
-    "soif": 86.8,
+    "soif": 87.7,
     "energie": 26.0,
     "hygiene": 91.9,
     "toilettes": 43.6,
-    "social": 44.3,
+    "social": 56.9,
     "detente": 99.9,
     "energie_ressentie": 26.0
    },
@@ -11368,7 +11319,7 @@
     "tristesse": 0.193,
     "anxiete": 0.233,
     "colere": 0.038,
-    "solitude": 0.556,
+    "solitude": 0.43,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.006
@@ -11388,11 +11339,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 76.0,
-    "soif": 86.6,
+    "soif": 87.4,
     "energie": 27.0,
     "hygiene": 91.9,
     "toilettes": 43.3,
-    "social": 44.3,
+    "social": 56.9,
     "detente": 99.9,
     "energie_ressentie": 27.0
    },
@@ -11401,7 +11352,7 @@
     "tristesse": 0.193,
     "anxiete": 0.238,
     "colere": 0.035,
-    "solitude": 0.556,
+    "solitude": 0.43,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.003
@@ -11421,11 +11372,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 75.8,
-    "soif": 86.3,
+    "soif": 87.2,
     "energie": 28.0,
     "hygiene": 91.8,
     "toilettes": 42.9,
-    "social": 44.3,
+    "social": 56.9,
     "detente": 99.9,
     "energie_ressentie": 28.0
    },
@@ -11434,7 +11385,7 @@
     "tristesse": 0.194,
     "anxiete": 0.243,
     "colere": 0.034,
-    "solitude": 0.556,
+    "solitude": 0.43,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.002
@@ -11454,11 +11405,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 75.6,
-    "soif": 86.1,
+    "soif": 86.9,
     "energie": 29.0,
     "hygiene": 91.8,
     "toilettes": 42.6,
-    "social": 44.3,
+    "social": 56.9,
     "detente": 99.9,
     "energie_ressentie": 29.0
    },
@@ -11467,7 +11418,7 @@
     "tristesse": 0.195,
     "anxiete": 0.247,
     "colere": 0.033,
-    "solitude": 0.556,
+    "solitude": 0.43,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.001
@@ -11487,11 +11438,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 75.4,
-    "soif": 85.8,
+    "soif": 86.7,
     "energie": 30.0,
     "hygiene": 91.7,
     "toilettes": 42.2,
-    "social": 44.3,
+    "social": 56.9,
     "detente": 99.9,
     "energie_ressentie": 30.0
    },
@@ -11500,7 +11451,7 @@
     "tristesse": 0.195,
     "anxiete": 0.251,
     "colere": 0.032,
-    "solitude": 0.556,
+    "solitude": 0.431,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
@@ -11520,11 +11471,11 @@
    "appareils_allumes": [],
    "besoins": {
     "faim": 75.2,
-    "soif": 85.6,
+    "soif": 86.4,
     "energie": 31.0,
     "hygiene": 91.7,
     "toilettes": 41.9,
-    "social": 44.3,
+    "social": 56.9,
     "detente": 99.9,
     "energie_ressentie": 31.0
    },
@@ -11533,7 +11484,7 @@
     "tristesse": 0.196,
     "anxiete": 0.254,
     "colere": 0.031,
-    "solitude": 0.556,
+    "solitude": 0.431,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0
