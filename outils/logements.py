@@ -71,8 +71,9 @@ class Logements:
             positions.update(h.sim.positions)
             for k, v in h.sim.stock.items():
                 stock.setdefault(k, v)
+        reserve = {}
         for h in membres:
-            h.sim.stock, h.sim.PRODUITS, h.sim.positions = stock, produits, positions
+            h.sim.stock, h.sim.PRODUITS, h.sim.positions, h.reserve = stock, produits, positions, reserve
             for o, ou in positions.items():
                 h.sim.croyances.setdefault(o, ou)
 

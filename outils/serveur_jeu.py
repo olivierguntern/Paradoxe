@@ -5,7 +5,7 @@ puis ouvrir http://127.0.0.1:8010/jouer.html
 
 Sert les pages de vue/ et trois appels :
 - GET  /api/catalogue : la mission, les gestes, les objets de l'époque, les
-  habitants, les jours, et les scénarios existants (pour partir d'un plan) ;
+  habitants (et leurs objets), les jours, et les scénarios existants (pour partir d'un plan) ;
 - POST /api/simuler   : un plan de John (le scénario, au format de
   data/voyageur/<nom>.json) ; le quartier est rejoué avec lui, la divergence
   mesurée et la mission évaluée ; renvoie le résultat ;
@@ -53,7 +53,7 @@ class Jeu:
         self.verrou = threading.Lock()   # une partie à la fois
 
     def catalogue(self):
-        prenoms = {p: lire(os.path.join(RACINE, "data", "personnages", f"{p}.json"))["identite"]["prenom"] for p in self.habitants}
+        fiches = {p: lire(os.path.join(RACINE, "data", "personnages", f"{p}.json")) for p in self.habitants}
         scenarios = []
         for f in sorted(os.listdir(os.path.join(RACINE, "data", "voyageur"))):
             if f.endswith(".json"):
@@ -61,7 +61,8 @@ class Jeu:
                 scenarios.append({"id": f[:-5], "description": sc.get("description", ""), "mission": sc.get("mission"),
                                   "porte": sc.get("porte", []), "interventions": sc["interventions"]})
         missions = {f[:-5]: lire(os.path.join(RACINE, "data", "missions", f)) for f in os.listdir(os.path.join(RACINE, "data", "missions")) if f.endswith(".json")}
-        return {"dates": self.dates, "habitants": [{"id": p, "prenom": prenoms[p]} for p in self.habitants],
+        return {"dates": self.dates, "habitants": [{"id": p, "prenom": fiches[p]["identite"]["prenom"],
+                                                    "objets": [[o["id"], o["nom"]] for o in fiches[p].get("objets", [])]} for p in self.habitants],
                 "gestes": lire(os.path.join(MONDE, "gestes.json"))["gestes"], "epoque": lire(os.path.join(MONDE, "epoque.json")),
                 "missions": missions, "scenarios": scenarios}
 

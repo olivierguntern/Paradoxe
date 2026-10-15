@@ -276,8 +276,11 @@ class Quartier:
             hB = self.H[B]
             if anomalie["objet"] not in {x["objet"] for x in hB.mem.get("anomalies", [])}:
                 appris = {"date": self.date, "heure": hm(i), "objet": anomalie["objet"], "quoi": quoi, "par": A} | {
-                    k: anomalie[k] for k in ("genre", "lieu", "piece") if k in anomalie}
+                    k: anomalie[k] for k in ("genre", "lieu", "piece", "explique") if k in anomalie}
                 hB.mem.setdefault("anomalies", []).append(appris)
+                for g in anomalie.get("explique", []):   # une annonce qu'on lui rapporte : il ne s'en étonnera pas non plus
+                    if g not in hB.mem.setdefault("explications", []):
+                        hB.mem["explications"].append(g)
                 if self.V:   # ce qui s'est passé chez lui : il y réagira (voyageur.py)
                     self.V.signaler(self, B, appris, i)
         if genre in ("preoccupation", "journee"):

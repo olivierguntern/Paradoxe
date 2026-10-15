@@ -145,6 +145,11 @@ Un scénario du voyageur (`data/voyageur/<nom>.json`) liste ses interventions da
 | `mission-soignee` | Le lundi de 10:00 à 19:30, serrure crochetée, branche brûlée, béton coulé ; six heures de repos, puis dans la nuit palettes remises, poussière nettoyée, boutique aérée | Mission réussie, parfaitement : Robert ne remarque rien, aucun fait ne change |
 | `mission-pressee` | Le même travail d'une traite, de 10:00 à 22:00 | Mission échouée : les palettes s'enfoncent dans le béton frais, John épuisé nettoie mal ; Robert porte plainte |
 | `mission-nuit` | Le lundi soir et la nuit : la porte de la cour à 19:00, la scie à 19:30, puis creuser jusqu'à 01:30 | Rentrés de Vienne, les Vial voient John à la porte de la cour et entendent la scie ; Simone le raconte à Robert en achetant son pain |
+| `mission-soir` | Le lundi, à partir de midi ; à 17:55, John prévient les Vial qui rentrent de Vienne : « les ouvriers du gaz » | Ils ne s'étonnent pas des coups de pioche ; mission réussie, sans être parfaite (les Vial ont parlé à un inconnu) |
+| `mission-soir-sans-mot` | Le même plan, sans les prévenir | Les Vial entendent la pioche ; Simone le raconte à Robert, qui va voir : paradoxe |
+| `mission-soir-electricien` | Le même plan ; John se présente comme « l'électricien de M. Chazal » | L'annonce concerne la boutique : Simone en parle à Robert, qui n'a appelé personne et va voir : paradoxe |
+| `appareil-cache` | Dans la nuit de lundi à mardi, l'appareil auditif d'Henri glissé sous le lit | Henri fait sans : il n'entend presque rien le mardi |
+| `simone-retenue` | Mardi à 07:50, Simone retenue vingt minutes par un faux sondage | Elle renonce à descendre chercher son pain ; Robert ne la voit pas ce matin-là |
 | `mission-abandon` | Le lundi, serrure crochetée, dalle découpée, branche trouvée puis laissée au fond du trou ouvert | Mission échouée et paradoxe ; l'avenir « Deux ans trop tôt » : le virus s'échappe dès 2010 |
 | `compatible` | Le même achat, avec un téléphone à clapet et un billet de la première série | Aucune divergence : seuls des détails changent (une bouteille d'eau, la caisse de Robert) |
 

@@ -88,7 +88,7 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 - **Le voyageur**, lundi 8 21:30 — creuser sous la dalle (150 min)
   - **Henri**, lundi 8 21:30, jusqu'au dimanche 14 23:55 — anomalie : remarque : des coups sourds de pioche dans l'arrière-boutique
   - **Simone**, lundi 8 21:40, jusqu'au dimanche 14 23:55 — anomalie : remarque : des coups sourds de pioche dans l'arrière-boutique
-    - **Henri**, mardi 9 07:15, jusqu'au vendredi 12 07:30 — appris : ne sait pas : ne dort plus : se lève sans bruit, boit une tisane à la fenêtre de la cuisine, au-dessus de la cour de l'épicerie
+    - **Henri**, mardi 9 07:30, jusqu'au vendredi 12 07:30 — appris : ne sait pas : ne dort plus : se lève sans bruit, boit une tisane à la fenêtre de la cuisine, au-dessus de la cour de l'épicerie
       - **Simone**, mardi 9 10:50, jusqu'à 12:15 — appris : ne sait pas : lit Le Progrès de la première à la dernière page, puis les mots croisés
       - **Simone**, mardi 9 12:20, jusqu'à 21:50 — appris : ne sait pas : écoute les informations à la radio
       - **Simone**, mardi 9 21:55, jusqu'au mercredi 10 09:15 — appris : ne sait pas : descend acheter Le Progrès chez M. Garnier et bavarde sur le pas de la porte

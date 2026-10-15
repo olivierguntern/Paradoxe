@@ -64,11 +64,11 @@
   },
   "plats_prepares": {},
   "achats": {
+   "pain (baguettes de l'épicerie)": "4 quarts de baguette (0.90 €)",
    "pommes": "3 pommes (1.20 €)",
    "pâtes": "500 g (0.95 €)",
    "jambon blanc": "4 tranches (2.60 €)",
    "comté": "250 g (4.50 €)",
-   "pain (baguettes de l'épicerie)": "4 quarts de baguette (0.90 €)",
    "carottes": "1000 g (1.50 €)",
    "oignons": "1 oignon (0.25 €)"
   },
@@ -77,14 +77,14 @@
     "especes": -11.9
    },
    "soldes_en_fin_de_journee": {
-    "especes": 9.35,
+    "especes": 9.85,
     "compte": 2600
    }
   },
   "stock_en_fin_de_journee": {
    "café moulu": "260 g",
    "thé et tisane (verveine, tilleul)": "19 sachets",
-   "pain (baguettes de l'épicerie)": "6 quarts de baguette",
+   "pain (baguettes de l'épicerie)": "3 quarts de baguette",
    "beurre": "210 g",
    "confiture de groseilles de Paulette": "17 cuillères",
    "lait demi-écrémé": "450 ml",
@@ -99,7 +99,7 @@
    "oignons": "1 oignon",
    "tomates": "0 g",
    "laitue": "1 laitue",
-   "pommes": "3 pommes",
+   "pommes": "6 pommes",
    "vin rouge (côtes-du-rhône)": "105 cl",
    "sucre": "500 g",
    "farine": "400 g"
@@ -111,7 +111,7 @@
   "besoins_sous_le_seuil_pendant_le_sommeil_pas": {},
   "endormissement": "extinction à 22:15 ; anxiété 0.272 (seuil 0.55), excitation 0.2 (seuil 0.45) : endormissement en 30 minutes",
   "ecarts_a_la_routine": [
-   "08:05 : courses : 3 × pommes, pâtes, jambon blanc, comté, baguette, carottes, oignons (11,90 €, en espèces)."
+   "08:05 : courses : baguette, 3 × pommes, pâtes, jambon blanc, comté, carottes, oignons (11,90 €, en espèces)."
   ]
  },
  "etat_initial": {
@@ -164,7 +164,7 @@
   "stock": {
    "cafe_moulu": 270,
    "the": 20,
-   "pain": 6,
+   "pain": 3,
    "beurre": 245,
    "confiture": 19,
    "lait": 800,
@@ -179,13 +179,13 @@
    "oignons": 1,
    "tomates": 0,
    "salade": 1,
-   "pommes": 3,
+   "pommes": 6,
    "vin_rouge": 120,
    "sucre": 500,
    "farine": 400
   },
   "argent": {
-   "especes": 21.25,
+   "especes": 21.75,
    "compte": 2600
   },
   "habitant": {
@@ -356,7 +356,7 @@
   "stock": {
    "cafe_moulu": 260,
    "the": 19,
-   "pain": 6,
+   "pain": 3,
    "beurre": 210,
    "confiture": 17,
    "lait": 450,
@@ -371,13 +371,13 @@
    "oignons": 1,
    "tomates": 0,
    "salade": 1,
-   "pommes": 3,
+   "pommes": 6,
    "vin_rouge": 105,
    "sucre": 500,
    "farine": 400
   },
   "argent": {
-   "especes": 9.35,
+   "especes": 9.85,
    "compte": 2600
   },
   "habitant": {
@@ -3334,7 +3334,7 @@
      "nom": "pommes",
      "quantite": 1,
      "unite": "pommes",
-     "reste": 2
+     "reste": 5
     }
    ],
    "appareils_allumes": [],
@@ -3550,7 +3550,7 @@
      "nom": "pain (baguettes de l'épicerie)",
      "quantite": 1,
      "unite": "quarts de baguette",
-     "reste": 4
+     "reste": 1
     },
     {
      "produit": "beurre",
@@ -3738,7 +3738,7 @@
    "posture": "debout",
    "routine": "rs-jeudi",
    "activite": "Descend chercher le pain chez Robert",
-   "action": "Ouvre le réfrigérateur et le placard et note ce qui manque : 3 × pommes, pâtes, jambon blanc, comté, baguette, carottes, oignons.",
+   "action": "Ouvre le réfrigérateur et le placard et note ce qui manque : baguette, 3 × pommes, pâtes, jambon blanc, comté, carottes, oignons.",
    "pensee": null,
    "appareils_allumes": [
     "radio"
@@ -3880,12 +3880,20 @@
    ],
    "achats": [
     {
+     "produit": "pain",
+     "nom": "pain (baguettes de l'épicerie)",
+     "quantite": 4,
+     "unite": "quarts de baguette",
+     "prix": 0.9,
+     "reste": 5
+    },
+    {
      "produit": "pommes",
      "nom": "pommes",
      "quantite": 3,
      "unite": "pommes",
      "prix": 1.2,
-     "reste": 4
+     "reste": 7
     },
     {
      "produit": "pates",
@@ -3912,14 +3920,6 @@
      "reste": 410
     },
     {
-     "produit": "pain",
-     "nom": "pain (baguettes de l'épicerie)",
-     "quantite": 4,
-     "unite": "quarts de baguette",
-     "prix": 0.9,
-     "reste": 8
-    },
-    {
      "produit": "carottes",
      "nom": "carottes",
      "quantite": 1000,
@@ -3941,7 +3941,7 @@
      "especes": -11.9
     },
     "soldes": {
-     "especes": 9.35,
+     "especes": 9.85,
      "compte": 2600
     }
    },
@@ -5671,7 +5671,7 @@
      "nom": "pain (baguettes de l'épicerie)",
      "quantite": 1,
      "unite": "quarts de baguette",
-     "reste": 7
+     "reste": 4
     },
     {
      "produit": "vin_rouge",
@@ -8733,7 +8733,7 @@
      "nom": "pommes",
      "quantite": 1,
      "unite": "pommes",
-     "reste": 3
+     "reste": 6
     }
    ],
    "appareils_allumes": [],
@@ -8802,7 +8802,7 @@
      "nom": "pain (baguettes de l'épicerie)",
      "quantite": 1,
      "unite": "quarts de baguette",
-     "reste": 6
+     "reste": 3
     }
    ],
    "appareils_allumes": [],

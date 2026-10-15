@@ -60,20 +60,20 @@
    "mouvements_du_jour": {
     "caisse": 0.0,
     "compte": 45.75,
-    "coffre": 277.35
+    "coffre": 277.75
    },
    "soldes_en_fin_de_journee": {
     "especes": 60,
     "compte": 3530.35,
     "caisse": 150.0,
-    "coffre": 277.35,
+    "coffre": 277.75,
     "ardoises": 46.3
    }
   },
   "magasin": {
    "clients": 111,
-   "recette": 323.1,
-   "recette_especes": 277.35,
+   "recette": 323.5,
+   "recette_especes": 277.75,
    "recette_carte": 45.75,
    "a_credit": 0.0,
    "ruptures": [],
@@ -278,12 +278,12 @@
     },
     "pommes": {
      "nom": "pommes",
-     "vendu": 50,
+     "vendu": 51,
      "livre": 85,
      "repris": 0,
      "preleve": 0,
-     "recette": 20.0,
-     "stock": 90
+     "recette": 20.4,
+     "stock": 89
     },
     "oranges": {
      "nom": "oranges",
@@ -426,7 +426,7 @@
    "06:30 : livraisons : 33 produits.",
    "11:25 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 09:30 ».",
    "17:15 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 16:30 ».",
-   "18:15 : rupture : baguette.",
+   "18:20 : rupture : baguette.",
    "19:05 : prend au magasin pour la maison : œufs, 2 × oignons, tomates.",
    "21:35 : épuisé (énergie 24.7), il va se coucher sans attendre 22:30."
   ]
@@ -687,7 +687,7 @@
    "especes": 60,
    "compte": 3530.35,
    "caisse": 150.0,
-   "coffre": 277.35,
+   "coffre": 277.75,
    "ardoises": 46.3
   },
   "boutique": {
@@ -713,7 +713,7 @@
    "vin_rouge": 18,
    "eau": 49,
    "jus_orange": 15,
-   "pommes": 90,
+   "pommes": 89,
    "oranges": 61,
    "bananes": 72,
    "tomates": 20,
@@ -4882,7 +4882,7 @@
    "posture": "debout",
    "routine": "rt-commerce",
    "activite": "Sert les clients ; café à 09:30",
-   "action": "Sert un monsieur en costume : trois pommes, deux bouteilles d'eau minérale et une baguette (3,30 €), avec quelques mots sur le quartier. Avec Simone. Sert Simone : 2 × baguette, yaourts nature, 4 × pommes, beurre, œufs, 2 × jambon blanc, 2 × laitue (16,25 €, en espèces).",
+   "action": "Sert un monsieur en costume : trois pommes, deux bouteilles d'eau minérale et une baguette (3,30 €), avec quelques mots sur le quartier. Avec Simone. Sert Simone : baguette, yaourts nature, 5 × pommes, beurre, œufs, 2 × jambon blanc, 2 × laitue (15,75 €, en espèces).",
    "pensee": null,
    "ensemble": [
     "Simone"
@@ -4915,10 +4915,10 @@
     {
      "produit": "baguette",
      "nom": "baguette",
-     "quantite": 2,
-     "prix": 1.8,
+     "quantite": 1,
+     "prix": 0.9,
      "paiement": "especes",
-     "reste": 58
+     "reste": 59
     },
     {
      "produit": "yaourts",
@@ -4931,10 +4931,10 @@
     {
      "produit": "pommes",
      "nom": "pommes",
-     "quantite": 4,
-     "prix": 1.6,
+     "quantite": 5,
+     "prix": 2.0,
      "paiement": "especes",
-     "reste": 118
+     "reste": 117
     },
     {
      "produit": "beurre",
@@ -4972,12 +4972,12 @@
    "clients": 2,
    "argent": {
     "mouvements": {
-     "caisse": 19.55
+     "caisse": 19.05
     },
     "soldes": {
      "especes": 60,
      "compte": 3484.6,
-     "caisse": 208.55,
+     "caisse": 208.05,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -5070,7 +5070,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 57
+     "reste": 58
     },
     {
      "produit": "lait_uht",
@@ -5086,7 +5086,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 56
+     "reste": 57
     },
     {
      "produit": "papier_toilette",
@@ -5110,7 +5110,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 55
+     "reste": 56
     },
     {
      "produit": "cafe_moulu",
@@ -5134,7 +5134,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 54
+     "reste": 55
     },
     {
      "produit": "lait_uht",
@@ -5169,7 +5169,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3484.6,
-     "caisse": 224.65,
+     "caisse": 224.15,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -5233,7 +5233,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 53
+     "reste": 54
     },
     {
      "produit": "oeufs",
@@ -5265,7 +5265,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 52
+     "reste": 53
     }
    ],
    "clients": 2,
@@ -5276,7 +5276,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3484.6,
-     "caisse": 230.5,
+     "caisse": 230.0,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -5324,7 +5324,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 51
+     "reste": 52
     },
     {
      "produit": "pommes",
@@ -5332,7 +5332,7 @@
      "quantite": 5,
      "prix": 2.0,
      "paiement": "especes",
-     "reste": 113
+     "reste": 112
     },
     {
      "produit": "baguette",
@@ -5340,7 +5340,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 50
+     "reste": 51
     },
     {
      "produit": "eau",
@@ -5359,7 +5359,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3484.6,
-     "caisse": 235.5,
+     "caisse": 235.0,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -5567,7 +5567,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 49
+     "reste": 50
     },
     {
      "produit": "yaourts",
@@ -5583,7 +5583,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "carte",
-     "reste": 48
+     "reste": 49
     },
     {
      "produit": "lait_uht",
@@ -5623,7 +5623,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 47
+     "reste": 48
     },
     {
      "produit": "yaourts",
@@ -5643,7 +5643,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 241.45,
+     "caisse": 240.95,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -5700,7 +5700,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 46
+     "reste": 47
     }
    ],
    "clients": 1,
@@ -5711,7 +5711,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 242.35,
+     "caisse": 241.85,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -5831,7 +5831,7 @@
      "quantite": 5,
      "prix": 2.0,
      "paiement": "especes",
-     "reste": 108
+     "reste": 107
     }
    ],
    "clients": 1,
@@ -5842,7 +5842,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 244.35,
+     "caisse": 243.85,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -5890,7 +5890,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 45
+     "reste": 46
     }
    ],
    "clients": 1,
@@ -5901,7 +5901,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 245.25,
+     "caisse": 244.75,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -5949,7 +5949,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 44
+     "reste": 45
     },
     {
      "produit": "oeufs",
@@ -5973,7 +5973,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 43
+     "reste": 44
     },
     {
      "produit": "pommes",
@@ -5981,7 +5981,7 @@
      "quantite": 5,
      "prix": 2.0,
      "paiement": "especes",
-     "reste": 103
+     "reste": 102
     }
    ],
    "clients": 3,
@@ -5992,7 +5992,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 251.9,
+     "caisse": 251.4,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -6135,7 +6135,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 42
+     "reste": 43
     }
    ],
    "clients": 1,
@@ -6146,7 +6146,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 254.9,
+     "caisse": 254.4,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -6241,7 +6241,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 256.7,
+     "caisse": 256.2,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -6334,7 +6334,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 41
+     "reste": 42
     }
    ],
    "clients": 1,
@@ -6345,7 +6345,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 257.6,
+     "caisse": 257.1,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -6429,7 +6429,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 40
+     "reste": 41
     },
     {
      "produit": "lait_uht",
@@ -6456,7 +6456,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 262.05,
+     "caisse": 261.55,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -6656,7 +6656,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 39
+     "reste": 40
     },
     {
      "produit": "lait_uht",
@@ -6683,7 +6683,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 265.85,
+     "caisse": 265.35,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -6799,7 +6799,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 38
+     "reste": 39
     }
    ],
    "clients": 2,
@@ -6810,7 +6810,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 273.6,
+     "caisse": 273.1,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -6867,7 +6867,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 37
+     "reste": 38
     },
     {
      "produit": "lait_uht",
@@ -6883,7 +6883,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 36
+     "reste": 37
     },
     {
      "produit": "oeufs",
@@ -6899,7 +6899,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 35
+     "reste": 36
     },
     {
      "produit": "cafe_moulu",
@@ -6918,7 +6918,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 282.05,
+     "caisse": 281.55,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -7055,7 +7055,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 34
+     "reste": 35
     }
    ],
    "clients": 1,
@@ -7066,7 +7066,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 284.15,
+     "caisse": 283.65,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -7114,7 +7114,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 33
+     "reste": 34
     }
    ],
    "clients": 1,
@@ -7125,7 +7125,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 285.05,
+     "caisse": 284.55,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -7173,7 +7173,7 @@
      "quantite": 5,
      "prix": 2.0,
      "paiement": "especes",
-     "reste": 98
+     "reste": 97
     },
     {
      "produit": "biere",
@@ -7197,7 +7197,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 32
+     "reste": 33
     },
     {
      "produit": "biere",
@@ -7216,7 +7216,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 291.75,
+     "caisse": 291.25,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -7264,7 +7264,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 31
+     "reste": 32
     },
     {
      "produit": "eau",
@@ -7288,7 +7288,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 94
+     "reste": 93
     },
     {
      "produit": "salade",
@@ -7312,7 +7312,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 30
+     "reste": 31
     }
    ],
    "clients": 2,
@@ -7323,7 +7323,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 299.6,
+     "caisse": 299.1,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -7485,7 +7485,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 29
+     "reste": 30
     }
    ],
    "clients": 2,
@@ -7496,7 +7496,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 303.4,
+     "caisse": 302.9,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -7594,7 +7594,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 28
+     "reste": 29
     },
     {
      "produit": "eau",
@@ -7613,7 +7613,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 305.5,
+     "caisse": 305.0,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -7716,7 +7716,7 @@
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
-     "caisse": 307.0,
+     "caisse": 306.5,
      "coffre": 0.0,
      "ardoises": 46.3
     }
@@ -7804,14 +7804,14 @@
    },
    "argent": {
     "mouvements": {
-     "caisse": -157.0,
-     "coffre": 157.0
+     "caisse": -156.5,
+     "coffre": 156.5
     },
     "soldes": {
      "especes": 60,
      "compte": 3489.95,
      "caisse": 150.0,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -8859,7 +8859,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 27
+     "reste": 28
     }
    ],
    "clients": 1,
@@ -8871,7 +8871,7 @@
      "especes": 60,
      "compte": 3489.95,
      "caisse": 152.6,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -8954,7 +8954,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 26
+     "reste": 27
     },
     {
      "produit": "jambon",
@@ -8974,7 +8974,7 @@
      "especes": 60,
      "compte": 3489.95,
      "caisse": 156.1,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -9093,7 +9093,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 25
+     "reste": 26
     },
     {
      "produit": "eau",
@@ -9129,7 +9129,7 @@
      "especes": 60,
      "compte": 3489.95,
      "caisse": 161.2,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -9284,7 +9284,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "carte",
-     "reste": 24
+     "reste": 25
     },
     {
      "produit": "tomates",
@@ -9320,7 +9320,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 161.2,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -9604,7 +9604,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 23
+     "reste": 24
     },
     {
      "produit": "salade",
@@ -9632,7 +9632,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 166.5,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -9762,7 +9762,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 22
+     "reste": 23
     }
    ],
    "clients": 1,
@@ -9774,7 +9774,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 168.0,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -9859,7 +9859,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 21
+     "reste": 22
     },
     {
      "produit": "eau",
@@ -9887,7 +9887,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 171.8,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -10074,7 +10074,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 178.1,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -10130,7 +10130,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 20
+     "reste": 21
     }
    ],
    "clients": 1,
@@ -10142,7 +10142,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 180.7,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -10198,7 +10198,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 19
+     "reste": 20
     }
    ],
    "clients": 1,
@@ -10210,7 +10210,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 184.2,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -10266,7 +10266,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 18
+     "reste": 19
     },
     {
      "produit": "riz",
@@ -10286,7 +10286,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 186.9,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -10351,7 +10351,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 17
+     "reste": 18
     },
     {
      "produit": "tomates",
@@ -10367,7 +10367,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 16
+     "reste": 17
     }
    ],
    "clients": 2,
@@ -10379,7 +10379,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 192.0,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -10426,7 +10426,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 15
+     "reste": 16
     }
    ],
    "clients": 1,
@@ -10438,7 +10438,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 192.9,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -10514,7 +10514,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 200.1,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -10630,7 +10630,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 14
+     "reste": 15
     }
    ],
    "clients": 1,
@@ -10642,7 +10642,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 203.95,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -10706,7 +10706,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 13
+     "reste": 14
     },
     {
      "produit": "pates",
@@ -10722,7 +10722,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 12
+     "reste": 13
     }
    ],
    "clients": 3,
@@ -10734,7 +10734,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 211.2,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -10832,7 +10832,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 11
+     "reste": 12
     }
    ],
    "clients": 1,
@@ -10844,7 +10844,7 @@
      "especes": 60,
      "compte": 3498.15,
      "caisse": 212.1,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -10977,7 +10977,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "carte",
-     "reste": 10
+     "reste": 11
     },
     {
      "produit": "baguette",
@@ -10985,7 +10985,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 9
+     "reste": 10
     }
    ],
    "clients": 2,
@@ -10998,7 +10998,7 @@
      "especes": 60,
      "compte": 3505.05,
      "caisse": 213.0,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -11111,7 +11111,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 8
+     "reste": 9
     },
     {
      "produit": "biere",
@@ -11135,7 +11135,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 7
+     "reste": 8
     }
    ],
    "clients": 4,
@@ -11147,7 +11147,7 @@
      "especes": 60,
      "compte": 3505.05,
      "caisse": 221.1,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -11239,7 +11239,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 6
+     "reste": 7
     },
     {
      "produit": "oeufs",
@@ -11263,7 +11263,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 5
+     "reste": 6
     },
     {
      "produit": "baguette",
@@ -11271,7 +11271,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 4
+     "reste": 5
     }
    ],
    "clients": 3,
@@ -11283,7 +11283,7 @@
      "especes": 60,
      "compte": 3505.05,
      "caisse": 232.6,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -11365,7 +11365,7 @@
      "especes": 60,
      "compte": 3511.35,
      "caisse": 232.6,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -11441,7 +11441,7 @@
      "especes": 60,
      "compte": 3516.9,
      "caisse": 234.5,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -11534,7 +11534,7 @@
      "especes": 60,
      "compte": 3523.0,
      "caisse": 236.4,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -11589,7 +11589,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 3
+     "reste": 4
     },
     {
      "produit": "oranges",
@@ -11605,7 +11605,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 2
+     "reste": 3
     }
    ],
    "clients": 2,
@@ -11617,7 +11617,7 @@
      "especes": 60,
      "compte": 3523.0,
      "caisse": 240.1,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -11688,7 +11688,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 1
+     "reste": 2
     }
    ],
    "clients": 2,
@@ -11700,7 +11700,7 @@
      "especes": 60,
      "compte": 3523.0,
      "caisse": 246.8,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -11772,7 +11772,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 0
+     "reste": 1
     },
     {
      "produit": "yaourts",
@@ -11800,7 +11800,7 @@
      "especes": 60,
      "compte": 3523.0,
      "caisse": 252.5,
-     "coffre": 157.0,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -11847,7 +11847,7 @@
    "posture": "debout",
    "routine": "rt-commerce",
    "activite": "Sert les clients ; café à 16:30",
-   "action": "Sert deux clients à la suite. Une adolescente : un paquet de pâtes (0,95 €). Une voisine de la rue d'Ivry : une barquette de jambon blanc et une boîte de haricots verts (3,80 €). Plus de baguette : il s'excuse.",
+   "action": "Sert deux clients à la suite. Une adolescente : un paquet de pâtes (0,95 €). Une voisine de la rue d'Ivry : une baguette, une barquette de jambon blanc et une boîte de haricots verts (4,70 €).",
    "pensee": null,
    "ventes": [
     {
@@ -11857,6 +11857,14 @@
      "prix": 0.95,
      "paiement": "especes",
      "reste": 29
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 0
     },
     {
      "produit": "jambon",
@@ -11878,13 +11886,13 @@
    "clients": 2,
    "argent": {
     "mouvements": {
-     "caisse": 4.75
+     "caisse": 5.65
     },
     "soldes": {
      "especes": 60,
      "compte": 3523.0,
-     "caisse": 257.25,
-     "coffre": 157.0,
+     "caisse": 258.15,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -11892,15 +11900,6 @@
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
-   ],
-   "evenements": [
-    {
-     "id": "rupture_stock",
-     "effets": {
-      "anxiete": 0.035,
-      "colere": 0.026
-     }
-    }
    ],
    "besoins": {
     "faim": 67.0,
@@ -11915,8 +11914,8 @@
    "emotions": {
     "joie": 0.585,
     "tristesse": 0.18,
-    "anxiete": 0.292,
-    "colere": 0.094,
+    "anxiete": 0.257,
+    "colere": 0.067,
     "solitude": 0.123,
     "fierte": 0.4,
     "excitation": 0.229,
@@ -11944,6 +11943,13 @@
    ],
    "evenements": [
     {
+     "id": "rupture_stock",
+     "effets": {
+      "anxiete": 0.035,
+      "colere": 0.026
+     }
+    },
+    {
      "id": "client_habitue",
      "effets": {
       "joie": 0.04,
@@ -11964,8 +11970,8 @@
    "emotions": {
     "joie": 0.611,
     "tristesse": 0.18,
-    "anxiete": 0.289,
-    "colere": 0.087,
+    "anxiete": 0.292,
+    "colere": 0.091,
     "solitude": 0.1,
     "fierte": 0.4,
     "excitation": 0.226,
@@ -12006,7 +12012,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 90
+     "reste": 89
     },
     {
      "produit": "oranges",
@@ -12033,8 +12039,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3523.0,
-     "caisse": 261.05,
-     "coffre": 157.0,
+     "caisse": 261.95,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -12065,8 +12071,8 @@
    "emotions": {
     "joie": 0.623,
     "tristesse": 0.18,
-    "anxiete": 0.287,
-    "colere": 0.081,
+    "anxiete": 0.289,
+    "colere": 0.084,
     "solitude": 0.079,
     "fierte": 0.4,
     "excitation": 0.223,
@@ -12109,8 +12115,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3523.0,
-     "caisse": 263.9,
-     "coffre": 157.0,
+     "caisse": 264.8,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -12132,8 +12138,8 @@
    "emotions": {
     "joie": 0.604,
     "tristesse": 0.18,
-    "anxiete": 0.284,
-    "colere": 0.076,
+    "anxiete": 0.286,
+    "colere": 0.079,
     "solitude": 0.088,
     "fierte": 0.4,
     "excitation": 0.221,
@@ -12168,8 +12174,8 @@
    "emotions": {
     "joie": 0.587,
     "tristesse": 0.18,
-    "anxiete": 0.282,
-    "colere": 0.072,
+    "anxiete": 0.284,
+    "colere": 0.074,
     "solitude": 0.097,
     "fierte": 0.4,
     "excitation": 0.218,
@@ -12204,8 +12210,8 @@
    "emotions": {
     "joie": 0.572,
     "tristesse": 0.18,
-    "anxiete": 0.28,
-    "colere": 0.068,
+    "anxiete": 0.282,
+    "colere": 0.071,
     "solitude": 0.106,
     "fierte": 0.4,
     "excitation": 0.216,
@@ -12240,8 +12246,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3523.0,
-     "caisse": 264.5,
-     "coffre": 157.0,
+     "caisse": 265.4,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -12264,8 +12270,8 @@
    "emotions": {
     "joie": 0.559,
     "tristesse": 0.18,
-    "anxiete": 0.278,
-    "colere": 0.065,
+    "anxiete": 0.279,
+    "colere": 0.067,
     "solitude": 0.114,
     "fierte": 0.4,
     "excitation": 0.215,
@@ -12308,8 +12314,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3523.0,
-     "caisse": 269.4,
-     "coffre": 157.0,
+     "caisse": 270.3,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -12332,8 +12338,8 @@
    "emotions": {
     "joie": 0.547,
     "tristesse": 0.18,
-    "anxiete": 0.276,
-    "colere": 0.063,
+    "anxiete": 0.277,
+    "colere": 0.064,
     "solitude": 0.122,
     "fierte": 0.4,
     "excitation": 0.213,
@@ -12393,8 +12399,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3530.35,
-     "caisse": 270.35,
-     "coffre": 157.0,
+     "caisse": 271.25,
+     "coffre": 156.5,
      "ardoises": 46.3
     }
    },
@@ -12417,8 +12423,8 @@
    "emotions": {
     "joie": 0.537,
     "tristesse": 0.18,
-    "anxiete": 0.274,
-    "colere": 0.061,
+    "anxiete": 0.276,
+    "colere": 0.062,
     "solitude": 0.129,
     "fierte": 0.4,
     "excitation": 0.212,
@@ -12467,8 +12473,8 @@
    "emotions": {
     "joie": 0.527,
     "tristesse": 0.18,
-    "anxiete": 0.273,
-    "colere": 0.059,
+    "anxiete": 0.274,
+    "colere": 0.06,
     "solitude": 0.136,
     "fierte": 0.4,
     "excitation": 0.21,
@@ -12516,14 +12522,14 @@
    ],
    "argent": {
     "mouvements": {
-     "caisse": -120.35,
-     "coffre": 120.35
+     "caisse": -121.25,
+     "coffre": 121.25
     },
     "soldes": {
      "especes": 60,
      "compte": 3530.35,
      "caisse": 150.0,
-     "coffre": 277.35,
+     "coffre": 277.75,
      "ardoises": 46.3
     }
    },
@@ -12547,8 +12553,8 @@
    "emotions": {
     "joie": 0.519,
     "tristesse": 0.18,
-    "anxiete": 0.271,
-    "colere": 0.058,
+    "anxiete": 0.272,
+    "colere": 0.059,
     "solitude": 0.142,
     "fierte": 0.4,
     "excitation": 0.209,
@@ -12582,7 +12588,7 @@
    "emotions": {
     "joie": 0.511,
     "tristesse": 0.18,
-    "anxiete": 0.27,
+    "anxiete": 0.271,
     "colere": 0.057,
     "solitude": 0.148,
     "fierte": 0.4,
@@ -12637,8 +12643,8 @@
    "emotions": {
     "joie": 0.505,
     "tristesse": 0.18,
-    "anxiete": 0.268,
-    "colere": 0.055,
+    "anxiete": 0.269,
+    "colere": 0.056,
     "solitude": 0.154,
     "fierte": 0.4,
     "excitation": 0.207,
@@ -12680,7 +12686,7 @@
    "emotions": {
     "joie": 0.499,
     "tristesse": 0.18,
-    "anxiete": 0.267,
+    "anxiete": 0.268,
     "colere": 0.055,
     "solitude": 0.159,
     "fierte": 0.4,
@@ -12723,7 +12729,7 @@
    "emotions": {
     "joie": 0.493,
     "tristesse": 0.18,
-    "anxiete": 0.266,
+    "anxiete": 0.267,
     "colere": 0.054,
     "solitude": 0.164,
     "fierte": 0.4,
@@ -12766,8 +12772,8 @@
    "emotions": {
     "joie": 0.489,
     "tristesse": 0.18,
-    "anxiete": 0.265,
-    "colere": 0.053,
+    "anxiete": 0.266,
+    "colere": 0.054,
     "solitude": 0.169,
     "fierte": 0.4,
     "excitation": 0.205,
@@ -12840,7 +12846,7 @@
    "emotions": {
     "joie": 0.564,
     "tristesse": 0.18,
-    "anxiete": 0.244,
+    "anxiete": 0.245,
     "colere": 0.053,
     "solitude": 0.094,
     "fierte": 0.4,
@@ -12877,8 +12883,8 @@
    "emotions": {
     "joie": 0.552,
     "tristesse": 0.18,
-    "anxiete": 0.244,
-    "colere": 0.052,
+    "anxiete": 0.245,
+    "colere": 0.053,
     "solitude": 0.102,
     "fierte": 0.4,
     "excitation": 0.204,
@@ -12951,7 +12957,7 @@
    "emotions": {
     "joie": 0.531,
     "tristesse": 0.18,
-    "anxiete": 0.245,
+    "anxiete": 0.246,
     "colere": 0.052,
     "solitude": 0.119,
     "fierte": 0.4,
@@ -12996,8 +13002,8 @@
    "emotions": {
     "joie": 0.562,
     "tristesse": 0.18,
-    "anxiete": 0.245,
-    "colere": 0.051,
+    "anxiete": 0.246,
+    "colere": 0.052,
     "solitude": 0.126,
     "fierte": 0.4,
     "excitation": 0.203,
@@ -13070,7 +13076,7 @@
    "emotions": {
     "joie": 0.539,
     "tristesse": 0.18,
-    "anxiete": 0.246,
+    "anxiete": 0.247,
     "colere": 0.051,
     "solitude": 0.139,
     "fierte": 0.4,
@@ -13107,7 +13113,7 @@
    "emotions": {
     "joie": 0.529,
     "tristesse": 0.18,
-    "anxiete": 0.246,
+    "anxiete": 0.247,
     "colere": 0.051,
     "solitude": 0.146,
     "fierte": 0.4,
@@ -13144,7 +13150,7 @@
    "emotions": {
     "joie": 0.521,
     "tristesse": 0.18,
-    "anxiete": 0.246,
+    "anxiete": 0.247,
     "colere": 0.051,
     "solitude": 0.152,
     "fierte": 0.4,
@@ -13234,7 +13240,7 @@
     "joie": 0.531,
     "tristesse": 0.18,
     "anxiete": 0.247,
-    "colere": 0.055,
+    "colere": 0.056,
     "solitude": 0.132,
     "fierte": 0.4,
     "excitation": 0.201,
@@ -13267,7 +13273,7 @@
    "emotions": {
     "joie": 0.517,
     "tristesse": 0.18,
-    "anxiete": 0.247,
+    "anxiete": 0.248,
     "colere": 0.06,
     "solitude": 0.139,
     "fierte": 0.4,
@@ -13332,7 +13338,7 @@
    "emotions": {
     "joie": 0.555,
     "tristesse": 0.18,
-    "anxiete": 0.227,
+    "anxiete": 0.228,
     "colere": 0.063,
     "solitude": 0.095,
     "fierte": 0.4,
@@ -13408,7 +13414,7 @@
    "emotions": {
     "joie": 0.524,
     "tristesse": 0.18,
-    "anxiete": 0.23,
+    "anxiete": 0.231,
     "colere": 0.068,
     "solitude": 0.112,
     "fierte": 0.4,
@@ -13765,7 +13771,7 @@
    "emotions": {
     "joie": 0.461,
     "tristesse": 0.18,
-    "anxiete": 0.239,
+    "anxiete": 0.24,
     "colere": 0.079,
     "solitude": 0.147,
     "fierte": 0.4,
@@ -13870,7 +13876,7 @@
     "joie": 0.45,
     "tristesse": 0.18,
     "anxiete": 0.241,
-    "colere": 0.079,
+    "colere": 0.08,
     "solitude": 0.158,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -13908,7 +13914,7 @@
    "emotions": {
     "joie": 0.445,
     "tristesse": 0.18,
-    "anxiete": 0.241,
+    "anxiete": 0.242,
     "colere": 0.08,
     "solitude": 0.163,
     "fierte": 0.4,
@@ -13978,7 +13984,7 @@
    "emotions": {
     "joie": 0.447,
     "tristesse": 0.18,
-    "anxiete": 0.243,
+    "anxiete": 0.244,
     "colere": 0.065,
     "solitude": 0.181,
     "fierte": 0.4,

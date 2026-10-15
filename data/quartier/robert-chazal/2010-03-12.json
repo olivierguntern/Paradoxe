@@ -67,7 +67,7 @@
     "especes": 60,
     "compte": 3636.2,
     "caisse": 150.0,
-    "coffre": 1155.7,
+    "coffre": 1156.1,
     "ardoises": 46.3
    }
   },
@@ -280,7 +280,7 @@
     "pommes": {
      "nom": "pommes",
      "vendu": 33,
-     "livre": 125,
+     "livre": 126,
      "repris": 0,
      "preleve": 4,
      "recette": 13.2,
@@ -508,7 +508,7 @@
    "especes": 60,
    "compte": 3579.85,
    "caisse": 150.0,
-   "coffre": 840.0,
+   "coffre": 840.4,
    "ardoises": 52.1
   },
   "boutique": {
@@ -534,7 +534,7 @@
    "vin_rouge": 11,
    "eau": 17,
    "jus_orange": 10,
-   "pommes": 15,
+   "pommes": 14,
    "oranges": 17,
    "bananes": 38,
    "tomates": 12,
@@ -719,7 +719,7 @@
    "especes": 60,
    "compte": 3636.2,
    "caisse": 150.0,
-   "coffre": 1155.7,
+   "coffre": 1156.1,
    "ardoises": 46.3
   },
   "boutique": {
@@ -3774,7 +3774,7 @@
     {
      "produit": "pommes",
      "nom": "pommes",
-     "quantite": 125,
+     "quantite": 126,
      "reste": 140
     },
     {
@@ -4095,7 +4095,7 @@
      "especes": 60,
      "compte": 3579.85,
      "caisse": 154.35,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -4179,7 +4179,7 @@
      "especes": 60,
      "compte": 3579.85,
      "caisse": 160.35,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -4262,7 +4262,7 @@
      "especes": 60,
      "compte": 3585.9,
      "caisse": 160.35,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -4362,7 +4362,7 @@
      "especes": 60,
      "compte": 3585.9,
      "caisse": 167.55,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -4466,7 +4466,7 @@
      "especes": 60,
      "compte": 3585.9,
      "caisse": 168.45,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -4533,7 +4533,7 @@
      "especes": 60,
      "compte": 3585.9,
      "caisse": 170.3,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -4608,7 +4608,7 @@
      "especes": 60,
      "compte": 3585.9,
      "caisse": 174.4,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -4699,7 +4699,7 @@
      "especes": 60,
      "compte": 3585.9,
      "caisse": 180.1,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -4791,7 +4791,7 @@
      "especes": 60,
      "compte": 3590.9,
      "caisse": 183.6,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -4851,7 +4851,7 @@
      "especes": 60,
      "compte": 3590.9,
      "caisse": 185.5,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -4963,7 +4963,7 @@
      "especes": 60,
      "compte": 3590.9,
      "caisse": 188.2,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -5017,7 +5017,7 @@
    "posture": "debout",
    "routine": "rt-commerce",
    "activite": "Sert les clients ; café à 09:30",
-   "action": "Sert une voisine de la rue d'Ivry : une baguette (0,90 €). Avec Simone. Simone et Robert échangent des nouvelles du quartier. Sert Simone : lait UHT, 2 × pommes, riz, baguette, œufs, 2 × tomates (9,55 €, par carte).",
+   "action": "Sert une voisine de la rue d'Ivry : une baguette (0,90 €). Avec Simone. Simone et Robert échangent des nouvelles du quartier. Sert Simone : baguette, lait UHT, 2 × pommes, riz, œufs, 2 × tomates (9,55 €, par carte).",
    "pensee": null,
    "ensemble": [
     "Simone"
@@ -5036,6 +5036,14 @@
      "prix": 0.9,
      "paiement": "especes",
      "reste": 53
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "carte",
+     "reste": 52
     },
     {
      "produit": "lait_uht",
@@ -5060,14 +5068,6 @@
      "prix": 1.8,
      "paiement": "carte",
      "reste": 17
-    },
-    {
-     "produit": "baguette",
-     "nom": "baguette",
-     "quantite": 1,
-     "prix": 0.9,
-     "paiement": "carte",
-     "reste": 52
     },
     {
      "produit": "oeufs",
@@ -5096,7 +5096,7 @@
      "especes": 60,
      "compte": 3600.45,
      "caisse": 189.1,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -5204,7 +5204,7 @@
      "especes": 60,
      "compte": 3605.6,
      "caisse": 190.0,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -5294,7 +5294,7 @@
      "especes": 60,
      "compte": 3605.6,
      "caisse": 194.75,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -5378,7 +5378,7 @@
      "especes": 60,
      "compte": 3605.6,
      "caisse": 198.15,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -5469,7 +5469,7 @@
      "especes": 60,
      "compte": 3605.6,
      "caisse": 208.15,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -5528,7 +5528,7 @@
      "especes": 60,
      "compte": 3605.6,
      "caisse": 210.05,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -5603,7 +5603,7 @@
      "especes": 60,
      "compte": 3605.6,
      "caisse": 214.55,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -5710,7 +5710,7 @@
      "especes": 60,
      "compte": 3605.6,
      "caisse": 224.95,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -5778,7 +5778,7 @@
      "especes": 60,
      "compte": 3605.6,
      "caisse": 227.55,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -5853,7 +5853,7 @@
      "especes": 60,
      "compte": 3605.6,
      "caisse": 232.35,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -5964,7 +5964,7 @@
      "especes": 60,
      "compte": 3605.6,
      "caisse": 235.7,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -6039,7 +6039,7 @@
      "especes": 60,
      "compte": 3611.3,
      "caisse": 235.7,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -6158,7 +6158,7 @@
      "especes": 60,
      "compte": 3611.3,
      "caisse": 241.2,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -6259,7 +6259,7 @@
      "especes": 60,
      "compte": 3617.15,
      "caisse": 242.1,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -6514,7 +6514,7 @@
      "especes": 60,
      "compte": 3617.15,
      "caisse": 245.8,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -6638,7 +6638,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 250.15,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -6786,7 +6786,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 252.0,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -6925,7 +6925,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 254.1,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -7036,7 +7036,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 258.85,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -7407,7 +7407,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 261.5,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -7552,7 +7552,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 264.6,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -7688,7 +7688,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 265.5,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -7803,7 +7803,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 273.7,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },
@@ -7906,7 +7906,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 150.0,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -8930,7 +8930,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 151.5,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -9005,7 +9005,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 155.6,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -9100,7 +9100,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 156.5,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -9247,7 +9247,7 @@
      "especes": 60,
      "compte": 3624.2,
      "caisse": 160.55,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -9347,7 +9347,7 @@
      "especes": 60,
      "compte": 3630.0,
      "caisse": 164.05,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -9414,7 +9414,7 @@
      "especes": 60,
      "compte": 3630.0,
      "caisse": 166.25,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -9679,7 +9679,7 @@
      "especes": 60,
      "compte": 3630.0,
      "caisse": 171.45,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -9792,7 +9792,7 @@
      "especes": 60,
      "compte": 3630.0,
      "caisse": 174.65,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -9930,7 +9930,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 177.05,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -10043,7 +10043,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 183.5,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -10111,7 +10111,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 187.0,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -10216,7 +10216,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 189.55,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -10284,7 +10284,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 192.05,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -10344,7 +10344,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 193.0,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -10478,7 +10478,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 193.95,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -10627,7 +10627,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 199.75,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -10711,7 +10711,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 204.1,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -10786,7 +10786,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 207.6,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -10870,7 +10870,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 215.6,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -10953,7 +10953,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 227.5,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -11052,7 +11052,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 235.35,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -11119,7 +11119,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 243.75,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -11296,7 +11296,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 262.05,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -11393,7 +11393,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 271.55,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -11468,7 +11468,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 274.9,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -11578,7 +11578,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 276.5,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -11653,7 +11653,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 279.5,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -11748,7 +11748,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 282.1,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -11832,7 +11832,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 290.0,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 52.1
     }
    },
@@ -11916,7 +11916,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 302.5,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 46.3
     }
    },
@@ -12000,7 +12000,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 309.9,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 46.3
     }
    },
@@ -12075,7 +12075,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 316.3,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 46.3
     }
    },
@@ -12174,7 +12174,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 322.35,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 46.3
     }
    },
@@ -12249,7 +12249,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 325.5,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 46.3
     }
    },
@@ -12308,7 +12308,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 326.45,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 46.3
     }
    },
@@ -12367,7 +12367,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 329.05,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 46.3
     }
    },
@@ -12442,7 +12442,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 337.0,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 46.3
     }
    },
@@ -12517,7 +12517,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 340.5,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 46.3
     }
    },
@@ -12613,7 +12613,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 342.0,
-     "coffre": 963.7,
+     "coffre": 964.1,
      "ardoises": 46.3
     }
    },
@@ -12760,7 +12760,7 @@
      "especes": 60,
      "compte": 3636.2,
      "caisse": 150.0,
-     "coffre": 1155.7,
+     "coffre": 1156.1,
      "ardoises": 46.3
     }
    },

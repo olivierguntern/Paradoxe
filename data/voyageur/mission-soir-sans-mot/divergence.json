@@ -1,0 +1,2363 @@
+{
+ "habitants": [
+  "gerard-morel",
+  "henri-vial",
+  "josiane-chazal",
+  "monique-morel",
+  "robert-chazal",
+  "simone-vial",
+  "thomas-berthier"
+ ],
+ "cibles": [
+  "henri-vial",
+  "simone-vial"
+ ],
+ "verdict": "paradoxe : 7 habitants touchés, jusqu'à 8 faits différents dans une heure",
+ "touches": [
+  "gerard-morel",
+  "henri-vial",
+  "josiane-chazal",
+  "monique-morel",
+  "robert-chazal",
+  "simone-vial",
+  "thomas-berthier"
+ ],
+ "cascade": [
+  "gerard-morel",
+  "josiane-chazal",
+  "monique-morel",
+  "robert-chazal",
+  "thomas-berthier"
+ ],
+ "premier_fait": {
+  "henri-vial": {
+   "date": "2010-03-08",
+   "heure": "18:00",
+   "genre": "anomalie",
+   "detail": "remarque : des coups sourds de pioche dans l'arrière-boutique"
+  },
+  "simone-vial": {
+   "date": "2010-03-08",
+   "heure": "18:00",
+   "genre": "anomalie",
+   "detail": "remarque : des coups sourds de pioche dans l'arrière-boutique"
+  },
+  "robert-chazal": {
+   "date": "2010-03-10",
+   "heure": "08:05",
+   "genre": "anomalie",
+   "detail": "entend parler de : des coups sourds de pioche dans l'arrière-boutique"
+  },
+  "josiane-chazal": {
+   "date": "2010-03-10",
+   "heure": "12:35",
+   "genre": "appris",
+   "detail": "ne sait pas : sert les clients"
+  },
+  "thomas-berthier": {
+   "date": "2010-03-13",
+   "heure": "11:50",
+   "genre": "anomalie",
+   "detail": "entend parler de : des coups sourds de pioche dans l'arrière-boutique"
+  },
+  "monique-morel": {
+   "date": "2010-03-14",
+   "heure": "14:35",
+   "genre": "appris",
+   "detail": "ne sait pas : prépare le déjeuner du dimanche"
+  },
+  "gerard-morel": {
+   "date": "2010-03-14",
+   "heure": "15:50",
+   "genre": "anomalie",
+   "detail": "entend parler de : des coups sourds de pioche dans l'arrière-boutique"
+  }
+ },
+ "par_habitant": {
+  "gerard-morel": {
+   "pas_divergents": 98,
+   "faits": 1
+  },
+  "henri-vial": {
+   "pas_divergents": 1800,
+   "faits": 1
+  },
+  "josiane-chazal": {
+   "pas_divergents": 1289,
+   "faits": 3
+  },
+  "monique-morel": {
+   "pas_divergents": 113,
+   "faits": 2
+  },
+  "robert-chazal": {
+   "pas_divergents": 1343,
+   "faits": 3
+  },
+  "simone-vial": {
+   "pas_divergents": 1800,
+   "faits": 2
+  },
+  "thomas-berthier": {
+   "pas_divergents": 434,
+   "faits": 1
+  }
+ },
+ "exemples": {
+  "henri-vial": {
+   "anomalie": [
+    "2010-03-08",
+    "18:00",
+    "remarque : des coups sourds de pioche dans l'arrière-boutique"
+   ]
+  },
+  "simone-vial": {
+   "anomalie": [
+    "2010-03-08",
+    "18:00",
+    "remarque : des coups sourds de pioche dans l'arrière-boutique"
+   ],
+   "appris": [
+    "2010-03-08",
+    "19:35",
+    "ne sait pas : somnole dans son fauteuil, la radio allumée"
+   ]
+  },
+  "robert-chazal": {
+   "anomalie": [
+    "2010-03-10",
+    "08:05",
+    "entend parler de : des coups sourds de pioche dans l'arrière-boutique"
+   ],
+   "lieu": [
+    "2010-03-10",
+    "08:15",
+    "boutique → arriere-boutique"
+   ],
+   "activité": [
+    "2010-03-10",
+    "08:15",
+    "Sert les clients → Va voir d'où vient le bruit"
+   ]
+  },
+  "josiane-chazal": {
+   "appris": [
+    "2010-03-10",
+    "12:35",
+    "ne sait pas : sert les clients"
+   ],
+   "anomalie": [
+    "2010-03-10",
+    "12:35",
+    "entend parler de : des coups sourds de pioche dans l'arrière-boutique"
+   ]
+  },
+  "thomas-berthier": {
+   "anomalie": [
+    "2010-03-13",
+    "11:50",
+    "entend parler de : des coups sourds de pioche dans l'arrière-boutique"
+   ]
+  },
+  "monique-morel": {
+   "appris": [
+    "2010-03-14",
+    "14:35",
+    "ne sait pas : prépare le déjeuner du dimanche"
+   ],
+   "anomalie": [
+    "2010-03-14",
+    "14:35",
+    "entend parler de : des coups sourds de pioche dans l'arrière-boutique"
+   ]
+  },
+  "gerard-morel": {
+   "anomalie": [
+    "2010-03-14",
+    "15:50",
+    "entend parler de : des coups sourds de pioche dans l'arrière-boutique"
+   ]
+  }
+ },
+ "heures": [
+  {
+   "date": "2010-03-08",
+   "heure": "00:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "01:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "02:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "03:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "04:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "05:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "06:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "07:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "08:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "09:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "10:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "11:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "12:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "13:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "14:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "15:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "16:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "17:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "18:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "19:00",
+   "faits": 3,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "20:00",
+   "faits": 3,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "21:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "22:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "23:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "00:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "01:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "02:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "03:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "04:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "05:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "06:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "07:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "08:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "09:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "10:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "11:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "12:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "13:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "14:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "15:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "16:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "17:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "18:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "19:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "20:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "21:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "22:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "23:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "00:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "01:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "02:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "03:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "04:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "05:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "06:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "07:00",
+   "faits": 2,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "08:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "09:00",
+   "faits": 3,
+   "habitants": [
+    "henri-vial",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "10:00",
+   "faits": 3,
+   "habitants": [
+    "henri-vial",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "11:00",
+   "faits": 3,
+   "habitants": [
+    "henri-vial",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "12:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "13:00",
+   "faits": 6,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "14:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "15:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "16:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "17:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "18:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "19:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "20:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "21:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "22:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "23:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "00:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "01:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "02:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "03:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "04:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "05:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "06:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "07:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "08:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "09:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "10:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "11:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "12:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "13:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "14:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "15:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "16:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "17:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "18:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "19:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "20:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "21:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "22:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "23:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "00:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "01:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "02:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "03:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "04:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "05:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "06:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "07:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "08:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "09:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "10:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "11:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "12:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "13:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "14:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "15:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "16:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "17:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "18:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "19:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "20:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "21:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "22:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "23:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "00:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "01:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "02:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "03:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "04:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "05:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "06:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "07:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "08:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "09:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "10:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "11:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "12:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "13:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "14:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "15:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "16:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "17:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "18:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "19:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "20:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "21:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "22:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "23:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "00:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "01:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "02:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "03:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "04:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "05:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "06:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "07:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "08:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "09:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "10:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "11:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "12:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "13:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "14:00",
+   "faits": 7,
+   "habitants": [
+    "henri-vial",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "15:00",
+   "faits": 8,
+   "habitants": [
+    "gerard-morel",
+    "henri-vial",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "16:00",
+   "faits": 8,
+   "habitants": [
+    "gerard-morel",
+    "henri-vial",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "17:00",
+   "faits": 8,
+   "habitants": [
+    "gerard-morel",
+    "henri-vial",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "18:00",
+   "faits": 8,
+   "habitants": [
+    "gerard-morel",
+    "henri-vial",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "19:00",
+   "faits": 8,
+   "habitants": [
+    "gerard-morel",
+    "henri-vial",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "20:00",
+   "faits": 8,
+   "habitants": [
+    "gerard-morel",
+    "henri-vial",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "21:00",
+   "faits": 8,
+   "habitants": [
+    "gerard-morel",
+    "henri-vial",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "22:00",
+   "faits": 8,
+   "habitants": [
+    "gerard-morel",
+    "henri-vial",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "23:00",
+   "faits": 8,
+   "habitants": [
+    "gerard-morel",
+    "henri-vial",
+    "josiane-chazal",
+    "monique-morel",
+    "robert-chazal",
+    "simone-vial",
+    "thomas-berthier"
+   ]
+  }
+ ],
+ "fin": {
+  "faits": 8,
+  "habitants": [
+   "gerard-morel",
+   "henri-vial",
+   "josiane-chazal",
+   "monique-morel",
+   "robert-chazal",
+   "simone-vial",
+   "thomas-berthier"
+  ]
+ },
+ "causes": {
+  "interventions": [
+   {
+    "id": "V1",
+    "date": "2010-03-08",
+    "heure": "12:00",
+    "pas": 144,
+    "fin": 150,
+    "type": "geste",
+    "habitant": null,
+    "texte": "crocheter la serrure de la porte de la cour (30 min)"
+   },
+   {
+    "id": "V2",
+    "date": "2010-03-08",
+    "heure": "12:30",
+    "pas": 150,
+    "fin": 174,
+    "type": "geste",
+    "habitant": null,
+    "texte": "découper la dalle de béton à la scie (120 min)"
+   },
+   {
+    "id": "V3",
+    "date": "2010-03-08",
+    "heure": "14:30",
+    "pas": 174,
+    "fin": 222,
+    "type": "geste",
+    "habitant": null,
+    "texte": "creuser sous la dalle (240 min)"
+   },
+   {
+    "id": "V4",
+    "date": "2010-03-08",
+    "heure": "18:30",
+    "pas": 222,
+    "fin": 228,
+    "type": "geste",
+    "habitant": null,
+    "texte": "brûler la branche fossilisée (30 min)"
+   },
+   {
+    "id": "V5",
+    "date": "2010-03-08",
+    "heure": "19:00",
+    "pas": 228,
+    "fin": 246,
+    "type": "geste",
+    "habitant": null,
+    "texte": "reboucher le trou (90 min)"
+   },
+   {
+    "id": "V6",
+    "date": "2010-03-08",
+    "heure": "20:30",
+    "pas": 246,
+    "fin": 258,
+    "type": "geste",
+    "habitant": null,
+    "texte": "couler une chape de béton (60 min)"
+   },
+   {
+    "id": "V7",
+    "date": "2010-03-09",
+    "heure": "03:30",
+    "pas": 42,
+    "fin": 48,
+    "type": "geste",
+    "habitant": null,
+    "texte": "remettre les palettes et les cartons sur la réparation (30 min)"
+   },
+   {
+    "id": "V8",
+    "date": "2010-03-09",
+    "heure": "04:00",
+    "pas": 48,
+    "fin": 60,
+    "type": "geste",
+    "habitant": null,
+    "texte": "nettoyer la poussière (60 min)"
+   },
+   {
+    "id": "V9",
+    "date": "2010-03-09",
+    "heure": "05:00",
+    "pas": 60,
+    "fin": 72,
+    "type": "geste",
+    "habitant": null,
+    "texte": "aérer la boutique (60 min)"
+   }
+  ],
+  "faits": [
+   {
+    "id": "F1",
+    "habitant": "henri-vial",
+    "genre": "anomalie",
+    "detail": "remarque : des coups sourds de pioche dans l'arrière-boutique",
+    "date": "2010-03-08",
+    "heure": "18:00",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "V3",
+    "supposee": false
+   },
+   {
+    "id": "F2",
+    "habitant": "simone-vial",
+    "genre": "anomalie",
+    "detail": "remarque : des coups sourds de pioche dans l'arrière-boutique",
+    "date": "2010-03-08",
+    "heure": "18:00",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "V3",
+    "supposee": false
+   },
+   {
+    "id": "F3",
+    "habitant": "simone-vial",
+    "genre": "appris",
+    "detail": "ne sait pas : somnole dans son fauteuil, la radio allumée",
+    "date": "2010-03-08",
+    "heure": "19:35",
+    "fin_date": "2010-03-08",
+    "fin_heure": "20:10",
+    "cause": "F1",
+    "supposee": false
+   },
+   {
+    "id": "F4",
+    "habitant": "robert-chazal",
+    "genre": "anomalie",
+    "detail": "entend parler de : des coups sourds de pioche dans l'arrière-boutique",
+    "date": "2010-03-10",
+    "heure": "08:05",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F2",
+    "supposee": false
+   },
+   {
+    "id": "F5",
+    "habitant": "robert-chazal",
+    "genre": "lieu",
+    "detail": "boutique → arriere-boutique",
+    "date": "2010-03-10",
+    "heure": "08:15",
+    "fin_date": "2010-03-10",
+    "fin_heure": "08:15",
+    "cause": "F4",
+    "supposee": false
+   },
+   {
+    "id": "F6",
+    "habitant": "robert-chazal",
+    "genre": "activité",
+    "detail": "Sert les clients → Va voir d'où vient le bruit",
+    "date": "2010-03-10",
+    "heure": "08:15",
+    "fin_date": "2010-03-10",
+    "fin_heure": "08:15",
+    "cause": "F4",
+    "supposee": false
+   },
+   {
+    "id": "F7",
+    "habitant": "josiane-chazal",
+    "genre": "anomalie",
+    "detail": "entend parler de : des coups sourds de pioche dans l'arrière-boutique",
+    "date": "2010-03-10",
+    "heure": "12:35",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F4",
+    "supposee": false
+   },
+   {
+    "id": "F8",
+    "habitant": "josiane-chazal",
+    "genre": "appris",
+    "detail": "ne sait pas : sert les clients",
+    "date": "2010-03-10",
+    "heure": "12:35",
+    "fin_date": "2010-03-10",
+    "fin_heure": "13:05",
+    "cause": "F6",
+    "supposee": false
+   },
+   {
+    "id": "F9",
+    "habitant": "josiane-chazal",
+    "genre": "appris",
+    "detail": "ne sait pas : pain, mise en rayon, lève le rideau",
+    "date": "2010-03-10",
+    "heure": "13:10",
+    "fin_date": "2010-03-10",
+    "fin_heure": "20:45",
+    "cause": "F6",
+    "supposee": false
+   },
+   {
+    "id": "F10",
+    "habitant": "thomas-berthier",
+    "genre": "anomalie",
+    "detail": "entend parler de : des coups sourds de pioche dans l'arrière-boutique",
+    "date": "2010-03-13",
+    "heure": "11:50",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F4",
+    "supposee": false
+   },
+   {
+    "id": "F11",
+    "habitant": "monique-morel",
+    "genre": "anomalie",
+    "detail": "entend parler de : des coups sourds de pioche dans l'arrière-boutique",
+    "date": "2010-03-14",
+    "heure": "14:35",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F7",
+    "supposee": false
+   },
+   {
+    "id": "F12",
+    "habitant": "monique-morel",
+    "genre": "appris",
+    "detail": "ne sait pas : prépare le déjeuner du dimanche",
+    "date": "2010-03-14",
+    "heure": "14:35",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F9",
+    "supposee": false
+   },
+   {
+    "id": "F13",
+    "habitant": "gerard-morel",
+    "genre": "anomalie",
+    "detail": "entend parler de : des coups sourds de pioche dans l'arrière-boutique",
+    "date": "2010-03-14",
+    "heure": "15:50",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F11",
+    "supposee": false
+   }
+  ]
+ },
+ "arbre": [
+  "- **Le voyageur**, lundi 8 12:00 — crocheter la serrure de la porte de la cour (30 min)",
+  "- **Le voyageur**, lundi 8 12:30 — découper la dalle de béton à la scie (120 min)",
+  "- **Le voyageur**, lundi 8 14:30 — creuser sous la dalle (240 min)",
+  "  - **Henri**, lundi 8 18:00, jusqu'au dimanche 14 23:55 — anomalie : remarque : des coups sourds de pioche dans l'arrière-boutique",
+  "    - **Simone**, lundi 8 19:35, jusqu'à 20:10 — appris : ne sait pas : somnole dans son fauteuil, la radio allumée",
+  "  - **Simone**, lundi 8 18:00, jusqu'au dimanche 14 23:55 — anomalie : remarque : des coups sourds de pioche dans l'arrière-boutique",
+  "    - **Robert**, mercredi 10 08:05, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : des coups sourds de pioche dans l'arrière-boutique",
+  "      - **Robert**, mercredi 10 08:15 — lieu : boutique → arriere-boutique",
+  "      - **Robert**, mercredi 10 08:15 — activité : Sert les clients → Va voir d'où vient le bruit",
+  "        - **Josiane**, mercredi 10 12:35, jusqu'à 13:05 — appris : ne sait pas : sert les clients",
+  "        - **Josiane**, mercredi 10 13:10, jusqu'à 20:45 — appris : ne sait pas : pain, mise en rayon, lève le rideau",
+  "          - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — appris : ne sait pas : prépare le déjeuner du dimanche",
+  "      - **Josiane**, mercredi 10 12:35, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : des coups sourds de pioche dans l'arrière-boutique",
+  "        - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — anomalie : entend parler de : des coups sourds de pioche dans l'arrière-boutique",
+  "          - **Gérard**, dimanche 14 15:50, jusqu'à 23:55 — anomalie : entend parler de : des coups sourds de pioche dans l'arrière-boutique",
+  "      - **Thomas**, samedi 13 11:50, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : des coups sourds de pioche dans l'arrière-boutique",
+  "- **Le voyageur**, lundi 8 18:30 — brûler la branche fossilisée (30 min)",
+  "- **Le voyageur**, lundi 8 19:00 — reboucher le trou (90 min)",
+  "- **Le voyageur**, lundi 8 20:30 — couler une chape de béton (60 min)",
+  "- **Le voyageur**, mardi 9 03:30 — remettre les palettes et les cartons sur la réparation (30 min)",
+  "- **Le voyageur**, mardi 9 04:00 — nettoyer la poussière (60 min)",
+  "- **Le voyageur**, mardi 9 05:00 — aérer la boutique (60 min)"
+ ],
+ "details_fin": {
+  "gerard-morel": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "henri-vial": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "josiane-chazal": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "monique-morel": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "robert-chazal": {
+   "besoins": 0.01,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 1
+  },
+  "simone-vial": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "thomas-berthier": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  }
+ },
+ "mission": {
+  "id": "branche-fossile",
+  "titre": "La branche fossilisée",
+  "resultat": "échouée",
+  "reussie": false,
+  "raison": "L'objectif est atteint, mais au prix d'un paradoxe : paradoxe : 7 habitants touchés, jusqu'à 8 faits différents dans une heure.",
+  "avancement": {
+   "acces": "ouvert",
+   "dalle": "refaite",
+   "trou": "rebouche",
+   "profondeur_m": 2.0,
+   "branche": "brulee"
+  },
+  "echecs": [],
+  "avenir": {
+   "id": "paradoxe",
+   "titre": "Un avenir qui ne tient plus",
+   "frise": [
+    {
+     "quand": "mars 2010",
+     "texte": "La branche est brûlée, mais la semaine du quartier a pris un autre cours : trop de vies ont changé."
+    },
+    {
+     "quand": "2012",
+     "texte": "La démolition, l'immeuble, ceux qui y vivront : plus rien de ce que John savait n'est sûr."
+    },
+    {
+     "quand": "2035",
+     "texte": "L'avenir dont John est parti n'existe plus. Rien ne dit qu'il soit sauvé, ni que John y soit jamais né pour venir brûler la branche."
+    }
+   ],
+   "nuance": null
+  }
+ },
+ "voyageur": [
+  {
+   "date": "2010-03-08",
+   "heure": "12:00",
+   "action": "crocheter la serrure de la porte de la cour (30 min)"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "12:30",
+   "action": "découper la dalle de béton à la scie (120 min)"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "14:30",
+   "action": "creuser sous la dalle (240 min)"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "18:00",
+   "action": "Henri remarque : des coups sourds de pioche dans l'arrière-boutique"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "18:00",
+   "action": "Simone remarque : des coups sourds de pioche dans l'arrière-boutique"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "18:25",
+   "action": "trouve la branche fossilisée, à 2.0 m"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "18:30",
+   "action": "brûler la branche fossilisée (30 min)"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "19:00",
+   "action": "reboucher le trou (90 min)"
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "20:30",
+   "action": "couler une chape de béton (60 min)"
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "03:30",
+   "action": "remettre les palettes et les cartons sur la réparation (30 min)"
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "04:00",
+   "action": "nettoyer la poussière (60 min)"
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "05:00",
+   "action": "aérer la boutique (60 min)"
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "08:10",
+   "action": "Robert a appris de Simone : des coups sourds de pioche dans l'arrière-boutique"
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "08:10",
+   "action": "Robert réagit : aller voir"
+  }
+ ]
+}

@@ -66,7 +66,7 @@
     "especes": 60,
     "compte": 3579.85,
     "caisse": 150.0,
-    "coffre": 840.0,
+    "coffre": 840.4,
     "ardoises": 52.1
    }
   },
@@ -283,7 +283,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 15.6,
-     "stock": 15
+     "stock": 14
     },
     "oranges": {
      "nom": "oranges",
@@ -504,7 +504,7 @@
    "especes": 60,
    "compte": 3542.2,
    "caisse": 150.0,
-   "coffre": 569.8,
+   "coffre": 570.2,
    "ardoises": 52.1
   },
   "boutique": {
@@ -530,7 +530,7 @@
    "vin_rouge": 12,
    "eau": 38,
    "jus_orange": 13,
-   "pommes": 54,
+   "pommes": 53,
    "oranges": 35,
    "bananes": 55,
    "tomates": 15,
@@ -695,7 +695,7 @@
    "especes": 60,
    "compte": 3579.85,
    "caisse": 150.0,
-   "coffre": 840.0,
+   "coffre": 840.4,
    "ardoises": 52.1
   },
   "boutique": {
@@ -721,7 +721,7 @@
    "vin_rouge": 11,
    "eau": 17,
    "jus_orange": 10,
-   "pommes": 15,
+   "pommes": 14,
    "oranges": 17,
    "bananes": 38,
    "tomates": 12,
@@ -3945,7 +3945,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 168.1,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -4021,7 +4021,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 171.0,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -4096,7 +4096,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 175.45,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -4179,7 +4179,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 179.9,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -4270,7 +4270,7 @@
      "quantite": 5,
      "prix": 2.0,
      "paiement": "especes",
-     "reste": 49
+     "reste": 48
     },
     {
      "produit": "jus_orange",
@@ -4298,7 +4298,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 185.5,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -4425,7 +4425,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 192.0,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -4508,7 +4508,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 194.8,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -4591,7 +4591,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 199.9,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -4740,7 +4740,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 45
+     "reste": 44
     }
    ],
    "clients": 4,
@@ -4752,7 +4752,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 212.6,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -4820,7 +4820,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 213.5,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -4858,19 +4858,27 @@
    "posture": "debout",
    "routine": "rt-commerce",
    "activite": "Sert les clients ; café à 09:30",
-   "action": "Tient la boutique et sert les clients. Avec Simone. Sert Simone : 3 × pommes, pâtes, jambon blanc, comté, baguette, carottes, oignons (11,90 €, en espèces).",
+   "action": "Tient la boutique et sert les clients. Avec Simone. Sert Simone : baguette, 3 × pommes, pâtes, jambon blanc, comté, carottes, oignons (11,90 €, en espèces).",
    "pensee": null,
    "ensemble": [
     "Simone"
    ],
    "ventes": [
     {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 50
+    },
+    {
      "produit": "pommes",
      "nom": "pommes",
      "quantite": 3,
      "prix": 1.2,
      "paiement": "especes",
-     "reste": 42
+     "reste": 41
     },
     {
      "produit": "pates",
@@ -4895,14 +4903,6 @@
      "prix": 4.5,
      "paiement": "especes",
      "reste": 10
-    },
-    {
-     "produit": "baguette",
-     "nom": "baguette",
-     "quantite": 1,
-     "prix": 0.9,
-     "paiement": "especes",
-     "reste": 50
     },
     {
      "produit": "carottes",
@@ -4930,7 +4930,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 225.4,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -5006,7 +5006,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 226.9,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -5081,7 +5081,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 230.35,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -5190,7 +5190,7 @@
      "especes": 60,
      "compte": 3547.6,
      "caisse": 232.8,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -5306,7 +5306,7 @@
      "especes": 60,
      "compte": 3547.6,
      "caisse": 243.1,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -5374,7 +5374,7 @@
      "especes": 60,
      "compte": 3547.6,
      "caisse": 244.0,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -5465,7 +5465,7 @@
      "especes": 60,
      "compte": 3547.6,
      "caisse": 251.3,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -5566,7 +5566,7 @@
      "especes": 60,
      "compte": 3555.9,
      "caisse": 252.5,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -5633,7 +5633,7 @@
      "especes": 60,
      "compte": 3555.9,
      "caisse": 254.35,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -5700,7 +5700,7 @@
      "especes": 60,
      "compte": 3555.9,
      "caisse": 256.15,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -5799,7 +5799,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 38
+     "reste": 37
     },
     {
      "produit": "pain_campagne",
@@ -5835,7 +5835,7 @@
      "especes": 60,
      "compte": 3555.9,
      "caisse": 264.75,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -5902,7 +5902,7 @@
      "especes": 60,
      "compte": 3555.9,
      "caisse": 269.55,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -6037,7 +6037,7 @@
      "quantite": 6,
      "prix": 2.4,
      "paiement": "especes",
-     "reste": 32
+     "reste": 31
     },
     {
      "produit": "baguette",
@@ -6057,7 +6057,7 @@
      "especes": 60,
      "compte": 3555.9,
      "caisse": 274.65,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -6241,7 +6241,7 @@
      "especes": 60,
      "compte": 3555.9,
      "caisse": 276.5,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -6300,7 +6300,7 @@
      "especes": 60,
      "compte": 3555.9,
      "caisse": 277.4,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -6399,7 +6399,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "carte",
-     "reste": 28
+     "reste": 27
     }
    ],
    "clients": 1,
@@ -6411,7 +6411,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 277.4,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -6503,7 +6503,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 281.1,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -6579,7 +6579,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 283.95,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -6646,7 +6646,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 286.15,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -6713,7 +6713,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 288.05,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -6781,7 +6781,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 289.65,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -6920,7 +6920,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 293.15,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -7019,7 +7019,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 302.65,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -7094,7 +7094,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 303.6,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -7153,7 +7153,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 305.4,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -7228,7 +7228,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 308.75,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -7327,7 +7327,7 @@
      "quantite": 5,
      "prix": 2.0,
      "paiement": "especes",
-     "reste": 23
+     "reste": 22
     },
     {
      "produit": "baguette",
@@ -7347,7 +7347,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 315.85,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -7566,7 +7566,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 317.65,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -7808,7 +7808,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 318.55,
-     "coffre": 569.8,
+     "coffre": 570.2,
      "ardoises": 52.1
     }
    },
@@ -7875,7 +7875,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 150.0,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -8904,7 +8904,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 152.6,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -9032,7 +9032,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 157.25,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -9103,7 +9103,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "carte",
-     "reste": 19
+     "reste": 18
     }
    ],
    "clients": 1,
@@ -9115,7 +9115,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 157.25,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -9182,7 +9182,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 160.75,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -9437,7 +9437,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 162.75,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -9537,7 +9537,7 @@
      "quantite": 2,
      "prix": 0.8,
      "paiement": "especes",
-     "reste": 17
+     "reste": 16
     },
     {
      "produit": "eau",
@@ -9581,7 +9581,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 168.55,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -9673,7 +9673,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 171.65,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -9861,7 +9861,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 175.15,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -9953,7 +9953,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 180.35,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -10050,7 +10050,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 181.85,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -10192,7 +10192,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 184.95,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -10292,7 +10292,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 192.6,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -10368,7 +10368,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 195.2,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -10547,7 +10547,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 198.9,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -10615,7 +10615,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 203.1,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -10783,7 +10783,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 204.05,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -10914,7 +10914,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 210.95,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -10981,7 +10981,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 219.55,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -11256,7 +11256,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 226.0,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -11375,7 +11375,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 232.3,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -11637,7 +11637,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 233.8,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -11696,7 +11696,7 @@
      "quantite": 2,
      "prix": 0.8,
      "paiement": "especes",
-     "reste": 15
+     "reste": 14
     }
    ],
    "clients": 1,
@@ -11708,7 +11708,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 234.6,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -11800,7 +11800,7 @@
      "especes": 60,
      "compte": 3572.95,
      "caisse": 236.2,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -11955,7 +11955,7 @@
      "especes": 60,
      "compte": 3572.95,
      "caisse": 246.5,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -12038,7 +12038,7 @@
      "especes": 60,
      "compte": 3572.95,
      "caisse": 251.65,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -12114,7 +12114,7 @@
      "especes": 60,
      "compte": 3579.85,
      "caisse": 251.65,
-     "coffre": 738.35,
+     "coffre": 738.75,
      "ardoises": 52.1
     }
    },
@@ -12214,7 +12214,7 @@
      "especes": 60,
      "compte": 3579.85,
      "caisse": 150.0,
-     "coffre": 840.0,
+     "coffre": 840.4,
      "ardoises": 52.1
     }
    },

@@ -94,6 +94,7 @@ class Habitant:
         self.collations_du_jour = 0
         self.repas_faits = {}      # (repas, part) déjà servis aujourd'hui -> ce qui en manque encore
         self.foyer = None          # (repas communs, leurs parts servies) : dans un foyer (logements.py)
+        self.reserve = {}          # ce que les pas décidés prennent déjà au stock (dans un foyer : ceux de tous ses membres)
         self.APPRO = fiche.get("approvisionnement") or {}
         self.COMMERCE = self.commerce(self.APPRO["commerce"]) if self.APPRO else {}
         self.listes = {}         # début d'une étape de courses -> liste établie en partant (None : il n'y va pas)
@@ -254,7 +255,8 @@ class Habitant:
 
     def disponibles(self, conso, prod=()):
         """Ce qui peut être consommé avec le stock (et ce qui vient d'être préparé), et ce qui manque."""
-        P, dispo = self.sim.PRODUITS, dict(self.sim.stock)
+        P = self.sim.PRODUITS
+        dispo = {k: v - self.reserve.get(k, 0) for k, v in self.sim.stock.items()}
         for pid, q in prod:
             dispo[pid] = dispo.get(pid, 0) + q
         ok, manque, reste = [], [], []
@@ -309,6 +311,9 @@ class Habitant:
             st["production"] = prod
         if conso:
             st["consommation"] = conso
+            for x in conso:   # réservé jusqu'au calcul du pas : un autre membre du foyer ne le prendra pas aussi
+                if self.sim.PRODUITS.get(x["produit"], {}).get("suivi", True):
+                    self.reserve[x["produit"]] = self.reserve.get(x["produit"], 0) + x["quantite"]
 
     # ------------------------------------------------------------ approvisionnement
     def approvisionne(self, e):
@@ -533,6 +538,7 @@ class Habitant:
     def executer(self):
         st, s, titre, routine, suite = self.attente
         self.attente = None
+        self.reserve.clear()
         entree = self.sim.pas(st, s)
         self.journal.append(self.action_courante)
         segs = self.j.segments

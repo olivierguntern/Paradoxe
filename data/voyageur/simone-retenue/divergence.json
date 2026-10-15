@@ -1,0 +1,1768 @@
+{
+ "habitants": [
+  "gerard-morel",
+  "henri-vial",
+  "josiane-chazal",
+  "monique-morel",
+  "robert-chazal",
+  "simone-vial",
+  "thomas-berthier"
+ ],
+ "cibles": [
+  "simone-vial"
+ ],
+ "verdict": "paradoxe : 3 habitants touchés, jusqu'à 7 faits différents dans une heure",
+ "touches": [
+  "henri-vial",
+  "robert-chazal",
+  "simone-vial"
+ ],
+ "cascade": [
+  "henri-vial",
+  "robert-chazal"
+ ],
+ "premier_fait": {
+  "simone-vial": {
+   "date": "2010-03-09",
+   "heure": "07:50",
+   "genre": "lieu",
+   "detail": "cuisine → chambre"
+  },
+  "robert-chazal": {
+   "date": "2010-03-09",
+   "heure": "08:05",
+   "genre": "rencontre",
+   "detail": "sans Simone"
+  },
+  "henri-vial": {
+   "date": "2010-03-09",
+   "heure": "20:35",
+   "genre": "rencontre",
+   "detail": "avec Simone"
+  }
+ },
+ "par_habitant": {
+  "gerard-morel": {
+   "pas_divergents": 0,
+   "faits": 0
+  },
+  "henri-vial": {
+   "pas_divergents": 3,
+   "faits": 1
+  },
+  "josiane-chazal": {
+   "pas_divergents": 0,
+   "faits": 0
+  },
+  "monique-morel": {
+   "pas_divergents": 0,
+   "faits": 0
+  },
+  "robert-chazal": {
+   "pas_divergents": 1,
+   "faits": 1
+  },
+  "simone-vial": {
+   "pas_divergents": 1248,
+   "faits": 17
+  },
+  "thomas-berthier": {
+   "pas_divergents": 0,
+   "faits": 0
+  }
+ },
+ "exemples": {
+  "simone-vial": {
+   "lieu": [
+    "2010-03-09",
+    "07:50",
+    "cuisine → chambre"
+   ],
+   "activité": [
+    "2010-03-09",
+    "07:50",
+    "Descend chercher le pain chez Robert → Nuit de lundi à mardi"
+   ],
+   "rencontre": [
+    "2010-03-09",
+    "08:05",
+    "sans Robert"
+   ],
+   "achat": [
+    "2010-03-09",
+    "08:05",
+    "[('beurre', 250), ('jambon', 8), ('oeufs', 6), ('pain', 4), ('pommes', 5), ('salade', 2), ('yaourts', 4)] → []"
+   ],
+   "objet": [
+    "2010-03-10",
+    "16:55",
+    "obj-livre-simone : chambre / table de chevet de Simone → dans sa main"
+   ],
+   "appris": [
+    "2010-03-10",
+    "16:55",
+    "apprend : répare le robinet de la cuisine, qui goutte depuis Noël"
+   ]
+  },
+  "robert-chazal": {
+   "rencontre": [
+    "2010-03-09",
+    "08:05",
+    "sans Simone"
+   ]
+  },
+  "henri-vial": {
+   "rencontre": [
+    "2010-03-09",
+    "20:35",
+    "avec Simone"
+   ]
+  }
+ },
+ "heures": [
+  {
+   "date": "2010-03-08",
+   "heure": "00:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "01:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "02:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "03:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "04:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "05:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "06:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "07:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "08:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "09:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "10:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "11:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "12:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "13:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "14:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "15:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "16:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "17:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "18:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "19:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "20:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "21:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "22:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-08",
+   "heure": "23:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "00:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "01:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "02:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "03:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "04:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "05:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "06:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "07:00",
+   "faits": 3,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "08:00",
+   "faits": 7,
+   "habitants": [
+    "robert-chazal",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "09:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "10:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "11:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "12:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "13:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "14:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "15:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "16:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "17:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "18:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "19:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "20:00",
+   "faits": 3,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "21:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "22:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-09",
+   "heure": "23:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "00:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "01:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "02:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "03:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "04:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "05:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "06:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "07:00",
+   "faits": 4,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "08:00",
+   "faits": 2,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "09:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "10:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "11:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "12:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "13:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "14:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "15:00",
+   "faits": 0,
+   "habitants": []
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "16:00",
+   "faits": 5,
+   "habitants": [
+    "henri-vial",
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "17:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "18:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "19:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "20:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "21:00",
+   "faits": 2,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "22:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-10",
+   "heure": "23:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "00:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "01:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "02:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "03:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "04:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "05:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "06:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "07:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "08:00",
+   "faits": 2,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "09:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "10:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "11:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "12:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "13:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "14:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "15:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "16:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "17:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "18:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "19:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "20:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "21:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "22:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-11",
+   "heure": "23:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "00:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "01:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "02:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "03:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "04:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "05:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "06:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "07:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "08:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "09:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "10:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "11:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "12:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "13:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "14:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "15:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "16:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "17:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "18:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "19:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "20:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "21:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "22:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-12",
+   "heure": "23:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "00:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "01:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "02:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "03:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "04:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "05:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "06:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "07:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "08:00",
+   "faits": 2,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "09:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "10:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "11:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "12:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "13:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "14:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "15:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "16:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "17:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "18:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "19:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "20:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "21:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "22:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-13",
+   "heure": "23:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "00:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "01:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "02:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "03:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "04:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "05:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "06:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "07:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "08:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "09:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "10:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "11:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "12:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "13:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "14:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "15:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "16:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "17:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "18:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "19:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "20:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "21:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "22:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  },
+  {
+   "date": "2010-03-14",
+   "heure": "23:00",
+   "faits": 1,
+   "habitants": [
+    "simone-vial"
+   ]
+  }
+ ],
+ "fin": {
+  "faits": 1,
+  "habitants": [
+   "simone-vial"
+  ]
+ },
+ "causes": {
+  "interventions": [
+   {
+    "id": "V1",
+    "date": "2010-03-09",
+    "heure": "07:50",
+    "pas": 94,
+    "fin": 98,
+    "type": "retenir",
+    "habitant": "simone-vial",
+    "texte": "retient Simone 20 minutes"
+   }
+  ],
+  "faits": [
+   {
+    "id": "F1",
+    "habitant": "simone-vial",
+    "genre": "lieu",
+    "detail": "cuisine → chambre",
+    "date": "2010-03-09",
+    "heure": "07:50",
+    "fin_date": "2010-03-09",
+    "fin_heure": "07:50",
+    "cause": "V1",
+    "supposee": false
+   },
+   {
+    "id": "F2",
+    "habitant": "simone-vial",
+    "genre": "activité",
+    "detail": "Descend chercher le pain chez Robert → Nuit de lundi à mardi",
+    "date": "2010-03-09",
+    "heure": "07:50",
+    "fin_date": "2010-03-09",
+    "fin_heure": "08:15",
+    "cause": "V1",
+    "supposee": false
+   },
+   {
+    "id": "F3",
+    "habitant": "simone-vial",
+    "genre": "lieu",
+    "detail": "trajet → chambre",
+    "date": "2010-03-09",
+    "heure": "07:55",
+    "fin_date": "2010-03-09",
+    "fin_heure": "08:00",
+    "cause": "V1",
+    "supposee": false
+   },
+   {
+    "id": "F4",
+    "habitant": "simone-vial",
+    "genre": "lieu",
+    "detail": "boutique → chambre",
+    "date": "2010-03-09",
+    "heure": "08:05",
+    "fin_date": "2010-03-09",
+    "fin_heure": "08:05",
+    "cause": "V1",
+    "supposee": false
+   },
+   {
+    "id": "F5",
+    "habitant": "simone-vial",
+    "genre": "achat",
+    "detail": "[('beurre', 250), ('jambon', 8), ('oeufs', 6), ('pain', 4), ('pommes', 5), ('salade', 2), ('yaourts', 4)] → []",
+    "date": "2010-03-09",
+    "heure": "08:05",
+    "fin_date": "2010-03-09",
+    "fin_heure": "08:05",
+    "cause": "F4",
+    "supposee": false
+   },
+   {
+    "id": "F6",
+    "habitant": "robert-chazal",
+    "genre": "rencontre",
+    "detail": "sans Simone",
+    "date": "2010-03-09",
+    "heure": "08:05",
+    "fin_date": "2010-03-09",
+    "fin_heure": "08:05",
+    "cause": "F4",
+    "supposee": false
+   },
+   {
+    "id": "F7",
+    "habitant": "simone-vial",
+    "genre": "rencontre",
+    "detail": "sans Robert",
+    "date": "2010-03-09",
+    "heure": "08:05",
+    "fin_date": "2010-03-09",
+    "fin_heure": "08:05",
+    "cause": "F4",
+    "supposee": false
+   },
+   {
+    "id": "F8",
+    "habitant": "simone-vial",
+    "genre": "lieu",
+    "detail": "trajet → chambre",
+    "date": "2010-03-09",
+    "heure": "08:10",
+    "fin_date": "2010-03-09",
+    "fin_heure": "08:10",
+    "cause": "F4",
+    "supposee": false,
+    "via": "par ses besoins décalés"
+   },
+   {
+    "id": "F9",
+    "habitant": "simone-vial",
+    "genre": "lieu",
+    "detail": "cuisine → chambre",
+    "date": "2010-03-09",
+    "heure": "08:15",
+    "fin_date": "2010-03-09",
+    "fin_heure": "08:15",
+    "cause": "F4",
+    "supposee": false,
+    "via": "par ses besoins décalés"
+   },
+   {
+    "id": "F10",
+    "habitant": "simone-vial",
+    "genre": "lieu",
+    "detail": "cuisine → sejour",
+    "date": "2010-03-09",
+    "heure": "20:35",
+    "fin_date": "2010-03-09",
+    "fin_heure": "20:35",
+    "cause": "F4",
+    "supposee": false,
+    "via": "par ses besoins décalés"
+   },
+   {
+    "id": "F11",
+    "habitant": "henri-vial",
+    "genre": "rencontre",
+    "detail": "avec Simone",
+    "date": "2010-03-09",
+    "heure": "20:35",
+    "fin_date": "2010-03-09",
+    "fin_heure": "20:35",
+    "cause": "F10",
+    "supposee": false
+   },
+   {
+    "id": "F12",
+    "habitant": "simone-vial",
+    "genre": "rencontre",
+    "detail": "avec Henri",
+    "date": "2010-03-09",
+    "heure": "20:35",
+    "fin_date": "2010-03-09",
+    "fin_heure": "20:35",
+    "cause": "F10",
+    "supposee": false
+   },
+   {
+    "id": "F13",
+    "habitant": "simone-vial",
+    "genre": "lieu",
+    "detail": "salle-de-bain → cuisine",
+    "date": "2010-03-10",
+    "heure": "07:10",
+    "fin_date": "2010-03-10",
+    "fin_heure": "07:15",
+    "cause": "F4",
+    "supposee": false,
+    "via": "par ses besoins décalés"
+   },
+   {
+    "id": "F14",
+    "habitant": "simone-vial",
+    "genre": "activité",
+    "detail": "Se lève, toilette, s'habille → Besoin pressant",
+    "date": "2010-03-10",
+    "heure": "07:15",
+    "fin_date": "2010-03-10",
+    "fin_heure": "07:15",
+    "cause": "F4",
+    "supposee": false,
+    "via": "par ses besoins décalés"
+   },
+   {
+    "id": "F15",
+    "habitant": "henri-vial",
+    "genre": "rencontre",
+    "detail": "avec Simone",
+    "date": "2010-03-10",
+    "heure": "07:15",
+    "fin_date": "2010-03-10",
+    "fin_heure": "07:15",
+    "cause": "F13",
+    "supposee": false
+   },
+   {
+    "id": "F16",
+    "habitant": "simone-vial",
+    "genre": "rencontre",
+    "detail": "avec Henri",
+    "date": "2010-03-10",
+    "heure": "07:15",
+    "fin_date": "2010-03-10",
+    "fin_heure": "07:15",
+    "cause": "F13",
+    "supposee": false
+   },
+   {
+    "id": "F17",
+    "habitant": "simone-vial",
+    "genre": "achat",
+    "detail": "[('pain', 4), ('pommes', 4)] → [('beurre', 250), ('pain', 8), ('pommes', 7), ('yaourts', 4)]",
+    "date": "2010-03-10",
+    "heure": "08:05",
+    "fin_date": "2010-03-10",
+    "fin_heure": "08:05",
+    "cause": "F16",
+    "supposee": false
+   },
+   {
+    "id": "F18",
+    "habitant": "simone-vial",
+    "genre": "lieu",
+    "detail": "entree → cuisine",
+    "date": "2010-03-10",
+    "heure": "08:20",
+    "fin_date": "2010-03-10",
+    "fin_heure": "08:20",
+    "cause": "F4",
+    "supposee": false,
+    "via": "par ses besoins décalés"
+   },
+   {
+    "id": "F19",
+    "habitant": "simone-vial",
+    "genre": "lieu",
+    "detail": "cuisine → sejour",
+    "date": "2010-03-10",
+    "heure": "16:55",
+    "fin_date": "2010-03-10",
+    "fin_heure": "16:55",
+    "cause": "F4",
+    "supposee": false,
+    "via": "par ses besoins décalés"
+   },
+   {
+    "id": "F20",
+    "habitant": "simone-vial",
+    "genre": "objet",
+    "detail": "obj-livre-simone : chambre / table de chevet de Simone → dans sa main",
+    "date": "2010-03-10",
+    "heure": "16:55",
+    "fin_date": "2010-03-10",
+    "fin_heure": "16:55",
+    "cause": "F19",
+    "supposee": false
+   },
+   {
+    "id": "F21",
+    "habitant": "henri-vial",
+    "genre": "rencontre",
+    "detail": "avec Simone",
+    "date": "2010-03-10",
+    "heure": "16:55",
+    "fin_date": "2010-03-10",
+    "fin_heure": "16:55",
+    "cause": "F19",
+    "supposee": false
+   },
+   {
+    "id": "F22",
+    "habitant": "simone-vial",
+    "genre": "rencontre",
+    "detail": "avec Henri",
+    "date": "2010-03-10",
+    "heure": "16:55",
+    "fin_date": "2010-03-10",
+    "fin_heure": "16:55",
+    "cause": "F19",
+    "supposee": false
+   },
+   {
+    "id": "F23",
+    "habitant": "simone-vial",
+    "genre": "appris",
+    "detail": "apprend : répare le robinet de la cuisine, qui goutte depuis Noël",
+    "date": "2010-03-10",
+    "heure": "16:55",
+    "fin_date": "2010-03-10",
+    "fin_heure": "21:00",
+    "cause": "F22",
+    "supposee": false
+   },
+   {
+    "id": "F24",
+    "habitant": "simone-vial",
+    "genre": "appris",
+    "detail": "apprend : les mots croisés, puis les avant-matchs à la radio",
+    "date": "2010-03-10",
+    "heure": "21:05",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F22",
+    "supposee": false
+   },
+   {
+    "id": "F25",
+    "habitant": "simone-vial",
+    "genre": "achat",
+    "detail": "[('carottes', 1000), ('comte', 250), ('jambon', 4), ('oignons', 1), ('pain', 4), ('pates', 500), ('pommes', 3)] → [('carottes', 1000), ('comte', 250), ('jambon', 8), ('oignons', 1), ('pain', 4), ('pates', 500), ('pommes', 3)]",
+    "date": "2010-03-11",
+    "heure": "08:05",
+    "fin_date": "2010-03-11",
+    "fin_heure": "08:05",
+    "cause": "F24",
+    "supposee": false
+   },
+   {
+    "id": "F26",
+    "habitant": "simone-vial",
+    "genre": "achat",
+    "detail": "[('farine', 1000), ('lait', 1000), ('pain', 4), ('pommes', 3), ('pommes_de_terre', 2500), ('yaourts', 4)] → [('farine', 1000), ('lait', 1000), ('oeufs', 6), ('pommes', 3), ('pommes_de_terre', 2500), ('yaourts', 4)]",
+    "date": "2010-03-13",
+    "heure": "08:25",
+    "fin_date": "2010-03-13",
+    "fin_heure": "08:25",
+    "cause": "F25",
+    "supposee": false
+   }
+  ]
+ },
+ "arbre": [
+  "- **Le voyageur**, mardi 9 07:50 — retient Simone 20 minutes",
+  "  - **Simone**, mardi 9 07:50 — lieu : cuisine → chambre",
+  "  - **Simone**, mardi 9 07:50, jusqu'à 08:15 — activité : Descend chercher le pain chez Robert → Nuit de lundi à mardi",
+  "  - **Simone**, mardi 9 07:55, jusqu'à 08:00 — lieu : trajet → chambre",
+  "  - **Simone**, mardi 9 08:05 — lieu : boutique → chambre",
+  "    - **Simone**, mardi 9 08:05 — achat : [('beurre', 250), ('jambon', 8), ('oeufs', 6), ('pain', 4), ('pommes', 5), ('salade', 2), ('yaourts', 4)] → []",
+  "    - **Robert**, mardi 9 08:05 — rencontre : sans Simone",
+  "    - **Simone**, mardi 9 08:05 — rencontre : sans Robert",
+  "    - **Simone**, mardi 9 08:10 — lieu : trajet → chambre (par ses besoins décalés)",
+  "    - **Simone**, mardi 9 08:15 — lieu : cuisine → chambre (par ses besoins décalés)",
+  "    - **Simone**, mardi 9 20:35 — lieu : cuisine → sejour (par ses besoins décalés)",
+  "      - **Henri**, mardi 9 20:35 — rencontre : avec Simone",
+  "      - **Simone**, mardi 9 20:35 — rencontre : avec Henri",
+  "    - **Simone**, mercredi 10 07:10, jusqu'à 07:15 — lieu : salle-de-bain → cuisine (par ses besoins décalés)",
+  "      - **Henri**, mercredi 10 07:15 — rencontre : avec Simone",
+  "      - **Simone**, mercredi 10 07:15 — rencontre : avec Henri",
+  "        - **Simone**, mercredi 10 08:05 — achat : [('pain', 4), ('pommes', 4)] → [('beurre', 250), ('pain', 8), ('pommes', 7), ('yaourts', 4)]",
+  "    - **Simone**, mercredi 10 07:15 — activité : Se lève, toilette, s'habille → Besoin pressant (par ses besoins décalés)",
+  "    - … et 2 autres faits"
+ ],
+ "details_fin": {
+  "gerard-morel": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "henri-vial": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 4,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "josiane-chazal": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "monique-morel": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "robert-chazal": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 1,
+   "comptes": 2
+  },
+  "simone-vial": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 4,
+   "produits_magasin": 0,
+   "comptes": 2
+  },
+  "thomas-berthier": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  }
+ },
+ "voyageur": []
+}

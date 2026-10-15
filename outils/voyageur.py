@@ -8,7 +8,13 @@ date et une heure :
   devait faire pendant ce temps n'est pas fait (des courses qui auraient dû
   commencer sont abandonnées) ;
 - acheter : il achète dans le commerce d'un habitant, sur le stock du magasin ;
-- parler : il dit quelque chose à un habitant éveillé, qui le retient ;
+- parler : il dit quelque chose à un habitant éveillé, qui le retient ; s'il
+  annonce ce qui va se passer (« explique » : des gestes ou des traces), ce
+  que l'habitant en verra, entendra ou trouvera ne lui paraîtra plus étrange :
+  il ne le remarque plus comme une intrusion et n'en parle pas. Une annonce
+  qui concerne le lieu d'un autre habitant (« lieu ») se raconte, elle :
+  celui-ci, quand il l'apprend, y réagit comme à un bruit chez lui (il n'a
+  rien demandé, lui) ;
 - passer : il se tient un moment dans un lieu (lieu et pièce, ou là où est un
   habitant), sans rien faire d'autre que d'y être vu ;
 - geste : il fait un geste du catalogue (data/monde/gestes.json) dans un lieu
@@ -188,6 +194,8 @@ class Voyageur:
         E = self.E
         if objet in {a["objet"] for a in h.mem.get("anomalies", [])}:
             return
+        if objet.split(":", 1)[-1] in h.mem.get("explications", []):
+            return   # on le lui a annoncé : rien d'étrange
         attention = (q.fiches[pid].get("perception") or {}).get("attention", {}).get("piece", E["attention_ordinaire"]) / E["attention_ordinaire"]
         if lieu:
             attention *= h.mem.get("vigilance", {}).get(lieu, 1.0)   # plus vigilant là où il a déjà été cambriolé
@@ -426,3 +434,10 @@ class Voyageur:
         st.setdefault("croise", []).append("un passant")
         h.mem.setdefault("appris", []).append({"date": q.date, "heure": hm(i), "de": "voyageur", "sujet": "voyageur", "quoi": x["quoi"]})
         self.noter(q, i, f"dit à {q.prenom(x['habitant'])} : « {x['quoi']} »")
+        if x.get("explique"):
+            # ce qu'on lui annonce ne l'étonnera plus
+            h.mem.setdefault("explications", []).extend(g for g in x["explique"] if g not in h.mem["explications"])
+        if x.get("explique") and x.get("lieu"):   # une annonce qui ne concerne personne d'autre ne vaut pas d'être racontée
+            h.mem.setdefault("anomalies", []).append({"date": q.date, "heure": hm(i), "objet": f"annonce:{zlib.crc32(x['quoi'].encode()):08x}", "source": f"V{x['_n']}",
+                                                      "quoi": f"un ouvrier lui a annoncé : « {x['quoi']} »", "explique": list(x["explique"])}
+                                                     | {"genre": "bruit", "lieu": x["lieu"], "piece": x.get("piece", x["lieu"])})

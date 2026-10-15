@@ -141,7 +141,8 @@ function demarrer() {
     plan = s ? JSON.parse(JSON.stringify(s.interventions)).map(x => { delete x._n; delete x._duree; return x; }) : [];
     porte = s ? [...s.porte] : []; dessinerPorte(); dessinerPlan();
   };
-  sel.value = "mission-soignee"; sel.onchange();
+  const demande = new URLSearchParams(location.search).get("scenario");   // jouer.html?scenario=mission-soir : partir de ce plan
+  sel.value = C.scenarios.some(s => s.id === demande) ? demande : "mission-soignee"; sel.onchange();
   document.getElementById("ajouter").onclick = () => {
     const der = plan[plan.length - 1];
     plan.push({ date: der ? der.date : C.dates[0], heure: der ? hhmm(minutes(der.heure) + duree(der)) : "10:00", type: "geste", geste: "crocheter", lieu: "epicerie-chazal", piece: "arriere-boutique" });
@@ -208,12 +209,31 @@ function dessinerPlan() {
       const u = el("select", { title: "ce dont il se sert pour payer" }); u.append(el("option", { value: "" }, "paie en espèces"), el("option", { value: "paiement_telephone" }, "paie avec son téléphone"), el("option", { value: "billet_europe" }, "billet de la série Europe"));
       u.value = (x.utilise || [""])[0] || ""; u.onchange = () => { x.utilise = u.value ? (u.value === "paiement_telephone" ? ["smartphone_ecran", "paiement_telephone"] : [u.value]) : []; }; D.append(u);
     } else if (x.type === "parler") {
-      D.append(liste(x, "habitant", habitants()), champ(x, "quoi", { placeholder: "ce qu'il lui dit" }));
+      // une annonce : ce que l'habitant verra ou entendra des gestes ne l'étonnera plus ; si elle parle de la boutique, Robert l'apprendra
+      const a = el("select", { title: "ce qu'il annonce" });
+      a.append(el("option", { value: "" }, "n'annonce rien"), el("option", { value: "travaux" }, "annonce des travaux (sans parler de la boutique)"),
+               el("option", { value: "boutique" }, "annonce des travaux dans la boutique de Robert"));
+      a.value = !x.explique ? "" : (x.lieu ? "boutique" : "travaux");
+      a.onchange = () => {
+        if (!a.value) { delete x.explique; delete x.lieu; delete x.piece; return; }
+        x.explique = Object.entries(C.gestes).filter(([, g]) => g.bruit || g.vu).map(([id]) => id);
+        if (a.value === "boutique") Object.assign(x, { lieu: "epicerie-chazal", piece: "arriere-boutique" }); else { delete x.lieu; delete x.piece; }
+      };
+      D.append(liste(x, "habitant", habitants()), champ(x, "quoi", { placeholder: "ce qu'il lui dit" }), a);
     } else if (x.type === "passer") {
       D.append(liste(x, "piece", [["boutique", "dans la boutique"], ["arriere-boutique", "dans l'arrière-boutique"]]), champ(x, "duree_minutes", { type: "number", min: 5, step: 5, title: "minutes" }));
       x.lieu = "epicerie-chazal";
     } else if (x.type === "deplacer") {
-      D.append(liste(x, "habitant", habitants()), champ(x, "objet", { placeholder: "objet (obj-cles…)" }), champ(x, "vers", { placeholder: "vers (pièce / support)" }));
+      const objets = () => (C.habitants.find(h => h.id === x.habitant) || { objets: [] }).objets;
+      const o = el("span");
+      const majObjets = () => {
+        o.textContent = "";
+        if (!objets().length) { delete x.objet; o.append(el("span", { class: "vide" }, "aucun objet connu")); return; }
+        if (!objets().some(([id]) => id === x.objet)) x.objet = objets()[0][0];
+        o.append(liste(x, "objet", objets()));
+      };
+      D.append(liste(x, "habitant", habitants(), majObjets), o, champ(x, "vers", { placeholder: "vers (pièce / support)" }));
+      majObjets();
     }
     const f = el("span", { class: "fin", "data-n": n }); D.append(f);
     L.append(D);
