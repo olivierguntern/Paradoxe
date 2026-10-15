@@ -21,7 +21,7 @@
    "date": "2010-03-13",
    "heure": "11:55",
    "genre": "achat",
-   "detail": "[('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)]"
+   "detail": "[('comte', 250), ('pain_campagne', 1)] → [('comte', 250)]"
   }
  },
  "par_habitant": {
@@ -51,7 +51,7 @@
    "achat": [
     "2010-03-13",
     "11:55",
-    "[('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)]"
+    "[('comte', 250), ('pain_campagne', 1)] → [('comte', 250)]"
    ]
   }
  },
@@ -1089,7 +1089,7 @@
     "id": "F1",
     "habitant": "thomas-berthier",
     "genre": "achat",
-    "detail": "[('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)]",
+    "detail": "[('comte', 250), ('pain_campagne', 1)] → [('comte', 250)]",
     "date": "2010-03-13",
     "heure": "11:55",
     "fin_date": "2010-03-13",
@@ -1101,7 +1101,7 @@
  },
  "arbre": [
   "- **Le voyageur**, samedi 13 11:00 — achète 20 × pain_campagne chez Robert",
-  "  - **Thomas**, samedi 13 11:55 — achat : [('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)]"
+  "  - **Thomas**, samedi 13 11:55 — achat : [('comte', 250), ('pain_campagne', 1)] → [('comte', 250)]"
  ],
  "details_fin": {
   "gerard-morel": {

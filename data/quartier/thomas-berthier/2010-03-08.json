@@ -25,10 +25,10 @@
  "resume": {
   "deplacements": {
    "entre_pieces_m": 267,
-   "dans_les_pieces_m_estimes": 325,
+   "dans_les_pieces_m_estimes": 323,
    "exterieur_m": 0,
-   "total_m": 592,
-   "foulees_et_marches": 822,
+   "total_m": 590,
+   "foulees_et_marches": 819,
    "passages_de_piece": 74,
    "marches_d_escalier": 0,
    "denivele_positif_m": 0,
@@ -125,20 +125,18 @@
    "22:35 energie = 24.8 (seuil 25)",
    "22:40 energie = 24.4 (seuil 25)",
    "22:45 energie = 24.0 (seuil 25)",
-   "22:50 energie = 23.6 (seuil 25)",
-   "22:55 energie = 23.2 (seuil 25)",
-   "23:00 energie = 22.8 (seuil 25)",
-   "23:05 energie = 22.4 (seuil 25)",
-   "23:10 energie = 22.0 (seuil 25)"
+   "22:50 energie = 23.6 (seuil 25)"
   ],
   "besoins_sous_le_seuil_pendant_le_sommeil_pas": {
-   "energie": 2
+   "energie": 1
   },
-  "endormissement": "extinction à 23:00 ; anxiété 0.196 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
-  "ecarts_a_la_routine": [],
+  "endormissement": "extinction à 22:40 ; anxiété 0.174 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
+  "ecarts_a_la_routine": [
+   "22:40 : épuisé (énergie 24.8), il va se coucher sans attendre 23:00."
+  ],
   "perception": {
-   "pas_avec_objets_vus": 167,
-   "objets_vus": 30,
+   "pas_avec_objets_vus": 163,
+   "objets_vus": 28,
    "entendu_pas": {
     "la radio": 25
    },
@@ -247,24 +245,24 @@
  "etat_final": {
   "piece": "chambre",
   "besoins": {
-   "faim": 75.2,
-   "soif": 89.65,
-   "energie": 31.0,
-   "hygiene": 86.63,
-   "toilettes": 81.45,
-   "social": 65.95,
-   "detente": 99.85
+   "faim": 76.4,
+   "soif": 91.45,
+   "energie": 36.6,
+   "hygiene": 86.91,
+   "toilettes": 84.45,
+   "social": 66.11,
+   "detente": 99.0
   },
   "emotions": {
-   "joie": 0.3962,
-   "tristesse": 0.1958,
-   "anxiete": 0.2534,
-   "colere": 0.0314,
-   "solitude": 0.3396,
+   "joie": 0.399,
+   "tristesse": 0.1967,
+   "anxiete": 0.2589,
+   "colere": 0.0303,
+   "solitude": 0.3386,
    "fierte": 0.35,
    "excitation": 0.2
   },
-  "concentration": 0.0002,
+  "concentration": 0.0,
   "lumieres": {},
   "appareils": [],
   "positions": {
@@ -345,7 +343,7 @@
   },
   "croyances": {},
   "habitant": {
-   "endormi_a": -9
+   "endormi_a": -13
   }
  },
  "pas": [
@@ -11616,17 +11614,20 @@
    "piece": "chambre",
    "posture": "allongé",
    "routine": "rt-soir",
-   "activite": "Lecture au lit, écrit quelques lignes dans son carnet",
-   "action": "Lit au lit, puis écrit quelques lignes dans son carnet.",
+   "activite": "Éteint la lumière, s'endort",
+   "action": "Éteint la lumière.",
    "pensee": null,
-   "perception": {
-    "vu": [
-     "obj-montre-poignet"
-    ]
-   },
-   "appareils_allumes": [
-    "lumiere-chambre"
+   "objets": [
+    {
+     "objet": "obj-livre",
+     "de": "dans sa main",
+     "vers": "chambre / table de chevet"
+    }
    ],
+   "lumiere": [
+    "éteint la lumière (chambre)"
+   ],
+   "appareils_allumes": [],
    "besoins": {
     "faim": 80.0,
     "soif": 96.1,
@@ -11634,7 +11635,7 @@
     "hygiene": 87.8,
     "toilettes": 91.2,
     "social": 66.2,
-    "detente": 100.0,
+    "detente": 99.1,
     "energie_ressentie": 24.4
    },
    "emotions": {
@@ -11655,17 +11656,10 @@
    "piece": "chambre",
    "posture": "allongé",
    "routine": "rt-soir",
-   "activite": "Lecture au lit, écrit quelques lignes dans son carnet",
-   "action": "Lit au lit, puis écrit quelques lignes dans son carnet.",
+   "activite": "Endormissement",
+   "action": "Cherche le sommeil.",
    "pensee": null,
-   "perception": {
-    "vu": [
-     "obj-carnet"
-    ]
-   },
-   "appareils_allumes": [
-    "lumiere-chambre"
-   ],
+   "appareils_allumes": [],
    "besoins": {
     "faim": 79.5,
     "soif": 95.4,
@@ -11673,7 +11667,7 @@
     "hygiene": 87.7,
     "toilettes": 90.1,
     "social": 66.1,
-    "detente": 100.0,
+    "detente": 99.1,
     "energie_ressentie": 24.0
    },
    "emotions": {
@@ -11694,19 +11688,10 @@
    "piece": "chambre",
    "posture": "allongé",
    "routine": "rt-soir",
-   "activite": "Lecture au lit, écrit quelques lignes dans son carnet",
-   "action": "Lit au lit, puis écrit quelques lignes dans son carnet.",
+   "activite": "Endormissement",
+   "action": "Cherche le sommeil.",
    "pensee": null,
-   "perception": {
-    "vu": [
-     "obj-montre-poignet",
-     "obj-reveil",
-     "obj-tenue-course"
-    ]
-   },
-   "appareils_allumes": [
-    "lumiere-chambre"
-   ],
+   "appareils_allumes": [],
    "besoins": {
     "faim": 79.0,
     "soif": 94.7,
@@ -11714,7 +11699,7 @@
     "hygiene": 87.6,
     "toilettes": 89.0,
     "social": 66.1,
-    "detente": 100.0,
+    "detente": 99.0,
     "energie_ressentie": 23.6
    },
    "emotions": {
@@ -11734,39 +11719,31 @@
    "lieu": "domicile",
    "piece": "chambre",
    "posture": "allongé",
-   "routine": "rt-soir",
-   "activite": "Lecture au lit, écrit quelques lignes dans son carnet",
-   "action": "Lit au lit, puis écrit quelques lignes dans son carnet.",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
    "pensee": null,
-   "perception": {
-    "vu": [
-     "obj-carnet",
-     "obj-montre-poignet",
-     "obj-reveil"
-    ]
-   },
-   "appareils_allumes": [
-    "lumiere-chambre"
-   ],
+   "phase_sommeil": "léger",
+   "appareils_allumes": [],
    "besoins": {
-    "faim": 78.5,
-    "soif": 94.0,
-    "energie": 23.2,
-    "hygiene": 87.4,
-    "toilettes": 87.9,
+    "faim": 78.8,
+    "soif": 94.4,
+    "energie": 24.6,
+    "hygiene": 87.5,
+    "toilettes": 88.7,
     "social": 66.1,
-    "detente": 100.0,
-    "energie_ressentie": 23.2
+    "detente": 99.0,
+    "energie_ressentie": 24.6
    },
    "emotions": {
-    "joie": 0.376,
-    "tristesse": 0.186,
-    "anxiete": 0.191,
-    "colere": 0.06,
+    "joie": 0.384,
+    "tristesse": 0.187,
+    "anxiete": 0.196,
+    "colere": 0.051,
     "solitude": 0.338,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.106
+    "concentration": 0.056
    }
   },
   {
@@ -11775,40 +11752,31 @@
    "lieu": "domicile",
    "piece": "chambre",
    "posture": "allongé",
-   "routine": "rt-soir",
-   "activite": "Éteint la lumière, s'endort",
-   "action": "Éteint la lumière.",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
    "pensee": null,
-   "objets": [
-    {
-     "objet": "obj-livre",
-     "de": "dans sa main",
-     "vers": "chambre / table de chevet"
-    }
-   ],
-   "lumiere": [
-    "éteint la lumière (chambre)"
-   ],
+   "phase_sommeil": "léger",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 78.0,
-    "soif": 93.3,
-    "energie": 22.8,
-    "hygiene": 87.3,
-    "toilettes": 86.8,
-    "social": 66.0,
-    "detente": 100.0,
-    "energie_ressentie": 22.8
+    "faim": 78.6,
+    "soif": 94.2,
+    "energie": 25.6,
+    "hygiene": 87.5,
+    "toilettes": 88.3,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 25.6
    },
    "emotions": {
-    "joie": 0.374,
-    "tristesse": 0.187,
-    "anxiete": 0.196,
-    "colere": 0.06,
+    "joie": 0.387,
+    "tristesse": 0.188,
+    "anxiete": 0.205,
+    "colere": 0.045,
     "solitude": 0.338,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.103
+    "concentration": 0.028
    }
   },
   {
@@ -11817,30 +11785,31 @@
    "lieu": "domicile",
    "piece": "chambre",
    "posture": "allongé",
-   "routine": "rt-soir",
-   "activite": "Endormissement",
-   "action": "Cherche le sommeil.",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
    "pensee": null,
+   "phase_sommeil": "léger",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 77.5,
-    "soif": 92.6,
-    "energie": 22.4,
-    "hygiene": 87.2,
-    "toilettes": 85.7,
-    "social": 66.0,
-    "detente": 99.9,
-    "energie_ressentie": 22.4
+    "faim": 78.4,
+    "soif": 93.9,
+    "energie": 26.6,
+    "hygiene": 87.4,
+    "toilettes": 88.0,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 26.6
    },
    "emotions": {
-    "joie": 0.372,
-    "tristesse": 0.188,
-    "anxiete": 0.2,
-    "colere": 0.06,
+    "joie": 0.39,
+    "tristesse": 0.19,
+    "anxiete": 0.213,
+    "colere": 0.041,
     "solitude": 0.338,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.102
+    "concentration": 0.014
    }
   },
   {
@@ -11849,30 +11818,31 @@
    "lieu": "domicile",
    "piece": "chambre",
    "posture": "allongé",
-   "routine": "rt-soir",
-   "activite": "Endormissement",
-   "action": "Cherche le sommeil.",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
    "pensee": null,
+   "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 77.0,
-    "soif": 91.9,
-    "energie": 22.0,
-    "hygiene": 87.1,
-    "toilettes": 84.6,
-    "social": 65.9,
-    "detente": 99.9,
-    "energie_ressentie": 22.0
+    "faim": 78.2,
+    "soif": 93.7,
+    "energie": 27.6,
+    "hygiene": 87.4,
+    "toilettes": 87.6,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 27.6
    },
    "emotions": {
-    "joie": 0.37,
-    "tristesse": 0.188,
-    "anxiete": 0.205,
-    "colere": 0.061,
+    "joie": 0.392,
+    "tristesse": 0.191,
+    "anxiete": 0.22,
+    "colere": 0.037,
     "solitude": 0.338,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.101
+    "concentration": 0.007
    }
   },
   {
@@ -11885,27 +11855,27 @@
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "léger",
+   "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 76.8,
-    "soif": 91.6,
-    "energie": 23.0,
-    "hygiene": 87.0,
-    "toilettes": 84.3,
-    "social": 65.9,
-    "detente": 99.9,
-    "energie_ressentie": 23.0
+    "faim": 78.0,
+    "soif": 93.4,
+    "energie": 28.6,
+    "hygiene": 87.3,
+    "toilettes": 87.3,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 28.6
    },
    "emotions": {
-    "joie": 0.376,
-    "tristesse": 0.19,
-    "anxiete": 0.213,
-    "colere": 0.052,
+    "joie": 0.393,
+    "tristesse": 0.192,
+    "anxiete": 0.227,
+    "colere": 0.035,
     "solitude": 0.338,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.05
+    "concentration": 0.004
    }
   },
   {
@@ -11918,27 +11888,27 @@
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "léger",
+   "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 76.6,
-    "soif": 91.4,
-    "energie": 24.0,
-    "hygiene": 87.0,
-    "toilettes": 83.9,
-    "social": 65.9,
-    "detente": 99.9,
-    "energie_ressentie": 24.0
+    "faim": 77.8,
+    "soif": 93.2,
+    "energie": 29.6,
+    "hygiene": 87.3,
+    "toilettes": 86.9,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 29.6
    },
    "emotions": {
-    "joie": 0.381,
-    "tristesse": 0.191,
-    "anxiete": 0.22,
-    "colere": 0.045,
+    "joie": 0.395,
+    "tristesse": 0.193,
+    "anxiete": 0.233,
+    "colere": 0.034,
     "solitude": 0.338,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.025
+    "concentration": 0.002
    }
   },
   {
@@ -11951,27 +11921,27 @@
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "léger",
+   "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 76.4,
-    "soif": 91.1,
-    "energie": 25.0,
-    "hygiene": 86.9,
-    "toilettes": 83.6,
-    "social": 65.9,
-    "detente": 99.9,
-    "energie_ressentie": 25.0
+    "faim": 77.6,
+    "soif": 92.9,
+    "energie": 30.6,
+    "hygiene": 87.2,
+    "toilettes": 86.6,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 30.6
    },
    "emotions": {
-    "joie": 0.385,
-    "tristesse": 0.192,
-    "anxiete": 0.227,
-    "colere": 0.041,
-    "solitude": 0.339,
+    "joie": 0.396,
+    "tristesse": 0.193,
+    "anxiete": 0.238,
+    "colere": 0.033,
+    "solitude": 0.338,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.013
+    "concentration": 0.001
    }
   },
   {
@@ -11987,24 +11957,24 @@
    "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 76.2,
-    "soif": 90.9,
-    "energie": 26.0,
-    "hygiene": 86.9,
-    "toilettes": 83.2,
-    "social": 65.9,
-    "detente": 99.9,
-    "energie_ressentie": 26.0
+    "faim": 77.4,
+    "soif": 92.7,
+    "energie": 31.6,
+    "hygiene": 87.2,
+    "toilettes": 86.2,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 31.6
    },
    "emotions": {
-    "joie": 0.388,
-    "tristesse": 0.193,
-    "anxiete": 0.233,
-    "colere": 0.038,
-    "solitude": 0.339,
+    "joie": 0.397,
+    "tristesse": 0.194,
+    "anxiete": 0.242,
+    "colere": 0.032,
+    "solitude": 0.338,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.006
+    "concentration": 0.0
    }
   },
   {
@@ -12020,24 +11990,24 @@
    "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 76.0,
-    "soif": 90.6,
-    "energie": 27.0,
-    "hygiene": 86.8,
-    "toilettes": 82.9,
-    "social": 65.9,
-    "detente": 99.9,
-    "energie_ressentie": 27.0
+    "faim": 77.2,
+    "soif": 92.4,
+    "energie": 32.6,
+    "hygiene": 87.1,
+    "toilettes": 85.9,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 32.6
    },
    "emotions": {
-    "joie": 0.391,
-    "tristesse": 0.193,
-    "anxiete": 0.238,
-    "colere": 0.035,
-    "solitude": 0.339,
+    "joie": 0.397,
+    "tristesse": 0.195,
+    "anxiete": 0.246,
+    "colere": 0.031,
+    "solitude": 0.338,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.003
+    "concentration": 0.0
    }
   },
   {
@@ -12053,24 +12023,24 @@
    "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 75.8,
-    "soif": 90.4,
-    "energie": 28.0,
-    "hygiene": 86.8,
-    "toilettes": 82.5,
-    "social": 65.9,
-    "detente": 99.9,
-    "energie_ressentie": 28.0
+    "faim": 77.0,
+    "soif": 92.2,
+    "energie": 33.6,
+    "hygiene": 87.1,
+    "toilettes": 85.5,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 33.6
    },
    "emotions": {
-    "joie": 0.392,
-    "tristesse": 0.194,
-    "anxiete": 0.242,
-    "colere": 0.034,
-    "solitude": 0.339,
+    "joie": 0.398,
+    "tristesse": 0.195,
+    "anxiete": 0.25,
+    "colere": 0.031,
+    "solitude": 0.338,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.002
+    "concentration": 0.0
    }
   },
   {
@@ -12086,24 +12056,24 @@
    "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 75.6,
-    "soif": 90.1,
-    "energie": 29.0,
-    "hygiene": 86.7,
-    "toilettes": 82.2,
-    "social": 65.9,
-    "detente": 99.9,
-    "energie_ressentie": 29.0
+    "faim": 76.8,
+    "soif": 91.9,
+    "energie": 34.6,
+    "hygiene": 87.0,
+    "toilettes": 85.2,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 34.6
    },
    "emotions": {
-    "joie": 0.394,
-    "tristesse": 0.195,
-    "anxiete": 0.246,
-    "colere": 0.033,
-    "solitude": 0.339,
+    "joie": 0.398,
+    "tristesse": 0.196,
+    "anxiete": 0.253,
+    "colere": 0.031,
+    "solitude": 0.338,
     "fierte": 0.35,
     "excitation": 0.2,
-    "concentration": 0.001
+    "concentration": 0.0
    }
   },
   {
@@ -12119,20 +12089,20 @@
    "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 75.4,
-    "soif": 89.9,
-    "energie": 30.0,
-    "hygiene": 86.7,
-    "toilettes": 81.8,
-    "social": 65.9,
-    "detente": 99.9,
-    "energie_ressentie": 30.0
+    "faim": 76.6,
+    "soif": 91.7,
+    "energie": 35.6,
+    "hygiene": 87.0,
+    "toilettes": 84.8,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 35.6
    },
    "emotions": {
-    "joie": 0.395,
-    "tristesse": 0.195,
-    "anxiete": 0.25,
-    "colere": 0.032,
+    "joie": 0.399,
+    "tristesse": 0.196,
+    "anxiete": 0.256,
+    "colere": 0.03,
     "solitude": 0.339,
     "fierte": 0.35,
     "excitation": 0.2,
@@ -12149,24 +12119,24 @@
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "profond",
+   "phase_sommeil": "léger",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 75.2,
-    "soif": 89.6,
-    "energie": 31.0,
-    "hygiene": 86.6,
-    "toilettes": 81.5,
-    "social": 65.9,
-    "detente": 99.9,
-    "energie_ressentie": 31.0
+    "faim": 76.4,
+    "soif": 91.4,
+    "energie": 36.6,
+    "hygiene": 86.9,
+    "toilettes": 84.5,
+    "social": 66.1,
+    "detente": 99.0,
+    "energie_ressentie": 36.6
    },
    "emotions": {
-    "joie": 0.396,
-    "tristesse": 0.196,
-    "anxiete": 0.253,
-    "colere": 0.031,
-    "solitude": 0.34,
+    "joie": 0.399,
+    "tristesse": 0.197,
+    "anxiete": 0.259,
+    "colere": 0.03,
+    "solitude": 0.339,
     "fierte": 0.35,
     "excitation": 0.2,
     "concentration": 0.0

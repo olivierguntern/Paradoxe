@@ -49,8 +49,8 @@
    "faits": 1
   },
   "thomas-berthier": {
-   "pas_divergents": 18,
-   "faits": 24
+   "pas_divergents": 17,
+   "faits": 22
   }
  },
  "exemples": {
@@ -368,13 +368,15 @@
   {
    "date": "2010-03-09",
    "heure": "21:00",
-   "faits": 0,
-   "habitants": []
+   "faits": 7,
+   "habitants": [
+    "thomas-berthier"
+   ]
   },
   {
    "date": "2010-03-09",
    "heure": "22:00",
-   "faits": 2,
+   "faits": 1,
    "habitants": [
     "thomas-berthier"
    ]
@@ -430,10 +432,8 @@
   {
    "date": "2010-03-10",
    "heure": "07:00",
-   "faits": 2,
-   "habitants": [
-    "thomas-berthier"
-   ]
+   "faits": 0,
+   "habitants": []
   },
   {
    "date": "2010-03-10",
@@ -504,10 +504,8 @@
   {
    "date": "2010-03-10",
    "heure": "19:00",
-   "faits": 1,
-   "habitants": [
-    "thomas-berthier"
-   ]
+   "faits": 0,
+   "habitants": []
   },
   {
    "date": "2010-03-10",
@@ -530,10 +528,8 @@
   {
    "date": "2010-03-10",
    "heure": "23:00",
-   "faits": 1,
-   "habitants": [
-    "thomas-berthier"
-   ]
+   "faits": 0,
+   "habitants": []
   },
   {
    "date": "2010-03-11",
@@ -592,10 +588,8 @@
   {
    "date": "2010-03-11",
    "heure": "09:00",
-   "faits": 2,
-   "habitants": [
-    "thomas-berthier"
-   ]
+   "faits": 0,
+   "habitants": []
   },
   {
    "date": "2010-03-11",
@@ -624,10 +618,8 @@
   {
    "date": "2010-03-11",
    "heure": "14:00",
-   "faits": 2,
-   "habitants": [
-    "thomas-berthier"
-   ]
+   "faits": 0,
+   "habitants": []
   },
   {
    "date": "2010-03-11",
@@ -1346,11 +1338,11 @@
     "id": "F18",
     "habitant": "thomas-berthier",
     "genre": "lieu",
-    "detail": "wc → cuisine",
+    "detail": "chambre → atelier",
     "date": "2010-03-09",
-    "heure": "22:00",
+    "heure": "21:35",
     "fin_date": "2010-03-09",
-    "fin_heure": "22:00",
+    "fin_heure": "21:45",
     "cause": "F15",
     "supposee": false,
     "via": "par ses besoins décalés"
@@ -1358,12 +1350,12 @@
    {
     "id": "F19",
     "habitant": "thomas-berthier",
-    "genre": "lieu",
-    "detail": "cuisine → salle-de-bain",
+    "genre": "activité",
+    "detail": "Éteint la lumière, s'endort → Travail personnel sur la montre du grand-père (axe de balancier)",
     "date": "2010-03-09",
-    "heure": "22:15",
+    "heure": "21:35",
     "fin_date": "2010-03-09",
-    "fin_heure": "22:15",
+    "fin_heure": "21:35",
     "cause": "F15",
     "supposee": false,
     "via": "par ses besoins décalés"
@@ -1371,37 +1363,36 @@
    {
     "id": "F20",
     "habitant": "thomas-berthier",
-    "genre": "lieu",
-    "detail": "cuisine → sejour",
-    "date": "2010-03-10",
-    "heure": "07:55",
-    "fin_date": "2010-03-10",
-    "fin_heure": "07:55",
-    "cause": "F15",
-    "supposee": false,
-    "via": "par ses besoins décalés"
+    "genre": "objet",
+    "detail": "obj-lunettes : atelier / établi, dans leur étui → sur son nez",
+    "date": "2010-03-09",
+    "heure": "21:35",
+    "fin_date": "2010-03-09",
+    "fin_heure": "21:45",
+    "cause": "F19",
+    "supposee": false
    },
    {
     "id": "F21",
     "habitant": "thomas-berthier",
     "genre": "objet",
-    "detail": "obj-netbook : sejour / bibliothèque, étagère du bas → sejour / table basse",
-    "date": "2010-03-10",
-    "heure": "07:55",
-    "fin_date": "2010-03-10",
-    "fin_heure": "07:55",
-    "cause": "F20",
+    "detail": "obj-montre-poignet : chambre / table de chevet → poignet gauche",
+    "date": "2010-03-09",
+    "heure": "21:35",
+    "fin_date": "2010-03-09",
+    "fin_heure": "21:45",
+    "cause": "F19",
     "supposee": false
    },
    {
     "id": "F22",
     "habitant": "thomas-berthier",
-    "genre": "lieu",
-    "detail": "chambre → cuisine",
-    "date": "2010-03-10",
-    "heure": "19:45",
-    "fin_date": "2010-03-10",
-    "fin_heure": "19:45",
+    "genre": "activité",
+    "detail": "Endormissement → Travail personnel sur la montre du grand-père (axe de balancier)",
+    "date": "2010-03-09",
+    "heure": "21:40",
+    "fin_date": "2010-03-09",
+    "fin_heure": "21:45",
     "cause": "F15",
     "supposee": false,
     "via": "par ses besoins décalés"
@@ -1409,12 +1400,12 @@
    {
     "id": "F23",
     "habitant": "thomas-berthier",
-    "genre": "lieu",
-    "detail": "chambre → cuisine",
-    "date": "2010-03-10",
-    "heure": "23:00",
-    "fin_date": "2010-03-10",
-    "fin_heure": "23:00",
+    "genre": "activité",
+    "detail": "Sommeil → Éteint la lumière, s'endort",
+    "date": "2010-03-09",
+    "heure": "21:50",
+    "fin_date": "2010-03-09",
+    "fin_heure": "21:50",
     "cause": "F15",
     "supposee": false,
     "via": "par ses besoins décalés"
@@ -1422,12 +1413,12 @@
    {
     "id": "F24",
     "habitant": "thomas-berthier",
-    "genre": "lieu",
-    "detail": "cuisine → atelier",
-    "date": "2010-03-11",
-    "heure": "09:00",
-    "fin_date": "2010-03-11",
-    "fin_heure": "09:00",
+    "genre": "activité",
+    "detail": "Sommeil → Endormissement",
+    "date": "2010-03-09",
+    "heure": "21:55",
+    "fin_date": "2010-03-09",
+    "fin_heure": "22:00",
     "cause": "F15",
     "supposee": false,
     "via": "par ses besoins décalés"
@@ -1435,50 +1426,13 @@
    {
     "id": "F25",
     "habitant": "thomas-berthier",
-    "genre": "objet",
-    "detail": "obj-lunettes : atelier / établi, dans leur étui → sur son nez",
-    "date": "2010-03-11",
-    "heure": "09:00",
-    "fin_date": "2010-03-11",
-    "fin_heure": "09:00",
-    "cause": "F24",
-    "supposee": false
-   },
-   {
-    "id": "F26",
-    "habitant": "thomas-berthier",
-    "genre": "lieu",
-    "detail": "atelier → cuisine",
-    "date": "2010-03-11",
-    "heure": "14:00",
-    "fin_date": "2010-03-11",
-    "fin_heure": "14:00",
-    "cause": "F15",
-    "supposee": false,
-    "via": "par ses besoins décalés"
-   },
-   {
-    "id": "F27",
-    "habitant": "thomas-berthier",
-    "genre": "objet",
-    "detail": "obj-lunettes : sur son nez → atelier / établi, dans leur étui",
-    "date": "2010-03-11",
-    "heure": "14:00",
-    "fin_date": "2010-03-11",
-    "fin_heure": "14:00",
-    "cause": "F26",
-    "supposee": false
-   },
-   {
-    "id": "F28",
-    "habitant": "thomas-berthier",
     "genre": "achat",
-    "detail": "[('bananes', 3), ('pommes', 2)] → [('bananes', 4), ('oranges', 3), ('pommes', 6)]",
+    "detail": "[('pommes', 2)] → [('bananes', 4), ('oranges', 3), ('pommes', 6)]",
     "date": "2010-03-11",
     "heure": "18:25",
     "fin_date": "2010-03-11",
     "fin_heure": "18:25",
-    "cause": "F27",
+    "cause": "F24",
     "supposee": false
    }
   ]
@@ -1502,15 +1456,14 @@
   "  - **Thomas**, mardi 9 18:35 — lieu : entree → atelier",
   "    - **Thomas**, mardi 9 18:40 — lieu : cuisine → wc (par ses besoins décalés)",
   "    - **Thomas**, mardi 9 18:40 — activité : Courses à l'épicerie de la Grande-Rue, sur son temps libre → Besoin pressant (par ses besoins décalés)",
-  "    - **Thomas**, mardi 9 22:00 — lieu : wc → cuisine (par ses besoins décalés)",
-  "    - **Thomas**, mardi 9 22:15 — lieu : cuisine → salle-de-bain (par ses besoins décalés)",
-  "    - **Thomas**, mercredi 10 07:55 — lieu : cuisine → sejour (par ses besoins décalés)",
-  "      - **Thomas**, mercredi 10 07:55 — objet : obj-netbook : sejour / bibliothèque, étagère du bas → sejour / table basse",
-  "    - **Thomas**, mercredi 10 19:45 — lieu : chambre → cuisine (par ses besoins décalés)",
-  "    - **Thomas**, mercredi 10 23:00 — lieu : chambre → cuisine (par ses besoins décalés)",
-  "    - **Thomas**, jeudi 11 09:00 — lieu : cuisine → atelier (par ses besoins décalés)",
-  "      - **Thomas**, jeudi 11 09:00 — objet : obj-lunettes : atelier / établi, dans leur étui → sur son nez",
-  "    - … et 1 autre fait"
+  "    - **Thomas**, mardi 9 21:35, jusqu'à 21:45 — lieu : chambre → atelier (par ses besoins décalés)",
+  "    - **Thomas**, mardi 9 21:35 — activité : Éteint la lumière, s'endort → Travail personnel sur la montre du grand-père (axe de balancier) (par ses besoins décalés)",
+  "      - **Thomas**, mardi 9 21:35, jusqu'à 21:45 — objet : obj-lunettes : atelier / établi, dans leur étui → sur son nez",
+  "      - **Thomas**, mardi 9 21:35, jusqu'à 21:45 — objet : obj-montre-poignet : chambre / table de chevet → poignet gauche",
+  "    - **Thomas**, mardi 9 21:40, jusqu'à 21:45 — activité : Endormissement → Travail personnel sur la montre du grand-père (axe de balancier) (par ses besoins décalés)",
+  "    - **Thomas**, mardi 9 21:50 — activité : Sommeil → Éteint la lumière, s'endort (par ses besoins décalés)",
+  "    - **Thomas**, mardi 9 21:55, jusqu'à 22:00 — activité : Sommeil → Endormissement (par ses besoins décalés)",
+  "      - **Thomas**, jeudi 11 18:25 — achat : [('pommes', 2)] → [('bananes', 4), ('oranges', 3), ('pommes', 6)]"
  ],
  "details_fin": {
   "gerard-morel": {
@@ -1542,9 +1495,9 @@
    "comptes": 1
   },
   "thomas-berthier": {
-   "besoins": 0.77,
+   "besoins": 0.76,
    "emotions": 0.008,
-   "produits_maison": 0,
+   "produits_maison": 2,
    "produits_magasin": 0,
    "comptes": 1
   }

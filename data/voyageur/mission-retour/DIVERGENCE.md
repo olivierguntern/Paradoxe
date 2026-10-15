@@ -115,5 +115,5 @@ Seules les heures où un fait diffère.
 | gerard-morel | 0.0 | 0.0 | 0 | 0 | 0 |
 | josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
 | monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
-| robert-chazal | 0.0 | 0.0 | 0 | 12 | 1 |
+| robert-chazal | 0.31 | 0.0 | 0 | 12 | 1 |
 | thomas-berthier | 0.0 | 0.0 | 0 | 0 | 0 |

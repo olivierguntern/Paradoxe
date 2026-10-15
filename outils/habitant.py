@@ -128,6 +128,12 @@ class Habitant:
         ici = [p for p in trouvees if self.SITE.get(p) == getattr(self, "site", None)]
         return (ici or ([] if meme_site else trouvees) or [None])[0]
 
+    def lieu_de(self, piece):
+        """Le lieu d'une pièce : celui de son site (sa maison, sa boutique, le logement où il est en visite) ; une pièce
+        hors plan (le jardin) est dans le lieu du site où il se trouve."""
+        site = self.SITE.get(piece) or (self.site if piece in self.sim.graph else None)
+        return self.LIEU_DU_SITE.get(site, "domicile")
+
     @property
     def i(self):
         return len(self.sim.steps)
@@ -402,6 +408,22 @@ class Habitant:
         self.decisions.append(f"{hm(self.i)} : courses : {', '.join(self.libelle(x) for x in lignes)} "
                               f"({f'{total:.2f}'.replace('.', ',')} €, {'en espèces' if especes else 'par carte'}).")
 
+    def fatigue(self, a, i):
+        """Le soir (après 21:00), épuisé (énergie sous son seuil d'alerte) pendant une détente qui ne le captive pas
+        (télévision, lecture, temps libre, et non un match, une partie ou un film), il va se coucher sans attendre l'heure."""
+        if "energie" not in self.SEUILS or i < idx("21:00") or self.sim.besoins["energie"] >= self.SEUILS["energie"]:
+            return False
+        if a.get("captivant") or a.get("mode") not in ("loisir", "lecture", "sieste") or self.sim.piece not in self.sim.graph:
+            return False
+        coucher = next(((d, f, e, r) for d, f, e, r in self.etapes if d > i and e["activite"] == "coucher"), None)
+        if not coucher:
+            return False
+        d, f, e, r = coucher
+        self.decisions.append(f"{hm(i)} : épuisé (énergie {round(self.sim.besoins['energie'], 1)}), il va se coucher sans attendre {e['debut']}.")
+        a_c, _, _ = self.resoudre(d, f, e, i)
+        self.endormir(a_c, e, r)
+        return True
+
     def utilite(self, a, d, f, i):
         """Scores des actions possibles : l'ancrage vaut 1 ; un besoin pressant (sous son seuil d'alerte) peut
         l'emporter à tout moment ; au début d'une étape, un besoin simplement inconfortable (sous le double de
@@ -409,7 +431,12 @@ class Habitant:
         (une sortie qu'il ne peut pas interrompre), il répond à un besoin qui passerait sous son seuil avant la fin."""
         scores = [(1.0, None)]
         if self.sim.piece not in self.sim.graph:
-            return scores
+            # dehors : seulement dans un lieu public qui a ses commodités (cinéma, bureau), pour un besoin pressant
+            for besoin, aid in self.BESOINS.items():
+                v, s = self.sim.besoins[besoin], self.SEUILS[besoin]
+                if besoin in a.get("commodites", ()) and v < s and f - i > 2:
+                    scores.append((1 + (s - v) / s, aid))
+            return sorted(scores, key=lambda x: -x[0])
         transition = i == d + self.opportunites.get(d, 0)
         anticipe = transition and a.get("anticipe")
         if not anticipe and (a.get("ininterrompable") or f - i <= 2):
@@ -432,7 +459,7 @@ class Habitant:
     def emettre(self, a, titre, routine, piece, premier, avec=(), garder_appareils=False, lieu="domicile", extra=None):
         self.action_courante = a
         if lieu == "domicile":
-            lieu = self.LIEU_DU_SITE.get(self.SITE.get(piece), "domicile")   # une interruption à la boutique est à la boutique
+            lieu = self.lieu_de(piece)   # une interruption à la boutique est à la boutique, une nuit chez soi dans son logement
         st = {"action": a["texte"], "pensee": None, "piece": piece, "lieu": lieu, "mode": a.get("mode", "eveille"),
               "charge": a.get("charge", "simple"), "posture": a.get("posture", "debout")}
         st.update(extra or {})
@@ -505,7 +532,7 @@ class Habitant:
         endormi_a = self.coucher[1] if self.coucher else self.mem["endormi_a"]
         phase = phase_sommeil((self.i - endormi_a) * 5)
         st = {"action": a["texte"] if phase != "micro-éveil" else "Se retourne et se rendort.", "pensee": None, "piece": lit,
-              "lieu": "domicile", "mode": "sommeil", "charge": "sommeil", "posture": "allongé", "phase_sommeil": phase}
+              "lieu": self.lieu_de(lit), "mode": "sommeil", "charge": "sommeil", "posture": "allongé", "phase_sommeil": phase}
         if self.allumes:
             st["app"] = {"eteint": sorted(self.allumes)}
             self.allumes = set()
@@ -533,7 +560,7 @@ class Habitant:
                 self.dormir("Sommeil")
             else:
                 lit = self.piece_pour(self.A["coucher"]["lieu"])
-                self.pousser({"action": "Cherche le sommeil.", "pensee": None, "piece": lit, "lieu": "domicile", "mode": "eveille",
+                self.pousser({"action": "Cherche le sommeil.", "pensee": None, "piece": lit, "lieu": self.lieu_de(lit), "mode": "eveille",
                               "charge": "repos", "posture": "allongé"}, "Endormissement", self.routine_coucher)
             return
         et = self.etape(i)
@@ -549,12 +576,20 @@ class Habitant:
         if a.get("mode") == "sommeil":
             self.dormir(e["action"])
             return
+        if self.fatigue(a, i):
+            return
         score, besoin = self.utilite(a, d, f, i)[0]
         if besoin:
             b = self.A[besoin]
             piece = self.piece_pour(b["lieu"], meme_site=True)
             v = round(self.sim.besoins[b["besoin"]], 1)
-            if v < self.SEUILS[b["besoin"]]:
+            if self.sim.piece not in self.sim.graph:
+                # sur place, dans un lieu public
+                self.decisions.append(f"{hm(i)} : {b['besoin']} sous le seuil d'alerte ({v}) ; y répond sur place, pendant « {e['action']} ».")
+                lieu = self.sim.steps[-1]["lieu"] if self.sim.steps else "exterieur"
+                self.emettre(dict(b, texte=b["texte"].replace("S'interrompt pour", "S'éclipse un instant pour").rstrip(".") + ", sur place."),
+                             "Besoin pressant", "interruption", self.sim.piece, True, garder_appareils=True, lieu=lieu)
+            elif v < self.SEUILS[b["besoin"]]:
                 self.decisions.append(f"{hm(i)} : {b['besoin']} sous le seuil d'alerte ({v}, score {round(score, 2)}) ; interrompt « {e['action']} ».")
                 self.emettre(b, "Besoin pressant", "interruption", piece, True, garder_appareils=True)
             else:
@@ -577,7 +612,7 @@ class Habitant:
         else:
             piece = self.piece_pour(a["lieu"]) or self.sim.piece
         if lieu == "domicile":
-            lieu = self.LIEU_DU_SITE.get(self.SITE.get(piece), "domicile")
+            lieu = self.lieu_de(piece)
         if self.trajet and not a.get("vehicule"):
             # arrivée : il rentre par la place de stationnement du site où il arrive
             parking = self.VEHICULE.get("stationnements", {}).get(self.SITE.get(piece))
@@ -676,7 +711,7 @@ class Habitant:
     def endormir(self, a, e, r):
         """Étape du coucher : il éteint ; l'endormissement dure selon son état ; puis il dort jusqu'au lendemain."""
         lit = self.piece_pour(a["lieu"])
-        st = {"action": a["texte"], "pensee": None, "piece": lit, "lieu": "domicile", "mode": "eveille", "charge": "repos", "posture": "allongé"}
+        st = {"action": a["texte"], "pensee": None, "piece": lit, "lieu": self.lieu_de(lit), "mode": "eveille", "charge": "repos", "posture": "allongé"}
         st["app"] = {"eteint": sorted(self.allumes) + [f"lumiere-{lit}"]}
         self.allumes = set()
         objets = self.gestes(a, True)

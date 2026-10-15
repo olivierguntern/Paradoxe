@@ -22,18 +22,18 @@
  },
  "resume": {
   "deplacements": {
-   "entre_pieces_m": 164,
-   "dans_les_pieces_m_estimes": 514,
+   "entre_pieces_m": 152,
+   "dans_les_pieces_m_estimes": 494,
    "exterieur_m": 0,
-   "total_m": 678,
-   "foulees_et_marches": 1053,
-   "passages_de_piece": 45,
+   "total_m": 646,
+   "foulees_et_marches": 1006,
+   "passages_de_piece": 41,
    "marches_d_escalier": 56,
    "denivele_positif_m": 0,
    "denivele_negatif_m": 0
   },
   "lumiere": {
-   "allumages": 34
+   "allumages": 30
   },
   "evenements_vecus": {
    "plaisir_simple": 3,
@@ -67,29 +67,18 @@
    "20:45 energie = 23.2 (seuil 25)",
    "20:50 energie = 22.8 (seuil 25)",
    "20:55 energie = 22.4 (seuil 25)",
-   "21:00 energie = 22.0 (seuil 25)",
-   "21:05 energie = 21.6 (seuil 25)",
-   "21:10 energie = 21.2 (seuil 25)",
-   "21:15 energie = 20.8 (seuil 25)",
-   "21:20 energie = 20.4 (seuil 25)",
-   "21:25 energie = 20.0 (seuil 25)",
-   "21:30 energie = 19.6 (seuil 25)",
-   "21:35 energie = 19.2 (seuil 25)",
-   "21:40 energie = 18.8 (seuil 25)",
-   "21:45 energie = 18.4 (seuil 25)",
-   "21:50 energie = 17.7 (seuil 25)",
-   "21:55 energie = 17.3 (seuil 25)",
-   "22:00 energie = 16.9 (seuil 25)",
-   "22:05 energie = 16.5 (seuil 25)",
-   "22:10 energie = 16.1 (seuil 25)"
+   "21:00 energie = 21.7 (seuil 25)",
+   "21:05 energie = 21.3 (seuil 25)",
+   "21:10 energie = 20.9 (seuil 25)"
   ],
   "besoins_sous_le_seuil_pendant_le_sommeil_pas": {
-   "energie": 7
+   "energie": 3
   },
-  "endormissement": "extinction à 22:00 ; anxiété 0.272 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
+  "endormissement": "extinction à 21:00 ; anxiété 0.261 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
   "ecarts_a_la_routine": [
    "18:20 : soif sous le seuil d'alerte (37.1, score 1.07) ; interrompt « Se repose ».",
-   "18:25 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Se repose »."
+   "18:25 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Se repose ».",
+   "21:00 : épuisé (énergie 22.4), il va se coucher sans attendre 22:00."
   ]
  },
  "etat_initial": {
@@ -208,13 +197,6 @@
      "quoi": "entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau"
     },
     {
-     "date": "2010-03-09",
-     "heure": "21:40",
-     "de": "robert-chazal",
-     "sujet": "journee",
-     "quoi": "prépare la réouverture"
-    },
-    {
      "date": "2010-03-10",
      "heure": "12:35",
      "de": "robert-chazal",
@@ -234,6 +216,13 @@
      "de": "robert-chazal",
      "sujet": "journee",
      "quoi": "réouverture, sert les clients ; parle du match avec les habitués"
+    },
+    {
+     "date": "2010-03-11",
+     "heure": "19:35",
+     "de": "robert-chazal",
+     "sujet": "journee",
+     "quoi": "prépare la réouverture"
     },
     {
      "date": "2010-03-13",
@@ -332,20 +321,20 @@
  "etat_final": {
   "piece": "chambre",
   "besoins": {
-   "faim": 81.8,
-   "soif": 88.85,
-   "energie": 40.25,
-   "hygiene": 78.29,
-   "toilettes": 43.15,
-   "social": 99.7,
-   "detente": 99.7
+   "faim": 85.4,
+   "soif": 69.25,
+   "energie": 58.85,
+   "hygiene": 69.13,
+   "toilettes": 52.15,
+   "social": 100.0,
+   "detente": 99.85
   },
   "emotions": {
-   "joie": 0.4498,
+   "joie": 0.45,
    "tristesse": 0.2,
-   "anxiete": 0.2796,
+   "anxiete": 0.2798,
    "colere": 0.05,
-   "solitude": 0.2447,
+   "solitude": 0.2474,
    "fierte": 0.4,
    "excitation": 0.2
   },
@@ -365,7 +354,7 @@
    "compte": 500
   },
   "habitant": {
-   "endormi_a": -21,
+   "endormi_a": -33,
    "dit": {
     "robert-chazal": [
      "fait:Secrétariat du cabinet",
@@ -445,13 +434,6 @@
      "quoi": "entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau"
     },
     {
-     "date": "2010-03-09",
-     "heure": "21:40",
-     "de": "robert-chazal",
-     "sujet": "journee",
-     "quoi": "prépare la réouverture"
-    },
-    {
      "date": "2010-03-10",
      "heure": "12:35",
      "de": "robert-chazal",
@@ -471,6 +453,13 @@
      "de": "robert-chazal",
      "sujet": "journee",
      "quoi": "réouverture, sert les clients ; parle du match avec les habitués"
+    },
+    {
+     "date": "2010-03-11",
+     "heure": "19:35",
+     "de": "robert-chazal",
+     "sujet": "journee",
+     "quoi": "prépare la réouverture"
     },
     {
      "date": "2010-03-13",
@@ -570,7 +559,7 @@
   {
    "pas": 0,
    "heure": "00:00",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -603,7 +592,7 @@
   {
    "pas": 1,
    "heure": "00:05",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -636,7 +625,7 @@
   {
    "pas": 2,
    "heure": "00:10",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -669,7 +658,7 @@
   {
    "pas": 3,
    "heure": "00:15",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -702,7 +691,7 @@
   {
    "pas": 4,
    "heure": "00:20",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -735,7 +724,7 @@
   {
    "pas": 5,
    "heure": "00:25",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -768,7 +757,7 @@
   {
    "pas": 6,
    "heure": "00:30",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -801,7 +790,7 @@
   {
    "pas": 7,
    "heure": "00:35",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -834,7 +823,7 @@
   {
    "pas": 8,
    "heure": "00:40",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -867,7 +856,7 @@
   {
    "pas": 9,
    "heure": "00:45",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -900,7 +889,7 @@
   {
    "pas": 10,
    "heure": "00:50",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -933,7 +922,7 @@
   {
    "pas": 11,
    "heure": "00:55",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -966,7 +955,7 @@
   {
    "pas": 12,
    "heure": "01:00",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -999,7 +988,7 @@
   {
    "pas": 13,
    "heure": "01:05",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1032,7 +1021,7 @@
   {
    "pas": 14,
    "heure": "01:10",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1065,7 +1054,7 @@
   {
    "pas": 15,
    "heure": "01:15",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1098,7 +1087,7 @@
   {
    "pas": 16,
    "heure": "01:20",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1131,7 +1120,7 @@
   {
    "pas": 17,
    "heure": "01:25",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1164,7 +1153,7 @@
   {
    "pas": 18,
    "heure": "01:30",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1197,7 +1186,7 @@
   {
    "pas": 19,
    "heure": "01:35",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1230,7 +1219,7 @@
   {
    "pas": 20,
    "heure": "01:40",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1263,7 +1252,7 @@
   {
    "pas": 21,
    "heure": "01:45",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1296,7 +1285,7 @@
   {
    "pas": 22,
    "heure": "01:50",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1329,7 +1318,7 @@
   {
    "pas": 23,
    "heure": "01:55",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1362,7 +1351,7 @@
   {
    "pas": 24,
    "heure": "02:00",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1395,7 +1384,7 @@
   {
    "pas": 25,
    "heure": "02:05",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1428,7 +1417,7 @@
   {
    "pas": 26,
    "heure": "02:10",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1461,7 +1450,7 @@
   {
    "pas": 27,
    "heure": "02:15",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1494,7 +1483,7 @@
   {
    "pas": 28,
    "heure": "02:20",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1527,7 +1516,7 @@
   {
    "pas": 29,
    "heure": "02:25",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1560,7 +1549,7 @@
   {
    "pas": 30,
    "heure": "02:30",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1593,7 +1582,7 @@
   {
    "pas": 31,
    "heure": "02:35",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1626,7 +1615,7 @@
   {
    "pas": 32,
    "heure": "02:40",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1659,7 +1648,7 @@
   {
    "pas": 33,
    "heure": "02:45",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1692,7 +1681,7 @@
   {
    "pas": 34,
    "heure": "02:50",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1725,7 +1714,7 @@
   {
    "pas": 35,
    "heure": "02:55",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1758,7 +1747,7 @@
   {
    "pas": 36,
    "heure": "03:00",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1791,7 +1780,7 @@
   {
    "pas": 37,
    "heure": "03:05",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1824,7 +1813,7 @@
   {
    "pas": 38,
    "heure": "03:10",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1857,7 +1846,7 @@
   {
    "pas": 39,
    "heure": "03:15",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1890,7 +1879,7 @@
   {
    "pas": 40,
    "heure": "03:20",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1923,7 +1912,7 @@
   {
    "pas": 41,
    "heure": "03:25",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1956,7 +1945,7 @@
   {
    "pas": 42,
    "heure": "03:30",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -1989,7 +1978,7 @@
   {
    "pas": 43,
    "heure": "03:35",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2022,7 +2011,7 @@
   {
    "pas": 44,
    "heure": "03:40",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2055,7 +2044,7 @@
   {
    "pas": 45,
    "heure": "03:45",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2088,7 +2077,7 @@
   {
    "pas": 46,
    "heure": "03:50",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2121,7 +2110,7 @@
   {
    "pas": 47,
    "heure": "03:55",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2154,7 +2143,7 @@
   {
    "pas": 48,
    "heure": "04:00",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2187,7 +2176,7 @@
   {
    "pas": 49,
    "heure": "04:05",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2220,7 +2209,7 @@
   {
    "pas": 50,
    "heure": "04:10",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2253,7 +2242,7 @@
   {
    "pas": 51,
    "heure": "04:15",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2286,7 +2275,7 @@
   {
    "pas": 52,
    "heure": "04:20",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2319,7 +2308,7 @@
   {
    "pas": 53,
    "heure": "04:25",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2352,7 +2341,7 @@
   {
    "pas": 54,
    "heure": "04:30",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2385,7 +2374,7 @@
   {
    "pas": 55,
    "heure": "04:35",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2418,7 +2407,7 @@
   {
    "pas": 56,
    "heure": "04:40",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2451,7 +2440,7 @@
   {
    "pas": 57,
    "heure": "04:45",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2484,7 +2473,7 @@
   {
    "pas": 58,
    "heure": "04:50",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2517,7 +2506,7 @@
   {
    "pas": 59,
    "heure": "04:55",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2550,7 +2539,7 @@
   {
    "pas": 60,
    "heure": "05:00",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2583,7 +2572,7 @@
   {
    "pas": 61,
    "heure": "05:05",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2616,7 +2605,7 @@
   {
    "pas": 62,
    "heure": "05:10",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2649,7 +2638,7 @@
   {
    "pas": 63,
    "heure": "05:15",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2682,7 +2671,7 @@
   {
    "pas": 64,
    "heure": "05:20",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2715,7 +2704,7 @@
   {
    "pas": 65,
    "heure": "05:25",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2748,7 +2737,7 @@
   {
    "pas": 66,
    "heure": "05:30",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2781,7 +2770,7 @@
   {
    "pas": 67,
    "heure": "05:35",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2814,7 +2803,7 @@
   {
    "pas": 68,
    "heure": "05:40",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2847,7 +2836,7 @@
   {
    "pas": 69,
    "heure": "05:45",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2880,7 +2869,7 @@
   {
    "pas": 70,
    "heure": "05:50",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2913,7 +2902,7 @@
   {
    "pas": 71,
    "heure": "05:55",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2946,7 +2935,7 @@
   {
    "pas": 72,
    "heure": "06:00",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -2979,7 +2968,7 @@
   {
    "pas": 73,
    "heure": "06:05",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3012,7 +3001,7 @@
   {
    "pas": 74,
    "heure": "06:10",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3045,7 +3034,7 @@
   {
    "pas": 75,
    "heure": "06:15",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3078,7 +3067,7 @@
   {
    "pas": 76,
    "heure": "06:20",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3111,7 +3100,7 @@
   {
    "pas": 77,
    "heure": "06:25",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3144,7 +3133,7 @@
   {
    "pas": 78,
    "heure": "06:30",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3177,7 +3166,7 @@
   {
    "pas": 79,
    "heure": "06:35",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3210,7 +3199,7 @@
   {
    "pas": 80,
    "heure": "06:40",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3243,7 +3232,7 @@
   {
    "pas": 81,
    "heure": "06:45",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3276,7 +3265,7 @@
   {
    "pas": 82,
    "heure": "06:50",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3309,7 +3298,7 @@
   {
    "pas": 83,
    "heure": "06:55",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3342,7 +3331,7 @@
   {
    "pas": 84,
    "heure": "07:00",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3375,7 +3364,7 @@
   {
    "pas": 85,
    "heure": "07:05",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3408,7 +3397,7 @@
   {
    "pas": 86,
    "heure": "07:10",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3441,7 +3430,7 @@
   {
    "pas": 87,
    "heure": "07:15",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3474,7 +3463,7 @@
   {
    "pas": 88,
    "heure": "07:20",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3507,7 +3496,7 @@
   {
    "pas": 89,
    "heure": "07:25",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3540,7 +3529,7 @@
   {
    "pas": 90,
    "heure": "07:30",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3573,7 +3562,7 @@
   {
    "pas": 91,
    "heure": "07:35",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -3606,7 +3595,7 @@
   {
    "pas": 92,
    "heure": "07:40",
-   "lieu": "domicile",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -9542,28 +9531,55 @@
    "pas": 252,
    "heure": "21:00",
    "lieu": "maison-chazal",
-   "piece": "sejour",
-   "posture": "assis",
+   "piece": "chambre",
+   "posture": "allongé",
    "routine": "rj-dimanche",
-   "activite": "Télévision avec Robert",
-   "action": "Regarde la télévision.",
+   "activite": "Se couche",
+   "action": "Éteint la lumière.",
    "pensee": null,
+   "deplacement": {
+    "chemin": [
+     "sejour",
+     "entree",
+     "escalier-maison",
+     "palier-etage",
+     "chambre"
+    ],
+    "distance_m": 14.2,
+    "duree_s": 14,
+    "foulees": 21,
+    "escalier": {
+     "sens": "montee",
+     "etages": 1,
+     "marches": 14,
+     "duree_s": 15,
+     "interieur": true
+    }
+   },
    "ensemble": [
     "Robert"
    ],
-   "appareils_allumes": [
-    "television",
-    "lumiere-sejour"
+   "lumiere": [
+    "éteint la lumière (sejour)",
+    "allume la lumière (entree)",
+    "éteint la lumière (entree)",
+    "allume la lumière (escalier-maison)",
+    "éteint la lumière (escalier-maison)",
+    "allume la lumière (palier-etage)",
+    "éteint la lumière (palier-etage)",
+    "allume la lumière (chambre)",
+    "éteint la lumière (chambre)"
    ],
+   "appareils_allumes": [],
    "besoins": {
     "faim": 93.0,
-    "soif": 79.0,
-    "energie": 22.0,
+    "soif": 78.9,
+    "energie": 21.7,
     "hygiene": 71.0,
     "toilettes": 65.9,
     "social": 100.0,
     "detente": 100.0,
-    "energie_ressentie": 22.0
+    "energie_ressentie": 21.7
    },
    "emotions": {
     "joie": 0.458,
@@ -9580,28 +9596,25 @@
    "pas": 253,
    "heure": "21:05",
    "lieu": "maison-chazal",
-   "piece": "sejour",
-   "posture": "assis",
+   "piece": "chambre",
+   "posture": "allongé",
    "routine": "rj-dimanche",
-   "activite": "Télévision avec Robert",
-   "action": "Regarde la télévision.",
+   "activite": "Endormissement",
+   "action": "Cherche le sommeil.",
    "pensee": null,
    "ensemble": [
     "Robert"
    ],
-   "appareils_allumes": [
-    "television",
-    "lumiere-sejour"
-   ],
+   "appareils_allumes": [],
    "besoins": {
     "faim": 92.5,
-    "soif": 78.3,
-    "energie": 21.6,
+    "soif": 78.2,
+    "energie": 21.3,
     "hygiene": 70.9,
     "toilettes": 64.8,
     "social": 100.0,
-    "detente": 100.0,
-    "energie_ressentie": 21.6
+    "detente": 99.9,
+    "energie_ressentie": 21.3
    },
    "emotions": {
     "joie": 0.453,
@@ -9618,11 +9631,11 @@
    "pas": 254,
    "heure": "21:10",
    "lieu": "maison-chazal",
-   "piece": "sejour",
-   "posture": "assis",
+   "piece": "chambre",
+   "posture": "allongé",
    "routine": "rj-dimanche",
-   "activite": "Télévision avec Robert",
-   "action": "Regarde la télévision. Robert et Josiane commentent le programme.",
+   "activite": "Endormissement",
+   "action": "Cherche le sommeil. Robert et Josiane parlent du temps qu'il fait.",
    "pensee": null,
    "ensemble": [
     "Robert"
@@ -9630,13 +9643,10 @@
    "conversation": {
     "avec": "Robert",
     "role": "ecoute",
-    "sujet": "activite",
-    "texte": "Robert et Josiane commentent le programme."
+    "sujet": "banalite",
+    "texte": "Robert et Josiane parlent du temps qu'il fait."
    },
-   "appareils_allumes": [
-    "television",
-    "lumiere-sejour"
-   ],
+   "appareils_allumes": [],
    "evenements": [
     {
      "id": "conversation_agreable",
@@ -9648,13 +9658,13 @@
    ],
    "besoins": {
     "faim": 92.0,
-    "soif": 77.6,
-    "energie": 21.2,
+    "soif": 77.5,
+    "energie": 20.9,
     "hygiene": 70.8,
     "toilettes": 63.7,
     "social": 100.0,
-    "detente": 100.0,
-    "energie_ressentie": 21.2
+    "detente": 99.9,
+    "energie_ressentie": 20.9
    },
    "emotions": {
     "joie": 0.477,
@@ -9671,693 +9681,204 @@
    "pas": 255,
    "heure": "21:15",
    "lieu": "maison-chazal",
-   "piece": "sejour",
-   "posture": "assis",
-   "routine": "rj-dimanche",
-   "activite": "Télévision avec Robert",
-   "action": "Regarde la télévision.",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
    "pensee": null,
-   "ensemble": [
-    "Robert"
-   ],
-   "appareils_allumes": [
-    "television",
-    "lumiere-sejour"
-   ],
+   "phase_sommeil": "léger",
+   "appareils_allumes": [],
    "besoins": {
-    "faim": 91.5,
-    "soif": 76.9,
-    "energie": 20.8,
+    "faim": 91.8,
+    "soif": 77.2,
+    "energie": 22.0,
     "hygiene": 70.7,
-    "toilettes": 62.6,
+    "toilettes": 63.4,
     "social": 100.0,
-    "detente": 100.0,
-    "energie_ressentie": 20.8
+    "detente": 99.9,
+    "energie_ressentie": 22.0
    },
    "emotions": {
-    "joie": 0.469,
+    "joie": 0.472,
     "tristesse": 0.2,
-    "anxiete": 0.265,
-    "colere": 0.081,
-    "solitude": 0.137,
+    "anxiete": 0.266,
+    "colere": 0.072,
+    "solitude": 0.143,
     "fierte": 0.4,
     "excitation": 0.2,
-    "concentration": 0.1
+    "concentration": 0.05
    }
   },
   {
    "pas": 256,
    "heure": "21:20",
    "lieu": "maison-chazal",
-   "piece": "sejour",
-   "posture": "assis",
-   "routine": "rj-dimanche",
-   "activite": "Télévision avec Robert",
-   "action": "Regarde la télévision.",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
    "pensee": null,
-   "ensemble": [
-    "Robert"
-   ],
-   "appareils_allumes": [
-    "television",
-    "lumiere-sejour"
-   ],
+   "phase_sommeil": "léger",
+   "appareils_allumes": [],
    "besoins": {
-    "faim": 91.0,
-    "soif": 76.2,
-    "energie": 20.4,
-    "hygiene": 70.5,
-    "toilettes": 61.5,
+    "faim": 91.6,
+    "soif": 77.0,
+    "energie": 23.2,
+    "hygiene": 70.7,
+    "toilettes": 63.0,
     "social": 100.0,
-    "detente": 100.0,
-    "energie_ressentie": 20.4
+    "detente": 99.9,
+    "energie_ressentie": 23.2
    },
    "emotions": {
-    "joie": 0.462,
+    "joie": 0.467,
     "tristesse": 0.2,
-    "anxiete": 0.266,
-    "colere": 0.081,
-    "solitude": 0.143,
+    "anxiete": 0.268,
+    "colere": 0.065,
+    "solitude": 0.155,
     "fierte": 0.4,
     "excitation": 0.2,
-    "concentration": 0.1
+    "concentration": 0.025
    }
   },
   {
    "pas": 257,
    "heure": "21:25",
    "lieu": "maison-chazal",
-   "piece": "sejour",
-   "posture": "assis",
-   "routine": "rj-dimanche",
-   "activite": "Télévision avec Robert",
-   "action": "Regarde la télévision.",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
    "pensee": null,
-   "ensemble": [
-    "Robert"
-   ],
-   "appareils_allumes": [
-    "television",
-    "lumiere-sejour"
-   ],
+   "phase_sommeil": "léger",
+   "appareils_allumes": [],
    "besoins": {
-    "faim": 90.5,
-    "soif": 75.5,
-    "energie": 20.0,
-    "hygiene": 70.4,
-    "toilettes": 60.4,
+    "faim": 91.4,
+    "soif": 76.7,
+    "energie": 24.3,
+    "hygiene": 70.6,
+    "toilettes": 62.7,
     "social": 100.0,
-    "detente": 100.0,
-    "energie_ressentie": 20.0
+    "detente": 99.9,
+    "energie_ressentie": 24.3
    },
    "emotions": {
-    "joie": 0.456,
+    "joie": 0.464,
     "tristesse": 0.2,
-    "anxiete": 0.267,
-    "colere": 0.081,
-    "solitude": 0.149,
+    "anxiete": 0.269,
+    "colere": 0.061,
+    "solitude": 0.165,
     "fierte": 0.4,
     "excitation": 0.2,
-    "concentration": 0.1
+    "concentration": 0.013
    }
   },
   {
    "pas": 258,
    "heure": "21:30",
    "lieu": "maison-chazal",
-   "piece": "sejour",
-   "posture": "assis",
-   "routine": "rj-dimanche",
-   "activite": "Télévision avec Robert",
-   "action": "Regarde la télévision.",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
    "pensee": null,
-   "ensemble": [
-    "Robert"
-   ],
-   "appareils_allumes": [
-    "television",
-    "lumiere-sejour"
-   ],
+   "phase_sommeil": "profond",
+   "appareils_allumes": [],
    "besoins": {
-    "faim": 90.0,
-    "soif": 74.8,
-    "energie": 19.6,
-    "hygiene": 70.3,
-    "toilettes": 59.3,
+    "faim": 91.2,
+    "soif": 76.5,
+    "energie": 25.5,
+    "hygiene": 70.6,
+    "toilettes": 62.3,
     "social": 100.0,
-    "detente": 100.0,
-    "energie_ressentie": 19.6
+    "detente": 99.9,
+    "energie_ressentie": 25.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.461,
     "tristesse": 0.2,
-    "anxiete": 0.268,
-    "colere": 0.081,
-    "solitude": 0.155,
+    "anxiete": 0.271,
+    "colere": 0.058,
+    "solitude": 0.174,
     "fierte": 0.4,
     "excitation": 0.2,
-    "concentration": 0.1
+    "concentration": 0.006
    }
   },
   {
    "pas": 259,
    "heure": "21:35",
    "lieu": "maison-chazal",
-   "piece": "sejour",
-   "posture": "assis",
-   "routine": "rj-dimanche",
-   "activite": "Télévision avec Robert",
-   "action": "Regarde la télévision.",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
    "pensee": null,
-   "ensemble": [
-    "Robert"
-   ],
-   "appareils_allumes": [
-    "television",
-    "lumiere-sejour"
-   ],
+   "phase_sommeil": "profond",
+   "appareils_allumes": [],
    "besoins": {
-    "faim": 89.5,
-    "soif": 74.1,
-    "energie": 19.2,
-    "hygiene": 70.2,
-    "toilettes": 58.2,
+    "faim": 91.0,
+    "soif": 76.2,
+    "energie": 26.6,
+    "hygiene": 70.5,
+    "toilettes": 62.0,
     "social": 100.0,
-    "detente": 100.0,
-    "energie_ressentie": 19.2
+    "detente": 99.9,
+    "energie_ressentie": 26.6
    },
    "emotions": {
-    "joie": 0.445,
+    "joie": 0.459,
     "tristesse": 0.2,
-    "anxiete": 0.268,
-    "colere": 0.081,
-    "solitude": 0.16,
+    "anxiete": 0.272,
+    "colere": 0.055,
+    "solitude": 0.183,
     "fierte": 0.4,
     "excitation": 0.2,
-    "concentration": 0.1
+    "concentration": 0.003
    }
   },
   {
    "pas": 260,
    "heure": "21:40",
    "lieu": "maison-chazal",
-   "piece": "sejour",
-   "posture": "assis",
-   "routine": "rj-dimanche",
-   "activite": "Télévision avec Robert",
-   "action": "Regarde la télévision.",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
    "pensee": null,
-   "ensemble": [
-    "Robert"
-   ],
-   "appareils_allumes": [
-    "television",
-    "lumiere-sejour"
-   ],
+   "phase_sommeil": "profond",
+   "appareils_allumes": [],
    "besoins": {
-    "faim": 89.0,
-    "soif": 73.4,
-    "energie": 18.8,
-    "hygiene": 70.1,
-    "toilettes": 57.1,
+    "faim": 90.8,
+    "soif": 76.0,
+    "energie": 27.8,
+    "hygiene": 70.5,
+    "toilettes": 61.6,
     "social": 100.0,
-    "detente": 100.0,
-    "energie_ressentie": 18.8
-   },
-   "emotions": {
-    "joie": 0.441,
-    "tristesse": 0.2,
-    "anxiete": 0.269,
-    "colere": 0.081,
-    "solitude": 0.165,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.1
-   }
-  },
-  {
-   "pas": 261,
-   "heure": "21:45",
-   "lieu": "maison-chazal",
-   "piece": "cuisine",
-   "posture": "debout",
-   "routine": "rj-dimanche",
-   "activite": "Toilette du soir",
-   "action": "Avant de s'y mettre, boire un grand verre d'eau.",
-   "pensee": null,
-   "deplacement": {
-    "chemin": [
-     "sejour",
-     "entree",
-     "cuisine"
-    ],
-    "distance_m": 8.9,
-    "duree_s": 9,
-    "foulees": 13
-   },
-   "lumiere": [
-    "éteint la lumière (sejour)",
-    "allume la lumière (entree)",
-    "éteint la lumière (entree)",
-    "allume la lumière (cuisine)"
-   ],
-   "appareils_allumes": [
-    "television",
-    "lumiere-cuisine"
-   ],
-   "besoins": {
-    "faim": 88.5,
-    "soif": 97.7,
-    "energie": 18.4,
-    "hygiene": 69.9,
-    "toilettes": 56.0,
-    "social": 100.0,
-    "detente": 100.0,
-    "energie_ressentie": 18.4
-   },
-   "emotions": {
-    "joie": 0.437,
-    "tristesse": 0.2,
-    "anxiete": 0.27,
-    "colere": 0.081,
-    "solitude": 0.17,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.25
-   }
-  },
-  {
-   "pas": 262,
-   "heure": "21:50",
-   "lieu": "maison-chazal",
-   "piece": "salle-de-bain",
-   "posture": "debout",
-   "routine": "rj-dimanche",
-   "activite": "Toilette du soir",
-   "action": "Toilette du soir.",
-   "pensee": null,
-   "deplacement": {
-    "chemin": [
-     "cuisine",
-     "entree",
-     "escalier-maison",
-     "palier-etage",
-     "salle-de-bain"
-    ],
-    "distance_m": 12.5,
-    "duree_s": 12,
-    "foulees": 18,
-    "escalier": {
-     "sens": "montee",
-     "etages": 1,
-     "marches": 14,
-     "duree_s": 15,
-     "interieur": true
-    }
-   },
-   "lumiere": [
-    "éteint la lumière (cuisine)",
-    "allume la lumière (entree)",
-    "éteint la lumière (entree)",
-    "allume la lumière (escalier-maison)",
-    "éteint la lumière (escalier-maison)",
-    "allume la lumière (palier-etage)",
-    "éteint la lumière (palier-etage)",
-    "allume la lumière (salle-de-bain)"
-   ],
-   "appareils_allumes": [
-    "lumiere-salle-de-bain"
-   ],
-   "besoins": {
-    "faim": 88.0,
-    "soif": 96.9,
-    "energie": 17.7,
-    "hygiene": 79.8,
-    "toilettes": 54.9,
-    "social": 99.9,
     "detente": 99.9,
-    "energie_ressentie": 17.7
+    "energie_ressentie": 27.8
    },
    "emotions": {
-    "joie": 0.433,
-    "tristesse": 0.2,
-    "anxiete": 0.271,
-    "colere": 0.081,
-    "solitude": 0.174,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.325
-   }
-  },
-  {
-   "pas": 263,
-   "heure": "21:55",
-   "lieu": "maison-chazal",
-   "piece": "salle-de-bain",
-   "posture": "debout",
-   "routine": "rj-dimanche",
-   "activite": "Toilette du soir",
-   "action": "Toilette du soir.",
-   "pensee": null,
-   "appareils_allumes": [
-    "lumiere-salle-de-bain"
-   ],
-   "besoins": {
-    "faim": 87.5,
-    "soif": 96.2,
-    "energie": 17.3,
-    "hygiene": 79.7,
-    "toilettes": 53.8,
-    "social": 99.9,
-    "detente": 99.9,
-    "energie_ressentie": 17.3
-   },
-   "emotions": {
-    "joie": 0.43,
-    "tristesse": 0.2,
-    "anxiete": 0.271,
-    "colere": 0.081,
-    "solitude": 0.179,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.363
-   }
-  },
-  {
-   "pas": 264,
-   "heure": "22:00",
-   "lieu": "domicile",
-   "piece": "chambre",
-   "posture": "allongé",
-   "routine": "rj-dimanche",
-   "activite": "Se couche",
-   "action": "Éteint la lumière.",
-   "pensee": null,
-   "deplacement": {
-    "chemin": [
-     "salle-de-bain",
-     "palier-etage",
-     "chambre"
-    ],
-    "distance_m": 4.4,
-    "duree_s": 4,
-    "foulees": 6
-   },
-   "lumiere": [
-    "éteint la lumière (salle-de-bain)",
-    "allume la lumière (palier-etage)",
-    "éteint la lumière (palier-etage)",
-    "allume la lumière (chambre)",
-    "éteint la lumière (chambre)"
-   ],
-   "appareils_allumes": [],
-   "besoins": {
-    "faim": 87.0,
-    "soif": 95.5,
-    "energie": 16.9,
-    "hygiene": 79.6,
-    "toilettes": 52.7,
-    "social": 99.8,
-    "detente": 99.8,
-    "energie_ressentie": 16.9
-   },
-   "emotions": {
-    "joie": 0.427,
-    "tristesse": 0.2,
-    "anxiete": 0.272,
-    "colere": 0.081,
-    "solitude": 0.183,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.231
-   }
-  },
-  {
-   "pas": 265,
-   "heure": "22:05",
-   "lieu": "domicile",
-   "piece": "chambre",
-   "posture": "allongé",
-   "routine": "rj-dimanche",
-   "activite": "Endormissement",
-   "action": "Cherche le sommeil.",
-   "pensee": null,
-   "appareils_allumes": [],
-   "besoins": {
-    "faim": 86.5,
-    "soif": 94.8,
-    "energie": 16.5,
-    "hygiene": 79.5,
-    "toilettes": 51.6,
-    "social": 99.8,
-    "detente": 99.8,
-    "energie_ressentie": 16.5
-   },
-   "emotions": {
-    "joie": 0.425,
-    "tristesse": 0.2,
-    "anxiete": 0.272,
-    "colere": 0.081,
-    "solitude": 0.187,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.166
-   }
-  },
-  {
-   "pas": 266,
-   "heure": "22:10",
-   "lieu": "domicile",
-   "piece": "chambre",
-   "posture": "allongé",
-   "routine": "rj-dimanche",
-   "activite": "Endormissement",
-   "action": "Cherche le sommeil.",
-   "pensee": null,
-   "appareils_allumes": [],
-   "besoins": {
-    "faim": 86.0,
-    "soif": 94.1,
-    "energie": 16.1,
-    "hygiene": 79.3,
-    "toilettes": 50.5,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 16.1
-   },
-   "emotions": {
-    "joie": 0.422,
+    "joie": 0.457,
     "tristesse": 0.2,
     "anxiete": 0.273,
-    "colere": 0.081,
-    "solitude": 0.19,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.133
-   }
-  },
-  {
-   "pas": 267,
-   "heure": "22:15",
-   "lieu": "domicile",
-   "piece": "chambre",
-   "posture": "allongé",
-   "routine": "sommeil",
-   "activite": "Sommeil",
-   "action": "Dort.",
-   "pensee": null,
-   "phase_sommeil": "léger",
-   "appareils_allumes": [],
-   "besoins": {
-    "faim": 85.8,
-    "soif": 93.8,
-    "energie": 17.2,
-    "hygiene": 79.3,
-    "toilettes": 50.2,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 17.2
-   },
-   "emotions": {
-    "joie": 0.428,
-    "tristesse": 0.2,
-    "anxiete": 0.274,
-    "colere": 0.072,
-    "solitude": 0.197,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.066
-   }
-  },
-  {
-   "pas": 268,
-   "heure": "22:20",
-   "lieu": "domicile",
-   "piece": "chambre",
-   "posture": "allongé",
-   "routine": "sommeil",
-   "activite": "Sommeil",
-   "action": "Dort.",
-   "pensee": null,
-   "phase_sommeil": "léger",
-   "appareils_allumes": [],
-   "besoins": {
-    "faim": 85.6,
-    "soif": 93.6,
-    "energie": 18.4,
-    "hygiene": 79.2,
-    "toilettes": 49.8,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 18.4
-   },
-   "emotions": {
-    "joie": 0.433,
-    "tristesse": 0.2,
-    "anxiete": 0.275,
-    "colere": 0.066,
-    "solitude": 0.202,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.033
-   }
-  },
-  {
-   "pas": 269,
-   "heure": "22:25",
-   "lieu": "domicile",
-   "piece": "chambre",
-   "posture": "allongé",
-   "routine": "sommeil",
-   "activite": "Sommeil",
-   "action": "Dort.",
-   "pensee": null,
-   "phase_sommeil": "léger",
-   "appareils_allumes": [],
-   "besoins": {
-    "faim": 85.4,
-    "soif": 93.3,
-    "energie": 19.5,
-    "hygiene": 79.2,
-    "toilettes": 49.5,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 19.5
-   },
-   "emotions": {
-    "joie": 0.436,
-    "tristesse": 0.2,
-    "anxiete": 0.275,
-    "colere": 0.061,
-    "solitude": 0.208,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.017
-   }
-  },
-  {
-   "pas": 270,
-   "heure": "22:30",
-   "lieu": "domicile",
-   "piece": "chambre",
-   "posture": "allongé",
-   "routine": "sommeil",
-   "activite": "Sommeil",
-   "action": "Dort.",
-   "pensee": null,
-   "phase_sommeil": "profond",
-   "appareils_allumes": [],
-   "besoins": {
-    "faim": 85.2,
-    "soif": 93.1,
-    "energie": 20.7,
-    "hygiene": 79.1,
-    "toilettes": 49.1,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 20.7
-   },
-   "emotions": {
-    "joie": 0.439,
-    "tristesse": 0.2,
-    "anxiete": 0.276,
-    "colere": 0.058,
-    "solitude": 0.212,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.008
-   }
-  },
-  {
-   "pas": 271,
-   "heure": "22:35",
-   "lieu": "domicile",
-   "piece": "chambre",
-   "posture": "allongé",
-   "routine": "sommeil",
-   "activite": "Sommeil",
-   "action": "Dort.",
-   "pensee": null,
-   "phase_sommeil": "profond",
-   "appareils_allumes": [],
-   "besoins": {
-    "faim": 85.0,
-    "soif": 92.8,
-    "energie": 21.8,
-    "hygiene": 79.1,
-    "toilettes": 48.8,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 21.8
-   },
-   "emotions": {
-    "joie": 0.441,
-    "tristesse": 0.2,
-    "anxiete": 0.276,
-    "colere": 0.056,
-    "solitude": 0.216,
-    "fierte": 0.4,
-    "excitation": 0.2,
-    "concentration": 0.004
-   }
-  },
-  {
-   "pas": 272,
-   "heure": "22:40",
-   "lieu": "domicile",
-   "piece": "chambre",
-   "posture": "allongé",
-   "routine": "sommeil",
-   "activite": "Sommeil",
-   "action": "Dort.",
-   "pensee": null,
-   "phase_sommeil": "profond",
-   "appareils_allumes": [],
-   "besoins": {
-    "faim": 84.8,
-    "soif": 92.6,
-    "energie": 23.0,
-    "hygiene": 79.0,
-    "toilettes": 48.4,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 23.0
-   },
-   "emotions": {
-    "joie": 0.443,
-    "tristesse": 0.2,
-    "anxiete": 0.277,
     "colere": 0.054,
-    "solitude": 0.22,
+    "solitude": 0.19,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.002
    }
   },
   {
-   "pas": 273,
-   "heure": "22:45",
-   "lieu": "domicile",
+   "pas": 261,
+   "heure": "21:45",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -10367,86 +9888,284 @@
    "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 84.6,
-    "soif": 92.3,
-    "energie": 24.1,
-    "hygiene": 79.0,
-    "toilettes": 48.1,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 24.1
+    "faim": 90.6,
+    "soif": 75.7,
+    "energie": 28.9,
+    "hygiene": 70.4,
+    "toilettes": 61.3,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 28.9
    },
    "emotions": {
-    "joie": 0.445,
+    "joie": 0.455,
+    "tristesse": 0.2,
+    "anxiete": 0.274,
+    "colere": 0.053,
+    "solitude": 0.197,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.001
+   }
+  },
+  {
+   "pas": 262,
+   "heure": "21:50",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "profond",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 90.4,
+    "soif": 75.5,
+    "energie": 30.1,
+    "hygiene": 70.4,
+    "toilettes": 60.9,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 30.1
+   },
+   "emotions": {
+    "joie": 0.454,
+    "tristesse": 0.2,
+    "anxiete": 0.275,
+    "colere": 0.052,
+    "solitude": 0.202,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.0
+   }
+  },
+  {
+   "pas": 263,
+   "heure": "21:55",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "profond",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 90.2,
+    "soif": 75.2,
+    "energie": 31.2,
+    "hygiene": 70.3,
+    "toilettes": 60.6,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 31.2
+   },
+   "emotions": {
+    "joie": 0.453,
+    "tristesse": 0.2,
+    "anxiete": 0.275,
+    "colere": 0.051,
+    "solitude": 0.208,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.0
+   }
+  },
+  {
+   "pas": 264,
+   "heure": "22:00",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "profond",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 90.0,
+    "soif": 75.0,
+    "energie": 32.4,
+    "hygiene": 70.3,
+    "toilettes": 60.2,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 32.4
+   },
+   "emotions": {
+    "joie": 0.453,
+    "tristesse": 0.2,
+    "anxiete": 0.276,
+    "colere": 0.051,
+    "solitude": 0.212,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.0
+   }
+  },
+  {
+   "pas": 265,
+   "heure": "22:05",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "profond",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 89.8,
+    "soif": 74.7,
+    "energie": 33.5,
+    "hygiene": 70.2,
+    "toilettes": 59.9,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 33.5
+   },
+   "emotions": {
+    "joie": 0.452,
+    "tristesse": 0.2,
+    "anxiete": 0.276,
+    "colere": 0.051,
+    "solitude": 0.216,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.0
+   }
+  },
+  {
+   "pas": 266,
+   "heure": "22:10",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "profond",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 89.6,
+    "soif": 74.5,
+    "energie": 34.7,
+    "hygiene": 70.2,
+    "toilettes": 59.5,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 34.7
+   },
+   "emotions": {
+    "joie": 0.452,
     "tristesse": 0.2,
     "anxiete": 0.277,
-    "colere": 0.053,
+    "colere": 0.05,
+    "solitude": 0.22,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.0
+   }
+  },
+  {
+   "pas": 267,
+   "heure": "22:15",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "léger",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 89.4,
+    "soif": 74.2,
+    "energie": 35.8,
+    "hygiene": 70.1,
+    "toilettes": 59.2,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 35.8
+   },
+   "emotions": {
+    "joie": 0.451,
+    "tristesse": 0.2,
+    "anxiete": 0.277,
+    "colere": 0.05,
     "solitude": 0.223,
     "fierte": 0.4,
     "excitation": 0.2,
-    "concentration": 0.001
+    "concentration": 0.0
    }
   },
   {
-   "pas": 274,
-   "heure": "22:50",
-   "lieu": "domicile",
+   "pas": 268,
+   "heure": "22:20",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "profond",
+   "phase_sommeil": "léger",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 84.4,
-    "soif": 92.1,
-    "energie": 25.3,
-    "hygiene": 78.9,
-    "toilettes": 47.7,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 25.3
+    "faim": 89.2,
+    "soif": 74.0,
+    "energie": 37.0,
+    "hygiene": 70.1,
+    "toilettes": 58.8,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 37.0
    },
    "emotions": {
-    "joie": 0.446,
+    "joie": 0.451,
     "tristesse": 0.2,
     "anxiete": 0.278,
-    "colere": 0.052,
+    "colere": 0.05,
     "solitude": 0.226,
     "fierte": 0.4,
     "excitation": 0.2,
-    "concentration": 0.001
+    "concentration": 0.0
    }
   },
   {
-   "pas": 275,
-   "heure": "22:55",
-   "lieu": "domicile",
+   "pas": 269,
+   "heure": "22:25",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "profond",
+   "phase_sommeil": "léger",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 84.2,
-    "soif": 91.8,
-    "energie": 26.4,
-    "hygiene": 78.9,
-    "toilettes": 47.4,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 26.4
+    "faim": 89.0,
+    "soif": 73.7,
+    "energie": 38.1,
+    "hygiene": 70.0,
+    "toilettes": 58.5,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 38.1
    },
    "emotions": {
-    "joie": 0.447,
+    "joie": 0.451,
     "tristesse": 0.2,
     "anxiete": 0.278,
-    "colere": 0.051,
+    "colere": 0.05,
     "solitude": 0.229,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -10454,32 +10173,32 @@
    }
   },
   {
-   "pas": 276,
-   "heure": "23:00",
-   "lieu": "domicile",
+   "pas": 270,
+   "heure": "22:30",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "profond",
+   "phase_sommeil": "paradoxal",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 84.0,
-    "soif": 91.6,
-    "energie": 27.6,
-    "hygiene": 78.8,
-    "toilettes": 47.0,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 27.6
+    "faim": 88.8,
+    "soif": 73.5,
+    "energie": 39.3,
+    "hygiene": 70.0,
+    "toilettes": 58.1,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 39.3
    },
    "emotions": {
-    "joie": 0.447,
+    "joie": 0.451,
     "tristesse": 0.2,
     "anxiete": 0.278,
-    "colere": 0.051,
+    "colere": 0.05,
     "solitude": 0.231,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -10487,32 +10206,32 @@
    }
   },
   {
-   "pas": 277,
-   "heure": "23:05",
-   "lieu": "domicile",
+   "pas": 271,
+   "heure": "22:35",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "profond",
+   "phase_sommeil": "paradoxal",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 83.8,
-    "soif": 91.3,
-    "energie": 28.7,
-    "hygiene": 78.8,
-    "toilettes": 46.7,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 28.7
+    "faim": 88.6,
+    "soif": 73.2,
+    "energie": 40.4,
+    "hygiene": 69.9,
+    "toilettes": 57.8,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 40.4
    },
    "emotions": {
-    "joie": 0.448,
+    "joie": 0.451,
     "tristesse": 0.2,
     "anxiete": 0.278,
-    "colere": 0.051,
+    "colere": 0.05,
     "solitude": 0.233,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -10520,29 +10239,29 @@
    }
   },
   {
-   "pas": 278,
-   "heure": "23:10",
-   "lieu": "domicile",
+   "pas": 272,
+   "heure": "22:40",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "profond",
+   "phase_sommeil": "paradoxal",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 83.6,
-    "soif": 91.1,
-    "energie": 29.9,
-    "hygiene": 78.7,
-    "toilettes": 46.3,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 29.9
+    "faim": 88.4,
+    "soif": 73.0,
+    "energie": 41.6,
+    "hygiene": 69.9,
+    "toilettes": 57.4,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 41.6
    },
    "emotions": {
-    "joie": 0.448,
+    "joie": 0.45,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.05,
@@ -10553,9 +10272,9 @@
    }
   },
   {
-   "pas": 279,
-   "heure": "23:15",
-   "lieu": "domicile",
+   "pas": 273,
+   "heure": "22:45",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -10565,17 +10284,17 @@
    "phase_sommeil": "léger",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 83.4,
-    "soif": 90.8,
-    "energie": 31.0,
-    "hygiene": 78.7,
-    "toilettes": 46.0,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 31.0
+    "faim": 88.2,
+    "soif": 72.7,
+    "energie": 42.7,
+    "hygiene": 69.8,
+    "toilettes": 57.1,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 42.7
    },
    "emotions": {
-    "joie": 0.449,
+    "joie": 0.45,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.05,
@@ -10586,9 +10305,9 @@
    }
   },
   {
-   "pas": 280,
-   "heure": "23:20",
-   "lieu": "domicile",
+   "pas": 274,
+   "heure": "22:50",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -10598,17 +10317,17 @@
    "phase_sommeil": "léger",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 83.2,
-    "soif": 90.6,
-    "energie": 32.2,
-    "hygiene": 78.6,
-    "toilettes": 45.6,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 32.2
+    "faim": 88.0,
+    "soif": 72.5,
+    "energie": 43.9,
+    "hygiene": 69.8,
+    "toilettes": 56.7,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 43.9
    },
    "emotions": {
-    "joie": 0.449,
+    "joie": 0.45,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.05,
@@ -10619,29 +10338,29 @@
    }
   },
   {
-   "pas": 281,
-   "heure": "23:25",
-   "lieu": "domicile",
+   "pas": 275,
+   "heure": "22:55",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "léger",
+   "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 83.0,
-    "soif": 90.3,
-    "energie": 33.3,
-    "hygiene": 78.6,
-    "toilettes": 45.3,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 33.3
+    "faim": 87.8,
+    "soif": 72.2,
+    "energie": 45.0,
+    "hygiene": 69.7,
+    "toilettes": 56.4,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 45.0
    },
    "emotions": {
-    "joie": 0.449,
+    "joie": 0.45,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.05,
@@ -10652,29 +10371,29 @@
    }
   },
   {
-   "pas": 282,
-   "heure": "23:30",
-   "lieu": "domicile",
+   "pas": 276,
+   "heure": "23:00",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "paradoxal",
+   "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 82.8,
-    "soif": 90.1,
-    "energie": 34.5,
-    "hygiene": 78.5,
-    "toilettes": 44.9,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 34.5
+    "faim": 87.6,
+    "soif": 72.0,
+    "energie": 46.2,
+    "hygiene": 69.7,
+    "toilettes": 56.0,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 46.2
    },
    "emotions": {
-    "joie": 0.449,
+    "joie": 0.45,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.05,
@@ -10685,29 +10404,29 @@
    }
   },
   {
-   "pas": 283,
-   "heure": "23:35",
-   "lieu": "domicile",
+   "pas": 277,
+   "heure": "23:05",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "paradoxal",
+   "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 82.6,
-    "soif": 89.8,
-    "energie": 35.6,
-    "hygiene": 78.5,
-    "toilettes": 44.6,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 35.6
+    "faim": 87.4,
+    "soif": 71.7,
+    "energie": 47.3,
+    "hygiene": 69.6,
+    "toilettes": 55.7,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 47.3
    },
    "emotions": {
-    "joie": 0.449,
+    "joie": 0.45,
     "tristesse": 0.2,
     "anxiete": 0.279,
     "colere": 0.05,
@@ -10718,26 +10437,26 @@
    }
   },
   {
-   "pas": 284,
-   "heure": "23:40",
-   "lieu": "domicile",
+   "pas": 278,
+   "heure": "23:10",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "paradoxal",
+   "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 82.4,
-    "soif": 89.6,
-    "energie": 36.8,
-    "hygiene": 78.4,
-    "toilettes": 44.2,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 36.8
+    "faim": 87.2,
+    "soif": 71.5,
+    "energie": 48.5,
+    "hygiene": 69.6,
+    "toilettes": 55.3,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 48.5
    },
    "emotions": {
     "joie": 0.45,
@@ -10751,26 +10470,26 @@
    }
   },
   {
-   "pas": 285,
-   "heure": "23:45",
-   "lieu": "domicile",
+   "pas": 279,
+   "heure": "23:15",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "léger",
+   "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 82.2,
-    "soif": 89.3,
-    "energie": 37.9,
-    "hygiene": 78.4,
-    "toilettes": 43.9,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 37.9
+    "faim": 87.0,
+    "soif": 71.2,
+    "energie": 49.6,
+    "hygiene": 69.5,
+    "toilettes": 55.0,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 49.6
    },
    "emotions": {
     "joie": 0.45,
@@ -10784,26 +10503,26 @@
    }
   },
   {
-   "pas": 286,
-   "heure": "23:50",
-   "lieu": "domicile",
+   "pas": 280,
+   "heure": "23:20",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
    "activite": "Sommeil",
    "action": "Dort.",
    "pensee": null,
-   "phase_sommeil": "léger",
+   "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 82.0,
-    "soif": 89.1,
-    "energie": 39.1,
-    "hygiene": 78.3,
-    "toilettes": 43.5,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 39.1
+    "faim": 86.8,
+    "soif": 71.0,
+    "energie": 50.8,
+    "hygiene": 69.5,
+    "toilettes": 54.6,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 50.8
    },
    "emotions": {
     "joie": 0.45,
@@ -10817,9 +10536,9 @@
    }
   },
   {
-   "pas": 287,
-   "heure": "23:55",
-   "lieu": "domicile",
+   "pas": 281,
+   "heure": "23:25",
+   "lieu": "maison-chazal",
    "piece": "chambre",
    "posture": "allongé",
    "routine": "sommeil",
@@ -10829,14 +10548,14 @@
    "phase_sommeil": "profond",
    "appareils_allumes": [],
    "besoins": {
-    "faim": 81.8,
-    "soif": 88.8,
-    "energie": 40.2,
-    "hygiene": 78.3,
-    "toilettes": 43.2,
-    "social": 99.7,
-    "detente": 99.7,
-    "energie_ressentie": 40.2
+    "faim": 86.6,
+    "soif": 70.7,
+    "energie": 51.9,
+    "hygiene": 69.4,
+    "toilettes": 54.3,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 51.9
    },
    "emotions": {
     "joie": 0.45,
@@ -10844,6 +10563,204 @@
     "anxiete": 0.28,
     "colere": 0.05,
     "solitude": 0.245,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.0
+   }
+  },
+  {
+   "pas": 282,
+   "heure": "23:30",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "profond",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 86.4,
+    "soif": 70.5,
+    "energie": 53.1,
+    "hygiene": 69.4,
+    "toilettes": 53.9,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 53.1
+   },
+   "emotions": {
+    "joie": 0.45,
+    "tristesse": 0.2,
+    "anxiete": 0.28,
+    "colere": 0.05,
+    "solitude": 0.245,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.0
+   }
+  },
+  {
+   "pas": 283,
+   "heure": "23:35",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "profond",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 86.2,
+    "soif": 70.2,
+    "energie": 54.2,
+    "hygiene": 69.3,
+    "toilettes": 53.6,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 54.2
+   },
+   "emotions": {
+    "joie": 0.45,
+    "tristesse": 0.2,
+    "anxiete": 0.28,
+    "colere": 0.05,
+    "solitude": 0.246,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.0
+   }
+  },
+  {
+   "pas": 284,
+   "heure": "23:40",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "léger",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 86.0,
+    "soif": 70.0,
+    "energie": 55.4,
+    "hygiene": 69.3,
+    "toilettes": 53.2,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 55.4
+   },
+   "emotions": {
+    "joie": 0.45,
+    "tristesse": 0.2,
+    "anxiete": 0.28,
+    "colere": 0.05,
+    "solitude": 0.246,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.0
+   }
+  },
+  {
+   "pas": 285,
+   "heure": "23:45",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "léger",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 85.8,
+    "soif": 69.7,
+    "energie": 56.5,
+    "hygiene": 69.2,
+    "toilettes": 52.9,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 56.5
+   },
+   "emotions": {
+    "joie": 0.45,
+    "tristesse": 0.2,
+    "anxiete": 0.28,
+    "colere": 0.05,
+    "solitude": 0.247,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.0
+   }
+  },
+  {
+   "pas": 286,
+   "heure": "23:50",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "léger",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 85.6,
+    "soif": 69.5,
+    "energie": 57.7,
+    "hygiene": 69.2,
+    "toilettes": 52.5,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 57.7
+   },
+   "emotions": {
+    "joie": 0.45,
+    "tristesse": 0.2,
+    "anxiete": 0.28,
+    "colere": 0.05,
+    "solitude": 0.247,
+    "fierte": 0.4,
+    "excitation": 0.2,
+    "concentration": 0.0
+   }
+  },
+  {
+   "pas": 287,
+   "heure": "23:55",
+   "lieu": "maison-chazal",
+   "piece": "chambre",
+   "posture": "allongé",
+   "routine": "sommeil",
+   "activite": "Sommeil",
+   "action": "Dort.",
+   "pensee": null,
+   "phase_sommeil": "paradoxal",
+   "appareils_allumes": [],
+   "besoins": {
+    "faim": 85.4,
+    "soif": 69.2,
+    "energie": 58.8,
+    "hygiene": 69.1,
+    "toilettes": 52.2,
+    "social": 100.0,
+    "detente": 99.9,
+    "energie_ressentie": 58.8
+   },
+   "emotions": {
+    "joie": 0.45,
+    "tristesse": 0.2,
+    "anxiete": 0.28,
+    "colere": 0.05,
+    "solitude": 0.247,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0

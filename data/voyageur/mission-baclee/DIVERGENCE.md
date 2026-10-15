@@ -58,10 +58,10 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
     - **Robert**, mardi 9 07:00, jusqu'à 08:10 — activité : Sert les clients ; café à 09:30 → Effraction à la boutique : la police, le serrurier
     - **Robert**, mardi 9 07:05, jusqu'à 08:10 — lieu : boutique → arriere-boutique
       - **Robert**, mardi 9 09:20 — lieu : boutique → arriere-boutique
-        - **Josiane**, mardi 9 19:35, jusqu'à 21:35 — appris : ne sait pas : sert les clients ; café à 16:30
+        - **Josiane**, mardi 9 19:35, jusqu'au jeudi 11 19:30 — appris : ne sait pas : sert les clients ; café à 16:30
         - **Josiane**, mardi 9 20:25, jusqu'au jeudi 11 12:25 — appris : ne sait pas : sert les clients ; café à 09:30
         - **Josiane**, mardi 9 21:00, jusqu'au jeudi 11 13:05 — appris : ne sait pas : entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau
-        - **Josiane**, mardi 9 21:40, jusqu'au jeudi 11 19:30 — appris : ne sait pas : prépare la réouverture
+        - **Josiane**, jeudi 11 19:35, jusqu'à 20:15 — appris : ne sait pas : prépare la réouverture
           - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — appris : ne sait pas : prépare le déjeuner du dimanche
     - **Josiane**, mardi 9 21:00, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : une plaque de béton neuf au sol de l'arrière-boutique
 
@@ -96,7 +96,7 @@ Seules les heures où un fait diffère.
 | 2010-03-09 | 18:00 | 4 | robert-chazal, thomas-berthier |
 | 2010-03-09 | 19:00 | 6 | josiane-chazal, robert-chazal, thomas-berthier |
 | 2010-03-09 | 20:00 | 8 | josiane-chazal, robert-chazal, thomas-berthier |
-| 2010-03-09 | 21:00 | 11 | josiane-chazal, robert-chazal, thomas-berthier |
+| 2010-03-09 | 21:00 | 10 | josiane-chazal, robert-chazal, thomas-berthier |
 | 2010-03-09 | 22:00 | 10 | josiane-chazal, robert-chazal, thomas-berthier |
 | 2010-03-09 | 23:00 | 10 | josiane-chazal, robert-chazal, thomas-berthier |
 | 2010-03-10 | 00:00 | 10 | josiane-chazal, robert-chazal, thomas-berthier |
@@ -142,8 +142,8 @@ Seules les heures où un fait diffère.
 | 2010-03-11 | 16:00 | 8 | josiane-chazal, robert-chazal, thomas-berthier |
 | 2010-03-11 | 17:00 | 8 | josiane-chazal, robert-chazal, thomas-berthier |
 | 2010-03-11 | 18:00 | 8 | josiane-chazal, robert-chazal, thomas-berthier |
-| 2010-03-11 | 19:00 | 8 | josiane-chazal, robert-chazal, thomas-berthier |
-| 2010-03-11 | 20:00 | 7 | josiane-chazal, robert-chazal, thomas-berthier |
+| 2010-03-11 | 19:00 | 9 | josiane-chazal, robert-chazal, thomas-berthier |
+| 2010-03-11 | 20:00 | 8 | josiane-chazal, robert-chazal, thomas-berthier |
 | 2010-03-11 | 21:00 | 7 | josiane-chazal, robert-chazal, thomas-berthier |
 | 2010-03-11 | 22:00 | 7 | josiane-chazal, robert-chazal, thomas-berthier |
 | 2010-03-11 | 23:00 | 7 | josiane-chazal, robert-chazal, thomas-berthier |
@@ -227,5 +227,5 @@ Seules les heures où un fait diffère.
 | gerard-morel | 0.0 | 0.0 | 0 | 0 | 0 |
 | josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
 | monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
-| robert-chazal | 0.0 | 0.0 | 0 | 0 | 2 |
+| robert-chazal | 0.28 | 0.0 | 0 | 0 | 2 |
 | thomas-berthier | 0.0 | 0.0 | 0 | 0 | 0 |

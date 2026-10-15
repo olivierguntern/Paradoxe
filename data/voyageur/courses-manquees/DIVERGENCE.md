@@ -37,15 +37,14 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
   - **Thomas**, mardi 9 18:35 — lieu : entree → atelier
     - **Thomas**, mardi 9 18:40 — lieu : cuisine → wc (par ses besoins décalés)
     - **Thomas**, mardi 9 18:40 — activité : Courses à l'épicerie de la Grande-Rue, sur son temps libre → Besoin pressant (par ses besoins décalés)
-    - **Thomas**, mardi 9 22:00 — lieu : wc → cuisine (par ses besoins décalés)
-    - **Thomas**, mardi 9 22:15 — lieu : cuisine → salle-de-bain (par ses besoins décalés)
-    - **Thomas**, mercredi 10 07:55 — lieu : cuisine → sejour (par ses besoins décalés)
-      - **Thomas**, mercredi 10 07:55 — objet : obj-netbook : sejour / bibliothèque, étagère du bas → sejour / table basse
-    - **Thomas**, mercredi 10 19:45 — lieu : chambre → cuisine (par ses besoins décalés)
-    - **Thomas**, mercredi 10 23:00 — lieu : chambre → cuisine (par ses besoins décalés)
-    - **Thomas**, jeudi 11 09:00 — lieu : cuisine → atelier (par ses besoins décalés)
-      - **Thomas**, jeudi 11 09:00 — objet : obj-lunettes : atelier / établi, dans leur étui → sur son nez
-    - … et 1 autre fait
+    - **Thomas**, mardi 9 21:35, jusqu'à 21:45 — lieu : chambre → atelier (par ses besoins décalés)
+    - **Thomas**, mardi 9 21:35 — activité : Éteint la lumière, s'endort → Travail personnel sur la montre du grand-père (axe de balancier) (par ses besoins décalés)
+      - **Thomas**, mardi 9 21:35, jusqu'à 21:45 — objet : obj-lunettes : atelier / établi, dans leur étui → sur son nez
+      - **Thomas**, mardi 9 21:35, jusqu'à 21:45 — objet : obj-montre-poignet : chambre / table de chevet → poignet gauche
+    - **Thomas**, mardi 9 21:40, jusqu'à 21:45 — activité : Endormissement → Travail personnel sur la montre du grand-père (axe de balancier) (par ses besoins décalés)
+    - **Thomas**, mardi 9 21:50 — activité : Sommeil → Éteint la lumière, s'endort (par ses besoins décalés)
+    - **Thomas**, mardi 9 21:55, jusqu'à 22:00 — activité : Sommeil → Endormissement (par ses besoins décalés)
+      - **Thomas**, jeudi 11 18:25 — achat : [('pommes', 2)] → [('bananes', 4), ('oranges', 3), ('pommes', 6)]
 
 ## Faits par habitant
 
@@ -55,7 +54,7 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 | josiane-chazal | 0 | 0 |  |
 | monique-morel | 0 | 0 |  |
 | robert-chazal | 2 | 1 | rencontre 2010-03-09 18:20 : sans Thomas |
-| thomas-berthier | 18 | 24 | activité 2010-03-09 17:55 : Range les montres dans le coffre, aligne les outils, éteint la lampe → Retenu par un passant ; lieu 2010-03-09 18:00 : wc → atelier ; objet 2010-03-09 18:05 : obj-cabas : dans sa main → entree / porte-manteau ; rencontre 2010-03-09 18:20 : sans Robert ; achat 2010-03-09 18:25 : [('bananes', 3), ('oranges', 2), ('pommes', 4)] → [] |
+| thomas-berthier | 17 | 22 | activité 2010-03-09 17:55 : Range les montres dans le coffre, aligne les outils, éteint la lampe → Retenu par un passant ; lieu 2010-03-09 18:00 : wc → atelier ; objet 2010-03-09 18:05 : obj-cabas : dans sa main → entree / porte-manteau ; rencontre 2010-03-09 18:20 : sans Robert ; achat 2010-03-09 18:25 : [('bananes', 3), ('oranges', 2), ('pommes', 4)] → [] |
 
 ## Heure par heure
 
@@ -65,12 +64,8 @@ Seules les heures où un fait diffère.
 |---|---|---|---|
 | 2010-03-09 | 17:00 | 1 | thomas-berthier |
 | 2010-03-09 | 18:00 | 14 | robert-chazal, thomas-berthier |
-| 2010-03-09 | 22:00 | 2 | thomas-berthier |
-| 2010-03-10 | 07:00 | 2 | thomas-berthier |
-| 2010-03-10 | 19:00 | 1 | thomas-berthier |
-| 2010-03-10 | 23:00 | 1 | thomas-berthier |
-| 2010-03-11 | 09:00 | 2 | thomas-berthier |
-| 2010-03-11 | 14:00 | 2 | thomas-berthier |
+| 2010-03-09 | 21:00 | 7 | thomas-berthier |
+| 2010-03-09 | 22:00 | 1 | thomas-berthier |
 | 2010-03-11 | 18:00 | 1 | thomas-berthier |
 
 ## Détails tolérés à la fin de la période
@@ -81,4 +76,4 @@ Seules les heures où un fait diffère.
 | josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
 | monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
 | robert-chazal | 0.0 | 0.0 | 0 | 0 | 1 |
-| thomas-berthier | 0.77 | 0.008 | 0 | 0 | 1 |
+| thomas-berthier | 0.76 | 0.008 | 2 | 0 | 1 |

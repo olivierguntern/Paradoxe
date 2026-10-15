@@ -164,6 +164,8 @@ Le résumé de chaque journée distingue les besoins passés sous le seuil d'ale
 | Besoin sous son seuil d'alerte (toilettes, soif, faim) | 1 + (seuil − valeur) / seuil : il s'interrompt un pas |
 | Besoin sous le double de son seuil, au début d'une étape | 1 + 0,5 × (2 × seuil − valeur) / (2 × seuil) : il en profite avant de s'y mettre |
 
+Le soir (après 21:00), épuisé (énergie sous son seuil d'alerte) pendant une détente qui ne le captive pas (télévision, lecture, temps libre ; pas le match, la belote ni le film : `captivant` dans le catalogue), il va se coucher sans attendre l'heure. Dehors, dans un lieu public qui a ses commodités (`commodites` : le cinéma, le bureau), il répond sur place à un besoin pressant. Le lieu de chaque pas, nuit comprise, est celui de la pièce (sa maison, sa boutique, le logement où il est en visite).
+
 Le moteur calcule ensuite déplacements, lumière, besoins et émotions comme pour les autres agents. La nuit s'enchaîne d'elle-même : l'étape `coucher` éteint, l'endormissement dure selon l'état émotionnel, puis il dort jusqu'à la première étape du lendemain.
 
 **Objets.** Une action du catalogue nomme les objets par leur rôle (`lunettes`, `cles`, `montre`, `tasse`…) ; la fiche dit quel objet tient ce rôle et où il se trouve dans chaque état (`porte`, `usage`… ; `rangement` est sa place de départ). `objets` le déplace au premier pas de l'action (il prend ses clés en sortant, les repose en rentrant) ; `tient` le garde pendant toute l'action et le repose dès que le pas suivant ne le demande plus : il pose ses lunettes pour aller aux toilettes et les remet en reprenant le travail. Une étape de routine peut ajouter les siens (la tenue de course le mardi matin). Chaque geste part de là où il croit l'objet ; s'il n'y est pas, il fait sans, et c'est noté.
@@ -210,6 +212,12 @@ python3 outils/simuler_habitant.py 2010-03-08 2010-03-14 --personnage robert-cha
 Exemple : Robert, Josiane et leurs voisins Gérard et Monique Morel (fiches minimales). Le samedi soir, les quatre jouent à la belote chez les Chazal ; Josiane et Monique se retrouvent au marché ; le dimanche, les deux couples se croisent au bureau de vote sans l'avoir prévu. Robert confie à Gérard et à Monique qu'il cherche un cadeau pour l'anniversaire de mariage, jamais à Josiane ; Josiane confie à Monique qu'elle se demande s'il y pensera : Monique sait les deux.
 
 Thomas y vit aussi, avec sa fiche complète : le mardi, le jeudi et le samedi, il retrouve Robert à l'épicerie (rencontre, quelques mots sur le quartier ou le temps), et Robert lui vend ses fruits, son comté, son pain de campagne sur le stock de sa boutique. Avec ces ventes, le stock du magasin de Robert se rapproche de sa semaine officielle (chaque produit au même stock 53 à 90 % du temps selon le jour, contre 49 à 89 % sans Thomas) ; le coffre finit la semaine à 1 574 € (1 623 € dans la semaine officielle).
+
+**Contrôle.** `controler_quartier.py` relit les journées du quartier et signale ce qui ne tient pas : une pièce de son logement notée dans deux lieux, un changement de lieu sans trajet, une rencontre à sens unique, un besoin sous son seuil d'alerte plus d'une heure d'affilée éveillé, une nuit de moins de six heures, une boutique ouverte sans son commerçant. Le rapport est dans `data/quartier/CONTROLE.md` ; la page `vue/quartier.html` le montre sur les journées. Sur la semaine, il reste cinq alertes, toutes attendues : une énergie basse pendant une soirée captivante (le match du mercredi, la belote du samedi, le cinéma du lundi) ou au retour de la randonnée du dimanche.
+
+```bash
+python3 outils/controler_quartier.py
+```
 
 Limite : chacun garde son propre état du monde (lumières, appareils, objets, provisions) ; les logements ne sont pas encore un état partagé. Seul le stock d'un commerce est commun, par les ventes du commerçant.
 
@@ -262,7 +270,14 @@ Le scénario `temoin` (aucune intervention) vérifie que le monde joué reprodui
 
 ## Vue fil de fer
 
-Deux pages, à ouvrir dans un navigateur : `vue/index.html`, la semaine en fil de fer (ci-dessous), et `vue/divergence.html`, le voyageur.
+Trois pages, à ouvrir dans un navigateur : `vue/index.html`, la semaine en fil de fer (ci-dessous) ; `vue/quartier.html`, le contrôle visuel du quartier ; `vue/divergence.html`, le voyageur.
+
+**Le quartier** (`vue/quartier.html`) : une ligne par habitant, sur un jour ou la semaine (`quartier.html#semaine`, `#samedi`…) ; la couleur dit où il est (endormi, chez lui, chez quelqu'un, au commerce, dehors, en voiture), un filet violet marque les moments passés avec quelqu'un, des triangles rouges les alertes du contrôle. À l'instant choisi : pour chacun, l'activité, l'endroit, avec qui, l'action et ses besoins, en jauges avec leur seuil d'alerte. La liste des alertes mène à leur instant.
+
+```bash
+# Recalculer les données de la page du quartier (et le contrôle)
+python3 outils/exporter_quartier.py
+```
 
 **Le voyageur** (`vue/divergence.html`) : on choisit un scénario (pastille de la couleur du verdict) ; une frise montre, habitant par habitant, chaque fait qui diffère du monde de référence, en bandes par genre (endroit et activité, rencontres, objets et achats, ce qu'on a appris, anachronismes), avec les interventions du voyageur en traits rouges, sur six heures autour de l'instant, un jour ou la semaine. En cliquant sur la frise (ou avec les flèches), on choisit l'instant : pour chaque habitant, ce qu'il fait dans le monde de référence et, s'il diffère, dans le monde joué, avec les faits en cours. La chaîne des causes est un arbre dont chaque fait mène à son instant sur la frise. Le scénario affiché se retrouve dans l'adresse (`divergence.html#scenario=belote`).
 

@@ -12,14 +12,14 @@
 
 Premier fait différent pour chaque habitant touché (habitants touchés directement, visés ou témoins : robert-chazal) :
 
-- **thomas-berthier** (cascade) : le samedi 13 mars à 11:55, achat ([('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)])
+- **thomas-berthier** (cascade) : le samedi 13 mars à 11:55, achat ([('comte', 250), ('pain_campagne', 1)] → [('comte', 250)])
 
 ## Chaîne des causes
 
 Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué : l'intervention du voyageur, le changement chez l'autre pour une rencontre, la dernière rencontre pour ce qu'on apprend, sinon la suite de ce qui a déjà changé pour lui.
 
 - **Le voyageur**, samedi 13 11:00 — achète 20 × pain_campagne chez Robert
-  - **Thomas**, samedi 13 11:55 — achat : [('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)]
+  - **Thomas**, samedi 13 11:55 — achat : [('comte', 250), ('pain_campagne', 1)] → [('comte', 250)]
 
 ## Faits par habitant
 
@@ -29,7 +29,7 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 | josiane-chazal | 0 | 0 |  |
 | monique-morel | 0 | 0 |  |
 | robert-chazal | 0 | 0 |  |
-| thomas-berthier | 1 | 1 | achat 2010-03-13 11:55 : [('comte', 250), ('oranges', 2), ('pain_campagne', 1)] → [('comte', 250), ('oranges', 2)] |
+| thomas-berthier | 1 | 1 | achat 2010-03-13 11:55 : [('comte', 250), ('pain_campagne', 1)] → [('comte', 250)] |
 
 ## Heure par heure
 
