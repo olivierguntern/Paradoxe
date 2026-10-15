@@ -237,8 +237,9 @@ def charger_plans():
                 lot["portes"].append({"entre": [f"{logement}/{a}", f"{logement}/{b}"], "segment": seg, "escalier": bool(d.get("escalier")),
                                       "niveau": niv_de.get(b, niv_de.get(a, niv0))})
             for f in plan.get("fenetres", []):
-                lot["fenetres"].append({"segment": f["segment"], "niveau": niv_de.get(f["piece"], niv0), "piece": f"{logement}/{f['piece']}"})
-            for m in plan.get("mobilier", []):
+                lot["fenetres"].append({"segment": f["segment"], "niveau": niv_de.get(f["piece"], niv0), "piece": f"{logement}/{f['piece']}",
+                                        "vitrine": bool(f.get("vitrine"))})
+            for m in plan.get("mobilier", []) + P.get("complements", {}).get(lid, {}).get("mobilier", []):
                 lot["mobilier"].append({"nom": m["nom"], "piece": f"{logement}/{m['piece']}", "boite": m["boite"], "z": m.get("z", 0),
                                         "niveau": niv_de.get(m["piece"], niv0)})
             for pid, postes in (plan.get("postes") or {}).items():
