@@ -2,7 +2,7 @@
 
 **Attendu.** Les Vial sont rentrés de Vienne : Simone voit un inconnu à la porte de la cour depuis sa cuisine, puis tous deux entendent la scie (Henri a encore son appareil auditif). Simone le raconte à Robert en descendant chercher son pain.
 
-**Verdict : paradoxe : 7 habitants touchés, jusqu'à 26 faits différents dans une heure.**
+**Verdict : paradoxe : 7 habitants touchés, jusqu'à 28 faits différents dans une heure.**
 
 ## Mission : La branche fossilisée — échouée
 
@@ -30,6 +30,7 @@ Avancement : acces : ouvert, dalle : decoupee, trou : ouvert, profondeur_m : 2.0
 - 2010-03-09 01:25 : trouve la branche fossilisée, à 2.0 m
 - 2010-03-09 06:30 : Robert remarque : une fine poussière de béton sur les rayons et le comptoir
 - 2010-03-09 06:30 : Robert réagit : plainte
+- 2010-03-09 06:35 : Robert remarque : un carré découpé dans la dalle de l'arrière-boutique, la terre à nu
 - 2010-03-09 06:35 : Robert remarque : un tas de terre et un trou dans le sol de l'arrière-boutique
 - 2010-03-10 08:10 : Robert a appris de Simone : par la fenêtre de la cuisine, un inconnu à la porte de la cour de l'épicerie
 - 2010-03-10 08:10 : Robert réagit : surprendre
@@ -64,6 +65,7 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
         - **Josiane**, mercredi 10 12:35, jusqu'à 13:05 — appris : ne sait pas : sert les clients
         - **Josiane**, mercredi 10 13:10, jusqu'à 21:15 — appris : ne sait pas : pain, mise en rayon, lève le rideau
         - **Josiane**, mercredi 10 20:50, jusqu'au dimanche 14 23:55 — appris : apprend : un cambrioleur dans l'arrière-boutique
+        - **Josiane**, jeudi 11 19:35, jusqu'à 20:15 — appris : ne sait pas : prépare la réouverture
       - **Josiane**, mercredi 10 12:35, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : par la fenêtre de la cuisine, un inconnu à la porte de la cour de l'épicerie
 - **Le voyageur**, lundi 8 19:30 — découper la dalle de béton à la scie (120 min)
   - **Simone**, lundi 8 19:30, jusqu'au dimanche 14 23:55 — anomalie : remarque : le hurlement d'une scie à béton dans l'arrière-boutique
@@ -80,6 +82,9 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
     - **Josiane**, mardi 9 19:35, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : une fine poussière de béton sur les rayons et le comptoir
       - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — anomalie : entend parler de : une fine poussière de béton sur les rayons et le comptoir
         - **Gérard**, dimanche 14 15:50, jusqu'à 23:55 — anomalie : entend parler de : une fine poussière de béton sur les rayons et le comptoir
+  - **Robert**, mardi 9 06:35, jusqu'au dimanche 14 23:55 — anomalie : remarque : un carré découpé dans la dalle de l'arrière-boutique, la terre à nu
+    - **Josiane**, mardi 9 20:25, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : un carré découpé dans la dalle de l'arrière-boutique, la terre à nu
+    - **Thomas**, samedi 13 11:50, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : un carré découpé dans la dalle de l'arrière-boutique, la terre à nu
   - **Simone**, jeudi 11 08:05, jusqu'au dimanche 14 23:55 — anomalie : remarque : une fine poussière de béton sur les rayons et le comptoir
     - **Henri**, jeudi 11 09:20, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : une fine poussière de béton sur les rayons et le comptoir
     - **Henri**, jeudi 11 09:20, jusqu'à 10:05 — appris : ne sait pas : lessive et repassage
@@ -106,11 +111,10 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
       - **Robert**, mardi 9 08:05 — rencontre : sans Simone
       - **Simone**, mardi 9 08:05 — rencontre : sans Robert
       - **Robert**, mardi 9 09:20 — lieu : boutique → arriere-boutique
-        - **Josiane**, mardi 9 19:35, jusqu'à 20:55 — appris : ne sait pas : sert les clients ; café à 16:30
+        - **Josiane**, mardi 9 19:35, jusqu'au jeudi 11 19:30 — appris : ne sait pas : sert les clients ; café à 16:30
         - **Josiane**, mardi 9 20:25, jusqu'au jeudi 11 12:25 — appris : ne sait pas : sert les clients ; café à 09:30
         - **Josiane**, mardi 9 21:00, jusqu'au jeudi 11 13:05 — appris : ne sait pas : entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau
-    - **Josiane**, mardi 9 20:25, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : un tas de terre et un trou dans le sol de l'arrière-boutique
-    - **Thomas**, samedi 13 11:50, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : un tas de terre et un trou dans le sol de l'arrière-boutique
+    - **Josiane**, mardi 9 21:00, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : un tas de terre et un trou dans le sol de l'arrière-boutique
 
 ## Faits par habitant
 
@@ -118,9 +122,9 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 |---|---|---|---|
 | gerard-morel | 98 | 1 | anomalie 2010-03-14 15:50 : entend parler de : une fine poussière de béton sur les rayons et le comptoir |
 | henri-vial | 1779 | 9 | anomalie 2010-03-08 19:45 : remarque : le hurlement d'une scie à béton dans l'arrière-boutique ; appris 2010-03-08 20:45 : ne sait pas : prépare le dîner |
-| josiane-chazal | 1493 | 15 | appris 2010-03-09 19:35 : ne sait pas : sert les clients ; café à 16:30 ; anomalie 2010-03-09 19:35 : entend parler de : une fine poussière de béton sur les rayons et le comptoir |
+| josiane-chazal | 1493 | 17 | appris 2010-03-09 19:35 : ne sait pas : sert les clients ; café à 16:30 ; anomalie 2010-03-09 19:35 : entend parler de : une fine poussière de béton sur les rayons et le comptoir |
 | monique-morel | 113 | 2 | appris 2010-03-14 14:35 : ne sait pas : prépare le déjeuner du dimanche ; anomalie 2010-03-14 14:35 : entend parler de : une fine poussière de béton sur les rayons et le comptoir |
-| robert-chazal | 1650 | 11 | anomalie 2010-03-09 06:30 : remarque : une fine poussière de béton sur les rayons et le comptoir ; lieu 2010-03-09 06:35 : boutique → arriere-boutique ; activité 2010-03-09 06:35 : Entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau → Effraction à la boutique : la police, le serrurier ; rencontre 2010-03-09 08:05 : sans Simone |
+| robert-chazal | 1650 | 12 | anomalie 2010-03-09 06:30 : remarque : une fine poussière de béton sur les rayons et le comptoir ; lieu 2010-03-09 06:35 : boutique → arriere-boutique ; activité 2010-03-09 06:35 : Entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau → Effraction à la boutique : la police, le serrurier ; rencontre 2010-03-09 08:05 : sans Simone |
 | simone-vial | 1786 | 8 | anomalie 2010-03-08 19:10 : remarque : par la fenêtre de la cuisine, un inconnu à la porte de la cour de l'épicerie ; rencontre 2010-03-09 08:05 : sans Robert ; appris 2010-03-09 10:50 : ne sait pas : lit Le Progrès de la première à la dernière page, puis les mots croisés |
 | thomas-berthier | 1507 | 2 | anomalie 2010-03-09 18:25 : entend parler de : une fine poussière de béton sur les rayons et le comptoir |
 
@@ -141,144 +145,144 @@ Seules les heures où un fait diffère.
 | 2010-03-09 | 03:00 | 7 | henri-vial, simone-vial |
 | 2010-03-09 | 04:00 | 7 | henri-vial, simone-vial |
 | 2010-03-09 | 05:00 | 7 | henri-vial, simone-vial |
-| 2010-03-09 | 06:00 | 11 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 07:00 | 12 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 08:00 | 14 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 09:00 | 11 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 10:00 | 11 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 11:00 | 11 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 12:00 | 12 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 13:00 | 11 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 14:00 | 11 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 15:00 | 11 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 16:00 | 11 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 17:00 | 11 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-09 | 18:00 | 12 | henri-vial, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-09 | 19:00 | 14 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-09 | 20:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-09 | 21:00 | 17 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-09 | 22:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-09 | 23:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 00:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 01:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 02:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 03:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 04:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 05:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 06:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 07:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 08:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 09:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 10:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 11:00 | 16 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 12:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 13:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 14:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 15:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 16:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 17:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 18:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 19:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 20:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 21:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 22:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-10 | 23:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 00:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 01:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 02:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 03:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 04:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 05:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 06:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 07:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 08:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 09:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 10:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 11:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 12:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 13:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 14:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 15:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 16:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 17:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 18:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 19:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 20:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 21:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 22:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-11 | 23:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 00:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 01:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 02:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 03:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 04:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 05:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 06:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 07:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 08:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 09:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 10:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 11:00 | 18 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 12:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 13:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 14:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 15:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 16:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 17:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 18:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 19:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 20:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 21:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 22:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-12 | 23:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 00:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 01:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 02:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 03:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 04:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 05:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 06:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 07:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 08:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 09:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 10:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 11:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 12:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 13:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 14:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 15:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 16:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 17:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 18:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 19:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 20:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 21:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 22:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-13 | 23:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 00:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 01:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 02:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 03:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 04:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 05:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 06:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 07:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 08:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 09:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 10:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 11:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 12:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 13:00 | 23 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 14:00 | 24 | henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 15:00 | 26 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 16:00 | 25 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 17:00 | 26 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 18:00 | 25 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 19:00 | 24 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 20:00 | 24 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 21:00 | 24 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 22:00 | 24 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
-| 2010-03-14 | 23:00 | 24 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-09 | 06:00 | 12 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 07:00 | 13 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 08:00 | 15 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 09:00 | 12 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 10:00 | 12 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 11:00 | 12 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 12:00 | 13 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 13:00 | 12 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 14:00 | 12 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 15:00 | 12 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 16:00 | 12 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 17:00 | 12 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-09 | 18:00 | 13 | henri-vial, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-09 | 19:00 | 15 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-09 | 20:00 | 17 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-09 | 21:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-09 | 22:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-09 | 23:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 00:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 01:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 02:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 03:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 04:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 05:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 06:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 07:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 08:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 09:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 10:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 11:00 | 19 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 12:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 13:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 14:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 15:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 16:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 17:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 18:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 19:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 20:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 21:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 22:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-10 | 23:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 00:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 01:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 02:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 03:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 04:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 05:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 06:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 07:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 08:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 09:00 | 24 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 10:00 | 24 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 11:00 | 23 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 12:00 | 23 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 13:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 14:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 15:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 16:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 17:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 18:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 19:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 20:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 21:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 22:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-11 | 23:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 00:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 01:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 02:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 03:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 04:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 05:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 06:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 07:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 08:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 09:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 10:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 11:00 | 20 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 12:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 13:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 14:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 15:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 16:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 17:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 18:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 19:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 20:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 21:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 22:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-12 | 23:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 00:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 01:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 02:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 03:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 04:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 05:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 06:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 07:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 08:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 09:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 10:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 11:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 12:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 13:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 14:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 15:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 16:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 17:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 18:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 19:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 20:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 21:00 | 23 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 22:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-13 | 23:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 00:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 01:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 02:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 03:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 04:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 05:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 06:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 07:00 | 21 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 08:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 09:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 10:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 11:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 12:00 | 22 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 13:00 | 25 | henri-vial, josiane-chazal, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 14:00 | 26 | henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 15:00 | 28 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 16:00 | 27 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 17:00 | 28 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 18:00 | 27 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 19:00 | 26 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 20:00 | 26 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 21:00 | 26 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 22:00 | 26 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
+| 2010-03-14 | 23:00 | 26 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial, thomas-berthier |
 
 ## Détails tolérés à la fin de la période
 

@@ -280,6 +280,14 @@ Quatre pages : `vue/index.html`, la semaine en fil de fer (ci-dessous) ; `vue/qu
 
 **Jouer John** (`vue/jouer.html`, servie par `outils/serveur_jeu.py` ; `jouer.html?scenario=<nom>` part d'un scénario) : pour parler à quelqu'un, on peut annoncer des travaux, en parlant ou non de la boutique de Robert ; pour déplacer un objet, on le choisit parmi ceux de l'habitant ; la mission et ce que John sait (indices de `data/missions/<id>.json`), le plan à composer (jour, heure, geste ou autre intervention, ce qu'il porte), en partant d'un scénario existant ou d'un plan vide ; « Lancer la semaine » rejoue le quartier avec ce plan et donne le résultat de la mission, la divergence, le journal de John et la chaîne des causes ; la partie s'ouvre ensuite sur la frise de la page du voyageur (`divergence.html?partie`). Les jours qui précèdent la première intervention sont recopiés du monde de référence : une partie se joue en quelques secondes. La partie est écrite dans `data/voyageur/parties/` (non versionné) ; le serveur n'écoute que sur la machine (127.0.0.1).
 
+**Explorer une mission** (`explorer_mission.py`) : la mission est-elle trop facile, trop difficile ? À partir d'un scénario, l'outil joue des dizaines de variantes du plan, en parallèle : tout le plan avancé ou retardé (jusqu'à 4 h, par demi-heures), une seule intervention décalée, une intervention retirée, le plan un autre jour. Pour chacune : le résultat de la mission, le verdict, et ce qui a trahi le voyageur (le premier habitant qui a remarqué quelque chose, ou le premier geste impossible). Le rapport est dans `data/missions/<mission>-exploration-<scénario>.md`.
+
+```bash
+python3 outils/explorer_mission.py data/voyageur/mission-soignee.json
+```
+
+Sur `mission-soignee` : 7 variantes réussies sur 38. Seul le lundi convient (les autres jours, Robert est à la boutique ou Simone voit la porte de la cour) ; le plan tolère de commencer une demi-heure à une heure et demie plus tard (plus tôt, Robert passe à 09:10 ; plus tard, les Vial rentrent de Vienne à 18:05) ; chaque geste est nécessaire, sauf l'aération (brûlée à 16:30, l'odeur est partie au matin) ; couler le béton une demi-heure plus tard raccourcit le repos de John sous six heures, et il nettoie mal. Sur `mission-soir` : 12 sur 45, jamais parfaitement. L'exploration a montré qu'une dalle découpée puis rebouchée de terre, sans béton, passait inaperçue : `decouper_dalle` laisse maintenant `dalle_ouverte`, que seul le béton efface.
+
 ```bash
 python3 outils/serveur_jeu.py          # puis ouvrir http://127.0.0.1:8010/jouer.html
 ```

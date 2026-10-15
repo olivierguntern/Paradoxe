@@ -2,7 +2,7 @@
 
 **Attendu.** Robert, à quelques mètres, entend la scie à béton : il découvre l'intrus, le raconte à Josiane et à la belote. La branche est peut-être brûlée, mais le paradoxe est certain.
 
-**Verdict : paradoxe : 6 habitants touchés, jusqu'à 12 faits différents dans une heure.**
+**Verdict : paradoxe : 6 habitants touchés, jusqu'à 13 faits différents dans une heure.**
 
 ## Mission : La branche fossilisée — échouée
 
@@ -36,6 +36,7 @@ Gestes impossibles :
 - 2010-03-13 15:05 : Robert remarque : un inconnu en train de découper le sol de l'arrière-boutique à la scie
 - 2010-03-13 15:05 : Robert réagit : surprendre
 - 2010-03-13 15:05 : surpris, le voyageur s'enfuit ; il ne revient pas dans ce lieu aujourd'hui
+- 2010-03-13 15:05 : Robert remarque : un carré découpé dans la dalle de l'arrière-boutique, la terre à nu
 - 2010-03-13 17:00 : ne peut pas creuser sous la dalle : il a été surpris ici aujourd'hui et s'est enfui
 - 2010-03-13 21:00 : ne peut pas brûler la branche fossilisée : il a été surpris ici aujourd'hui et s'est enfui
 - 2010-03-13 21:30 : ne peut pas reboucher le trou : il a été surpris ici aujourd'hui et s'est enfui
@@ -71,10 +72,11 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
     - **Henri**, samedi 13 18:15, jusqu'à 19:55 — appris : ne sait pas : coud et écoute la radio pendant qu'Henri est aux boules
     - **Henri**, samedi 13 20:00, jusqu'à 21:00 — appris : ne sait pas : prépare la pâte à crêpes et les crêpes
     - **Henri**, samedi 13 21:05, jusqu'à 21:30 — appris : ne sait pas : écrit à sa petite-fille Camille
+  - **Robert**, samedi 13 15:05, jusqu'au dimanche 14 23:55 — anomalie : remarque : un carré découpé dans la dalle de l'arrière-boutique, la terre à nu
+    - **Josiane**, samedi 13 23:15, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : un carré découpé dans la dalle de l'arrière-boutique, la terre à nu
+      - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — appris : ne sait pas : prépare le déjeuner du dimanche
   - **Robert**, samedi 13 15:05, jusqu'au dimanche 14 23:55 — anomalie : remarque : un inconnu en train de découper le sol de l'arrière-boutique à la scie
     - **Robert**, samedi 13 15:10, jusqu'à 16:25 — activité : Sert les clients ; café à 16:30 → Un cambrioleur dans l'arrière-boutique
-      - **Josiane**, samedi 13 23:15, jusqu'au dimanche 14 23:55 — appris : apprend : un cambrioleur dans l'arrière-boutique
-        - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — appris : ne sait pas : prépare le déjeuner du dimanche
     - **Josiane**, samedi 13 22:25, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie
 - **Le voyageur**, samedi 13 17:00 — creuser sous la dalle (240 min)
 - **Le voyageur**, samedi 13 21:00 — brûler la branche fossilisée (30 min)
@@ -87,9 +89,9 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 |---|---|---|---|
 | gerard-morel | 98 | 1 | anomalie 2010-03-14 15:50 : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique |
 | henri-vial | 357 | 4 | appris 2010-03-13 18:15 : ne sait pas : coud et écoute la radio pendant qu'Henri est aux boules ; anomalie 2010-03-13 18:15 : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique |
-| josiane-chazal | 329 | 4 | anomalie 2010-03-13 20:35 : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique ; appris 2010-03-13 23:15 : apprend : un cambrioleur dans l'arrière-boutique |
+| josiane-chazal | 329 | 4 | anomalie 2010-03-13 20:35 : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique |
 | monique-morel | 113 | 2 | appris 2010-03-14 14:35 : ne sait pas : prépare le déjeuner du dimanche ; anomalie 2010-03-14 14:35 : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique |
-| robert-chazal | 396 | 6 | anomalie 2010-03-13 15:00 : remarque : le hurlement d'une scie à béton dans l'arrière-boutique ; lieu 2010-03-13 15:05 : boutique → arriere-boutique ; activité 2010-03-13 15:05 : Sert les clients ; café à 16:30 → Va voir d'où vient le bruit |
+| robert-chazal | 396 | 7 | anomalie 2010-03-13 15:00 : remarque : le hurlement d'une scie à béton dans l'arrière-boutique ; lieu 2010-03-13 15:05 : boutique → arriere-boutique ; activité 2010-03-13 15:05 : Sert les clients ; café à 16:30 → Va voir d'où vient le bruit |
 | simone-vial | 396 | 1 | anomalie 2010-03-13 15:00 : remarque : le hurlement d'une scie à béton dans l'arrière-boutique |
 | thomas-berthier | 0 | 0 |  |
 
@@ -99,39 +101,39 @@ Seules les heures où un fait diffère.
 
 | Date | Heure | Faits | Habitants touchés |
 |---|---|---|---|
-| 2010-03-13 | 15:00 | 7 | robert-chazal, simone-vial |
-| 2010-03-13 | 16:00 | 6 | robert-chazal, simone-vial |
-| 2010-03-13 | 17:00 | 4 | robert-chazal, simone-vial |
-| 2010-03-13 | 18:00 | 6 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-13 | 19:00 | 6 | henri-vial, robert-chazal, simone-vial |
-| 2010-03-13 | 20:00 | 7 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-13 | 21:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-13 | 22:00 | 8 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-13 | 23:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 00:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 01:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 02:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 03:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 04:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 05:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 06:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 07:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 08:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 09:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 10:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 11:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 12:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 13:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
-| 2010-03-14 | 14:00 | 11 | henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
-| 2010-03-14 | 15:00 | 12 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
-| 2010-03-14 | 16:00 | 12 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
-| 2010-03-14 | 17:00 | 12 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
-| 2010-03-14 | 18:00 | 12 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
-| 2010-03-14 | 19:00 | 12 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
-| 2010-03-14 | 20:00 | 12 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
-| 2010-03-14 | 21:00 | 12 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
-| 2010-03-14 | 22:00 | 12 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
-| 2010-03-14 | 23:00 | 12 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
+| 2010-03-13 | 15:00 | 8 | robert-chazal, simone-vial |
+| 2010-03-13 | 16:00 | 7 | robert-chazal, simone-vial |
+| 2010-03-13 | 17:00 | 5 | robert-chazal, simone-vial |
+| 2010-03-13 | 18:00 | 7 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-13 | 19:00 | 7 | henri-vial, robert-chazal, simone-vial |
+| 2010-03-13 | 20:00 | 8 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-13 | 21:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-13 | 22:00 | 9 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-13 | 23:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 00:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 01:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 02:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 03:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 04:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 05:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 06:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 07:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 08:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 09:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 10:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 11:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 12:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 13:00 | 10 | henri-vial, josiane-chazal, robert-chazal, simone-vial |
+| 2010-03-14 | 14:00 | 12 | henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
+| 2010-03-14 | 15:00 | 13 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
+| 2010-03-14 | 16:00 | 13 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
+| 2010-03-14 | 17:00 | 13 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
+| 2010-03-14 | 18:00 | 13 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
+| 2010-03-14 | 19:00 | 13 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
+| 2010-03-14 | 20:00 | 13 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
+| 2010-03-14 | 21:00 | 13 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
+| 2010-03-14 | 22:00 | 13 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
+| 2010-03-14 | 23:00 | 13 | gerard-morel, henri-vial, josiane-chazal, monique-morel, robert-chazal, simone-vial |
 
 ## Détails tolérés à la fin de la période
 
