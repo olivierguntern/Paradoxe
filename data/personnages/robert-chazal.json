@@ -387,7 +387,8 @@
   "relations": {
     "josiane-chazal": { "type": "conjoint", "evenement": "moment_josiane", "absence": "absence_conjoint" },
     "gerard-morel": { "type": "ami" },
-    "monique-morel": { "type": "ami" }
+    "monique-morel": { "type": "ami" },
+    "thomas-berthier": { "type": "client", "rencontre": "client_habitue" }
   },
   "personnes_presentes": [
     { "id": "josiane-chazal", "nom": "Josiane Chazal, née Moreau", "lien": "épouse depuis le 16 mars 1976, 56 ans", "simule": false, "attachement": 0.95,
@@ -421,6 +422,7 @@
   "commerce": {
     "id": "epicerie-chazal",
     "nom": "Épicerie Chazal",
+    "salle": "boutique",
     "adresse": "Grande-Rue de la Croix-Rousse, 69004 Lyon",
     "horaires": {
       "lundi": [],

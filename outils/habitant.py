@@ -91,6 +91,7 @@ class Habitant:
         self.COMMERCE = self.commerce(self.APPRO["commerce"]) if self.APPRO else {}
         self.listes = {}         # début d'une étape de courses -> liste établie en partant (None : il n'y va pas)
         self.comptoir = None     # service au comptoir de son propre commerce, créé au premier client
+        self.achat = None        # achat du pas décidé dans le commerce d'un autre habitant
 
     def commerce(self, pid):
         """Le commerce où il s'approvisionne : celui de sa propre fiche (il prélève), ou celui d'un autre habitant (il achète)."""
@@ -390,6 +391,8 @@ class Habitant:
         especes = total <= P.get("especes_si_moins_de", 0) and self.sim.argent.get("especes", 0) - total >= P.get("garde_en_especes", 0)
         st["achats"] = achats
         st["argent"] = {"especes" if especes else "compte": -total}
+        # ce que le commerçant lui vend, s'il vit dans le même quartier (quartier.py)
+        self.achat = {"commerce": self.APPRO["commerce"], "lignes": lignes, "paiement": "especes" if especes else "carte"}
         self.decisions.append(f"{hm(self.i)} : courses : {', '.join(self.libelle(x) for x in lignes)} "
                               f"({f'{total:.2f}'.replace('.', ',')} €, {'en espèces' if especes else 'par carte'}).")
 
@@ -516,6 +519,7 @@ class Habitant:
         i = self.i
         self.etape_courante = None
         self.action_courante = {}
+        self.achat = None
         if self.coucher:
             if i >= self.coucher[1]:
                 self.dormir("Sommeil")
@@ -554,7 +558,8 @@ class Habitant:
         if a.get("vehicule"):
             piece, lieu, extra = self.VEHICULE.get("nom_court", "véhicule"), e["lieu"], self.conduire(d, f, i)
         elif a.get("au_commerce"):
-            piece = lieu = e["lieu"]
+            # dans la salle où le commerçant sert ses clients (commerce.salle), au lieu de l'étape
+            piece, lieu = self.COMMERCE.get("salle", e["lieu"]), e["lieu"]
         elif a.get("exterieur"):
             piece, lieu = a.get("piece", e["lieu"]), "exterieur"
         elif a.get("lieu_phase"):

@@ -36,7 +36,7 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 | `competences`, `biographie` | Savoir-faire et passé daté |
 | `personnes_en_memoire` | Personnes qui existent seulement dans ses souvenirs et ses pensées |
 | `economie`, `travail` | Argent, charges, horaires, travaux en cours et ordre de priorité |
-| `commerce` | Pour un commerçant : horaires, livraisons, affluence par heure, paniers des clients, rayons de la boutique dans l'ordre du tour d'un client, catalogue (rayon, prix, stock initial, stock cible), habitués et leurs propos du jour |
+| `commerce` | Pour un commerçant : salle où il sert ses clients (`salle`), horaires, livraisons, affluence par heure, paniers des clients, rayons de la boutique dans l'ordre du tour d'un client, catalogue (rayon, prix, stock initial, stock cible), habitués et leurs propos du jour |
 | `lieux`, `trajets` | Domicile, épicerie, cinéma, bureau de vote et parcours (course, épicerie, sorties à pied) détaillés par segments (distance, dénivelé, durée) |
 | `immeuble` | Étage, escalier (66 marches), durées et efforts de montée et de descente |
 | `domicile` | Pièces (avec ou sans fenêtre), plan des liaisons et distances, petits déplacements par activité, mobilier, équipements, provisions chiffrées et plats préparés |
@@ -81,7 +81,7 @@ Vérifier la fiche telle que le moteur la voit, puis la faire vivre avec les aut
 
 ```bash
 python3 outils/verifier_fiche.py data/personnages/gerard-morel.json
-python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages robert-chazal josiane-chazal gerard-morel monique-morel --dossier data/quartier
+python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages thomas-berthier robert-chazal josiane-chazal gerard-morel monique-morel --dossier data/quartier
 ```
 
 ## Timelines

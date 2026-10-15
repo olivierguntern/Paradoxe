@@ -16,8 +16,13 @@ relation) et de la section `relations` de chaque fiche, qui peut les remplacer.
 - Conversation : entre deux habitants ensemble et disponibles, selon la
   probabilité de leur relation. Celui qui parle choisit son sujet : une
   préoccupation (à un proche, jamais à la personne qu'elle concerne), ce qu'il
-  a fait sans l'autre, l'activité partagée, une banalité. Les textes viennent
+  a fait sans l'autre (pas à un commerçant ni à un client), l'activité
+  partagée, une banalité. Les textes viennent
   de modèles ; l'interlocuteur retient ce qu'on lui a dit.
+- Commerce : quand un habitant achète dans le commerce d'un autre habitant du
+  quartier, c'est ce commerçant qui le sert : la vente sort du stock de son
+  magasin (dans la limite de ce qui reste en rayon) et la recette va dans sa
+  caisse ou sur son compte.
 """
 import os
 import zlib
@@ -57,6 +62,7 @@ class Quartier:
             for h in self.H.values():
                 h.decider()
             self.rencontres()
+            self.commerces()
             for h in self.H.values():
                 h.executer()
         out = {pid: h.terminer() for pid, h in self.H.items()}
@@ -93,7 +99,50 @@ class Quartier:
         if piece in h.sim.graph:
             lg = plan.get("logements_des_sites", {}).get(h.site) or f"domicile-{pid}"
             return (lg, piece.split(":")[-1])
+        if s["lieu"] == "exterieur" and piece == "trajet":
+            return ("trajet", pid)   # chacun sur son propre chemin
         return (s["lieu"], piece)
+
+    # ------------------------------------------------------------ commerces
+    def commerces(self):
+        """Les achats du pas dans le commerce d'un autre habitant : le commerçant les vend, sur le stock de son magasin."""
+        for pid, h in self.H.items():
+            A = h.achat
+            if not A or A["commerce"] not in self.H or A["commerce"] == pid:
+                continue
+            o = self.H[A["commerce"]]
+            sto = o.attente[0]
+            reste = dict(o.sim.boutique)
+            for cle in ("ventes", "prelevements"):
+                for x in sto.get(cle, []):
+                    reste[x["produit"]] = reste.get(x["produit"], 0) - x["quantite"]
+            achats, ventes, textes, manque = [], [], [], []
+            for x in A["lignes"]:
+                cid = x["c"]["produit"]
+                n = min(x["n"], max(0, reste.get(cid, 0)))
+                reste[cid] = reste.get(cid, 0) - n
+                if n < x["n"]:
+                    manque.append(x["c"]["nom"].split(" (")[0])
+                if n:
+                    achats.append({"produit": x["maison"], "quantite": n * x["u"], "prix": round(n * x["c"]["prix"], 2)})
+                    ventes.append({"produit": cid, "quantite": n, "paiement": A["paiement"]})
+                    textes.append(h.libelle(dict(x, n=n)))
+            st = h.attente[0]
+            total = round(sum(x["prix"] for x in achats), 2)
+            compte = "especes" if A["paiement"] == "especes" else "compte"
+            if achats:
+                st["achats"], st["argent"] = achats, {compte: -total}
+            else:
+                st.pop("achats", None)
+                st.pop("argent", None)
+            if manque:
+                st["action"] = st["action"].rstrip() + f" Plus de {', '.join(manque)} en rayon."
+                h.decisions.append(f"{hm(h.i)} : plus de {', '.join(manque)} chez {self.prenom(A['commerce'])} ; fait sans.")
+            if ventes:
+                sto["ventes"] = sto.get("ventes", []) + ventes
+                sto["clients"] = sto.get("clients", 0) + 1
+                paye = "en espèces" if A["paiement"] == "especes" else "par carte"
+                sto["action"] = sto["action"].rstrip() + f" Sert {self.prenom(pid)} : {', '.join(textes)} ({f'{total:.2f}'.replace('.', ',')} €, {paye})."
 
     # ------------------------------------------------------------ rencontres
     def rencontres(self):
@@ -176,9 +225,10 @@ class Quartier:
                 if p.get("intensite_initiale", 0) >= 0.4 and p["id"] not in dit and prenomB not in p["sujet"]:
                     dit.append(p["id"])
                     return "preoccupation", minuscule(p["sujet"]), True
-        # ce qu'il a fait aujourd'hui sans l'autre, le plus long d'abord
+        # ce qu'il a fait aujourd'hui sans l'autre, le plus long d'abord (pas à un commerçant ni à un client)
         faits = {}
-        for s, a in zip(hA.sim.steps, hA.journal):
+        raconte = self.relation(A, B)["type"] in C.get("racontent_leur_journee", C["proches"])
+        for s, a in zip(hA.sim.steps, hA.journal) if raconte else ():
             if a.get("banal") or a.get("intime") or not a or self.prenom(B) in s.get("ensemble", []):
                 continue
             faits[s["activite"]] = faits.get(s["activite"], 0) + 1

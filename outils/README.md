@@ -203,15 +203,18 @@ python3 outils/simuler_habitant.py 2010-03-08 2010-03-14 --personnage robert-cha
 
 - **Ensemble** : deux habitants éveillés dans la même pièce du même logement (repère commun : logement et pièce, quelle que soit la fiche qui la décrit), le même lieu public ou le même véhicule, sans action intime en cours. Chacun gagne le contact social de la relation ; le premier pas fait vivre l'événement de rencontre (`moment_proche`, `rencontre_ami`, `rencontre_voisin`…). Une personne simulée inconnue est remarquée (`croise`). « Manger seul » n'est vécu que si l'on mange seul.
 - **Moment prévu ensemble** (`avec_personnes`) : si la personne n'est venue ni au premier ni au deuxième pas, l'absence est remarquée et vécue.
-- **Conversation** : entre deux habitants ensemble et disponibles, selon la probabilité de la relation, au plus une toutes les 30 minutes par paire. Le plus extraverti parle (sauf tirage). Sujet : une préoccupation de la semaine, confiée à un proche mais jamais à la personne qu'elle concerne ; ce qu'il a fait sans l'autre (ce qui est banal ne se raconte pas) ; l'activité partagée (`sujet` dans le catalogue : le repas, la partie, le match…) ; une banalité. Les textes viennent de modèles ; l'auditeur répond selon son agréabilité et **retient** ce qu'on lui a dit (mémoire `appris`, gardée d'un jour à l'autre).
-- **À pied d'un logement à l'autre** : il sort par l'accès de son logement (la rue) et entre par celui du logement où il va.
+- **Conversation** : entre deux habitants ensemble et disponibles, selon la probabilité de la relation, au plus une toutes les 30 minutes par paire. Le plus extraverti parle (sauf tirage). Sujet : une préoccupation de la semaine, confiée à un proche mais jamais à la personne qu'elle concerne ; ce qu'il a fait sans l'autre, à un proche, un voisin ou un collègue mais pas à un commerçant ni à un client (ce qui est banal ne se raconte pas) ; l'activité partagée (`sujet` dans le catalogue : le repas, la partie, le match…) ; une banalité. Les textes viennent de modèles ; l'auditeur répond selon son agréabilité et **retient** ce qu'on lui a dit (mémoire `appris`, gardée d'un jour à l'autre).
+- **À pied d'un logement à l'autre** : il sort par l'accès de son logement (la rue) et entre par celui du logement où il va. Deux habitants en chemin ne sont pas ensemble pour autant : chacun suit son propre trajet.
+- **Commerce** : un client entre dans la salle où le commerçant sert (`commerce.salle` : la boutique de Robert) ; quand il achète dans le commerce d'un autre habitant du quartier, c'est ce commerçant qui le sert : la vente sort du stock de son magasin, dans la limite de ce qui reste en rayon (sinon le client fait sans), et la recette va dans sa caisse ou sur son compte.
 
 Exemple : Robert, Josiane et leurs voisins Gérard et Monique Morel (fiches minimales). Le samedi soir, les quatre jouent à la belote chez les Chazal ; Josiane et Monique se retrouvent au marché ; le dimanche, les deux couples se croisent au bureau de vote sans l'avoir prévu. Robert confie à Gérard et à Monique qu'il cherche un cadeau pour l'anniversaire de mariage, jamais à Josiane ; Josiane confie à Monique qu'elle se demande s'il y pensera : Monique sait les deux.
 
-Limite : chacun garde son propre état du monde (lumières, appareils, objets, provisions) ; les logements ne sont pas encore un état partagé.
+Thomas y vit aussi, avec sa fiche complète : le mardi, le jeudi et le samedi, il retrouve Robert à l'épicerie (rencontre, quelques mots sur le quartier ou le temps), et Robert lui vend ses fruits, son comté, son pain de campagne sur le stock de sa boutique. Avec ces ventes, le stock du magasin de Robert se rapproche de sa semaine officielle (chaque produit au même stock 53 à 90 % du temps selon le jour, contre 49 à 89 % sans Thomas) ; le coffre finit la semaine à 1 574 € (1 623 € dans la semaine officielle).
+
+Limite : chacun garde son propre état du monde (lumières, appareils, objets, provisions) ; les logements ne sont pas encore un état partagé. Seul le stock d'un commerce est commun, par les ventes du commerçant.
 
 ```bash
-python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages robert-chazal josiane-chazal gerard-morel monique-morel --dossier data/quartier
+python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages thomas-berthier robert-chazal josiane-chazal gerard-morel monique-morel --dossier data/quartier
 ```
 
 ## Vue fil de fer

@@ -21,11 +21,12 @@
     "regles": [
       "Une conversation s'engage entre deux habitants ensemble, éveillés, qui ne sont pas absorbés (charge precision ou conduite) ni occupés à une action intime ; au plus une toutes les 30 minutes par paire.",
       "Celui qui parle est le plus extraverti des deux, sauf tirage contraire.",
-      "Sujet, par ordre de priorité : une préoccupation de la semaine dont il n'a pas encore parlé à cet interlocuteur (intensité d'au moins 0,4 ; pour un conjoint, la famille ou un ami seulement) ; ce qu'il a fait aujourd'hui sans l'autre ; l'activité qu'ils partagent (son sujet dans le catalogue d'actions : le repas, le match, la partie…) ; une banalité. Ce qui est banal (se lever, s'habiller, la vaisselle) ne se raconte pas.",
+      "Sujet, par ordre de priorité : une préoccupation de la semaine dont il n'a pas encore parlé à cet interlocuteur (intensité d'au moins 0,4 ; pour un conjoint, la famille ou un ami seulement) ; ce qu'il a fait aujourd'hui sans l'autre (à un proche, un voisin ou un collègue : pas à un commerçant ni à un client) ; l'activité qu'ils partagent (son sujet dans le catalogue d'actions : le repas, le match, la partie…) ; une banalité. Ce qui est banal (se lever, s'habiller, la vaisselle) ne se raconte pas.",
       "L'interlocuteur retient ce qu'on lui a dit (mémoire de l'habitant, « appris ») : c'est ainsi qu'une information circule d'un habitant à l'autre."
     ],
     "sans_attention": ["precision", "conduite", "sommeil"],
     "proches": ["conjoint", "famille", "ami"],
+    "racontent_leur_journee": ["conjoint", "famille", "ami", "voisin", "collegue"],
     "intervalle_pas": 6,
     "modeles": {
       "preoccupation": [
