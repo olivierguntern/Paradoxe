@@ -41,7 +41,18 @@
    "conversation_agreable": 4
   },
   "objets_deplaces_position_finale": {},
-  "provisions_consommees": {},
+  "provisions_consommees": {
+   "café moulu": "7 g",
+   "lait (pour Josiane)": "utilisés (non suivis)",
+   "fruits de la boutique": "2 fruits",
+   "laitue": "1 laitue",
+   "pain (baguettes mises de côté à la boutique)": "3 quarts de baguette",
+   "pommes de terre": "500 g",
+   "oignons": "1 oignon",
+   "fromage (comté)": "40 g",
+   "vin rouge (côtes-du-rhône)": "12 cl",
+   "œufs": "6 œufs"
+  },
   "plats_prepares": {},
   "achats": {},
   "argent": {
@@ -52,19 +63,19 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "cafe_moulu": "372",
+   "cafe_moulu": "358",
    "cafe_boutique": "150",
    "pain": "2",
    "beurre": "140",
    "confiture": "26",
    "fromage": "340",
-   "fruits": "6",
+   "fruits": "4",
    "vin_rouge": "213",
    "biere": "2",
    "comprimes": "16",
    "pommes_de_terre": "1900",
    "carottes": "900",
-   "oignons": "1",
+   "oignons": "2",
    "oeufs": "2",
    "salade": "0",
    "tomates": "500",
@@ -142,13 +153,13 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 386,
+   "cafe_moulu": 379,
    "cafe_boutique": 150,
    "pain": 2,
    "beurre": 150,
    "confiture": 28,
    "fromage": 380,
-   "fruits": 7,
+   "fruits": 6,
    "vin_rouge": 225,
    "biere": 2,
    "comprimes": 17,
@@ -295,19 +306,19 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 372,
+   "cafe_moulu": 358,
    "cafe_boutique": 150,
    "pain": 2,
    "beurre": 140,
    "confiture": 26,
    "fromage": 340,
-   "fruits": 6,
+   "fruits": 4,
    "vin_rouge": 213,
    "biere": 2,
    "comprimes": 16,
    "pommes_de_terre": 1900,
    "carottes": 900,
-   "oignons": 1,
+   "oignons": 2,
    "oeufs": 2,
    "salade": 0,
    "tomates": 500,
@@ -3376,6 +3387,28 @@
      "interieur": true
     }
    },
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 358
+    },
+    {
+     "produit": "lait",
+     "nom": "lait (pour Josiane)",
+     "quantite": 1,
+     "unite": null
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 5
+    }
+   ],
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (palier-etage)",
@@ -5329,6 +5362,29 @@
     "duree_s": 10,
     "foulees": 14
    },
+   "consommation": [
+    {
+     "produit": "salade",
+     "nom": "laitue",
+     "quantite": 1,
+     "unite": "laitues",
+     "reste": 0
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 2,
+     "unite": "quarts de baguette",
+     "reste": 3
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 4
+    }
+   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
@@ -8011,6 +8067,43 @@
    "activite": "Prépare le dîner",
    "action": "Cuisine.",
    "pensee": null,
+   "consommation": [
+    {
+     "produit": "pommes_de_terre",
+     "nom": "pommes de terre",
+     "quantite": 500,
+     "unite": "g",
+     "reste": 1900
+    },
+    {
+     "produit": "oignons",
+     "nom": "oignons",
+     "quantite": 1,
+     "unite": "oignons",
+     "reste": 0
+    },
+    {
+     "produit": "fromage",
+     "nom": "fromage (comté)",
+     "quantite": 40,
+     "unite": "g",
+     "reste": 340
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 1,
+     "unite": "quarts de baguette",
+     "reste": 2
+    },
+    {
+     "produit": "vin_rouge",
+     "nom": "vin rouge (côtes-du-rhône)",
+     "quantite": 12,
+     "unite": "cl",
+     "reste": 213
+    }
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 81.0,
@@ -8493,6 +8586,15 @@
     "sujet": "journee",
     "texte": "Robert parle à Josiane de sa journée : sert les clients ; café à 16:30. Josiane hoche la tête."
    },
+   "consommation": [
+    {
+     "produit": "oeufs",
+     "nom": "œufs",
+     "quantite": 6,
+     "unite": "œufs",
+     "reste": 2
+    }
+   ],
    "appareils_allumes": [
     "lumiere-cuisine"
    ],

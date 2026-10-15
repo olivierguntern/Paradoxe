@@ -42,7 +42,18 @@
    "empathie": 1
   },
   "objets_deplaces_position_finale": {},
-  "provisions_consommees": {},
+  "provisions_consommees": {
+   "café moulu": "7 g",
+   "lait (pour Josiane)": "utilisés (non suivis)",
+   "fruits de la boutique": "2 fruits",
+   "pommes de terre": "1300 g",
+   "beurre": "20 g",
+   "pain (baguettes mises de côté à la boutique)": "3 quarts de baguette",
+   "viande, poisson et ingrédients achetés par Josiane à Cusset": "utilisés (non suivis)",
+   "carottes": "300 g",
+   "oignons": "1 oignon",
+   "fromage (comté)": "40 g"
+  },
   "plats_prepares": {},
   "achats": {},
   "argent": {
@@ -53,13 +64,13 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "cafe_moulu": "386",
+   "cafe_moulu": "379",
    "cafe_boutique": "150",
    "pain": "2",
    "beurre": "150",
    "confiture": "28",
    "fromage": "380",
-   "fruits": "7",
+   "fruits": "6",
    "vin_rouge": "225",
    "biere": "2",
    "comprimes": "17",
@@ -195,13 +206,13 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 386,
+   "cafe_moulu": 379,
    "cafe_boutique": 150,
    "pain": 2,
    "beurre": 150,
    "confiture": 28,
    "fromage": 380,
-   "fruits": 7,
+   "fruits": 6,
    "vin_rouge": 225,
    "biere": 2,
    "comprimes": 17,
@@ -3231,6 +3242,28 @@
      "interieur": true
     }
    },
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 393
+    },
+    {
+     "produit": "lait",
+     "nom": "lait (pour Josiane)",
+     "quantite": 1,
+     "unite": null
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 7
+    }
+   ],
    "lumiere": [
     "allume la lumière (palier-etage)",
     "éteint la lumière (palier-etage)",
@@ -5228,6 +5261,42 @@
     "duree_s": 10,
     "foulees": 14
    },
+   "consommation": [
+    {
+     "produit": "pommes_de_terre",
+     "nom": "pommes de terre",
+     "quantite": 1000,
+     "unite": "g",
+     "reste": 2700
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre",
+     "quantite": 20,
+     "unite": "g",
+     "reste": 150
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 2,
+     "unite": "quarts de baguette",
+     "reste": 3
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 6
+    },
+    {
+     "produit": "repas_josiane",
+     "nom": "viande, poisson et ingrédients achetés par Josiane à Cusset",
+     "quantite": 1,
+     "unite": null
+    }
+   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
@@ -7838,6 +7907,43 @@
    "activite": "Prépare un dîner tôt",
    "action": "Cuisine.",
    "pensee": null,
+   "consommation": [
+    {
+     "produit": "carottes",
+     "nom": "carottes",
+     "quantite": 300,
+     "unite": "g",
+     "reste": 900
+    },
+    {
+     "produit": "pommes_de_terre",
+     "nom": "pommes de terre",
+     "quantite": 300,
+     "unite": "g",
+     "reste": 2400
+    },
+    {
+     "produit": "oignons",
+     "nom": "oignons",
+     "quantite": 1,
+     "unite": "oignons",
+     "reste": 1
+    },
+    {
+     "produit": "fromage",
+     "nom": "fromage (comté)",
+     "quantite": 40,
+     "unite": "g",
+     "reste": 380
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 1,
+     "unite": "quarts de baguette",
+     "reste": 2
+    }
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 82.5,

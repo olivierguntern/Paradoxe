@@ -41,7 +41,17 @@
    "conversation_agreable": 4
   },
   "objets_deplaces_position_finale": {},
-  "provisions_consommees": {},
+  "provisions_consommees": {
+   "café moulu": "7 g",
+   "lait (pour Josiane)": "utilisés (non suivis)",
+   "fruits de la boutique": "2 fruits",
+   "pommes de terre": "600 g",
+   "pain (baguettes mises de côté à la boutique)": "3 quarts de baguette",
+   "viande, poisson et ingrédients achetés par Josiane à Cusset": "utilisés (non suivis)",
+   "pâtes": "500 g",
+   "emmental râpé": "100 g",
+   "vin rouge (côtes-du-rhône)": "12 cl"
+  },
   "plats_prepares": {},
   "achats": {},
   "argent": {
@@ -52,26 +62,26 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "cafe_moulu": "330",
+   "cafe_moulu": "295",
    "cafe_boutique": "150",
    "pain": "1",
    "beurre": "340",
    "confiture": "20",
    "fromage": "280",
-   "fruits": "7",
+   "fruits": "6",
    "vin_rouge": "189",
    "biere": "5",
    "comprimes": "13",
    "pommes_de_terre": "1000",
    "carottes": "600",
-   "oignons": "0",
+   "oignons": "1",
    "oeufs": "2",
    "salade": "0",
    "tomates": "0",
    "jambon": "0",
-   "fromage_rape": "0",
+   "fromage_rape": "200",
    "riz": "800",
-   "pates": "0",
+   "pates": "500",
    "haricots_verts": "1",
    "farine": "400",
    "sucre": "300"
@@ -137,7 +147,7 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 344,
+   "cafe_moulu": 316,
    "cafe_boutique": 150,
    "pain": 1,
    "beurre": 100,
@@ -149,7 +159,7 @@
    "comprimes": 14,
    "pommes_de_terre": 1600,
    "carottes": 600,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
    "tomates": 0,
@@ -322,26 +332,26 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 330,
+   "cafe_moulu": 295,
    "cafe_boutique": 150,
    "pain": 1,
    "beurre": 340,
    "confiture": 20,
    "fromage": 280,
-   "fruits": 7,
+   "fruits": 6,
    "vin_rouge": 189,
    "biere": 5,
    "comprimes": 13,
    "pommes_de_terre": 1000,
    "carottes": 600,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
    "tomates": 0,
    "jambon": 0,
-   "fromage_rape": 0,
+   "fromage_rape": 200,
    "riz": 800,
-   "pates": 0,
+   "pates": 500,
    "haricots_verts": 1,
    "farine": 400,
    "sucre": 300
@@ -3428,6 +3438,28 @@
      "interieur": true
     }
    },
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 295
+    },
+    {
+     "produit": "lait",
+     "nom": "lait (pour Josiane)",
+     "quantite": 1,
+     "unite": null
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 3
+    }
+   ],
    "lumiere": [
     "allume la lumière (palier-etage)",
     "éteint la lumière (palier-etage)",
@@ -5380,6 +5412,35 @@
     "duree_s": 10,
     "foulees": 14
    },
+   "consommation": [
+    {
+     "produit": "pommes_de_terre",
+     "nom": "pommes de terre",
+     "quantite": 600,
+     "unite": "g",
+     "reste": 1000
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 2,
+     "unite": "quarts de baguette",
+     "reste": 2
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 2
+    },
+    {
+     "produit": "repas_josiane",
+     "nom": "viande, poisson et ingrédients achetés par Josiane à Cusset",
+     "quantite": 1,
+     "unite": null
+    }
+   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
@@ -8062,6 +8123,36 @@
    "activite": "Prépare le dîner",
    "action": "Cuisine.",
    "pensee": null,
+   "consommation": [
+    {
+     "produit": "pates",
+     "nom": "pâtes",
+     "quantite": 500,
+     "unite": "g",
+     "reste": 0
+    },
+    {
+     "produit": "fromage_rape",
+     "nom": "emmental râpé",
+     "quantite": 100,
+     "unite": "g",
+     "reste": 0
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 1,
+     "unite": "quarts de baguette",
+     "reste": 1
+    },
+    {
+     "produit": "vin_rouge",
+     "nom": "vin rouge (côtes-du-rhône)",
+     "quantite": 12,
+     "unite": "cl",
+     "reste": 189
+    }
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 81.0,

@@ -42,7 +42,20 @@
    "match_tension": 1
   },
   "objets_deplaces_position_finale": {},
-  "provisions_consommees": {},
+  "provisions_consommees": {
+   "café moulu": "7 g",
+   "lait (pour Josiane)": "utilisés (non suivis)",
+   "fruits de la boutique": "2 fruits",
+   "tomates": "500 g",
+   "oignons": "1 oignon",
+   "riz": "250 g",
+   "pain (baguettes mises de côté à la boutique)": "4 quarts de baguette",
+   "viande, poisson et ingrédients achetés par Josiane à Cusset": "utilisés (non suivis)",
+   "beurre": "20 g",
+   "bière": "1 bouteille",
+   "jambon blanc": "4 tranches",
+   "emmental râpé": "100 g"
+  },
   "plats_prepares": {},
   "achats": {},
   "argent": {
@@ -53,19 +66,19 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "cafe_moulu": "358",
+   "cafe_moulu": "337",
    "cafe_boutique": "150",
    "pain": "1",
    "beurre": "110",
    "confiture": "24",
    "fromage": "340",
-   "fruits": "5",
+   "fruits": "6",
    "vin_rouge": "213",
-   "biere": "1",
+   "biere": "5",
    "comprimes": "15",
    "pommes_de_terre": "1900",
    "carottes": "900",
-   "oignons": "0",
+   "oignons": "1",
    "oeufs": "2",
    "salade": "0",
    "tomates": "0",
@@ -136,19 +149,19 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 372,
+   "cafe_moulu": 358,
    "cafe_boutique": 150,
    "pain": 2,
    "beurre": 140,
    "confiture": 26,
    "fromage": 340,
-   "fruits": 6,
+   "fruits": 4,
    "vin_rouge": 213,
    "biere": 2,
    "comprimes": 16,
    "pommes_de_terre": 1900,
    "carottes": 900,
-   "oignons": 1,
+   "oignons": 2,
    "oeufs": 2,
    "salade": 0,
    "tomates": 500,
@@ -311,19 +324,19 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 358,
+   "cafe_moulu": 337,
    "cafe_boutique": 150,
    "pain": 1,
    "beurre": 110,
    "confiture": 24,
    "fromage": 340,
-   "fruits": 5,
+   "fruits": 6,
    "vin_rouge": 213,
-   "biere": 1,
+   "biere": 5,
    "comprimes": 15,
    "pommes_de_terre": 1900,
    "carottes": 900,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
    "tomates": 0,
@@ -3407,6 +3420,28 @@
      "interieur": true
     }
    },
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 337
+    },
+    {
+     "produit": "lait",
+     "nom": "lait (pour Josiane)",
+     "quantite": 1,
+     "unite": null
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 3
+    }
+   ],
    "lumiere": [
     "allume la lumière (palier-etage)",
     "éteint la lumière (palier-etage)",
@@ -5359,6 +5394,49 @@
     "duree_s": 10,
     "foulees": 14
    },
+   "consommation": [
+    {
+     "produit": "tomates",
+     "nom": "tomates",
+     "quantite": 500,
+     "unite": "g",
+     "reste": 0
+    },
+    {
+     "produit": "oignons",
+     "nom": "oignons",
+     "quantite": 1,
+     "unite": "oignons",
+     "reste": 1
+    },
+    {
+     "produit": "riz",
+     "nom": "riz",
+     "quantite": 250,
+     "unite": "g",
+     "reste": 50
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 2,
+     "unite": "quarts de baguette",
+     "reste": 3
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 2
+    },
+    {
+     "produit": "repas_josiane",
+     "nom": "viande, poisson et ingrédients achetés par Josiane à Cusset",
+     "quantite": 1,
+     "unite": null
+    }
+   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
@@ -8062,6 +8140,29 @@
    "activite": "Prépare le dîner",
    "action": "Cuisine.",
    "pensee": null,
+   "consommation": [
+    {
+     "produit": "beurre",
+     "nom": "beurre",
+     "quantite": 20,
+     "unite": "g",
+     "reste": 110
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 2,
+     "unite": "quarts de baguette",
+     "reste": 1
+    },
+    {
+     "produit": "biere",
+     "nom": "bière",
+     "quantite": 1,
+     "unite": "bouteilles",
+     "reste": 1
+    }
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 81.5,
@@ -8542,6 +8643,22 @@
     "sujet": "journee",
     "texte": "Josiane raconte à Robert : tricot et lecture, la radio en fond. Robert hoche la tête."
    },
+   "consommation": [
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc",
+     "quantite": 4,
+     "unite": "tranches",
+     "reste": 0
+    },
+    {
+     "produit": "fromage_rape",
+     "nom": "emmental râpé",
+     "quantite": 100,
+     "unite": "g",
+     "reste": 100
+    }
+   ],
    "appareils_allumes": [
     "lumiere-cuisine"
    ],

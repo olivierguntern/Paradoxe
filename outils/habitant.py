@@ -36,7 +36,12 @@ Provisions : un repas consomme le menu de la fiche (menus_prevus : ingrédients
 au début de la préparation ; plat préparé et portion au début du repas
 proprement dit) ; une collation ou un café, ce que la fiche prévoit pour cet
 usage (collations), en alternant les choix d'un jour à l'autre. Il n'utilise
-que ce qu'il a ; ce qui manque est noté dans les écarts.
+que ce qu'il a ; ce qui manque est noté dans les écarts. Un repas n'est servi
+qu'une fois : « cuisiner » (prepare_le_repas) en prend les ingrédients et en
+prépare les plats ; un ingrédient qui n'est pas encore là (Robert rapporte de
+la boutique ce qui manque au dîner) est pris en se mettant à table, sinon le
+repas s'en passe. Dans un foyer, les repas communs le sont pour tous
+(logements.py).
 """
 import datetime
 import math
@@ -87,6 +92,8 @@ class Habitant:
         self.COLLATIONS = fiche.get("collations") or {}
         self.tenus = {}          # rôle -> état des objets gardés pendant l'action en cours
         self.collations_du_jour = 0
+        self.repas_faits = {}      # (repas, part) déjà servis aujourd'hui -> ce qui en manque encore
+        self.foyer = None          # (repas communs, leurs parts servies) : dans un foyer (logements.py)
         self.APPRO = fiche.get("approvisionnement") or {}
         self.COMMERCE = self.commerce(self.APPRO["commerce"]) if self.APPRO else {}
         self.listes = {}         # début d'une étape de courses -> liste établie en partant (None : il n'y va pas)
@@ -228,12 +235,11 @@ class Habitant:
         m = self.menu(self.jour, a, e, d)
         if m is None:
             return None
-        moment = m.get("plat")
         derniere = phase == max(0, len(a.get("phases", [])) - 1)
-        return {"plat": m.get("plat", moment),
+        return {"plat": m.get("plat", m["moment"]), "moment": m["moment"],
                 "ingredients": m.get("ingredients", []) if phase == 0 else [],
                 "prepare": m.get("prepare", []) if derniere else [],
-                "portion": m.get("portion", []) if derniere else []}
+                "portion": m.get("portion", []) if derniere and not a.get("prepare_le_repas") else []}
 
     def menu(self, jour, a, e, d):
         """Le repas de la fiche que sert l'étape (début d), ou None."""
@@ -244,23 +250,24 @@ class Habitant:
             moment = "dejeuner" if d < idx("16:00") else "diner"
         menus = self.MENUS.get(jour) or {}
         m = menus.get(moment) or self.MENUS.get(moment) or (menus.get("brunch") if moment == "dejeuner" else None)
-        return m if isinstance(m, dict) else None
+        return dict(m, moment=moment) if isinstance(m, dict) else None
 
     def disponibles(self, conso, prod=()):
         """Ce qui peut être consommé avec le stock (et ce qui vient d'être préparé), et ce qui manque."""
         P, dispo = self.sim.PRODUITS, dict(self.sim.stock)
         for pid, q in prod:
             dispo[pid] = dispo.get(pid, 0) + q
-        ok, manque = [], []
+        ok, manque, reste = [], [], []
         for pid, q in conso:
             spec = P.get(pid)
             if spec is None or (spec.get("suivi", True) and dispo.get(pid, 0) < q):
                 manque.append(spec["produit"] if spec else pid)
+                reste.append((pid, q))
                 continue
             if spec.get("suivi", True):
                 dispo[pid] -= q
             ok.append({"produit": pid, "quantite": q})
-        return ok, manque
+        return ok, manque, reste
 
     def provisions(self, a, st):
         """Au premier pas : consommation et production du repas, puis ce que l'action prend pour un usage
@@ -268,9 +275,20 @@ class Habitant:
         prod, conso, manque = [], [], []
         v = a.get("vivres")
         if v:
+            # chaque part d'un repas n'est servie qu'une fois (par qui l'a cuisiné, ou par le premier à table) ;
+            # en cuisinant, ce qui n'est pas encore là reste à prendre
+            faits = self.foyer[1] if self.foyer and v["moment"] in self.foyer[0] else self.repas_faits
+            v = dict(v)
+            for part in ("ingredients", "prepare", "portion"):
+                if v[part] and (v["moment"], part) in faits:
+                    v[part] = faits[(v["moment"], part)]
             prod = [{"produit": p, "quantite": q} for p, q in v["prepare"] if p in self.sim.PRODUITS]
-            conso, manque = self.disponibles(v["ingredients"] + v["portion"], [(x["produit"], x["quantite"]) for x in prod])
-            if manque:
+            conso, manque, reste = self.disponibles(v["ingredients"] + v["portion"], [(x["produit"], x["quantite"]) for x in prod])
+            plus_tard = a.get("prepare_le_repas")
+            for part in ("ingredients", "prepare", "portion"):
+                if v[part]:
+                    faits[(v["moment"], part)] = [list(x) for x in reste if list(x) in v[part]] if plus_tard and part == "ingredients" else []
+            if manque and not plus_tard:
                 self.decisions.append(f"{hm(self.i)} : {v['plat']} sans {', '.join(manque)} (plus en stock).")
         for usage in a.get("consomme", []):
             choix = self.COLLATIONS.get(usage)

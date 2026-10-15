@@ -44,7 +44,19 @@
    "confidence": 1
   },
   "objets_deplaces_position_finale": {},
-  "provisions_consommees": {},
+  "provisions_consommees": {
+   "café moulu": "7 g",
+   "lait (pour Josiane)": "utilisés (non suivis)",
+   "fruits de la boutique": "2 fruits",
+   "haricots verts en boîte": "1 boîte",
+   "pain (baguettes mises de côté à la boutique)": "2 quarts de baguette",
+   "viande, poisson et ingrédients achetés par Josiane à Cusset": "utilisés (non suivis)",
+   "farine": "250 g",
+   "emmental râpé": "100 g",
+   "vin rouge (côtes-du-rhône)": "12 cl",
+   "tomates": "500 g",
+   "jambon blanc": "4 tranches"
+  },
   "plats_prepares": {},
   "achats": {},
   "argent": {
@@ -55,28 +67,28 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "cafe_moulu": "316",
+   "cafe_moulu": "274",
    "cafe_boutique": "150",
    "pain": "2",
    "beurre": "330",
    "confiture": "18",
    "fromage": "280",
-   "fruits": "6",
+   "fruits": "4",
    "vin_rouge": "177",
    "biere": "5",
    "comprimes": "12",
    "pommes_de_terre": "1000",
    "carottes": "600",
-   "oignons": "0",
+   "oignons": "1",
    "oeufs": "2",
    "salade": "0",
    "tomates": "0",
    "jambon": "0",
    "fromage_rape": "100",
    "riz": "800",
-   "pates": "0",
+   "pates": "500",
    "haricots_verts": "0",
-   "farine": "150",
+   "farine": "1150",
    "sucre": "300"
   },
   "besoins_sous_le_seuil_d_alerte": [
@@ -147,26 +159,26 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 330,
+   "cafe_moulu": 295,
    "cafe_boutique": 150,
    "pain": 1,
    "beurre": 340,
    "confiture": 20,
    "fromage": 280,
-   "fruits": 7,
+   "fruits": 6,
    "vin_rouge": 189,
    "biere": 5,
    "comprimes": 13,
    "pommes_de_terre": 1000,
    "carottes": 600,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
    "tomates": 0,
    "jambon": 0,
-   "fromage_rape": 0,
+   "fromage_rape": 200,
    "riz": 800,
-   "pates": 0,
+   "pates": 500,
    "haricots_verts": 1,
    "farine": 400,
    "sucre": 300
@@ -386,28 +398,28 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 316,
+   "cafe_moulu": 274,
    "cafe_boutique": 150,
    "pain": 2,
    "beurre": 330,
    "confiture": 18,
    "fromage": 280,
-   "fruits": 6,
+   "fruits": 4,
    "vin_rouge": 177,
    "biere": 5,
    "comprimes": 12,
    "pommes_de_terre": 1000,
    "carottes": 600,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
    "tomates": 0,
    "jambon": 0,
    "fromage_rape": 100,
    "riz": 800,
-   "pates": 0,
+   "pates": 500,
    "haricots_verts": 0,
-   "farine": 150,
+   "farine": 1150,
    "sucre": 300
   },
   "argent": {
@@ -3835,6 +3847,28 @@
      "interieur": true
     }
    },
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 274
+    },
+    {
+     "produit": "lait",
+     "nom": "lait (pour Josiane)",
+     "quantite": 1,
+     "unite": null
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 5
+    }
+   ],
    "lumiere": [
     "allume la lumière (palier-etage)",
     "éteint la lumière (palier-etage)",
@@ -5725,6 +5759,35 @@
     "duree_s": 5,
     "foulees": 7
    },
+   "consommation": [
+    {
+     "produit": "haricots_verts",
+     "nom": "haricots verts en boîte",
+     "quantite": 1,
+     "unite": "boîtes",
+     "reste": 0
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 2,
+     "unite": "quarts de baguette",
+     "reste": 2
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 4
+    },
+    {
+     "produit": "repas_josiane",
+     "nom": "viande, poisson et ingrédients achetés par Josiane à Cusset",
+     "quantite": 1,
+     "unite": null
+    }
+   ],
    "lumiere": [
     "éteint la lumière (wc)",
     "allume la lumière (entree)",
@@ -8068,6 +8131,29 @@
    "activite": "Prépare la pâte et la garniture de la pizza",
    "action": "Cuisine.",
    "pensee": null,
+   "consommation": [
+    {
+     "produit": "farine",
+     "nom": "farine",
+     "quantite": 250,
+     "unite": "g",
+     "reste": 150
+    },
+    {
+     "produit": "fromage_rape",
+     "nom": "emmental râpé",
+     "quantite": 100,
+     "unite": "g",
+     "reste": 100
+    },
+    {
+     "produit": "vin_rouge",
+     "nom": "vin rouge (côtes-du-rhône)",
+     "quantite": 12,
+     "unite": "cl",
+     "reste": 177
+    }
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 70.5,
@@ -8827,6 +8913,22 @@
    "pensee": null,
    "ensemble": [
     "Robert"
+   ],
+   "consommation": [
+    {
+     "produit": "tomates",
+     "nom": "tomates",
+     "quantite": 500,
+     "unite": "g",
+     "reste": 0
+    },
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc",
+     "quantite": 4,
+     "unite": "tranches",
+     "reste": 0
+    }
    ],
    "appareils_allumes": [
     "lumiere-cuisine"

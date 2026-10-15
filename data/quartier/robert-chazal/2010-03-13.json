@@ -51,18 +51,10 @@
   "objets_deplaces_position_finale": {},
   "provisions_consommees": {
    "café moulu": "14 g",
-   "pain (baguettes mises de côté à la boutique)": "3 quarts de baguette",
+   "pain (baguettes mises de côté à la boutique)": "1 quarts de baguette",
    "beurre": "10 g",
    "confiture d'abricots de Josiane": "2 cuillères",
-   "comprimés pour la tension": "1 comprimé",
-   "haricots verts en boîte": "1 boîte",
-   "fruits de la boutique": "1 fruit",
-   "viande, poisson et ingrédients achetés par Josiane à Cusset": "utilisés (non suivis)",
-   "farine": "250 g",
-   "tomates": "500 g",
-   "jambon blanc": "4 tranches",
-   "emmental râpé": "100 g",
-   "vin rouge (côtes-du-rhône)": "12 cl"
+   "comprimés pour la tension": "1 comprimé"
   },
   "plats_prepares": {},
   "achats": {},
@@ -156,7 +148,7 @@
      "vendu": 4,
      "livre": 0,
      "repris": 0,
-     "preleve": 1,
+     "preleve": 0,
      "recette": 6.8,
      "stock": 10
     },
@@ -194,7 +186,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 1.9,
-     "stock": 24
+     "stock": 23
     },
     "riz": {
      "nom": "riz (paquet d'un kilo)",
@@ -237,9 +229,9 @@
      "vendu": 1,
      "livre": 0,
      "repris": 0,
-     "preleve": 0,
+     "preleve": 1,
      "recette": 0.9,
-     "stock": 9
+     "stock": 8
     },
     "huile": {
      "nom": "huile de tournesol (bouteille d'un litre)",
@@ -388,28 +380,28 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "café moulu": "316 g",
+   "café moulu": "274 g",
    "café moulu de l'arrière-boutique": "150 g",
    "pain (baguettes mises de côté à la boutique)": "2 quarts de baguette",
    "beurre": "330 g",
    "confiture d'abricots de Josiane": "18 cuillères",
    "fromage (comté)": "280 g",
-   "fruits de la boutique": "6 fruits",
+   "fruits de la boutique": "4 fruits",
    "vin rouge (côtes-du-rhône)": "177 cl",
    "bière": "5 bouteilles",
    "comprimés pour la tension": "12 comprimés",
    "pommes de terre": "1000 g",
    "carottes": "600 g",
-   "oignons": "0 oignon",
+   "oignons": "1 oignon",
    "œufs": "2 œufs",
    "laitue": "0 laitue",
    "tomates": "0 g",
    "jambon blanc": "0 tranche",
    "emmental râpé": "100 g",
    "riz": "800 g",
-   "pâtes": "0 g",
+   "pâtes": "500 g",
    "haricots verts en boîte": "0 boîte",
-   "farine": "150 g",
+   "farine": "1150 g",
    "sucre": "300 g"
   },
   "besoins_sous_le_seuil_d_alerte": [
@@ -450,7 +442,7 @@
    "06:30 : livraisons : 2 produits, invendus repris : un pain de campagne.",
    "11:25 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 09:30 ».",
    "17:15 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 16:30 ».",
-   "19:05 : prend au magasin pour la maison : tomates, jambon blanc, emmental râpé."
+   "19:05 : prend au magasin pour la maison : farine, tomates, jambon blanc."
   ]
  },
  "etat_initial": {
@@ -507,26 +499,26 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 330,
+   "cafe_moulu": 295,
    "cafe_boutique": 150,
    "pain": 1,
    "beurre": 340,
    "confiture": 20,
    "fromage": 280,
-   "fruits": 7,
+   "fruits": 6,
    "vin_rouge": 189,
    "biere": 5,
    "comprimes": 13,
    "pommes_de_terre": 1000,
    "carottes": 600,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
    "tomates": 0,
    "jambon": 0,
-   "fromage_rape": 0,
+   "fromage_rape": 200,
    "riz": 800,
-   "pates": 0,
+   "pates": 500,
    "haricots_verts": 1,
    "farine": 400,
    "sucre": 300
@@ -546,11 +538,11 @@
    "oeufs": 26,
    "beurre": 14,
    "comte": 11,
-   "fromage_rape": 15,
+   "fromage_rape": 14,
    "jambon": 18,
    "cafe_moulu": 19,
    "chocolat_noir": 15,
-   "pates": 26,
+   "pates": 25,
    "riz": 15,
    "thon": 21,
    "haricots_verts": 22,
@@ -761,28 +753,28 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 316,
+   "cafe_moulu": 274,
    "cafe_boutique": 150,
    "pain": 2,
    "beurre": 330,
    "confiture": 18,
    "fromage": 280,
-   "fruits": 6,
+   "fruits": 4,
    "vin_rouge": 177,
    "biere": 5,
    "comprimes": 12,
    "pommes_de_terre": 1000,
    "carottes": 600,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
    "tomates": 0,
    "jambon": 0,
    "fromage_rape": 100,
    "riz": 800,
-   "pates": 0,
+   "pates": 500,
    "haricots_verts": 0,
-   "farine": 150,
+   "farine": 1150,
    "sucre": 300
   },
   "argent": {
@@ -804,12 +796,12 @@
    "jambon": 9,
    "cafe_moulu": 14,
    "chocolat_noir": 9,
-   "pates": 24,
+   "pates": 23,
    "riz": 12,
    "thon": 17,
    "haricots_verts": 21,
    "sucre": 9,
-   "farine": 9,
+   "farine": 8,
    "huile": 10,
    "biere": 43,
    "vin_rouge": 13,
@@ -3402,7 +3394,7 @@
      "nom": "café moulu",
      "quantite": 14,
      "unite": "g",
-     "reste": 316
+     "reste": 281
     },
     {
      "produit": "pain",
@@ -7310,7 +7302,7 @@
      "quantite": 1,
      "prix": 1.7,
      "paiement": "especes",
-     "reste": 14
+     "reste": 13
     },
     {
      "produit": "baguette",
@@ -7600,7 +7592,7 @@
      "quantite": 1,
      "prix": 0.95,
      "paiement": "especes",
-     "reste": 25
+     "reste": 24
     },
     {
      "produit": "pommes",
@@ -8116,35 +8108,6 @@
    },
    "ensemble": [
     "Josiane"
-   ],
-   "consommation": [
-    {
-     "produit": "haricots_verts",
-     "nom": "haricots verts en boîte",
-     "quantite": 1,
-     "unite": "boîtes",
-     "reste": 0
-    },
-    {
-     "produit": "pain",
-     "nom": "pain (baguettes mises de côté à la boutique)",
-     "quantite": 2,
-     "unite": "quarts de baguette",
-     "reste": 2
-    },
-    {
-     "produit": "fruits",
-     "nom": "fruits de la boutique",
-     "quantite": 1,
-     "unite": "fruits",
-     "reste": 6
-    },
-    {
-     "produit": "repas_josiane",
-     "nom": "viande, poisson et ingrédients achetés par Josiane à Cusset",
-     "quantite": 1,
-     "unite": null
-    }
    ],
    "lumiere": [
     "allume la lumière (entree)",
@@ -10417,7 +10380,7 @@
      "quantite": 1,
      "prix": 1.7,
      "paiement": "especes",
-     "reste": 13
+     "reste": 12
     }
    ],
    "clients": 1,
@@ -10476,7 +10439,7 @@
      "quantite": 1,
      "prix": 1.7,
      "paiement": "especes",
-     "reste": 12
+     "reste": 11
     },
     {
      "produit": "yaourts",
@@ -10896,7 +10859,7 @@
      "quantite": 1,
      "prix": 0.95,
      "paiement": "especes",
-     "reste": 24
+     "reste": 23
     }
    ],
    "clients": 2,
@@ -11395,7 +11358,7 @@
      "quantite": 1,
      "prix": 1.7,
      "paiement": "especes",
-     "reste": 11
+     "reste": 10
     }
    ],
    "clients": 1,
@@ -12632,6 +12595,15 @@
    "pensee": null,
    "prelevements": [
     {
+     "produit": "farine",
+     "nom": "farine (paquet d'un kilo)",
+     "quantite": 1,
+     "reste": 8,
+     "maison": "farine",
+     "quantite_maison": 1000,
+     "reste_maison": 1150
+    },
+    {
      "produit": "tomates",
      "nom": "tomates (barquette de 500 g)",
      "quantite": 1,
@@ -12648,15 +12620,6 @@
      "maison": "jambon",
      "quantite_maison": 4,
      "reste_maison": 4
-    },
-    {
-     "produit": "fromage_rape",
-     "nom": "emmental râpé (sachet de 200 g)",
-     "quantite": 1,
-     "reste": 10,
-     "maison": "fromage_rape",
-     "quantite_maison": 200,
-     "reste_maison": 200
     }
    ],
    "argent": {
@@ -12941,43 +12904,6 @@
    },
    "ensemble": [
     "Josiane"
-   ],
-   "consommation": [
-    {
-     "produit": "farine",
-     "nom": "farine",
-     "quantite": 250,
-     "unite": "g",
-     "reste": 150
-    },
-    {
-     "produit": "tomates",
-     "nom": "tomates",
-     "quantite": 500,
-     "unite": "g",
-     "reste": 0
-    },
-    {
-     "produit": "jambon",
-     "nom": "jambon blanc",
-     "quantite": 4,
-     "unite": "tranches",
-     "reste": 0
-    },
-    {
-     "produit": "fromage_rape",
-     "nom": "emmental râpé",
-     "quantite": 100,
-     "unite": "g",
-     "reste": 100
-    },
-    {
-     "produit": "vin_rouge",
-     "nom": "vin rouge (côtes-du-rhône)",
-     "quantite": 12,
-     "unite": "cl",
-     "reste": 177
-    }
    ],
    "lumiere": [
     "allume la lumière (entree)",

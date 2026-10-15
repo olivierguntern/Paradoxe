@@ -689,11 +689,14 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
             achats[x["nom"]][2] += x.get("prix", 0)
         for compte, m in s.get("argent", {}).get("mouvements", {}).items():
             depenses[compte] = round(depenses.get(compte, 0) + m, 2)
+    ids = {}   # nom -> identifiant de la provision
     for s in steps:
         for x in s.get("consommation", []):
             conso.setdefault(x["nom"], [0, x["unite"]])[0] += x["quantite"]
+            ids[x["nom"]] = x["produit"]
         for x in s.get("production", []):
             prod.setdefault(x["nom"], [0, x["unite"]])[0] += x["quantite"]
+            ids[x["nom"]] = x["produit"]
     noms = {x["id"]: x for x in fiche["domicile"]["provisions_au_debut"] + fiche["domicile"]["produits_prepares"]}
     # un stock commun (foyer du quartier) peut compter des provisions que sa fiche ne décrit pas : leur identifiant
     stock_fin = {noms[k]["produit"] if k in noms else k: quantite(v, noms[k]["unite"]) if k in noms else str(v) for k, v in etat_final["stock"].items()}
@@ -834,14 +837,14 @@ def ecrire(fiche, j, steps, etat_initial, etat_final, st_, chemin_json, chemin_m
 
     L += ["\n## Provisions\n", "| Produit | Consommé aujourd'hui | Reste |", "|---|---|---|"]
     for k, v in conso.items():
-        pid = next((x for x in noms if noms[x]["produit"] == k), None)
+        pid = ids.get(k)
         reste = etat_final["stock"].get(pid) if pid else None
         if v[1] is None:
             L.append(f"| {k} | utilisés | non suivis |")
         else:
             L.append(f"| {k} | {quantite(v[0], v[1])} | {'—' if reste is None else quantite(reste, v[1])} |")
     for k, v in prod.items():
-        pid = next((x for x in noms if noms[x]["produit"] == k), None)
+        pid = ids.get(k)
         L.append(f"| {k} (préparé : {quantite(v[0], v[1])}) | — | {quantite(etat_final['stock'].get(pid), v[1])} |")
 
     if magasin:

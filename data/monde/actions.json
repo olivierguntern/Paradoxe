@@ -93,7 +93,7 @@
     "banque": { "exterieur": true, "posture": "debout", "charge": "simple", "texte": "Dépose la recette à la banque.", "depot_coffre": true },
     "vote": { "sujet": "les élections", "exterieur": true, "posture": "debout", "charge": "simple", "texte": "Va voter." },
     "cinema": { "sujet": "le film", "exterieur": true, "captivant": true, "commodites": ["toilettes", "soif"], "posture": "assis", "charge": "repos", "mode": "loisir", "texte": "Au cinéma." },
-    "cuisiner": { "lieu": "cuisinière", "posture": "debout", "charge": "cuisine", "texte": "Cuisine." },
+    "cuisiner": { "lieu": "cuisinière", "posture": "debout", "charge": "cuisine", "texte": "Cuisine.", "menu": true, "prepare_le_repas": true },
     "marche": { "banal": true, "exterieur": true, "posture": "en marche", "charge": "simple", "texte": "Marche.", "ininterrompable": true },
     "travail_bureau": { "exterieur": true, "commodites": ["toilettes", "soif", "faim"], "posture": "assis", "charge": "simple", "mode": "travail", "texte": "Travaille au bureau.", "effets": { "social": 10 } },
     "courses_quartier": { "sujet": "les prix", "exterieur": true, "posture": "debout", "charge": "simple", "texte": "Fait ses courses dans le quartier.", "effets": { "social": 5 } },

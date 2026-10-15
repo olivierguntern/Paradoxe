@@ -11,11 +11,20 @@ pour chacun de ces logements :
   allumés » de leur pas, avec « partage » : ce qui est allumé par d'autres) ;
 - pour un foyer (ceux qui y dorment) : un seul garde-manger (les provisions
   de tous, le stock commun) et les objets de la maison, connus de tous ; les
-  croyances sur les objets restent celles de chacun.
+  croyances sur les objets restent celles de chacun ;
+- les repas communs du logement (repas_communs : le déjeuner, le dîner) : le
+  menu est celui du foyer, quelle que soit la fiche qui le décrit ; cuisiné
+  une fois pour tous, par qui le prépare (ou le premier à table), il n'est
+  pas repris par les autres. Les autres repas (le petit-déjeuner) restent
+  ceux de chacun.
 
 Un logement que personne d'autre n'a (la boutique de Robert) garde ses règles
 ordinaires.
 """
+import os
+
+from agent import JOURS
+from fiches import MONDE, lire
 
 
 class Logements:
@@ -47,6 +56,10 @@ class Logements:
         for lg, pids in self.foyers.items():
             if len(pids) > 1:
                 self.mettre_en_commun([q.H[p] for p in pids])
+                f = os.path.join(MONDE, "logements", f"{lg}.json")
+                communs = lire(f).get("repas_communs") if os.path.exists(f) else None
+                if communs:
+                    self.repas_en_commun([q.H[p] for p in pids], communs)
 
     @staticmethod
     def mettre_en_commun(membres):
@@ -62,6 +75,28 @@ class Logements:
             h.sim.stock, h.sim.PRODUITS, h.sim.positions = stock, produits, positions
             for o, ou in positions.items():
                 h.sim.croyances.setdefault(o, ou)
+
+    @staticmethod
+    def repas_en_commun(membres, communs):
+        """Les repas communs : le menu du foyer (de la première fiche qui le décrit) chez chacun, servis une fois pour tous."""
+        menus = {}
+        for h in membres:
+            for k, v in h.MENUS.items():
+                if k in communs:
+                    menus.setdefault(k, v)
+                elif k in JOURS:
+                    for m in communs:
+                        if m in v:
+                            menus.setdefault(k, {}).setdefault(m, v[m])
+        faits = {}
+        for h in membres:
+            M = {k: dict(v) if k in JOURS else v for k, v in h.MENUS.items()}
+            for k, v in menus.items():
+                if k in JOURS:
+                    M.setdefault(k, {}).update(v)
+                else:
+                    M[k] = v
+            h.MENUS, h.foyer = M, (set(communs), faits)
 
     def apres_pas(self):
         """Après le pas de chacun : lumières et appareils des logements partagés, tels que les vivent tous les occupants."""

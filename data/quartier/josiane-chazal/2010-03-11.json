@@ -41,7 +41,17 @@
    "conversation_agreable": 6
   },
   "objets_deplaces_position_finale": {},
-  "provisions_consommees": {},
+  "provisions_consommees": {
+   "café moulu": "7 g",
+   "lait (pour Josiane)": "utilisés (non suivis)",
+   "fruits de la boutique": "2 fruits",
+   "riz": "250 g",
+   "pain (baguettes mises de côté à la boutique)": "3 quarts de baguette",
+   "carottes": "300 g",
+   "pommes de terre": "300 g",
+   "fromage (comté)": "60 g",
+   "vin rouge (côtes-du-rhône)": "12 cl"
+  },
   "plats_prepares": {},
   "achats": {},
   "argent": {
@@ -52,7 +62,7 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "cafe_moulu": "344",
+   "cafe_moulu": "316",
    "cafe_boutique": "150",
    "pain": "1",
    "beurre": "100",
@@ -64,7 +74,7 @@
    "comprimes": "14",
    "pommes_de_terre": "1600",
    "carottes": "600",
-   "oignons": "0",
+   "oignons": "1",
    "oeufs": "2",
    "salade": "0",
    "tomates": "0",
@@ -137,19 +147,19 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 358,
+   "cafe_moulu": 337,
    "cafe_boutique": 150,
    "pain": 1,
    "beurre": 110,
    "confiture": 24,
    "fromage": 340,
-   "fruits": 5,
+   "fruits": 6,
    "vin_rouge": 213,
-   "biere": 1,
+   "biere": 5,
    "comprimes": 15,
    "pommes_de_terre": 1900,
    "carottes": 900,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
    "tomates": 0,
@@ -319,7 +329,7 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 344,
+   "cafe_moulu": 316,
    "cafe_boutique": 150,
    "pain": 1,
    "beurre": 100,
@@ -331,7 +341,7 @@
    "comprimes": 14,
    "pommes_de_terre": 1600,
    "carottes": 600,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
    "tomates": 0,
@@ -3422,6 +3432,28 @@
      "interieur": true
     }
    },
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 316
+    },
+    {
+     "produit": "lait",
+     "nom": "lait (pour Josiane)",
+     "quantite": 1,
+     "unite": null
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 5
+    }
+   ],
    "lumiere": [
     "allume la lumière (palier-etage)",
     "éteint la lumière (palier-etage)",
@@ -5374,6 +5406,29 @@
     "duree_s": 10,
     "foulees": 14
    },
+   "consommation": [
+    {
+     "produit": "riz",
+     "nom": "riz",
+     "quantite": 250,
+     "unite": "g",
+     "reste": 800
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 2,
+     "unite": "quarts de baguette",
+     "reste": 2
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 4
+    }
+   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
@@ -8069,6 +8124,43 @@
    "activite": "Prépare le dîner",
    "action": "Cuisine.",
    "pensee": null,
+   "consommation": [
+    {
+     "produit": "carottes",
+     "nom": "carottes",
+     "quantite": 300,
+     "unite": "g",
+     "reste": 600
+    },
+    {
+     "produit": "pommes_de_terre",
+     "nom": "pommes de terre",
+     "quantite": 300,
+     "unite": "g",
+     "reste": 1600
+    },
+    {
+     "produit": "fromage",
+     "nom": "fromage (comté)",
+     "quantite": 60,
+     "unite": "g",
+     "reste": 280
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 1,
+     "unite": "quarts de baguette",
+     "reste": 1
+    },
+    {
+     "produit": "vin_rouge",
+     "nom": "vin rouge (côtes-du-rhône)",
+     "quantite": 12,
+     "unite": "cl",
+     "reste": 201
+    }
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 81.0,

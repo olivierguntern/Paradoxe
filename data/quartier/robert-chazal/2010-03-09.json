@@ -49,17 +49,10 @@
   "objets_deplaces_position_finale": {},
   "provisions_consommees": {
    "café moulu": "14 g",
-   "pain (baguettes mises de côté à la boutique)": "4 quarts de baguette",
+   "pain (baguettes mises de côté à la boutique)": "1 quarts de baguette",
    "beurre": "10 g",
    "confiture d'abricots de Josiane": "2 cuillères",
-   "comprimés pour la tension": "1 comprimé",
-   "laitue": "1 laitue",
-   "fruits de la boutique": "1 fruit",
-   "œufs": "6 œufs",
-   "pommes de terre": "500 g",
-   "oignons": "1 oignon",
-   "fromage (comté)": "40 g",
-   "vin rouge (côtes-du-rhône)": "12 cl"
+   "comprimés pour la tension": "1 comprimé"
   },
   "plats_prepares": {},
   "achats": {},
@@ -342,9 +335,9 @@
      "vendu": 8,
      "livre": 10,
      "repris": 0,
-     "preleve": 1,
+     "preleve": 2,
      "recette": 2.0,
-     "stock": 31
+     "stock": 30
     },
     "salade": {
      "nom": "laitue",
@@ -385,19 +378,19 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "café moulu": "372 g",
+   "café moulu": "358 g",
    "café moulu de l'arrière-boutique": "150 g",
    "pain (baguettes mises de côté à la boutique)": "2 quarts de baguette",
    "beurre": "140 g",
    "confiture d'abricots de Josiane": "26 cuillères",
    "fromage (comté)": "340 g",
-   "fruits de la boutique": "6 fruits",
+   "fruits de la boutique": "4 fruits",
    "vin rouge (côtes-du-rhône)": "213 cl",
    "bière": "2 bouteilles",
    "comprimés pour la tension": "16 comprimés",
    "pommes de terre": "1900 g",
    "carottes": "900 g",
-   "oignons": "1 oignon",
+   "oignons": "2 oignons",
    "œufs": "2 œufs",
    "laitue": "0 laitue",
    "tomates": "500 g",
@@ -434,7 +427,7 @@
    "11:25 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 09:30 ».",
    "17:15 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 16:30 ».",
    "18:25 : rupture : baguette.",
-   "19:05 : prend au magasin pour la maison : œufs, oignons, tomates.",
+   "19:05 : prend au magasin pour la maison : œufs, 2 × oignons, tomates.",
    "21:35 : épuisé (énergie 24.7), il va se coucher sans attendre 22:30."
   ]
  },
@@ -492,13 +485,13 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 386,
+   "cafe_moulu": 379,
    "cafe_boutique": 150,
    "pain": 2,
    "beurre": 150,
    "confiture": 28,
    "fromage": 380,
-   "fruits": 7,
+   "fruits": 6,
    "vin_rouge": 225,
    "biere": 2,
    "comprimes": 17,
@@ -666,19 +659,19 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 372,
+   "cafe_moulu": 358,
    "cafe_boutique": 150,
    "pain": 2,
    "beurre": 140,
    "confiture": 26,
    "fromage": 340,
-   "fruits": 6,
+   "fruits": 4,
    "vin_rouge": 213,
    "biere": 2,
    "comprimes": 16,
    "pommes_de_terre": 1900,
    "carottes": 900,
-   "oignons": 1,
+   "oignons": 2,
    "oeufs": 2,
    "salade": 0,
    "tomates": 500,
@@ -726,7 +719,7 @@
    "tomates": 20,
    "pommes_de_terre": 9,
    "carottes": 12,
-   "oignons": 31,
+   "oignons": 30,
    "salade": 9,
    "papier_toilette": 9,
    "lessive": 5,
@@ -3232,7 +3225,7 @@
      "nom": "café moulu",
      "quantite": 14,
      "unite": "g",
-     "reste": 372
+     "reste": 365
     },
     {
      "produit": "pain",
@@ -7981,29 +7974,6 @@
     "duree_s": 8,
     "foulees": 12
    },
-   "consommation": [
-    {
-     "produit": "salade",
-     "nom": "laitue",
-     "quantite": 1,
-     "unite": "laitues",
-     "reste": 0
-    },
-    {
-     "produit": "pain",
-     "nom": "pain (baguettes mises de côté à la boutique)",
-     "quantite": 2,
-     "unite": "quarts de baguette",
-     "reste": 3
-    },
-    {
-     "produit": "fruits",
-     "nom": "fruits de la boutique",
-     "quantite": 1,
-     "unite": "fruits",
-     "reste": 6
-    }
-   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
@@ -12497,10 +12467,10 @@
     {
      "produit": "oignons",
      "nom": "oignons",
-     "quantite": 1,
-     "reste": 31,
+     "quantite": 2,
+     "reste": 30,
      "maison": "oignons",
-     "quantite_maison": 1,
+     "quantite_maison": 2,
      "reste_maison": 2
     },
     {
@@ -12802,50 +12772,6 @@
     "sujet": "journee",
     "texte": "Robert parle à Josiane de sa journée : sert les clients ; café à 16:30. Josiane hoche la tête."
    },
-   "consommation": [
-    {
-     "produit": "oeufs",
-     "nom": "œufs",
-     "quantite": 6,
-     "unite": "œufs",
-     "reste": 2
-    },
-    {
-     "produit": "pommes_de_terre",
-     "nom": "pommes de terre",
-     "quantite": 500,
-     "unite": "g",
-     "reste": 1900
-    },
-    {
-     "produit": "oignons",
-     "nom": "oignons",
-     "quantite": 1,
-     "unite": "oignons",
-     "reste": 1
-    },
-    {
-     "produit": "fromage",
-     "nom": "fromage (comté)",
-     "quantite": 40,
-     "unite": "g",
-     "reste": 340
-    },
-    {
-     "produit": "pain",
-     "nom": "pain (baguettes mises de côté à la boutique)",
-     "quantite": 1,
-     "unite": "quarts de baguette",
-     "reste": 2
-    },
-    {
-     "produit": "vin_rouge",
-     "nom": "vin rouge (côtes-du-rhône)",
-     "quantite": 12,
-     "unite": "cl",
-     "reste": 213
-    }
-   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)"

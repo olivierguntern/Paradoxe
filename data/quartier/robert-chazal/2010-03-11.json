@@ -49,16 +49,10 @@
   "objets_deplaces_position_finale": {},
   "provisions_consommees": {
    "café moulu": "14 g",
-   "pain (baguettes mises de côté à la boutique)": "4 quarts de baguette",
+   "pain (baguettes mises de côté à la boutique)": "1 quarts de baguette",
    "beurre": "10 g",
    "confiture d'abricots de Josiane": "2 cuillères",
-   "comprimés pour la tension": "1 comprimé",
-   "riz": "250 g",
-   "fruits de la boutique": "1 fruit",
-   "carottes": "300 g",
-   "pommes de terre": "300 g",
-   "fromage (comté)": "60 g",
-   "vin rouge (côtes-du-rhône)": "12 cl"
+   "comprimés pour la tension": "1 comprimé"
   },
   "plats_prepares": {},
   "achats": {},
@@ -251,7 +245,7 @@
      "vendu": 13,
      "livre": 0,
      "repris": 0,
-     "preleve": 4,
+     "preleve": 0,
      "recette": 14.3,
      "stock": 10
     },
@@ -289,7 +283,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 14.4,
-     "stock": 30
+     "stock": 26
     },
     "oranges": {
      "nom": "oranges",
@@ -343,7 +337,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.5,
-     "stock": 26
+     "stock": 25
     },
     "salade": {
      "nom": "laitue",
@@ -384,7 +378,7 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "café moulu": "344 g",
+   "café moulu": "316 g",
    "café moulu de l'arrière-boutique": "150 g",
    "pain (baguettes mises de côté à la boutique)": "1 quarts de baguette",
    "beurre": "100 g",
@@ -396,7 +390,7 @@
    "comprimés pour la tension": "14 comprimés",
    "pommes de terre": "1600 g",
    "carottes": "600 g",
-   "oignons": "0 oignon",
+   "oignons": "1 oignon",
    "œufs": "2 œufs",
    "laitue": "0 laitue",
    "tomates": "0 g",
@@ -425,7 +419,6 @@
    "11:35 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 09:30 ».",
    "17:25 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 16:30 ».",
    "18:15 : rupture : baguette.",
-   "19:05 : prend au magasin pour la maison : 4 × bière.",
    "21:35 : épuisé (énergie 24.7), il va se coucher sans attendre 22:30."
   ]
  },
@@ -483,19 +476,19 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 358,
+   "cafe_moulu": 337,
    "cafe_boutique": 150,
    "pain": 1,
    "beurre": 110,
    "confiture": 24,
    "fromage": 340,
-   "fruits": 5,
+   "fruits": 6,
    "vin_rouge": 213,
-   "biere": 1,
+   "biere": 5,
    "comprimes": 15,
    "pommes_de_terre": 1900,
    "carottes": 900,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
    "tomates": 0,
@@ -533,17 +526,17 @@
    "sucre": 10,
    "farine": 9,
    "huile": 7,
-   "biere": 27,
+   "biere": 23,
    "vin_rouge": 12,
    "eau": 38,
    "jus_orange": 13,
-   "pommes": 66,
+   "pommes": 62,
    "oranges": 35,
    "bananes": 55,
    "tomates": 15,
    "pommes_de_terre": 6,
    "carottes": 10,
-   "oignons": 28,
+   "oignons": 27,
    "salade": 9,
    "papier_toilette": 9,
    "lessive": 4,
@@ -674,7 +667,7 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 344,
+   "cafe_moulu": 316,
    "cafe_boutique": 150,
    "pain": 1,
    "beurre": 100,
@@ -686,7 +679,7 @@
    "comprimes": 14,
    "pommes_de_terre": 1600,
    "carottes": 600,
-   "oignons": 0,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 0,
    "tomates": 0,
@@ -728,13 +721,13 @@
    "vin_rouge": 11,
    "eau": 17,
    "jus_orange": 10,
-   "pommes": 30,
+   "pommes": 26,
    "oranges": 17,
    "bananes": 38,
    "tomates": 12,
    "pommes_de_terre": 5,
    "carottes": 9,
-   "oignons": 26,
+   "oignons": 25,
    "salade": 5,
    "papier_toilette": 8,
    "lessive": 2,
@@ -3252,7 +3245,7 @@
      "nom": "café moulu",
      "quantite": 14,
      "unite": "g",
-     "reste": 344
+     "reste": 323
     },
     {
      "produit": "pain",
@@ -4277,7 +4270,7 @@
      "quantite": 5,
      "prix": 2.0,
      "paiement": "especes",
-     "reste": 61
+     "reste": 57
     },
     {
      "produit": "jus_orange",
@@ -4747,7 +4740,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 57
+     "reste": 53
     }
    ],
    "clients": 4,
@@ -5723,7 +5716,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 53
+     "reste": 49
     },
     {
      "produit": "pain_campagne",
@@ -5961,7 +5954,7 @@
      "quantite": 6,
      "prix": 2.4,
      "paiement": "especes",
-     "reste": 47
+     "reste": 43
     },
     {
      "produit": "baguette",
@@ -6323,7 +6316,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "carte",
-     "reste": 43
+     "reste": 39
     }
    ],
    "clients": 1,
@@ -7251,7 +7244,7 @@
      "quantite": 5,
      "prix": 2.0,
      "paiement": "especes",
-     "reste": 38
+     "reste": 34
     },
     {
      "produit": "baguette",
@@ -8021,29 +8014,6 @@
     "duree_s": 8,
     "foulees": 12
    },
-   "consommation": [
-    {
-     "produit": "riz",
-     "nom": "riz",
-     "quantite": 250,
-     "unite": "g",
-     "reste": 800
-    },
-    {
-     "produit": "pain",
-     "nom": "pain (baguettes mises de côté à la boutique)",
-     "quantite": 2,
-     "unite": "quarts de baguette",
-     "reste": 2
-    },
-    {
-     "produit": "fruits",
-     "nom": "fruits de la boutique",
-     "quantite": 1,
-     "unite": "fruits",
-     "reste": 4
-    }
-   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
@@ -8951,7 +8921,7 @@
      "quantite": 2,
      "prix": 2.2,
      "paiement": "especes",
-     "reste": 25
+     "reste": 21
     },
     {
      "produit": "eau",
@@ -9050,7 +9020,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "carte",
-     "reste": 34
+     "reste": 30
     }
    ],
    "clients": 1,
@@ -9484,7 +9454,7 @@
      "quantite": 2,
      "prix": 0.8,
      "paiement": "especes",
-     "reste": 32
+     "reste": 28
     },
     {
      "produit": "eau",
@@ -9608,7 +9578,7 @@
      "quantite": 1,
      "prix": 1.1,
      "paiement": "especes",
-     "reste": 24
+     "reste": 20
     }
    ],
    "clients": 1,
@@ -10119,7 +10089,7 @@
      "quantite": 2,
      "prix": 2.2,
      "paiement": "especes",
-     "reste": 22
+     "reste": 18
     },
     {
      "produit": "baguette",
@@ -10474,7 +10444,7 @@
      "quantite": 1,
      "prix": 1.1,
      "paiement": "especes",
-     "reste": 21
+     "reste": 17
     },
     {
      "produit": "jambon",
@@ -10542,7 +10512,7 @@
      "quantite": 3,
      "prix": 3.3,
      "paiement": "especes",
-     "reste": 18
+     "reste": 14
     },
     {
      "produit": "baguette",
@@ -11665,7 +11635,7 @@
      "quantite": 2,
      "prix": 0.8,
      "paiement": "especes",
-     "reste": 30
+     "reste": 26
     }
    ],
    "clients": 1,
@@ -11896,7 +11866,7 @@
      "quantite": 4,
      "prix": 4.4,
      "paiement": "especes",
-     "reste": 14
+     "reste": 10
     },
     {
      "produit": "tomates",
@@ -12071,7 +12041,7 @@
      "quantite": 2,
      "prix": 0.5,
      "paiement": "carte",
-     "reste": 26
+     "reste": 25
     }
    ],
    "clients": 1,
@@ -12174,17 +12144,6 @@
    "activite": "Ferme, compte la caisse, range la recette au coffre",
    "action": "Baisse le rideau, compte la caisse.",
    "pensee": null,
-   "prelevements": [
-    {
-     "produit": "biere",
-     "nom": "bière (bouteille de 33 cl)",
-     "quantite": 4,
-     "reste": 10,
-     "maison": "biere",
-     "quantite_maison": 4,
-     "reste_maison": 5
-    }
-   ],
    "argent": {
     "mouvements": {
      "caisse": -102.55,
@@ -12474,43 +12433,6 @@
     "sujet": "journee",
     "texte": "Robert parle à Josiane de sa journée : prépare la réouverture. Josiane hoche la tête."
    },
-   "consommation": [
-    {
-     "produit": "carottes",
-     "nom": "carottes",
-     "quantite": 300,
-     "unite": "g",
-     "reste": 600
-    },
-    {
-     "produit": "pommes_de_terre",
-     "nom": "pommes de terre",
-     "quantite": 300,
-     "unite": "g",
-     "reste": 1600
-    },
-    {
-     "produit": "fromage",
-     "nom": "fromage (comté)",
-     "quantite": 60,
-     "unite": "g",
-     "reste": 280
-    },
-    {
-     "produit": "pain",
-     "nom": "pain (baguettes mises de côté à la boutique)",
-     "quantite": 1,
-     "unite": "quarts de baguette",
-     "reste": 1
-    },
-    {
-     "produit": "vin_rouge",
-     "nom": "vin rouge (côtes-du-rhône)",
-     "quantite": 12,
-     "unite": "cl",
-     "reste": 201
-    }
-   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
