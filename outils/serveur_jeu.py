@@ -10,7 +10,9 @@ Sert les pages de vue/ et trois appels :
   data/voyageur/<nom>.json) ; le quartier est rejoué avec lui, la divergence
   mesurée et la mission évaluée ; renvoie le résultat ;
 - GET  /api/partie    : la dernière partie, au format de la page du voyageur
-  (vue/divergence.html?partie l'affiche avec sa frise et sa chaîne des causes).
+  (vue/divergence.html?partie l'affiche avec sa frise et sa chaîne des causes) ;
+- GET  /api/sims      : la dernière partie, au format de la vue façon Sims
+  (vue/sims.html la charge après chaque action de John).
 
 Les jours qui précèdent la première intervention sont ceux du monde de
 référence (data/quartier), recopiés plutôt que simulés. La partie est écrite
@@ -18,6 +20,7 @@ dans data/voyageur/parties/ (non versionné). Le serveur n'écoute que sur la
 machine elle-même (127.0.0.1).
 """
 import argparse
+import gzip
 import http.server
 import json
 import os
@@ -29,6 +32,7 @@ import traceback
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from divergence import comparer_mondes
 from exporter_divergence import Textes, etat, journees, scenario_page
+from exporter_sims import construire as construire_sims
 from fiches import MONDE, lire
 from simuler_quartier import simuler
 from simuler_voyageur import evaluer_mission
@@ -50,6 +54,7 @@ class Jeu:
         t = open(os.path.join(VUE, "divergence.js"), encoding="utf-8").read()
         self.base = json.loads(t[t.index("{"):t.rindex("}") + 1])["textes"]
         self.partie = None
+        self.sims = None
         self.verrou = threading.Lock()   # une partie à la fois
 
     def catalogue(self):
@@ -99,8 +104,12 @@ class Jeu:
             T(x)
         page = scenario_page("partie", sc, r, dossier, self.habitants, self.dates, self.ref, T)
         self.partie = {"scenario": page, "base": len(self.base), "textes": T.liste[len(self.base):]}
-        return {"verdict": r["verdict"], "mission": r.get("mission"), "voyageur": r["voyageur"], "touches": r["touches"],
-                "cascade": r["cascade"], "faits": len(r["causes"]["faits"]), "arbre": r["arbre"]}
+        self.sims = construire_sims(dossier)
+        self.sims["voyageur"] = [{k: v for k, v in x.items() if not k.startswith("_") or k == "_duree"} for x in sc["interventions"]]
+        res = {"verdict": r["verdict"], "mission": r.get("mission"), "voyageur": r["voyageur"], "touches": r["touches"],
+               "cascade": r["cascade"], "faits": len(r["causes"]["faits"]), "arbre": r["arbre"]}
+        self.sims["resultat"] = res
+        return res
 
 
 class Gestionnaire(http.server.SimpleHTTPRequestHandler):
@@ -113,13 +122,19 @@ class Gestionnaire(http.server.SimpleHTTPRequestHandler):
         super().__init__(*a, directory=VUE, **kw)
 
     def repondre(self, code, obj):
-        corps = json.dumps(obj, ensure_ascii=False).encode("utf-8")
+        corps = json.dumps(obj, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+        gz = "gzip" in self.headers.get("Accept-Encoding", "") and len(corps) > 4096
+        if gz:   # les données de la vue du quartier font plus d'un mégaoctet : compressées, six fois moins
+            corps = gzip.compress(corps, 6)
         self.send_response(code)
         self.send_header("Content-Type", "application/json; charset=utf-8")
+        if gz:
+            self.send_header("Content-Encoding", "gzip")
         self.send_header("Content-Length", str(len(corps)))
         self.send_header("Cache-Control", "no-store")
         self.end_headers()
-        self.wfile.write(corps)
+        for k in range(0, len(corps), 65536):   # par morceaux : sous Windows, un seul envoi d'un gros bloc peut être coupé
+            self.wfile.write(corps[k:k + 65536])
 
     def do_GET(self):
         if self.path in ("/", "/index"):
@@ -130,6 +145,8 @@ class Gestionnaire(http.server.SimpleHTTPRequestHandler):
             self.repondre(200, self.jeu.catalogue())
         elif self.path.startswith("/api/partie"):
             self.repondre(200, self.jeu.partie or {})
+        elif self.path.startswith("/api/sims"):
+            self.repondre(200, self.jeu.sims or {})
         else:
             super().do_GET()
 
@@ -150,7 +167,7 @@ class Gestionnaire(http.server.SimpleHTTPRequestHandler):
             self.repondre(500, {"erreur": f"{type(e).__name__} : {e}"})
 
     def log_message(self, fmt, *args):
-        if "/api/" in (args[0] if args else ""):
+        if "/api/" in str(args[0] if args else ""):
             super().log_message(fmt, *args)
 
 

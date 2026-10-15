@@ -91,6 +91,7 @@ input[type="number"] { width: 72px; }
   <header class="bandeau">
     <h1>Jouer John <span>— 2035 envoie un homme en mars 2010</span></h1>
     <a href="divergence.html">John, le voyageur</a>
+    <a href="sims.html">Le quartier en 3D</a>
     <a href="quartier.html">Le quartier</a>
     <a href="index.html">La semaine en fil de fer</a>
   </header>
@@ -297,7 +298,8 @@ function resultat(j) {
     R.append(el("div", { class: "etiq" }, "Chaîne des causes"));
     R.append(el("pre", { class: "arbre" }, j.arbre.map(l => l.replaceAll("**", "").replace(/^(\s*)- /, "$1• ")).join("\n")));
   }
-  const a = el("p"); a.append(el("a", { href: "divergence.html?partie" }, "Voir la partie sur la frise, habitant par habitant →")); R.append(a);
+  const a = el("p"); a.append(el("a", { href: "divergence.html?partie" }, "Voir la partie sur la frise, habitant par habitant →"), document.createTextNode(" · "),
+                               el("a", { href: "sims.html#partie" }, "La voir dans le quartier en 3D →")); R.append(a);
   R.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 </script>

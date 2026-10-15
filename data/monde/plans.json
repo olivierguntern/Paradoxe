@@ -1,0 +1,1041 @@
+{
+ "principe": "Plans des logements que data/monde/croix-rousse.json ne dessine pas, dans le même format : pièces (rectangles x0, y0, x1, y1 en mètres, x vers l'est, y vers le nord ; « niveau » : l'étage dans le bâtiment), zones extérieures, portes (segments, entre deux pièces ou une pièce et une zone), fenêtres, mobilier (boîtes x0, y0, x1, y1, hauteur ; « z » : posé sur un autre meuble). Utilisés par la vue du quartier façon Sims (outils/exporter_sims.py).",
+ "appartement-vial": {
+  "batiment": "immeuble-epicerie",
+  "niveau": 1,
+  "description": "Au premier étage, au-dessus de l'épicerie, dans l'emprise du bâtiment (8 × 10 m) ; l'escalier de l'immeuble monte à l'arrière, côté est.",
+  "pieces": {
+   "sejour": {
+    "rect": [
+     0,
+     0,
+     4.8,
+     4.5
+    ]
+   },
+   "chambre": {
+    "rect": [
+     4.8,
+     0,
+     8,
+     4.5
+    ]
+   },
+   "cuisine": {
+    "rect": [
+     0,
+     4.5,
+     3.2,
+     8.5
+    ]
+   },
+   "entree": {
+    "rect": [
+     3.2,
+     4.5,
+     5.2,
+     8.5
+    ]
+   },
+   "wc": {
+    "rect": [
+     5.2,
+     5.9,
+     7.0,
+     6.8
+    ]
+   },
+   "salle-de-bain": {
+    "rect": [
+     5.2,
+     6.8,
+     7.0,
+     8.5
+    ]
+   },
+   "porte-immeuble": {
+    "rect": [
+     5.2,
+     4.5,
+     8,
+     5.9
+    ],
+    "zone": true,
+    "nom": "palier"
+   }
+  },
+  "portes": [
+   {
+    "entre": [
+     "porte-immeuble",
+     "entree"
+    ],
+    "segment": [
+     [
+      5.2,
+      4.8
+     ],
+     [
+      5.2,
+      5.6
+     ]
+    ],
+    "nom": "porte de l'appartement"
+   },
+   {
+    "entre": [
+     "entree",
+     "sejour"
+    ],
+    "segment": [
+     [
+      3.6,
+      4.5
+     ],
+     [
+      4.4,
+      4.5
+     ]
+    ]
+   },
+   {
+    "entre": [
+     "entree",
+     "cuisine"
+    ],
+    "segment": [
+     [
+      3.2,
+      6.0
+     ],
+     [
+      3.2,
+      6.8
+     ]
+    ]
+   },
+   {
+    "entre": [
+     "entree",
+     "wc"
+    ],
+    "segment": [
+     [
+      5.2,
+      6.0
+     ],
+     [
+      5.2,
+      6.6
+     ]
+    ]
+   },
+   {
+    "entre": [
+     "entree",
+     "salle-de-bain"
+    ],
+    "segment": [
+     [
+      5.2,
+      7.3
+     ],
+     [
+      5.2,
+      8.0
+     ]
+    ]
+   },
+   {
+    "entre": [
+     "sejour",
+     "chambre"
+    ],
+    "segment": [
+     [
+      4.8,
+      2.2
+     ],
+     [
+      4.8,
+      3.0
+     ]
+    ]
+   }
+  ],
+  "fenetres": [
+   {
+    "piece": "sejour",
+    "segment": [
+     [
+      0.8,
+      0
+     ],
+     [
+      2.0,
+      0
+     ]
+    ]
+   },
+   {
+    "piece": "sejour",
+    "segment": [
+     [
+      2.8,
+      0
+     ],
+     [
+      4.0,
+      0
+     ]
+    ]
+   },
+   {
+    "piece": "chambre",
+    "segment": [
+     [
+      5.6,
+      0
+     ],
+     [
+      7.2,
+      0
+     ]
+    ]
+   },
+   {
+    "piece": "cuisine",
+    "segment": [
+     [
+      0.8,
+      8.5
+     ],
+     [
+      2.2,
+      8.5
+     ]
+    ],
+    "vue": "cour"
+   }
+  ],
+  "mobilier": [
+   {
+    "nom": "canapé",
+    "piece": "sejour",
+    "boite": [
+     0.3,
+     3.5,
+     2.4,
+     4.35,
+     0.8
+    ]
+   },
+   {
+    "nom": "fauteuil d'Henri",
+    "piece": "sejour",
+    "boite": [
+     2.8,
+     3.4,
+     3.6,
+     4.2,
+     0.9
+    ]
+   },
+   {
+    "nom": "télévision",
+    "piece": "sejour",
+    "boite": [
+     0.15,
+     1.6,
+     0.6,
+     2.6,
+     1.0
+    ]
+   },
+   {
+    "nom": "table de salle à manger",
+    "piece": "sejour",
+    "boite": [
+     2.4,
+     1.2,
+     4.0,
+     2.3,
+     0.75
+    ]
+   },
+   {
+    "nom": "buffet",
+    "piece": "sejour",
+    "boite": [
+     4.25,
+     0.6,
+     4.75,
+     2.0,
+     0.9
+    ]
+   },
+   {
+    "nom": "bibliothèque",
+    "piece": "sejour",
+    "boite": [
+     0.05,
+     0.2,
+     0.4,
+     1.4,
+     1.9
+    ]
+   },
+   {
+    "nom": "machine à coudre de Simone",
+    "piece": "sejour",
+    "boite": [
+     2.0,
+     0.1,
+     2.6,
+     0.55,
+     0.75
+    ]
+   },
+   {
+    "nom": "lit double",
+    "piece": "chambre",
+    "boite": [
+     5.4,
+     0.5,
+     7.0,
+     2.5,
+     0.5
+    ]
+   },
+   {
+    "nom": "table de chevet d'Henri",
+    "piece": "chambre",
+    "boite": [
+     5.0,
+     0.5,
+     5.35,
+     0.85,
+     0.55
+    ]
+   },
+   {
+    "nom": "table de chevet de Simone",
+    "piece": "chambre",
+    "boite": [
+     7.05,
+     0.5,
+     7.4,
+     0.85,
+     0.55
+    ]
+   },
+   {
+    "nom": "armoire",
+    "piece": "chambre",
+    "boite": [
+     7.4,
+     2.6,
+     7.95,
+     4.4,
+     2.0
+    ]
+   },
+   {
+    "nom": "commode",
+    "piece": "chambre",
+    "boite": [
+     5.4,
+     3.85,
+     6.6,
+     4.45,
+     0.9
+    ]
+   },
+   {
+    "nom": "cuisinière à gaz",
+    "piece": "cuisine",
+    "boite": [
+     0.05,
+     4.6,
+     0.65,
+     5.2,
+     0.9
+    ]
+   },
+   {
+    "nom": "évier",
+    "piece": "cuisine",
+    "boite": [
+     0.05,
+     5.3,
+     0.65,
+     6.1,
+     0.9
+    ]
+   },
+   {
+    "nom": "réfrigérateur",
+    "piece": "cuisine",
+    "boite": [
+     2.55,
+     4.55,
+     3.15,
+     5.15,
+     1.8
+    ]
+   },
+   {
+    "nom": "table et deux chaises",
+    "piece": "cuisine",
+    "boite": [
+     0.9,
+     6.6,
+     2.0,
+     7.6,
+     0.75
+    ]
+   },
+   {
+    "nom": "placard à provisions",
+    "piece": "cuisine",
+    "boite": [
+     2.6,
+     7.85,
+     3.15,
+     8.45,
+     2.0
+    ]
+   },
+   {
+    "nom": "poste de radio",
+    "piece": "cuisine",
+    "boite": [
+     2.65,
+     7.9,
+     2.95,
+     8.1,
+     0.2
+    ],
+    "z": 2.0
+   },
+   {
+    "nom": "portemanteau",
+    "piece": "entree",
+    "boite": [
+     3.25,
+     4.6,
+     3.45,
+     5.0,
+     1.7
+    ]
+   },
+   {
+    "nom": "meuble à chaussures et vide-poche",
+    "piece": "entree",
+    "boite": [
+     4.6,
+     7.8,
+     5.15,
+     8.45,
+     0.8
+    ]
+   },
+   {
+    "nom": "baignoire",
+    "piece": "salle-de-bain",
+    "boite": [
+     5.3,
+     7.7,
+     6.95,
+     8.45,
+     0.55
+    ]
+   },
+   {
+    "nom": "lavabo",
+    "piece": "salle-de-bain",
+    "boite": [
+     6.45,
+     6.85,
+     6.95,
+     7.25,
+     0.85
+    ]
+   },
+   {
+    "nom": "cuvette",
+    "piece": "wc",
+    "boite": [
+     6.4,
+     6.05,
+     6.9,
+     6.7,
+     0.45
+    ]
+   }
+  ]
+ },
+ "maison-morel": {
+  "batiment": null,
+  "niveau": 0,
+  "description": "Maison de plain-pied, rue des Glycines ; la rue au sud, la véranda et le potager à l'est.",
+  "pieces": {
+   "entree": {
+    "rect": [
+     4.0,
+     0,
+     5.6,
+     5.2
+    ]
+   },
+   "cuisine": {
+    "rect": [
+     0.6,
+     0,
+     4.0,
+     3.3
+    ]
+   },
+   "wc": {
+    "rect": [
+     2.8,
+     3.3,
+     4.0,
+     4.6
+    ]
+   },
+   "chambre": {
+    "rect": [
+     5.6,
+     0,
+     9.2,
+     3.6
+    ]
+   },
+   "salle-de-bain": {
+    "rect": [
+     5.6,
+     3.6,
+     8.0,
+     6.1
+    ]
+   },
+   "sejour": {
+    "rect": [
+     0.6,
+     5.2,
+     6.6,
+     9.6
+    ]
+   },
+   "veranda": {
+    "rect": [
+     6.6,
+     6.1,
+     9.2,
+     9.6
+    ]
+   },
+   "rue-maison": {
+    "rect": [
+     -2,
+     -4,
+     16,
+     0
+    ],
+    "zone": true,
+    "nom": "rue des Glycines"
+   },
+   "jardin": {
+    "rect": [
+     9.2,
+     -0.5,
+     16,
+     12
+    ],
+    "zone": true,
+    "nom": "potager"
+   }
+  },
+  "portes": [
+   {
+    "entre": [
+     "rue-maison",
+     "entree"
+    ],
+    "segment": [
+     [
+      4.4,
+      0
+     ],
+     [
+      5.2,
+      0
+     ]
+    ],
+    "nom": "porte d'entrée"
+   },
+   {
+    "entre": [
+     "entree",
+     "cuisine"
+    ],
+    "segment": [
+     [
+      4.0,
+      1.2
+     ],
+     [
+      4.0,
+      2.0
+     ]
+    ]
+   },
+   {
+    "entre": [
+     "entree",
+     "wc"
+    ],
+    "segment": [
+     [
+      4.0,
+      3.6
+     ],
+     [
+      4.0,
+      4.3
+     ]
+    ]
+   },
+   {
+    "entre": [
+     "entree",
+     "chambre"
+    ],
+    "segment": [
+     [
+      5.6,
+      1.6
+     ],
+     [
+      5.6,
+      2.4
+     ]
+    ]
+   },
+   {
+    "entre": [
+     "chambre",
+     "salle-de-bain"
+    ],
+    "segment": [
+     [
+      6.4,
+      3.6
+     ],
+     [
+      7.2,
+      3.6
+     ]
+    ]
+   },
+   {
+    "entre": [
+     "entree",
+     "sejour"
+    ],
+    "segment": [
+     [
+      4.4,
+      5.2
+     ],
+     [
+      5.2,
+      5.2
+     ]
+    ]
+   },
+   {
+    "entre": [
+     "sejour",
+     "veranda"
+    ],
+    "segment": [
+     [
+      6.6,
+      7.4
+     ],
+     [
+      6.6,
+      8.4
+     ]
+    ]
+   },
+   {
+    "entre": [
+     "veranda",
+     "jardin"
+    ],
+    "segment": [
+     [
+      9.2,
+      7.2
+     ],
+     [
+      9.2,
+      8.2
+     ]
+    ]
+   }
+  ],
+  "fenetres": [
+   {
+    "piece": "cuisine",
+    "segment": [
+     [
+      1.4,
+      0
+     ],
+     [
+      2.8,
+      0
+     ]
+    ]
+   },
+   {
+    "piece": "chambre",
+    "segment": [
+     [
+      6.6,
+      0
+     ],
+     [
+      8.2,
+      0
+     ]
+    ]
+   },
+   {
+    "piece": "sejour",
+    "segment": [
+     [
+      1.4,
+      9.6
+     ],
+     [
+      3.0,
+      9.6
+     ]
+    ]
+   },
+   {
+    "piece": "sejour",
+    "segment": [
+     [
+      3.8,
+      9.6
+     ],
+     [
+      5.4,
+      9.6
+     ]
+    ]
+   },
+   {
+    "piece": "veranda",
+    "segment": [
+     [
+      6.8,
+      9.6
+     ],
+     [
+      9.0,
+      9.6
+     ]
+    ]
+   },
+   {
+    "piece": "veranda",
+    "segment": [
+     [
+      9.2,
+      6.3
+     ],
+     [
+      9.2,
+      7.0
+     ]
+    ]
+   },
+   {
+    "piece": "salle-de-bain",
+    "segment": [
+     [
+      8.0,
+      4.4
+     ],
+     [
+      8.0,
+      5.4
+     ]
+    ]
+   }
+  ],
+  "mobilier": [
+   {
+    "nom": "portemanteau",
+    "piece": "entree",
+    "boite": [
+     4.05,
+     0.3,
+     4.3,
+     0.7,
+     1.7
+    ]
+   },
+   {
+    "nom": "meuble à chaussures et vide-poche",
+    "piece": "entree",
+    "boite": [
+     5.1,
+     0.3,
+     5.55,
+     1.1,
+     0.9
+    ]
+   },
+   {
+    "nom": "table",
+    "piece": "cuisine",
+    "boite": [
+     1.4,
+     1.2,
+     2.6,
+     2.2,
+     0.75
+    ]
+   },
+   {
+    "nom": "cuisinière",
+    "piece": "cuisine",
+    "boite": [
+     0.65,
+     2.6,
+     1.25,
+     3.25,
+     0.9
+    ]
+   },
+   {
+    "nom": "évier",
+    "piece": "cuisine",
+    "boite": [
+     1.3,
+     2.7,
+     2.2,
+     3.25,
+     0.9
+    ]
+   },
+   {
+    "nom": "réfrigérateur",
+    "piece": "cuisine",
+    "boite": [
+     3.35,
+     2.6,
+     3.95,
+     3.25,
+     1.8
+    ]
+   },
+   {
+    "nom": "placard à provisions",
+    "piece": "cuisine",
+    "boite": [
+     0.65,
+     0.1,
+     1.2,
+     1.0,
+     2.0
+    ]
+   },
+   {
+    "nom": "poste de radio",
+    "piece": "cuisine",
+    "boite": [
+     2.3,
+     2.85,
+     2.6,
+     3.05,
+     0.2
+    ],
+    "z": 0.9
+   },
+   {
+    "nom": "cuvette",
+    "piece": "wc",
+    "boite": [
+     3.0,
+     3.9,
+     3.5,
+     4.5,
+     0.45
+    ]
+   },
+   {
+    "nom": "lit double",
+    "piece": "chambre",
+    "boite": [
+     6.4,
+     1.2,
+     8.4,
+     3.2,
+     0.5
+    ]
+   },
+   {
+    "nom": "armoire",
+    "piece": "chambre",
+    "boite": [
+     8.6,
+     0.2,
+     9.15,
+     1.8,
+     2.0
+    ]
+   },
+   {
+    "nom": "commode",
+    "piece": "chambre",
+    "boite": [
+     5.7,
+     0.1,
+     6.8,
+     0.6,
+     0.9
+    ]
+   },
+   {
+    "nom": "douche",
+    "piece": "salle-de-bain",
+    "boite": [
+     7.0,
+     5.0,
+     7.95,
+     6.05,
+     2.0
+    ]
+   },
+   {
+    "nom": "lavabo",
+    "piece": "salle-de-bain",
+    "boite": [
+     5.65,
+     4.6,
+     6.2,
+     5.2,
+     0.85
+    ]
+   },
+   {
+    "nom": "panier à linge",
+    "piece": "salle-de-bain",
+    "boite": [
+     5.7,
+     5.5,
+     6.1,
+     5.95,
+     0.6
+    ]
+   },
+   {
+    "nom": "canapé",
+    "piece": "sejour",
+    "boite": [
+     1.0,
+     8.6,
+     3.2,
+     9.5,
+     0.8
+    ]
+   },
+   {
+    "nom": "fauteuil de Gérard",
+    "piece": "sejour",
+    "boite": [
+     3.6,
+     8.5,
+     4.4,
+     9.3,
+     0.9
+    ]
+   },
+   {
+    "nom": "télévision",
+    "piece": "sejour",
+    "boite": [
+     2.0,
+     5.3,
+     3.0,
+     5.8,
+     1.0
+    ]
+   },
+   {
+    "nom": "table de salle à manger",
+    "piece": "sejour",
+    "boite": [
+     1.2,
+     6.4,
+     3.0,
+     7.6,
+     0.75
+    ]
+   },
+   {
+    "nom": "buffet",
+    "piece": "sejour",
+    "boite": [
+     5.0,
+     8.9,
+     6.5,
+     9.5,
+     0.9
+    ]
+   },
+   {
+    "nom": "plantes",
+    "piece": "veranda",
+    "boite": [
+     8.6,
+     8.6,
+     9.15,
+     9.55,
+     1.2
+    ]
+   },
+   {
+    "nom": "deux fauteuils en rotin",
+    "piece": "veranda",
+    "boite": [
+     7.0,
+     8.4,
+     8.2,
+     9.2,
+     0.85
+    ]
+   },
+   {
+    "nom": "établi de rempotage",
+    "piece": "veranda",
+    "boite": [
+     7.4,
+     6.2,
+     9.0,
+     6.8,
+     0.9
+    ]
+   }
+  ]
+ }
+}

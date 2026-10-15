@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paradoxe — le quartier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Vue du quartier façon Sims : la scène 3D occupe tout l'écran ; les panneaux flottent par-dessus. */
+:root {
+  --ciel: #bfe3f2;
+  --panneau: rgba(250, 252, 255, .94);
+  --panneau-bord: #c9d9e6;
+  --encre: #1d2b38;
+  --doux: #5d7183;
+  --accent: #2f7fd1;
+  --accent-clair: #dbeafb;
+  --vert: #3fae49;
+  --jaune: #e0b21f;
+  --rouge: #d6493a;
+  --ombre: 0 4px 18px rgba(20, 40, 60, .18);
+  --f: "Nunito", "Segoe UI", system-ui, sans-serif;
+  --f-chiffres: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ciel: #0f1a24; --panneau: rgba(20, 30, 40, .93); --panneau-bord: #2c3e4f; --encre: #e3ecf3; --doux: #93a8b9;
+    --accent: #5aa6f0; --accent-clair: #1f3550; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ciel: #0f1a24; --panneau: rgba(20, 30, 40, .93); --panneau-bord: #2c3e4f; --encre: #e3ecf3; --doux: #93a8b9;
+  --accent: #5aa6f0; --accent-clair: #1f3550; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--ciel); color: var(--encre); font-family: var(--f); font-size: 14px; }
+button { font: inherit; color: inherit; cursor: pointer; }
+#scene { position: fixed; inset: 0; }
+#scene canvas { display: block; }
+.panneau { position: fixed; background: var(--panneau); border: 1px solid var(--panneau-bord); border-radius: 14px; box-shadow: var(--ombre); backdrop-filter: blur(6px); }
+
+/* en haut : titre, terrains, étages */
+#haut { top: 12px; left: 12px; right: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 8px 12px; }
+#haut h1 { font-size: 1.05rem; font-weight: 800; margin: 0; }
+#haut h1 span { font-weight: 600; color: var(--doux); }
+.puces { display: flex; flex-wrap: wrap; gap: 4px; }
+.puces button { border: 1px solid var(--panneau-bord); background: transparent; border-radius: 999px; padding: 3px 11px; font-weight: 700; font-size: .85rem; }
+.puces button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+#haut .liens { margin-left: auto; display: flex; gap: 12px; font-size: .82rem; }
+#haut .liens a { color: var(--doux); }
+
+/* en bas à gauche : l'horloge */
+#horloge { left: 12px; bottom: 12px; padding: 10px 12px; width: 300px; }
+#heure { font-family: var(--f-chiffres); font-size: 1.6rem; letter-spacing: .02em; }
+#jour { font-weight: 800; color: var(--doux); font-size: .9rem; margin-left: 6px; }
+.vitesses { display: flex; gap: 4px; margin: 6px 0; }
+.vitesses button { flex: 1; border: 1px solid var(--panneau-bord); background: transparent; border-radius: 8px; padding: 4px 0; font-weight: 800; }
+.vitesses button[aria-pressed="true"] { background: var(--vert); border-color: var(--vert); color: #fff; }
+#curseur { width: 100%; accent-color: var(--accent); }
+.jours { display: flex; gap: 3px; flex-wrap: wrap; margin-top: 4px; }
+.jours button { border: 1px solid var(--panneau-bord); background: transparent; border-radius: 6px; padding: 1px 6px; font-size: .78rem; font-weight: 700; }
+.jours button[aria-pressed="true"] { background: var(--accent-clair); border-color: var(--accent); }
+
+/* en bas : les habitants */
+#portraits { left: 324px; right: 340px; bottom: 12px; padding: 6px; display: flex; gap: 2px; overflow-x: auto; }
+.portrait { flex: 1 0 64px; display: grid; justify-items: center; gap: 2px; border: 2px solid transparent; background: transparent; border-radius: 12px; padding: 4px 2px; }
+.portrait[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-clair); }
+.portrait .tete { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.05rem; box-shadow: inset 0 0 0 3px var(--anneau, #fff); }
+.portrait b { font-size: .8rem; }
+.portrait small { display: none; }
+
+/* à droite : l'habitant choisi */
+#fiche { right: 12px; bottom: 12px; width: 316px; padding: 12px 14px; max-height: calc(100% - 90px); overflow-y: auto; }
+#fiche h2 { margin: 0; font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+#fiche h2 .pastille { width: 14px; height: 14px; transform: rotate(45deg); border-radius: 2px; }
+#fiche .ou { color: var(--doux); font-size: .82rem; margin: 2px 0 8px; }
+#fiche .activite { font-weight: 800; }
+#fiche .action { font-size: .86rem; color: var(--doux); margin: 2px 0 6px; }
+#fiche .pensee { font-style: italic; font-size: .86rem; background: var(--accent-clair); border-radius: 10px; padding: 5px 9px; margin-bottom: 8px; }
+.besoin { display: grid; grid-template-columns: 70px 1fr; align-items: center; gap: 8px; margin: 4px 0; font-size: .82rem; font-weight: 700; }
+.jauge { height: 10px; border-radius: 6px; background: rgba(120, 140, 160, .25); overflow: hidden; }
+.jauge i { display: block; height: 100%; border-radius: 6px; transition: width .3s, background .3s; }
+#suivre { margin-top: 8px; border: 1px solid var(--panneau-bord); background: transparent; border-radius: 8px; padding: 3px 10px; font-weight: 700; font-size: .82rem; }
+#suivre[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* bulle au-dessus de l'habitant choisi */
+#bulle { position: fixed; transform: translate(-50%, -100%); pointer-events: none; background: #fff; color: #1d2b38; border-radius: 14px; padding: 5px 10px; font-size: .8rem; font-weight: 700; max-width: 220px; box-shadow: var(--ombre); display: none; }
+#bulle::after { content: ""; position: absolute; left: 50%; bottom: -7px; margin-left: -7px; border: 7px solid transparent; border-bottom: 0; border-top-color: #fff; }
+#chargement { position: fixed; inset: 0; display: grid; place-items: center; font-weight: 800; color: var(--doux); }
+
+/* le jeu : le plan de John, le menu d'actions, le résultat */
+#john { top: 70px; right: 12px; width: 316px; padding: 10px 14px; max-height: 38%; overflow-y: auto; display: none; }
+#john h3 { margin: 0 0 4px; font-size: .95rem; font-weight: 800; }
+#john .aide { font-size: .8rem; color: var(--doux); margin: 0 0 6px; }
+#john ol { margin: 0; padding-left: 18px; font-size: .82rem; }
+#john li { margin: 2px 0; }
+#john li button { border: 0; background: none; color: var(--rouge); font-weight: 800; padding: 0 4px; }
+#john .boutons { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+#john .boutons button { border: 1px solid var(--panneau-bord); background: transparent; border-radius: 8px; padding: 3px 10px; font-weight: 700; font-size: .8rem; }
+#resultat { margin-top: 8px; border-left: 4px solid var(--etat, var(--doux)); padding: 4px 0 4px 10px; font-size: .82rem; }
+#resultat b { color: var(--etat); }
+#resultat .avenir { font-weight: 800; margin-top: 4px; }
+#resultat ul { margin: 4px 0 0; padding-left: 16px; color: var(--doux); }
+#menu { position: fixed; width: 0; height: 0; display: none; z-index: 5; }
+#menu button { position: absolute; transform: translate(-50%, -50%); white-space: nowrap; border: 0; border-radius: 999px; padding: 6px 12px; font-weight: 800; font-size: .82rem;
+  background: var(--panneau); color: var(--encre); box-shadow: var(--ombre); }
+#menu button:hover, #menu button:focus-visible { background: var(--accent); color: #fff; }
+#menu .centre { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); position: absolute; transform: translate(-50%, -50%); }
+#menu form { position: absolute; transform: translate(-50%, 24px); background: var(--panneau); border-radius: 12px; padding: 8px; box-shadow: var(--ombre); display: grid; gap: 6px; width: 260px; }
+#menu form input, #menu form select { font: inherit; padding: 4px 6px; border-radius: 6px; border: 1px solid var(--panneau-bord); background: transparent; color: inherit; }
+#menu form button { position: static; transform: none; background: var(--accent); color: #fff; }
+#attente { position: fixed; inset: 0; display: none; place-items: center; background: rgba(10, 20, 30, .35); z-index: 6; color: #fff; font-weight: 800; font-size: 1.1rem; }
+
+@media (max-width: 900px) {
+  #portraits { left: 12px; right: 12px; bottom: 150px; }
+  #fiche { top: auto; bottom: 230px; width: auto; left: 12px; max-height: 40%; }
+  #horloge { width: auto; right: 12px; }
+}
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script src="sims.js"></script>
+</head>
+<body>
+<div id="scene"></div>
+<div id="chargement">Chargement du quartier…</div>
+<header id="haut" class="panneau">
+  <h1>Paradoxe <span>— le quartier, mars 2010</span></h1>
+  <div class="puces" id="terrains" role="group" aria-label="Terrain"></div>
+  <div class="puces" id="etages" role="group" aria-label="Étage"></div>
+  <div class="puces" id="murs" role="group" aria-label="Murs"></div>
+  <nav class="liens"><a href="jouer.html">Jouer John</a><a href="quartier.html">Contrôle</a><a href="divergence.html">Le voyageur</a></nav>
+</header>
+<section id="horloge" class="panneau" aria-label="Temps">
+  <div><span id="heure">07:00</span><span id="jour">lundi 8</span></div>
+  <div class="vitesses" role="group" aria-label="Vitesse">
+    <button data-v="0" title="Pause (espace)">❚❚</button><button data-v="1" title="Vitesse 1">▶</button><button data-v="2" title="Vitesse 2">▶▶</button><button data-v="3" title="Vitesse 3">▶▶▶</button>
+  </div>
+  <input id="curseur" type="range" min="0" step="1" aria-label="Instant de la semaine">
+  <div class="jours" id="jours"></div>
+</section>
+<nav id="portraits" class="panneau" aria-label="Habitants"></nav>
+<aside id="fiche" class="panneau" aria-live="polite"></aside>
+<div id="bulle"></div>
+<aside id="john" class="panneau" aria-label="Le plan de John"></aside>
+<div id="menu" role="menu"></div>
+<div id="attente" role="status">John agit… la semaine est rejouée.</div>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+const D = window.SIMS;
+const PJ = D.pas_par_jour;
+let N = D.pas[D.habitants[0].id].length;
+let T = D.textes;
+const JOURS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
+const NOMS_BESOINS = { faim: "Faim", soif: "Soif", energie: "Énergie", hygiene: "Hygiène", toilettes: "Vessie", social: "Social", detente: "Détente" };
+const F = Object.fromEntries(D.champs.map((c, i) => [c, i]));
+const el = (tag, attrs = {}, txt) => { const e = document.createElement(tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (txt != null) e.textContent = txt; return e; };
+const hhmm = i => { const m = (i % PJ) * 5; return `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`; };
+const jourDe = i => { const d = Math.floor(i / PJ); return `${JOURS[d % 7]} ${Number(D.dates[d].slice(8))}`; };
+
+// ---------------------------------------------------------------- état
+let t = PJ * 0 + 84;             // lundi 07:00
+let vitesse = 1;                 // 0 pause, 1 : 5 s par pas, 2 : 1 s, 3 : 0,12 s
+const DUREES = [Infinity, 5, 1, 0.12];
+let lot = 0, etage = null, mursBas = false, choisi = "simone-vial", suivre = true;
+try { const s = JSON.parse(localStorage.getItem("paradoxe-sims") || "{}"); if (s.choisi) choisi = s.choisi; if (typeof s.mursBas === "boolean") mursBas = s.mursBas; } catch (e) {}
+// sims.html#qui=robert-chazal&t=408 : qui suivre, à quel pas de la semaine (un lien vers un instant)
+{ const h = new URLSearchParams(location.hash.slice(1)); if (D.pas[h.get("qui")]) choisi = h.get("qui"); if (h.has("t")) t = Math.max(0, Math.min(N - 1, Number(h.get("t")) || 0)); if (h.has("v")) vitesse = Number(h.get("v")) || 0; }
+const memoriser = () => { try { localStorage.setItem("paradoxe-sims", JSON.stringify({ choisi, mursBas })); } catch (e) {} };
+
+// ---------------------------------------------------------------- scène
+const conteneur = document.getElementById("scene");
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+conteneur.append(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.OrthographicCamera(-10, 10, 10, -10, -200, 400);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = 0.12;
+controls.minPolarAngle = 0.45; controls.maxPolarAngle = 1.25;
+controls.minZoom = 0.5; controls.maxZoom = 4;
+controls.screenSpacePanning = false;
+const hemi = new THREE.HemisphereLight(0xdfefff, 0x6d6a55, 0.9);
+scene.add(hemi);
+const soleil = new THREE.DirectionalLight(0xfff1d6, 1.6);
+soleil.castShadow = true;
+soleil.shadow.mapSize.set(2048, 2048);
+Object.assign(soleil.shadow.camera, { left: -25, right: 25, top: 25, bottom: -25, near: 1, far: 120 });
+scene.add(soleil, soleil.target);
+const lampes = Array.from({ length: 10 }, () => { const l = new THREE.PointLight(0xffc77a, 0, 7, 1.6); scene.add(l); return l; });
+
+function cadrer() {
+  const w = window.innerWidth, h = window.innerHeight, s = 9;
+  camera.left = -s * w / h; camera.right = s * w / h; camera.top = s; camera.bottom = -s;
+  camera.updateProjectionMatrix(); renderer.setSize(w, h);
+}
+window.addEventListener("resize", cadrer); cadrer();
+
+// plan (x vers l'est, y vers le nord) → scène (X, Y en haut, Z = −y)
+const P = (x, y, z = 0) => new THREE.Vector3(x, z, -y);
+
+// ---------------------------------------------------------------- matériaux
+const mats = {};
+const mat = (c, o = {}) => (mats[c + JSON.stringify(o)] ??= new THREE.MeshStandardMaterial(Object.assign({ color: c, roughness: 0.85 }, o)));
+function couleurSol(p) {
+  const n = p.local;
+  if (p.zone) return /jardin|potager/.test(n) ? "#7fb35a" : /cour/.test(n) ? "#cbbd9f" : "#b8bcc0";
+  if (/cuisine/.test(n)) return "#e9dfc9";
+  if (/salle-de-bain|wc|douche/.test(n)) return "#dfe9ee";
+  if (/chambre/.test(n)) return "#b9c7dd";
+  if (/boutique|reserve/.test(n)) return "#c9c4b6";
+  if (/atelier/.test(n)) return "#b7976f";
+  if (/veranda/.test(n)) return "#d7c9a6";
+  return "#c49a6c";
+}
+function couleurMeuble(nom) {
+  const n = nom.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const R = [[/lit/, "#f3f1ea"], [/canape/, "#b0473a"], [/fauteuil/, "#8a5a3c"], [/table|etabli|bureau|comptoir/, "#9c6b40"], [/television/, "#2a2d33"],
+    [/refrigerateur|cuisiniere|evier|lavabo|baignoire|cuvette|douche|chambre froide/, "#eef2f4"], [/armoire|buffet|commode|placard|bibliotheque|meuble|chevet/, "#7c5636"],
+    [/rayon|etagere/, "#9aa3ab"], [/vitrine/, "#cfe6ef"], [/plante/, "#3f8f3a"], [/etal|cagette|paniere/, "#c48a3e"], [/coffre/, "#555b63"], [/radio|machine/, "#4a4f57"]];
+  return (R.find(([r]) => r.test(n)) || [0, "#a88d6d"])[1];
+}
+
+// ---------------------------------------------------------------- terrain
+const groupeLot = new THREE.Group(); scene.add(groupeLot);
+let murs = [], parNiveau = {}, centreLot = new THREE.Vector3(), piecesLot = [];
+function construire(n) {
+  groupeLot.clear(); murs = []; parNiveau = {};
+  const L = D.lots[n], H = L.hauteur;
+  const ajout = (obj, niv) => { (parNiveau[niv] ??= []).push(obj); groupeLot.add(obj); return obj; };
+  // l'emprise
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  for (const p of L.pieces) { x0 = Math.min(x0, p.rect[0]); y0 = Math.min(y0, p.rect[1]); x1 = Math.max(x1, p.rect[2]); y1 = Math.max(y1, p.rect[3]); }
+  centreLot = P((x0 + x1) / 2, (y0 + y1) / 2);
+  const sol = new THREE.Mesh(new THREE.BoxGeometry(x1 - x0 + 16, 0.2, y1 - y0 + 16), mat(L.id === "epicerie" || L.id === "thomas" ? "#a9aeb2" : "#8fc06a"));
+  sol.position.copy(P((x0 + x1) / 2, (y0 + y1) / 2, -0.12)); sol.receiveShadow = true; groupeLot.add(sol);
+  // les pièces : sol de chaque pièce, zones extérieures
+  piecesLot = L.pieces;
+  for (const p of L.pieces) {
+    const [a, b, c, d] = p.rect, z = p.niveau * H;
+    const m = new THREE.Mesh(new THREE.BoxGeometry(c - a, p.zone ? 0.04 : 0.1, d - b), mat(couleurSol(p)));
+    m.position.copy(P((a + c) / 2, (b + d) / 2, z + (p.zone ? -0.02 : -0.04))); m.receiveShadow = true;
+    m.userData = { sol: true, piece: p };
+    ajout(m, p.niveau);
+  }
+  // les murs : chaque bord de pièce intérieure, une seule fois, moins les portes ; les fenêtres en verre
+  const vus = new Set();
+  const ouvertures = (niv, ax, ay, bx, by) => {
+    const sur = (seg) => { const [[px, py], [qx, qy]] = seg; return Math.abs((bx - ax) * (py - ay) - (by - ay) * (px - ax)) < 1e-3 && Math.abs((bx - ax) * (qy - ay) - (by - ay) * (qx - ax)) < 1e-3; };
+    return [...L.portes.filter(d => d.niveau === niv && !d.escalier && sur(d.segment)).map(d => ({ seg: d.segment, type: "porte" })),
+            ...L.fenetres.filter(f => f.niveau === niv && sur(f.segment)).map(f => ({ seg: f.segment, type: "fenetre" }))];
+  };
+  for (const p of L.pieces) {
+    if (p.zone) continue;
+    const [a, b, c, d] = p.rect, niv = p.niveau, z = niv * H;
+    for (const [ax, ay, bx, by] of [[a, b, c, b], [c, b, c, d], [a, d, c, d], [a, b, a, d]]) {
+      const cle = [niv, Math.min(ax, bx), Math.min(ay, by), Math.max(ax, bx), Math.max(ay, by)].map(v => v.toFixed(2)).join();
+      if (vus.has(cle)) continue; vus.add(cle);
+      const len = Math.hypot(bx - ax, by - ay), ux = (bx - ax) / len, uy = (by - ay) / len;
+      // découpe en tronçons : mur plein, porte (rien), fenêtre (allège + verre + linteau)
+      const trous = ouvertures(niv, ax, ay, bx, by).map(o => {
+        const s0 = (o.seg[0][0] - ax) * ux + (o.seg[0][1] - ay) * uy, s1 = (o.seg[1][0] - ax) * ux + (o.seg[1][1] - ay) * uy;
+        return { s0: Math.min(s0, s1), s1: Math.max(s0, s1), type: o.type };
+      }).sort((u, v) => u.s0 - v.s0);
+      let s = 0;
+      const troncon = (s0, s1, bas, haut, materiau) => {
+        if (s1 - s0 < 0.01) return;
+        const g = new THREE.BoxGeometry(s1 - s0, haut - bas, 0.12);
+        const m = new THREE.Mesh(g, materiau);
+        const mx = ax + ux * (s0 + s1) / 2, my = ay + uy * (s0 + s1) / 2;
+        m.position.copy(P(mx, my, z + (bas + haut) / 2));
+        m.rotation.y = Math.atan2(uy, ux);
+        m.castShadow = materiau.transparent !== true; m.receiveShadow = true;
+        m.userData = { mur: true, bas, haut, z, mx, my, verre: materiau.transparent === true };
+        murs.push(m); ajout(m, niv);
+      };
+      const plein = mat("#f1ece3"), verre = mat("#9fd3ee", { transparent: true, opacity: 0.35, roughness: 0.1 });
+      for (const o of trous) {
+        troncon(s, o.s0, 0, H, plein);
+        if (o.type === "fenetre") { troncon(o.s0, o.s1, 0, 0.9, plein); troncon(o.s0, o.s1, 0.9, 2.1, verre); troncon(o.s0, o.s1, 2.1, H, plein); }
+        else troncon(o.s0, o.s1, 2.1, H, plein);
+        s = o.s1;
+      }
+      troncon(s, len, 0, H, plein);
+    }
+  }
+  // le mobilier
+  for (const m of L.mobilier) {
+    const [a, b, c, d, h] = m.boite, z = m.niveau * H + (m.z || 0);
+    ajout(meuble(m.nom, a, b, c, d, h, z, piece(m.piece)), m.niveau);
+  }
+  majEtages(); majMurs();
+}
+const piece = id => piecesLot.find(p => p.id === id);
+function meuble(nom, a, b, c, d, h, z, pc) {
+  const g = new THREE.Group(), coul = couleurMeuble(nom), w = c - a, p = d - b;
+  const n = nom.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const boite = (bx, by, bz, cx, cy, cz, couleur) => { const m = new THREE.Mesh(new THREE.BoxGeometry(bx, by, bz), mat(couleur)); m.position.set(cx, cy, cz); m.castShadow = m.receiveShadow = true; g.add(m); return m; };
+  if (/^table|table de|table et/.test(n) || /etabli|bureau/.test(n)) {
+    boite(w, 0.05, p, 0, h - 0.025, 0, coul);
+    for (const [sx, sz] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) boite(0.06, h - 0.05, 0.06, sx * (w / 2 - 0.06), (h - 0.05) / 2, sz * (p / 2 - 0.06), coul);
+  } else if (/lit/.test(n)) {
+    boite(w, 0.3, p, 0, 0.15, 0, "#7c5636");
+    boite(w - 0.06, 0.18, p - 0.06, 0, 0.39, 0, "#f3f1ea");
+    const long = w >= p;
+    boite(long ? w * 0.62 : w - 0.1, 0.06, long ? p - 0.1 : p * 0.62, long ? w * 0.17 : 0, 0.5, long ? 0 : -p * 0.17, "#6f9bd1");
+    boite(long ? 0.35 : w * 0.8, 0.1, long ? p * 0.8 : 0.35, long ? -w / 2 + 0.25 : 0, 0.52, long ? 0 : p / 2 - 0.25, "#ffffff");
+  } else if (/canape|fauteuil/.test(n)) {
+    boite(w, 0.42, p, 0, 0.21, 0, coul);
+    // dossier du côté opposé au milieu de la pièce
+    const [cx, cy] = pc ? [(pc.rect[0] + pc.rect[2]) / 2, (pc.rect[1] + pc.rect[3]) / 2] : [0, 0];
+    const dx = cx - (a + c) / 2, dy = cy - (b + d) / 2;
+    if (Math.abs(dx) * p > Math.abs(dy) * w) boite(0.18, h - 0.42, p, dx > 0 ? -w / 2 + 0.09 : w / 2 - 0.09, 0.42 + (h - 0.42) / 2, 0, coul);
+    else boite(w, h - 0.42, 0.18, 0, 0.42 + (h - 0.42) / 2, dy > 0 ? p / 2 - 0.09 : -p / 2 + 0.09, coul);
+  } else if (/television/.test(n)) {
+    boite(w, 0.45, p, 0, 0.22, 0, "#7c5636");
+    boite(Math.max(w, p) > w ? 0.08 : w * 0.9, 0.5, Math.max(w, p) > w ? p * 0.9 : 0.08, 0, 0.7, 0, "#16181c");
+  } else if (/plante/.test(n)) {
+    boite(w * 0.6, 0.3, p * 0.6, 0, 0.15, 0, "#a5603a");
+    const f = new THREE.Mesh(new THREE.IcosahedronGeometry(Math.min(w, p) * 0.45, 0), mat("#3f8f3a")); f.position.set(0, 0.7, 0); f.castShadow = true; g.add(f);
+  } else {
+    boite(w, h, p, 0, h / 2, 0, coul);
+  }
+  g.position.copy(P((a + c) / 2, (b + d) / 2, z));
+  return g;
+}
+
+// ---------------------------------------------------------------- étages et murs
+function majEtages() {
+  const L = D.lots[lot], niveaux = [...new Set(L.pieces.map(p => p.niveau))].sort();
+  const E = document.getElementById("etages"); E.textContent = "";
+  if (niveaux.length > 1) {
+    for (const v of niveaux) {
+      const b = el("button", { "aria-pressed": String(etage === v) }, v === 0 ? "Rez-de-chaussée" : `${v}er étage`);
+      b.onclick = () => { etage = v; suivre = false; majEtages(); majFiche(true); }; E.append(b);
+    }
+  }
+  const visible = etage ?? Math.max(...niveaux);
+  for (const [niv, objs] of Object.entries(parNiveau)) for (const o of objs) o.visible = Number(niv) <= visible;
+}
+function majMurs() {
+  const M = document.getElementById("murs"); M.textContent = "";
+  for (const [v, txt] of [[false, "Murs coupés"], [true, "Murs bas"]]) {
+    const b = el("button", { "aria-pressed": String(mursBas === v) }, txt);
+    b.onclick = () => { mursBas = v; memoriser(); majMurs(); }; M.append(b);
+  }
+}
+// les murs du côté de la caméra sont coupés à hauteur d'allège, comme dans les Sims
+const vue = new THREE.Vector3();
+function couperMurs() {
+  camera.getWorldDirection(vue); vue.y = 0; vue.normalize();
+  for (const m of murs) {
+    const u = m.userData, devant = (u.mx - centreLot.x) * -vue.x + (-u.my - centreLot.z) * -vue.z > 0.5;
+    const plafond = mursBas || devant ? 0.9 : Infinity;
+    const haut = Math.min(u.haut, plafond), bas = u.bas;
+    if (haut <= bas) { m.visible = false; continue; }
+    m.visible = estVisible(m);
+    m.scale.y = (haut - bas) / (u.haut - u.bas);
+    m.position.y = u.z + bas + (haut - bas) / 2;
+  }
+}
+function estVisible(m) {
+  const L = D.lots[lot], niveaux = [...new Set(L.pieces.map(p => p.niveau))];
+  const visible = etage ?? Math.max(...niveaux);
+  return Math.round(m.userData.z / L.hauteur) <= visible;
+}
+
+// ---------------------------------------------------------------- les habitants
+function personnage(h) {
+  const g = new THREE.Group(), corps = new THREE.Group();
+  const peau = mat("#e8bf99"), habit = mat(h.couleur), pantalon = mat(h.genre === "femme" ? "#4b3f5c" : "#2f3b4f");
+  const vieux = (h.age || 30) > 65;
+  const cheveux = mat(vieux ? "#d9d9d9" : h.id === "thomas-berthier" ? "#4a3423" : "#8a8a8a");
+  const cyl = (r, l, m) => { const x = new THREE.Mesh(new THREE.CylinderGeometry(r, r, l, 10), m); x.castShadow = true; return x; };
+  const jambes = [-0.09, 0.09].map(dz => { const j = new THREE.Group(); const c = cyl(0.065, 0.78, pantalon); c.position.y = -0.39; j.add(c); j.position.set(0, 0.8, dz); corps.add(j); return j; });
+  const tronc = cyl(0.17, 0.62, habit); tronc.position.y = 1.1; corps.add(tronc);
+  if (h.genre === "femme") { const jupe = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.24, 0.35, 12), habit); jupe.position.y = 0.72; jupe.castShadow = true; corps.add(jupe); }
+  const bras = [-0.23, 0.23].map(dz => { const b = new THREE.Group(); const c = cyl(0.05, 0.6, habit); c.position.y = -0.3; b.add(c); b.position.set(0, 1.38, dz); corps.add(b); return b; });
+  const tete = new THREE.Mesh(new THREE.SphereGeometry(0.15, 16, 12), peau); tete.position.y = 1.58; tete.castShadow = true; corps.add(tete);
+  const coiffe = new THREE.Mesh(new THREE.SphereGeometry(0.16, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2), cheveux); coiffe.position.set(-0.02, 1.6, 0); corps.add(coiffe);
+  const nez = new THREE.Mesh(new THREE.SphereGeometry(0.03, 8, 6), peau); nez.position.set(0.15, 1.57, 0); corps.add(nez);
+  g.add(corps);
+  // le diamant au-dessus de la tête (l'humeur), seulement pour l'habitant choisi
+  const losange = new THREE.Mesh(new THREE.OctahedronGeometry(0.13, 0), new THREE.MeshStandardMaterial({ color: "#3fae49", emissive: "#1d6b25", roughness: 0.3 }));
+  losange.scale.y = 1.7; losange.position.y = 2.1; g.add(losange);
+  const zzz = sprite("Zzz", "#5d7183"); zzz.position.set(0, 1.0, 0); zzz.visible = false; g.add(zzz);
+  g.userData = { h, corps, jambes, bras, losange, zzz };
+  g.traverse(o => { o.userData.habitant = h.id; });
+  scene.add(g);
+  return g;
+}
+function sprite(txt, couleur) {
+  const c = document.createElement("canvas"); c.width = 128; c.height = 64;
+  const x = c.getContext("2d"); x.font = "bold 40px Nunito, sans-serif"; x.fillStyle = couleur; x.textAlign = "center"; x.fillText(txt, 64, 46);
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthTest: false }));
+  s.scale.set(0.8, 0.4, 1); return s;
+}
+const persos = Object.fromEntries(D.habitants.map(h => [h.id, personnage(h)]));
+const ligne = (id, i) => D.pas[id][Math.max(0, Math.min(N - 1, i))];
+
+function placer(id, tt) {
+  const g = persos[id], u = g.userData;
+  const i = Math.floor(tt), f = tt - i, r = ligne(id, i), L = D.lots[lot];
+  if (r[F.lot] !== lot) { g.visible = false; return; }
+  const visibleEtage = etage ?? Math.max(...L.pieces.map(p => p.niveau));
+  g.visible = r[F.niveau] <= visibleEtage;
+  const H = L.hauteur;
+  let x = r[F.x], y = r[F.y], z = r[F.niveau] * H + r[F.z], ang = r[F.angle], pose = r[F.pose], marche = false;
+  // en chemin : les premiers instants du pas, le long du chemin porte par porte
+  const ch = r[F.chemin] >= 0 ? D.chemins[r[F.chemin]] : null;
+  const part = 0.45;
+  if (ch && f < part) {
+    const pts = ch.map(([px, py, pn]) => [px, py, pn * H]);
+    let tot = 0; const lg = pts.slice(1).map((p, k) => { const l = Math.hypot(p[0] - pts[k][0], p[1] - pts[k][1]) + Math.abs(p[2] - pts[k][2]); tot += l; return l; });
+    let s = (f / part) * tot, k = 0;
+    while (k < lg.length - 1 && s > lg[k]) { s -= lg[k]; k++; }
+    const u2 = lg[k] ? Math.min(1, s / lg[k]) : 1, a = pts[k], b = pts[k + 1];
+    x = a[0] + (b[0] - a[0]) * u2; y = a[1] + (b[1] - a[1]) * u2; z = a[2] + (b[2] - a[2]) * u2;
+    ang = Math.atan2(b[1] - a[1], b[0] - a[0]); marche = true; pose = 3;
+  }
+  if (pose === 1 && !marche && !r[F.z]) z += 0.45;   // assis sans siège connu : à hauteur de chaise
+  g.position.copy(P(x, y, z));
+  g.rotation.set(0, ang, 0);
+  const c = u.corps;
+  c.rotation.set(0, 0, 0); c.position.set(0, 0, 0);
+  u.jambes.forEach(j => j.rotation.set(0, 0, 0)); u.bras.forEach(b => b.rotation.set(0, 0, 0));
+  if (pose === 1) {            // assis : le bassin à la hauteur du siège, les cuisses à l'horizontale
+    c.position.y = -0.8;
+    u.jambes.forEach(j => { j.rotation.z = Math.PI / 2; });
+    u.bras.forEach(b => { b.rotation.z = 0.6; });
+  } else if (pose === 2) {     // allongé
+    c.rotation.z = Math.PI / 2; c.position.set(0.8, 0.15, 0);
+  } else if (marche || pose === 3) {
+    const s = Math.sin(performance.now() / 140);
+    u.jambes[0].rotation.z = s * 0.5; u.jambes[1].rotation.z = -s * 0.5;
+    u.bras[0].rotation.z = -s * 0.4; u.bras[1].rotation.z = s * 0.4;
+  }
+  const dort = r[F.dort] === 1 || r[F.dort] === true;
+  u.zzz.visible = dort && pose === 2;
+  u.zzz.position.y = 1.0 + 0.1 * Math.sin(performance.now() / 500);
+  u.losange.visible = id === choisi;
+  if (u.losange.visible) {
+    u.losange.rotation.y = performance.now() / 600;
+    const m = r[F.humeur], col = m > 0.25 ? "#3fae49" : m > -0.1 ? "#e0b21f" : "#d6493a";
+    u.losange.material.color.set(col); u.losange.material.emissive.set(col).multiplyScalar(0.45);
+    u.losange.position.y = pose === 2 ? 0.9 : pose === 1 ? 1.75 : 2.1;
+  }
+}
+
+// ---------------------------------------------------------------- lumière du jour et lampes
+const minutes = s => { const [h, m] = s.split(":").map(Number); return h * 60 + m; };
+function eclairer(tt) {
+  const i = Math.floor(tt), d = D.dates[Math.floor(i / PJ)], m = (i % PJ) * 5 + (tt - i) * 5;
+  const [lev, cou] = (D.soleil[d] || ["07:00", "18:45"]).map(minutes);
+  const jour = Math.max(0, Math.min(1, Math.min((m - lev + 40) / 80, (cou + 40 - m) / 80)));
+  const fond = new THREE.Color("#141c33").lerp(new THREE.Color("#a9d8ee"), jour);   // le ciel suit l'heure, pas le thème de la page
+  scene.background = fond;
+  hemi.intensity = 0.25 + 0.7 * jour;
+  soleil.intensity = 1.7 * jour;
+  const a = Math.PI * Math.max(0, Math.min(1, (m - lev) / (cou - lev)));
+  soleil.position.copy(centreLot).add(new THREE.Vector3(Math.cos(a) * 30, 8 + Math.sin(a) * 30, 18));
+  soleil.target.position.copy(centreLot);
+  // lampes des pièces éclairées (la nuit surtout)
+  const allumees = (D.lumieres[i] || []).filter(([n]) => n === lot);
+  const L = D.lots[lot], visible = etage ?? Math.max(...L.pieces.map(p => p.niveau));
+  lampes.forEach((l, k) => {
+    const x = allumees[k], pc = x ? L.pieces[x[1]] : null;
+    if (!pc || pc.niveau > visible) { l.intensity = 0; return; }
+    l.position.copy(P((pc.rect[0] + pc.rect[2]) / 2, (pc.rect[1] + pc.rect[3]) / 2, pc.niveau * L.hauteur + 2.2));
+    l.intensity = 4 * (1 - jour * 0.85);
+  });
+}
+
+// ---------------------------------------------------------------- panneaux
+const T_ = document.getElementById("terrains");
+D.lots.forEach((L, n) => { const b = el("button", { "aria-pressed": "false", title: L.adresse }, L.nom); b.onclick = () => { suivre = false; changerLot(n); majFiche(true); }; T_.append(b); });
+function changerLot(n) {
+  if (n === lot && groupeLot.children.length) return;
+  lot = n; etage = null; construire(n);
+  [...T_.children].forEach((b, k) => b.setAttribute("aria-pressed", String(k === n)));
+  controls.target.copy(centreLot); camera.position.copy(centreLot).add(new THREE.Vector3(18, 16, 18)); controls.update();
+}
+const J = document.getElementById("jours");
+D.dates.forEach((d, k) => { const b = el("button", {}, `${JOURS[k % 7].slice(0, 3)} ${Number(d.slice(8))}`); b.onclick = () => { t = k * PJ + 84; }; J.append(b); });
+const curseur = document.getElementById("curseur"); curseur.max = N - 1;
+curseur.oninput = () => { t = Number(curseur.value); };
+document.querySelectorAll(".vitesses button").forEach(b => b.onclick = () => { vitesse = Number(b.dataset.v); majVitesse(); });
+function majVitesse() { document.querySelectorAll(".vitesses button").forEach(b => b.setAttribute("aria-pressed", String(Number(b.dataset.v) === vitesse))); }
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT") return;
+  if (e.code === "Space") { e.preventDefault(); vitesse = vitesse ? 0 : 1; majVitesse(); }
+  if (e.key === "1" || e.key === "2" || e.key === "3") { vitesse = Number(e.key); majVitesse(); }
+});
+
+const PO = document.getElementById("portraits");
+const portraits = {};
+for (const h of D.habitants) {
+  const b = el("button", { class: "portrait", "aria-pressed": "false" });
+  const tete = el("span", { class: "tete" }, h.prenom[0]); tete.style.background = h.couleur;
+  b.append(tete, el("b", {}, h.prenom), el("small", {}, ""));
+  b.onclick = () => { choisi = h.id; suivre = true; memoriser(); majFiche(true); };
+  PO.append(b); portraits[h.id] = b;
+}
+function ouEst(id, i) {
+  const r = ligne(id, i);
+  if (r[F.lot] < 0) return "Dehors : " + T[r[F.piece]];
+  const L = D.lots[r[F.lot]], pc = L.pieces[r[F.piece]];
+  return `${L.nom} · ${pc.nom}`;
+}
+function majFiche(force) {
+  const i = Math.floor(t), FI = document.getElementById("fiche");
+  for (const h of D.habitants) {
+    const r = ligne(h.id, i), b = portraits[h.id];
+    b.setAttribute("aria-pressed", String(h.id === choisi));
+    b.title = `${h.prenom} : ${ouEst(h.id, i)} — ${T[r[F.activite]]}`;
+    const m = r[F.humeur]; b.querySelector(".tete").style.setProperty("--anneau", m > 0.25 ? "#3fae49" : m > -0.1 ? "#e0b21f" : "#d6493a");
+  }
+  const h = D.habitants.find(x => x.id === choisi), r = ligne(choisi, i);
+  if (!force && FI.dataset.pas === String(i) && FI.dataset.qui === choisi) return;
+  FI.dataset.pas = i; FI.dataset.qui = choisi;
+  FI.textContent = "";
+  const titre = el("h2"); const p = el("span", { class: "pastille" }); const m = r[F.humeur];
+  p.style.background = m > 0.25 ? "#3fae49" : m > -0.1 ? "#e0b21f" : "#d6493a";
+  titre.append(p, document.createTextNode(`${h.prenom} ${h.nom}`));
+  FI.append(titre, el("div", { class: "ou" }, `${h.age} ans · ${ouEst(choisi, i)}`));
+  FI.append(el("div", { class: "activite" }, T[r[F.activite]]), el("div", { class: "action" }, T[r[F.action]]));
+  if (T[r[F.pensee]]) FI.append(el("div", { class: "pensee" }, "« " + T[r[F.pensee]] + " »"));
+  for (const [k, nom] of Object.entries(NOMS_BESOINS)) {
+    const v = r[F[k]], ligneB = el("div", { class: "besoin" }), j = el("div", { class: "jauge" }), barre = el("i");
+    barre.style.width = Math.max(3, v) + "%"; barre.style.background = v > 60 ? "var(--vert)" : v > 30 ? "var(--jaune)" : "var(--rouge)";
+    j.append(barre); ligneB.append(el("span", {}, nom), j); FI.append(ligneB);
+  }
+  const s = el("button", { id: "suivre", "aria-pressed": String(suivre) }, suivre ? "Suivi par la caméra" : "Suivre avec la caméra");
+  s.onclick = () => { suivre = !suivre; majFiche(true); }; FI.append(s);
+}
+
+// clic sur un habitant dans la scène
+const ray = new THREE.Raycaster(), souris = new THREE.Vector2();
+renderer.domElement.addEventListener("click", e => {
+  souris.set(e.clientX / window.innerWidth * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1);
+  ray.setFromCamera(souris, camera);
+  const hit = ray.intersectObjects(Object.values(persos).filter(g => g.visible), true)[0];
+  if (hit && hit.object.userData.habitant !== "john") {
+    choisi = hit.object.userData.habitant; suivre = true; memoriser(); majFiche(true);
+    if (JEU && !vitesse) ouvrirMenu(e.clientX, e.clientY, { habitant: choisi });
+    return;
+  }
+  if (!JEU || vitesse) return;
+  const sols = [], visible = etage ?? Math.max(...D.lots[lot].pieces.map(p => p.niveau));
+  groupeLot.traverse(o => { if (o.userData.sol && o.userData.piece.niveau <= visible) sols.push(o); });
+  const s = ray.intersectObjects(sols, false)[0];
+  if (s) ouvrirMenu(e.clientX, e.clientY, { piece: s.object.userData.piece });
+});
+
+// ---------------------------------------------------------------- boucle
+const bulle = document.getElementById("bulle");
+let avant = performance.now();
+function boucle(maintenant) {
+  const dt = Math.min(0.1, (maintenant - avant) / 1000); avant = maintenant;
+  if (vitesse) t = Math.min(N - 1, t + dt / DUREES[vitesse]);
+  if (t >= N - 1) { vitesse = 0; majVitesse(); }
+  const i = Math.floor(t);
+  // la caméra suit l'habitant choisi (et change de terrain avec lui)
+  const r = ligne(choisi, i);
+  if (suivre && r[F.lot] >= 0 && r[F.lot] !== lot) changerLot(r[F.lot]);
+  if (suivre && r[F.lot] === lot && etage !== r[F.niveau] && D.lots[lot].pieces.some(p => p.niveau > 0)) { etage = r[F.niveau]; majEtages(); }
+  for (const id in persos) placer(id, t);
+  placerJohn(t);
+  // John agit sur ce terrain et personne d'ici n'est suivi : on montre son étage
+  if (john.userData.niveau != null && (!suivre || r[F.lot] !== lot) && etage !== john.userData.niveau) { etage = john.userData.niveau; majEtages(); placerJohn(t); }
+  if (suivre && persos[choisi].visible) {
+    const cible = persos[choisi].position.clone(); cible.y = 0.8;
+    const ecart = cible.clone().sub(controls.target).multiplyScalar(0.08);
+    controls.target.add(ecart); camera.position.add(ecart);
+  }
+  eclairer(t);
+  couperMurs();
+  controls.update();
+  renderer.render(scene, camera);
+  // horloge, panneaux, bulle
+  document.getElementById("heure").textContent = hhmm(i);
+  document.getElementById("jour").textContent = jourDe(i);
+  if (document.activeElement !== curseur) curseur.value = i;
+  [...J.children].forEach((b, k) => b.setAttribute("aria-pressed", String(Math.floor(i / PJ) === k)));
+  majFiche(false);
+  const g = persos[choisi];
+  if (g.visible) {
+    const v = g.position.clone(); v.y += r[F.pose] === 2 ? 1.2 : 2.45; v.project(camera);
+    bulle.style.display = "block"; bulle.style.left = ((v.x + 1) / 2 * window.innerWidth) + "px"; bulle.style.top = ((1 - v.y) / 2 * window.innerHeight) + "px";
+    bulle.textContent = T[r[F.activite]];
+  } else bulle.style.display = "none";
+  requestAnimationFrame(boucle);
+}
+// ================================================================ le jeu : John agit en cliquant (servi par outils/serveur_jeu.py)
+let JEU = null;                    // le catalogue du serveur, si la page est servie par le jeu
+let plan = [];                     // les interventions de John
+try { plan = JSON.parse(localStorage.getItem("paradoxe-plan") || "[]"); } catch (e) {}
+const garderPlan = () => { try { localStorage.setItem("paradoxe-plan", JSON.stringify(plan)); } catch (e) {} };
+const john = personnage({ id: "john", prenom: "John", nom: "", genre: "homme", age: 40, couleur: "#2b2b2b" });
+john.userData.losange.visible = false;
+const PANJ = document.getElementById("john"), MENU = document.getElementById("menu"), ATT = document.getElementById("attente");
+let dernier = null;                // le dernier résultat de la partie
+
+function quand() { const i = Math.floor(t); return { date: D.dates[Math.floor(i / PJ)], heure: hhmm(i) }; }
+const debutPas = x => D.dates.indexOf(x.date) * PJ + Number(x.heure.slice(0, 2)) * 12 + Number(x.heure.slice(3)) / 5;
+const dureeMin = x => x._duree || x.duree_minutes || (x.type === "geste" ? (JEU?.gestes[x.geste]?.duree || 30) : x.type === "retenir" || x.type === "passer" ? 15 : 5);
+const libelle = x => {
+  const qui = id => (D.habitants.find(h => h.id === id) || { prenom: id }).prenom;
+  if (x.type === "geste") return JEU?.gestes[x.geste]?.nom || x.geste;
+  if (x.type === "retenir") return `retenir ${qui(x.habitant)} ${x.duree_minutes} min`;
+  if (x.type === "parler") return `parler à ${qui(x.habitant)} : « ${x.quoi} »` + (x.explique ? (x.lieu ? " (annonce : la boutique)" : " (annonce des travaux)") : "");
+  if (x.type === "acheter") return `acheter ${x.quantite} × ${x.produit}`;
+  if (x.type === "passer") return `passer ${x.duree_minutes} min`;
+  return x.type;
+};
+
+function ouvrirMenu(cx, cy, cible) {
+  const opts = [];
+  const ajouter = (txt, fn) => opts.push([txt, fn]);
+  const lotId = D.lots[lot].id;
+  if (cible.habitant) {
+    const h = cible.habitant, r = ligne(h, Math.floor(t));
+    if (!r[F.dort]) {
+      ajouter("Le retenir 15 min", () => agir({ type: "retenir", habitant: h, duree_minutes: 15 }));
+      ajouter("Lui parler…", () => formParler(cx, cy, h));
+    }
+  } else if (cible.piece && lotId === "epicerie") {
+    const loc = cible.piece.local;
+    if (loc === "cour-epicerie") {
+      ajouter("Crocheter la porte de la cour", () => agir({ type: "geste", geste: "crocheter", lieu: "epicerie-chazal", piece: "arriere-boutique" }));
+      ajouter("Forcer la porte au pied-de-biche", () => agir({ type: "geste", geste: "forcer", lieu: "epicerie-chazal", piece: "arriere-boutique" }));
+    } else if (["arriere-boutique", "reserve", "boutique", "wc-boutique"].includes(loc)) {
+      for (const [g, spec] of Object.entries(JEU.gestes)) {
+        if (g === "crocheter" || g === "forcer") continue;
+        ajouter(spec.nom.charAt(0).toUpperCase() + spec.nom.slice(1), () => agir({ type: "geste", geste: g, lieu: "epicerie-chazal", piece: loc }));
+      }
+      if (loc === "boutique") ajouter("Acheter une bouteille d'eau", () => agir({ type: "acheter", commerce: "robert-chazal", produit: "eau", quantite: 1 }));
+      ajouter("Passer 15 min ici", () => agir({ type: "passer", lieu: "epicerie-chazal", piece: loc, duree_minutes: 15 }));
+    }
+  }
+  if (!opts.length) return;
+  MENU.textContent = ""; MENU.style.left = cx + "px"; MENU.style.top = cy + "px"; MENU.style.display = "block";
+  MENU.append(el("span", { class: "centre" }));
+  const R = Math.max(100, opts.length * 22);
+  opts.forEach(([txt, fn], k) => {
+    const a = -Math.PI / 2 + (2 * Math.PI * k) / opts.length;
+    const b = el("button", { role: "menuitem" }, txt);
+    b.style.left = Math.cos(a) * R * 1.15 + "px"; b.style.top = Math.sin(a) * R * 0.8 + "px";
+    b.onclick = ev => { ev.stopPropagation(); fn(); };
+    MENU.append(b);
+  });
+  MENU.querySelector("button").focus();
+}
+function fermerMenu() { MENU.style.display = "none"; MENU.textContent = ""; }
+document.addEventListener("keydown", e => { if (e.key === "Escape") fermerMenu(); });
+renderer.domElement.addEventListener("pointerdown", () => fermerMenu());
+
+function formParler(cx, cy, h) {
+  MENU.querySelectorAll("button").forEach(b => b.remove());
+  const f = el("form");
+  const i = el("input", { type: "text", placeholder: "ce que John lui dit", "aria-label": "ce que John lui dit" });
+  const s = el("select", { "aria-label": "annonce" });
+  s.append(el("option", { value: "" }, "n'annonce rien"), el("option", { value: "travaux" }, "annonce des travaux (sans parler de la boutique)"),
+           el("option", { value: "boutique" }, "annonce des travaux dans la boutique de Robert"));
+  f.append(i, s, el("button", { type: "submit" }, "Dire"));
+  f.onsubmit = ev => {
+    ev.preventDefault();
+    if (!i.value.trim()) { i.focus(); return; }
+    const x = { type: "parler", habitant: h, quoi: i.value.trim() };
+    if (s.value) {
+      x.explique = Object.entries(JEU.gestes).filter(([, g]) => g.bruit || g.vu).map(([id]) => id);
+      if (s.value === "boutique") Object.assign(x, { lieu: "epicerie-chazal", piece: "arriere-boutique" });
+    }
+    agir(x);
+  };
+  MENU.append(f); i.focus();
+}
+
+function agir(x) {
+  fermerMenu();
+  plan.push(Object.assign(quand(), x));
+  plan.sort((a, b) => (a.date + a.heure).localeCompare(b.date + b.heure));
+  garderPlan(); rejouer();
+}
+async function rejouer() {
+  majPlan();
+  if (!plan.length) { dernier = null; await chargerReference(); majPlan(); return; }
+  ATT.style.display = "grid";
+  try {
+    const r = await fetch("/api/simuler", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ description: "Partie jouée dans la vue du quartier.", mission: "branche-fossile", porte: [], interventions: plan }) });
+    const j = await r.json();
+    if (!r.ok) { dernier = { erreur: j.erreur }; plan.pop(); garderPlan(); }
+    else {
+      dernier = j;
+      const s = await (await fetch("/api/sims")).json();
+      remplacer(s);
+    }
+  } catch (e) { dernier = { erreur: "le serveur ne répond pas : " + e }; }
+  ATT.style.display = "none";
+  majPlan(); majFiche(true);
+}
+let reference = null;
+async function chargerReference() { if (reference) remplacer(reference); }
+function remplacer(s) {
+  if (!reference) reference = { pas: D.pas, chemins: D.chemins, lumieres: D.lumieres, textes: D.textes, voyageur: [] };
+  Object.assign(D, { pas: s.pas, chemins: s.chemins, lumieres: s.lumieres, textes: s.textes, voyageur: s.voyageur || [] });
+  T = D.textes; N = D.pas[D.habitants[0].id].length;
+  if (s.resultat) dernier = s.resultat;
+}
+function majPlan() {
+  if (!JEU) return;
+  PANJ.style.display = "block"; PANJ.textContent = "";
+  PANJ.append(el("h3", {}, "Le plan de John"),
+    el("p", { class: "aide" }, "Mets en pause, puis clique sur le sol de l'arrière-boutique, la cour, la boutique ou un habitant : John agit à cet instant, et la semaine est rejouée."));
+  if (dernier) {
+    const R = el("div", { id: "resultat" });
+    if (dernier.erreur) { R.style.setProperty("--etat", "var(--rouge)"); R.append(el("div", {}, "Action refusée : " + dernier.erreur)); }
+    else {
+      const m = dernier.mission;
+      R.style.setProperty("--etat", m && m.reussie ? "var(--vert)" : "var(--rouge)");
+      const ti = el("div"); ti.append(document.createTextNode("Mission : "), el("b", {}, m ? m.resultat : "—")); R.append(ti);
+      R.append(el("div", {}, "Divergence : " + dernier.verdict + "."));
+      if (m && m.avenir) R.append(el("div", { class: "avenir" }, "L'avenir : " + m.avenir.titre));
+      const vus = (dernier.voyageur || []).filter(v => / remarque | réagit |appris de|ne peut pas/.test(v.action)).slice(0, 4);
+      if (vus.length) { const ul = el("ul"); for (const v of vus) ul.append(el("li", {}, `${JOURS[D.dates.indexOf(v.date) % 7]} ${v.heure} : ${v.action}`)); R.append(ul); }
+    }
+    PANJ.append(R);
+  }
+  if (plan.length) {
+    const ol = el("ol");
+    plan.forEach((x, k) => {
+      const li = el("li", {}, `${JOURS[D.dates.indexOf(x.date) % 7]} ${x.heure} : ${libelle(x)}`);
+      const b = el("button", { "aria-label": "retirer" }, "×"); b.onclick = () => { plan.splice(k, 1); garderPlan(); rejouer(); };
+      const aller = el("button", { "aria-label": "aller à cet instant", style: "color: var(--accent)" }, "↦"); aller.onclick = () => { t = debutPas(x); vitesse = 0; majVitesse(); };
+      li.append(aller, b); ol.append(li);
+    });
+    PANJ.append(ol);
+  } else PANJ.append(el("p", { class: "aide" }, "Aucune action : c'est le monde de référence."));
+  const B = el("div", { class: "boutons" });
+  const eff = el("button", {}, "Tout effacer"); eff.onclick = () => { plan = []; garderPlan(); rejouer(); };
+  const rej = el("button", {}, "Rejouer"); rej.onclick = () => rejouer();
+  const fr = el("a", { href: "divergence.html?partie", style: "font-size: .8rem; align-self: center" }, "La partie sur la frise →");
+  B.append(rej, eff); if (dernier && !dernier.erreur) B.append(fr); PANJ.append(B);
+}
+
+// John dans la scène, pendant chacune de ses interventions
+function placerJohn(tt) {
+  const i = Math.floor(tt), L = D.lots[lot];
+  const x = (D.voyageur || []).find(x => { const d = debutPas(x); return d <= i && i < d + Math.max(1, Math.round(dureeMin(x) / 5)); });
+  john.visible = false; john.userData.niveau = null;
+  if (!x) return;
+  const u = john.userData;
+  u.jambes.forEach(j => j.rotation.set(0, 0, 0)); u.bras.forEach(b => b.rotation.set(0, 0, 0)); u.corps.rotation.set(0, 0, 0); u.corps.position.set(0, 0, 0);
+  let pos = null, ang = 0;
+  if (x.habitant) {
+    const r = ligne(x.habitant, i);
+    if (r[F.lot] !== lot) return;
+    pos = [r[F.x] + 0.7 * Math.cos(r[F.angle]), r[F.y] + 0.7 * Math.sin(r[F.angle]), r[F.niveau] * L.hauteur]; ang = r[F.angle] + Math.PI;
+  } else if (L.id === "epicerie") {
+    if (x.geste === "crocheter" || x.geste === "forcer") {
+      const d = L.portes.find(d => d.entre.includes("epicerie-chazal/cour-epicerie"));
+      if (d) { const [[ax, ay], [bx, by]] = d.segment; pos = [(ax + bx) / 2, (ay + by) / 2 + 0.45, 0]; ang = -Math.PI / 2; }
+    } else {
+      const pc = L.pieces.find(p => p.id === "epicerie-chazal/" + (x.piece || "boutique"));
+      if (pc) { pos = [(pc.rect[0] + pc.rect[2]) / 2, (pc.rect[1] + pc.rect[3]) / 2, pc.niveau * L.hauteur]; ang = 0.6; }
+    }
+    const s = Math.sin(performance.now() / 160);
+    if (x.type === "geste") { u.bras[0].rotation.z = 1.2 + s * 0.6; u.bras[1].rotation.z = 1.2 - s * 0.6; u.corps.rotation.z = 0.25; }
+  }
+  if (!pos) return;
+  john.userData.niveau = Math.round(pos[2] / L.hauteur);
+  const visible = etage ?? Math.max(...L.pieces.map(p => p.niveau));
+  if (pos[2] / L.hauteur > visible) return;
+  john.visible = true;
+  john.position.copy(P(pos[0], pos[1], pos[2])); john.rotation.set(0, ang, 0);
+}
+
+fetch("/api/catalogue").then(r => r.ok ? r.json() : null).then(c => {
+  if (!c) return;
+  JEU = c; majPlan();
+  if (/(^|&)partie/.test(location.hash.slice(1))) {   // sims.html#partie : la dernière partie jouée (depuis la page « Jouer John », par exemple)
+    fetch("/api/sims").then(r => r.json()).then(s => {
+      if (!s.pas) { if (plan.length) rejouer(); return; }
+      remplacer(s);
+      plan = (s.voyageur || []).map(x => Object.fromEntries(Object.entries(x).filter(([k]) => !k.startsWith("_"))));
+      garderPlan(); majPlan(); majFiche(true);
+    });
+  } else if (plan.length) rejouer();
+}).catch(() => {});
+
+const depart = ligne(choisi, Math.floor(t));
+changerLot(depart[F.lot] >= 0 ? depart[F.lot] : 0);
+majVitesse(); majFiche(true);
+document.getElementById("chargement").remove();
+requestAnimationFrame(boucle);
+</script>
+</body>
+</html>
