@@ -124,6 +124,20 @@ Les émotions ne sont jamais fixées à la main : elles sont calculées à parti
 
 Toutes les journées de `timelines/` sont vécues par les agents autonomes (`outils/simuler_agent.py`). Les journées rédigées à la main sont gardées dans `references/` et calculées par `outils/generer_journee.py`. Voir `outils/README.md`.
 
+## Le voyageur
+
+Un scénario du voyageur (`data/voyageur/<nom>.json`) liste ses interventions dans le quartier, chacune à une date et une heure : `deplacer` (un objet d'un habitant, à son insu), `retenir` (un habitant, `duree_minutes`), `acheter` (dans un commerce, `produit`, `quantite`), `parler` (à un habitant éveillé, `quoi`). Le monde joué est écrit dans `data/voyageur/<nom>/` (non versionné : il se régénère à l'identique), avec `DIVERGENCE.md` et `divergence.json` (versionnés) : le verdict, ce que le voyageur a fait, la propagation, les faits heure par heure, les détails tolérés.
+
+| Scénario | Intervention | Verdict |
+|---|---|---|
+| `temoin` | Aucune | Aucune divergence : le monde joué est exactement le monde de référence |
+| `passant` | Mardi 18:15, demande l'heure à Thomas qui va faire ses courses (5 min) | Absorbée dans l'heure |
+| `cles-deplacees` | Mardi 03:00, pose les clés de Thomas sur la table du séjour | Absorbée : Thomas part courir sans ses clés, les voit sur la table à 09:00, les prend pour ses courses et les repose dans le vide-poche à 18:35 |
+| `dernier-pain` | Samedi 11:00, achète tous les pains de campagne de l'épicerie | Absorbée, après une cascade jusqu'à Thomas, qui n'en trouve plus à 11:55 |
+| `courses-manquees` | Mardi 17:55, retient Thomas trois quarts d'heure sur son palier | Absorbée jeudi soir, après une cascade jusqu'à Robert : pas de courses, pas de rencontre, plus d'achats le jeudi |
+| `confidence` | Mercredi 10:00, glisse à Robert le score du match du soir | Persistante : Robert le sait désormais, sans cascade |
+| `belote` | Samedi 20:35, garde Robert une demi-heure au téléphone à l'heure de la belote | Paradoxe : Josiane, Gérard et Monique remarquent son absence ; quatre habitants touchés |
+
 ## Monde
 
 | Fichier | Contenu |
@@ -131,6 +145,7 @@ Toutes les journées de `timelines/` sont vécues par les agents autonomes (`out
 | `monde/croix-rousse.json` | Géométrie partagée, dans un seul repère : relief (plateau, pentes vers la Saône et le Rhône, monts d'Or), rues de la Croix-Rousse et de Villeurbanne, place, immeubles de Thomas et de l'épicerie, maison de Robert (étages, escaliers), logements (pièces, portes, fenêtres, mobilier, emplacements des objets, postes), Saône, Rhône, trajets de course, d'épicerie, en Kangoo et à pied. **Proposition à valider.** |
 | `monde/croix-rousse.json` (boutique) | Places précises de la boutique (rayons et caisse pour un client, places de travail de Robert) et allées (`circulation`) que suit un client entre deux rayons |
 | `monde/echanges.json` | Répliques partagées par deux personnages qui se rencontrent (Thomas et Robert au comptoir, dont le conseil de film du samedi qui décide la soirée de Thomas) |
+| `monde/paradoxe.json` | Seuils de la mesure du paradoxe : habitants touchés, faits différents dans une heure |
 | `monde/evenements.json` | Événements réels vécus aux mêmes minutes par plusieurs habitants (match Real Madrid – Lyon) |
 
 Repère : x vers l'est le long de la rue d'Austerlitz, y vers le nord, z vers le haut (0 au niveau des rues du plateau), en mètres.

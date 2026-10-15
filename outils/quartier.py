@@ -46,11 +46,13 @@ def minuscule(t):
 
 
 class Quartier:
-    def __init__(self, fiches, catalogue, date, etats):
+    def __init__(self, fiches, catalogue, date, etats, voyageur=None):
         self.I = lire(os.path.join(MONDE, "interactions.json"))
         self.fiches = fiches
         self.date = date
-        self.H = {pid: Habitant(fiches[pid], catalogue, date, etats[pid]) for pid in fiches}
+        self.V = voyageur       # interventions du voyageur (voyageur.py), ou None : le monde de référence
+        self.H = {pid: Habitant(fiches[pid], catalogue, date, etats[pid], voyageur.objets(pid, date) if voyageur else None)
+                  for pid in fiches}
         self.ensemble = set()   # paires (habitant, autre) ensemble au pas précédent
         self.vus = set()        # (habitant, début d'étape, autre) : l'autre est venu pendant l'étape prévue ensemble
         self.absences = set()   # (habitant, début d'étape, autre) : absence déjà remarquée
@@ -59,10 +61,14 @@ class Quartier:
     # ------------------------------------------------------------ journée
     def vivre(self):
         while any(h.i < PAS_PAR_JOUR for h in self.H.values()):
-            for h in self.H.values():
-                h.decider()
+            for pid, h in self.H.items():
+                h.sim.changements_du_monde()   # objets déplacés à son insu, avant qu'il décide
+                if not (self.V and self.V.retenir(self, pid, h)):
+                    h.decider()
             self.rencontres()
             self.commerces()
+            if self.V:
+                self.V.agir(self)
             for h in self.H.values():
                 h.executer()
         out = {pid: h.terminer() for pid, h in self.H.items()}
@@ -72,7 +78,7 @@ class Quartier:
 
     # ------------------------------------------------------------ relations et positions
     def prenom(self, pid):
-        return self.fiches[pid]["identite"]["prenom"]
+        return self.fiches[pid]["identite"]["prenom"] if pid in self.fiches else "un passant"
 
     def relation(self, pid, q):
         """Relation de pid avec q : valeurs du type (interactions.json), remplacées par celles de la fiche."""

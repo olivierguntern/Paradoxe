@@ -217,6 +217,27 @@ Limite : chacun garde son propre état du monde (lumières, appareils, objets, p
 python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages thomas-berthier robert-chazal josiane-chazal gerard-morel monique-morel --dossier data/quartier
 ```
 
+## Le voyageur et la divergence
+
+Le monde de référence est le quartier (`data/quartier`) ; le monde joué est le même quartier rejoué avec les interventions du voyageur (`voyageur.py`, scénarios dans `data/voyageur/`). Pour les habitants, le voyageur n'est qu'un passant. À chaque pas, le quartier lui demande s'il retient un habitant (avant que celui-ci décide : il reste où il est, et ce qu'il devait faire n'est pas fait ; des courses qui auraient dû commencer sont abandonnées), puis, une fois les décisions prises, s'il achète dans un commerce ou parle à quelqu'un ; un objet qu'il déplace change de place avant que l'habitant décide, sans que celui-ci le sache.
+
+`divergence.py` compare les deux mondes pas à pas, habitant par habitant, selon les deux niveaux de `CONCEPTION.md` :
+
+| Niveau | Ce qui est comparé | Traitement |
+|---|---|---|
+| Faits | Endroit (lieu et pièce), activité, personnes avec qui il est, place de chaque objet, achats, ce qu'il a appris (qui le lui a dit, et quoi) | Comptés : chaque fait différent une fois par heure, même s'il dure |
+| Détails | Besoins, émotions, quantités en stock (maison et magasin), argent | Mesurés à la fin, tolérés |
+
+Un habitant touché sans être visé par une intervention l'est par cascade ; le premier fait différent de chacun montre la propagation. Le verdict : aucune divergence ; absorbée (plus aucun fait différent à la fin de la période) ; persistante ; en cascade ; paradoxe, si la divergence touche au moins 3 habitants ou compte au moins 40 faits différents dans une heure (`data/monde/paradoxe.json`).
+
+```bash
+# Le monde de référence (une fois), puis chaque scénario
+python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages thomas-berthier robert-chazal josiane-chazal gerard-morel monique-morel --dossier data/quartier
+python3 outils/simuler_voyageur.py data/voyageur/courses-manquees.json
+```
+
+Le scénario `temoin` (aucune intervention) vérifie que le monde joué reproduit exactement le monde de référence. Résultats des scénarios dans `data/README.md` (section « Le voyageur »).
+
 ## Vue fil de fer
 
 La semaine se rejoue dans une vue isométrique fil de fer (`vue/index.html`, à ouvrir dans un navigateur), à plusieurs échelles, les mêmes pour les deux personnages : le logement (l'appartement de Thomas, la boutique ou la maison de Robert), l'immeuble (ou la maison), la rue du lieu où se trouve le personnage suivi (pour Thomas, de chez lui à l'épicerie ; pour Robert, la Grande-Rue autour de l'épicerie, avec la place et la banque, ou la rue des Glycines), le parcours de course (pentes et quais de Saône), les sorties à pied de Thomas (vers le cinéma par la montée de la Boucle, le boulevard jusqu'à la mairie du 4e et au Gros Caillou), et pour Robert le trajet en Kangoo (Croix-Rousse, Rhône, Villeurbanne), le cinéma de la Cité internationale, l'école où il vote et les monts d'Or. On choisit le personnage suivi (Thomas ou Robert) ; l'autre reste visible. Le panneau donne l'état de chaque pas : activité, pensée, besoins, émotions, objets portés, argent, lumières et appareils.

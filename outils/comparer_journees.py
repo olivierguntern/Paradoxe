@@ -26,6 +26,8 @@ def positions_par_pas(j):
     argent = dict(j["etat_initial"].get("argent") or {})
     out = []
     for s in j["pas"]:
+        for o in s.get("monde", []):   # déplacés à son insu (scénario, voyageur)
+            pos[o["objet"]] = o["vers"]
         for o in s.get("nouveaux_objets", []):
             pos[o["id"]] = o["position"]
         for o in s.get("objets", []):

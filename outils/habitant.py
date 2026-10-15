@@ -49,12 +49,12 @@ COMMERCES = {}   # commerces des autres habitants, lus une fois
 
 
 class Habitant:
-    def __init__(self, fiche, catalogue, date, etat):
+    def __init__(self, fiche, catalogue, date, etat, perturbations=None):
         self.fiche = fiche
         self.A = catalogue["actions"]
         self.date = date
         self.jour = JOURS[datetime.date.fromisoformat(date).weekday()]
-        self.sim = Simulation(fiche, date, etat)
+        self.sim = Simulation(fiche, date, etat, perturbations)
         self.PIECES = fiche["domicile"]["pieces"]
         self.SEUILS = {n: b["seuil_alerte"] for n, b in fiche["besoins"].items()}
         self.EV = set(fiche["modele_emotionnel"]["evenements"])
@@ -92,6 +92,7 @@ class Habitant:
         self.listes = {}         # début d'une étape de courses -> liste établie en partant (None : il n'y va pas)
         self.comptoir = None     # service au comptoir de son propre commerce, créé au premier client
         self.achat = None        # achat du pas décidé dans le commerce d'un autre habitant
+        self.retenues = []       # plages (début, fin) où quelqu'un l'a retenu (voyageur.py)
 
     def commerce(self, pid):
         """Le commerce où il s'approvisionne : celui de sa propre fiche (il prélève), ou celui d'un autre habitant (il achète)."""
@@ -204,7 +205,8 @@ class Habitant:
             if de == vers:
                 continue
             if self.sim.positions.get(o["id"]) != de:
-                self.decisions.append(f"{hm(self.i)} : {o['nom']} n'est pas là où il le croyait ({de}) ; fait sans.")
+                self.decisions.append(f"{hm(self.i)} : {o['nom']} : " + (f"n'est pas là où il le croyait ({de})" if de else "il ne sait plus où il est")
+                                      + " ; fait sans.")
                 self.tenus.pop(role, None)
                 continue
             out.append({"objet": o["id"], "de": de, "vers": vers})
@@ -292,6 +294,9 @@ class Habitant:
         en partant."""
         if not self.A[e["activite"]].get("courses"):
             return False
+        if d not in self.listes and any(a <= d < b for a, b in self.retenues):
+            self.decisions.append(f"{hm(self.i)} : retenu à l'heure de partir, il renonce aux courses.")
+            self.listes[d] = None
         if d not in self.listes:
             ouvert = any(idx(a) <= d and d + 6 <= idx(b) for a, b in self.COMMERCE.get("horaires", {}).get(self.jour, []))
             lignes = self.liste_de_courses(d) if ouvert else []
@@ -605,6 +610,18 @@ class Habitant:
             lignes = self.listes.get(d) or []
             a["texte"] = a["texte"].replace("{liste}", ", ".join(self.libelle(x) for x in lignes) or "rien")
         self.emettre(a, e["action"], r, piece, premier, avec=e.get("avec", ()), lieu=lieu, extra=extra)
+
+    def retenu(self, texte):
+        """Quelqu'un le retient (voyageur.py) : il reste où il est, debout, le temps du pas ; ce qu'il devait faire
+        n'est pas fait. Faux s'il dort ou s'endort (on ne retient pas un dormeur)."""
+        if self.coucher or self.etape(self.i) is None or (self.etape(self.i)[2]["activite"] in ("sommeil", "coucher")):
+            return False
+        self.etape_courante, self.achat = None, None
+        self.action_courante = {"texte": texte}
+        lieu = self.sim.steps[-1]["lieu"] if self.sim.steps else "domicile"
+        self.pousser({"action": texte, "pensee": None, "piece": self.sim.piece, "lieu": lieu, "mode": "eveille",
+                      "charge": "simple", "posture": "debout"}, "Retenu par un passant", "voyageur")
+        return True
 
     def conduire(self, d, f, i):
         """Un pas en véhicule : au premier, il sort par la place de stationnement du site ; la distance de
