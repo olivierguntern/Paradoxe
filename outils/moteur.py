@@ -115,11 +115,14 @@ def boutique_initiale(fiche):
     return {c["produit"]: c["stock_initial"] for c in fiche.get("commerce", {}).get("catalogue", [])}
 
 
+def position_initiale(o):
+    """Position d'un objet de la fiche au premier pas, telle que la simulation la suit (« pièce / support »)."""
+    e = o["emplacement_initial"]
+    return f"{e['piece']} / {e['support']}" if e["lieu"] == "domicile" else f"{e['lieu']} / {e['piece']} / {e['support']}"
+
+
 def etat_initial_depuis_fiche(fiche):
-    positions = {}
-    for o in fiche["objets"]:
-        e = o["emplacement_initial"]
-        positions[o["id"]] = f"{e['piece']} / {e['support']}" if e["lieu"] == "domicile" else f"{e['lieu']} / {e['piece']} / {e['support']}"
+    positions = {o["id"]: position_initiale(o) for o in fiche["objets"]}
     emo = dict(fiche["etat_initial"]["emotions"])
     conc = emo.pop("concentration")
     stock = {x["id"]: x["quantite"] for x in fiche["domicile"]["provisions_au_debut"] if x.get("suivi", True)}

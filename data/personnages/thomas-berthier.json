@@ -657,45 +657,78 @@
 
   "menus_prevus": {
     "regle": "Thomas planifie ses menus le dimanche soir et les suit. Petit-déjeuner identique chaque jour : café, deux tartines grillées beurre-confiture ; les jours de course, il ajoute un yaourt et une banane.",
-    "lundi": { "dejeuner": "cuisses de poulet rôties et pommes de terre au four (les deux cuisses cuisent ensemble ; enfourner à 11:50, 45 min à 200 °C)", "diner": "soupe poireaux-pommes de terre (marmite de 4 portions) et comté (commencer à 18:20, 25 min de préparation et 30 min de cuisson)" },
-    "mardi": { "dejeuner": "reste de poulet et riz", "diner": "soupe (2e portion) et omelette de 2 œufs" },
-    "mercredi": { "dejeuner": "pâtes au thon", "diner": "steak haché et pâtes devant le match, une bière" },
-    "jeudi": { "dejeuner": "saucisse de Morteau et lentilles", "diner": "soupe (3e portion) et tartines de comté" },
-    "vendredi": { "dejeuner": "poisson pané, riz et haricots verts", "diner": "omelette de 3 œufs et carottes râpées" },
-    "samedi": { "dejeuner": "pâtes à la carbonara (lardons, 2 œufs)", "diner": "soupe (4e portion) et un verre de vin" },
-    "dimanche": { "brunch": "œufs au plat, tartines (du pain de campagne frais s'il en a pris un la veille à l'épicerie), comté, orange", "diner": "ratatouille et riz" }
+    "format": "Chaque repas : plat, ingrédients consommés en le préparant, plat préparé (prepare : produits_prepares, pour plusieurs repas) et portion mangée (ce qui est servi à table, plat préparé compris). Quantités dans l'unité des provisions.",
+    "petit_dejeuner": { "plat": "café, deux tartines grillées beurre-confiture", "ingredients": [["cafe_moulu", 7], ["pain_tranches", 2], ["beurre", 10], ["confiture_abricot", 2]] },
+    "lundi": {
+      "dejeuner": { "plat": "cuisses de poulet rôties et pommes de terre au four (les deux cuisses cuisent ensemble ; enfourner à 11:50, 45 min à 200 °C)", "ingredients": [["cuisses_poulet", 2], ["pommes_de_terre", 500], ["condiments", 1]], "prepare": [["poulet_roti", 2], ["pommes_de_terre_roties", 2]], "portion": [["poulet_roti", 1], ["pommes_de_terre_roties", 1]] },
+      "diner": { "plat": "soupe poireaux-pommes de terre (marmite de 4 portions) et comté (commencer à 18:20, 25 min de préparation et 30 min de cuisson)", "ingredients": [["poireaux", 3], ["pommes_de_terre", 500], ["oignons", 1], ["beurre", 20]], "prepare": [["soupe_poireaux", 4]], "portion": [["soupe_poireaux", 1], ["comte", 50], ["pain_tranches", 1]] }
+    },
+    "mardi": {
+      "petit_dejeuner": { "plat": "café, deux tartines beurre-confiture, un yaourt et une banane (jour de course)", "ingredients": [["cafe_moulu", 7], ["pain_tranches", 2], ["beurre", 10], ["confiture_abricot", 2], ["yaourts", 1], ["bananes", 1]] },
+      "dejeuner": { "plat": "reste de poulet et riz", "ingredients": [["riz", 80], ["condiments", 1]], "portion": [["poulet_roti", 1], ["pommes_de_terre_roties", 1]] },
+      "diner": { "plat": "soupe (2e portion) et omelette de 2 œufs", "ingredients": [["oeufs", 2], ["beurre", 10]], "portion": [["soupe_poireaux", 1]] }
+    },
+    "mercredi": {
+      "dejeuner": { "plat": "pâtes au thon", "ingredients": [["pates", 125], ["thon", 1], ["condiments", 1]] },
+      "diner": { "plat": "steak haché et pâtes devant le match, une bière", "ingredients": [["steaks_haches", 1], ["pates", 125], ["condiments", 1]], "portion": [["biere", 1]] }
+    },
+    "jeudi": {
+      "petit_dejeuner": { "plat": "café, deux tartines beurre-confiture, un yaourt et une banane (jour de course)", "ingredients": [["cafe_moulu", 7], ["pain_tranches", 2], ["beurre", 10], ["confiture_abricot", 2], ["yaourts", 1], ["bananes", 1]] },
+      "dejeuner": { "plat": "saucisse de Morteau et lentilles", "ingredients": [["saucisse_morteau", 1], ["lentilles", 1], ["condiments", 1]] },
+      "diner": { "plat": "soupe (3e portion) et tartines de comté", "ingredients": [["pain_tranches", 2], ["comte", 60]], "portion": [["soupe_poireaux", 1]] }
+    },
+    "vendredi": {
+      "dejeuner": { "plat": "poisson pané, riz et haricots verts", "ingredients": [["riz", 80], ["poisson_pane", 3], ["haricots_verts", 1], ["condiments", 1]] },
+      "diner": { "plat": "omelette de 3 œufs et carottes râpées", "ingredients": [["carottes", 200], ["condiments", 1], ["oeufs", 3], ["beurre", 10]] }
+    },
+    "samedi": {
+      "dejeuner": { "plat": "pâtes à la carbonara (lardons, 2 œufs)", "ingredients": [["pates", 125], ["lardons", 100], ["oeufs", 2], ["condiments", 1]] },
+      "diner": { "plat": "soupe (4e portion) et un verre de vin", "ingredients": [["pain_tranches", 1]], "portion": [["soupe_poireaux", 1], ["vin_rouge", 15]] }
+    },
+    "dimanche": {
+      "brunch": { "plat": "œufs au plat, tartines (du pain de campagne frais s'il en a pris un la veille à l'épicerie), comté, orange", "ingredients": [["cafe_moulu", 7], ["oeufs", 2], ["beurre", 10], ["pain_tranches", 2]], "portion": [["comte", 50], ["oranges", 1]] },
+      "diner": { "plat": "ratatouille et riz", "ingredients": [["riz", 80], ["ratatouille", 1]] }
+    }
+  },
+
+  "collations": {
+    "principe": "Ce qu'il prend pour chaque usage (café, fruit d'une pause ou d'un petit creux, biscottes à défaut, chocolat du soir) : plusieurs choix possibles, alternés d'un jour à l'autre parmi ceux qui sont en stock.",
+    "cafe": [{ "cafe_moulu": 7 }],
+    "fruit": [{ "pommes": 1 }, { "oranges": 1 }, { "bananes": 1 }],
+    "biscuit": [{ "biscottes": 2 }],
+    "douceur": [{ "chocolat_noir": 2 }]
   },
 
   "objets": [
-    { "id": "obj-cles", "nom": "Trousseau de clés", "description": "Clé de l'appartement et clé de la boîte aux lettres, porte-clés en laiton fait main.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "vide-poche de la commode" }, "importance": 0.9, "usage": "fermer l'appartement pendant les sorties de course" },
-    { "id": "obj-montre-poignet", "nom": "Montre mécanique LIP Himalaya des années 1970", "description": "Remontage manuel ; Thomas la remonte chaque matin. Réserve de marche : 40 h.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.8 },
+    { "id": "obj-cles", "nom": "Trousseau de clés", "description": "Clé de l'appartement et clé de la boîte aux lettres, porte-clés en laiton fait main.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "vide-poche de la commode" }, "importance": 0.9, "usage": "fermer l'appartement pendant les sorties de course", "role": "cles", "positions": { "porte": "poche du coupe-vent" } },
+    { "id": "obj-montre-poignet", "nom": "Montre mécanique LIP Himalaya des années 1970", "description": "Remontage manuel ; Thomas la remonte chaque matin. Réserve de marche : 40 h.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.8, "role": "montre", "positions": { "porte": "poignet gauche" } },
     { "id": "obj-reveil", "nom": "Réveil radio-piloté", "description": "Se règle seul sur le signal horaire officiel ; sert de référence pour régler les montres. Sonnerie à 07:00 du lundi au vendredi.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.7 },
     { "id": "obj-portefeuille", "nom": "Portefeuille en cuir", "contenu": ["35 € en espèces", "carte bancaire", "carte Vitale", "carte d'identité", "carte d'électeur"], "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "tiroir de la commode" }, "importance": 0.6, "usage": "courses à l'épicerie, cinéma, vote" },
     { "id": "obj-cabas", "nom": "Cabas en toile", "description": "Sac de courses en toile écrue, rapporté d'un salon d'horlogerie à Besançon.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-manteau" }, "importance": 0.1 },
     { "id": "obj-veste", "nom": "Veste en laine gris foncé", "description": "Sa veste de tous les jours pour sortir.", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "porte-manteau" }, "importance": 0.1 },
-    { "id": "obj-carnet", "nom": "Carnet noir", "description": "Journal personnel, listes et réflexions du soir.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet, sous le livre" }, "importance": 0.7 },
-    { "id": "obj-livre", "nom": "Livre « La Route » de Cormac McCarthy", "description": "Marque-page à la page 112 sur 252 ; lit environ 20 pages par séance.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.2 },
+    { "id": "obj-carnet", "nom": "Carnet noir", "description": "Journal personnel, listes et réflexions du soir.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet, sous le livre" }, "importance": 0.7, "role": "carnet", "positions": { "usage": "sejour / table à manger" } },
+    { "id": "obj-livre", "nom": "Livre « La Route » de Cormac McCarthy", "description": "Marque-page à la page 112 sur 252 ; lit environ 20 pages par séance.", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "table de chevet" }, "importance": 0.2, "role": "livre" },
     { "id": "obj-livre-courir", "nom": "Livre « Courir » de Jean Echenoz", "description": "Roman sur le coureur Emil Zátopek (Éditions de Minuit, 2008, 142 pages). Pas encore commencé.", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "bibliothèque" }, "importance": 0.2 },
     { "id": "obj-montre-gousset", "nom": "Montre de gousset LIP du grand-père René", "description": "Démontée, pièces rangées dans un plateau compartimenté ; l'axe de balancier est cassé et doit être refait au tour.", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "établi, sous une cloche en verre" }, "etat": "en restauration", "importance": 1.0 },
     { "id": "obj-acier-axe", "nom": "Barreau d'acier trempable", "description": "Matière brute pour tourner le nouvel axe de balancier.", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "tiroir de l'établi" }, "importance": 0.7 },
     { "id": "obj-photo-grand-pere", "nom": "Photo encadrée de René Berthier à son établi (1971)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "établi, à gauche de la lampe" }, "importance": 0.8 },
     { "id": "obj-outils", "nom": "Outils d'horlogerie", "description": "Tournevis, brucelles, potence, huilier, loupes ; toujours alignés dans le même ordre.", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "établi" }, "importance": 0.85 },
-    { "id": "obj-lunettes", "nom": "Lunettes demi-lunes", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "établi, dans leur étui" }, "importance": 0.6 },
+    { "id": "obj-lunettes", "nom": "Lunettes demi-lunes", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "établi, dans leur étui" }, "importance": 0.6, "role": "lunettes", "positions": { "porte": "sur son nez" } },
     { "id": "obj-omega", "nom": "Omega Seamaster 1962 (client)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "établi, démontée dans un plateau" }, "etat": "révision en cours", "importance": 0.8 },
     { "id": "obj-rolex", "nom": "Rolex Oyster Date 1975 (client)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "coffre-fort" }, "etat": "à réviser", "importance": 0.9 },
     { "id": "obj-pendule", "nom": "Pendule de cheminée (client)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "étagère de fournitures, étage du bas" }, "etat": "sonnerie défectueuse", "importance": 0.6 },
     { "id": "obj-lot-quartz", "nom": "Lot de six montres à quartz (clients)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "coffre-fort, dans une boîte étiquetée" }, "etat": "à traiter", "importance": 0.4 },
     { "id": "obj-zenith", "nom": "Chronographe Zenith (client)", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "coffre-fort" }, "etat": "à réviser", "importance": 0.85 },
     { "id": "obj-ressort-rolex", "nom": "Ressort de barillet neuf pour la Rolex", "description": "Reçu le samedi 6 mars avec les montres, dans son sachet.", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "tiroir de l'établi" }, "importance": 0.7 },
-    { "id": "obj-cles-coffre", "nom": "Clé du coffre-fort de l'atelier", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "tiroir de l'établi, à droite" }, "importance": 0.85 },
+    { "id": "obj-cles-coffre", "nom": "Clé du coffre-fort de l'atelier", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "tiroir de l'établi, à droite" }, "importance": 0.85, "role": "cles_coffre", "positions": { "usage": "atelier / serrure du coffre" } },
     { "id": "obj-classeur-compta", "nom": "Classeur de comptabilité et carnet de commandes", "emplacement_initial": { "lieu": "domicile", "piece": "atelier", "support": "étagère de fournitures, étage du haut" }, "importance": 0.6 },
-    { "id": "obj-netbook", "nom": "Ordinateur portable Asus Eee PC", "description": "Documentation technique et tableur de comptabilité.", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "bibliothèque, étagère du bas" }, "importance": 0.4 },
+    { "id": "obj-netbook", "nom": "Ordinateur portable Asus Eee PC", "description": "Documentation technique et tableur de comptabilité.", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "bibliothèque, étagère du bas" }, "importance": 0.4, "role": "ordinateur", "positions": { "usage": "sejour / table basse" } },
     { "id": "obj-telecommande", "nom": "Télécommande du téléviseur", "emplacement_initial": { "lieu": "domicile", "piece": "sejour", "support": "table basse" }, "importance": 0.2 },
-    { "id": "obj-cafetiere", "nom": "Cafetière italienne", "emplacement_initial": { "lieu": "domicile", "piece": "cuisine", "support": "égouttoir" }, "importance": 0.5 },
-    { "id": "obj-tasse", "nom": "Tasse bleue de Besançon", "description": "Sa tasse habituelle, cadeau de sa mère.", "emplacement_initial": { "lieu": "domicile", "piece": "cuisine", "support": "égouttoir" }, "importance": 0.35 },
+    { "id": "obj-cafetiere", "nom": "Cafetière italienne", "emplacement_initial": { "lieu": "domicile", "piece": "cuisine", "support": "égouttoir" }, "importance": 0.5, "role": "cafetiere", "positions": { "usage": "cuisine / plaque électrique" } },
+    { "id": "obj-tasse", "nom": "Tasse bleue de Besançon", "description": "Sa tasse habituelle, cadeau de sa mère.", "emplacement_initial": { "lieu": "domicile", "piece": "cuisine", "support": "égouttoir" }, "importance": 0.35, "role": "tasse", "positions": { "usage": "cuisine / plan de travail" } },
     { "id": "obj-marmite", "nom": "Marmite en fonte", "emplacement_initial": { "lieu": "domicile", "piece": "cuisine", "support": "placard sous les plaques" }, "importance": 0.3 },
-    { "id": "obj-tenue-course", "nom": "Tenue de course (collant, tee-shirt technique, coupe-vent, bonnet)", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "armoire, étagère du bas" }, "importance": 0.4 },
-    { "id": "obj-chaussures-course", "nom": "Chaussures de course", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "meuble à chaussures" }, "importance": 0.5 },
+    { "id": "obj-tenue-course", "nom": "Tenue de course (collant, tee-shirt technique, coupe-vent, bonnet)", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "armoire, étagère du bas" }, "importance": 0.4, "role": "tenue_course", "positions": { "porte": "porté", "linge": "salle-de-bain / panier à linge" } },
+    { "id": "obj-chaussures-course", "nom": "Chaussures de course", "emplacement_initial": { "lieu": "domicile", "piece": "entree", "support": "meuble à chaussures" }, "importance": 0.5, "role": "chaussures", "positions": { "porte": "aux pieds" } },
     { "id": "obj-poubelle", "nom": "Sac-poubelle de la cuisine", "description": "Plein aux trois quarts (épluchures, os de poulet, emballages).", "emplacement_initial": { "lieu": "domicile", "piece": "cuisine", "support": "poubelle sous l'évier" }, "importance": 0.1 },
     { "id": "obj-panier-linge", "nom": "Panier à linge", "emplacement_initial": { "lieu": "domicile", "piece": "salle-de-bain", "support": "sol" }, "importance": 0.3 },
     { "id": "obj-etendoir", "nom": "Étendoir pliant", "emplacement_initial": { "lieu": "domicile", "piece": "chambre", "support": "replié derrière la porte" }, "importance": 0.2 }
@@ -737,14 +770,14 @@
         "etapes": [
           { "debut": "07:00", "fin": "07:05", "lieu": "chambre", "action": "Réveil par la sonnerie, se lève, boit un verre d'eau", "activite": "lever" },
           { "debut": "07:05", "fin": "07:10", "lieu": "wc", "action": "Passage aux toilettes", "activite": "toilettes" },
-          { "debut": "07:10", "fin": "07:15", "lieu": "chambre", "action": "Enfile sa tenue de course", "activite": "habillage" },
+          { "debut": "07:10", "fin": "07:15", "lieu": "chambre", "action": "Enfile sa tenue de course", "activite": "habillage", "objets": { "tenue_course": "porte" } },
           { "debut": "07:15", "fin": "07:20", "lieu": "entree", "action": "Chausse ses chaussures, prend ses clés, ferme la porte et vérifie deux fois", "activite": "sortie" },
           { "debut": "07:20", "fin": "07:30", "lieu": "trajet", "action": "Descend les pentes en courant doucement", "activite": "course" },
           { "debut": "07:30", "fin": "07:55", "lieu": "quais-de-saone", "action": "Course le long de la Saône", "activite": "course" },
           { "debut": "07:55", "fin": "08:10", "lieu": "trajet", "action": "Remonte vers la Croix-Rousse, termine en marchant", "activite": "course" },
           { "debut": "08:10", "fin": "08:15", "lieu": "entree", "action": "Pose ses clés dans le vide-poche, retire ses chaussures", "activite": "retour" },
-          { "debut": "08:15", "fin": "08:30", "lieu": "salle-de-bain", "action": "Étirements puis douche ; rasage le mardi et le jeudi", "activite": "douche" },
-          { "debut": "08:30", "fin": "08:35", "lieu": "chambre", "action": "S'habille pour l'atelier", "activite": "habillage" },
+          { "debut": "08:15", "fin": "08:30", "lieu": "salle-de-bain", "action": "Étirements puis douche ; rasage le mardi et le jeudi", "activite": "douche", "objets": { "tenue_course": "linge" } },
+          { "debut": "08:30", "fin": "08:35", "lieu": "chambre", "action": "S'habille pour l'atelier", "activite": "habillage", "objets": { "montre": "porte" } },
           { "debut": "08:35", "fin": "08:50", "lieu": "cuisine", "action": "Petit-déjeuner avec yaourt et banane", "activite": "petit_dejeuner" },
           { "debut": "08:50", "fin": "08:55", "lieu": "cuisine", "action": "Rince la tasse, remonte et règle sa montre", "activite": "rangement_cuisine" },
           { "debut": "08:55", "fin": "09:00", "lieu": "atelier", "action": "Allume la lampe d'établi, aligne ses outils, ouvre le coffre", "activite": "ouverture_atelier" }
@@ -758,10 +791,10 @@
           { "debut": "07:00", "fin": "07:05", "lieu": "chambre", "action": "Réveil par la sonnerie, reste allongé quelques minutes", "activite": "reveil" },
           { "debut": "07:05", "fin": "07:10", "lieu": "wc", "action": "Passage aux toilettes", "activite": "toilettes" },
           { "debut": "07:10", "fin": "07:25", "lieu": "salle-de-bain", "action": "Douche ; rasage le lundi et le vendredi", "activite": "douche" },
-          { "debut": "07:25", "fin": "07:30", "lieu": "chambre", "action": "S'habille", "activite": "habillage" },
+          { "debut": "07:25", "fin": "07:30", "lieu": "chambre", "action": "S'habille", "activite": "habillage", "objets": { "montre": "porte" } },
           { "debut": "07:30", "fin": "07:50", "lieu": "cuisine", "action": "Prépare un café, petit-déjeuner en écoutant la radio", "activite": "petit_dejeuner", "avec": ["radio"] },
           { "debut": "07:50", "fin": "07:55", "lieu": "cuisine", "action": "Rince la tasse, remonte et règle sa montre", "activite": "rangement_cuisine", "avec": ["radio"] },
-          { "debut": "07:55", "fin": "08:45", "lieu": "sejour", "action": "Lecture ou documentation technique, radio en fond", "activite": "lecture_technique", "avec": ["radio", "ordinateur"] },
+          { "debut": "07:55", "fin": "08:45", "lieu": "sejour", "action": "Lecture ou documentation technique, radio en fond", "activite": "lecture_technique", "avec": ["radio", "ordinateur"], "tient": { "ordinateur": "usage" } },
           { "debut": "08:45", "fin": "08:55", "lieu": "salle-de-bain", "action": "Étirements du dos", "activite": "etirements" },
           { "debut": "08:55", "fin": "09:00", "lieu": "atelier", "action": "Allume la lampe d'établi, aligne ses outils, ouvre le coffre", "activite": "ouverture_atelier" }
         ]
@@ -792,7 +825,7 @@
           { "debut": "19:00", "fin": "19:45", "lieu": "cuisine", "action": "Prépare et mange le dîner prévu", "activite": "repas" },
           { "debut": "19:45", "fin": "20:00", "lieu": "cuisine", "action": "Vaisselle", "activite": "vaisselle" },
           { "debut": "20:00", "fin": "22:00", "lieu": "atelier", "action": "Travail personnel sur la montre du grand-père (axe de balancier)", "activite": "travail_personnel" },
-          { "debut": "22:00", "fin": "22:15", "lieu": "atelier", "action": "Range ses outils, recouvre la montre de la cloche", "activite": "rangement_atelier" },
+          { "debut": "22:00", "fin": "22:15", "lieu": "atelier", "action": "Range ses outils, recouvre la montre de la cloche", "activite": "rangement_atelier", "consomme": ["douceur"] },
           { "debut": "22:15", "fin": "22:30", "lieu": "salle-de-bain", "action": "Toilette du soir", "activite": "toilette_soir" },
           { "debut": "22:30", "fin": "23:00", "lieu": "chambre", "action": "Lecture au lit, écrit quelques lignes dans son carnet", "activite": "lecture_lit" },
           { "debut": "23:00", "fin": null, "lieu": "chambre", "action": "Éteint la lumière, s'endort", "activite": "coucher" }
@@ -823,7 +856,7 @@
           { "debut": "08:45", "fin": "09:30", "lieu": "cuisine", "action": "Petit-déjeuner long avec la radio", "activite": "petit_dejeuner", "avec": ["radio"] },
           { "debut": "09:30", "fin": "09:35", "lieu": "cuisine", "action": "Remonte et règle sa montre", "activite": "rangement_cuisine" },
           { "debut": "09:35", "fin": "09:55", "lieu": "salle-de-bain", "action": "Douche, rasage", "activite": "douche" },
-          { "debut": "09:55", "fin": "10:00", "lieu": "chambre", "action": "S'habille", "activite": "habillage" },
+          { "debut": "09:55", "fin": "10:00", "lieu": "chambre", "action": "S'habille", "activite": "habillage", "objets": { "montre": "porte" } },
           { "debut": "10:00", "fin": "11:30", "lieu": "domicile", "action": "Ménage : aspirateur, salle de bain, cuisine ; plie et range le linge sec", "activite": "menage" },
           { "debut": "11:30", "fin": "12:30", "lieu": "sejour", "action": "Lecture", "activite": "lecture" },
           { "debut": "12:30", "fin": "13:30", "lieu": "cuisine", "action": "Prépare et mange le déjeuner prévu, vaisselle", "activite": "repas" },
@@ -839,14 +872,14 @@
         "etapes": [
           { "debut": "08:30", "fin": "08:40", "lieu": "chambre", "action": "Réveil naturel, verre d'eau, une banane", "activite": "lever" },
           { "debut": "08:40", "fin": "08:45", "lieu": "wc", "action": "Passage aux toilettes", "activite": "toilettes" },
-          { "debut": "08:45", "fin": "08:55", "lieu": "chambre", "action": "Enfile sa tenue de course", "activite": "habillage" },
+          { "debut": "08:45", "fin": "08:55", "lieu": "chambre", "action": "Enfile sa tenue de course", "activite": "habillage", "objets": { "tenue_course": "porte" } },
           { "debut": "08:55", "fin": "09:00", "lieu": "entree", "action": "Chausse ses chaussures, prend ses clés, ferme la porte et vérifie deux fois", "activite": "sortie" },
           { "debut": "09:00", "fin": "09:10", "lieu": "trajet", "action": "Descend les pentes", "activite": "course" },
           { "debut": "09:10", "fin": "10:15", "lieu": "quais-de-saone", "action": "Sortie longue le long de la Saône", "activite": "course" },
           { "debut": "10:15", "fin": "10:30", "lieu": "trajet", "action": "Remonte vers la Croix-Rousse en marchant", "activite": "course" },
           { "debut": "10:30", "fin": "10:35", "lieu": "entree", "action": "Pose ses clés dans le vide-poche, retire ses chaussures", "activite": "retour" },
-          { "debut": "10:35", "fin": "10:55", "lieu": "salle-de-bain", "action": "Étirements et douche", "activite": "douche" },
-          { "debut": "10:55", "fin": "11:00", "lieu": "chambre", "action": "S'habille", "activite": "habillage" },
+          { "debut": "10:35", "fin": "10:55", "lieu": "salle-de-bain", "action": "Étirements et douche", "activite": "douche", "objets": { "tenue_course": "linge" } },
+          { "debut": "10:55", "fin": "11:00", "lieu": "chambre", "action": "S'habille", "activite": "habillage", "objets": { "montre": "porte" } },
           { "debut": "11:00", "fin": "12:00", "lieu": "cuisine", "action": "Brunch, remonte et règle sa montre", "activite": "repas", "avec": ["radio"] },
           { "debut": "12:00", "fin": "15:00", "lieu": "sejour", "action": "Lecture, musique, sieste", "activite": "temps_libre" },
           { "debut": "15:00", "fin": "17:00", "lieu": "atelier", "action": "Montre du grand-père", "activite": "travail_personnel" },

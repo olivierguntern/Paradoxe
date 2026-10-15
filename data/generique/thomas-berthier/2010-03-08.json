@@ -45,9 +45,37 @@
    "souvenir_grand_pere": 1,
    "ecriture_carnet": 1
   },
-  "objets_deplaces_position_finale": {},
-  "provisions_consommees": {},
-  "plats_prepares": {},
+  "objets_deplaces_position_finale": {
+   "obj-montre-poignet": "chambre / table de chevet",
+   "obj-cafetiere": "cuisine / égouttoir",
+   "obj-tasse": "cuisine / égouttoir",
+   "obj-netbook": "sejour / bibliothèque, étagère du bas",
+   "obj-cles-coffre": "atelier / tiroir de l'établi, à droite",
+   "obj-lunettes": "atelier / établi, dans leur étui",
+   "obj-livre": "chambre / table de chevet"
+  },
+  "provisions_consommees": {
+   "café moulu": "21 g",
+   "pain de campagne en tranches": "3 tranches",
+   "beurre": "30 g",
+   "confiture d'abricot": "2 cuillères",
+   "pommes": "2 pommes",
+   "cuisses de poulet crues": "2 cuisses",
+   "pommes de terre": "1000 g",
+   "condiments de base (huile, sel, poivre, herbes, moutarde)": "utilisés (non suivis)",
+   "cuisses de poulet rôties": "1 cuisse",
+   "pommes de terre rôties": "1 portion",
+   "poireaux": "3 poireaux",
+   "oignons": "1 oignon",
+   "soupe poireaux-pommes de terre": "1 portion",
+   "comté": "50 g",
+   "chocolat noir": "2 carrés"
+  },
+  "plats_prepares": {
+   "cuisses de poulet rôties": "2 cuisses",
+   "pommes de terre rôties": "2 portions",
+   "soupe poireaux-pommes de terre": "4 portions"
+  },
   "achats": {},
   "argent": {
    "mouvements_du_jour": {},
@@ -57,19 +85,19 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "café moulu": "278 g",
-   "pain de campagne en tranches": "24 tranches",
+   "café moulu": "257 g",
+   "pain de campagne en tranches": "21 tranches",
    "pain de campagne frais": "0 pain",
    "biscottes": "30 biscottes",
-   "beurre": "250 g",
-   "confiture d'abricot": "37 cuillères",
+   "beurre": "220 g",
+   "confiture d'abricot": "35 cuillères",
    "lait UHT": "2000 ml",
    "yaourts nature": "8 pots",
    "œufs": "12 œufs",
-   "cuisses de poulet crues": "2 cuisses",
+   "cuisses de poulet crues": "0 cuisse",
    "lardons": "200 g",
    "saucisse de Morteau": "1 saucisse",
-   "comté": "400 g",
+   "comté": "350 g",
    "steaks hachés surgelés": "2 steaks",
    "poisson pané surgelé": "10 pièces",
    "pâtes": "1000 g",
@@ -78,17 +106,20 @@
    "lentilles cuisinées en bocal": "1 bocal",
    "haricots verts en conserve": "2 boîtes",
    "ratatouille en conserve": "1 boîte",
-   "pommes de terre": "2000 g",
-   "poireaux": "6 poireaux",
+   "pommes de terre": "1000 g",
+   "poireaux": "3 poireaux",
    "carottes": "1000 g",
-   "oignons": "4 oignons",
-   "pommes": "6 pommes",
+   "oignons": "3 oignons",
+   "pommes": "4 pommes",
    "oranges": "6 oranges",
    "bananes": "4 bananes",
-   "chocolat noir": "40 carrés",
+   "chocolat noir": "38 carrés",
    "bière": "4 bouteilles",
    "vin rouge (Côtes-du-Rhône)": "56 cl",
-   "lessive liquide": "10 doses"
+   "lessive liquide": "10 doses",
+   "cuisses de poulet rôties": "1 cuisse",
+   "pommes de terre rôties": "1 portion",
+   "soupe poireaux-pommes de terre": "3 portions"
   },
   "besoins_sous_le_seuil_d_alerte": [
    "22:35 energie = 24.8 (seuil 25)",
@@ -106,7 +137,7 @@
   "endormissement": "extinction à 23:00 ; anxiété 0.196 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
   "ecarts_a_la_routine": [],
   "perception": {
-   "pas_avec_objets_vus": 168,
+   "pas_avec_objets_vus": 167,
    "objets_vus": 30,
    "entendu_pas": {
     "la radio": 25
@@ -272,19 +303,19 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 278,
-   "pain_tranches": 24,
+   "cafe_moulu": 257,
+   "pain_tranches": 21,
    "pain_campagne": 0,
    "biscottes": 30,
-   "beurre": 250,
-   "confiture_abricot": 37,
+   "beurre": 220,
+   "confiture_abricot": 35,
    "lait_uht": 2000,
    "yaourts": 8,
    "oeufs": 12,
-   "cuisses_poulet": 2,
+   "cuisses_poulet": 0,
    "lardons": 200,
    "saucisse_morteau": 1,
-   "comte": 400,
+   "comte": 350,
    "steaks_haches": 2,
    "poisson_pane": 10,
    "pates": 1000,
@@ -293,17 +324,20 @@
    "lentilles": 1,
    "haricots_verts": 2,
    "ratatouille": 1,
-   "pommes_de_terre": 2000,
-   "poireaux": 6,
+   "pommes_de_terre": 1000,
+   "poireaux": 3,
    "carottes": 1000,
-   "oignons": 4,
-   "pommes": 6,
+   "oignons": 3,
+   "pommes": 4,
    "oranges": 6,
    "bananes": 4,
-   "chocolat_noir": 40,
+   "chocolat_noir": 38,
    "biere": 4,
    "vin_rouge": 56,
-   "lessive": 10
+   "lessive": 10,
+   "poulet_roti": 1,
+   "pommes_de_terre_roties": 1,
+   "soupe_poireaux": 3
   },
   "argent": {
    "especes": 35,
@@ -3363,6 +3397,13 @@
     "duree_s": 6,
     "foulees": 8
    },
+   "objets": [
+    {
+     "objet": "obj-montre-poignet",
+     "de": "chambre / table de chevet",
+     "vers": "poignet gauche"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-reveil"
@@ -3417,6 +3458,48 @@
     "duree_s": 14,
     "foulees": 19
    },
+   "objets": [
+    {
+     "objet": "obj-cafetiere",
+     "de": "cuisine / égouttoir",
+     "vers": "cuisine / plaque électrique"
+    },
+    {
+     "objet": "obj-tasse",
+     "de": "cuisine / égouttoir",
+     "vers": "cuisine / plan de travail"
+    }
+   ],
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 271
+    },
+    {
+     "produit": "pain_tranches",
+     "nom": "pain de campagne en tranches",
+     "quantite": 2,
+     "unite": "tranches",
+     "reste": 22
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre",
+     "quantite": 10,
+     "unite": "g",
+     "reste": 240
+    },
+    {
+     "produit": "confiture_abricot",
+     "nom": "confiture d'abricot",
+     "quantite": 2,
+     "unite": "cuillères",
+     "reste": 35
+    }
+   ],
    "perception": {
     "vu": [
      "obj-reveil"
@@ -3596,10 +3679,21 @@
    "activite": "Rince la tasse, remonte et règle sa montre",
    "action": "Rince sa tasse et range la cuisine.",
    "pensee": null,
+   "objets": [
+    {
+     "objet": "obj-cafetiere",
+     "de": "cuisine / plaque électrique",
+     "vers": "cuisine / égouttoir"
+    },
+    {
+     "objet": "obj-tasse",
+     "de": "cuisine / plan de travail",
+     "vers": "cuisine / égouttoir"
+    }
+   ],
    "perception": {
     "vu": [
-     "obj-poubelle",
-     "obj-tasse"
+     "obj-poubelle"
     ],
     "entend": [
      "la radio"
@@ -3690,6 +3784,13 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "objets": [
+    {
+     "objet": "obj-netbook",
+     "de": "sejour / bibliothèque, étagère du bas",
+     "vers": "sejour / table basse"
+    }
+   ],
    "perception": {
     "entend": [
      "la radio"
@@ -4082,6 +4183,13 @@
     "duree_s": 8,
     "foulees": 12
    },
+   "objets": [
+    {
+     "objet": "obj-netbook",
+     "de": "sejour / table basse",
+     "vers": "sejour / bibliothèque, étagère du bas"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-chaussures-course",
@@ -4175,6 +4283,13 @@
     "duree_s": 14,
     "foulees": 19
    },
+   "objets": [
+    {
+     "objet": "obj-cles-coffre",
+     "de": "atelier / tiroir de l'établi, à droite",
+     "vers": "atelier / serrure du coffre"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-acier-axe",
@@ -4231,10 +4346,16 @@
    "activite": "Travail de précision selon l'ordre de priorité",
    "action": "Travaille à l'établi.",
    "pensee": null,
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "atelier / établi, dans leur étui",
+     "vers": "sur son nez"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-acier-axe",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-outils",
      "obj-photo-grand-pere",
@@ -4275,11 +4396,6 @@
    "activite": "Travail de précision selon l'ordre de priorité",
    "action": "Travaille à l'établi.",
    "pensee": null,
-   "perception": {
-    "vu": [
-     "obj-lunettes"
-    ]
-   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -4318,7 +4434,6 @@
     "vu": [
      "obj-acier-axe",
      "obj-classeur-compta",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-pendule",
      "obj-photo-grand-pere",
@@ -4365,7 +4480,6 @@
      "obj-acier-axe",
      "obj-classeur-compta",
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-photo-grand-pere",
      "obj-rolex"
     ]
@@ -4450,7 +4564,6 @@
     "vu": [
      "obj-classeur-compta",
      "obj-cles-coffre",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-ressort-rolex",
      "obj-rolex"
@@ -4577,7 +4690,6 @@
    "perception": {
     "vu": [
      "obj-acier-axe",
-     "obj-lunettes",
      "obj-outils",
      "obj-pendule",
      "obj-ressort-rolex"
@@ -4997,10 +5109,25 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "sur son nez",
+     "vers": "atelier / établi, dans leur étui"
+    }
+   ],
+   "consommation": [
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 1,
+     "unite": "pommes",
+     "reste": 5
+    }
+   ],
    "perception": {
     "vu": [
-     "obj-cles-coffre",
-     "obj-lunettes"
+     "obj-cles-coffre"
     ]
    },
    "appareils_allumes": [
@@ -5037,6 +5164,15 @@
    "activite": "Pause café, verre d'eau, étirements",
    "action": "Pause : un café, un verre d'eau, quelques étirements.",
    "pensee": null,
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 264
+    }
+   ],
    "appareils_allumes": [],
    "evenements": [
     {
@@ -5124,11 +5260,17 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "atelier / établi, dans leur étui",
+     "vers": "sur son nez"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-cles-coffre",
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-outils",
      "obj-photo-grand-pere",
@@ -5215,7 +5357,6 @@
     "vu": [
      "obj-classeur-compta",
      "obj-cles-coffre",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-rolex"
     ]
@@ -5379,7 +5520,6 @@
    "perception": {
     "vu": [
      "obj-acier-axe",
-     "obj-lunettes",
      "obj-photo-grand-pere",
      "obj-ressort-rolex",
      "obj-zenith"
@@ -5628,7 +5768,6 @@
    "perception": {
     "vu": [
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-outils",
      "obj-zenith"
@@ -5712,7 +5851,6 @@
    "perception": {
     "vu": [
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-omega",
      "obj-photo-grand-pere",
      "obj-rolex",
@@ -6007,6 +6145,13 @@
     "duree_s": 13,
     "foulees": 18
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "sur son nez",
+     "vers": "atelier / établi, dans leur étui"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-acier-axe",
@@ -6067,6 +6212,28 @@
     "duree_s": 12,
     "foulees": 17
    },
+   "consommation": [
+    {
+     "produit": "cuisses_poulet",
+     "nom": "cuisses de poulet crues",
+     "quantite": 2,
+     "unite": "cuisses",
+     "reste": 0
+    },
+    {
+     "produit": "pommes_de_terre",
+     "nom": "pommes de terre",
+     "quantite": 500,
+     "unite": "g",
+     "reste": 1500
+    },
+    {
+     "produit": "condiments",
+     "nom": "condiments de base (huile, sel, poivre, herbes, moutarde)",
+     "quantite": 1,
+     "unite": null
+    }
+   ],
    "perception": {
     "vu": [
      "obj-portefeuille"
@@ -6189,6 +6356,38 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "production": [
+    {
+     "produit": "poulet_roti",
+     "nom": "cuisses de poulet rôties",
+     "quantite": 2,
+     "unite": "cuisses",
+     "reste": 2
+    },
+    {
+     "produit": "pommes_de_terre_roties",
+     "nom": "pommes de terre rôties",
+     "quantite": 2,
+     "unite": "portions",
+     "reste": 2
+    }
+   ],
+   "consommation": [
+    {
+     "produit": "poulet_roti",
+     "nom": "cuisses de poulet rôties",
+     "quantite": 1,
+     "unite": "cuisses",
+     "reste": 1
+    },
+    {
+     "produit": "pommes_de_terre_roties",
+     "nom": "pommes de terre rôties",
+     "quantite": 1,
+     "unite": "portions",
+     "reste": 1
+    }
+   ],
    "perception": {
     "vu": [
      "obj-netbook",
@@ -6396,6 +6595,15 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 257
+    }
+   ],
    "appareils_allumes": [],
    "evenements": [
     {
@@ -6514,6 +6722,13 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "objets": [
+    {
+     "objet": "obj-livre",
+     "de": "chambre / table de chevet",
+     "vers": "dans sa main"
+    }
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 96.0,
@@ -6726,11 +6941,22 @@
     "duree_s": 5,
     "foulees": 7
    },
+   "objets": [
+    {
+     "objet": "obj-livre",
+     "de": "dans sa main",
+     "vers": "chambre / table de chevet"
+    },
+    {
+     "objet": "obj-lunettes",
+     "de": "atelier / établi, dans leur étui",
+     "vers": "sur son nez"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-livre-courir",
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-outils"
     ]
@@ -6771,7 +6997,6 @@
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-lunettes",
      "obj-outils",
      "obj-pendule",
      "obj-rolex"
@@ -6856,7 +7081,6 @@
    "perception": {
     "vu": [
      "obj-cles-coffre",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-omega",
      "obj-pendule",
@@ -7192,7 +7416,6 @@
     "vu": [
      "obj-cles-coffre",
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-photo-grand-pere",
      "obj-ressort-rolex"
     ]
@@ -7402,7 +7625,6 @@
    "perception": {
     "vu": [
      "obj-cles-coffre",
-     "obj-lunettes",
      "obj-pendule",
      "obj-ressort-rolex"
     ]
@@ -7492,6 +7714,22 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "sur son nez",
+     "vers": "atelier / établi, dans leur étui"
+    }
+   ],
+   "consommation": [
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 1,
+     "unite": "pommes",
+     "reste": 4
+    }
+   ],
    "perception": {
     "vu": [
      "obj-marmite",
@@ -7577,11 +7815,17 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "atelier / établi, dans leur étui",
+     "vers": "sur son nez"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-classeur-compta",
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-rolex"
     ]
    },
@@ -7622,7 +7866,6 @@
    "perception": {
     "vu": [
      "obj-acier-axe",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-zenith"
     ]
@@ -7871,7 +8114,6 @@
    "perception": {
     "vu": [
      "obj-acier-axe",
-     "obj-lunettes",
      "obj-omega",
      "obj-photo-grand-pere",
      "obj-rolex"
@@ -8112,8 +8354,7 @@
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-acier-axe",
-     "obj-lunettes"
+     "obj-acier-axe"
     ]
    },
    "appareils_allumes": [
@@ -8316,7 +8557,6 @@
    "perception": {
     "vu": [
      "obj-classeur-compta",
-     "obj-lunettes",
      "obj-omega",
      "obj-pendule"
     ]
@@ -8521,7 +8761,6 @@
      "obj-classeur-compta",
      "obj-cles-coffre",
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-outils",
      "obj-photo-grand-pere"
     ]
@@ -8642,6 +8881,18 @@
    "activite": "Range les montres dans le coffre, aligne les outils, éteint la lampe",
    "action": "Range ses outils et éteint la lampe.",
    "pensee": null,
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "sur son nez",
+     "vers": "atelier / établi, dans leur étui"
+    },
+    {
+     "objet": "obj-cles-coffre",
+     "de": "atelier / serrure du coffre",
+     "vers": "atelier / tiroir de l'établi, à droite"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-acier-axe",
@@ -9289,6 +9540,36 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "consommation": [
+    {
+     "produit": "poireaux",
+     "nom": "poireaux",
+     "quantite": 3,
+     "unite": "poireaux",
+     "reste": 3
+    },
+    {
+     "produit": "pommes_de_terre",
+     "nom": "pommes de terre",
+     "quantite": 500,
+     "unite": "g",
+     "reste": 1000
+    },
+    {
+     "produit": "oignons",
+     "nom": "oignons",
+     "quantite": 1,
+     "unite": "oignons",
+     "reste": 3
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre",
+     "quantite": 20,
+     "unite": "g",
+     "reste": 220
+    }
+   ],
    "perception": {
     "vu": [
      "obj-marmite"
@@ -9448,6 +9729,38 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "production": [
+    {
+     "produit": "soupe_poireaux",
+     "nom": "soupe poireaux-pommes de terre",
+     "quantite": 4,
+     "unite": "portions",
+     "reste": 4
+    }
+   ],
+   "consommation": [
+    {
+     "produit": "soupe_poireaux",
+     "nom": "soupe poireaux-pommes de terre",
+     "quantite": 1,
+     "unite": "portions",
+     "reste": 3
+    },
+    {
+     "produit": "comte",
+     "nom": "comté",
+     "quantite": 50,
+     "unite": "g",
+     "reste": 350
+    },
+    {
+     "produit": "pain_tranches",
+     "nom": "pain de campagne en tranches",
+     "quantite": 1,
+     "unite": "tranches",
+     "reste": 21
+    }
+   ],
    "lumiere": [
     "éteint la lumière (cuisine)",
     "allume la lumière (sejour)"
@@ -9791,6 +10104,13 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "atelier / établi, dans leur étui",
+     "vers": "sur son nez"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-cles-coffre",
@@ -9899,7 +10219,6 @@
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-lunettes",
      "obj-photo-grand-pere",
      "obj-zenith"
     ]
@@ -10066,7 +10385,6 @@
    "perception": {
     "vu": [
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-omega"
     ]
    },
@@ -10107,8 +10425,7 @@
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-cles-coffre",
-     "obj-lunettes"
+     "obj-cles-coffre"
     ]
    },
    "appareils_allumes": [
@@ -10149,7 +10466,6 @@
    "perception": {
     "vu": [
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-rolex",
      "obj-zenith"
     ]
@@ -10663,7 +10979,6 @@
     "vu": [
      "obj-classeur-compta",
      "obj-cles-coffre",
-     "obj-lunettes",
      "obj-pendule",
      "obj-ressort-rolex"
     ]
@@ -10707,7 +11022,6 @@
     "vu": [
      "obj-acier-axe",
      "obj-cles-coffre",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-omega",
      "obj-zenith"
@@ -10794,7 +11108,6 @@
     "vu": [
      "obj-classeur-compta",
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-outils",
      "obj-ressort-rolex",
@@ -10848,6 +11161,13 @@
     "duree_s": 13,
     "foulees": 18
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "sur son nez",
+     "vers": "atelier / établi, dans leur étui"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-cabas",
@@ -10911,6 +11231,15 @@
     "duree_s": 13,
     "foulees": 18
    },
+   "consommation": [
+    {
+     "produit": "chocolat_noir",
+     "nom": "chocolat noir",
+     "quantite": 2,
+     "unite": "carrés",
+     "reste": 38
+    }
+   ],
    "perception": {
     "vu": [
      "obj-acier-axe",
@@ -11185,10 +11514,21 @@
     "duree_s": 6,
     "foulees": 8
    },
+   "objets": [
+    {
+     "objet": "obj-montre-poignet",
+     "de": "poignet gauche",
+     "vers": "chambre / table de chevet"
+    },
+    {
+     "objet": "obj-livre",
+     "de": "chambre / table de chevet",
+     "vers": "dans sa main"
+    }
+   ],
    "perception": {
     "vu": [
-     "obj-etendoir",
-     "obj-montre-poignet"
+     "obj-etendoir"
     ]
    },
    "lumiere": [
@@ -11439,6 +11779,13 @@
    "activite": "Éteint la lumière, s'endort",
    "action": "Éteint la lumière.",
    "pensee": null,
+   "objets": [
+    {
+     "objet": "obj-livre",
+     "de": "dans sa main",
+     "vers": "chambre / table de chevet"
+    }
+   ],
    "lumiere": [
     "éteint la lumière (chambre)"
    ],

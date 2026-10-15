@@ -7,6 +7,10 @@ allumés, position de chaque objet, stock de chaque provision ; pour un
 commerçant, stock du magasin et argent (caisse, coffre, compte, ardoises). Les besoins et
 les émotions sont comparés en écart moyen. Les textes (actions, pensées) ne
 sont pas comparés.
+
+Pour les objets et le stock, la concordance compte les pas où tout est
+identique ; « concordance_un_par_un » compte chaque objet et chaque produit
+séparément, pas par pas.
 """
 import json
 import sys
@@ -87,12 +91,21 @@ def comparer(ref, sim):
         if "argent" in criteres and pr[k][3] != ps[k][3]:
             criteres["argent"].append(h)
     n = len(R)
+    def un_par_un(k):
+        """Part des couples (pas, objet) ou (pas, produit) identiques : un seul écart ne compte plus pour tout le pas."""
+        egaux = total = 0
+        for a, b in zip(pr, ps):
+            cles = set(a[k]) | set(b[k])
+            egaux += sum(a[k].get(x) == b[k].get(x) for x in cles)
+            total += len(cles)
+        return round(100 * egaux / total, 1) if total else 100.0
     def mae(cle):
         noms = R[0][cle].keys()
         return {x: round(sum(abs(a[cle][x] - b[cle][x]) for a, b in zip(R, S)) / n, 3) for x in noms if x in S[0][cle]}
     return {
         "pas": n,
         "concordance": {c: round(100 * (n - len(v)) / n, 1) for c, v in criteres.items()},
+        "concordance_un_par_un": {"objets": un_par_un(0), "stock": un_par_un(1)},
         "differences": {c: plages(v) for c, v in criteres.items() if v},
         "objets_en_ecart": {o: plages(v) for o, v in objets_diff.items()},
         "ecart_moyen_besoins": mae("besoins"),

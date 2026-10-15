@@ -46,8 +46,33 @@
    "souvenir_grand_pere": 1,
    "ecriture_carnet": 1
   },
-  "objets_deplaces_position_finale": {},
-  "provisions_consommees": {},
+  "objets_deplaces_position_finale": {
+   "obj-tenue-course": "salle-de-bain / panier à linge",
+   "obj-cles": "entree / vide-poche de la commode",
+   "obj-chaussures-course": "entree / meuble à chaussures",
+   "obj-montre-poignet": "chambre / table de chevet",
+   "obj-cafetiere": "cuisine / égouttoir",
+   "obj-tasse": "cuisine / égouttoir",
+   "obj-cles-coffre": "atelier / tiroir de l'établi, à droite",
+   "obj-lunettes": "atelier / établi, dans leur étui",
+   "obj-livre": "chambre / table de chevet"
+  },
+  "provisions_consommees": {
+   "oranges": "2 oranges",
+   "café moulu": "21 g",
+   "pain de campagne en tranches": "2 tranches",
+   "beurre": "20 g",
+   "confiture d'abricot": "2 cuillères",
+   "yaourts nature": "1 pot",
+   "bananes": "1 banane",
+   "riz": "80 g",
+   "condiments de base (huile, sel, poivre, herbes, moutarde)": "utilisés (non suivis)",
+   "cuisses de poulet rôties": "1 cuisse",
+   "pommes de terre rôties": "1 portion",
+   "œufs": "2 œufs",
+   "soupe poireaux-pommes de terre": "1 portion",
+   "chocolat noir": "2 carrés"
+  },
   "plats_prepares": {},
   "achats": {},
   "argent": {
@@ -58,38 +83,41 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "café moulu": "278 g",
-   "pain de campagne en tranches": "24 tranches",
+   "café moulu": "236 g",
+   "pain de campagne en tranches": "19 tranches",
    "pain de campagne frais": "0 pain",
    "biscottes": "30 biscottes",
-   "beurre": "250 g",
-   "confiture d'abricot": "37 cuillères",
+   "beurre": "200 g",
+   "confiture d'abricot": "33 cuillères",
    "lait UHT": "2000 ml",
-   "yaourts nature": "8 pots",
-   "œufs": "12 œufs",
-   "cuisses de poulet crues": "2 cuisses",
+   "yaourts nature": "7 pots",
+   "œufs": "10 œufs",
+   "cuisses de poulet crues": "0 cuisse",
    "lardons": "200 g",
    "saucisse de Morteau": "1 saucisse",
-   "comté": "400 g",
+   "comté": "350 g",
    "steaks hachés surgelés": "2 steaks",
    "poisson pané surgelé": "10 pièces",
    "pâtes": "1000 g",
-   "riz": "1000 g",
+   "riz": "920 g",
    "thon en conserve": "2 boîtes",
    "lentilles cuisinées en bocal": "1 bocal",
    "haricots verts en conserve": "2 boîtes",
    "ratatouille en conserve": "1 boîte",
-   "pommes de terre": "2000 g",
-   "poireaux": "6 poireaux",
+   "pommes de terre": "1000 g",
+   "poireaux": "3 poireaux",
    "carottes": "1000 g",
-   "oignons": "4 oignons",
-   "pommes": "6 pommes",
-   "oranges": "6 oranges",
-   "bananes": "4 bananes",
-   "chocolat noir": "40 carrés",
+   "oignons": "3 oignons",
+   "pommes": "4 pommes",
+   "oranges": "4 oranges",
+   "bananes": "3 bananes",
+   "chocolat noir": "36 carrés",
    "bière": "4 bouteilles",
    "vin rouge (Côtes-du-Rhône)": "56 cl",
-   "lessive liquide": "10 doses"
+   "lessive liquide": "10 doses",
+   "cuisses de poulet rôties": "0 cuisse",
+   "pommes de terre rôties": "0 portion",
+   "soupe poireaux-pommes de terre": "2 portions"
   },
   "besoins_sous_le_seuil_d_alerte": [
    "21:45 energie = 24.8 (seuil 25)",
@@ -117,7 +145,7 @@
   "endormissement": "extinction à 23:00 ; anxiété 0.196 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
   "ecarts_a_la_routine": [],
   "perception": {
-   "pas_avec_objets_vus": 162,
+   "pas_avec_objets_vus": 160,
    "objets_vus": 32,
    "entendu_pas": {
     "la radio": 10
@@ -186,19 +214,19 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 278,
-   "pain_tranches": 24,
+   "cafe_moulu": 257,
+   "pain_tranches": 21,
    "pain_campagne": 0,
    "biscottes": 30,
-   "beurre": 250,
-   "confiture_abricot": 37,
+   "beurre": 220,
+   "confiture_abricot": 35,
    "lait_uht": 2000,
    "yaourts": 8,
    "oeufs": 12,
-   "cuisses_poulet": 2,
+   "cuisses_poulet": 0,
    "lardons": 200,
    "saucisse_morteau": 1,
-   "comte": 400,
+   "comte": 350,
    "steaks_haches": 2,
    "poisson_pane": 10,
    "pates": 1000,
@@ -207,17 +235,20 @@
    "lentilles": 1,
    "haricots_verts": 2,
    "ratatouille": 1,
-   "pommes_de_terre": 2000,
-   "poireaux": 6,
+   "pommes_de_terre": 1000,
+   "poireaux": 3,
    "carottes": 1000,
-   "oignons": 4,
-   "pommes": 6,
+   "oignons": 3,
+   "pommes": 4,
    "oranges": 6,
    "bananes": 4,
-   "chocolat_noir": 40,
+   "chocolat_noir": 38,
    "biere": 4,
    "vin_rouge": 56,
-   "lessive": 10
+   "lessive": 10,
+   "poulet_roti": 1,
+   "pommes_de_terre_roties": 1,
+   "soupe_poireaux": 3
   },
   "argent": {
    "especes": 35,
@@ -279,7 +310,7 @@
    "obj-cafetiere": "cuisine / égouttoir",
    "obj-tasse": "cuisine / égouttoir",
    "obj-marmite": "cuisine / placard sous les plaques",
-   "obj-tenue-course": "chambre / armoire, étagère du bas",
+   "obj-tenue-course": "salle-de-bain / panier à linge",
    "obj-chaussures-course": "entree / meuble à chaussures",
    "obj-poubelle": "cuisine / poubelle sous l'évier",
    "obj-panier-linge": "salle-de-bain / sol",
@@ -287,38 +318,41 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 278,
-   "pain_tranches": 24,
+   "cafe_moulu": 236,
+   "pain_tranches": 19,
    "pain_campagne": 0,
    "biscottes": 30,
-   "beurre": 250,
-   "confiture_abricot": 37,
+   "beurre": 200,
+   "confiture_abricot": 33,
    "lait_uht": 2000,
-   "yaourts": 8,
-   "oeufs": 12,
-   "cuisses_poulet": 2,
+   "yaourts": 7,
+   "oeufs": 10,
+   "cuisses_poulet": 0,
    "lardons": 200,
    "saucisse_morteau": 1,
-   "comte": 400,
+   "comte": 350,
    "steaks_haches": 2,
    "poisson_pane": 10,
    "pates": 1000,
-   "riz": 1000,
+   "riz": 920,
    "thon": 2,
    "lentilles": 1,
    "haricots_verts": 2,
    "ratatouille": 1,
-   "pommes_de_terre": 2000,
-   "poireaux": 6,
+   "pommes_de_terre": 1000,
+   "poireaux": 3,
    "carottes": 1000,
-   "oignons": 4,
-   "pommes": 6,
-   "oranges": 6,
-   "bananes": 4,
-   "chocolat_noir": 40,
+   "oignons": 3,
+   "pommes": 4,
+   "oranges": 4,
+   "bananes": 3,
+   "chocolat_noir": 36,
    "biere": 4,
    "vin_rouge": 56,
-   "lessive": 10
+   "lessive": 10,
+   "poulet_roti": 0,
+   "pommes_de_terre_roties": 0,
+   "soupe_poireaux": 2
   },
   "argent": {
    "especes": 35,
@@ -3219,10 +3253,16 @@
     "duree_s": 6,
     "foulees": 8
    },
+   "objets": [
+    {
+     "objet": "obj-tenue-course",
+     "de": "chambre / armoire, étagère du bas",
+     "vers": "porté"
+    }
+   ],
    "perception": {
     "vu": [
-     "obj-montre-poignet",
-     "obj-tenue-course"
+     "obj-montre-poignet"
     ]
    },
    "lumiere": [
@@ -3272,11 +3312,18 @@
     "duree_s": 6,
     "foulees": 8
    },
-   "perception": {
-    "vu": [
-     "obj-cles"
-    ]
-   },
+   "objets": [
+    {
+     "objet": "obj-cles",
+     "de": "entree / vide-poche de la commode",
+     "vers": "poche du coupe-vent"
+    },
+    {
+     "objet": "obj-chaussures-course",
+     "de": "entree / meuble à chaussures",
+     "vers": "aux pieds"
+    }
+   ],
    "lumiere": [
     "allume la lumière (couloir)",
     "éteint la lumière (couloir)",
@@ -3683,9 +3730,20 @@
    "activite": "Pose ses clés dans le vide-poche, retire ses chaussures",
    "action": "Rentre, pose ses clés et retire ses chaussures.",
    "pensee": null,
+   "objets": [
+    {
+     "objet": "obj-cles",
+     "de": "poche du coupe-vent",
+     "vers": "entree / vide-poche de la commode"
+    },
+    {
+     "objet": "obj-chaussures-course",
+     "de": "aux pieds",
+     "vers": "entree / meuble à chaussures"
+    }
+   ],
    "perception": {
     "vu": [
-     "obj-cles",
      "obj-veste"
     ]
    },
@@ -3742,6 +3800,15 @@
     "duree_s": 8,
     "foulees": 12
    },
+   "consommation": [
+    {
+     "produit": "oranges",
+     "nom": "oranges",
+     "quantite": 1,
+     "unite": "oranges",
+     "reste": 5
+    }
+   ],
    "perception": {
     "vu": [
      "obj-tasse"
@@ -3794,6 +3861,13 @@
     "duree_s": 13,
     "foulees": 18
    },
+   "objets": [
+    {
+     "objet": "obj-tenue-course",
+     "de": "porté",
+     "vers": "salle-de-bain / panier à linge"
+    }
+   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
@@ -3884,6 +3958,13 @@
     "duree_s": 6,
     "foulees": 8
    },
+   "objets": [
+    {
+     "objet": "obj-montre-poignet",
+     "de": "chambre / table de chevet",
+     "vers": "poignet gauche"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-carnet",
@@ -3939,6 +4020,62 @@
     "duree_s": 14,
     "foulees": 19
    },
+   "objets": [
+    {
+     "objet": "obj-cafetiere",
+     "de": "cuisine / égouttoir",
+     "vers": "cuisine / plaque électrique"
+    },
+    {
+     "objet": "obj-tasse",
+     "de": "cuisine / égouttoir",
+     "vers": "cuisine / plan de travail"
+    }
+   ],
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 250
+    },
+    {
+     "produit": "pain_tranches",
+     "nom": "pain de campagne en tranches",
+     "quantite": 2,
+     "unite": "tranches",
+     "reste": 19
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre",
+     "quantite": 10,
+     "unite": "g",
+     "reste": 210
+    },
+    {
+     "produit": "confiture_abricot",
+     "nom": "confiture d'abricot",
+     "quantite": 2,
+     "unite": "cuillères",
+     "reste": 33
+    },
+    {
+     "produit": "yaourts",
+     "nom": "yaourts nature",
+     "quantite": 1,
+     "unite": "pots",
+     "reste": 7
+    },
+    {
+     "produit": "bananes",
+     "nom": "bananes",
+     "quantite": 1,
+     "unite": "bananes",
+     "reste": 3
+    }
+   ],
    "perception": {
     "vu": [
      "obj-cabas",
@@ -4068,6 +4205,18 @@
    "activite": "Rince la tasse, remonte et règle sa montre",
    "action": "Rince sa tasse et range la cuisine.",
    "pensee": null,
+   "objets": [
+    {
+     "objet": "obj-cafetiere",
+     "de": "cuisine / plaque électrique",
+     "vers": "cuisine / égouttoir"
+    },
+    {
+     "objet": "obj-tasse",
+     "de": "cuisine / plan de travail",
+     "vers": "cuisine / égouttoir"
+    }
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 97.9,
@@ -4110,11 +4259,17 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-cles-coffre",
+     "de": "atelier / tiroir de l'établi, à droite",
+     "vers": "atelier / serrure du coffre"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-acier-axe",
      "obj-classeur-compta",
-     "obj-cles-coffre",
      "obj-montre-gousset",
      "obj-omega",
      "obj-pendule",
@@ -4216,6 +4371,13 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "atelier / établi, dans leur étui",
+     "vers": "sur son nez"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-omega",
@@ -4261,7 +4423,6 @@
     "vu": [
      "obj-classeur-compta",
      "obj-cles-coffre",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-omega",
      "obj-outils",
@@ -4306,7 +4467,6 @@
     "vu": [
      "obj-cles-coffre",
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-ressort-rolex"
     ]
@@ -4427,7 +4587,6 @@
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-omega",
      "obj-ressort-rolex"
@@ -4932,6 +5091,22 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "sur son nez",
+     "vers": "atelier / établi, dans leur étui"
+    }
+   ],
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 243
+    }
+   ],
    "perception": {
     "vu": [
      "obj-classeur-compta"
@@ -5056,6 +5231,13 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "atelier / établi, dans leur étui",
+     "vers": "sur son nez"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-acier-axe",
@@ -5217,7 +5399,6 @@
    "perception": {
     "vu": [
      "obj-acier-axe",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-pendule",
      "obj-ressort-rolex",
@@ -5302,11 +5483,6 @@
    "activite": "Travail",
    "action": "Travaille à l'établi.",
    "pensee": null,
-   "perception": {
-    "vu": [
-     "obj-lunettes"
-    ]
-   },
    "appareils_allumes": [
     "lampe-etabli"
    ],
@@ -5644,7 +5820,6 @@
     "vu": [
      "obj-cles-coffre",
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-montre-gousset"
     ]
    },
@@ -5770,7 +5945,6 @@
    "perception": {
     "vu": [
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-zenith"
     ]
    },
@@ -5811,7 +5985,6 @@
    "perception": {
     "vu": [
      "obj-acier-axe",
-     "obj-lunettes",
      "obj-outils",
      "obj-ressort-rolex",
      "obj-zenith"
@@ -5946,10 +6119,16 @@
     "duree_s": 13,
     "foulees": 18
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "sur son nez",
+     "vers": "atelier / établi, dans leur étui"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-acier-axe",
-     "obj-lunettes",
      "obj-outils"
     ]
    },
@@ -6007,6 +6186,21 @@
     "duree_s": 12,
     "foulees": 17
    },
+   "consommation": [
+    {
+     "produit": "riz",
+     "nom": "riz",
+     "quantite": 80,
+     "unite": "g",
+     "reste": 920
+    },
+    {
+     "produit": "condiments",
+     "nom": "condiments de base (huile, sel, poivre, herbes, moutarde)",
+     "quantite": 1,
+     "unite": null
+    }
+   ],
    "perception": {
     "vu": [
      "obj-cles",
@@ -6130,6 +6324,22 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "consommation": [
+    {
+     "produit": "poulet_roti",
+     "nom": "cuisses de poulet rôties",
+     "quantite": 1,
+     "unite": "cuisses",
+     "reste": 0
+    },
+    {
+     "produit": "pommes_de_terre_roties",
+     "nom": "pommes de terre rôties",
+     "quantite": 1,
+     "unite": "portions",
+     "reste": 0
+    }
+   ],
    "perception": {
     "vu": [
      "obj-telecommande"
@@ -6329,6 +6539,15 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 7,
+     "unite": "g",
+     "reste": 236
+    }
+   ],
    "perception": {
     "vu": [
      "obj-poubelle"
@@ -6452,6 +6671,13 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "objets": [
+    {
+     "objet": "obj-livre",
+     "de": "chambre / table de chevet",
+     "vers": "dans sa main"
+    }
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 96.0,
@@ -6680,6 +6906,18 @@
     "duree_s": 5,
     "foulees": 7
    },
+   "objets": [
+    {
+     "objet": "obj-livre",
+     "de": "dans sa main",
+     "vers": "chambre / table de chevet"
+    },
+    {
+     "objet": "obj-lunettes",
+     "de": "atelier / établi, dans leur étui",
+     "vers": "sur son nez"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-classeur-compta",
@@ -6769,7 +7007,6 @@
     "vu": [
      "obj-classeur-compta",
      "obj-cles-coffre",
-     "obj-lunettes",
      "obj-outils",
      "obj-pendule",
      "obj-zenith"
@@ -6894,7 +7131,6 @@
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-lunettes",
      "obj-zenith"
     ]
    },
@@ -7061,7 +7297,6 @@
    "perception": {
     "vu": [
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-omega",
      "obj-photo-grand-pere"
     ]
@@ -7104,7 +7339,6 @@
     "vu": [
      "obj-acier-axe",
      "obj-cles-coffre",
-     "obj-lunettes",
      "obj-zenith"
     ]
    },
@@ -7440,6 +7674,22 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "sur son nez",
+     "vers": "atelier / établi, dans leur étui"
+    }
+   ],
+   "consommation": [
+    {
+     "produit": "oranges",
+     "nom": "oranges",
+     "quantite": 1,
+     "unite": "oranges",
+     "reste": 4
+    }
+   ],
    "appareils_allumes": [],
    "besoins": {
     "faim": 99.0,
@@ -7514,6 +7764,13 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "atelier / établi, dans leur étui",
+     "vers": "sur son nez"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-cles-coffre",
@@ -7559,7 +7816,6 @@
    "perception": {
     "vu": [
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-outils",
      "obj-ressort-rolex",
      "obj-zenith"
@@ -7602,7 +7858,6 @@
    "perception": {
     "vu": [
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-pendule",
      "obj-ressort-rolex"
     ]
@@ -7645,7 +7900,6 @@
     "vu": [
      "obj-classeur-compta",
      "obj-cles-coffre",
-     "obj-lunettes",
      "obj-pendule",
      "obj-photo-grand-pere",
      "obj-rolex"
@@ -7688,7 +7942,6 @@
    "perception": {
     "vu": [
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-montre-gousset"
     ]
    },
@@ -7937,7 +8190,6 @@
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-lunettes",
      "obj-ressort-rolex"
     ]
    },
@@ -8019,7 +8271,6 @@
      "obj-acier-axe",
      "obj-cles-coffre",
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-omega"
     ]
    },
@@ -8060,7 +8311,6 @@
    "perception": {
     "vu": [
      "obj-cles-coffre",
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-rolex"
     ]
@@ -8596,6 +8846,18 @@
    "activite": "Range les montres dans le coffre, aligne les outils, éteint la lampe",
    "action": "Range ses outils et éteint la lampe.",
    "pensee": null,
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "sur son nez",
+     "vers": "atelier / établi, dans leur étui"
+    },
+    {
+     "objet": "obj-cles-coffre",
+     "de": "atelier / serrure du coffre",
+     "vers": "atelier / tiroir de l'établi, à droite"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-acier-axe",
@@ -9243,6 +9505,22 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "consommation": [
+    {
+     "produit": "oeufs",
+     "nom": "œufs",
+     "quantite": 2,
+     "unite": "œufs",
+     "reste": 10
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre",
+     "quantite": 10,
+     "unite": "g",
+     "reste": 200
+    }
+   ],
    "perception": {
     "vu": [
      "obj-cafetiere",
@@ -9411,6 +9689,15 @@
     "duree_s": 4,
     "foulees": 6
    },
+   "consommation": [
+    {
+     "produit": "soupe_poireaux",
+     "nom": "soupe poireaux-pommes de terre",
+     "quantite": 1,
+     "unite": "portions",
+     "reste": 2
+    }
+   ],
    "perception": {
     "vu": [
      "obj-poubelle"
@@ -9751,6 +10038,13 @@
     "duree_s": 10,
     "foulees": 13
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "atelier / établi, dans leur étui",
+     "vers": "sur son nez"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-cles-coffre",
@@ -9814,7 +10108,6 @@
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-lunettes",
      "obj-outils",
      "obj-photo-grand-pere",
      "obj-rolex"
@@ -10236,7 +10529,6 @@
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-lunettes",
      "obj-omega",
      "obj-outils",
      "obj-ressort-rolex",
@@ -10282,7 +10574,6 @@
     "vu": [
      "obj-cles-coffre",
      "obj-lot-quartz",
-     "obj-lunettes",
      "obj-photo-grand-pere"
     ]
    },
@@ -10365,7 +10656,6 @@
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-lunettes",
      "obj-montre-gousset",
      "obj-pendule",
      "obj-rolex"
@@ -10621,7 +10911,6 @@
    "pensee": null,
    "perception": {
     "vu": [
-     "obj-lunettes",
      "obj-ressort-rolex",
      "obj-zenith"
     ]
@@ -10801,6 +11090,13 @@
     "duree_s": 13,
     "foulees": 18
    },
+   "objets": [
+    {
+     "objet": "obj-lunettes",
+     "de": "sur son nez",
+     "vers": "atelier / établi, dans leur étui"
+    }
+   ],
    "perception": {
     "vu": [
      "obj-acier-axe",
@@ -10865,6 +11161,15 @@
     "duree_s": 13,
     "foulees": 18
    },
+   "consommation": [
+    {
+     "produit": "chocolat_noir",
+     "nom": "chocolat noir",
+     "quantite": 2,
+     "unite": "carrés",
+     "reste": 36
+    }
+   ],
    "perception": {
     "vu": [
      "obj-acier-axe",
@@ -11044,7 +11349,8 @@
    "perception": {
     "vu": [
      "obj-netbook",
-     "obj-portefeuille"
+     "obj-portefeuille",
+     "obj-tenue-course"
     ]
    },
    "lumiere": [
@@ -11135,6 +11441,18 @@
     "duree_s": 6,
     "foulees": 8
    },
+   "objets": [
+    {
+     "objet": "obj-montre-poignet",
+     "de": "poignet gauche",
+     "vers": "chambre / table de chevet"
+    },
+    {
+     "objet": "obj-livre",
+     "de": "chambre / table de chevet",
+     "vers": "dans sa main"
+    }
+   ],
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (couloir)",
@@ -11187,7 +11505,6 @@
    "perception": {
     "vu": [
      "obj-carnet",
-     "obj-livre",
      "obj-reveil"
     ]
    },
@@ -11376,6 +11693,13 @@
    "activite": "Éteint la lumière, s'endort",
    "action": "Éteint la lumière.",
    "pensee": null,
+   "objets": [
+    {
+     "objet": "obj-livre",
+     "de": "dans sa main",
+     "vers": "chambre / table de chevet"
+    }
+   ],
    "lumiere": [
     "éteint la lumière (chambre)"
    ],

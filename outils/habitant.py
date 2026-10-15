@@ -23,11 +23,25 @@ stationnement du site de départ et rentre par celle du site d'arrivée. Un
 La nuit s'enchaîne d'elle-même : l'étape « coucher » éteint, l'endormissement
 dure selon l'anxiété et l'excitation, puis le sommeil va jusqu'à la première
 étape du lendemain.
+
+Objets : une action (ou une étape de routine) nomme les objets par leur rôle
+(« lunettes », « cles », « tasse »…) ; la fiche dit quel objet tient ce rôle et
+où il se trouve dans chaque état (« porte », « usage »… ; « rangement » est sa
+place de départ). « objets » le déplace au premier pas de l'action ; « tient »
+le garde pendant toute l'action et le repose dès que le pas suivant ne le
+demande plus (il pose ses lunettes pour aller aux toilettes). Chaque geste part
+de là où il croit l'objet ; s'il n'y est pas, il fait sans.
+
+Provisions : un repas consomme le menu de la fiche (menus_prevus : ingrédients
+au début de la préparation ; plat préparé et portion au début du repas
+proprement dit) ; une collation ou un café, ce que la fiche prévoit pour cet
+usage (collations), en alternant les choix d'un jour à l'autre. Il n'utilise
+que ce qu'il a ; ce qui manque est noté dans les écarts.
 """
 import datetime
 
 from agent import JOURS, phase_sommeil
-from moteur import PAS_PAR_JOUR, Journee, Simulation, hm, idx
+from moteur import PAS_PAR_JOUR, Journee, Simulation, hm, idx, position_initiale
 
 
 class Habitant:
@@ -64,6 +78,11 @@ class Habitant:
         self.journal = []          # action du catalogue de chaque pas calculé
         self.etape_courante = None
         self.opportunites = {}   # début d'étape -> besoins satisfaits en s'y mettant
+        self.ROLES = {o["role"]: o for o in fiche["objets"] if o.get("role")}
+        self.MENUS = fiche.get("menus_prevus") or {}
+        self.COLLATIONS = fiche.get("collations") or {}
+        self.tenus = {}          # rôle -> état des objets gardés pendant l'action en cours
+        self.collations_du_jour = 0
 
     # ------------------------------------------------------------ fiche
     def etapes_du_jour(self, jour):
@@ -120,7 +139,117 @@ class Habitant:
         for v in a.get("variantes", []):
             if all(self.sim.besoins[b] < s for b, s in v["si_besoin_sous"].items()):
                 a.update({x: y for x, y in v.items() if x != "si_besoin_sous"})
+        # objets propres à l'étape (la fiche les ajoute à ceux de l'action)
+        for x in ("objets", "tient"):
+            if x in e:
+                a[x] = {**self.etats(a.get(x)), **self.etats(e[x])}
+        if "consomme" in e:
+            a["consomme"] = a.get("consomme", []) + e["consomme"]
+        a["vivres"] = self.menu_du_pas(a, e, d, phase)
         return a, (d, phase), debut
+
+    # ------------------------------------------------------------ objets
+    @staticmethod
+    def etats(x):
+        """Rôles d'objets et état voulu ; une simple liste de rôles veut dire « porté »."""
+        return {r: "porte" for r in x} if isinstance(x, list) else dict(x or {})
+
+    def position(self, o, etat):
+        if etat == "rangement":
+            return o.get("positions", {}).get("rangement") or position_initiale(o)
+        return o.get("positions", {}).get(etat) or {"porte": "dans sa main"}.get(etat)
+
+    def gestes(self, a, premier):
+        """Déplacements d'objets du pas : ceux de l'action au premier pas, ceux qu'elle garde en main, et ceux qu'il
+        tenait et que ce pas ne demande plus (reposés à leur place). Chaque geste part de là où il croit l'objet."""
+        tient = self.etats(a.get("tient"))
+        voulus = {r: "rangement" for r in self.tenus if r not in tient}
+        if premier:
+            voulus.update(self.etats(a.get("objets")))
+        voulus.update(tient)
+        self.tenus = {r: e for r, e in tient.items() if r in self.ROLES}
+        out = []
+        for role, etat in voulus.items():
+            o = self.ROLES.get(role)
+            vers = self.position(o, etat) if o else None
+            if vers is None:
+                continue
+            de = self.sim.croyances.get(o["id"])
+            if de == vers:
+                continue
+            if self.sim.positions.get(o["id"]) != de:
+                self.decisions.append(f"{hm(self.i)} : {o['nom']} n'est pas là où il le croyait ({de}) ; fait sans.")
+                self.tenus.pop(role, None)
+                continue
+            out.append({"objet": o["id"], "de": de, "vers": vers})
+        return out
+
+    # ------------------------------------------------------------ provisions
+    def menu_du_pas(self, a, e, d, phase):
+        """Ce que le repas de l'étape consomme et prépare à cette phase : ingrédients au début de la préparation ;
+        plat préparé et portion au début du repas proprement dit (dernière phase). Le repas se lit dans la fiche
+        (menus_prevus, menu du jour puis menu de tous les jours) : celui que nomme l'étape (« repas »), sinon
+        celui que nomme l'action, sinon le déjeuner avant 16:00 (ou le brunch) et le dîner après."""
+        moment = e.get("repas") or a.get("menu")
+        if not moment:
+            return None
+        if moment is True:
+            moment = "dejeuner" if d < idx("16:00") else "diner"
+        jour = self.MENUS.get(self.jour) or {}
+        m = jour.get(moment) or self.MENUS.get(moment) or (jour.get("brunch") if moment == "dejeuner" else None)
+        if not isinstance(m, dict):
+            return None
+        derniere = phase == max(0, len(a.get("phases", [])) - 1)
+        return {"plat": m.get("plat", moment),
+                "ingredients": m.get("ingredients", []) if phase == 0 else [],
+                "prepare": m.get("prepare", []) if derniere else [],
+                "portion": m.get("portion", []) if derniere else []}
+
+    def disponibles(self, conso, prod=()):
+        """Ce qui peut être consommé avec le stock (et ce qui vient d'être préparé), et ce qui manque."""
+        P, dispo = self.sim.PRODUITS, dict(self.sim.stock)
+        for pid, q in prod:
+            dispo[pid] = dispo.get(pid, 0) + q
+        ok, manque = [], []
+        for pid, q in conso:
+            spec = P.get(pid)
+            if spec is None or (spec.get("suivi", True) and dispo.get(pid, 0) < q):
+                manque.append(spec["produit"] if spec else pid)
+                continue
+            if spec.get("suivi", True):
+                dispo[pid] -= q
+            ok.append({"produit": pid, "quantite": q})
+        return ok, manque
+
+    def provisions(self, a, st):
+        """Au premier pas : consommation et production du repas, puis ce que l'action prend pour un usage
+        (café, collation), en alternant les choix possibles ; une collation impossible ne nourrit pas."""
+        prod, conso, manque = [], [], []
+        v = a.get("vivres")
+        if v:
+            prod = [{"produit": p, "quantite": q} for p, q in v["prepare"] if p in self.sim.PRODUITS]
+            conso, manque = self.disponibles(v["ingredients"] + v["portion"], [(x["produit"], x["quantite"]) for x in prod])
+            if manque:
+                self.decisions.append(f"{hm(self.i)} : {v['plat']} sans {', '.join(manque)} (plus en stock).")
+        for usage in a.get("consomme", []):
+            choix = self.COLLATIONS.get(usage)
+            if not choix:
+                continue
+            possibles = [c for c in choix if not self.disponibles(c.items())[1]]
+            if possibles:
+                c = possibles[(datetime.date.fromisoformat(self.date).weekday() + self.collations_du_jour) % len(possibles)]
+                self.collations_du_jour += 1
+                conso += self.disponibles(c.items())[0]
+                break
+        else:
+            if a.get("consomme") and any(u in self.COLLATIONS for u in a["consomme"]):
+                self.decisions.append(f"{hm(self.i)} : plus rien pour « {a['texte']} ».")
+                if "faim" in st.get("effets", {}):
+                    del st["effets"]["faim"]
+        if prod:
+            st["production"] = prod
+        if conso:
+            st["consommation"] = conso
 
     def utilite(self, a, d, f, i):
         """Scores des actions possibles : l'ancrage vaut 1 ; un besoin pressant (sous son seuil d'alerte) peut
@@ -152,6 +281,10 @@ class Habitant:
             evs = [e for e in a.get("ev", []) + a.get("ev_si_seul", []) if e in self.EV]
             if evs:
                 st["ev"] = evs
+            self.provisions(a, st)
+        objets = self.gestes(a, premier)
+        if objets:
+            st["objets"] = objets
         voulus = set(self.allumes) if garder_appareils else set(a.get("appareils", [])) | set(avec)
         app = {"allume": sorted(voulus - self.allumes), "eteint": sorted(self.allumes - voulus)}
         if premier:
@@ -205,6 +338,9 @@ class Habitant:
         if self.allumes:
             st["app"] = {"eteint": sorted(self.allumes)}
             self.allumes = set()
+        objets = self.gestes({}, False)
+        if objets:
+            st["objets"] = objets
         self.pousser(st, titre, "sommeil")
 
     # ------------------------------------------------------------ journée
@@ -311,6 +447,9 @@ class Habitant:
         st = {"action": a["texte"], "pensee": None, "piece": lit, "lieu": "domicile", "mode": "eveille", "charge": "repos", "posture": "allongé"}
         st["app"] = {"eteint": sorted(self.allumes) + [f"lumiere-{lit}"]}
         self.allumes = set()
+        objets = self.gestes(a, True)
+        if objets:
+            st["objets"] = objets
         self.routine_coucher = r
 
         def apres_extinction(entree):

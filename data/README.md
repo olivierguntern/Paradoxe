@@ -40,9 +40,10 @@ Chaque personnage est décrit dans un fichier JSON de `data/personnages/`. Cette
 | `lieux`, `trajets` | Domicile, épicerie, cinéma, bureau de vote et parcours (course, épicerie, sorties à pied) détaillés par segments (distance, dénivelé, durée) |
 | `immeuble` | Étage, escalier (66 marches), durées et efforts de montée et de descente |
 | `domicile` | Pièces (avec ou sans fenêtre), plan des liaisons et distances, petits déplacements par activité, mobilier, équipements, provisions chiffrées et plats préparés |
-| `menus_prevus` | Repas planifiés pour chaque jour ; chez Robert, avec leurs ingrédients (pour le couple) |
+| `menus_prevus` | Repas planifiés pour chaque jour (`plat`, `ingredients`) ; chez Thomas, aussi le plat préparé pour plusieurs repas (`prepare`) et la portion servie (`portion`) ; chez Robert, quantités pour le couple. Le petit-déjeuner de tous les jours peut être remplacé jour par jour |
+| `collations` | Chez Thomas : ce qu'il prend pour chaque usage (café, fruit, biscottes, chocolat du soir), plusieurs choix alternés d'un jour à l'autre |
 | `voiture`, `vie_interieure.loisirs` | Chez Robert : la Kangoo ; cinéma, randonnée, belote, potager, journal, radio. Chez Thomas : course, montre du grand-père, lecture, musique, radio, forums d'horlogerie (en lecture), cinéma, promenade |
-| `objets` | Objets avec leur emplacement réel au départ |
+| `objets` | Objets avec leur emplacement réel au départ ; pour l'habitant générique, le `role` que l'objet tient dans les actions (`lunettes`, `cles`, `tasse`…) et ses `positions` selon l'état (`porte`, `usage`… ; `rangement` est sa place de départ) |
 | `connaissances` | Ce que le personnage sait ; ses croyances sur l'emplacement des objets |
 | `relations` | Pour chaque personne simulée connue : nom, événement d'un moment ensemble, événement d'une absence, contact social par pas (quartier) |
 | `perception` | Chez Thomas : attention (pièce où il se tient, passage, effet de la concentration), appareils qu'il entend et leur portée, personnes simulées qu'il rencontre selon le lieu, règles de recherche d'un objet, noms des pièces |
@@ -62,7 +63,7 @@ Une fiche ne décrit que ce qui est propre à la personne ; tout le reste vient 
 | `personnalite.big_five` | Extraversion (qui parle le premier), agréabilité (comment il écoute), névrosisme (poids des émotions négatives)… |
 | `vie_interieure.preoccupations_semaine` | Ce qui le tracasse (`id`, `sujet`, `intensite_initiale`) : sujets de ses confidences |
 | `relations` | Pour chaque personne simulée qu'il connaît : `type` (`conjoint`, `famille`, `ami`, `voisin`, `collegue`, `client`, `commercant`, `connaissance`) ; chaque valeur du type peut être remplacée |
-| `habitudes.routines` | Ses journées : chaque étape a `debut`, `fin`, `lieu` (pièce ou lieu public), `action` (texte), `activite` (action de `data/monde/actions.json`), et au besoin `avec` (appareils d'ambiance) et `avec_personnes` (moment prévu avec quelqu'un) |
+| `habitudes.routines` | Ses journées : chaque étape a `debut`, `fin`, `lieu` (pièce ou lieu public), `action` (texte), `activite` (action de `data/monde/actions.json`), et au besoin `avec` (appareils d'ambiance), `avec_personnes` (moment prévu avec quelqu'un), `objets` et `tient` (objets propres à l'étape, par rôle), `consomme` (usage de `collations`) et `repas` (repas de `menus_prevus` qu'elle sert) |
 
 Le reste est facultatif : une valeur écrite dans la fiche remplace toujours celle du monde (besoins, émotions de base, sommeil, objets, agenda…).
 

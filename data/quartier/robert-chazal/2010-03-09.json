@@ -42,7 +42,19 @@
    "conversation_agreable": 5
   },
   "objets_deplaces_position_finale": {},
-  "provisions_consommees": {},
+  "provisions_consommees": {
+   "café moulu": "14 g",
+   "pain (baguettes mises de côté à la boutique)": "2 quarts de baguette",
+   "beurre": "10 g",
+   "confiture d'abricots de Josiane": "2 cuillères",
+   "comprimés pour la tension": "1 comprimé",
+   "laitue": "1 laitue",
+   "fruits de la boutique": "1 fruit",
+   "pommes de terre": "500 g",
+   "oignons": "1 oignon",
+   "fromage (comté)": "40 g",
+   "vin rouge (côtes-du-rhône)": "12 cl"
+  },
   "plats_prepares": {},
   "achats": {},
   "argent": {
@@ -363,21 +375,21 @@
    }
   },
   "stock_en_fin_de_journee": {
-   "café moulu": "400 g",
+   "café moulu": "372 g",
    "café moulu de l'arrière-boutique": "150 g",
-   "pain (baguettes mises de côté à la boutique)": "6 quarts de baguette",
-   "beurre": "180 g",
-   "confiture d'abricots de Josiane": "30 cuillères",
-   "fromage (comté)": "420 g",
-   "fruits de la boutique": "8 fruits",
-   "vin rouge (côtes-du-rhône)": "225 cl",
+   "pain (baguettes mises de côté à la boutique)": "0 quarts de baguette",
+   "beurre": "140 g",
+   "confiture d'abricots de Josiane": "26 cuillères",
+   "fromage (comté)": "340 g",
+   "fruits de la boutique": "6 fruits",
+   "vin rouge (côtes-du-rhône)": "213 cl",
    "bière": "2 bouteilles",
-   "comprimés pour la tension": "18 comprimés",
-   "pommes de terre": "3700 g",
-   "carottes": "1200 g",
-   "oignons": "2 oignons",
+   "comprimés pour la tension": "16 comprimés",
+   "pommes de terre": "1900 g",
+   "carottes": "900 g",
+   "oignons": "0 oignon",
    "œufs": "2 œufs",
-   "laitue": "1 laitue",
+   "laitue": "0 laitue",
    "tomates": "0 g",
    "jambon blanc": "0 tranche",
    "emmental râpé": "0 g",
@@ -422,7 +434,9 @@
   "ecarts_a_la_routine": [
    "05:30 : soif sous le seuil d'alerte (32.3, score 1.19) ; interrompt « Réveil, toilette, douche, rasage, habillage, sans réveiller Josiane ».",
    "11:25 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 09:30 ».",
-   "17:15 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 16:30 »."
+   "12:25 : reste de gratin, salade verte sans pain (baguettes mises de côté à la boutique) (plus en stock).",
+   "17:15 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 16:30 ».",
+   "19:35 : omelette aux pommes de terre sans œufs (plus en stock)."
   ]
  },
  "etat_initial": {
@@ -475,19 +489,19 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 400,
+   "cafe_moulu": 386,
    "cafe_boutique": 150,
-   "pain": 6,
-   "beurre": 180,
-   "confiture": 30,
-   "fromage": 420,
-   "fruits": 8,
+   "pain": 2,
+   "beurre": 150,
+   "confiture": 28,
+   "fromage": 380,
+   "fruits": 7,
    "vin_rouge": 225,
    "biere": 2,
-   "comprimes": 18,
-   "pommes_de_terre": 3700,
-   "carottes": 1200,
-   "oignons": 2,
+   "comprimes": 17,
+   "pommes_de_terre": 2400,
+   "carottes": 900,
+   "oignons": 1,
    "oeufs": 2,
    "salade": 1,
    "tomates": 0,
@@ -645,21 +659,21 @@
   },
   "cafe": [],
   "stock": {
-   "cafe_moulu": 400,
+   "cafe_moulu": 372,
    "cafe_boutique": 150,
-   "pain": 6,
-   "beurre": 180,
-   "confiture": 30,
-   "fromage": 420,
-   "fruits": 8,
-   "vin_rouge": 225,
+   "pain": 0,
+   "beurre": 140,
+   "confiture": 26,
+   "fromage": 340,
+   "fruits": 6,
+   "vin_rouge": 213,
    "biere": 2,
-   "comprimes": 18,
-   "pommes_de_terre": 3700,
-   "carottes": 1200,
-   "oignons": 2,
+   "comprimes": 16,
+   "pommes_de_terre": 1900,
+   "carottes": 900,
+   "oignons": 0,
    "oeufs": 2,
-   "salade": 1,
+   "salade": 0,
    "tomates": 0,
    "jambon": 0,
    "fromage_rape": 0,
@@ -3200,6 +3214,43 @@
      "interieur": true
     }
    },
+   "consommation": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu",
+     "quantite": 14,
+     "unite": "g",
+     "reste": 372
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 1,
+     "unite": "quarts de baguette",
+     "reste": 1
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre",
+     "quantite": 10,
+     "unite": "g",
+     "reste": 140
+    },
+    {
+     "produit": "confiture",
+     "nom": "confiture d'abricots de Josiane",
+     "quantite": 2,
+     "unite": "cuillères",
+     "reste": 26
+    },
+    {
+     "produit": "comprimes",
+     "nom": "comprimés pour la tension",
+     "quantite": 1,
+     "unite": "comprimés",
+     "reste": 16
+    }
+   ],
    "lumiere": [
     "éteint la lumière (salle-de-bain)",
     "allume la lumière (palier-etage)",
@@ -6159,6 +6210,22 @@
     "duree_s": 8,
     "foulees": 12
    },
+   "consommation": [
+    {
+     "produit": "salade",
+     "nom": "laitue",
+     "quantite": 1,
+     "unite": "laitues",
+     "reste": 0
+    },
+    {
+     "produit": "fruits",
+     "nom": "fruits de la boutique",
+     "quantite": 1,
+     "unite": "fruits",
+     "reste": 6
+    }
+   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)"
@@ -9403,6 +9470,43 @@
     "sujet": "journee",
     "texte": "Robert parle à Josiane de sa journée : sert les clients ; café à 16:30. Josiane hoche la tête."
    },
+   "consommation": [
+    {
+     "produit": "pommes_de_terre",
+     "nom": "pommes de terre",
+     "quantite": 500,
+     "unite": "g",
+     "reste": 1900
+    },
+    {
+     "produit": "oignons",
+     "nom": "oignons",
+     "quantite": 1,
+     "unite": "oignons",
+     "reste": 0
+    },
+    {
+     "produit": "fromage",
+     "nom": "fromage (comté)",
+     "quantite": 40,
+     "unite": "g",
+     "reste": 340
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 1,
+     "unite": "quarts de baguette",
+     "reste": 0
+    },
+    {
+     "produit": "vin_rouge",
+     "nom": "vin rouge (côtes-du-rhône)",
+     "quantite": 12,
+     "unite": "cl",
+     "reste": 213
+    }
+   ],
    "lumiere": [
     "allume la lumière (entree)",
     "éteint la lumière (entree)",
