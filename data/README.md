@@ -81,7 +81,7 @@ Vérifier la fiche telle que le moteur la voit, puis la faire vivre avec les aut
 
 ```bash
 python3 outils/verifier_fiche.py data/personnages/gerard-morel.json
-python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages thomas-berthier robert-chazal josiane-chazal gerard-morel monique-morel --dossier data/quartier
+python3 outils/simuler_quartier.py 2010-03-08 2010-03-14 --personnages thomas-berthier robert-chazal josiane-chazal gerard-morel monique-morel henri-vial simone-vial --dossier data/quartier
 ```
 
 ## Timelines
@@ -144,7 +144,7 @@ Un scénario du voyageur (`data/voyageur/<nom>.json`) liste ses interventions da
 | `mission-lundi-tot` | Le lundi dès 08:00, comme si la boutique était vide toute la journée | Mission échouée : à 09:10, Robert entre par la porte de derrière prendre la recette au coffre et surprend John la scie à la main |
 | `mission-soignee` | Le lundi de 10:00 à 19:30, serrure crochetée, branche brûlée, béton coulé ; six heures de repos, puis dans la nuit palettes remises, poussière nettoyée, boutique aérée | Mission réussie, parfaitement : Robert ne remarque rien, aucun fait ne change |
 | `mission-pressee` | Le même travail d'une traite, de 10:00 à 22:00 | Mission échouée : les palettes s'enfoncent dans le béton frais, John épuisé nettoie mal ; Robert porte plainte |
-| `mission-nuit` | Le lundi soir et la nuit : la scie à 19:30, puis creuser jusqu'à 01:30 | Les voisins du dessus entendent et le racontent à Robert mardi matin ; il va voir |
+| `mission-nuit` | Le lundi soir et la nuit : la porte de la cour à 19:00, la scie à 19:30, puis creuser jusqu'à 01:30 | Rentrés de Vienne, les Vial voient John à la porte de la cour et entendent la scie ; Simone le raconte à Robert en achetant son pain |
 | `mission-abandon` | Le lundi, serrure crochetée, dalle découpée, branche trouvée puis laissée au fond du trou ouvert | Mission échouée et paradoxe ; l'avenir « Deux ans trop tôt » : le virus s'échappe dès 2010 |
 | `compatible` | Le même achat, avec un téléphone à clapet et un billet de la première série | Aucune divergence : seuls des détails changent (une bouteille d'eau, la caisse de Robert) |
 
@@ -177,3 +177,7 @@ Repère : x vers l'est le long de la rue d'Austerlitz, y vers le nord, z vers le
 |---|---|
 | `personnages/thomas-berthier.json` | Thomas Berthier, 31 ans, horloger indépendant à Lyon (cas d'étude n°1) |
 | `personnages/robert-chazal.json` | Robert Chazal, 58 ans, épicier de la Grande-Rue de la Croix-Rousse, marié à Josiane, vit à Villeurbanne (personnage n°2) |
+| `personnages/josiane-chazal.json` | Josiane Chazal, 56 ans, sa femme, secrétaire médicale à mi-temps (fiche du quartier) |
+| `personnages/gerard-morel.json`, `monique-morel.json` | Gérard et Monique Morel, leurs voisins de la rue des Glycines, retraités (fiches minimales) |
+| `personnages/henri-vial.json` | Henri Vial, 76 ans, voisin du dessus de l'épicerie, ancien correcteur au Progrès, dur d'oreille (fiche complète) |
+| `personnages/simone-vial.json` | Simone Vial, 73 ans, sa femme, institutrice retraitée, sommeil léger ; elle achète son pain chez Robert chaque matin (fiche complète) |

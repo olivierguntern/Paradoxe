@@ -44,9 +44,11 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 | Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |
 |---|---|---|---|
 | gerard-morel | 4 | 1 | rencontre 2010-03-13 20:45 : sans Robert |
+| henri-vial | 0 | 0 |  |
 | josiane-chazal | 320 | 4 | rencontre 2010-03-13 20:45 : sans Robert ; appris 2010-03-13 21:40 : apprend : retenu par un passant |
 | monique-morel | 4 | 1 | rencontre 2010-03-13 20:45 : sans Robert |
 | robert-chazal | 329 | 19 | activité 2010-03-13 20:35 : Dîne avec Josiane : pizza maison → Retenu par un passant ; lieu 2010-03-13 20:45 : sejour → cuisine ; rencontre 2010-03-13 20:45 : sans Gérard, Josiane, Monique ; appris 2010-03-13 20:55 : ne sait pas : son genou qui le fait souffrir depuis l'hiver ; il refuse de voir le médecin |
+| simone-vial | 0 | 0 |  |
 | thomas-berthier | 0 | 0 |  |
 
 ## Heure par heure
@@ -89,7 +91,9 @@ Seules les heures où un fait diffère.
 | Habitant | Besoins (écart moyen) | Émotions (écart moyen) | Provisions différentes | Produits du magasin différents | Comptes différents |
 |---|---|---|---|---|---|
 | gerard-morel | 0.0 | 0.0 | 0 | 0 | 0 |
+| henri-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
 | monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
 | robert-chazal | 3.04 | 0.0 | 0 | 4 | 2 |
+| simone-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | thomas-berthier | 0.0 | 0.0 | 0 | 0 | 0 |

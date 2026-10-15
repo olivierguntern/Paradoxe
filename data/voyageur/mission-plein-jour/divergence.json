@@ -1,23 +1,29 @@
 {
  "habitants": [
   "gerard-morel",
+  "henri-vial",
   "josiane-chazal",
   "monique-morel",
   "robert-chazal",
+  "simone-vial",
   "thomas-berthier"
  ],
  "cibles": [
-  "robert-chazal"
+  "robert-chazal",
+  "simone-vial"
  ],
- "verdict": "paradoxe : 4 habitants touchés, jusqu'à 10 faits différents dans une heure",
+ "verdict": "paradoxe : 6 habitants touchés, jusqu'à 12 faits différents dans une heure",
  "touches": [
   "gerard-morel",
+  "henri-vial",
   "josiane-chazal",
   "monique-morel",
-  "robert-chazal"
+  "robert-chazal",
+  "simone-vial"
  ],
  "cascade": [
   "gerard-morel",
+  "henri-vial",
   "josiane-chazal",
   "monique-morel"
  ],
@@ -27,6 +33,18 @@
    "heure": "15:00",
    "genre": "anomalie",
    "detail": "remarque : le hurlement d'une scie à béton dans l'arrière-boutique"
+  },
+  "simone-vial": {
+   "date": "2010-03-13",
+   "heure": "15:00",
+   "genre": "anomalie",
+   "detail": "remarque : le hurlement d'une scie à béton dans l'arrière-boutique"
+  },
+  "henri-vial": {
+   "date": "2010-03-13",
+   "heure": "18:15",
+   "genre": "appris",
+   "detail": "ne sait pas : coud et écoute la radio pendant qu'Henri est aux boules"
   },
   "josiane-chazal": {
    "date": "2010-03-13",
@@ -52,6 +70,10 @@
    "pas_divergents": 98,
    "faits": 1
   },
+  "henri-vial": {
+   "pas_divergents": 357,
+   "faits": 4
+  },
   "josiane-chazal": {
    "pas_divergents": 329,
    "faits": 4
@@ -63,6 +85,10 @@
   "robert-chazal": {
    "pas_divergents": 396,
    "faits": 6
+  },
+  "simone-vial": {
+   "pas_divergents": 396,
+   "faits": 1
   },
   "thomas-berthier": {
    "pas_divergents": 0,
@@ -85,6 +111,25 @@
     "2010-03-13",
     "15:05",
     "Sert les clients ; café à 16:30 → Va voir d'où vient le bruit"
+   ]
+  },
+  "simone-vial": {
+   "anomalie": [
+    "2010-03-13",
+    "15:00",
+    "remarque : le hurlement d'une scie à béton dans l'arrière-boutique"
+   ]
+  },
+  "henri-vial": {
+   "appris": [
+    "2010-03-13",
+    "18:15",
+    "ne sait pas : coud et écoute la radio pendant qu'Henri est aux boules"
+   ],
+   "anomalie": [
+    "2010-03-13",
+    "18:15",
+    "entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique"
    ]
   },
   "josiane-chazal": {
@@ -933,322 +978,387 @@
   {
    "date": "2010-03-13",
    "heure": "15:00",
-   "faits": 6,
+   "faits": 7,
    "habitants": [
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-13",
    "heure": "16:00",
-   "faits": 5,
+   "faits": 6,
    "habitants": [
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-13",
    "heure": "17:00",
-   "faits": 3,
+   "faits": 4,
    "habitants": [
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-13",
    "heure": "18:00",
-   "faits": 3,
+   "faits": 6,
    "habitants": [
-    "robert-chazal"
+    "henri-vial",
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-13",
    "heure": "19:00",
-   "faits": 3,
+   "faits": 6,
    "habitants": [
-    "robert-chazal"
+    "henri-vial",
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-13",
    "heure": "20:00",
-   "faits": 4,
+   "faits": 7,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-13",
    "heure": "21:00",
-   "faits": 5,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-13",
    "heure": "22:00",
-   "faits": 6,
+   "faits": 8,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-13",
    "heure": "23:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "00:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "01:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "02:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "03:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "04:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "05:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "06:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "07:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "08:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "09:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "10:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "11:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "12:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "13:00",
-   "faits": 7,
+   "faits": 9,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "14:00",
-   "faits": 9,
+   "faits": 11,
    "habitants": [
+    "henri-vial",
     "josiane-chazal",
     "monique-morel",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "15:00",
-   "faits": 10,
+   "faits": 12,
    "habitants": [
     "gerard-morel",
+    "henri-vial",
     "josiane-chazal",
     "monique-morel",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "16:00",
-   "faits": 10,
+   "faits": 12,
    "habitants": [
     "gerard-morel",
+    "henri-vial",
     "josiane-chazal",
     "monique-morel",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "17:00",
-   "faits": 10,
+   "faits": 12,
    "habitants": [
     "gerard-morel",
+    "henri-vial",
     "josiane-chazal",
     "monique-morel",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "18:00",
-   "faits": 10,
+   "faits": 12,
    "habitants": [
     "gerard-morel",
+    "henri-vial",
     "josiane-chazal",
     "monique-morel",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "19:00",
-   "faits": 10,
+   "faits": 12,
    "habitants": [
     "gerard-morel",
+    "henri-vial",
     "josiane-chazal",
     "monique-morel",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "20:00",
-   "faits": 10,
+   "faits": 12,
    "habitants": [
     "gerard-morel",
+    "henri-vial",
     "josiane-chazal",
     "monique-morel",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "21:00",
-   "faits": 10,
+   "faits": 12,
    "habitants": [
     "gerard-morel",
+    "henri-vial",
     "josiane-chazal",
     "monique-morel",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "22:00",
-   "faits": 10,
+   "faits": 12,
    "habitants": [
     "gerard-morel",
+    "henri-vial",
     "josiane-chazal",
     "monique-morel",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   },
   {
    "date": "2010-03-14",
    "heure": "23:00",
-   "faits": 10,
+   "faits": 12,
    "habitants": [
     "gerard-morel",
+    "henri-vial",
     "josiane-chazal",
     "monique-morel",
-    "robert-chazal"
+    "robert-chazal",
+    "simone-vial"
    ]
   }
  ],
  "fin": {
-  "faits": 10,
+  "faits": 12,
   "habitants": [
    "gerard-morel",
+   "henri-vial",
    "josiane-chazal",
    "monique-morel",
-   "robert-chazal"
+   "robert-chazal",
+   "simone-vial"
   ]
  },
  "causes": {
@@ -1341,6 +1451,18 @@
    },
    {
     "id": "F3",
+    "habitant": "simone-vial",
+    "genre": "anomalie",
+    "detail": "remarque : le hurlement d'une scie à béton dans l'arrière-boutique",
+    "date": "2010-03-13",
+    "heure": "15:00",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "V2",
+    "supposee": false
+   },
+   {
+    "id": "F4",
     "habitant": "robert-chazal",
     "genre": "lieu",
     "detail": "boutique → arriere-boutique",
@@ -1352,7 +1474,7 @@
     "supposee": false
    },
    {
-    "id": "F4",
+    "id": "F5",
     "habitant": "robert-chazal",
     "genre": "activité",
     "detail": "Sert les clients ; café à 16:30 → Va voir d'où vient le bruit",
@@ -1364,7 +1486,7 @@
     "supposee": false
    },
    {
-    "id": "F5",
+    "id": "F6",
     "habitant": "robert-chazal",
     "genre": "anomalie",
     "detail": "remarque : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
@@ -1376,7 +1498,7 @@
     "supposee": false
    },
    {
-    "id": "F6",
+    "id": "F7",
     "habitant": "robert-chazal",
     "genre": "activité",
     "detail": "Sert les clients ; café à 16:30 → Un cambrioleur dans l'arrière-boutique",
@@ -1384,11 +1506,47 @@
     "heure": "15:10",
     "fin_date": "2010-03-13",
     "fin_heure": "16:25",
-    "cause": "F5",
+    "cause": "F6",
     "supposee": false
    },
    {
-    "id": "F7",
+    "id": "F8",
+    "habitant": "henri-vial",
+    "genre": "anomalie",
+    "detail": "entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique",
+    "date": "2010-03-13",
+    "heure": "18:15",
+    "fin_date": "2010-03-14",
+    "fin_heure": "23:55",
+    "cause": "F3",
+    "supposee": false
+   },
+   {
+    "id": "F9",
+    "habitant": "henri-vial",
+    "genre": "appris",
+    "detail": "ne sait pas : coud et écoute la radio pendant qu'Henri est aux boules",
+    "date": "2010-03-13",
+    "heure": "18:15",
+    "fin_date": "2010-03-13",
+    "fin_heure": "19:55",
+    "cause": "F3",
+    "supposee": false
+   },
+   {
+    "id": "F10",
+    "habitant": "henri-vial",
+    "genre": "appris",
+    "detail": "ne sait pas : prépare la pâte à crêpes et les crêpes",
+    "date": "2010-03-13",
+    "heure": "20:00",
+    "fin_date": "2010-03-13",
+    "fin_heure": "21:00",
+    "cause": "F3",
+    "supposee": false
+   },
+   {
+    "id": "F11",
     "habitant": "josiane-chazal",
     "genre": "anomalie",
     "detail": "entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique",
@@ -1400,7 +1558,19 @@
     "supposee": false
    },
    {
-    "id": "F8",
+    "id": "F12",
+    "habitant": "henri-vial",
+    "genre": "appris",
+    "detail": "ne sait pas : écrit à sa petite-fille Camille",
+    "date": "2010-03-13",
+    "heure": "21:05",
+    "fin_date": "2010-03-13",
+    "fin_heure": "21:30",
+    "cause": "F3",
+    "supposee": false
+   },
+   {
+    "id": "F13",
     "habitant": "josiane-chazal",
     "genre": "anomalie",
     "detail": "entend parler de : une fine poussière de béton sur les rayons et le comptoir",
@@ -1412,7 +1582,7 @@
     "supposee": false
    },
    {
-    "id": "F9",
+    "id": "F14",
     "habitant": "josiane-chazal",
     "genre": "anomalie",
     "detail": "entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
@@ -1420,11 +1590,11 @@
     "heure": "22:25",
     "fin_date": "2010-03-14",
     "fin_heure": "23:55",
-    "cause": "F5",
+    "cause": "F6",
     "supposee": false
    },
    {
-    "id": "F10",
+    "id": "F15",
     "habitant": "josiane-chazal",
     "genre": "appris",
     "detail": "apprend : un cambrioleur dans l'arrière-boutique",
@@ -1432,11 +1602,11 @@
     "heure": "23:15",
     "fin_date": "2010-03-14",
     "fin_heure": "23:55",
-    "cause": "F6",
+    "cause": "F7",
     "supposee": false
    },
    {
-    "id": "F11",
+    "id": "F16",
     "habitant": "monique-morel",
     "genre": "anomalie",
     "detail": "entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique",
@@ -1444,11 +1614,11 @@
     "heure": "14:35",
     "fin_date": "2010-03-14",
     "fin_heure": "23:55",
-    "cause": "F7",
+    "cause": "F11",
     "supposee": false
    },
    {
-    "id": "F12",
+    "id": "F17",
     "habitant": "monique-morel",
     "genre": "appris",
     "detail": "ne sait pas : prépare le déjeuner du dimanche",
@@ -1456,11 +1626,11 @@
     "heure": "14:35",
     "fin_date": "2010-03-14",
     "fin_heure": "23:55",
-    "cause": "F10",
+    "cause": "F15",
     "supposee": false
    },
    {
-    "id": "F13",
+    "id": "F18",
     "habitant": "gerard-morel",
     "genre": "anomalie",
     "detail": "entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique",
@@ -1468,7 +1638,7 @@
     "heure": "15:50",
     "fin_date": "2010-03-14",
     "fin_heure": "23:55",
-    "cause": "F11",
+    "cause": "F16",
     "supposee": false
    }
   ]
@@ -1484,6 +1654,11 @@
   "    - **Robert**, samedi 13 15:05, jusqu'à 16:25 — lieu : boutique → arriere-boutique",
   "    - **Robert**, samedi 13 15:05 — activité : Sert les clients ; café à 16:30 → Va voir d'où vient le bruit",
   "    - **Josiane**, samedi 13 21:40, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : une fine poussière de béton sur les rayons et le comptoir",
+  "  - **Simone**, samedi 13 15:00, jusqu'au dimanche 14 23:55 — anomalie : remarque : le hurlement d'une scie à béton dans l'arrière-boutique",
+  "    - **Henri**, samedi 13 18:15, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique",
+  "    - **Henri**, samedi 13 18:15, jusqu'à 19:55 — appris : ne sait pas : coud et écoute la radio pendant qu'Henri est aux boules",
+  "    - **Henri**, samedi 13 20:00, jusqu'à 21:00 — appris : ne sait pas : prépare la pâte à crêpes et les crêpes",
+  "    - **Henri**, samedi 13 21:05, jusqu'à 21:30 — appris : ne sait pas : écrit à sa petite-fille Camille",
   "  - **Robert**, samedi 13 15:05, jusqu'au dimanche 14 23:55 — anomalie : remarque : un inconnu en train de découper le sol de l'arrière-boutique à la scie",
   "    - **Robert**, samedi 13 15:10, jusqu'à 16:25 — activité : Sert les clients ; café à 16:30 → Un cambrioleur dans l'arrière-boutique",
   "      - **Josiane**, samedi 13 23:15, jusqu'au dimanche 14 23:55 — appris : apprend : un cambrioleur dans l'arrière-boutique",
@@ -1496,6 +1671,13 @@
  ],
  "details_fin": {
   "gerard-morel": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
+  },
+  "henri-vial": {
    "besoins": 0.0,
    "emotions": 0.0,
    "produits_maison": 0,
@@ -1522,6 +1704,13 @@
    "produits_maison": 0,
    "produits_magasin": 12,
    "comptes": 1
+  },
+  "simone-vial": {
+   "besoins": 0.0,
+   "emotions": 0.0,
+   "produits_maison": 0,
+   "produits_magasin": 0,
+   "comptes": 0
   },
   "thomas-berthier": {
    "besoins": 0.0,
@@ -1591,7 +1780,7 @@
   {
    "date": "2010-03-13",
    "heure": "15:00",
-   "action": "les voisins du dessus entendent : le hurlement d'une scie à béton dans l'arrière-boutique"
+   "action": "Simone remarque : le hurlement d'une scie à béton dans l'arrière-boutique"
   },
   {
    "date": "2010-03-13",

@@ -15,8 +15,9 @@ date et une heure :
   et une pièce : crocheter une serrure, découper une dalle, creuser, brûler,
   reboucher, couler du béton, recouvrir, nettoyer, aérer. Un geste a ses
   conditions et fait avancer la mission (« avancement ») ; il peut être vu par
-  qui est dans la pièce, entendu dans tout le lieu (et des voisins,
-  data/monde/voisinages.json, qui le racontent ensuite), et laisse des traces
+  qui est dans la pièce, entendu dans tout le lieu (et des voisins, habitants
+  du logement d'à côté, data/monde/voisinages.json, qui le racontent ensuite ;
+  celui à qui on le raconte y réagit chez lui), et laisse des traces
   que les habitants peuvent remarquer ensuite, tant qu'elles restent. Le béton
   doit prendre avant qu'on le recouvre (« trop_tot ») ; après trop d'heures de
   gestes sans repos, le voyageur, fatigué, travaille moins bien (« fatigue »).
@@ -50,7 +51,6 @@ import datetime
 import os
 import zlib
 
-from agent import JOURS
 from fiches import MONDE, lire
 from moteur import hm, idx
 
@@ -76,8 +76,7 @@ class Voyageur:
         self.VOISINS = lire(os.path.join(MONDE, "voisinages.json"))["voisinages"]
         self.finis = {}        # geste -> instant de la fin de sa dernière réussite
         self.effort = (None, 0.0)   # fin du dernier geste, heures de gestes depuis le dernier repos
-        self.entendus = []     # bruits entendus des voisins, à raconter : lieu, geste, instant, texte, source
-        self.voisins_ont_entendu = set()   # interventions déjà entendues des voisins : une fois par geste
+        self.signalements = []  # ce qu'un voisin a raconté à un habitant de ce qu'il a remarqué chez lui : il y réagira
         self.avancement = {}   # avancement de la mission : accès, dalle, trou, profondeur, branche…
         self.traces = []       # traces laissées par les gestes : où, visibilité, depuis, jusqu'à
         self.echecs = []       # gestes impossibles (condition non remplie)
@@ -198,7 +197,8 @@ class Voyageur:
             st["action"] = st["action"].rstrip() + f" Remarque {quoi}."
             if ev in h.EV and ev not in st.get("ev", []):
                 st.setdefault("ev", []).append(ev)
-            h.mem.setdefault("anomalies", []).append({"date": q.date, "heure": hm(i), "objet": objet, "quoi": quoi, "source": f"V{source}"})
+            h.mem.setdefault("anomalies", []).append({"date": q.date, "heure": hm(i), "objet": objet, "quoi": quoi, "source": f"V{source}"}
+                                                     | ({"genre": genre, "lieu": lieu, "piece": piece} if genre and lieu else {}))
             h.decisions.append(f"{hm(i)} : remarque {quoi}.")
             self.noter(q, i, f"{q.prenom(pid)} remarque : {nom or quoi}")
             self.temoins.add(pid)
@@ -324,42 +324,61 @@ class Voyageur:
                 elif ici[0] == endroit[0] and g.get("bruit"):
                     self.remarquer(q, pid, h, i, f"bruit:{x['geste']}", g["bruit"]["remarque"], g["bruit"]["visibilite"], False, x["_n"],
                                    genre="bruit", lieu=x["lieu"], piece=x["piece"])
-            if g.get("bruit"):
-                self.voisins_entendent(q, x, g, i)
-        self.voisins_racontent(q, i)
+            self.voisins(q, x, g, i)
+        self.reagir_aux_signalements(q, i)
 
     # ------------------------------------------------------------ voisins
-    def voisins_entendent(self, q, x, g, i):
-        """Les voisins du lieu (data/monde/voisinages.json), s'ils sont là, peuvent entendre le geste ; une fois par geste."""
+    def voisins(self, q, x, g, i):
+        """Les voisins du lieu (data/monde/voisinages.json) : qui est dans leur logement entend le geste à travers le
+        plancher, éveillé ou réveillé, selon son ouïe ; depuis la pièce qui a vue sur le lieu, il peut voir certains gestes."""
         V = self.VOISINS.get(x["lieu"])
-        if not V or x["_n"] in self.voisins_ont_entendu:
+        if not V:
             return
-        jour = JOURS[datetime.date.fromisoformat(q.date).weekday()]
-        if not any(idx(a) <= i < idx(b) for a, b in V["presents"].get(jour, [])):
-            return
-        n = V.get("nuit")
-        nuit = bool(n) and (i >= idx(n["de"]) or i < idx(n["a"]))
-        p = min(1.0, g["bruit"]["visibilite"] * V.get("attention", 1.0) * (n["facteur"] if nuit else 1))
-        if tirage(q.date, i, "voisins", x["lieu"], x["geste"]) < p:
-            self.voisins_ont_entendu.add(x["_n"])
-            quand = f"{jour} à {hm(i)}" + (", en pleine nuit" if nuit else "")
-            texte = V["remarque"].format(bruit=g["bruit"]["remarque"], quand=quand)
-            self.entendus.append({"lieu": x["lieu"], "piece": x["piece"], "geste": x["geste"], "instant": self.instant(q.date, i),
-                                  "texte": texte, "source": x["_n"], "a": V["racontent_a"]})
-            self.noter(q, i, f"{V['nom']} entendent : {g['bruit']['remarque']}")
+        for pid, h in q.H.items():
+            ici = q.ou(pid, h)
+            if ici[0] != V["logement"]:
+                continue
+            dort = h.attente[1]["mode"] == "sommeil"
+            sante = q.fiches[pid].get("sante", {})
+            if g.get("bruit"):
+                vis = g["bruit"]["visibilite"] * V.get("plancher", 1.0) * self.ouie(h, sante)
+                quoi = g["bruit"]["remarque"]
+                if dort:
+                    vis *= sante.get("sommeil", {}).get("reveil_au_bruit", 0.3)
+                    quoi += ", qui " + ("la" if q.fiches[pid]["identite"].get("genre") == "femme" else "le") + " réveille"
+                self.remarquer(q, pid, h, i, f"bruit:{x['geste']}", quoi, vis, False, x["_n"], genre="bruit", lieu=x["lieu"], piece=x["piece"])
+            vue = V.get("vue")
+            if vue and not dort and ici[1] == vue["piece"] and x["geste"] in vue["gestes"]:
+                eph = q.fiches[pid]["meta"].get("ephemerides_lyon_approximatives", {}).get(q.date, {})
+                jour = eph and idx(eph["lever_soleil"]) <= i < idx(eph["coucher_soleil"])
+                self.remarquer(q, pid, h, i, f"vu:{x['geste']}", vue["remarque"], vue["visibilite"] * (1 if jour else vue.get("de_nuit", 1)),
+                               False, x["_n"], genre="vu", lieu=x["lieu"], piece=x["piece"])
 
-    def voisins_racontent(self, q, i):
-        """Ce que les voisins ont entendu, ils le racontent à l'habitant la prochaine fois qu'il est dans le lieu, éveillé."""
+    @staticmethod
+    def ouie(h, sante):
+        """Ce qu'il entend d'un bruit (sante.audition) : avec l'objet qui le fait entendre porté sur lui, ou sans."""
+        A = sante.get("audition")
+        if not A:
+            return 1.0
+        o = next((o for o in h.fiche["objets"] if o["id"] == A["objet"]), None)
+        porte = o and h.sim.positions.get(o["id"]) == (o.get("positions") or {}).get("porte")
+        return A["avec"] if porte else A["sans"]
+
+    def signaler(self, q, pid, anomalie, i):
+        """On vient de lui raconter ce qu'un voisin a remarqué chez lui (quartier.py) : il y réagira la prochaine fois qu'il
+        y sera, comme s'il l'avait remarqué lui-même."""
+        if anomalie.get("lieu") and self.chez_lui(q.fiches[pid], anomalie["lieu"]):
+            self.signalements.append(dict(anomalie, a=pid, instant=self.instant(q.date, i)))
+
+    def reagir_aux_signalements(self, q, i):
         maintenant = self.instant(q.date, i)
-        for e in list(self.entendus):
+        for e in list(self.signalements):
             h = q.H.get(e["a"])
             if not h or e["instant"] >= maintenant or h.attente[1]["mode"] == "sommeil" or q.ou(e["a"], h)[0] != e["lieu"]:
                 continue
-            self.entendus.remove(e)
-            if f"bruit:{e['geste']}" in {a["objet"] for a in h.mem.get("anomalies", [])}:
-                continue   # il l'a entendu lui-même : les voisins ne lui apprennent rien
-            self.remarquer(q, e["a"], h, i, f"voisins:{e['geste']}", e["texte"], 1.0, True, e["source"],
-                           genre="bruit", lieu=e["lieu"], piece=e["piece"])
+            self.signalements.remove(e)
+            self.noter(q, i, f"{q.prenom(e['a'])} a appris de {q.prenom(e['par'])} : {e['quoi']}")
+            self.reagir(q, e["a"], h, i, e["genre"], e["objet"], e["lieu"], e["piece"])
 
     def traces_remarquees(self, q, i):
         """Les traces qui restent : qui est dans la pièce (ou dans le lieu, pour une odeur, une poussière) peut les remarquer."""

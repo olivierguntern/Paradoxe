@@ -388,7 +388,9 @@
     "josiane-chazal": { "type": "conjoint", "evenement": "moment_josiane", "absence": "absence_conjoint" },
     "gerard-morel": { "type": "ami" },
     "monique-morel": { "type": "ami" },
-    "thomas-berthier": { "type": "client", "rencontre": "client_habitue" }
+    "thomas-berthier": { "type": "client", "rencontre": "client_habitue" },
+    "simone-vial": { "type": "client", "rencontre": "client_habitue" },
+    "henri-vial": { "type": "voisin", "rencontre": "bavardage_voisin" }
   },
   "personnes_presentes": [
     { "id": "josiane-chazal", "nom": "Josiane Chazal, née Moreau", "lien": "épouse depuis le 16 mars 1976, 56 ans", "simule": false, "attachement": 0.95,
@@ -398,6 +400,7 @@
 
   "personnes_du_quartier": [
     { "id": "thomas-berthier", "nom": "Thomas Berthier", "role": "horloger, rue d'Austerlitz, client depuis 2006", "simule": true, "relation": "Robert l'appelle « l'horloger ». Il vient tous les deux jours, achète peu, paie souvent en liquide. Il a révisé sa Seiko en 2008. Robert le trouve trop seul depuis le départ de son amie." },
+    { "id": "vial", "nom": "Henri et Simone Vial", "role": "voisins du dessus de l'épicerie, retraités, dans l'immeuble depuis 1962", "simule": true, "relation": "Simone, l'ancienne maîtresse de Josiane, descend chercher son pain chaque matin et lui raconte la rue ; Henri, ancien correcteur au Progrès, parle de l'OL sur le pas de la porte. Le lundi, ils vont voir la sœur de Simone à Vienne." },
     { "id": "m-garnier", "nom": "M. Garnier", "role": "buraliste, tabac-presse voisin de l'épicerie", "simule": false, "relation": "Voisin de boutique depuis vingt ans. Ils se parlent sur le pas de la porte quand la rue est calme : le tiercé, l'OL, les loyers." },
     { "id": "morel", "nom": "Gérard et Monique Morel", "role": "voisins d'en face, rue des Glycines, retraités", "simule": false, "relation": "Belote le samedi soir, chez l'un ou chez l'autre, depuis 1996. Gérard est supporter de Saint-Étienne, ce qui fait rire Robert." },
     { "id": "clients-anonymes", "nom": "Clients du quartier", "role": "clientèle de passage et habitués non simulés", "simule": false, "relation": "Une centaine de clients par jour d'ouverture, surtout le matin (le pain) et en fin d'après-midi." }

@@ -51,9 +51,11 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 | Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |
 |---|---|---|---|
 | gerard-morel | 0 | 0 |  |
+| henri-vial | 0 | 0 |  |
 | josiane-chazal | 0 | 0 |  |
 | monique-morel | 0 | 0 |  |
 | robert-chazal | 2 | 1 | rencontre 2010-03-09 18:20 : sans Thomas |
+| simone-vial | 0 | 0 |  |
 | thomas-berthier | 17 | 22 | activité 2010-03-09 17:55 : Range les montres dans le coffre, aligne les outils, éteint la lampe → Retenu par un passant ; lieu 2010-03-09 18:00 : wc → atelier ; objet 2010-03-09 18:05 : obj-cabas : dans sa main → entree / porte-manteau ; rencontre 2010-03-09 18:20 : sans Robert ; achat 2010-03-09 18:25 : [('bananes', 3), ('oranges', 2), ('pommes', 4)] → [] |
 
 ## Heure par heure
@@ -73,7 +75,9 @@ Seules les heures où un fait diffère.
 | Habitant | Besoins (écart moyen) | Émotions (écart moyen) | Provisions différentes | Produits du magasin différents | Comptes différents |
 |---|---|---|---|---|---|
 | gerard-morel | 0.0 | 0.0 | 0 | 0 | 0 |
+| henri-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
 | monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
 | robert-chazal | 0.0 | 0.0 | 0 | 0 | 1 |
+| simone-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | thomas-berthier | 0.76 | 0.008 | 2 | 0 | 1 |

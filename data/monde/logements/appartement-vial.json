@@ -1,0 +1,78 @@
+{
+  "id": "appartement-vial",
+  "nom": "Appartement des Vial",
+  "type": "appartement",
+  "adresse": "Grande-Rue de la Croix-Rousse, 69004 Lyon, premier étage, au-dessus de l'épicerie Chazal",
+  "description": "Appartement de canut de 68 m² au premier étage, plafonds de près de quatre mètres et poutres apparentes ; le séjour et la chambre donnent sur la Grande-Rue, la cuisine sur la cour de l'épicerie. Le plancher est mince : on entend la boutique en dessous. Henri et Simone Vial y vivent depuis 1962.",
+  "pieces": [
+    {
+      "id": "entree",
+      "nom": "Entrée",
+      "surface_m2": 5,
+      "fenetre": false,
+      "mobilier": ["portemanteau", "vide-poche", "meuble à chaussures", "baromètre de l'oncle d'Henri"]
+    },
+    {
+      "id": "sejour",
+      "nom": "Séjour",
+      "surface_m2": 24,
+      "fenetre": true,
+      "mobilier": ["canapé", "fauteuil d'Henri", "télévision", "table de salle à manger", "buffet", "bibliothèque", "machine à coudre de Simone", "deux fenêtres sur la Grande-Rue"]
+    },
+    {
+      "id": "cuisine",
+      "nom": "Cuisine",
+      "surface_m2": 10,
+      "fenetre": true,
+      "mobilier": ["table et deux chaises", "cuisinière à gaz", "réfrigérateur", "évier", "cafetière italienne", "poste de radio", "placard à provisions", "fenêtre sur la cour de l'épicerie"]
+    },
+    {
+      "id": "chambre",
+      "nom": "Chambre",
+      "surface_m2": 14,
+      "fenetre": true,
+      "mobilier": ["lit double", "table de chevet d'Henri", "table de chevet de Simone", "armoire", "commode", "fenêtre sur la Grande-Rue"]
+    },
+    {
+      "id": "salle-de-bain",
+      "nom": "Salle de bain",
+      "surface_m2": 5,
+      "fenetre": false,
+      "mobilier": ["baignoire avec rideau", "lavabo", "armoire à pharmacie", "panier à linge"]
+    },
+    {
+      "id": "wc",
+      "nom": "WC",
+      "surface_m2": 1.5,
+      "fenetre": false,
+      "mobilier": []
+    }
+  ],
+  "entree": "entree",
+  "liaisons": [
+    { "a": "porte-immeuble", "b": "entree", "distance_m": 14.0, "porte": "porte de l'appartement, en haut de l'escalier" },
+    { "a": "entree", "b": "sejour", "distance_m": 4.0 },
+    { "a": "entree", "b": "cuisine", "distance_m": 3.5 },
+    { "a": "entree", "b": "wc", "distance_m": 1.5 },
+    { "a": "sejour", "b": "chambre", "distance_m": 4.5 },
+    { "a": "entree", "b": "salle-de-bain", "distance_m": 3.0 }
+  ],
+  "noeuds_exterieurs": ["porte-immeuble"],
+  "acces": "porte-immeuble",
+  "escalier": {
+    "description": "Escalier de pierre de l'immeuble, entre la porte sur la Grande-Rue et le palier du premier étage ; vingt-deux marches hautes, une main courante.",
+    "etage_appartement": 1,
+    "ascenseur": false,
+    "marches_par_etage": 22,
+    "hauteur_marche_cm": 18,
+    "marches_total": 22,
+    "deplacement": { "descente_secondes": 30, "montee_secondes_marche": 40, "montee_secondes_apres_course": 55, "effets_montee": { "energie": -0.6, "soif": -0.2 }, "effets_descente": { "energie": -0.2 } }
+  },
+  "repas_communs": ["dejeuner", "diner"],
+  "equipements": {
+    "chauffage": "chaudière murale au gaz dans la cuisine",
+    "television": "téléviseur à tube dans le séjour",
+    "radio": "poste de radio de la cuisine, sur France Inter",
+    "telephone": "téléphone fixe à cadran dans l'entrée"
+  }
+}

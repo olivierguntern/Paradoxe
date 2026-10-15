@@ -2,11 +2,11 @@
 
 **Attendu.** Les palettes posées une heure après le béton s'y enfoncent ; après dix heures de travail, John, épuisé, nettoie et aère mal. Robert, mardi à 06:30, trouve la poussière et les palettes de travers.
 
-**Verdict : paradoxe : 5 habitants touchés, jusqu'à 11 faits différents dans une heure.**
+**Verdict : paradoxe : 6 habitants touchés, jusqu'à 11 faits différents dans une heure.**
 
 ## Mission : La branche fossilisée — échouée
 
-L'objectif est atteint, mais au prix d'un paradoxe : paradoxe : 5 habitants touchés, jusqu'à 11 faits différents dans une heure.
+L'objectif est atteint, mais au prix d'un paradoxe : paradoxe : 6 habitants touchés, jusqu'à 11 faits différents dans une heure.
 
 Avancement : acces : ouvert, dalle : refaite, trou : rebouche, profondeur_m : 2.0, branche : brulee.
 
@@ -41,6 +41,7 @@ Avancement : acces : ouvert, dalle : refaite, trou : rebouche, profondeur_m : 2.
 Premier fait différent pour chaque habitant touché (habitants touchés directement, visés ou témoins : robert-chazal) :
 
 - **robert-chazal** : le mardi 9 mars à 06:30, anomalie (remarque : une fine poussière de béton sur les rayons et le comptoir)
+- **simone-vial** (cascade) : le mardi 9 mars à 08:05, rencontre (sans Robert)
 - **thomas-berthier** (cascade) : le mardi 9 mars à 18:25, anomalie (entend parler de : une fine poussière de béton sur les rayons et le comptoir)
 - **josiane-chazal** (cascade) : le mardi 9 mars à 19:35, appris (ne sait pas : sert les clients ; café à 16:30)
 - **monique-morel** (cascade) : le dimanche 14 mars à 14:35, appris (ne sait pas : prépare le déjeuner du dimanche)
@@ -74,6 +75,8 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
   - **Robert**, mardi 9 06:35, jusqu'au dimanche 14 23:55 — anomalie : remarque : les palettes de l'arrière-boutique de travers, enfoncées dans un béton encore mou
     - **Robert**, mardi 9 07:00, jusqu'à 08:10 — activité : Sert les clients ; café à 09:30 → Effraction à la boutique : la police, le serrurier
     - **Robert**, mardi 9 07:05, jusqu'à 08:10 — lieu : boutique → arriere-boutique
+      - **Robert**, mardi 9 08:05 — rencontre : sans Simone
+      - **Simone**, mardi 9 08:05 — rencontre : sans Robert
       - **Robert**, mardi 9 09:20 — lieu : boutique → arriere-boutique
     - **Josiane**, mardi 9 20:25, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : les palettes de l'arrière-boutique de travers, enfoncées dans un béton encore mou
     - **Thomas**, samedi 13 11:50, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : les palettes de l'arrière-boutique de travers, enfoncées dans un béton encore mou
@@ -85,9 +88,11 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 | Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |
 |---|---|---|---|
 | gerard-morel | 98 | 1 | anomalie 2010-03-14 15:50 : entend parler de : une fine poussière de béton sur les rayons et le comptoir |
+| henri-vial | 0 | 0 |  |
 | josiane-chazal | 1493 | 7 | appris 2010-03-09 19:35 : ne sait pas : sert les clients ; café à 16:30 ; anomalie 2010-03-09 19:35 : entend parler de : une fine poussière de béton sur les rayons et le comptoir |
 | monique-morel | 113 | 2 | appris 2010-03-14 14:35 : ne sait pas : prépare le déjeuner du dimanche ; anomalie 2010-03-14 14:35 : entend parler de : une fine poussière de béton sur les rayons et le comptoir |
-| robert-chazal | 1650 | 6 | anomalie 2010-03-09 06:30 : remarque : une fine poussière de béton sur les rayons et le comptoir ; lieu 2010-03-09 06:35 : boutique → arriere-boutique ; activité 2010-03-09 06:35 : Entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau → Effraction à la boutique : la police, le serrurier |
+| robert-chazal | 1650 | 7 | anomalie 2010-03-09 06:30 : remarque : une fine poussière de béton sur les rayons et le comptoir ; lieu 2010-03-09 06:35 : boutique → arriere-boutique ; activité 2010-03-09 06:35 : Entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau → Effraction à la boutique : la police, le serrurier ; rencontre 2010-03-09 08:05 : sans Simone |
+| simone-vial | 1 | 1 | rencontre 2010-03-09 08:05 : sans Robert |
 | thomas-berthier | 1507 | 2 | anomalie 2010-03-09 18:25 : entend parler de : une fine poussière de béton sur les rayons et le comptoir |
 
 ## Heure par heure
@@ -98,7 +103,7 @@ Seules les heures où un fait diffère.
 |---|---|---|---|
 | 2010-03-09 | 06:00 | 4 | robert-chazal |
 | 2010-03-09 | 07:00 | 4 | robert-chazal |
-| 2010-03-09 | 08:00 | 4 | robert-chazal |
+| 2010-03-09 | 08:00 | 6 | robert-chazal, simone-vial |
 | 2010-03-09 | 09:00 | 3 | robert-chazal |
 | 2010-03-09 | 10:00 | 2 | robert-chazal |
 | 2010-03-09 | 11:00 | 2 | robert-chazal |
@@ -240,7 +245,9 @@ Seules les heures où un fait diffère.
 | Habitant | Besoins (écart moyen) | Émotions (écart moyen) | Provisions différentes | Produits du magasin différents | Comptes différents |
 |---|---|---|---|---|---|
 | gerard-morel | 0.0 | 0.0 | 0 | 0 | 0 |
+| henri-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
 | monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
 | robert-chazal | 0.28 | 0.0 | 0 | 0 | 2 |
+| simone-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | thomas-berthier | 0.0 | 0.0 | 0 | 0 | 0 |

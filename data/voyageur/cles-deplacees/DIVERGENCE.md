@@ -28,9 +28,11 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 | Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |
 |---|---|---|---|
 | gerard-morel | 0 | 0 |  |
+| henri-vial | 0 | 0 |  |
 | josiane-chazal | 0 | 0 |  |
 | monique-morel | 0 | 0 |  |
 | robert-chazal | 0 | 0 |  |
+| simone-vial | 0 | 0 |  |
 | thomas-berthier | 181 | 2 | objet 2010-03-09 03:00 : obj-cles : entree / vide-poche de la commode → sejour / table à manger |
 
 ## Heure par heure
@@ -61,7 +63,9 @@ Seules les heures où un fait diffère.
 | Habitant | Besoins (écart moyen) | Émotions (écart moyen) | Provisions différentes | Produits du magasin différents | Comptes différents |
 |---|---|---|---|---|---|
 | gerard-morel | 0.0 | 0.0 | 0 | 0 | 0 |
+| henri-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
 | monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
 | robert-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
+| simone-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | thomas-berthier | 0.0 | 0.0 | 0 | 0 | 0 |

@@ -1,80 +1,19 @@
 {
-  "principe": "Voisins que le quartier ne simule pas, mais qui entendent : pour un lieu, quand ils sont là (« presents », par jour), combien ils prêtent l'oreille (« attention », qui multiplie la visibilité du bruit d'un geste), plus la nuit (« nuit » : ils dorment, le bruit les réveille). Un bruit entendu, ils le racontent à l'habitant (« racontent_a ») la prochaine fois qu'il est dans le lieu : il le remarque comme un bruit, et réagit comme à un bruit (data/monde/reactions.json).",
+  "principe": "Les voisins d'un lieu sont des habitants du quartier : ceux qui sont dans le logement nommé (« logement »), éveillés ou endormis, entendent le bruit d'un geste à travers le plancher (« plancher » multiplie sa visibilité), selon leur ouïe (sante.audition de leur fiche : avec ou sans l'objet qui les fait entendre, un appareil auditif) et, endormis, selon leur sommeil (sante.sommeil.reveil_au_bruit, 0,3 par défaut). Depuis une pièce du logement (« vue »), ils peuvent voir certains gestes (de nuit, moins bien). Ce qu'ils remarquent, ils le racontent (quartier.py) ; l'habitant du lieu qui l'apprend y réagit comme s'il l'avait remarqué lui-même, la prochaine fois qu'il y est (data/monde/reactions.json).",
   "voisinages": {
     "epicerie-chazal": {
-      "nom": "les voisins du dessus",
-      "presents": {
-        "lundi": [
-          [
-            "00:00",
-            "08:00"
-          ],
-          [
-            "18:30",
-            "24:00"
-          ]
+      "logement": "appartement-vial",
+      "plancher": 0.7,
+      "vue": {
+        "piece": "cuisine",
+        "gestes": [
+          "crocheter",
+          "forcer"
         ],
-        "mardi": [
-          [
-            "00:00",
-            "08:00"
-          ],
-          [
-            "18:30",
-            "24:00"
-          ]
-        ],
-        "mercredi": [
-          [
-            "00:00",
-            "08:00"
-          ],
-          [
-            "18:30",
-            "24:00"
-          ]
-        ],
-        "jeudi": [
-          [
-            "00:00",
-            "08:00"
-          ],
-          [
-            "18:30",
-            "24:00"
-          ]
-        ],
-        "vendredi": [
-          [
-            "00:00",
-            "08:00"
-          ],
-          [
-            "18:30",
-            "24:00"
-          ]
-        ],
-        "samedi": [
-          [
-            "00:00",
-            "24:00"
-          ]
-        ],
-        "dimanche": [
-          [
-            "00:00",
-            "24:00"
-          ]
-        ]
-      },
-      "attention": 0.9,
-      "nuit": {
-        "de": "22:00",
-        "a": "07:00",
-        "facteur": 1.5
-      },
-      "racontent_a": "robert-chazal",
-      "remarque": "les voisins du dessus se plaignent : {bruit}, {quand}"
+        "visibilite": 0.6,
+        "de_nuit": 0.4,
+        "remarque": "par la fenêtre de la cuisine, un inconnu à la porte de la cour de l'épicerie"
+      }
     }
   }
 }

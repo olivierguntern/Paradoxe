@@ -1,0 +1,2957 @@
+{
+  "meta": {
+    "id": "simone-vial",
+    "version": 1,
+    "description": "Personnage n°6 : Simone Vial, la voisine du dessus de l'épicerie Chazal, institutrice retraitée. Fiche complète, comme celles de Thomas et de Robert ; elle vit avec le moteur générique, dans le quartier.",
+    "contraintes_du_test": [
+      "Vit avec Henri, son mari, simulé en même temps qu'elle (outils/quartier.py).",
+      "Son appartement est juste au-dessus de la boutique de Robert ; elle a le sommeil léger, et la fenêtre de sa cuisine donne sur la cour de l'épicerie (data/monde/voisinages.json).",
+      "Elle descend chaque matin d'ouverture chercher son pain chez Robert : elle lui raconte ce qu'elle a vu ou entendu.",
+      "Paulette, Mme Perrin, la chorale et les marchands ne sont pas simulés.",
+      "Aucun contact à distance : ni téléphone, ni SMS, ni e-mail."
+    ],
+    "faits_reels_utilises": [
+      "Le marché de la Croix-Rousse se tient sur le boulevard tous les matins sauf le lundi.",
+      "Le boulodrome du Clos Jouve, à la Croix-Rousse, est le temple de la boule lyonnaise.",
+      "En 2010, le TER relie Lyon Part-Dieu à Vienne en une demi-heure environ ; le bus C13 dessert la Grande-Rue de la Croix-Rousse (horaires supposés).",
+      "Le temple d'Auguste et de Livie et le jardin de Cybèle sont à Vienne (Isère), au bord du Rhône.",
+      "Mercredi 10 mars 2010, 20h45 : Real Madrid – Olympique Lyonnais, 8e de finale retour de Ligue des champions.",
+      "Dimanche 14 mars 2010 : premier tour des élections régionales ; la mairie du 4e est boulevard de la Croix-Rousse.",
+      "L'église Saint-Denis de la Croix-Rousse est au bout de la Grande-Rue."
+    ],
+    "elements_fictifs": "Henri et Simone Vial, leur famille, Paulette, Mme Perrin, la chorale et l'appartement sont fictifs. La Croix-Rousse, la Grande-Rue, le Clos Jouve, le marché du boulevard, Vienne et l'église Saint-Denis sont réels."
+  },
+  "logements": [
+    "appartement-vial"
+  ],
+  "identite": {
+    "prenom": "Simone",
+    "nom": "Vial",
+    "nom_de_naissance": "Barral",
+    "genre": "femme",
+    "date_naissance": "1936-08-15",
+    "age": 73,
+    "lieu_naissance": "Vienne (Isère)",
+    "nationalite": "française",
+    "langues": [
+      {
+        "langue": "français",
+        "niveau": "maternelle"
+      },
+      {
+        "langue": "latin",
+        "niveau": "celui de la messe et de la chorale"
+      }
+    ],
+    "situation_familiale": "mariée à Henri depuis 1958, deux enfants (Martine et Jean-Pierre), trois petits-enfants",
+    "metier": "retraitée depuis 1996 ; institutrice à l'école de la Croix-Rousse pendant trente-quatre ans",
+    "religion": "catholique pratiquante, messe le dimanche, chorale paroissiale"
+  },
+  "apparence": {
+    "taille_cm": 158,
+    "poids_kg": 56,
+    "corpulence": "menue, droite",
+    "cheveux": "blancs, en chignon",
+    "yeux": "noisette",
+    "signes_distinctifs": [
+      "lunettes à chaînette",
+      "une médaille de baptême au cou",
+      "voix d'institutrice, qui porte sans crier"
+    ],
+    "tenues": {
+      "maison": "robe de laine et tablier",
+      "sortie": "manteau de laine bleu marine, foulard",
+      "nuit": "chemise de nuit et robe de chambre"
+    },
+    "attitude": "remarque tout, n'oublie rien ; appelle encore « mes petits » les enfants du quartier qu'elle a eus en classe, même à cinquante ans"
+  },
+  "sante": {
+    "etat_general": "bon",
+    "chronotype": "du matin",
+    "sommeil": {
+      "besoin_minutes": 420,
+      "endormissement_minutes_normal": 30,
+      "endormissement_minutes_si_anxieux": 60,
+      "seuil_anxiete_insomnie": 0.55,
+      "seuil_excitation_insomnie": 0.45,
+      "reveil_naturel_jour_libre": "07:00",
+      "reveil_au_bruit": 0.9
+    },
+    "conditions": [
+      {
+        "nom": "sommeil léger et réveils nocturnes",
+        "effet": "certaines nuits, se lève vers 3 h et boit une tisane à la fenêtre de la cuisine ; le moindre bruit la réveille"
+      },
+      {
+        "nom": "tension un peu basse",
+        "effet": "se lève lentement"
+      }
+    ],
+    "allergies": [],
+    "consommations": {
+      "cafe": "jamais, du thé",
+      "alcool": "un doigt de vin le dimanche",
+      "tabac": "jamais"
+    },
+    "activite_physique": [
+      {
+        "activite": "le marché et l'escalier avec le cabas",
+        "jours": [
+          "mardi",
+          "vendredi",
+          "samedi"
+        ],
+        "duree_minutes": 90
+      },
+      {
+        "activite": "promenade avec Henri",
+        "jours": [
+          "dimanche"
+        ],
+        "duree_minutes": 100
+      }
+    ]
+  },
+  "personnalite": {
+    "big_five": {
+      "ouverture": 0.6,
+      "conscience": 0.85,
+      "extraversion": 0.6,
+      "agreabilite": 0.75,
+      "nevrosisme": 0.5
+    },
+    "traits": [
+      "observatrice",
+      "bavarde",
+      "organisée",
+      "curieuse de tout ce qui se passe dans la rue",
+      "pieuse"
+    ],
+    "qualites": [
+      "mémoire infaillible",
+      "dévouée",
+      "fine cuisinière",
+      "patiente"
+    ],
+    "defauts": [
+      "se mêle de tout",
+      "s'inquiète facilement",
+      "raconte deux fois la même histoire"
+    ],
+    "ponctualite": {
+      "respect_de_son_planning": 0.95,
+      "stress_si_retard_sur_planning": 0.45
+    }
+  },
+  "vie_interieure": {
+    "valeurs": [
+      {
+        "valeur": "la famille",
+        "importance": 0.95
+      },
+      {
+        "valeur": "l'instruction",
+        "importance": 0.85
+      },
+      {
+        "valeur": "la foi",
+        "importance": 0.75
+      },
+      {
+        "valeur": "le bon voisinage",
+        "importance": 0.8
+      }
+    ],
+    "croyances": [
+      "On ne laisse pas un voisin dans l'embarras.",
+      "Un enfant qui lit est sauvé.",
+      "Dans une rue, tout finit par se savoir."
+    ],
+    "peurs": [
+      {
+        "peur": "qu'il arrive quelque chose à Henri la nuit",
+        "intensite": 0.5
+      },
+      {
+        "peur": "les cambrioleurs : deux appartements visités rue d'Austerlitz cet hiver",
+        "intensite": 0.45
+      },
+      {
+        "peur": "perdre la mémoire comme sa mère",
+        "intensite": 0.4
+      }
+    ],
+    "desirs": [
+      {
+        "desir": "que Jean-Pierre revienne en France",
+        "intensite": 0.7
+      },
+      {
+        "desir": "voir sa petite-fille Camille réussir son concours d'institutrice",
+        "intensite": 0.6
+      }
+    ],
+    "style_de_pensee": {
+      "mode": "attentif aux détails, aux visages, aux bruits",
+      "rumination": "forte la nuit",
+      "autocritique": 0.5,
+      "optimisme": 0.5,
+      "imagination": 0.6
+    },
+    "voix_interieure": "Se parle comme à une classe : « voyons », « ce n'est pas normal, ça », « on verra bien demain ».",
+    "pensees_recurrentes": [
+      {
+        "sujet": "henri",
+        "texte": "Il n'entend plus rien, mon Henri. S'il arrivait quelque chose la nuit…"
+      },
+      {
+        "sujet": "paulette",
+        "texte": "Paulette maigrit. Il faudra que Martine l'appelle."
+      },
+      {
+        "sujet": "camille",
+        "texte": "Camille passe son concours en avril. Elle sera une bonne maîtresse."
+      },
+      {
+        "sujet": "robert",
+        "texte": "Le petit Chazal a mauvaise mine. Il porte trop de cagettes, avec son dos."
+      }
+    ],
+    "preoccupations_semaine": [
+      {
+        "id": "ps-paulette",
+        "sujet": "Paulette, sa sœur, qui vit seule à Vienne et maigrit",
+        "intensite_initiale": 0.45,
+        "valence": "négative"
+      },
+      {
+        "id": "ps-proprietaire",
+        "sujet": "La lettre du propriétaire : l'immeuble pourrait être vendu",
+        "intensite_initiale": 0.4,
+        "valence": "négative"
+      },
+      {
+        "id": "ps-requiem",
+        "sujet": "Le Requiem de Fauré pour la messe de Pâques",
+        "intensite_initiale": 0.3,
+        "valence": "positive"
+      }
+    ],
+    "humeur_de_base": {
+      "valence": 0.55,
+      "activation": 0.5
+    },
+    "declencheurs": [
+      {
+        "situation": "un moment avec Henri",
+        "reaction": "tendresse, taquinerie",
+        "evenement": "moment_proche"
+      },
+      {
+        "situation": "Henri n'est pas là quand elle l'attend",
+        "reaction": "inquiétude",
+        "evenement": "absence_proche"
+      },
+      {
+        "situation": "une journée avec Paulette",
+        "reaction": "joie mêlée d'inquiétude",
+        "evenement": "visite_famille"
+      },
+      {
+        "situation": "chanter avec la chorale",
+        "reaction": "élévation, apaisement",
+        "evenement": "chant"
+      },
+      {
+        "situation": "une nuit sans sommeil",
+        "reaction": "ruminations",
+        "evenement": "insomnie"
+      },
+      {
+        "situation": "un bruit inhabituel dans la boutique, en dessous, ou quelqu'un dans la cour",
+        "reaction": "inquiétude, curiosité",
+        "evenement": "bruit_en_dessous"
+      }
+    ],
+    "loisirs": [
+      {
+        "loisir": "la chorale paroissiale de Saint-Denis",
+        "plaisir": 0.8
+      },
+      {
+        "loisir": "la lecture : romans empruntés à la bibliothèque",
+        "plaisir": 0.7
+      },
+      {
+        "loisir": "la couture et le tricot",
+        "plaisir": 0.55
+      },
+      {
+        "loisir": "le marché du boulevard, pour les nouvelles autant que pour les légumes",
+        "plaisir": 0.65
+      },
+      {
+        "loisir": "le café chez Jeanne Perrin, le mardi",
+        "plaisir": 0.6
+      }
+    ],
+    "mecanismes_adaptation": [
+      {
+        "condition": "anxiete > 0.6",
+        "comportement": "se lève, boit une tisane à la fenêtre de la cuisine, égrène son chapelet"
+      },
+      {
+        "condition": "tristesse > 0.5",
+        "comportement": "écrit à ses petits-enfants"
+      }
+    ]
+  },
+  "modele_emotionnel": {
+    "principe": "Même modèle de calcul que pour les autres habitants (data/monde/humain.json) : les émotions découlent des événements vécus, des besoins et du retour vers l'état de base.",
+    "evenements": {
+      "insomnie": {
+        "description": "ne plus dormir au milieu de la nuit",
+        "effets": {
+          "anxiete": 0.04,
+          "solitude": 0.02
+        }
+      },
+      "visite_famille": {
+        "description": "une journée avec Paulette",
+        "effets": {
+          "joie": 0.06,
+          "solitude": -0.06
+        }
+      },
+      "partie_de_boules": {
+        "description": "une bonne partie au Clos Jouve",
+        "effets": {
+          "joie": 0.05,
+          "fierte": 0.03,
+          "solitude": -0.04
+        }
+      },
+      "chant": {
+        "description": "chanter avec la chorale",
+        "effets": {
+          "joie": 0.06,
+          "anxiete": -0.04
+        }
+      },
+      "mal_aux_genoux": {
+        "description": "les genoux qui tirent dans l'escalier",
+        "effets": {
+          "anxiete": 0.02,
+          "colere": 0.02
+        }
+      },
+      "bruit_en_dessous": {
+        "description": "un bruit inhabituel dans la boutique, en dessous",
+        "effets": {
+          "anxiete": 0.08,
+          "excitation": 0.04
+        }
+      }
+    },
+    "etat_de_base": {
+      "joie": 0.45,
+      "tristesse": 0.18,
+      "anxiete": 0.3,
+      "colere": 0.05,
+      "fierte": 0.35,
+      "excitation": 0.2
+    }
+  },
+  "etat_initial": {
+    "date": "2010-03-08T00:00",
+    "lieu": "domicile",
+    "piece": "chambre",
+    "activite": "dort, d'un sommeil léger",
+    "tenue": "nuit",
+    "objets_portes": [],
+    "besoins": {
+      "faim": 62,
+      "soif": 64,
+      "energie": 40,
+      "hygiene": 74,
+      "toilettes": 66,
+      "social": 70,
+      "detente": 62
+    },
+    "emotions": {
+      "joie": 0.45,
+      "tristesse": 0.18,
+      "anxiete": 0.32,
+      "colere": 0.05,
+      "solitude": 0.22,
+      "fierte": 0.35,
+      "excitation": 0.2,
+      "concentration": 0.5
+    }
+  },
+  "competences": [
+    {
+      "competence": "pédagogie",
+      "niveau": 0.9
+    },
+    {
+      "competence": "cuisine lyonnaise",
+      "niveau": 0.8
+    },
+    {
+      "competence": "couture",
+      "niveau": 0.75
+    },
+    {
+      "competence": "chant choral",
+      "niveau": 0.6
+    },
+    {
+      "competence": "mémoire des visages",
+      "niveau": 0.9
+    }
+  ],
+  "biographie": [
+    {
+      "date": "1936-08-15",
+      "evenement": "Naît à Vienne, deuxième fille d'un cheminot et d'une couturière."
+    },
+    {
+      "date": "1955-09",
+      "evenement": "Sort de l'École normale ; premier poste d'institutrice à l'école de la Croix-Rousse."
+    },
+    {
+      "date": "1956-05",
+      "evenement": "Rencontre Henri Vial, typographe, à un bal de la Saint-Jean."
+    },
+    {
+      "date": "1958-06-21",
+      "evenement": "Épouse Henri à Saint-Denis de la Croix-Rousse."
+    },
+    {
+      "date": "1959-12",
+      "evenement": "Naissance de Martine."
+    },
+    {
+      "date": "1962-04",
+      "evenement": "S'installent au-dessus de l'épicerie des Moreau ; Simone aura la petite Josiane Moreau dans sa classe de CM1."
+    },
+    {
+      "date": "1962-10",
+      "evenement": "Naissance de Jean-Pierre."
+    },
+    {
+      "date": "1976-03-16",
+      "evenement": "Au mariage de Josiane et Robert Chazal, elle lit l'épître."
+    },
+    {
+      "date": "1996-06",
+      "evenement": "Prend sa retraite ; entre à la chorale de Saint-Denis."
+    },
+    {
+      "date": "2005",
+      "evenement": "Mort de sa mère, qui ne reconnaissait plus personne."
+    }
+  ],
+  "personnes_en_memoire": [
+    {
+      "id": "martine-vial",
+      "nom": "Martine Gauthier, née Vial",
+      "lien": "fille, 50 ans, aide-soignante à Villeurbanne",
+      "attachement": 0.9,
+      "souvenir_dominant": "sa première dictée sans faute",
+      "sentiment": "fierté"
+    },
+    {
+      "id": "jean-pierre-vial",
+      "nom": "Jean-Pierre Vial",
+      "lien": "fils, 47 ans, ingénieur à Montréal",
+      "attachement": 0.9,
+      "souvenir_dominant": "ses lettres de chaque mois, puis ses courriels que Martine imprime",
+      "sentiment": "manque"
+    },
+    {
+      "id": "camille-gauthier",
+      "nom": "Camille Gauthier",
+      "lien": "petite-fille, 23 ans, prépare le concours de professeur des écoles",
+      "attachement": 0.85,
+      "souvenir_dominant": "lui apprendre à lire avec les vieux livres de la classe",
+      "sentiment": "fierté"
+    },
+    {
+      "id": "paulette",
+      "nom": "Paulette Barral",
+      "lien": "sœur aînée, 79 ans, veuve, à Vienne",
+      "attachement": 0.85,
+      "souvenir_dominant": "les dimanches au bord du Rhône, petites",
+      "sentiment": "tendresse, inquiétude"
+    }
+  ],
+  "relations": {
+    "henri-vial": {
+      "type": "conjoint"
+    },
+    "robert-chazal": {
+      "type": "commercant"
+    },
+    "josiane-chazal": {
+      "type": "connaissance"
+    }
+  },
+  "personnes_presentes": [
+    {
+      "id": "henri-vial",
+      "nom": "Henri Vial",
+      "lien": "mari depuis 1958, 76 ans",
+      "simule": true,
+      "attachement": 0.95
+    }
+  ],
+  "personnes_du_quartier": [
+    {
+      "id": "robert-chazal",
+      "nom": "Robert Chazal",
+      "role": "l'épicier d'en dessous",
+      "simule": true,
+      "relation": "Elle l'appelle encore « le petit Chazal ». Chaque matin, son pain, les nouvelles du quartier ; elle s'inquiète de son dos."
+    },
+    {
+      "id": "josiane-chazal",
+      "nom": "Josiane Chazal, née Moreau",
+      "role": "la femme de Robert, son ancienne élève",
+      "simule": true,
+      "relation": "Elle l'a eue en CM1 en 1962-1963 ; elle lui demande de ses nouvelles par Robert."
+    },
+    {
+      "id": "mme-ferrand",
+      "nom": "Mme Ferrand",
+      "role": "voisine du 12",
+      "simule": false,
+      "relation": "Se croisent chez Robert le matin et au marché."
+    }
+  ],
+  "economie": {
+    "devise": "EUR",
+    "statut": "retraitée de l'Éducation nationale",
+    "revenu_net_estime_mensuel": 1900,
+    "compte_courant_au_debut": 2600,
+    "especes_au_debut": 40,
+    "charges_mensuelles": {
+      "loyer": 520,
+      "gaz_electricite": 85,
+      "mutuelle": 110
+    },
+    "notes": "Simone tient les comptes du ménage dans un cahier à spirale ; elle paie le pain en espèces."
+  },
+  "domicile": {
+    "provisions_au_debut": [
+      {
+        "id": "cafe_moulu",
+        "produit": "café moulu",
+        "quantite": 300,
+        "unite": "g",
+        "rangement": "placard à provisions",
+        "magasin": "cafe_moulu",
+        "par_unite": 250
+      },
+      {
+        "id": "the",
+        "produit": "thé et tisane (verveine, tilleul)",
+        "quantite": 24,
+        "unite": "sachets",
+        "rangement": "placard à provisions"
+      },
+      {
+        "id": "pain",
+        "produit": "pain (baguettes de l'épicerie)",
+        "quantite": 3,
+        "unite": "quarts de baguette",
+        "rangement": "corbeille à pain",
+        "magasin": "baguette",
+        "par_unite": 4,
+        "description": "une baguette fait quatre quarts"
+      },
+      {
+        "id": "beurre",
+        "produit": "beurre",
+        "quantite": 150,
+        "unite": "g",
+        "rangement": "réfrigérateur",
+        "magasin": "beurre",
+        "par_unite": 250
+      },
+      {
+        "id": "confiture",
+        "produit": "confiture de groseilles de Paulette",
+        "quantite": 25,
+        "unite": "cuillères",
+        "rangement": "placard à provisions"
+      },
+      {
+        "id": "lait",
+        "produit": "lait demi-écrémé",
+        "quantite": 1500,
+        "unite": "ml",
+        "rangement": "réfrigérateur",
+        "magasin": "lait_uht",
+        "par_unite": 1000
+      },
+      {
+        "id": "yaourts",
+        "produit": "yaourts nature",
+        "quantite": 4,
+        "unite": "pots",
+        "rangement": "réfrigérateur",
+        "magasin": "yaourts",
+        "par_unite": 4
+      },
+      {
+        "id": "oeufs",
+        "produit": "œufs",
+        "quantite": 6,
+        "unite": "œufs",
+        "rangement": "réfrigérateur",
+        "magasin": "oeufs",
+        "par_unite": 6
+      },
+      {
+        "id": "comte",
+        "produit": "comté",
+        "quantite": 200,
+        "unite": "g",
+        "rangement": "réfrigérateur",
+        "magasin": "comte",
+        "par_unite": 250
+      },
+      {
+        "id": "jambon",
+        "produit": "jambon blanc",
+        "quantite": 0,
+        "unite": "tranches",
+        "rangement": "réfrigérateur",
+        "magasin": "jambon",
+        "par_unite": 4
+      },
+      {
+        "id": "pates",
+        "produit": "pâtes",
+        "quantite": 500,
+        "unite": "g",
+        "rangement": "placard à provisions",
+        "magasin": "pates",
+        "par_unite": 500
+      },
+      {
+        "id": "riz",
+        "produit": "riz",
+        "quantite": 600,
+        "unite": "g",
+        "rangement": "placard à provisions",
+        "magasin": "riz",
+        "par_unite": 1000
+      },
+      {
+        "id": "pommes_de_terre",
+        "produit": "pommes de terre",
+        "quantite": 1500,
+        "unite": "g",
+        "rangement": "cagette sous l'évier",
+        "magasin": "pommes_de_terre",
+        "par_unite": 2500
+      },
+      {
+        "id": "carottes",
+        "produit": "carottes",
+        "quantite": 500,
+        "unite": "g",
+        "rangement": "bac à légumes",
+        "magasin": "carottes",
+        "par_unite": 1000
+      },
+      {
+        "id": "oignons",
+        "produit": "oignons",
+        "quantite": 3,
+        "unite": "oignons",
+        "rangement": "cagette sous l'évier",
+        "magasin": "oignons",
+        "par_unite": 1
+      },
+      {
+        "id": "tomates",
+        "produit": "tomates",
+        "quantite": 0,
+        "unite": "g",
+        "rangement": "corbeille de la cuisine",
+        "magasin": "tomates",
+        "par_unite": 500
+      },
+      {
+        "id": "salade",
+        "produit": "laitue",
+        "quantite": 0,
+        "unite": "laitues",
+        "rangement": "bac à légumes",
+        "magasin": "salade",
+        "par_unite": 1
+      },
+      {
+        "id": "pommes",
+        "produit": "pommes",
+        "quantite": 4,
+        "unite": "pommes",
+        "rangement": "corbeille de la cuisine",
+        "magasin": "pommes",
+        "par_unite": 1
+      },
+      {
+        "id": "vin_rouge",
+        "produit": "vin rouge (côtes-du-rhône)",
+        "quantite": 150,
+        "unite": "cl",
+        "rangement": "placard à provisions",
+        "magasin": "vin_rouge",
+        "par_unite": 75
+      },
+      {
+        "id": "sucre",
+        "produit": "sucre",
+        "quantite": 500,
+        "unite": "g",
+        "rangement": "placard à provisions",
+        "magasin": "sucre",
+        "par_unite": 1000
+      },
+      {
+        "id": "farine",
+        "produit": "farine",
+        "quantite": 600,
+        "unite": "g",
+        "rangement": "placard à provisions",
+        "magasin": "farine",
+        "par_unite": 1000
+      },
+      {
+        "id": "marche",
+        "produit": "viande, poisson et légumes du marché du boulevard",
+        "quantite": null,
+        "unite": null,
+        "rangement": "réfrigérateur",
+        "suivi": false
+      }
+    ],
+    "produits_prepares": []
+  },
+  "approvisionnement": {
+    "principe": "Chaque matin d'ouverture, Simone descend à l'épicerie de Robert, juste en dessous : le pain, ce qui passe sous son seuil, et ce que demandent ses menus d'ici au lendemain. Elle paie en espèces.",
+    "commerce": "robert-chazal",
+    "distance_m": 15,
+    "liste": [
+      {
+        "produit": "pain",
+        "cible": 4,
+        "minimum": 2
+      },
+      {
+        "produit": "lait",
+        "seuil": 600,
+        "achat": 1000
+      },
+      {
+        "produit": "yaourts",
+        "cible": 4,
+        "minimum": 2
+      },
+      {
+        "produit": "beurre",
+        "seuil": 120,
+        "achat": 250
+      },
+      {
+        "produit": "comte",
+        "seuil": 100,
+        "achat": 250
+      },
+      {
+        "produit": "pommes",
+        "cible": 4,
+        "minimum": 2
+      },
+      {
+        "produit": "cafe_moulu",
+        "seuil": 120,
+        "achat": 250
+      },
+      {
+        "produit": "vin_rouge",
+        "seuil": 60,
+        "achat": 75
+      }
+    ],
+    "paiement": {
+      "especes_si_moins_de": 40,
+      "garde_en_especes": 5
+    }
+  },
+  "menus_prevus": {
+    "regle": "Simone fait la cuisine pour deux : le déjeuner et le dîner sont les repas de la maison (repas communs de l'appartement), avec ce qu'elle achète au marché du boulevard (viande, poisson, légumes) et à l'épicerie de Robert, où elle descend chaque matin d'ouverture chercher le pain et ce qui manque d'ici au lendemain. Le lundi, ils déjeunent chez Paulette, à Vienne. Le petit-déjeuner est celui de chacun.",
+    "petit_dejeuner": {
+      "plat": "thé, une tartine beurrée, un yaourt",
+      "ingredients": [
+        [
+          "the",
+          1
+        ],
+        [
+          "pain",
+          1
+        ],
+        [
+          "beurre",
+          5
+        ],
+        [
+          "yaourts",
+          1
+        ]
+      ]
+    },
+    "lundi": {
+      "diner": {
+        "plat": "soupe de légumes et omelette, au retour de Vienne",
+        "ingredients": [
+          [
+            "oeufs",
+            4
+          ],
+          [
+            "carottes",
+            300
+          ],
+          [
+            "pommes_de_terre",
+            300
+          ],
+          [
+            "oignons",
+            1
+          ],
+          [
+            "pain",
+            1
+          ]
+        ]
+      }
+    },
+    "mardi": {
+      "dejeuner": {
+        "plat": "côtelettes d'agneau du marché, pommes au four",
+        "ingredients": [
+          [
+            "marche",
+            1
+          ],
+          [
+            "pommes",
+            2
+          ],
+          [
+            "beurre",
+            10
+          ],
+          [
+            "pain",
+            1
+          ],
+          [
+            "vin_rouge",
+            15
+          ]
+        ]
+      },
+      "diner": {
+        "plat": "quiche lorraine maison et salade verte",
+        "ingredients": [
+          [
+            "farine",
+            200
+          ],
+          [
+            "beurre",
+            100
+          ],
+          [
+            "oeufs",
+            3
+          ],
+          [
+            "jambon",
+            4
+          ],
+          [
+            "lait",
+            250
+          ],
+          [
+            "salade",
+            1
+          ],
+          [
+            "pain",
+            1
+          ]
+        ]
+      }
+    },
+    "mercredi": {
+      "dejeuner": {
+        "plat": "poulet rôti du marché et pommes de terre sautées",
+        "ingredients": [
+          [
+            "marche",
+            1
+          ],
+          [
+            "pommes_de_terre",
+            600
+          ],
+          [
+            "oignons",
+            1
+          ],
+          [
+            "pain",
+            1
+          ],
+          [
+            "vin_rouge",
+            15
+          ]
+        ]
+      },
+      "diner": {
+        "plat": "restes de poulet et pâtes au comté, tôt, avant le match d'Henri",
+        "ingredients": [
+          [
+            "pates",
+            250
+          ],
+          [
+            "comte",
+            40
+          ],
+          [
+            "pain",
+            1
+          ]
+        ]
+      }
+    },
+    "jeudi": {
+      "dejeuner": {
+        "plat": "gratin de pâtes au jambon",
+        "ingredients": [
+          [
+            "pates",
+            250
+          ],
+          [
+            "jambon",
+            4
+          ],
+          [
+            "comte",
+            60
+          ],
+          [
+            "lait",
+            200
+          ],
+          [
+            "beurre",
+            20
+          ],
+          [
+            "pain",
+            1
+          ],
+          [
+            "vin_rouge",
+            15
+          ]
+        ]
+      },
+      "diner": {
+        "plat": "soupe de carottes et tartines de comté",
+        "ingredients": [
+          [
+            "carottes",
+            500
+          ],
+          [
+            "pommes_de_terre",
+            200
+          ],
+          [
+            "oignons",
+            1
+          ],
+          [
+            "comte",
+            60
+          ],
+          [
+            "pain",
+            1
+          ]
+        ]
+      }
+    },
+    "vendredi": {
+      "dejeuner": {
+        "plat": "filet de merlan du marché, riz au beurre",
+        "ingredients": [
+          [
+            "marche",
+            1
+          ],
+          [
+            "riz",
+            200
+          ],
+          [
+            "beurre",
+            10
+          ],
+          [
+            "pain",
+            1
+          ],
+          [
+            "vin_rouge",
+            15
+          ]
+        ]
+      },
+      "diner": {
+        "plat": "salade de riz aux œufs durs et aux tomates",
+        "ingredients": [
+          [
+            "riz",
+            150
+          ],
+          [
+            "oeufs",
+            3
+          ],
+          [
+            "tomates",
+            500
+          ],
+          [
+            "pain",
+            1
+          ]
+        ]
+      }
+    },
+    "samedi": {
+      "dejeuner": {
+        "plat": "steak haché du marché et purée",
+        "ingredients": [
+          [
+            "marche",
+            1
+          ],
+          [
+            "pommes_de_terre",
+            600
+          ],
+          [
+            "lait",
+            200
+          ],
+          [
+            "beurre",
+            30
+          ],
+          [
+            "pain",
+            1
+          ],
+          [
+            "vin_rouge",
+            15
+          ]
+        ]
+      },
+      "diner": {
+        "plat": "crêpes du samedi soir, à la confiture de Paulette",
+        "ingredients": [
+          [
+            "farine",
+            250
+          ],
+          [
+            "oeufs",
+            3
+          ],
+          [
+            "lait",
+            500
+          ],
+          [
+            "sucre",
+            30
+          ],
+          [
+            "confiture",
+            4
+          ],
+          [
+            "beurre",
+            20
+          ]
+        ]
+      }
+    },
+    "dimanche": {
+      "dejeuner": {
+        "plat": "rôti de porc aux carottes, tarte aux pommes",
+        "ingredients": [
+          [
+            "marche",
+            1
+          ],
+          [
+            "carottes",
+            500
+          ],
+          [
+            "oignons",
+            2
+          ],
+          [
+            "pommes",
+            4
+          ],
+          [
+            "farine",
+            200
+          ],
+          [
+            "beurre",
+            100
+          ],
+          [
+            "sucre",
+            80
+          ],
+          [
+            "pain",
+            1
+          ],
+          [
+            "vin_rouge",
+            25
+          ]
+        ]
+      },
+      "diner": {
+        "plat": "bouillon et restes du rôti, un morceau de comté",
+        "ingredients": [
+          [
+            "carottes",
+            200
+          ],
+          [
+            "comte",
+            40
+          ],
+          [
+            "pain",
+            1
+          ]
+        ]
+      }
+    }
+  },
+  "collations": {
+    "principe": "Sa tisane des nuits blanches, une pomme l'après-midi.",
+    "tisane": [
+      {
+        "the": 1
+      }
+    ],
+    "fruit": [
+      {
+        "pommes": 1
+      }
+    ]
+  },
+  "objets": [
+    {
+      "id": "obj-cles-simone",
+      "nom": "Clés de Simone",
+      "description": "Les mêmes clés qu'Henri, sur un anneau avec une médaille de la Vierge.",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "entree",
+        "support": "vide-poche"
+      },
+      "importance": 0.8,
+      "role": "cles",
+      "positions": {
+        "porte": "sac à main",
+        "poche": "sac à main"
+      }
+    },
+    {
+      "id": "obj-cabas-simone",
+      "nom": "Cabas à roulettes",
+      "description": "Le chariot de marché écossais de Simone, qu'elle descend marche par marche.",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "entree",
+        "support": "derrière la porte"
+      },
+      "importance": 0.4,
+      "role": "cabas"
+    },
+    {
+      "id": "obj-sac-simone",
+      "nom": "Sac à main de Simone",
+      "contenu": [
+        "porte-monnaie avec 40 € en espèces",
+        "chéquier",
+        "carte d'électeur",
+        "carnet d'adresses",
+        "chapelet"
+      ],
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "entree",
+        "support": "portemanteau"
+      },
+      "importance": 0.9,
+      "role": "portefeuille",
+      "positions": {
+        "poche": "au bras"
+      }
+    },
+    {
+      "id": "obj-manteau-simone",
+      "nom": "Manteau de laine bleu marine",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "entree",
+        "support": "portemanteau"
+      },
+      "importance": 0.2,
+      "role": "veste",
+      "positions": {
+        "porte": "porté"
+      }
+    },
+    {
+      "id": "obj-chaussures-simone",
+      "nom": "Chaussures de ville à talon plat",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "entree",
+        "support": "meuble à chaussures"
+      },
+      "importance": 0.2,
+      "role": "chaussures",
+      "positions": {
+        "porte": "aux pieds"
+      }
+    },
+    {
+      "id": "obj-lunettes-simone",
+      "nom": "Lunettes de Simone",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "chambre",
+        "support": "table de chevet de Simone"
+      },
+      "importance": 0.7,
+      "role": "lunettes",
+      "positions": {
+        "porte": "sur le nez",
+        "usage": "sur le nez"
+      }
+    },
+    {
+      "id": "obj-livre-simone",
+      "nom": "Livre de la bibliothèque",
+      "description": "« La Promesse de l'aube » de Romain Gary, à rendre jeudi.",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "chambre",
+        "support": "table de chevet de Simone"
+      },
+      "importance": 0.4,
+      "role": "livre",
+      "positions": {
+        "usage": "dans ses mains"
+      }
+    },
+    {
+      "id": "obj-partitions",
+      "nom": "Partitions de la chorale",
+      "description": "Le Requiem de Fauré, crayonné ; pour la répétition du mercredi.",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "sejour",
+        "support": "buffet"
+      },
+      "importance": 0.5,
+      "role": "partitions",
+      "positions": {
+        "porte": "sac à main"
+      }
+    },
+    {
+      "id": "obj-cafetiere",
+      "nom": "Cafetière italienne",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "cuisine",
+        "support": "cuisinière à gaz"
+      },
+      "importance": 0.2,
+      "role": "cafetiere",
+      "positions": {
+        "usage": "cuisine / cuisinière à gaz"
+      }
+    },
+    {
+      "id": "obj-tasse-simone",
+      "nom": "Bol de Simone",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "cuisine",
+        "support": "égouttoir"
+      },
+      "importance": 0.2,
+      "role": "tasse",
+      "positions": {
+        "usage": "cuisine / table"
+      }
+    },
+    {
+      "id": "obj-telecommande-vial",
+      "nom": "Télécommande",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "sejour",
+        "support": "accoudoir du fauteuil d'Henri"
+      },
+      "importance": 0.3
+    },
+    {
+      "id": "obj-photo-mariage",
+      "nom": "Photo du mariage d'Henri et Simone (1958)",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "sejour",
+        "support": "buffet"
+      },
+      "importance": 0.5
+    }
+  ],
+  "connaissances": {
+    "regle": "Simone connaît l'emplacement de ses objets ; de la boutique d'en dessous, elle sait ce qu'elle entend, ce qu'elle voit de sa cuisine sur la cour, et ce que lui raconte Robert.",
+    "informations_connues": [
+      "L'épicerie est fermée le lundi ; Robert passe le matin prendre la recette.",
+      "Robert gare sa Kangoo dans la cour, sous la fenêtre de la cuisine.",
+      "Le propriétaire parle de vendre l'immeuble."
+    ]
+  },
+  "habitudes": {
+    "automatismes": [
+      {
+        "id": "aut-pain",
+        "description": "Descend chercher son pain chez Robert chaque matin d'ouverture, et lui raconte la rue.",
+        "objets": [
+          "obj-sac-simone"
+        ]
+      },
+      {
+        "id": "aut-fenetre",
+        "description": "Les nuits où elle ne dort pas, boit sa tisane debout à la fenêtre de la cuisine, au-dessus de la cour.",
+        "objets": []
+      }
+    ],
+    "routines": [
+      {
+        "id": "rs-lundi",
+        "nom": "Lundi : la journée chez Paulette, à Vienne",
+        "jours": [
+          "lundi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "06:45",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "06:45",
+            "fin": "07:15",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, toilette, s'habille pour sortir",
+            "activite": "toilette_matin"
+          },
+          {
+            "debut": "07:15",
+            "fin": "07:45",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Henri, la radio en fond",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "07:45",
+            "fin": "09:30",
+            "lieu": "domicile",
+            "action": "Range l'appartement, prépare le panier pour Paulette (confitures, un pull tricoté)",
+            "activite": "menage"
+          },
+          {
+            "debut": "09:30",
+            "fin": "09:35",
+            "lieu": "entree",
+            "action": "Manteau, clés, le panier pour Paulette",
+            "activite": "sortie",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "09:35",
+            "fin": "10:05",
+            "lieu": "trajet-transports",
+            "action": "Bus C13 jusqu'à la Part-Dieu",
+            "activite": "transports",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "10:05",
+            "fin": "10:40",
+            "lieu": "trajet-transports",
+            "action": "TER Lyon–Vienne, le long du Rhône",
+            "activite": "transports",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "10:40",
+            "fin": "10:55",
+            "lieu": "trajet-pied",
+            "action": "Monte à pied de la gare jusque chez Paulette",
+            "activite": "marche",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "10:55",
+            "fin": "12:15",
+            "lieu": "vienne",
+            "action": "Café et nouvelles de la famille chez Paulette",
+            "activite": "visite",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "12:15",
+            "fin": "13:45",
+            "lieu": "vienne",
+            "action": "Déjeuner chez Paulette : gratin de cardons, fromage, tarte",
+            "activite": "repas_dehors",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "13:45",
+            "fin": "15:15",
+            "lieu": "vienne",
+            "action": "Promenade avec Paulette jusqu'au temple d'Auguste et au jardin de Cybèle",
+            "activite": "marche",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "15:15",
+            "fin": "16:30",
+            "lieu": "vienne",
+            "action": "Thé chez Paulette, les photos des petits-enfants",
+            "activite": "visite",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "16:30",
+            "fin": "16:45",
+            "lieu": "trajet-pied",
+            "action": "Redescend à la gare de Vienne",
+            "activite": "marche",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "16:45",
+            "fin": "17:20",
+            "lieu": "trajet-transports",
+            "action": "TER Vienne–Lyon",
+            "activite": "transports",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "17:20",
+            "fin": "17:55",
+            "lieu": "trajet-transports",
+            "action": "Bus C13 jusqu'à la Grande-Rue",
+            "activite": "transports",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "17:55",
+            "fin": "18:05",
+            "lieu": "entree",
+            "action": "Rentre, monte les vingt-deux marches, pose ses clés",
+            "activite": "retour",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "18:05",
+            "fin": "18:45",
+            "lieu": "sejour",
+            "action": "S'assoit enfin, les jambes lourdes",
+            "activite": "temps_libre"
+          },
+          {
+            "debut": "18:45",
+            "fin": "19:30",
+            "lieu": "cuisine",
+            "action": "Prépare le dîner",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "19:30",
+            "fin": "20:15",
+            "lieu": "cuisine",
+            "action": "Dîne avec Henri, on reparle de Paulette",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "20:15",
+            "fin": "20:35",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "20:35",
+            "fin": "22:00",
+            "lieu": "sejour",
+            "action": "Télévision avec Henri, un tricot sur les genoux",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "22:00",
+            "fin": "22:15",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir",
+            "activite": "toilette_soir"
+          },
+          {
+            "debut": "22:15",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche, lit quelques pages",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "rs-mardi",
+        "nom": "Mardi : le pain, le marché, Mme Perrin",
+        "jours": [
+          "mardi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "03:00",
+            "lieu": "chambre",
+            "action": "Dort, d'un sommeil léger",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "03:00",
+            "fin": "03:30",
+            "lieu": "cuisine",
+            "action": "Ne dort plus : se lève sans bruit, boit une tisane à la fenêtre de la cuisine, au-dessus de la cour de l'épicerie",
+            "activite": "eveille_nuit"
+          },
+          {
+            "debut": "03:30",
+            "fin": "07:00",
+            "lieu": "chambre",
+            "action": "Se recouche et finit par se rendormir",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:00",
+            "fin": "07:30",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, toilette, s'habille",
+            "activite": "toilette_matin"
+          },
+          {
+            "debut": "07:30",
+            "fin": "07:50",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Henri, la radio en fond",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "07:50",
+            "fin": "08:20",
+            "lieu": "epicerie-chazal",
+            "action": "Descend chercher le pain chez Robert",
+            "activite": "courses"
+          },
+          {
+            "debut": "08:20",
+            "fin": "09:00",
+            "lieu": "chambre",
+            "action": "Fait le lit, aère la chambre",
+            "activite": "menage"
+          },
+          {
+            "debut": "09:00",
+            "fin": "09:05",
+            "lieu": "entree",
+            "action": "Manteau, sac à main, le cabas à roulettes",
+            "activite": "sortie"
+          },
+          {
+            "debut": "09:05",
+            "fin": "10:30",
+            "lieu": "marche-croix-rousse",
+            "action": "Marché du boulevard : le boucher, le primeur, le fromager",
+            "activite": "courses_quartier"
+          },
+          {
+            "debut": "10:30",
+            "fin": "10:35",
+            "lieu": "entree",
+            "action": "Remonte avec le cabas, marche par marche",
+            "activite": "retour"
+          },
+          {
+            "debut": "10:35",
+            "fin": "11:30",
+            "lieu": "sejour",
+            "action": "Coud à la machine : l'ourlet d'un pantalon d'Henri",
+            "activite": "temps_libre"
+          },
+          {
+            "debut": "11:30",
+            "fin": "12:15",
+            "lieu": "cuisine",
+            "action": "Prépare le déjeuner",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "12:15",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Déjeune avec Henri",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "13:00",
+            "fin": "13:20",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "13:20",
+            "fin": "14:15",
+            "lieu": "sejour",
+            "action": "Se repose dans le canapé",
+            "activite": "repos"
+          },
+          {
+            "debut": "14:15",
+            "fin": "14:20",
+            "lieu": "entree",
+            "action": "Manteau, sac à main",
+            "activite": "sortie"
+          },
+          {
+            "debut": "14:20",
+            "fin": "14:30",
+            "lieu": "trajet-pied",
+            "action": "Va à pied rue Dumenge",
+            "activite": "marche"
+          },
+          {
+            "debut": "14:30",
+            "fin": "16:45",
+            "lieu": "chez-mme-perrin",
+            "action": "Café et petits gâteaux chez Jeanne Perrin, son ancienne collègue",
+            "activite": "visite"
+          },
+          {
+            "debut": "16:45",
+            "fin": "16:55",
+            "lieu": "trajet-pied",
+            "action": "Rentre à pied par la place de la Croix-Rousse",
+            "activite": "marche"
+          },
+          {
+            "debut": "16:55",
+            "fin": "17:00",
+            "lieu": "entree",
+            "action": "Rentre, pose ses clés",
+            "activite": "retour"
+          },
+          {
+            "debut": "17:00",
+            "fin": "18:30",
+            "lieu": "sejour",
+            "action": "Lit « La Promesse de l'aube » près de la fenêtre",
+            "activite": "lecture"
+          },
+          {
+            "debut": "18:30",
+            "fin": "19:30",
+            "lieu": "cuisine",
+            "action": "Prépare le dîner",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "19:30",
+            "fin": "20:15",
+            "lieu": "cuisine",
+            "action": "Dîne avec Henri, qui raconte ses parties de boules",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "20:15",
+            "fin": "20:35",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "20:35",
+            "fin": "22:00",
+            "lieu": "sejour",
+            "action": "Télévision avec Henri, un tricot sur les genoux",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "22:00",
+            "fin": "22:15",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir",
+            "activite": "toilette_soir"
+          },
+          {
+            "debut": "22:15",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche, lit quelques pages",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "rs-mercredi",
+        "nom": "Mercredi : la chorale",
+        "jours": [
+          "mercredi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:00",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:00",
+            "fin": "07:30",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, toilette, s'habille",
+            "activite": "toilette_matin"
+          },
+          {
+            "debut": "07:30",
+            "fin": "07:50",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Henri, la radio en fond",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "07:50",
+            "fin": "08:20",
+            "lieu": "epicerie-chazal",
+            "action": "Descend chercher le pain chez Robert",
+            "activite": "courses"
+          },
+          {
+            "debut": "08:20",
+            "fin": "10:00",
+            "lieu": "domicile",
+            "action": "Ménage : la poussière, l'aspirateur, les vitres de la cuisine",
+            "activite": "menage"
+          },
+          {
+            "debut": "10:00",
+            "fin": "11:30",
+            "lieu": "sejour",
+            "action": "Répète sa partie du Requiem de Fauré, à mi-voix",
+            "activite": "temps_libre"
+          },
+          {
+            "debut": "11:30",
+            "fin": "12:15",
+            "lieu": "cuisine",
+            "action": "Prépare le déjeuner",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "12:15",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Déjeune avec Henri",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "13:00",
+            "fin": "13:20",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "13:20",
+            "fin": "14:00",
+            "lieu": "sejour",
+            "action": "Se repose dans le canapé",
+            "activite": "repos"
+          },
+          {
+            "debut": "14:00",
+            "fin": "14:05",
+            "lieu": "entree",
+            "action": "Manteau, sac à main, les partitions",
+            "activite": "sortie",
+            "objets": {
+              "partitions": "porte"
+            }
+          },
+          {
+            "debut": "14:05",
+            "fin": "14:15",
+            "lieu": "trajet-pied",
+            "action": "Remonte la Grande-Rue jusqu'à Saint-Denis",
+            "activite": "marche"
+          },
+          {
+            "debut": "14:15",
+            "fin": "16:30",
+            "lieu": "eglise-saint-denis",
+            "action": "Répétition de la chorale paroissiale : le Requiem de Fauré",
+            "activite": "chorale"
+          },
+          {
+            "debut": "16:30",
+            "fin": "16:40",
+            "lieu": "trajet-pied",
+            "action": "Redescend la Grande-Rue",
+            "activite": "marche"
+          },
+          {
+            "debut": "16:40",
+            "fin": "16:45",
+            "lieu": "entree",
+            "action": "Rentre, range ses partitions",
+            "activite": "retour",
+            "objets": {
+              "partitions": "rangement"
+            }
+          },
+          {
+            "debut": "16:45",
+            "fin": "18:00",
+            "lieu": "sejour",
+            "action": "Lit près de la fenêtre",
+            "activite": "lecture"
+          },
+          {
+            "debut": "18:00",
+            "fin": "18:45",
+            "lieu": "cuisine",
+            "action": "Prépare le dîner, tôt à cause du match",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "18:45",
+            "fin": "19:30",
+            "lieu": "cuisine",
+            "action": "Dîne avec Henri, qui ne parle que du match",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "19:30",
+            "fin": "19:50",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "19:50",
+            "fin": "21:30",
+            "lieu": "sejour",
+            "action": "Tricote au salon pendant qu'Henri attend le match",
+            "activite": "temps_libre"
+          },
+          {
+            "debut": "21:30",
+            "fin": "21:45",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir",
+            "activite": "toilette_soir"
+          },
+          {
+            "debut": "21:45",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche à la mi-temps ; le football, très peu pour elle",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "rs-jeudi",
+        "nom": "Jeudi : la bibliothèque",
+        "jours": [
+          "jeudi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:00",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:00",
+            "fin": "07:30",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, toilette, s'habille",
+            "activite": "toilette_matin"
+          },
+          {
+            "debut": "07:30",
+            "fin": "07:50",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Henri, la radio en fond",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "07:50",
+            "fin": "08:20",
+            "lieu": "epicerie-chazal",
+            "action": "Descend chercher le pain chez Robert",
+            "activite": "courses"
+          },
+          {
+            "debut": "08:20",
+            "fin": "10:00",
+            "lieu": "domicile",
+            "action": "Lessive et repassage",
+            "activite": "menage"
+          },
+          {
+            "debut": "10:00",
+            "fin": "11:30",
+            "lieu": "sejour",
+            "action": "Coud à la machine",
+            "activite": "temps_libre"
+          },
+          {
+            "debut": "11:30",
+            "fin": "12:15",
+            "lieu": "cuisine",
+            "action": "Prépare le déjeuner",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "12:15",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Déjeune avec Henri",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "13:00",
+            "fin": "13:20",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "13:20",
+            "fin": "14:15",
+            "lieu": "sejour",
+            "action": "Se repose dans le canapé",
+            "activite": "repos"
+          },
+          {
+            "debut": "14:15",
+            "fin": "14:20",
+            "lieu": "entree",
+            "action": "Manteau, sac à main, le livre à rendre",
+            "activite": "sortie",
+            "objets": {
+              "livre": "porte"
+            }
+          },
+          {
+            "debut": "14:20",
+            "fin": "14:35",
+            "lieu": "trajet-pied",
+            "action": "Va à pied jusqu'à la place Joannès-Ambre",
+            "activite": "marche"
+          },
+          {
+            "debut": "14:35",
+            "fin": "15:30",
+            "lieu": "bibliotheque-croix-rousse",
+            "action": "Rend son livre, en choisit deux autres, feuillette les journaux",
+            "activite": "lecture_dehors"
+          },
+          {
+            "debut": "15:30",
+            "fin": "15:45",
+            "lieu": "trajet-pied",
+            "action": "Rentre par le boulevard",
+            "activite": "marche"
+          },
+          {
+            "debut": "15:45",
+            "fin": "15:50",
+            "lieu": "entree",
+            "action": "Rentre, pose ses clés",
+            "activite": "retour",
+            "objets": {
+              "livre": "rangement"
+            }
+          },
+          {
+            "debut": "15:50",
+            "fin": "18:30",
+            "lieu": "sejour",
+            "action": "Commence un des livres empruntés",
+            "activite": "lecture"
+          },
+          {
+            "debut": "18:30",
+            "fin": "19:30",
+            "lieu": "cuisine",
+            "action": "Prépare le dîner",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "19:30",
+            "fin": "20:15",
+            "lieu": "cuisine",
+            "action": "Dîne avec Henri",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "20:15",
+            "fin": "20:35",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "20:35",
+            "fin": "22:00",
+            "lieu": "sejour",
+            "action": "Télévision avec Henri, un tricot sur les genoux",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "22:00",
+            "fin": "22:15",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir",
+            "activite": "toilette_soir"
+          },
+          {
+            "debut": "22:15",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche, lit quelques pages",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "rs-vendredi",
+        "nom": "Vendredi : le marché et le grand ménage",
+        "jours": [
+          "vendredi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "03:00",
+            "lieu": "chambre",
+            "action": "Dort, d'un sommeil léger",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "03:00",
+            "fin": "03:30",
+            "lieu": "cuisine",
+            "action": "Ne dort plus : se lève sans bruit, boit une tisane à la fenêtre de la cuisine, au-dessus de la cour de l'épicerie",
+            "activite": "eveille_nuit"
+          },
+          {
+            "debut": "03:30",
+            "fin": "07:00",
+            "lieu": "chambre",
+            "action": "Se recouche et finit par se rendormir",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:00",
+            "fin": "07:30",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, toilette, s'habille",
+            "activite": "toilette_matin"
+          },
+          {
+            "debut": "07:30",
+            "fin": "07:50",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Henri, la radio en fond",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "07:50",
+            "fin": "08:20",
+            "lieu": "epicerie-chazal",
+            "action": "Descend chercher le pain chez Robert",
+            "activite": "courses"
+          },
+          {
+            "debut": "08:20",
+            "fin": "09:00",
+            "lieu": "chambre",
+            "action": "Fait le lit, aère la chambre",
+            "activite": "menage"
+          },
+          {
+            "debut": "09:00",
+            "fin": "09:05",
+            "lieu": "entree",
+            "action": "Manteau, sac à main, le cabas à roulettes",
+            "activite": "sortie"
+          },
+          {
+            "debut": "09:05",
+            "fin": "10:30",
+            "lieu": "marche-croix-rousse",
+            "action": "Marché du boulevard : le poissonnier, le primeur",
+            "activite": "courses_quartier"
+          },
+          {
+            "debut": "10:30",
+            "fin": "10:35",
+            "lieu": "entree",
+            "action": "Remonte avec le cabas, marche par marche",
+            "activite": "retour"
+          },
+          {
+            "debut": "10:35",
+            "fin": "11:30",
+            "lieu": "domicile",
+            "action": "Range les courses, nettoie le réfrigérateur",
+            "activite": "menage"
+          },
+          {
+            "debut": "11:30",
+            "fin": "12:15",
+            "lieu": "cuisine",
+            "action": "Prépare le déjeuner",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "12:15",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Déjeune avec Henri",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "13:00",
+            "fin": "13:20",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "13:20",
+            "fin": "14:00",
+            "lieu": "sejour",
+            "action": "Se repose dans le canapé",
+            "activite": "repos"
+          },
+          {
+            "debut": "14:00",
+            "fin": "16:30",
+            "lieu": "domicile",
+            "action": "Grand ménage : les parquets, la salle de bain, les cuivres",
+            "activite": "menage"
+          },
+          {
+            "debut": "16:30",
+            "fin": "18:30",
+            "lieu": "sejour",
+            "action": "Lit près de la fenêtre",
+            "activite": "lecture"
+          },
+          {
+            "debut": "18:30",
+            "fin": "19:30",
+            "lieu": "cuisine",
+            "action": "Prépare le dîner",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "19:30",
+            "fin": "20:15",
+            "lieu": "cuisine",
+            "action": "Dîne avec Henri",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "20:15",
+            "fin": "20:35",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "20:35",
+            "fin": "22:00",
+            "lieu": "sejour",
+            "action": "Télévision avec Henri, un tricot sur les genoux",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "22:00",
+            "fin": "22:15",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir",
+            "activite": "toilette_soir"
+          },
+          {
+            "debut": "22:15",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche, lit quelques pages",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "rs-samedi",
+        "nom": "Samedi : le marché avec Henri, les crêpes",
+        "jours": [
+          "samedi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:15",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:15",
+            "fin": "07:45",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, toilette, s'habille",
+            "activite": "toilette_matin"
+          },
+          {
+            "debut": "07:45",
+            "fin": "08:10",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Henri, la radio en fond",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "08:10",
+            "fin": "08:40",
+            "lieu": "epicerie-chazal",
+            "action": "Descend chercher le pain chez Robert",
+            "activite": "courses"
+          },
+          {
+            "debut": "08:40",
+            "fin": "09:30",
+            "lieu": "chambre",
+            "action": "Fait le lit, aère la chambre",
+            "activite": "menage"
+          },
+          {
+            "debut": "09:30",
+            "fin": "09:35",
+            "lieu": "entree",
+            "action": "Manteau, sac à main, le cabas ; Henri l'accompagne",
+            "activite": "sortie",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "09:35",
+            "fin": "11:00",
+            "lieu": "marche-croix-rousse",
+            "action": "Marché du boulevard avec Henri : le boucher, le fromager, un café en terrasse",
+            "activite": "courses_quartier",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "11:00",
+            "fin": "11:05",
+            "lieu": "entree",
+            "action": "Remonte, Henri porte le cabas",
+            "activite": "retour",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "11:05",
+            "fin": "11:30",
+            "lieu": "domicile",
+            "action": "Range les courses",
+            "activite": "menage"
+          },
+          {
+            "debut": "11:30",
+            "fin": "12:15",
+            "lieu": "cuisine",
+            "action": "Prépare le déjeuner",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "12:15",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Déjeune avec Henri",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "13:00",
+            "fin": "13:20",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "13:20",
+            "fin": "14:15",
+            "lieu": "sejour",
+            "action": "Se repose dans le canapé",
+            "activite": "repos"
+          },
+          {
+            "debut": "14:15",
+            "fin": "17:30",
+            "lieu": "sejour",
+            "action": "Coud et écoute la radio pendant qu'Henri est aux boules",
+            "activite": "temps_libre",
+            "avec": [
+              "radio"
+            ]
+          },
+          {
+            "debut": "17:30",
+            "fin": "18:45",
+            "lieu": "sejour",
+            "action": "Écrit à sa petite-fille Camille",
+            "activite": "lecture"
+          },
+          {
+            "debut": "18:45",
+            "fin": "19:30",
+            "lieu": "cuisine",
+            "action": "Prépare la pâte à crêpes et les crêpes",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "19:30",
+            "fin": "20:30",
+            "lieu": "cuisine",
+            "action": "Crêpes avec Henri",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "20:30",
+            "fin": "20:50",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "20:50",
+            "fin": "22:15",
+            "lieu": "sejour",
+            "action": "Télévision avec Henri, un tricot sur les genoux",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "22:15",
+            "fin": "22:30",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir",
+            "activite": "toilette_soir"
+          },
+          {
+            "debut": "22:30",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche, lit quelques pages",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "rs-dimanche",
+        "nom": "Dimanche : la messe, le vote, le rôti",
+        "jours": [
+          "dimanche"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:15",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:15",
+            "fin": "07:45",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, toilette, s'habille pour la messe",
+            "activite": "toilette_matin"
+          },
+          {
+            "debut": "07:45",
+            "fin": "08:10",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Henri, la radio en fond",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "08:10",
+            "fin": "08:40",
+            "lieu": "epicerie-chazal",
+            "action": "Descend chercher le pain chez Robert",
+            "activite": "courses"
+          },
+          {
+            "debut": "08:40",
+            "fin": "10:15",
+            "lieu": "cuisine",
+            "action": "Prépare le rôti et la tarte aux pommes",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "10:15",
+            "fin": "10:20",
+            "lieu": "entree",
+            "action": "Manteau, sac à main",
+            "activite": "sortie"
+          },
+          {
+            "debut": "10:20",
+            "fin": "10:30",
+            "lieu": "trajet-pied",
+            "action": "Remonte la Grande-Rue jusqu'à Saint-Denis",
+            "activite": "marche"
+          },
+          {
+            "debut": "10:30",
+            "fin": "11:30",
+            "lieu": "eglise-saint-denis",
+            "action": "La messe de 10:30 ; elle chante avec la chorale",
+            "activite": "messe"
+          },
+          {
+            "debut": "11:30",
+            "fin": "11:45",
+            "lieu": "trajet-pied",
+            "action": "Redescend par le boulevard, retrouve Henri devant la mairie",
+            "activite": "marche"
+          },
+          {
+            "debut": "11:45",
+            "fin": "12:00",
+            "lieu": "bureau-de-vote-4e",
+            "action": "Vote avec Henri au premier tour des régionales",
+            "activite": "vote",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "12:00",
+            "fin": "12:10",
+            "lieu": "trajet-pied",
+            "action": "Rentre avec Henri",
+            "activite": "marche",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "12:10",
+            "fin": "12:15",
+            "lieu": "entree",
+            "action": "Rentre, pose ses clés",
+            "activite": "retour",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "12:15",
+            "fin": "12:30",
+            "lieu": "cuisine",
+            "action": "Finit le rôti",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "12:30",
+            "fin": "13:30",
+            "lieu": "sejour",
+            "action": "Déjeuner du dimanche avec Henri",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "13:30",
+            "fin": "13:50",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "13:50",
+            "fin": "14:45",
+            "lieu": "sejour",
+            "action": "Se repose dans le canapé",
+            "activite": "repos"
+          },
+          {
+            "debut": "14:45",
+            "fin": "14:50",
+            "lieu": "entree",
+            "action": "Manteau ; Henri l'attend sur le palier",
+            "activite": "sortie",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "14:50",
+            "fin": "16:30",
+            "lieu": "trajet-pied",
+            "action": "Promenade avec Henri jusqu'au Gros Caillou, au bras l'un de l'autre",
+            "activite": "marche",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "16:30",
+            "fin": "16:35",
+            "lieu": "entree",
+            "action": "Rentre, pose ses clés",
+            "activite": "retour",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "16:35",
+            "fin": "18:45",
+            "lieu": "sejour",
+            "action": "Lit, puis téléphone à sa fille Martine",
+            "activite": "lecture"
+          },
+          {
+            "debut": "18:45",
+            "fin": "19:15",
+            "lieu": "cuisine",
+            "action": "Réchauffe le bouillon",
+            "activite": "cuisiner"
+          },
+          {
+            "debut": "19:15",
+            "fin": "20:00",
+            "lieu": "cuisine",
+            "action": "Dîne avec Henri",
+            "activite": "repas",
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "20:00",
+            "fin": "20:20",
+            "lieu": "cuisine",
+            "action": "Fait la vaisselle",
+            "activite": "vaisselle"
+          },
+          {
+            "debut": "20:20",
+            "fin": "21:45",
+            "lieu": "sejour",
+            "action": "Télévision avec Henri, un tricot sur les genoux",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "henri-vial"
+            ]
+          },
+          {
+            "debut": "21:45",
+            "fin": "22:00",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir",
+            "activite": "toilette_soir"
+          },
+          {
+            "debut": "22:00",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche, lit quelques pages",
+            "activite": "coucher"
+          }
+        ]
+      }
+    ]
+  },
+  "agenda_semaine": [
+    {
+      "id": "ag-vienne",
+      "debut": "2010-03-08T09:30",
+      "fin": "2010-03-08T18:05",
+      "lieu": "vienne",
+      "quoi": "Journée chez Paulette, à Vienne, avec Henri",
+      "engagement": "ferme",
+      "objets_necessaires": [
+        "obj-sac-simone"
+      ]
+    },
+    {
+      "id": "ag-perrin",
+      "debut": "2010-03-09T14:30",
+      "fin": "2010-03-09T16:45",
+      "lieu": "chez-mme-perrin",
+      "quoi": "Café chez Jeanne Perrin",
+      "engagement": "souple",
+      "objets_necessaires": [
+        "obj-sac-simone"
+      ]
+    },
+    {
+      "id": "ag-chorale",
+      "debut": "2010-03-10T14:15",
+      "fin": "2010-03-10T16:30",
+      "lieu": "eglise-saint-denis",
+      "quoi": "Répétition de la chorale",
+      "engagement": "ferme",
+      "objets_necessaires": [
+        "obj-partitions"
+      ]
+    },
+    {
+      "id": "ag-bibliotheque",
+      "debut": "2010-03-11T14:35",
+      "fin": "2010-03-11T15:30",
+      "lieu": "bibliotheque-croix-rousse",
+      "quoi": "Rendre « La Promesse de l'aube »",
+      "engagement": "souple",
+      "objets_necessaires": [
+        "obj-livre-simone"
+      ]
+    },
+    {
+      "id": "ag-messe",
+      "debut": "2010-03-14T10:30",
+      "fin": "2010-03-14T11:30",
+      "lieu": "eglise-saint-denis",
+      "quoi": "Messe du dimanche, avec la chorale",
+      "engagement": "ferme",
+      "objets_necessaires": []
+    },
+    {
+      "id": "ag-vote",
+      "debut": "2010-03-14T11:45",
+      "fin": "2010-03-14T12:00",
+      "lieu": "bureau-de-vote-4e",
+      "quoi": "Voter avec Henri au premier tour des régionales",
+      "engagement": "ferme",
+      "objets_necessaires": [
+        "obj-sac-simone"
+      ]
+    }
+  ],
+  "objectifs": [
+    {
+      "id": "ob-requiem",
+      "description": "Savoir sa partie du Requiem par cœur pour Pâques",
+      "echeance": "2010-04-04T10:30",
+      "priorite": 0.5
+    },
+    {
+      "id": "ob-paulette",
+      "description": "Convaincre Paulette de voir un médecin",
+      "echeance": "2010-03-08T16:30",
+      "priorite": 0.6
+    }
+  ],
+  "technologie_2010": {
+    "telephone": "téléphone fixe à cadran dans l'entrée",
+    "television": "téléviseur à tube",
+    "machine_a_coudre": "Singer électrique des années 1970"
+  },
+  "lieux": [
+    {
+      "id": "trajet-transports",
+      "nom": "Bus et TER entre la Croix-Rousse et Vienne",
+      "type": "extérieur",
+      "description": "Bus C13 de la Grande-Rue à la Part-Dieu (30 min), puis TER jusqu'à Vienne (35 min) ; une heure et quart de porte à porte."
+    },
+    {
+      "id": "vienne",
+      "nom": "Chez Paulette, à Vienne",
+      "type": "logement",
+      "adresse": "rue Marchande, Vienne (Isère)",
+      "description": "Le petit appartement de Paulette, la sœur aînée de Simone, veuve, à deux rues du temple d'Auguste et de Livie."
+    },
+    {
+      "id": "marche-croix-rousse",
+      "nom": "Marché du boulevard de la Croix-Rousse",
+      "type": "commerce",
+      "adresse": "boulevard de la Croix-Rousse, 69004 Lyon",
+      "description": "Le marché de plein air du boulevard, tous les matins sauf le lundi : primeurs, bouchers, fromagers, poissonniers."
+    },
+    {
+      "id": "clos-jouve",
+      "nom": "Boulodrome du Clos Jouve",
+      "type": "extérieur",
+      "adresse": "boulevard de la Croix-Rousse, 69004 Lyon",
+      "description": "Les jeux de boule lyonnaise sous les platanes ; Henri y retrouve les anciens de la Croix-Rousse."
+    },
+    {
+      "id": "eglise-saint-denis",
+      "nom": "Église Saint-Denis de la Croix-Rousse",
+      "type": "public",
+      "adresse": "Grande-Rue de la Croix-Rousse, 69004 Lyon",
+      "description": "La paroisse de Simone ; la chorale y répète le mercredi après-midi, la messe du dimanche est à 10:30."
+    },
+    {
+      "id": "chez-mme-perrin",
+      "nom": "Chez Mme Perrin, rue Dumenge",
+      "type": "logement",
+      "adresse": "rue Dumenge, 69004 Lyon",
+      "description": "L'appartement de Jeanne Perrin, ancienne collègue de Simone à l'école de la Croix-Rousse."
+    },
+    {
+      "id": "bibliotheque-croix-rousse",
+      "nom": "Bibliothèque de la Croix-Rousse",
+      "type": "public",
+      "adresse": "place Joannès-Ambre, 69004 Lyon",
+      "description": "Simone y rend et emprunte ses livres le jeudi."
+    },
+    {
+      "id": "tabac-garnier",
+      "nom": "Tabac-presse de M. Garnier",
+      "type": "commerce",
+      "adresse": "Grande-Rue de la Croix-Rousse, 69004 Lyon",
+      "description": "Le bureau de tabac voisin de l'épicerie ; Henri y achète Le Progrès chaque matin et y joue son tiercé le dimanche."
+    },
+    {
+      "id": "bureau-de-vote-4e",
+      "nom": "Bureau de vote de la mairie du 4e",
+      "type": "public",
+      "adresse": "133, boulevard de la Croix-Rousse, 69004 Lyon",
+      "description": "Henri et Simone y votent ensemble depuis 1962."
+    },
+    {
+      "id": "epicerie-chazal",
+      "nom": "Épicerie Chazal",
+      "type": "commerce",
+      "adresse": "Grande-Rue de la Croix-Rousse, 69004 Lyon, au rez-de-chaussée de leur immeuble",
+      "description": "L'épicerie de Robert, juste sous leur appartement ; la porte de derrière donne sur la cour, sous la fenêtre de leur cuisine."
+    },
+    {
+      "id": "trajet-pied",
+      "nom": "Trajet à pied",
+      "type": "extérieur"
+    }
+  ]
+}

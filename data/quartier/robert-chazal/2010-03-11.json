@@ -39,7 +39,7 @@
   "evenements_vecus": {
    "plaisir_simple": 3,
    "affluence": 6,
-   "client_habitue": 18,
+   "client_habitue": 19,
    "client_presse": 4,
    "boutique_vide": 2,
    "moment_josiane": 3,
@@ -60,20 +60,20 @@
    "mouvements_du_jour": {
     "caisse": 0.0,
     "compte": 37.65,
-    "coffre": 259.2
+    "coffre": 270.2
    },
    "soldes_en_fin_de_journee": {
     "especes": 60,
     "compte": 3579.85,
     "caisse": 150.0,
-    "coffre": 812.95,
+    "coffre": 840.0,
     "ardoises": 52.1
    }
   },
   "magasin": {
-   "clients": 102,
-   "recette": 296.85,
-   "recette_especes": 259.2,
+   "clients": 103,
+   "recette": 307.85,
+   "recette_especes": 270.2,
    "recette_carte": 37.65,
    "a_credit": 0.0,
    "ruptures": [],
@@ -112,7 +112,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 16.0,
-     "stock": 9
+     "stock": 8
     },
     "oeufs": {
      "nom": "œufs (boîte de 6)",
@@ -121,7 +121,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 15.2,
-     "stock": 4
+     "stock": 3
     },
     "beurre": {
      "nom": "beurre (plaquette de 250 g)",
@@ -130,16 +130,16 @@
      "repris": 0,
      "preleve": 0,
      "recette": 9.75,
-     "stock": 11
+     "stock": 10
     },
     "comte": {
      "nom": "comté (morceau de 250 g)",
-     "vendu": 0,
+     "vendu": 1,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 11
+     "recette": 4.5,
+     "stock": 10
     },
     "fromage_rape": {
      "nom": "emmental râpé (sachet de 200 g)",
@@ -152,12 +152,12 @@
     },
     "jambon": {
      "nom": "jambon blanc (4 tranches)",
-     "vendu": 12,
+     "vendu": 13,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 31.2,
-     "stock": 4
+     "recette": 33.8,
+     "stock": 1
     },
     "cafe_moulu": {
      "nom": "café moulu (paquet de 250 g)",
@@ -179,12 +179,12 @@
     },
     "pates": {
      "nom": "pâtes (paquet de 500 g)",
-     "vendu": 6,
+     "vendu": 7,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 5.7,
-     "stock": 14
+     "recette": 6.65,
+     "stock": 13
     },
     "riz": {
      "nom": "riz (paquet d'un kilo)",
@@ -278,12 +278,12 @@
     },
     "pommes": {
      "nom": "pommes",
-     "vendu": 36,
+     "vendu": 39,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 14.4,
-     "stock": 26
+     "recette": 15.6,
+     "stock": 15
     },
     "oranges": {
      "nom": "oranges",
@@ -323,21 +323,21 @@
     },
     "carottes": {
      "nom": "carottes (sachet d'un kilo)",
-     "vendu": 1,
-     "livre": 0,
-     "repris": 0,
-     "preleve": 0,
-     "recette": 1.5,
-     "stock": 9
-    },
-    "oignons": {
-     "nom": "oignons",
      "vendu": 2,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.5,
-     "stock": 25
+     "recette": 3.0,
+     "stock": 8
+    },
+    "oignons": {
+     "nom": "oignons",
+     "vendu": 3,
+     "livre": 0,
+     "repris": 0,
+     "preleve": 0,
+     "recette": 0.75,
+     "stock": 24
     },
     "salade": {
      "nom": "laitue",
@@ -346,7 +346,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 4.4,
-     "stock": 5
+     "stock": 3
     },
     "papier_toilette": {
      "nom": "papier toilette (paquet de 6)",
@@ -418,7 +418,7 @@
    "06:30 : livraisons : 2 produits, invendus repris : quatre pains de campagne.",
    "11:35 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 09:30 ».",
    "17:25 : toilettes sous le seuil d'alerte (24.1, score 1.04) ; interrompt « Sert les clients ; café à 16:30 ».",
-   "18:15 : rupture : baguette.",
+   "17:55 : rupture : baguette.",
    "21:35 : épuisé (énergie 24.7), il va se coucher sans attendre 22:30."
   ]
  },
@@ -504,19 +504,19 @@
    "especes": 60,
    "compte": 3542.2,
    "caisse": 150.0,
-   "coffre": 553.75,
+   "coffre": 569.8,
    "ardoises": 52.1
   },
   "boutique": {
    "baguette": 0,
    "pain_campagne": 4,
    "lait_uht": 27,
-   "yaourts": 19,
-   "oeufs": 12,
-   "beurre": 16,
+   "yaourts": 18,
+   "oeufs": 11,
+   "beurre": 15,
    "comte": 11,
    "fromage_rape": 6,
-   "jambon": 16,
+   "jambon": 14,
    "cafe_moulu": 20,
    "chocolat_noir": 15,
    "pates": 20,
@@ -530,14 +530,14 @@
    "vin_rouge": 12,
    "eau": 38,
    "jus_orange": 13,
-   "pommes": 62,
+   "pommes": 54,
    "oranges": 35,
    "bananes": 55,
    "tomates": 15,
    "pommes_de_terre": 6,
    "carottes": 10,
    "oignons": 27,
-   "salade": 9,
+   "salade": 7,
    "papier_toilette": 9,
    "lessive": 4,
    "bonbons": 21
@@ -695,22 +695,22 @@
    "especes": 60,
    "compte": 3579.85,
    "caisse": 150.0,
-   "coffre": 812.95,
+   "coffre": 840.0,
    "ardoises": 52.1
   },
   "boutique": {
    "baguette": 0,
    "pain_campagne": 1,
    "lait_uht": 17,
-   "yaourts": 9,
-   "oeufs": 4,
-   "beurre": 11,
-   "comte": 11,
+   "yaourts": 8,
+   "oeufs": 3,
+   "beurre": 10,
+   "comte": 10,
    "fromage_rape": 4,
-   "jambon": 4,
+   "jambon": 1,
    "cafe_moulu": 12,
    "chocolat_noir": 14,
-   "pates": 14,
+   "pates": 13,
    "riz": 14,
    "thon": 15,
    "haricots_verts": 19,
@@ -721,14 +721,14 @@
    "vin_rouge": 11,
    "eau": 17,
    "jus_orange": 10,
-   "pommes": 26,
+   "pommes": 15,
    "oranges": 17,
    "bananes": 38,
    "tomates": 12,
    "pommes_de_terre": 5,
-   "carottes": 9,
-   "oignons": 25,
-   "salade": 5,
+   "carottes": 8,
+   "oignons": 24,
+   "salade": 3,
    "papier_toilette": 8,
    "lessive": 2,
    "bonbons": 17
@@ -3901,7 +3901,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "especes",
-     "reste": 15
+     "reste": 13
     },
     {
      "produit": "eau",
@@ -3917,7 +3917,7 @@
      "quantite": 1,
      "prix": 1.95,
      "paiement": "especes",
-     "reste": 15
+     "reste": 14
     },
     {
      "produit": "baguette",
@@ -3933,7 +3933,7 @@
      "quantite": 1,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 18
+     "reste": 17
     }
    ],
    "clients": 5,
@@ -3945,7 +3945,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 168.1,
-     "coffre": 553.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -4021,7 +4021,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 171.0,
-     "coffre": 553.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -4076,7 +4076,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "especes",
-     "reste": 14
+     "reste": 12
     },
     {
      "produit": "baguette",
@@ -4096,7 +4096,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 175.45,
-     "coffre": 553.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -4159,7 +4159,7 @@
      "quantite": 1,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 17
+     "reste": 16
     },
     {
      "produit": "beurre",
@@ -4167,7 +4167,7 @@
      "quantite": 1,
      "prix": 1.95,
      "paiement": "especes",
-     "reste": 14
+     "reste": 13
     }
    ],
    "clients": 1,
@@ -4179,7 +4179,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 179.9,
-     "coffre": 553.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -4270,7 +4270,7 @@
      "quantite": 5,
      "prix": 2.0,
      "paiement": "especes",
-     "reste": 57
+     "reste": 49
     },
     {
      "produit": "jus_orange",
@@ -4298,7 +4298,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 185.5,
-     "coffre": 553.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -4397,7 +4397,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "especes",
-     "reste": 13
+     "reste": 11
     },
     {
      "produit": "baguette",
@@ -4425,7 +4425,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 192.0,
-     "coffre": 553.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -4488,7 +4488,7 @@
      "quantite": 1,
      "prix": 1.9,
      "paiement": "especes",
-     "reste": 11
+     "reste": 10
     },
     {
      "produit": "bananes",
@@ -4508,7 +4508,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 194.8,
-     "coffre": 553.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -4591,7 +4591,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 199.9,
-     "coffre": 553.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -4692,7 +4692,7 @@
      "quantite": 1,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 16
+     "reste": 15
     },
     {
      "produit": "cafe_moulu",
@@ -4740,7 +4740,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 53
+     "reste": 45
     }
    ],
    "clients": 4,
@@ -4752,7 +4752,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 212.6,
-     "coffre": 553.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -4820,7 +4820,7 @@
      "especes": 60,
      "compte": 3542.2,
      "caisse": 213.5,
-     "coffre": 553.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -4858,12 +4858,95 @@
    "posture": "debout",
    "routine": "rt-commerce",
    "activite": "Sert les clients ; café à 09:30",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Tient la boutique et sert les clients. Avec Simone. Sert Simone : 3 × pommes, pâtes, jambon blanc, comté, baguette, carottes, oignons (11,90 €, en espèces).",
    "pensee": null,
+   "ensemble": [
+    "Simone"
+   ],
+   "ventes": [
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 3,
+     "prix": 1.2,
+     "paiement": "especes",
+     "reste": 42
+    },
+    {
+     "produit": "pates",
+     "nom": "pâtes (paquet de 500 g)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 19
+    },
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "prix": 2.6,
+     "paiement": "especes",
+     "reste": 10
+    },
+    {
+     "produit": "comte",
+     "nom": "comté (morceau de 250 g)",
+     "quantite": 1,
+     "prix": 4.5,
+     "paiement": "especes",
+     "reste": 10
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 50
+    },
+    {
+     "produit": "carottes",
+     "nom": "carottes (sachet d'un kilo)",
+     "quantite": 1,
+     "prix": 1.5,
+     "paiement": "especes",
+     "reste": 9
+    },
+    {
+     "produit": "oignons",
+     "nom": "oignons",
+     "quantite": 1,
+     "prix": 0.25,
+     "paiement": "especes",
+     "reste": 26
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 11.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3542.2,
+     "caisse": 225.4,
+     "coffre": 569.8,
+     "ardoises": 52.1
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 87.0,
@@ -4871,16 +4954,16 @@
     "energie": 86.7,
     "hygiene": 96.6,
     "toilettes": 69.2,
-    "social": 99.9,
+    "social": 100.0,
     "detente": 86.5,
     "energie_ressentie": 82.7
    },
    "emotions": {
-    "joie": 0.511,
+    "joie": 0.551,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.057,
-    "solitude": 0.215,
+    "solitude": 0.185,
     "fierte": 0.4,
     "excitation": 0.245,
     "concentration": 0.6
@@ -4911,7 +4994,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 50
+     "reste": 49
     }
    ],
    "clients": 1,
@@ -4922,8 +5005,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3542.2,
-     "caisse": 215.0,
-     "coffre": 553.75,
+     "caisse": 226.9,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -4943,11 +5026,11 @@
     "energie_ressentie": 82.3
    },
    "emotions": {
-    "joie": 0.505,
+    "joie": 0.54,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.056,
-    "solitude": 0.217,
+    "solitude": 0.188,
     "fierte": 0.4,
     "excitation": 0.241,
     "concentration": 0.6
@@ -4970,7 +5053,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 49
+     "reste": 48
     },
     {
      "produit": "lait_uht",
@@ -4986,7 +5069,7 @@
      "quantite": 1,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 15
+     "reste": 14
     }
    ],
    "clients": 1,
@@ -4997,8 +5080,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3542.2,
-     "caisse": 218.45,
-     "coffre": 553.75,
+     "caisse": 230.35,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -5027,11 +5110,11 @@
     "energie_ressentie": 81.9
    },
    "emotions": {
-    "joie": 0.539,
+    "joie": 0.57,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.055,
-    "solitude": 0.188,
+    "solitude": 0.162,
     "fierte": 0.4,
     "excitation": 0.236,
     "concentration": 0.6
@@ -5054,7 +5137,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 48
+     "reste": 47
     },
     {
      "produit": "eau",
@@ -5086,7 +5169,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "carte",
-     "reste": 47
+     "reste": 46
     },
     {
      "produit": "yaourts",
@@ -5094,7 +5177,7 @@
      "quantite": 1,
      "prix": 1.6,
      "paiement": "carte",
-     "reste": 14
+     "reste": 13
     }
    ],
    "clients": 2,
@@ -5106,8 +5189,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3547.6,
-     "caisse": 220.9,
-     "coffre": 553.75,
+     "caisse": 232.8,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -5136,11 +5219,11 @@
     "energie_ressentie": 81.5
    },
    "emotions": {
-    "joie": 0.569,
+    "joie": 0.597,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.054,
-    "solitude": 0.162,
+    "solitude": 0.137,
     "fierte": 0.4,
     "excitation": 0.232,
     "concentration": 0.6
@@ -5163,7 +5246,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 46
+     "reste": 45
     },
     {
      "produit": "pain_campagne",
@@ -5179,7 +5262,7 @@
      "quantite": 1,
      "prix": 1.95,
      "paiement": "especes",
-     "reste": 13
+     "reste": 12
     },
     {
      "produit": "lait_uht",
@@ -5195,7 +5278,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 45
+     "reste": 44
     },
     {
      "produit": "eau",
@@ -5222,8 +5305,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3547.6,
-     "caisse": 231.2,
-     "coffre": 553.75,
+     "caisse": 243.1,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -5252,11 +5335,11 @@
     "energie_ressentie": 81.1
    },
    "emotions": {
-    "joie": 0.596,
+    "joie": 0.621,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.053,
-    "solitude": 0.137,
+    "solitude": 0.113,
     "fierte": 0.4,
     "excitation": 0.229,
     "concentration": 0.6
@@ -5279,7 +5362,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 44
+     "reste": 43
     }
    ],
    "clients": 1,
@@ -5290,8 +5373,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3547.6,
-     "caisse": 232.1,
-     "coffre": 553.75,
+     "caisse": 244.0,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -5311,11 +5394,11 @@
     "energie_ressentie": 80.7
    },
    "emotions": {
-    "joie": 0.58,
+    "joie": 0.602,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.053,
-    "solitude": 0.143,
+    "solitude": 0.121,
     "fierte": 0.4,
     "excitation": 0.226,
     "concentration": 0.6
@@ -5346,7 +5429,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 43
+     "reste": 42
     },
     {
      "produit": "beurre",
@@ -5354,7 +5437,7 @@
      "quantite": 1,
      "prix": 1.95,
      "paiement": "especes",
-     "reste": 12
+     "reste": 11
     },
     {
      "produit": "yaourts",
@@ -5362,7 +5445,7 @@
      "quantite": 1,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 13
+     "reste": 12
     },
     {
      "produit": "oeufs",
@@ -5370,7 +5453,7 @@
      "quantite": 1,
      "prix": 1.9,
      "paiement": "especes",
-     "reste": 10
+     "reste": 9
     }
    ],
    "clients": 2,
@@ -5381,8 +5464,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3547.6,
-     "caisse": 239.4,
-     "coffre": 553.75,
+     "caisse": 251.3,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -5411,11 +5494,11 @@
     "energie_ressentie": 80.3
    },
    "emotions": {
-    "joie": 0.606,
+    "joie": 0.626,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.052,
-    "solitude": 0.119,
+    "solitude": 0.098,
     "fierte": 0.4,
     "excitation": 0.223,
     "concentration": 0.6
@@ -5438,7 +5521,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "carte",
-     "reste": 42
+     "reste": 41
     },
     {
      "produit": "cafe_moulu",
@@ -5454,7 +5537,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "carte",
-     "reste": 12
+     "reste": 9
     },
     {
      "produit": "oeufs",
@@ -5462,7 +5545,7 @@
      "quantite": 1,
      "prix": 1.9,
      "paiement": "carte",
-     "reste": 9
+     "reste": 8
     },
     {
      "produit": "sucre",
@@ -5482,8 +5565,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3555.9,
-     "caisse": 240.6,
-     "coffre": 553.75,
+     "caisse": 252.5,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -5503,11 +5586,11 @@
     "energie_ressentie": 79.9
    },
    "emotions": {
-    "joie": 0.589,
+    "joie": 0.607,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.052,
-    "solitude": 0.127,
+    "solitude": 0.107,
     "fierte": 0.4,
     "excitation": 0.22,
     "concentration": 0.6
@@ -5538,7 +5621,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 41
+     "reste": 40
     }
    ],
    "clients": 1,
@@ -5549,8 +5632,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3555.9,
-     "caisse": 242.45,
-     "coffre": 553.75,
+     "caisse": 254.35,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -5570,11 +5653,11 @@
     "energie_ressentie": 79.5
    },
    "emotions": {
-    "joie": 0.574,
+    "joie": 0.59,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.052,
-    "solitude": 0.133,
+    "solitude": 0.115,
     "fierte": 0.4,
     "excitation": 0.218,
     "concentration": 0.6
@@ -5597,7 +5680,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 40
+     "reste": 39
     },
     {
      "produit": "baguette",
@@ -5605,7 +5688,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 39
+     "reste": 38
     }
    ],
    "clients": 2,
@@ -5616,8 +5699,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3555.9,
-     "caisse": 244.25,
-     "coffre": 553.75,
+     "caisse": 256.15,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -5637,11 +5720,11 @@
     "energie_ressentie": 79.1
    },
    "emotions": {
-    "joie": 0.56,
+    "joie": 0.574,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.14,
+    "solitude": 0.122,
     "fierte": 0.4,
     "excitation": 0.216,
     "concentration": 0.6
@@ -5673,11 +5756,11 @@
     "energie_ressentie": 82.7
    },
    "emotions": {
-    "joie": 0.548,
+    "joie": 0.561,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.146,
+    "solitude": 0.129,
     "fierte": 0.4,
     "excitation": 0.214,
     "concentration": 0.6
@@ -5700,7 +5783,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 38
+     "reste": 37
     },
     {
      "produit": "pain_campagne",
@@ -5716,7 +5799,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 49
+     "reste": 38
     },
     {
      "produit": "pain_campagne",
@@ -5740,7 +5823,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 37
+     "reste": 36
     }
    ],
    "clients": 2,
@@ -5751,8 +5834,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3555.9,
-     "caisse": 252.85,
-     "coffre": 553.75,
+     "caisse": 264.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -5772,11 +5855,11 @@
     "energie_ressentie": 82.3
    },
    "emotions": {
-    "joie": 0.537,
+    "joie": 0.549,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.152,
+    "solitude": 0.136,
     "fierte": 0.4,
     "excitation": 0.213,
     "concentration": 0.6
@@ -5807,7 +5890,7 @@
      "quantite": 1,
      "prix": 1.9,
      "paiement": "especes",
-     "reste": 8
+     "reste": 7
     }
    ],
    "clients": 1,
@@ -5818,8 +5901,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3555.9,
-     "caisse": 257.65,
-     "coffre": 553.75,
+     "caisse": 269.55,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -5847,11 +5930,11 @@
     "energie_ressentie": 81.9
    },
    "emotions": {
-    "joie": 0.528,
+    "joie": 0.538,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.095,
-    "solitude": 0.158,
+    "solitude": 0.143,
     "fierte": 0.4,
     "excitation": 0.211,
     "concentration": 0.6
@@ -5883,11 +5966,11 @@
     "energie_ressentie": 81.5
    },
    "emotions": {
-    "joie": 0.519,
+    "joie": 0.528,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.088,
-    "solitude": 0.163,
+    "solitude": 0.149,
     "fierte": 0.4,
     "excitation": 0.21,
     "concentration": 0.6
@@ -5919,11 +6002,11 @@
     "energie_ressentie": 81.1
    },
    "emotions": {
-    "joie": 0.512,
+    "joie": 0.52,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.082,
-    "solitude": 0.168,
+    "solitude": 0.154,
     "fierte": 0.4,
     "excitation": 0.209,
     "concentration": 0.6
@@ -5954,7 +6037,7 @@
      "quantite": 6,
      "prix": 2.4,
      "paiement": "especes",
-     "reste": 43
+     "reste": 32
     },
     {
      "produit": "baguette",
@@ -5962,7 +6045,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 36
+     "reste": 35
     }
    ],
    "clients": 2,
@@ -5973,8 +6056,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3555.9,
-     "caisse": 262.75,
-     "coffre": 553.75,
+     "caisse": 274.65,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -6003,11 +6086,11 @@
     "energie_ressentie": 80.7
    },
    "emotions": {
-    "joie": 0.545,
+    "joie": 0.552,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.077,
-    "solitude": 0.142,
+    "solitude": 0.13,
     "fierte": 0.4,
     "excitation": 0.208,
     "concentration": 0.6
@@ -6039,11 +6122,11 @@
     "energie_ressentie": 80.3
    },
    "emotions": {
-    "joie": 0.535,
+    "joie": 0.541,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.072,
-    "solitude": 0.148,
+    "solitude": 0.136,
     "fierte": 0.4,
     "excitation": 0.207,
     "concentration": 0.6
@@ -6075,11 +6158,11 @@
     "energie_ressentie": 79.9
    },
    "emotions": {
-    "joie": 0.525,
+    "joie": 0.531,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.069,
-    "solitude": 0.154,
+    "solitude": 0.143,
     "fierte": 0.4,
     "excitation": 0.206,
     "concentration": 0.6
@@ -6111,11 +6194,11 @@
     "energie_ressentie": 79.5
    },
    "emotions": {
-    "joie": 0.517,
+    "joie": 0.522,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.066,
-    "solitude": 0.159,
+    "solitude": 0.149,
     "fierte": 0.4,
     "excitation": 0.206,
     "concentration": 0.6
@@ -6138,7 +6221,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 35
+     "reste": 34
     },
     {
      "produit": "lait_uht",
@@ -6157,8 +6240,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3555.9,
-     "caisse": 264.6,
-     "coffre": 553.75,
+     "caisse": 276.5,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -6178,11 +6261,11 @@
     "energie_ressentie": 79.1
    },
    "emotions": {
-    "joie": 0.51,
+    "joie": 0.514,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.063,
-    "solitude": 0.164,
+    "solitude": 0.154,
     "fierte": 0.4,
     "excitation": 0.205,
     "concentration": 0.6
@@ -6205,7 +6288,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 34
+     "reste": 33
     }
    ],
    "clients": 1,
@@ -6216,8 +6299,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3555.9,
-     "caisse": 265.5,
-     "coffre": 553.75,
+     "caisse": 277.4,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -6237,11 +6320,11 @@
     "energie_ressentie": 78.7
    },
    "emotions": {
-    "joie": 0.503,
+    "joie": 0.507,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.061,
-    "solitude": 0.169,
+    "solitude": 0.16,
     "fierte": 0.4,
     "excitation": 0.205,
     "concentration": 0.6
@@ -6273,11 +6356,11 @@
     "energie_ressentie": 78.3
    },
    "emotions": {
-    "joie": 0.498,
+    "joie": 0.501,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.059,
-    "solitude": 0.174,
+    "solitude": 0.165,
     "fierte": 0.4,
     "excitation": 0.204,
     "concentration": 0.6
@@ -6308,7 +6391,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "carte",
-     "reste": 33
+     "reste": 32
     },
     {
      "produit": "pommes",
@@ -6316,7 +6399,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "carte",
-     "reste": 39
+     "reste": 28
     }
    ],
    "clients": 1,
@@ -6327,8 +6410,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 265.5,
-     "coffre": 553.75,
+     "caisse": 277.4,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -6357,11 +6440,11 @@
     "energie_ressentie": 77.9
    },
    "emotions": {
-    "joie": 0.532,
+    "joie": 0.536,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.058,
-    "solitude": 0.148,
+    "solitude": 0.14,
     "fierte": 0.4,
     "excitation": 0.204,
     "concentration": 0.6
@@ -6384,14 +6467,6 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 32
-    },
-    {
-     "produit": "baguette",
-     "nom": "baguette",
-     "quantite": 1,
-     "prix": 0.9,
-     "paiement": "especes",
      "reste": 31
     },
     {
@@ -6401,6 +6476,14 @@
      "prix": 0.9,
      "paiement": "especes",
      "reste": 30
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 29
     },
     {
      "produit": "bonbons",
@@ -6419,8 +6502,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 269.2,
-     "coffre": 553.75,
+     "caisse": 281.1,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -6449,11 +6532,11 @@
     "energie_ressentie": 77.5
    },
    "emotions": {
-    "joie": 0.543,
+    "joie": 0.546,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.057,
-    "solitude": 0.154,
+    "solitude": 0.146,
     "fierte": 0.4,
     "excitation": 0.233,
     "concentration": 0.6
@@ -6476,7 +6559,7 @@
      "quantite": 1,
      "prix": 1.95,
      "paiement": "especes",
-     "reste": 11
+     "reste": 10
     },
     {
      "produit": "baguette",
@@ -6484,7 +6567,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 29
+     "reste": 28
     }
    ],
    "clients": 1,
@@ -6495,8 +6578,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 272.05,
-     "coffre": 553.75,
+     "caisse": 283.95,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -6516,11 +6599,11 @@
     "energie_ressentie": 77.1
    },
    "emotions": {
-    "joie": 0.533,
+    "joie": 0.536,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.056,
-    "solitude": 0.159,
+    "solitude": 0.152,
     "fierte": 0.4,
     "excitation": 0.23,
     "concentration": 0.6
@@ -6562,8 +6645,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 274.25,
-     "coffre": 553.75,
+     "caisse": 286.15,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -6583,11 +6666,11 @@
     "energie_ressentie": 76.7
    },
    "emotions": {
-    "joie": 0.524,
+    "joie": 0.526,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.055,
-    "solitude": 0.164,
+    "solitude": 0.157,
     "fierte": 0.4,
     "excitation": 0.226,
     "concentration": 0.6
@@ -6610,7 +6693,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 28
+     "reste": 27
     },
     {
      "produit": "bonbons",
@@ -6629,8 +6712,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 276.15,
-     "coffre": 553.75,
+     "caisse": 288.05,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -6659,11 +6742,11 @@
     "energie_ressentie": 76.3
    },
    "emotions": {
-    "joie": 0.556,
+    "joie": 0.558,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.054,
-    "solitude": 0.139,
+    "solitude": 0.132,
     "fierte": 0.4,
     "excitation": 0.223,
     "concentration": 0.6
@@ -6686,7 +6769,7 @@
      "quantite": 1,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 12
+     "reste": 11
     }
    ],
    "clients": 1,
@@ -6697,8 +6780,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 277.75,
-     "coffre": 553.75,
+     "caisse": 289.65,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -6718,11 +6801,11 @@
     "energie_ressentie": 75.9
    },
    "emotions": {
-    "joie": 0.544,
+    "joie": 0.546,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.053,
-    "solitude": 0.145,
+    "solitude": 0.139,
     "fierte": 0.4,
     "excitation": 0.221,
     "concentration": 0.6
@@ -6754,11 +6837,11 @@
     "energie_ressentie": 75.5
    },
    "emotions": {
-    "joie": 0.534,
+    "joie": 0.536,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.053,
-    "solitude": 0.151,
+    "solitude": 0.145,
     "fierte": 0.4,
     "excitation": 0.219,
     "concentration": 0.6
@@ -6790,11 +6873,11 @@
     "energie_ressentie": 75.1
    },
    "emotions": {
-    "joie": 0.525,
+    "joie": 0.526,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.052,
-    "solitude": 0.157,
+    "solitude": 0.151,
     "fierte": 0.4,
     "excitation": 0.217,
     "concentration": 0.6
@@ -6817,7 +6900,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 27
+     "reste": 26
     },
     {
      "produit": "jambon",
@@ -6825,7 +6908,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "especes",
-     "reste": 11
+     "reste": 8
     }
    ],
    "clients": 1,
@@ -6836,8 +6919,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 281.25,
-     "coffre": 553.75,
+     "caisse": 293.15,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -6857,11 +6940,11 @@
     "energie_ressentie": 74.7
    },
    "emotions": {
-    "joie": 0.517,
+    "joie": 0.518,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.052,
-    "solitude": 0.162,
+    "solitude": 0.157,
     "fierte": 0.4,
     "excitation": 0.215,
     "concentration": 0.6
@@ -6900,7 +6983,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 26
+     "reste": 25
     },
     {
      "produit": "bananes",
@@ -6916,7 +6999,7 @@
      "quantite": 1,
      "prix": 1.9,
      "paiement": "especes",
-     "reste": 7
+     "reste": 6
     },
     {
      "produit": "baguette",
@@ -6924,7 +7007,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 25
+     "reste": 24
     }
    ],
    "clients": 3,
@@ -6935,8 +7018,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 290.75,
-     "coffre": 553.75,
+     "caisse": 302.65,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -6972,11 +7055,11 @@
     "energie_ressentie": 74.3
    },
    "emotions": {
-    "joie": 0.57,
+    "joie": 0.571,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.052,
-    "solitude": 0.137,
+    "solitude": 0.132,
     "fierte": 0.4,
     "excitation": 0.243,
     "concentration": 0.6
@@ -7010,8 +7093,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 291.7,
-     "coffre": 553.75,
+     "caisse": 303.6,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -7031,11 +7114,11 @@
     "energie_ressentie": 73.9
    },
    "emotions": {
-    "joie": 0.556,
+    "joie": 0.557,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.143,
+    "solitude": 0.139,
     "fierte": 0.4,
     "excitation": 0.238,
     "concentration": 0.6
@@ -7069,8 +7152,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 293.5,
-     "coffre": 553.75,
+     "caisse": 305.4,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -7090,11 +7173,11 @@
     "energie_ressentie": 73.5
    },
    "emotions": {
-    "joie": 0.545,
+    "joie": 0.546,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.149,
+    "solitude": 0.145,
     "fierte": 0.4,
     "excitation": 0.234,
     "concentration": 0.6
@@ -7117,7 +7200,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 24
+     "reste": 23
     },
     {
      "produit": "bananes",
@@ -7144,8 +7227,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 296.85,
-     "coffre": 553.75,
+     "caisse": 308.75,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -7169,7 +7252,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.155,
+    "solitude": 0.151,
     "fierte": 0.4,
     "excitation": 0.231,
     "concentration": 0.6
@@ -7201,11 +7284,11 @@
     "energie_ressentie": 72.7
    },
    "emotions": {
-    "joie": 0.525,
+    "joie": 0.526,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.16,
+    "solitude": 0.156,
     "fierte": 0.4,
     "excitation": 0.227,
     "concentration": 0.6
@@ -7228,7 +7311,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "especes",
-     "reste": 10
+     "reste": 7
     },
     {
      "produit": "tomates",
@@ -7244,7 +7327,7 @@
      "quantite": 5,
      "prix": 2.0,
      "paiement": "especes",
-     "reste": 34
+     "reste": 23
     },
     {
      "produit": "baguette",
@@ -7252,7 +7335,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 23
+     "reste": 22
     }
    ],
    "clients": 2,
@@ -7263,8 +7346,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 303.95,
-     "coffre": 553.75,
+     "caisse": 315.85,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -7284,11 +7367,11 @@
     "energie_ressentie": 72.3
    },
    "emotions": {
-    "joie": 0.517,
+    "joie": 0.518,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.165,
+    "solitude": 0.162,
     "fierte": 0.4,
     "excitation": 0.224,
     "concentration": 0.6
@@ -7324,7 +7407,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.17,
+    "solitude": 0.167,
     "fierte": 0.4,
     "excitation": 0.222,
     "concentration": 0.6
@@ -7356,11 +7439,11 @@
     "energie_ressentie": 71.5
    },
    "emotions": {
-    "joie": 0.503,
+    "joie": 0.504,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.175,
+    "solitude": 0.171,
     "fierte": 0.4,
     "excitation": 0.219,
     "concentration": 0.6
@@ -7392,11 +7475,11 @@
     "energie_ressentie": 71.1
    },
    "emotions": {
-    "joie": 0.497,
+    "joie": 0.498,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.179,
+    "solitude": 0.176,
     "fierte": 0.4,
     "excitation": 0.217,
     "concentration": 0.6
@@ -7436,11 +7519,11 @@
     "energie_ressentie": 70.7
    },
    "emotions": {
-    "joie": 0.492,
+    "joie": 0.493,
     "tristesse": 0.18,
     "anxiete": 0.285,
     "colere": 0.05,
-    "solitude": 0.183,
+    "solitude": 0.18,
     "fierte": 0.4,
     "excitation": 0.215,
     "concentration": 0.6
@@ -7463,7 +7546,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 22
+     "reste": 21
     },
     {
      "produit": "baguette",
@@ -7471,7 +7554,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 21
+     "reste": 20
     }
    ],
    "clients": 2,
@@ -7482,8 +7565,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 305.75,
-     "coffre": 553.75,
+     "caisse": 317.65,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -7515,7 +7598,7 @@
     "tristesse": 0.18,
     "anxiete": 0.293,
     "colere": 0.094,
-    "solitude": 0.187,
+    "solitude": 0.184,
     "fierte": 0.4,
     "excitation": 0.214,
     "concentration": 0.55
@@ -7567,7 +7650,7 @@
     "tristesse": 0.18,
     "anxiete": 0.29,
     "colere": 0.087,
-    "solitude": 0.19,
+    "solitude": 0.187,
     "fierte": 0.4,
     "excitation": 0.212,
     "concentration": 0.55
@@ -7618,7 +7701,7 @@
     "tristesse": 0.18,
     "anxiete": 0.287,
     "colere": 0.081,
-    "solitude": 0.193,
+    "solitude": 0.191,
     "fierte": 0.4,
     "excitation": 0.211,
     "concentration": 0.575
@@ -7654,7 +7737,7 @@
     "tristesse": 0.18,
     "anxiete": 0.285,
     "colere": 0.076,
-    "solitude": 0.197,
+    "solitude": 0.194,
     "fierte": 0.4,
     "excitation": 0.21,
     "concentration": 0.587
@@ -7690,7 +7773,7 @@
     "tristesse": 0.18,
     "anxiete": 0.282,
     "colere": 0.072,
-    "solitude": 0.2,
+    "solitude": 0.197,
     "fierte": 0.4,
     "excitation": 0.209,
     "concentration": 0.594
@@ -7713,7 +7796,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 20
+     "reste": 19
     }
    ],
    "clients": 1,
@@ -7724,8 +7807,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
-     "caisse": 306.65,
-     "coffre": 553.75,
+     "caisse": 318.55,
+     "coffre": 569.8,
      "ardoises": 52.1
     }
    },
@@ -7758,7 +7841,7 @@
     "tristesse": 0.18,
     "anxiete": 0.28,
     "colere": 0.069,
-    "solitude": 0.172,
+    "solitude": 0.17,
     "fierte": 0.4,
     "excitation": 0.208,
     "concentration": 0.597
@@ -7785,14 +7868,14 @@
    },
    "argent": {
     "mouvements": {
-     "caisse": -156.65,
-     "coffre": 156.65
+     "caisse": -168.55,
+     "coffre": 168.55
     },
     "soldes": {
      "especes": 60,
      "compte": 3561.3,
      "caisse": 150.0,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -7814,11 +7897,11 @@
     "energie_ressentie": 67.9
    },
    "emotions": {
-    "joie": 0.504,
+    "joie": 0.505,
     "tristesse": 0.18,
     "anxiete": 0.278,
     "colere": 0.066,
-    "solitude": 0.177,
+    "solitude": 0.175,
     "fierte": 0.4,
     "excitation": 0.207,
     "concentration": 0.573
@@ -7852,7 +7935,7 @@
     "tristesse": 0.18,
     "anxiete": 0.276,
     "colere": 0.063,
-    "solitude": 0.181,
+    "solitude": 0.179,
     "fierte": 0.4,
     "excitation": 0.206,
     "concentration": 0.562
@@ -7906,7 +7989,7 @@
     "tristesse": 0.18,
     "anxiete": 0.275,
     "colere": 0.061,
-    "solitude": 0.185,
+    "solitude": 0.183,
     "fierte": 0.4,
     "excitation": 0.205,
     "concentration": 0.631
@@ -7947,7 +8030,7 @@
     "tristesse": 0.18,
     "anxiete": 0.273,
     "colere": 0.059,
-    "solitude": 0.188,
+    "solitude": 0.187,
     "fierte": 0.4,
     "excitation": 0.205,
     "concentration": 0.665
@@ -7988,7 +8071,7 @@
     "tristesse": 0.18,
     "anxiete": 0.271,
     "colere": 0.058,
-    "solitude": 0.192,
+    "solitude": 0.19,
     "fierte": 0.4,
     "excitation": 0.204,
     "concentration": 0.683
@@ -8034,7 +8117,7 @@
     "tristesse": 0.18,
     "anxiete": 0.27,
     "colere": 0.057,
-    "solitude": 0.195,
+    "solitude": 0.194,
     "fierte": 0.4,
     "excitation": 0.204,
     "concentration": 0.566
@@ -8094,7 +8177,7 @@
     "tristesse": 0.18,
     "anxiete": 0.249,
     "colere": 0.056,
-    "solitude": 0.118,
+    "solitude": 0.117,
     "fierte": 0.4,
     "excitation": 0.203,
     "concentration": 0.508
@@ -8129,7 +8212,7 @@
     "tristesse": 0.18,
     "anxiete": 0.249,
     "colere": 0.055,
-    "solitude": 0.126,
+    "solitude": 0.124,
     "fierte": 0.4,
     "excitation": 0.203,
     "concentration": 0.479
@@ -8164,7 +8247,7 @@
     "tristesse": 0.18,
     "anxiete": 0.249,
     "colere": 0.054,
-    "solitude": 0.133,
+    "solitude": 0.131,
     "fierte": 0.4,
     "excitation": 0.203,
     "concentration": 0.465
@@ -8207,7 +8290,7 @@
     "tristesse": 0.18,
     "anxiete": 0.249,
     "colere": 0.053,
-    "solitude": 0.139,
+    "solitude": 0.138,
     "fierte": 0.4,
     "excitation": 0.202,
     "concentration": 0.357
@@ -8242,7 +8325,7 @@
     "tristesse": 0.18,
     "anxiete": 0.249,
     "colere": 0.053,
-    "solitude": 0.145,
+    "solitude": 0.144,
     "fierte": 0.4,
     "excitation": 0.202,
     "concentration": 0.304
@@ -8277,7 +8360,7 @@
     "tristesse": 0.18,
     "anxiete": 0.249,
     "colere": 0.052,
-    "solitude": 0.151,
+    "solitude": 0.15,
     "fierte": 0.4,
     "excitation": 0.202,
     "concentration": 0.277
@@ -8312,7 +8395,7 @@
     "tristesse": 0.18,
     "anxiete": 0.249,
     "colere": 0.052,
-    "solitude": 0.157,
+    "solitude": 0.156,
     "fierte": 0.4,
     "excitation": 0.202,
     "concentration": 0.263
@@ -8347,7 +8430,7 @@
     "tristesse": 0.18,
     "anxiete": 0.249,
     "colere": 0.052,
-    "solitude": 0.162,
+    "solitude": 0.161,
     "fierte": 0.4,
     "excitation": 0.202,
     "concentration": 0.257
@@ -8397,7 +8480,7 @@
     "tristesse": 0.18,
     "anxiete": 0.249,
     "colere": 0.051,
-    "solitude": 0.137,
+    "solitude": 0.136,
     "fierte": 0.4,
     "excitation": 0.201,
     "concentration": 0.403
@@ -8510,7 +8593,7 @@
     "tristesse": 0.18,
     "anxiete": 0.249,
     "colere": 0.051,
-    "solitude": 0.155,
+    "solitude": 0.154,
     "fierte": 0.4,
     "excitation": 0.201,
     "concentration": 0.307
@@ -8633,7 +8716,7 @@
     "tristesse": 0.18,
     "anxiete": 0.249,
     "colere": 0.05,
-    "solitude": 0.17,
+    "solitude": 0.169,
     "fierte": 0.4,
     "excitation": 0.201,
     "concentration": 0.651
@@ -8682,7 +8765,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.175,
+    "solitude": 0.174,
     "fierte": 0.4,
     "excitation": 0.201,
     "concentration": 0.6
@@ -8716,7 +8799,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.179,
+    "solitude": 0.178,
     "fierte": 0.4,
     "excitation": 0.201,
     "concentration": 0.575
@@ -8750,7 +8833,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.183,
+    "solitude": 0.182,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.563
@@ -8786,7 +8869,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.187,
+    "solitude": 0.186,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.581
@@ -8809,7 +8892,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "especes",
-     "reste": 9
+     "reste": 6
     }
    ],
    "clients": 1,
@@ -8821,7 +8904,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 152.6,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -8913,7 +8996,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 19
+     "reste": 18
     },
     {
      "produit": "biere",
@@ -8937,7 +9020,7 @@
      "quantite": 1,
      "prix": 0.95,
      "paiement": "especes",
-     "reste": 19
+     "reste": 18
     }
    ],
    "clients": 1,
@@ -8949,7 +9032,7 @@
      "especes": 60,
      "compte": 3561.3,
      "caisse": 157.25,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -9004,7 +9087,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "carte",
-     "reste": 8
+     "reste": 5
     },
     {
      "produit": "baguette",
@@ -9012,7 +9095,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "carte",
-     "reste": 18
+     "reste": 17
     },
     {
      "produit": "pommes",
@@ -9020,7 +9103,7 @@
      "quantite": 4,
      "prix": 1.6,
      "paiement": "carte",
-     "reste": 30
+     "reste": 19
     }
    ],
    "clients": 1,
@@ -9032,7 +9115,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 157.25,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -9079,7 +9162,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "especes",
-     "reste": 7
+     "reste": 4
     },
     {
      "produit": "baguette",
@@ -9087,7 +9170,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 17
+     "reste": 16
     }
    ],
    "clients": 1,
@@ -9099,7 +9182,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 160.75,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -9123,7 +9206,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.179,
+    "solitude": 0.178,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.599
@@ -9159,7 +9242,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.183,
+    "solitude": 0.182,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -9311,7 +9394,7 @@
     "tristesse": 0.18,
     "anxiete": 0.283,
     "colere": 0.05,
-    "solitude": 0.197,
+    "solitude": 0.196,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -9334,7 +9417,7 @@
      "quantite": 1,
      "prix": 1.1,
      "paiement": "especes",
-     "reste": 8
+     "reste": 6
     },
     {
      "produit": "baguette",
@@ -9342,7 +9425,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 16
+     "reste": 15
     }
    ],
    "clients": 2,
@@ -9354,7 +9437,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 162.75,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -9387,7 +9470,7 @@
     "tristesse": 0.18,
     "anxiete": 0.28,
     "colere": 0.05,
-    "solitude": 0.17,
+    "solitude": 0.169,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.6
@@ -9446,7 +9529,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 15
+     "reste": 14
     },
     {
      "produit": "pommes",
@@ -9454,7 +9537,7 @@
      "quantite": 2,
      "prix": 0.8,
      "paiement": "especes",
-     "reste": 28
+     "reste": 17
     },
     {
      "produit": "eau",
@@ -9470,7 +9553,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 14
+     "reste": 13
     },
     {
      "produit": "salade",
@@ -9478,7 +9561,7 @@
      "quantite": 1,
      "prix": 1.1,
      "paiement": "especes",
-     "reste": 7
+     "reste": 5
     },
     {
      "produit": "baguette",
@@ -9486,7 +9569,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 13
+     "reste": 12
     }
    ],
    "clients": 3,
@@ -9498,7 +9581,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 168.55,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -9562,7 +9645,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 12
+     "reste": 11
     },
     {
      "produit": "salade",
@@ -9570,7 +9653,7 @@
      "quantite": 1,
      "prix": 1.1,
      "paiement": "especes",
-     "reste": 6
+     "reste": 4
     },
     {
      "produit": "biere",
@@ -9590,7 +9673,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 171.65,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -9758,7 +9841,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "especes",
-     "reste": 6
+     "reste": 3
     },
     {
      "produit": "baguette",
@@ -9766,7 +9849,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 11
+     "reste": 10
     }
    ],
    "clients": 1,
@@ -9778,7 +9861,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 175.15,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -9826,7 +9909,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 10
+     "reste": 9
     },
     {
      "produit": "baguette",
@@ -9834,7 +9917,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 9
+     "reste": 8
     },
     {
      "produit": "salade",
@@ -9842,7 +9925,7 @@
      "quantite": 1,
      "prix": 1.1,
      "paiement": "especes",
-     "reste": 5
+     "reste": 3
     },
     {
      "produit": "oranges",
@@ -9870,7 +9953,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 180.35,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -9895,7 +9978,7 @@
     "tristesse": 0.18,
     "anxiete": 0.267,
     "colere": 0.05,
-    "solitude": 0.156,
+    "solitude": 0.155,
     "fierte": 0.4,
     "excitation": 0.215,
     "concentration": 0.6
@@ -9967,7 +10050,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 181.85,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -10097,7 +10180,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 8
+     "reste": 7
     }
    ],
    "clients": 1,
@@ -10109,7 +10192,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 184.95,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -10157,7 +10240,7 @@
      "quantite": 1,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 11
+     "reste": 10
     },
     {
      "produit": "pates",
@@ -10165,7 +10248,7 @@
      "quantite": 1,
      "prix": 0.95,
      "paiement": "especes",
-     "reste": 18
+     "reste": 17
     },
     {
      "produit": "eau",
@@ -10181,7 +10264,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 7
+     "reste": 6
     },
     {
      "produit": "thon",
@@ -10197,7 +10280,7 @@
      "quantite": 1,
      "prix": 1.5,
      "paiement": "especes",
-     "reste": 9
+     "reste": 8
     }
    ],
    "clients": 2,
@@ -10209,7 +10292,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 192.6,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -10265,7 +10348,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 6
+     "reste": 5
     },
     {
      "produit": "fromage_rape",
@@ -10285,7 +10368,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 195.2,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -10347,7 +10430,7 @@
     "tristesse": 0.18,
     "anxiete": 0.26,
     "colere": 0.081,
-    "solitude": 0.191,
+    "solitude": 0.19,
     "fierte": 0.4,
     "excitation": 0.206,
     "concentration": 0.6
@@ -10452,7 +10535,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "especes",
-     "reste": 5
+     "reste": 2
     }
    ],
    "clients": 1,
@@ -10464,7 +10547,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 198.9,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -10520,7 +10603,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 5
+     "reste": 4
     }
    ],
    "clients": 2,
@@ -10532,7 +10615,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 203.1,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -10688,7 +10771,7 @@
      "quantite": 1,
      "prix": 0.95,
      "paiement": "especes",
-     "reste": 17
+     "reste": 16
     }
    ],
    "clients": 1,
@@ -10700,7 +10783,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 204.05,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -10724,7 +10807,7 @@
     "tristesse": 0.18,
     "anxiete": 0.256,
     "colere": 0.058,
-    "solitude": 0.213,
+    "solitude": 0.212,
     "fierte": 0.4,
     "excitation": 0.202,
     "concentration": 0.6
@@ -10831,7 +10914,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 210.95,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -10855,7 +10938,7 @@
     "tristesse": 0.18,
     "anxiete": 0.255,
     "colere": 0.055,
-    "solitude": 0.219,
+    "solitude": 0.218,
     "fierte": 0.4,
     "excitation": 0.202,
     "concentration": 0.6
@@ -10898,7 +10981,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 219.55,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -11145,15 +11228,7 @@
      "quantite": 1,
      "prix": 0.95,
      "paiement": "especes",
-     "reste": 16
-    },
-    {
-     "produit": "baguette",
-     "nom": "baguette",
-     "quantite": 1,
-     "prix": 0.9,
-     "paiement": "especes",
-     "reste": 4
+     "reste": 15
     },
     {
      "produit": "baguette",
@@ -11162,6 +11237,14 @@
      "prix": 0.9,
      "paiement": "especes",
      "reste": 3
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 2
     }
    ],
    "clients": 2,
@@ -11173,7 +11256,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 226.0,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -11256,7 +11339,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 2
+     "reste": 1
     },
     {
      "produit": "oeufs",
@@ -11264,7 +11347,7 @@
      "quantite": 1,
      "prix": 1.9,
      "paiement": "especes",
-     "reste": 6
+     "reste": 5
     },
     {
      "produit": "baguette",
@@ -11272,7 +11355,7 @@
      "quantite": 1,
      "prix": 0.9,
      "paiement": "especes",
-     "reste": 1
+     "reste": 0
     },
     {
      "produit": "jambon",
@@ -11280,7 +11363,7 @@
      "quantite": 1,
      "prix": 2.6,
      "paiement": "especes",
-     "reste": 4
+     "reste": 1
     }
    ],
    "clients": 2,
@@ -11292,7 +11375,7 @@
      "especes": 60,
      "compte": 3567.1,
      "caisse": 232.3,
-     "coffre": 710.4,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -11339,35 +11422,22 @@
    "posture": "debout",
    "routine": "rt-commerce",
    "activite": "Sert les clients ; café à 16:30",
-   "action": "Sert un couple de touristes : une baguette (0,90 €).",
+   "action": "Sert un couple de touristes repart sans rien. Plus de baguette : il s'excuse.",
    "pensee": null,
-   "ventes": [
-    {
-     "produit": "baguette",
-     "nom": "baguette",
-     "quantite": 1,
-     "prix": 0.9,
-     "paiement": "especes",
-     "reste": 0
-    }
-   ],
    "clients": 1,
-   "argent": {
-    "mouvements": {
-     "caisse": 0.9
-    },
-    "soldes": {
-     "especes": 60,
-     "compte": 3567.1,
-     "caisse": 233.2,
-     "coffre": 710.4,
-     "ardoises": 52.1
-    }
-   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "rupture_stock",
+     "effets": {
+      "anxiete": 0.035,
+      "colere": 0.026
+     }
+    }
    ],
    "besoins": {
     "faim": 69.0,
@@ -11382,8 +11452,8 @@
    "emotions": {
     "joie": 0.505,
     "tristesse": 0.18,
-    "anxiete": 0.259,
-    "colere": 0.051,
+    "anxiete": 0.294,
+    "colere": 0.077,
     "solitude": 0.184,
     "fierte": 0.4,
     "excitation": 0.201,
@@ -11418,8 +11488,8 @@
    "emotions": {
     "joie": 0.499,
     "tristesse": 0.18,
-    "anxiete": 0.258,
-    "colere": 0.051,
+    "anxiete": 0.291,
+    "colere": 0.073,
     "solitude": 0.188,
     "fierte": 0.4,
     "excitation": 0.201,
@@ -11454,8 +11524,8 @@
    "emotions": {
     "joie": 0.493,
     "tristesse": 0.18,
-    "anxiete": 0.258,
-    "colere": 0.051,
+    "anxiete": 0.288,
+    "colere": 0.069,
     "solitude": 0.191,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -11490,8 +11560,8 @@
    "emotions": {
     "joie": 0.489,
     "tristesse": 0.18,
-    "anxiete": 0.257,
-    "colere": 0.051,
+    "anxiete": 0.286,
+    "colere": 0.066,
     "solitude": 0.195,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -11514,15 +11584,6 @@
     "radio-boutique",
     "lumiere-boutique"
    ],
-   "evenements": [
-    {
-     "id": "rupture_stock",
-     "effets": {
-      "anxiete": 0.035,
-      "colere": 0.026
-     }
-    }
-   ],
    "besoins": {
     "faim": 67.0,
     "soif": 58.0,
@@ -11536,8 +11597,8 @@
    "emotions": {
     "joie": 0.484,
     "tristesse": 0.18,
-    "anxiete": 0.292,
-    "colere": 0.077,
+    "anxiete": 0.283,
+    "colere": 0.064,
     "solitude": 0.198,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -11575,8 +11636,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3567.1,
-     "caisse": 234.7,
-     "coffre": 710.4,
+     "caisse": 233.8,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -11607,8 +11668,8 @@
    "emotions": {
     "joie": 0.521,
     "tristesse": 0.18,
-    "anxiete": 0.289,
-    "colere": 0.073,
+    "anxiete": 0.281,
+    "colere": 0.062,
     "solitude": 0.171,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -11635,7 +11696,7 @@
      "quantite": 2,
      "prix": 0.8,
      "paiement": "especes",
-     "reste": 26
+     "reste": 15
     }
    ],
    "clients": 1,
@@ -11646,8 +11707,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3567.1,
-     "caisse": 235.5,
-     "coffre": 710.4,
+     "caisse": 234.6,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -11669,8 +11730,8 @@
    "emotions": {
     "joie": 0.513,
     "tristesse": 0.18,
-    "anxiete": 0.286,
-    "colere": 0.069,
+    "anxiete": 0.279,
+    "colere": 0.06,
     "solitude": 0.175,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -11702,7 +11763,7 @@
      "quantite": 1,
      "prix": 0.95,
      "paiement": "carte",
-     "reste": 15
+     "reste": 14
     },
     {
      "produit": "yaourts",
@@ -11710,7 +11771,7 @@
      "quantite": 1,
      "prix": 1.6,
      "paiement": "carte",
-     "reste": 10
+     "reste": 9
     },
     {
      "produit": "oranges",
@@ -11738,8 +11799,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3572.95,
-     "caisse": 237.1,
-     "coffre": 710.4,
+     "caisse": 236.2,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -11761,8 +11822,8 @@
    "emotions": {
     "joie": 0.506,
     "tristesse": 0.18,
-    "anxiete": 0.284,
-    "colere": 0.066,
+    "anxiete": 0.277,
+    "colere": 0.058,
     "solitude": 0.179,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -11797,8 +11858,8 @@
    "emotions": {
     "joie": 0.5,
     "tristesse": 0.18,
-    "anxiete": 0.282,
-    "colere": 0.063,
+    "anxiete": 0.275,
+    "colere": 0.057,
     "solitude": 0.183,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -11833,8 +11894,8 @@
    "emotions": {
     "joie": 0.494,
     "tristesse": 0.18,
-    "anxiete": 0.28,
-    "colere": 0.061,
+    "anxiete": 0.274,
+    "colere": 0.056,
     "solitude": 0.187,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -11882,7 +11943,7 @@
      "quantite": 1,
      "prix": 1.9,
      "paiement": "especes",
-     "reste": 5
+     "reste": 4
     }
    ],
    "clients": 2,
@@ -11893,8 +11954,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3572.95,
-     "caisse": 247.4,
-     "coffre": 710.4,
+     "caisse": 246.5,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -11916,8 +11977,8 @@
    "emotions": {
     "joie": 0.49,
     "tristesse": 0.18,
-    "anxiete": 0.278,
-    "colere": 0.06,
+    "anxiete": 0.272,
+    "colere": 0.055,
     "solitude": 0.191,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -11941,7 +12002,7 @@
      "quantite": 1,
      "prix": 1.6,
      "paiement": "especes",
-     "reste": 9
+     "reste": 8
     },
     {
      "produit": "pates",
@@ -11949,7 +12010,7 @@
      "quantite": 1,
      "prix": 0.95,
      "paiement": "especes",
-     "reste": 14
+     "reste": 13
     },
     {
      "produit": "eau",
@@ -11976,8 +12037,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3572.95,
-     "caisse": 252.55,
-     "coffre": 710.4,
+     "caisse": 251.65,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -12000,8 +12061,8 @@
    "emotions": {
     "joie": 0.485,
     "tristesse": 0.18,
-    "anxiete": 0.276,
-    "colere": 0.058,
+    "anxiete": 0.27,
+    "colere": 0.054,
     "solitude": 0.194,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12025,7 +12086,7 @@
      "quantite": 1,
      "prix": 1.9,
      "paiement": "carte",
-     "reste": 4
+     "reste": 3
     },
     {
      "produit": "vin_rouge",
@@ -12041,7 +12102,7 @@
      "quantite": 2,
      "prix": 0.5,
      "paiement": "carte",
-     "reste": 25
+     "reste": 24
     }
    ],
    "clients": 1,
@@ -12052,8 +12113,8 @@
     "soldes": {
      "especes": 60,
      "compte": 3579.85,
-     "caisse": 252.55,
-     "coffre": 710.4,
+     "caisse": 251.65,
+     "coffre": 738.35,
      "ardoises": 52.1
     }
    },
@@ -12076,8 +12137,8 @@
    "emotions": {
     "joie": 0.481,
     "tristesse": 0.18,
-    "anxiete": 0.274,
-    "colere": 0.057,
+    "anxiete": 0.269,
+    "colere": 0.053,
     "solitude": 0.197,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12126,8 +12187,8 @@
    "emotions": {
     "joie": 0.478,
     "tristesse": 0.18,
-    "anxiete": 0.272,
-    "colere": 0.056,
+    "anxiete": 0.268,
+    "colere": 0.053,
     "solitude": 0.2,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12146,14 +12207,14 @@
    "pensee": null,
    "argent": {
     "mouvements": {
-     "caisse": -102.55,
-     "coffre": 102.55
+     "caisse": -101.65,
+     "coffre": 101.65
     },
     "soldes": {
      "especes": 60,
      "compte": 3579.85,
      "caisse": 150.0,
-     "coffre": 812.95,
+     "coffre": 840.0,
      "ardoises": 52.1
     }
    },
@@ -12177,8 +12238,8 @@
    "emotions": {
     "joie": 0.475,
     "tristesse": 0.18,
-    "anxiete": 0.271,
-    "colere": 0.055,
+    "anxiete": 0.267,
+    "colere": 0.052,
     "solitude": 0.203,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12212,8 +12273,8 @@
    "emotions": {
     "joie": 0.472,
     "tristesse": 0.18,
-    "anxiete": 0.269,
-    "colere": 0.054,
+    "anxiete": 0.266,
+    "colere": 0.052,
     "solitude": 0.205,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12267,8 +12328,8 @@
    "emotions": {
     "joie": 0.47,
     "tristesse": 0.18,
-    "anxiete": 0.268,
-    "colere": 0.053,
+    "anxiete": 0.264,
+    "colere": 0.052,
     "solitude": 0.208,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12310,8 +12371,8 @@
    "emotions": {
     "joie": 0.468,
     "tristesse": 0.18,
-    "anxiete": 0.267,
-    "colere": 0.053,
+    "anxiete": 0.264,
+    "colere": 0.051,
     "solitude": 0.21,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12353,8 +12414,8 @@
    "emotions": {
     "joie": 0.466,
     "tristesse": 0.18,
-    "anxiete": 0.266,
-    "colere": 0.052,
+    "anxiete": 0.263,
+    "colere": 0.051,
     "solitude": 0.213,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12396,8 +12457,8 @@
    "emotions": {
     "joie": 0.464,
     "tristesse": 0.18,
-    "anxiete": 0.265,
-    "colere": 0.052,
+    "anxiete": 0.262,
+    "colere": 0.051,
     "solitude": 0.215,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12470,8 +12531,8 @@
    "emotions": {
     "joie": 0.542,
     "tristesse": 0.18,
-    "anxiete": 0.244,
-    "colere": 0.052,
+    "anxiete": 0.241,
+    "colere": 0.051,
     "solitude": 0.137,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12507,7 +12568,7 @@
    "emotions": {
     "joie": 0.532,
     "tristesse": 0.18,
-    "anxiete": 0.244,
+    "anxiete": 0.242,
     "colere": 0.051,
     "solitude": 0.143,
     "fierte": 0.4,
@@ -12544,7 +12605,7 @@
    "emotions": {
     "joie": 0.523,
     "tristesse": 0.18,
-    "anxiete": 0.245,
+    "anxiete": 0.242,
     "colere": 0.051,
     "solitude": 0.149,
     "fierte": 0.4,
@@ -12581,7 +12642,7 @@
    "emotions": {
     "joie": 0.515,
     "tristesse": 0.18,
-    "anxiete": 0.245,
+    "anxiete": 0.243,
     "colere": 0.051,
     "solitude": 0.155,
     "fierte": 0.4,
@@ -12626,8 +12687,8 @@
    "emotions": {
     "joie": 0.548,
     "tristesse": 0.18,
-    "anxiete": 0.245,
-    "colere": 0.051,
+    "anxiete": 0.243,
+    "colere": 0.05,
     "solitude": 0.16,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12663,8 +12724,8 @@
    "emotions": {
     "joie": 0.538,
     "tristesse": 0.18,
-    "anxiete": 0.246,
-    "colere": 0.051,
+    "anxiete": 0.244,
+    "colere": 0.05,
     "solitude": 0.165,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12700,8 +12761,8 @@
    "emotions": {
     "joie": 0.528,
     "tristesse": 0.18,
-    "anxiete": 0.246,
-    "colere": 0.051,
+    "anxiete": 0.244,
+    "colere": 0.05,
     "solitude": 0.17,
     "fierte": 0.4,
     "excitation": 0.2,
@@ -12737,7 +12798,7 @@
    "emotions": {
     "joie": 0.519,
     "tristesse": 0.18,
-    "anxiete": 0.246,
+    "anxiete": 0.244,
     "colere": 0.05,
     "solitude": 0.174,
     "fierte": 0.4,
@@ -12774,7 +12835,7 @@
    "emotions": {
     "joie": 0.512,
     "tristesse": 0.18,
-    "anxiete": 0.246,
+    "anxiete": 0.245,
     "colere": 0.05,
     "solitude": 0.179,
     "fierte": 0.4,
@@ -12826,7 +12887,7 @@
    "emotions": {
     "joie": 0.535,
     "tristesse": 0.18,
-    "anxiete": 0.247,
+    "anxiete": 0.245,
     "colere": 0.05,
     "solitude": 0.153,
     "fierte": 0.4,
@@ -12863,7 +12924,7 @@
    "emotions": {
     "joie": 0.521,
     "tristesse": 0.18,
-    "anxiete": 0.247,
+    "anxiete": 0.245,
     "colere": 0.055,
     "solitude": 0.158,
     "fierte": 0.4,
@@ -12897,7 +12958,7 @@
    "emotions": {
     "joie": 0.508,
     "tristesse": 0.18,
-    "anxiete": 0.247,
+    "anxiete": 0.246,
     "colere": 0.059,
     "solitude": 0.163,
     "fierte": 0.4,
@@ -12962,7 +13023,7 @@
    "emotions": {
     "joie": 0.547,
     "tristesse": 0.18,
-    "anxiete": 0.227,
+    "anxiete": 0.226,
     "colere": 0.063,
     "solitude": 0.118,
     "fierte": 0.4,
@@ -13000,7 +13061,7 @@
    "emotions": {
     "joie": 0.531,
     "tristesse": 0.18,
-    "anxiete": 0.229,
+    "anxiete": 0.228,
     "colere": 0.066,
     "solitude": 0.125,
     "fierte": 0.4,
@@ -13038,7 +13099,7 @@
    "emotions": {
     "joie": 0.517,
     "tristesse": 0.18,
-    "anxiete": 0.23,
+    "anxiete": 0.229,
     "colere": 0.068,
     "solitude": 0.132,
     "fierte": 0.4,
@@ -13091,7 +13152,7 @@
    "emotions": {
     "joie": 0.535,
     "tristesse": 0.18,
-    "anxiete": 0.232,
+    "anxiete": 0.231,
     "colere": 0.07,
     "solitude": 0.109,
     "fierte": 0.4,
@@ -13129,7 +13190,7 @@
    "emotions": {
     "joie": 0.521,
     "tristesse": 0.18,
-    "anxiete": 0.233,
+    "anxiete": 0.232,
     "colere": 0.072,
     "solitude": 0.117,
     "fierte": 0.4,
@@ -13167,7 +13228,7 @@
    "emotions": {
     "joie": 0.508,
     "tristesse": 0.18,
-    "anxiete": 0.234,
+    "anxiete": 0.233,
     "colere": 0.074,
     "solitude": 0.124,
     "fierte": 0.4,
@@ -13205,7 +13266,7 @@
    "emotions": {
     "joie": 0.497,
     "tristesse": 0.18,
-    "anxiete": 0.235,
+    "anxiete": 0.234,
     "colere": 0.075,
     "solitude": 0.131,
     "fierte": 0.4,
@@ -13243,7 +13304,7 @@
    "emotions": {
     "joie": 0.487,
     "tristesse": 0.18,
-    "anxiete": 0.236,
+    "anxiete": 0.235,
     "colere": 0.076,
     "solitude": 0.138,
     "fierte": 0.4,
@@ -13281,7 +13342,7 @@
    "emotions": {
     "joie": 0.478,
     "tristesse": 0.18,
-    "anxiete": 0.237,
+    "anxiete": 0.236,
     "colere": 0.077,
     "solitude": 0.144,
     "fierte": 0.4,
@@ -13334,7 +13395,7 @@
    "emotions": {
     "joie": 0.5,
     "tristesse": 0.18,
-    "anxiete": 0.238,
+    "anxiete": 0.237,
     "colere": 0.078,
     "solitude": 0.12,
     "fierte": 0.4,
@@ -13372,7 +13433,7 @@
    "emotions": {
     "joie": 0.489,
     "tristesse": 0.18,
-    "anxiete": 0.239,
+    "anxiete": 0.238,
     "colere": 0.078,
     "solitude": 0.128,
     "fierte": 0.4,
@@ -13514,7 +13575,7 @@
    "emotions": {
     "joie": 0.464,
     "tristesse": 0.18,
-    "anxiete": 0.241,
+    "anxiete": 0.24,
     "colere": 0.079,
     "solitude": 0.147,
     "fierte": 0.4,
@@ -13588,7 +13649,7 @@
    "emotions": {
     "joie": 0.456,
     "tristesse": 0.18,
-    "anxiete": 0.243,
+    "anxiete": 0.242,
     "colere": 0.071,
     "solitude": 0.163,
     "fierte": 0.4,
@@ -13724,7 +13785,7 @@
    "emotions": {
     "joie": 0.452,
     "tristesse": 0.18,
-    "anxiete": 0.246,
+    "anxiete": 0.245,
     "colere": 0.055,
     "solitude": 0.195,
     "fierte": 0.4,
@@ -13856,7 +13917,7 @@
    "emotions": {
     "joie": 0.451,
     "tristesse": 0.18,
-    "anxiete": 0.248,
+    "anxiete": 0.247,
     "colere": 0.051,
     "solitude": 0.216,
     "fierte": 0.4,

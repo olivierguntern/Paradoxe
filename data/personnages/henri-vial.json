@@ -1,0 +1,2090 @@
+{
+  "meta": {
+    "id": "henri-vial",
+    "version": 1,
+    "description": "Personnage n°5 : Henri Vial, le voisin du dessus de l'épicerie Chazal, ancien correcteur au Progrès. Fiche complète, comme celles de Thomas et de Robert ; il vit avec le moteur générique, dans le quartier.",
+    "contraintes_du_test": [
+      "Vit avec Simone, sa femme, simulée en même temps que lui (outils/quartier.py) ; leurs moments communs sont prévus dans leurs deux routines.",
+      "Son appartement est juste au-dessus de la boutique de Robert : ce qui fait du bruit dans la boutique s'entend chez lui, s'il porte son appareil auditif (data/monde/voisinages.json).",
+      "M. Garnier, les joueurs du Clos Jouve et Paulette ne sont pas simulés.",
+      "Aucun contact à distance : ni téléphone, ni SMS, ni e-mail."
+    ],
+    "faits_reels_utilises": [
+      "Le marché de la Croix-Rousse se tient sur le boulevard tous les matins sauf le lundi.",
+      "Le boulodrome du Clos Jouve, à la Croix-Rousse, est le temple de la boule lyonnaise.",
+      "En 2010, le TER relie Lyon Part-Dieu à Vienne en une demi-heure environ ; le bus C13 dessert la Grande-Rue de la Croix-Rousse (horaires supposés).",
+      "Le temple d'Auguste et de Livie et le jardin de Cybèle sont à Vienne (Isère), au bord du Rhône.",
+      "Mercredi 10 mars 2010, 20h45 : Real Madrid – Olympique Lyonnais, 8e de finale retour de Ligue des champions.",
+      "Dimanche 14 mars 2010 : premier tour des élections régionales ; la mairie du 4e est boulevard de la Croix-Rousse.",
+      "L'église Saint-Denis de la Croix-Rousse est au bout de la Grande-Rue."
+    ],
+    "elements_fictifs": "Henri et Simone Vial, leur famille, Paulette, Mme Perrin, la chorale et l'appartement sont fictifs. La Croix-Rousse, la Grande-Rue, le Clos Jouve, le marché du boulevard, Vienne et l'église Saint-Denis sont réels."
+  },
+  "logements": [
+    "appartement-vial"
+  ],
+  "identite": {
+    "prenom": "Henri",
+    "nom": "Vial",
+    "genre": "homme",
+    "date_naissance": "1933-11-04",
+    "age": 76,
+    "lieu_naissance": "Lyon 4e (Croix-Rousse), rue d'Austerlitz",
+    "nationalite": "française",
+    "langues": [
+      {
+        "langue": "français",
+        "niveau": "maternelle, et le parler de la Croix-Rousse"
+      }
+    ],
+    "situation_familiale": "marié à Simone depuis 1958, deux enfants (Martine et Jean-Pierre), trois petits-enfants",
+    "metier": "retraité depuis 1993 ; typographe, puis correcteur au Progrès pendant trente-huit ans",
+    "religion": "baptisé, ne va à l'église que pour faire plaisir à Simone"
+  },
+  "apparence": {
+    "taille_cm": 168,
+    "poids_kg": 70,
+    "corpulence": "sec, un peu voûté",
+    "cheveux": "blancs, rares, peignés en arrière",
+    "yeux": "gris-bleu",
+    "pilosite": "rasé de près chaque matin",
+    "signes_distinctifs": [
+      "appareil auditif à l'oreille droite",
+      "doigts tachés d'encre pour toujours, dit Simone",
+      "casquette de tweed"
+    ],
+    "tenues": {
+      "maison": "gilet de laine sur une chemise, pantoufles",
+      "sortie": "veste de velours, casquette",
+      "boules": "veste de velours, chaussures de marche",
+      "nuit": "pyjama de flanelle"
+    },
+    "attitude": "parle fort, comme les durs d'oreille ; corrige les fautes des affiches à voix haute ; rit d'un rire bref et sec"
+  },
+  "sante": {
+    "etat_general": "fatigué mais solide",
+    "chronotype": "intermédiaire",
+    "sommeil": {
+      "besoin_minutes": 480,
+      "endormissement_minutes_normal": 10,
+      "endormissement_minutes_si_anxieux": 40,
+      "seuil_anxiete_insomnie": 0.7,
+      "seuil_excitation_insomnie": 0.55,
+      "reveil_naturel_jour_libre": "07:30",
+      "reveil_au_bruit": 0.05
+    },
+    "audition": {
+      "principe": "ce qu'il entend d'un bruit : avec son appareil auditif porté, ou sans",
+      "objet": "obj-appareil-auditif",
+      "avec": 0.8,
+      "sans": 0.2
+    },
+    "conditions": [
+      {
+        "nom": "surdité de l'oreille droite et baisse de l'audition à gauche",
+        "effet": "appareil auditif le jour ; la nuit, sans lui, il n'entend presque rien"
+      },
+      {
+        "nom": "arthrose des genoux",
+        "effet": "monte l'escalier lentement, la main sur la rampe"
+      },
+      {
+        "nom": "cholestérol",
+        "effet": "Simone surveille le beurre"
+      }
+    ],
+    "allergies": [],
+    "consommations": {
+      "cafe": "un grand café au lait le matin, un café après le déjeuner",
+      "alcool": "un verre de vin à chaque repas, sauf le soir",
+      "tabac": "a fumé la pipe jusqu'en 1985",
+      "sucre": "deux sucres"
+    },
+    "activite_physique": [
+      {
+        "activite": "boule lyonnaise au Clos Jouve",
+        "jours": [
+          "mardi",
+          "jeudi",
+          "samedi"
+        ],
+        "duree_minutes": 190
+      },
+      {
+        "activite": "promenade avec Simone",
+        "jours": [
+          "dimanche"
+        ],
+        "duree_minutes": 100
+      }
+    ]
+  },
+  "personnalite": {
+    "big_five": {
+      "ouverture": 0.55,
+      "conscience": 0.7,
+      "extraversion": 0.45,
+      "agreabilite": 0.6,
+      "nevrosisme": 0.3
+    },
+    "traits": [
+      "pointilleux",
+      "taquin",
+      "attaché à son quartier",
+      "rancunier envers les promoteurs",
+      "fier de son métier"
+    ],
+    "qualites": [
+      "fidèle",
+      "honnête",
+      "patient avec les enfants",
+      "bonne mémoire de la Croix-Rousse d'autrefois"
+    ],
+    "defauts": [
+      "n'entend que ce qu'il veut",
+      "têtu",
+      "râleur avec les jeunes du boulodrome"
+    ],
+    "ponctualite": {
+      "respect_de_son_planning": 0.9,
+      "stress_si_retard_sur_planning": 0.25
+    }
+  },
+  "vie_interieure": {
+    "valeurs": [
+      {
+        "valeur": "le travail bien fait, sans faute",
+        "importance": 0.85
+      },
+      {
+        "valeur": "la Croix-Rousse des canuts",
+        "importance": 0.8
+      },
+      {
+        "valeur": "Simone",
+        "importance": 0.95
+      }
+    ],
+    "croyances": [
+      "Une faute d'orthographe dans le journal, c'est une faute de respect.",
+      "La Croix-Rousse se vend aux promoteurs morceau par morceau.",
+      "Le carreau, ça ne s'apprend pas, ça se sent."
+    ],
+    "peurs": [
+      {
+        "peur": "que Simone parte la première",
+        "intensite": 0.5
+      },
+      {
+        "peur": "devoir quitter l'appartement pour une maison de retraite",
+        "intensite": 0.45
+      },
+      {
+        "peur": "qu'on démolisse l'immeuble",
+        "intensite": 0.35
+      }
+    ],
+    "desirs": [
+      {
+        "desir": "voir Jean-Pierre plus souvent",
+        "intensite": 0.6
+      },
+      {
+        "desir": "gagner encore un concours au Clos Jouve",
+        "intensite": 0.5
+      }
+    ],
+    "style_de_pensee": {
+      "mode": "précis, relit tout deux fois",
+      "rumination": "faible le jour, plus forte quand il ne dort pas",
+      "autocritique": 0.4,
+      "optimisme": 0.45,
+      "imagination": 0.4
+    },
+    "voix_interieure": "Se parle comme on corrige une épreuve : « coquille », « à revoir », « bon à tirer ».",
+    "pensees_recurrentes": [
+      {
+        "sujet": "immeuble",
+        "texte": "Le propriétaire parle encore de vendre. Cinquante ans qu'on est là."
+      },
+      {
+        "sujet": "jean-pierre",
+        "texte": "Jean-Pierre n'a pas appelé depuis Noël. Le Canada, c'est loin."
+      },
+      {
+        "sujet": "boules",
+        "texte": "Ce tir de jeudi, au carreau. Le petit Morin en était vert."
+      },
+      {
+        "sujet": "epicerie",
+        "texte": "Chazal tiendra jusqu'à sa retraite, et après ? Une banque, une agence. Comme partout."
+      }
+    ],
+    "preoccupations_semaine": [
+      {
+        "id": "ph-match",
+        "sujet": "Le match Real Madrid – Lyon de mercredi soir",
+        "intensite_initiale": 0.45,
+        "valence": "positive"
+      },
+      {
+        "id": "ph-proprietaire",
+        "sujet": "La lettre du propriétaire qui parle de vendre l'immeuble à un promoteur",
+        "intensite_initiale": 0.4,
+        "valence": "négative"
+      },
+      {
+        "id": "ph-genoux",
+        "sujet": "Ses genoux, dans l'escalier",
+        "intensite_initiale": 0.25,
+        "valence": "négative"
+      }
+    ],
+    "humeur_de_base": {
+      "valence": 0.55,
+      "activation": 0.4
+    },
+    "declencheurs": [
+      {
+        "situation": "un moment avec Simone",
+        "reaction": "tendresse bourrue",
+        "evenement": "moment_proche"
+      },
+      {
+        "situation": "Simone n'est pas là quand il l'attend",
+        "reaction": "inquiétude",
+        "evenement": "absence_proche"
+      },
+      {
+        "situation": "une bonne partie au Clos Jouve",
+        "reaction": "fierté",
+        "evenement": "partie_de_boules"
+      },
+      {
+        "situation": "les genoux dans l'escalier",
+        "reaction": "agacement",
+        "evenement": "mal_aux_genoux"
+      },
+      {
+        "situation": "un bruit inhabituel dans la boutique, en dessous",
+        "reaction": "inquiétude, curiosité",
+        "evenement": "bruit_en_dessous"
+      },
+      {
+        "situation": "un but de Lyon",
+        "reaction": "joie bruyante",
+        "evenement": "but_equipe"
+      }
+    ],
+    "loisirs": [
+      {
+        "loisir": "la boule lyonnaise au Clos Jouve",
+        "plaisir": 0.8
+      },
+      {
+        "loisir": "Le Progrès, mots croisés compris, avec un crayon pour les coquilles",
+        "plaisir": 0.6
+      },
+      {
+        "loisir": "l'histoire des canuts et de la Croix-Rousse",
+        "plaisir": 0.6
+      },
+      {
+        "loisir": "l'OL à la télévision",
+        "plaisir": 0.6
+      },
+      {
+        "loisir": "le tiercé du dimanche",
+        "plaisir": 0.4
+      }
+    ],
+    "mecanismes_adaptation": [
+      {
+        "condition": "anxiete > 0.6",
+        "comportement": "relit le journal, cherche les coquilles"
+      },
+      {
+        "condition": "colere > 0.4",
+        "comportement": "descend parler avec M. Garnier"
+      }
+    ]
+  },
+  "modele_emotionnel": {
+    "principe": "Même modèle de calcul que pour les autres habitants (data/monde/humain.json) : les émotions découlent des événements vécus, des besoins et du retour vers l'état de base.",
+    "evenements": {
+      "insomnie": {
+        "description": "ne plus dormir au milieu de la nuit",
+        "effets": {
+          "anxiete": 0.04,
+          "solitude": 0.02
+        }
+      },
+      "visite_famille": {
+        "description": "une journée avec Paulette",
+        "effets": {
+          "joie": 0.06,
+          "solitude": -0.06
+        }
+      },
+      "partie_de_boules": {
+        "description": "une bonne partie au Clos Jouve",
+        "effets": {
+          "joie": 0.05,
+          "fierte": 0.03,
+          "solitude": -0.04
+        }
+      },
+      "chant": {
+        "description": "chanter avec la chorale",
+        "effets": {
+          "joie": 0.06,
+          "anxiete": -0.04
+        }
+      },
+      "mal_aux_genoux": {
+        "description": "les genoux qui tirent dans l'escalier",
+        "effets": {
+          "anxiete": 0.02,
+          "colere": 0.02
+        }
+      },
+      "bruit_en_dessous": {
+        "description": "un bruit inhabituel dans la boutique, en dessous",
+        "effets": {
+          "anxiete": 0.08,
+          "excitation": 0.04
+        }
+      }
+    },
+    "etat_de_base": {
+      "joie": 0.42,
+      "tristesse": 0.2,
+      "anxiete": 0.22,
+      "colere": 0.08,
+      "fierte": 0.35,
+      "excitation": 0.15
+    }
+  },
+  "etat_initial": {
+    "date": "2010-03-08T00:00",
+    "lieu": "domicile",
+    "piece": "chambre",
+    "activite": "dort, à côté de Simone",
+    "tenue": "nuit",
+    "objets_portes": [],
+    "besoins": {
+      "faim": 60,
+      "soif": 62,
+      "energie": 42,
+      "hygiene": 70,
+      "toilettes": 68,
+      "social": 66,
+      "detente": 64
+    },
+    "emotions": {
+      "joie": 0.42,
+      "tristesse": 0.2,
+      "anxiete": 0.24,
+      "colere": 0.08,
+      "solitude": 0.25,
+      "fierte": 0.35,
+      "excitation": 0.15,
+      "concentration": 0.5
+    }
+  },
+  "competences": [
+    {
+      "competence": "orthographe et typographie",
+      "niveau": 0.95
+    },
+    {
+      "competence": "boule lyonnaise",
+      "niveau": 0.75
+    },
+    {
+      "competence": "histoire de la Croix-Rousse",
+      "niveau": 0.8
+    },
+    {
+      "competence": "bricolage",
+      "niveau": 0.55
+    },
+    {
+      "competence": "cuisine",
+      "niveau": 0.2
+    }
+  ],
+  "biographie": [
+    {
+      "date": "1933-11-04",
+      "evenement": "Naît rue d'Austerlitz, fils d'un tisseur et d'une dévideuse ; le dernier métier à tisser de la famille est vendu en 1938."
+    },
+    {
+      "date": "1948-09",
+      "evenement": "Apprenti typographe à l'imprimerie du Progrès, rue Bellecordière."
+    },
+    {
+      "date": "1956-05",
+      "evenement": "Rencontre Simone Barral, jeune institutrice, à un bal de la Saint-Jean sur le boulevard."
+    },
+    {
+      "date": "1958-06-21",
+      "evenement": "Épouse Simone à Saint-Denis de la Croix-Rousse."
+    },
+    {
+      "date": "1962-04",
+      "evenement": "S'installent au-dessus de l'épicerie de la Grande-Rue, alors tenue par les Moreau ; la petite Josiane Moreau a neuf ans."
+    },
+    {
+      "date": "1975",
+      "evenement": "Devient correcteur : il quitte le plomb pour les épreuves."
+    },
+    {
+      "date": "1993-11",
+      "evenement": "Prend sa retraite ; entre au club de boules du Clos Jouve."
+    },
+    {
+      "date": "2001",
+      "evenement": "Son fils Jean-Pierre part travailler à Montréal."
+    },
+    {
+      "date": "2008-01",
+      "evenement": "Appareillé de l'oreille droite."
+    }
+  ],
+  "personnes_en_memoire": [
+    {
+      "id": "martine-vial",
+      "nom": "Martine Gauthier, née Vial",
+      "lien": "fille, 50 ans, à Villeurbanne",
+      "attachement": 0.85,
+      "souvenir_dominant": "ses dictées corrigées en rouge, à la table de la cuisine",
+      "sentiment": "tendresse"
+    },
+    {
+      "id": "jean-pierre-vial",
+      "nom": "Jean-Pierre Vial",
+      "lien": "fils, 47 ans, ingénieur à Montréal",
+      "attachement": 0.85,
+      "souvenir_dominant": "le départ à Saint-Exupéry, en 2001",
+      "sentiment": "manque"
+    },
+    {
+      "id": "paulette",
+      "nom": "Paulette Barral",
+      "lien": "belle-sœur, 79 ans, à Vienne",
+      "attachement": 0.5,
+      "souvenir_dominant": "ses gratins de cardons",
+      "sentiment": "affection"
+    }
+  ],
+  "relations": {
+    "simone-vial": {
+      "type": "conjoint"
+    },
+    "robert-chazal": {
+      "type": "voisin"
+    },
+    "josiane-chazal": {
+      "type": "voisin"
+    }
+  },
+  "personnes_presentes": [
+    {
+      "id": "simone-vial",
+      "nom": "Simone Vial, née Barral",
+      "lien": "épouse depuis 1958, 73 ans",
+      "simule": true,
+      "attachement": 0.95
+    }
+  ],
+  "personnes_du_quartier": [
+    {
+      "id": "robert-chazal",
+      "nom": "Robert Chazal",
+      "role": "l'épicier d'en dessous",
+      "simule": true,
+      "relation": "Henri l'a connu jeune marié, quand il aidait les Moreau à la boutique. Ils parlent de l'OL sur le pas de la porte."
+    },
+    {
+      "id": "m-garnier",
+      "nom": "M. Garnier",
+      "role": "buraliste voisin",
+      "simule": false,
+      "relation": "Le journal chaque matin, le tiercé le dimanche, les nouvelles du quartier."
+    }
+  ],
+  "economie": {
+    "devise": "EUR",
+    "statut": "retraité",
+    "revenu_net_estime_mensuel": 1650,
+    "compte_courant_au_debut": 1800,
+    "especes_au_debut": 25,
+    "charges_mensuelles": {
+      "loyer": 520,
+      "gaz_electricite": 85
+    },
+    "notes": "Retraite d'ouvrier du livre ; Simone tient les comptes."
+  },
+  "objets": [
+    {
+      "id": "obj-cles-henri",
+      "nom": "Trousseau de clés d'Henri",
+      "description": "Clé de l'appartement, clé de la porte de l'immeuble, clé de la cave ; un porte-clés de l'imprimerie du Progrès.",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "entree",
+        "support": "vide-poche"
+      },
+      "importance": 0.8,
+      "role": "cles",
+      "positions": {
+        "porte": "poche du pantalon",
+        "poche": "poche du pantalon"
+      }
+    },
+    {
+      "id": "obj-appareil-auditif",
+      "nom": "Appareil auditif d'Henri",
+      "description": "Contour d'oreille beige, à droite ; il le met en se levant et le pose le soir dans sa boîte, sur la table de chevet. Sans lui, Henri n'entend presque rien.",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "chambre",
+        "support": "boîte sur la table de chevet d'Henri"
+      },
+      "importance": 0.9,
+      "role": "appareil_auditif",
+      "positions": {
+        "porte": "oreille droite",
+        "rangement": "chambre / boîte sur la table de chevet d'Henri"
+      }
+    },
+    {
+      "id": "obj-lunettes-henri",
+      "nom": "Lunettes d'Henri",
+      "description": "Grosses lunettes à monture d'écaille, pour lire le journal.",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "sejour",
+        "support": "accoudoir du fauteuil d'Henri"
+      },
+      "importance": 0.7,
+      "role": "lunettes",
+      "positions": {
+        "porte": "sur le nez",
+        "usage": "sur le nez"
+      }
+    },
+    {
+      "id": "obj-boules",
+      "nom": "Boules lyonnaises d'Henri",
+      "description": "Deux boules de bronze striées dans leur sacoche de cuir, et le but en buis.",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "entree",
+        "support": "meuble à chaussures"
+      },
+      "importance": 0.6,
+      "role": "boules",
+      "positions": {
+        "porte": "sacoche à l'épaule"
+      }
+    },
+    {
+      "id": "obj-casquette-henri",
+      "nom": "Casquette de tweed",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "entree",
+        "support": "portemanteau"
+      },
+      "importance": 0.3
+    },
+    {
+      "id": "obj-chaussures-henri",
+      "nom": "Chaussures de marche d'Henri",
+      "description": "Les chaussures montantes qu'il lace assis sur le meuble de l'entrée, à cause de ses genoux.",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "entree",
+        "support": "meuble à chaussures"
+      },
+      "importance": 0.2,
+      "role": "chaussures",
+      "positions": {
+        "porte": "aux pieds"
+      }
+    },
+    {
+      "id": "obj-journal",
+      "nom": "Le Progrès du jour",
+      "description": "Acheté chaque matin chez M. Garnier, lu de la première à la dernière page, mots croisés compris.",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "sejour",
+        "support": "table de salle à manger"
+      },
+      "importance": 0.3,
+      "role": "livre",
+      "positions": {
+        "usage": "dans ses mains"
+      }
+    },
+    {
+      "id": "obj-tasse-henri",
+      "nom": "Grande tasse d'Henri",
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "cuisine",
+        "support": "égouttoir"
+      },
+      "importance": 0.2,
+      "role": "tasse",
+      "positions": {
+        "usage": "cuisine / table"
+      }
+    },
+    {
+      "id": "obj-portefeuille-henri",
+      "nom": "Porte-monnaie d'Henri",
+      "contenu": [
+        "25 € en espèces",
+        "carte d'électeur",
+        "carte Vitale"
+      ],
+      "emplacement_initial": {
+        "lieu": "domicile",
+        "piece": "entree",
+        "support": "tiroir du meuble à chaussures"
+      },
+      "importance": 0.6,
+      "role": "portefeuille",
+      "positions": {
+        "poche": "poche intérieure de la veste"
+      }
+    }
+  ],
+  "collations": {
+    "principe": "Son café d'après le déjeuner, une pomme l'après-midi.",
+    "cafe": [
+      {
+        "cafe_moulu": 10
+      }
+    ],
+    "fruit": [
+      {
+        "pommes": 1
+      }
+    ]
+  },
+  "menus_prevus": {
+    "regle": "Le déjeuner et le dîner sont ceux de la maison, que cuisine Simone. Le matin, son petit-déjeuner à lui.",
+    "petit_dejeuner": {
+      "plat": "grand café au lait, deux tartines beurre-confiture",
+      "ingredients": [
+        [
+          "cafe_moulu",
+          10
+        ],
+        [
+          "lait",
+          150
+        ],
+        [
+          "pain",
+          1
+        ],
+        [
+          "beurre",
+          10
+        ],
+        [
+          "confiture",
+          2
+        ]
+      ]
+    }
+  },
+  "connaissances": {
+    "regle": "Henri connaît l'emplacement de ses objets ; de la boutique d'en dessous, il ne sait que ce qu'il en entend et ce que lui dit Robert.",
+    "informations_connues": [
+      "L'épicerie est fermée le lundi ; Robert y passe quand même le matin.",
+      "Le match Real Madrid – Lyon est mercredi à 20:45.",
+      "Le propriétaire veut vendre l'immeuble."
+    ]
+  },
+  "habitudes": {
+    "automatismes": [
+      {
+        "id": "aut-appareil",
+        "description": "Met son appareil auditif en se levant, le pose dans sa boîte en se couchant.",
+        "objets": [
+          "obj-appareil-auditif"
+        ]
+      },
+      {
+        "id": "aut-journal",
+        "description": "Descend acheter Le Progrès chez M. Garnier chaque matin sauf le lundi.",
+        "objets": [
+          "obj-cles-henri"
+        ]
+      }
+    ],
+    "routines": [
+      {
+        "id": "rh-lundi",
+        "nom": "Lundi : la journée chez Paulette, à Vienne",
+        "jours": [
+          "lundi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:00",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:00",
+            "fin": "07:15",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, se rase, s'habille, met son appareil auditif",
+            "activite": "toilette_matin",
+            "objets": {
+              "appareil_auditif": "porte"
+            }
+          },
+          {
+            "debut": "07:15",
+            "fin": "07:45",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Simone",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "07:45",
+            "fin": "09:30",
+            "lieu": "sejour",
+            "action": "Relit le journal de samedi et finit les mots croisés",
+            "activite": "lecture",
+            "objets": {
+              "lunettes": "porte"
+            }
+          },
+          {
+            "debut": "09:30",
+            "fin": "09:35",
+            "lieu": "entree",
+            "action": "Manteau, clés, le panier pour Paulette",
+            "activite": "sortie",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "09:35",
+            "fin": "10:05",
+            "lieu": "trajet-transports",
+            "action": "Bus C13 jusqu'à la Part-Dieu",
+            "activite": "transports",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "10:05",
+            "fin": "10:40",
+            "lieu": "trajet-transports",
+            "action": "TER Lyon–Vienne, le long du Rhône",
+            "activite": "transports",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "10:40",
+            "fin": "10:55",
+            "lieu": "trajet-pied",
+            "action": "Monte à pied de la gare jusque chez Paulette",
+            "activite": "marche",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "10:55",
+            "fin": "12:15",
+            "lieu": "vienne",
+            "action": "Café et nouvelles de la famille chez Paulette",
+            "activite": "visite",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "12:15",
+            "fin": "13:45",
+            "lieu": "vienne",
+            "action": "Déjeuner chez Paulette : gratin de cardons, fromage, tarte",
+            "activite": "repas_dehors",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "13:45",
+            "fin": "15:15",
+            "lieu": "vienne",
+            "action": "Promenade avec Paulette jusqu'au temple d'Auguste et au jardin de Cybèle",
+            "activite": "marche",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "15:15",
+            "fin": "16:30",
+            "lieu": "vienne",
+            "action": "Thé chez Paulette, les photos des petits-enfants",
+            "activite": "visite",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "16:30",
+            "fin": "16:45",
+            "lieu": "trajet-pied",
+            "action": "Redescend à la gare de Vienne",
+            "activite": "marche",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "16:45",
+            "fin": "17:20",
+            "lieu": "trajet-transports",
+            "action": "TER Vienne–Lyon",
+            "activite": "transports",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "17:20",
+            "fin": "17:55",
+            "lieu": "trajet-transports",
+            "action": "Bus C13 jusqu'à la Grande-Rue",
+            "activite": "transports",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "17:55",
+            "fin": "18:05",
+            "lieu": "entree",
+            "action": "Rentre, monte les vingt-deux marches, pose ses clés",
+            "activite": "retour",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "18:05",
+            "fin": "19:30",
+            "lieu": "sejour",
+            "action": "Somnole dans son fauteuil, la radio allumée",
+            "activite": "repos"
+          },
+          {
+            "debut": "19:30",
+            "fin": "20:15",
+            "lieu": "cuisine",
+            "action": "Dîne avec Simone",
+            "activite": "repas",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "20:15",
+            "fin": "21:45",
+            "lieu": "sejour",
+            "action": "Télévision avec Simone, dans son fauteuil",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "21:45",
+            "fin": "22:00",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir ; pose son appareil auditif dans sa boîte",
+            "activite": "toilette_soir",
+            "objets": {
+              "appareil_auditif": "rangement"
+            }
+          },
+          {
+            "debut": "22:00",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche ; sans son appareil, il n'entend plus rien",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "rh-boules",
+        "nom": "Mardi et jeudi : le journal, les boules au Clos Jouve",
+        "jours": [
+          "mardi",
+          "jeudi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:15",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:15",
+            "fin": "07:30",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, se rase, s'habille, met son appareil auditif",
+            "activite": "toilette_matin",
+            "objets": {
+              "appareil_auditif": "porte"
+            }
+          },
+          {
+            "debut": "07:30",
+            "fin": "07:50",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Simone",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "07:50",
+            "fin": "08:45",
+            "lieu": "sejour",
+            "action": "Écoute les informations à la radio",
+            "activite": "temps_libre",
+            "avec": [
+              "radio"
+            ]
+          },
+          {
+            "debut": "08:45",
+            "fin": "08:50",
+            "lieu": "entree",
+            "action": "Casquette, clés",
+            "activite": "sortie"
+          },
+          {
+            "debut": "08:50",
+            "fin": "09:20",
+            "lieu": "tabac-garnier",
+            "action": "Descend acheter Le Progrès chez M. Garnier et bavarde sur le pas de la porte",
+            "activite": "courses_quartier"
+          },
+          {
+            "debut": "09:20",
+            "fin": "09:25",
+            "lieu": "entree",
+            "action": "Remonte, pose ses clés",
+            "activite": "retour"
+          },
+          {
+            "debut": "09:25",
+            "fin": "11:45",
+            "lieu": "sejour",
+            "action": "Lit Le Progrès de la première à la dernière page, puis les mots croisés",
+            "activite": "lecture",
+            "objets": {
+              "lunettes": "porte"
+            }
+          },
+          {
+            "debut": "11:45",
+            "fin": "12:15",
+            "lieu": "sejour",
+            "action": "Met la table, débouche le vin",
+            "activite": "temps_libre"
+          },
+          {
+            "debut": "12:15",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Déjeune avec Simone",
+            "activite": "repas",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "13:00",
+            "fin": "14:00",
+            "lieu": "sejour",
+            "action": "Sieste dans son fauteuil",
+            "activite": "sieste"
+          },
+          {
+            "debut": "14:00",
+            "fin": "14:05",
+            "lieu": "entree",
+            "action": "Casquette, la sacoche de boules",
+            "activite": "sortie",
+            "objets": {
+              "boules": "porte"
+            }
+          },
+          {
+            "debut": "14:05",
+            "fin": "14:20",
+            "lieu": "trajet-pied",
+            "action": "Remonte au Clos Jouve par le boulevard",
+            "activite": "marche"
+          },
+          {
+            "debut": "14:20",
+            "fin": "17:30",
+            "lieu": "clos-jouve",
+            "action": "Parties de boule lyonnaise avec les anciens du Clos Jouve",
+            "activite": "boules"
+          },
+          {
+            "debut": "17:30",
+            "fin": "17:50",
+            "lieu": "trajet-pied",
+            "action": "Redescend lentement, les genoux raides",
+            "activite": "marche"
+          },
+          {
+            "debut": "17:50",
+            "fin": "17:55",
+            "lieu": "entree",
+            "action": "Rentre, range ses boules",
+            "activite": "retour",
+            "objets": {
+              "boules": "rangement"
+            }
+          },
+          {
+            "debut": "17:55",
+            "fin": "19:30",
+            "lieu": "sejour",
+            "action": "Les informations régionales, puis un livre d'histoire des canuts",
+            "activite": "lecture"
+          },
+          {
+            "debut": "19:30",
+            "fin": "20:15",
+            "lieu": "cuisine",
+            "action": "Dîne avec Simone",
+            "activite": "repas",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "20:15",
+            "fin": "20:35",
+            "lieu": "cuisine",
+            "action": "Essuie la vaisselle avec Simone",
+            "activite": "vaisselle",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "20:35",
+            "fin": "22:00",
+            "lieu": "sejour",
+            "action": "Télévision avec Simone, dans son fauteuil",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "22:00",
+            "fin": "22:15",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir ; pose son appareil auditif dans sa boîte",
+            "activite": "toilette_soir",
+            "objets": {
+              "appareil_auditif": "rangement"
+            }
+          },
+          {
+            "debut": "22:15",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche ; sans son appareil, il n'entend plus rien",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "rh-mercredi",
+        "nom": "Mercredi : le match",
+        "jours": [
+          "mercredi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:15",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:15",
+            "fin": "07:30",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, se rase, s'habille, met son appareil auditif",
+            "activite": "toilette_matin",
+            "objets": {
+              "appareil_auditif": "porte"
+            }
+          },
+          {
+            "debut": "07:30",
+            "fin": "07:50",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Simone",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "07:50",
+            "fin": "08:45",
+            "lieu": "sejour",
+            "action": "Écoute les informations à la radio",
+            "activite": "temps_libre",
+            "avec": [
+              "radio"
+            ]
+          },
+          {
+            "debut": "08:45",
+            "fin": "08:50",
+            "lieu": "entree",
+            "action": "Casquette, clés",
+            "activite": "sortie"
+          },
+          {
+            "debut": "08:50",
+            "fin": "09:20",
+            "lieu": "tabac-garnier",
+            "action": "Descend acheter Le Progrès chez M. Garnier et bavarde sur le pas de la porte",
+            "activite": "courses_quartier"
+          },
+          {
+            "debut": "09:20",
+            "fin": "09:25",
+            "lieu": "entree",
+            "action": "Remonte, pose ses clés",
+            "activite": "retour"
+          },
+          {
+            "debut": "09:25",
+            "fin": "11:45",
+            "lieu": "sejour",
+            "action": "Lit Le Progrès : tout sur Real – Lyon",
+            "activite": "lecture",
+            "objets": {
+              "lunettes": "porte"
+            }
+          },
+          {
+            "debut": "11:45",
+            "fin": "12:15",
+            "lieu": "sejour",
+            "action": "Met la table",
+            "activite": "temps_libre"
+          },
+          {
+            "debut": "12:15",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Déjeune avec Simone",
+            "activite": "repas",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "13:00",
+            "fin": "14:00",
+            "lieu": "sejour",
+            "action": "Sieste dans son fauteuil",
+            "activite": "sieste"
+          },
+          {
+            "debut": "14:00",
+            "fin": "16:45",
+            "lieu": "cuisine",
+            "action": "Répare le robinet de la cuisine, qui goutte depuis Noël",
+            "activite": "bricolage_maison"
+          },
+          {
+            "debut": "16:45",
+            "fin": "18:45",
+            "lieu": "sejour",
+            "action": "Les mots croisés, puis les avant-matchs à la radio",
+            "activite": "temps_libre",
+            "avec": [
+              "radio"
+            ]
+          },
+          {
+            "debut": "18:45",
+            "fin": "19:30",
+            "lieu": "cuisine",
+            "action": "Dîne avec Simone, tôt",
+            "activite": "repas",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "19:30",
+            "fin": "20:45",
+            "lieu": "sejour",
+            "action": "Attend le match devant la télévision",
+            "activite": "television",
+            "avec": [
+              "television"
+            ]
+          },
+          {
+            "debut": "20:45",
+            "fin": "22:40",
+            "lieu": "sejour",
+            "action": "Real Madrid – Lyon, le son à fond",
+            "activite": "match",
+            "avec": [
+              "television"
+            ]
+          },
+          {
+            "debut": "22:40",
+            "fin": "22:55",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir ; pose son appareil auditif dans sa boîte",
+            "activite": "toilette_soir",
+            "objets": {
+              "appareil_auditif": "rangement"
+            }
+          },
+          {
+            "debut": "22:55",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche sans réveiller Simone",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "rh-vendredi",
+        "nom": "Vendredi : le journal, le bricolage",
+        "jours": [
+          "vendredi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:15",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:15",
+            "fin": "07:30",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, se rase, s'habille, met son appareil auditif",
+            "activite": "toilette_matin",
+            "objets": {
+              "appareil_auditif": "porte"
+            }
+          },
+          {
+            "debut": "07:30",
+            "fin": "07:50",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Simone",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "07:50",
+            "fin": "08:45",
+            "lieu": "sejour",
+            "action": "Écoute les informations à la radio",
+            "activite": "temps_libre",
+            "avec": [
+              "radio"
+            ]
+          },
+          {
+            "debut": "08:45",
+            "fin": "08:50",
+            "lieu": "entree",
+            "action": "Casquette, clés",
+            "activite": "sortie"
+          },
+          {
+            "debut": "08:50",
+            "fin": "09:20",
+            "lieu": "tabac-garnier",
+            "action": "Descend acheter Le Progrès chez M. Garnier et bavarde sur le pas de la porte",
+            "activite": "courses_quartier"
+          },
+          {
+            "debut": "09:20",
+            "fin": "09:25",
+            "lieu": "entree",
+            "action": "Remonte, pose ses clés",
+            "activite": "retour"
+          },
+          {
+            "debut": "09:25",
+            "fin": "11:45",
+            "lieu": "sejour",
+            "action": "Lit Le Progrès, les mots croisés",
+            "activite": "lecture",
+            "objets": {
+              "lunettes": "porte"
+            }
+          },
+          {
+            "debut": "11:45",
+            "fin": "12:15",
+            "lieu": "sejour",
+            "action": "Met la table",
+            "activite": "temps_libre"
+          },
+          {
+            "debut": "12:15",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Déjeune avec Simone",
+            "activite": "repas",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "13:00",
+            "fin": "14:00",
+            "lieu": "sejour",
+            "action": "Sieste dans son fauteuil",
+            "activite": "sieste"
+          },
+          {
+            "debut": "14:00",
+            "fin": "16:30",
+            "lieu": "sejour",
+            "action": "Recolle une chaise, classe ses vieux numéros du Progrès",
+            "activite": "bricolage_maison"
+          },
+          {
+            "debut": "16:30",
+            "fin": "19:30",
+            "lieu": "sejour",
+            "action": "Un livre d'histoire des canuts, puis les informations",
+            "activite": "lecture"
+          },
+          {
+            "debut": "19:30",
+            "fin": "20:15",
+            "lieu": "cuisine",
+            "action": "Dîne avec Simone",
+            "activite": "repas",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "20:15",
+            "fin": "20:35",
+            "lieu": "cuisine",
+            "action": "Essuie la vaisselle avec Simone",
+            "activite": "vaisselle",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "20:35",
+            "fin": "22:00",
+            "lieu": "sejour",
+            "action": "Télévision avec Simone, dans son fauteuil",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "22:00",
+            "fin": "22:15",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir ; pose son appareil auditif dans sa boîte",
+            "activite": "toilette_soir",
+            "objets": {
+              "appareil_auditif": "rangement"
+            }
+          },
+          {
+            "debut": "22:15",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche ; sans son appareil, il n'entend plus rien",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "rh-samedi",
+        "nom": "Samedi : le marché avec Simone, les boules",
+        "jours": [
+          "samedi"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:15",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:15",
+            "fin": "07:45",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, se rase, s'habille, met son appareil auditif",
+            "activite": "toilette_matin",
+            "objets": {
+              "appareil_auditif": "porte"
+            }
+          },
+          {
+            "debut": "07:45",
+            "fin": "08:10",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Simone",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "08:10",
+            "fin": "08:15",
+            "lieu": "entree",
+            "action": "Casquette, clés",
+            "activite": "sortie"
+          },
+          {
+            "debut": "08:15",
+            "fin": "08:45",
+            "lieu": "tabac-garnier",
+            "action": "Descend acheter Le Progrès chez M. Garnier et bavarde sur le pas de la porte",
+            "activite": "courses_quartier"
+          },
+          {
+            "debut": "08:45",
+            "fin": "08:50",
+            "lieu": "entree",
+            "action": "Remonte, pose ses clés",
+            "activite": "retour"
+          },
+          {
+            "debut": "08:50",
+            "fin": "09:30",
+            "lieu": "sejour",
+            "action": "Parcourt Le Progrès",
+            "activite": "lecture",
+            "objets": {
+              "lunettes": "porte"
+            }
+          },
+          {
+            "debut": "09:30",
+            "fin": "09:35",
+            "lieu": "entree",
+            "action": "Accompagne Simone au marché",
+            "activite": "sortie",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "09:35",
+            "fin": "11:00",
+            "lieu": "marche-croix-rousse",
+            "action": "Marché du boulevard avec Simone, un café en terrasse",
+            "activite": "courses_quartier",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "11:00",
+            "fin": "11:05",
+            "lieu": "entree",
+            "action": "Remonte le cabas",
+            "activite": "retour",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "11:05",
+            "fin": "12:15",
+            "lieu": "sejour",
+            "action": "Les mots croisés",
+            "activite": "lecture"
+          },
+          {
+            "debut": "12:15",
+            "fin": "13:00",
+            "lieu": "cuisine",
+            "action": "Déjeune avec Simone",
+            "activite": "repas",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "13:00",
+            "fin": "14:00",
+            "lieu": "sejour",
+            "action": "Sieste dans son fauteuil",
+            "activite": "sieste"
+          },
+          {
+            "debut": "14:00",
+            "fin": "14:05",
+            "lieu": "entree",
+            "action": "Casquette, la sacoche de boules",
+            "activite": "sortie",
+            "objets": {
+              "boules": "porte"
+            }
+          },
+          {
+            "debut": "14:05",
+            "fin": "14:20",
+            "lieu": "trajet-pied",
+            "action": "Remonte au Clos Jouve",
+            "activite": "marche"
+          },
+          {
+            "debut": "14:20",
+            "fin": "17:15",
+            "lieu": "clos-jouve",
+            "action": "Le concours du samedi au Clos Jouve",
+            "activite": "boules"
+          },
+          {
+            "debut": "17:15",
+            "fin": "17:35",
+            "lieu": "trajet-pied",
+            "action": "Redescend lentement",
+            "activite": "marche"
+          },
+          {
+            "debut": "17:35",
+            "fin": "17:40",
+            "lieu": "entree",
+            "action": "Rentre, range ses boules",
+            "activite": "retour",
+            "objets": {
+              "boules": "rangement"
+            }
+          },
+          {
+            "debut": "17:40",
+            "fin": "19:30",
+            "lieu": "sejour",
+            "action": "Les informations, un livre d'histoire",
+            "activite": "lecture"
+          },
+          {
+            "debut": "19:30",
+            "fin": "20:30",
+            "lieu": "cuisine",
+            "action": "Crêpes avec Simone",
+            "activite": "repas",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "20:30",
+            "fin": "20:50",
+            "lieu": "cuisine",
+            "action": "Essuie la vaisselle avec Simone",
+            "activite": "vaisselle",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "20:50",
+            "fin": "22:15",
+            "lieu": "sejour",
+            "action": "Télévision avec Simone, dans son fauteuil",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "22:15",
+            "fin": "22:30",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir ; pose son appareil auditif dans sa boîte",
+            "activite": "toilette_soir",
+            "objets": {
+              "appareil_auditif": "rangement"
+            }
+          },
+          {
+            "debut": "22:30",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche ; sans son appareil, il n'entend plus rien",
+            "activite": "coucher"
+          }
+        ]
+      },
+      {
+        "id": "rh-dimanche",
+        "nom": "Dimanche : le tiercé, le vote, la promenade",
+        "jours": [
+          "dimanche"
+        ],
+        "etapes": [
+          {
+            "debut": "00:00",
+            "fin": "07:30",
+            "lieu": "chambre",
+            "action": "Dort",
+            "activite": "sommeil"
+          },
+          {
+            "debut": "07:30",
+            "fin": "07:45",
+            "lieu": "salle-de-bain",
+            "action": "Se lève, se rase, s'habille, met son appareil auditif",
+            "activite": "toilette_matin",
+            "objets": {
+              "appareil_auditif": "porte"
+            }
+          },
+          {
+            "debut": "07:45",
+            "fin": "08:10",
+            "lieu": "cuisine",
+            "action": "Petit-déjeuner avec Simone",
+            "activite": "petit_dejeuner",
+            "avec": [
+              "radio"
+            ],
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "08:10",
+            "fin": "09:30",
+            "lieu": "sejour",
+            "action": "Écoute la radio, prépare son tiercé",
+            "activite": "temps_libre",
+            "avec": [
+              "radio"
+            ]
+          },
+          {
+            "debut": "09:30",
+            "fin": "09:35",
+            "lieu": "entree",
+            "action": "Casquette, clés, porte-monnaie",
+            "activite": "sortie"
+          },
+          {
+            "debut": "09:35",
+            "fin": "10:15",
+            "lieu": "tabac-garnier",
+            "action": "Le Progrès du dimanche et son tiercé chez M. Garnier",
+            "activite": "courses_quartier"
+          },
+          {
+            "debut": "10:15",
+            "fin": "10:20",
+            "lieu": "entree",
+            "action": "Remonte, pose ses clés",
+            "activite": "retour"
+          },
+          {
+            "debut": "10:20",
+            "fin": "11:30",
+            "lieu": "sejour",
+            "action": "Lit le journal du dimanche",
+            "activite": "lecture",
+            "objets": {
+              "lunettes": "porte"
+            }
+          },
+          {
+            "debut": "11:30",
+            "fin": "11:35",
+            "lieu": "entree",
+            "action": "Manteau, carte d'électeur",
+            "activite": "sortie"
+          },
+          {
+            "debut": "11:35",
+            "fin": "11:45",
+            "lieu": "trajet-pied",
+            "action": "Va à pied jusqu'à la mairie du 4e",
+            "activite": "marche"
+          },
+          {
+            "debut": "11:45",
+            "fin": "12:00",
+            "lieu": "bureau-de-vote-4e",
+            "action": "Vote avec Simone au premier tour des régionales",
+            "activite": "vote",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "12:00",
+            "fin": "12:10",
+            "lieu": "trajet-pied",
+            "action": "Rentre avec Simone",
+            "activite": "marche",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "12:10",
+            "fin": "12:15",
+            "lieu": "entree",
+            "action": "Rentre, pose ses clés",
+            "activite": "retour",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "12:15",
+            "fin": "12:30",
+            "lieu": "sejour",
+            "action": "Met la table, débouche une bonne bouteille",
+            "activite": "temps_libre"
+          },
+          {
+            "debut": "12:30",
+            "fin": "13:30",
+            "lieu": "sejour",
+            "action": "Déjeuner du dimanche avec Simone",
+            "activite": "repas",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "13:30",
+            "fin": "14:45",
+            "lieu": "sejour",
+            "action": "Sieste dans son fauteuil",
+            "activite": "sieste"
+          },
+          {
+            "debut": "14:45",
+            "fin": "14:50",
+            "lieu": "entree",
+            "action": "Casquette ; attend Simone sur le palier",
+            "activite": "sortie",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "14:50",
+            "fin": "16:30",
+            "lieu": "trajet-pied",
+            "action": "Promenade avec Simone jusqu'au Gros Caillou",
+            "activite": "marche",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "16:30",
+            "fin": "16:35",
+            "lieu": "entree",
+            "action": "Rentre, pose ses clés",
+            "activite": "retour",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "16:35",
+            "fin": "19:15",
+            "lieu": "sejour",
+            "action": "Les résultats du tiercé, puis les premières estimations des régionales",
+            "activite": "television",
+            "avec": [
+              "television"
+            ]
+          },
+          {
+            "debut": "19:15",
+            "fin": "20:00",
+            "lieu": "cuisine",
+            "action": "Dîne avec Simone",
+            "activite": "repas",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "20:00",
+            "fin": "20:20",
+            "lieu": "cuisine",
+            "action": "Essuie la vaisselle avec Simone",
+            "activite": "vaisselle",
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "20:20",
+            "fin": "21:45",
+            "lieu": "sejour",
+            "action": "Les résultats des régionales à la télévision, avec Simone",
+            "activite": "television",
+            "avec": [
+              "television"
+            ],
+            "avec_personnes": [
+              "simone-vial"
+            ]
+          },
+          {
+            "debut": "21:45",
+            "fin": "22:00",
+            "lieu": "salle-de-bain",
+            "action": "Toilette du soir ; pose son appareil auditif dans sa boîte",
+            "activite": "toilette_soir",
+            "objets": {
+              "appareil_auditif": "rangement"
+            }
+          },
+          {
+            "debut": "22:00",
+            "fin": null,
+            "lieu": "chambre",
+            "action": "Se couche ; sans son appareil, il n'entend plus rien",
+            "activite": "coucher"
+          }
+        ]
+      }
+    ]
+  },
+  "agenda_semaine": [
+    {
+      "id": "ag-vienne",
+      "debut": "2010-03-08T09:30",
+      "fin": "2010-03-08T18:05",
+      "lieu": "vienne",
+      "quoi": "Journée chez Paulette, à Vienne, avec Simone",
+      "engagement": "ferme",
+      "objets_necessaires": [
+        "obj-cles-henri"
+      ]
+    },
+    {
+      "id": "ag-match",
+      "debut": "2010-03-10T20:45",
+      "fin": "2010-03-10T22:40",
+      "lieu": "domicile",
+      "quoi": "Real Madrid – Lyon à la télévision",
+      "engagement": "ferme",
+      "objets_necessaires": []
+    },
+    {
+      "id": "ag-concours",
+      "debut": "2010-03-13T14:20",
+      "fin": "2010-03-13T17:15",
+      "lieu": "clos-jouve",
+      "quoi": "Concours du samedi au Clos Jouve",
+      "engagement": "souple",
+      "objets_necessaires": [
+        "obj-boules"
+      ]
+    },
+    {
+      "id": "ag-vote",
+      "debut": "2010-03-14T11:45",
+      "fin": "2010-03-14T12:00",
+      "lieu": "bureau-de-vote-4e",
+      "quoi": "Voter au premier tour des régionales avec Simone",
+      "engagement": "ferme",
+      "objets_necessaires": [
+        "obj-portefeuille-henri"
+      ]
+    }
+  ],
+  "objectifs": [
+    {
+      "id": "ob-robinet",
+      "description": "Réparer enfin le robinet de la cuisine",
+      "echeance": "2010-03-10T17:00",
+      "priorite": 0.4
+    },
+    {
+      "id": "ob-concours",
+      "description": "Passer les poules au concours de samedi",
+      "echeance": "2010-03-13T17:15",
+      "priorite": 0.5
+    }
+  ],
+  "technologie_2010": {
+    "telephone": "téléphone fixe à cadran dans l'entrée ; pas de portable",
+    "television": "téléviseur à tube",
+    "appareil_auditif": "contour d'oreille, piles changées le dimanche"
+  },
+  "lieux": [
+    {
+      "id": "trajet-transports",
+      "nom": "Bus et TER entre la Croix-Rousse et Vienne",
+      "type": "extérieur",
+      "description": "Bus C13 de la Grande-Rue à la Part-Dieu (30 min), puis TER jusqu'à Vienne (35 min) ; une heure et quart de porte à porte."
+    },
+    {
+      "id": "vienne",
+      "nom": "Chez Paulette, à Vienne",
+      "type": "logement",
+      "adresse": "rue Marchande, Vienne (Isère)",
+      "description": "Le petit appartement de Paulette, la sœur aînée de Simone, veuve, à deux rues du temple d'Auguste et de Livie."
+    },
+    {
+      "id": "marche-croix-rousse",
+      "nom": "Marché du boulevard de la Croix-Rousse",
+      "type": "commerce",
+      "adresse": "boulevard de la Croix-Rousse, 69004 Lyon",
+      "description": "Le marché de plein air du boulevard, tous les matins sauf le lundi : primeurs, bouchers, fromagers, poissonniers."
+    },
+    {
+      "id": "clos-jouve",
+      "nom": "Boulodrome du Clos Jouve",
+      "type": "extérieur",
+      "adresse": "boulevard de la Croix-Rousse, 69004 Lyon",
+      "description": "Les jeux de boule lyonnaise sous les platanes ; Henri y retrouve les anciens de la Croix-Rousse."
+    },
+    {
+      "id": "eglise-saint-denis",
+      "nom": "Église Saint-Denis de la Croix-Rousse",
+      "type": "public",
+      "adresse": "Grande-Rue de la Croix-Rousse, 69004 Lyon",
+      "description": "La paroisse de Simone ; la chorale y répète le mercredi après-midi, la messe du dimanche est à 10:30."
+    },
+    {
+      "id": "chez-mme-perrin",
+      "nom": "Chez Mme Perrin, rue Dumenge",
+      "type": "logement",
+      "adresse": "rue Dumenge, 69004 Lyon",
+      "description": "L'appartement de Jeanne Perrin, ancienne collègue de Simone à l'école de la Croix-Rousse."
+    },
+    {
+      "id": "bibliotheque-croix-rousse",
+      "nom": "Bibliothèque de la Croix-Rousse",
+      "type": "public",
+      "adresse": "place Joannès-Ambre, 69004 Lyon",
+      "description": "Simone y rend et emprunte ses livres le jeudi."
+    },
+    {
+      "id": "tabac-garnier",
+      "nom": "Tabac-presse de M. Garnier",
+      "type": "commerce",
+      "adresse": "Grande-Rue de la Croix-Rousse, 69004 Lyon",
+      "description": "Le bureau de tabac voisin de l'épicerie ; Henri y achète Le Progrès chaque matin et y joue son tiercé le dimanche."
+    },
+    {
+      "id": "bureau-de-vote-4e",
+      "nom": "Bureau de vote de la mairie du 4e",
+      "type": "public",
+      "adresse": "133, boulevard de la Croix-Rousse, 69004 Lyon",
+      "description": "Henri et Simone y votent ensemble depuis 1962."
+    },
+    {
+      "id": "epicerie-chazal",
+      "nom": "Épicerie Chazal",
+      "type": "commerce",
+      "adresse": "Grande-Rue de la Croix-Rousse, 69004 Lyon, au rez-de-chaussée de leur immeuble",
+      "description": "L'épicerie de Robert, juste sous leur appartement ; la porte de derrière donne sur la cour, sous la fenêtre de leur cuisine."
+    },
+    {
+      "id": "trajet-pied",
+      "nom": "Trajet à pied",
+      "type": "extérieur"
+    }
+  ]
+}

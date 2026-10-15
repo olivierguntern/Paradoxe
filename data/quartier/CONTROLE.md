@@ -1,6 +1,6 @@
 # Contrôle du quartier
 
-5 alerte(s) sur 5 habitants et 7 jours.
+5 alerte(s) sur 7 habitants et 7 jours.
 
 ## besoin (5)
 

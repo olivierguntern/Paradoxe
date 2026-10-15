@@ -1,6 +1,6 @@
 # Divergence : Le lundi, John crochète la porte de la cour à 10:00, découpe la dalle, creuse deux mètres, brûle la branche, rebouche et coule le béton ; il s'arrête à 19:30, se repose pendant que le béton prend, puis revient dans la nuit, à 01:30, remettre les palettes et les cartons, nettoyer la poussière et aérer jusqu'à 04:00.
 
-**Attendu.** Neuf heures et demie de travail, six heures de repos : John n'est pas épuisé, le béton a pris sous les palettes. La scie a hurlé en semaine, en pleine journée, quand les voisins du dessus sont au travail. Robert revient mardi à 06:30 : s'il ne remarque rien, la mission est réussie sans que la vie des habitants ait changé.
+**Attendu.** Neuf heures et demie de travail, six heures de repos : John n'est pas épuisé, le béton a pris sous les palettes. La scie a hurlé le lundi, pendant qu'Henri et Simone Vial, les voisins du dessus, étaient chez Paulette à Vienne. Robert revient mardi à 06:30 : s'il ne remarque rien, la mission est réussie sans que la vie des habitants ait changé.
 
 **Verdict : aucune divergence : rien n'a changé dans la vie des habitants.**
 
@@ -55,9 +55,11 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 | Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |
 |---|---|---|---|
 | gerard-morel | 0 | 0 |  |
+| henri-vial | 0 | 0 |  |
 | josiane-chazal | 0 | 0 |  |
 | monique-morel | 0 | 0 |  |
 | robert-chazal | 0 | 0 |  |
+| simone-vial | 0 | 0 |  |
 | thomas-berthier | 0 | 0 |  |
 
 ## Heure par heure
@@ -72,7 +74,9 @@ Seules les heures où un fait diffère.
 | Habitant | Besoins (écart moyen) | Émotions (écart moyen) | Provisions différentes | Produits du magasin différents | Comptes différents |
 |---|---|---|---|---|---|
 | gerard-morel | 0.0 | 0.0 | 0 | 0 | 0 |
+| henri-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
 | monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
 | robert-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
+| simone-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | thomas-berthier | 0.0 | 0.0 | 0 | 0 | 0 |

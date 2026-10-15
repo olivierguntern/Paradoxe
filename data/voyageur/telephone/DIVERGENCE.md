@@ -36,9 +36,11 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 | Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |
 |---|---|---|---|
 | gerard-morel | 98 | 1 | anomalie 2010-03-14 15:50 : entend parler de : un client qui a payé en posant son téléphone sur le terminal de carte |
+| henri-vial | 0 | 0 |  |
 | josiane-chazal | 425 | 1 | anomalie 2010-03-13 12:35 : entend parler de : un client qui a payé en posant son téléphone sur le terminal de carte |
 | monique-morel | 113 | 2 | appris 2010-03-14 14:35 : ne sait pas : prépare le déjeuner du dimanche ; anomalie 2010-03-14 14:35 : entend parler de : un client qui a payé en posant son téléphone sur le terminal de carte |
 | robert-chazal | 436 | 1 | anomalie 2010-03-13 11:40 : remarque : un client qui a payé en posant son téléphone sur le terminal de carte |
+| simone-vial | 0 | 0 |  |
 | thomas-berthier | 434 | 1 | anomalie 2010-03-13 11:50 : entend parler de : un client qui a payé en posant son téléphone sur le terminal de carte |
 
 ## Heure par heure
@@ -90,7 +92,9 @@ Seules les heures où un fait diffère.
 | Habitant | Besoins (écart moyen) | Émotions (écart moyen) | Provisions différentes | Produits du magasin différents | Comptes différents |
 |---|---|---|---|---|---|
 | gerard-morel | 0.0 | 0.0 | 0 | 0 | 0 |
+| henri-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
 | monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
 | robert-chazal | 0.0 | 0.0 | 0 | 1 | 1 |
+| simone-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | thomas-berthier | 0.0 | 0.0 | 0 | 0 | 0 |

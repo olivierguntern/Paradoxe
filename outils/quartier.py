@@ -275,7 +275,11 @@ class Quartier:
             texte += " " + M["reponse_etonnee"].format(**v)
             hB = self.H[B]
             if anomalie["objet"] not in {x["objet"] for x in hB.mem.get("anomalies", [])}:
-                hB.mem.setdefault("anomalies", []).append({"date": self.date, "heure": hm(i), "objet": anomalie["objet"], "quoi": quoi, "par": A})
+                appris = {"date": self.date, "heure": hm(i), "objet": anomalie["objet"], "quoi": quoi, "par": A} | {
+                    k: anomalie[k] for k in ("genre", "lieu", "piece") if k in anomalie}
+                hB.mem.setdefault("anomalies", []).append(appris)
+                if self.V:   # ce qui s'est passé chez lui : il y réagira (voyageur.py)
+                    self.V.signaler(self, B, appris, i)
         if genre in ("preoccupation", "journee"):
             agreable = self.fiches[B]["personnalite"]["big_five"]["agreabilite"] >= 0.6
             texte += " " + (M["reponse_chaleureuse"] if agreable and genre == "preoccupation" else M["reponse_breve"]).format(**v)
