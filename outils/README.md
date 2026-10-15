@@ -184,6 +184,8 @@ Le moteur calcule ensuite déplacements, lumière, besoins et émotions comme po
 - `fermeture_boutique` (`caisse_au_coffre`) : les espèces au-delà du fond de caisse rejoignent le coffre.
 - `banque` (`depot_coffre`) : la recette du coffre est déposée sur son compte.
 
+Une étape de routine marquée `perimes` (le tri de fin de semaine de Robert, le dimanche à 12:10) jette la part de chaque produit à date courte que fixe la fiche (`commerce.perimes` : 12 % des yaourts, 20 % des laitues, arrondi) ; le dimanche 14, deux packs de yaourts partent à la poubelle.
+
 Deux étapes de routine peuvent se recouvrir : la plus courte l'emporte, comme des courses prises sur le temps libre, et si elle n'a pas lieu, la plus longue reprend.
 
 ```bash

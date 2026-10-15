@@ -114,10 +114,10 @@
      "nom": "yaourts nature (pack de 4)",
      "vendu": 4,
      "livre": 0,
-     "repris": 0,
+     "repris": 2,
      "preleve": 0,
      "recette": 6.4,
-     "stock": 19
+     "stock": 17
     },
     "oeufs": {
      "nom": "œufs (boîte de 6)",
@@ -458,6 +458,7 @@
   "ecarts_a_la_routine": [
    "06:30 : livraisons : 2 produits, invendus repris : sept baguettes, quatre pains de campagne.",
    "12:00 : prend au magasin pour la maison : farine.",
+   "12:30 : périmés jetés : deux packs de yaourts nature.",
    "18:20 : toilettes sous le seuil d'alerte (20.8, score 1.17) ; interrompt « Le Progrès, radio, mots croisés ».",
    "18:25 : soif sous le seuil d'alerte (36.4, score 1.09) ; interrompt « Le Progrès, radio, mots croisés ».",
    "21:00 : épuisé (énergie 13.6), il va se coucher sans attendre 22:15."
@@ -673,7 +674,7 @@
    "baguette": 3,
    "pain_campagne": 0,
    "lait_uht": 10,
-   "yaourts": 19,
+   "yaourts": 17,
    "oeufs": 17,
    "beurre": 4,
    "comte": 7,
@@ -7852,7 +7853,7 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Fin de semaine : tri des produits frais périmés, ménage, comptes de la semaine, bon de commande pour mardi",
-   "action": "Trie, range et fait les comptes.",
+   "action": "Trie les produits frais : deux packs de yaourts nature partent à la poubelle.",
    "pensee": null,
    "deplacement": {
     "chemin": [
@@ -7863,6 +7864,15 @@
     "duree_s": 5,
     "foulees": 7
    },
+   "reprises": [
+    {
+     "produit": "yaourts",
+     "nom": "yaourts nature (pack de 4)",
+     "quantite": 2,
+     "reste": 17,
+     "motif": "date dépassée ou abîmé, jeté"
+    }
+   ],
    "lumiere": [
     "éteint la lumière (arriere-boutique)"
    ],

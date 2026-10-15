@@ -47,7 +47,7 @@ import datetime
 import math
 
 from agent import JOURS, phase_sommeil
-from clientele import Comptoir, libelle
+from clientele import Comptoir, enumerer, libelle
 from moteur import PAS_PAR_JOUR, Journee, Simulation, hm, idx, position_initiale
 
 COMMERCES = {}   # commerces des autres habitants, lus une fois
@@ -184,8 +184,9 @@ class Habitant:
                 a[x] = {**self.etats(a.get(x)), **self.etats(e[x])}
         if "consomme" in e:
             a["consomme"] = a.get("consomme", []) + e["consomme"]
-        if e.get("approvisionne"):
-            a["approvisionne"] = True
+        for x in ("approvisionne", "perimes"):
+            if e.get(x):
+                a[x] = True
         a["vivres"] = self.menu_du_pas(a, e, d, phase)
         return a, (d, phase), debut
 
@@ -501,6 +502,8 @@ class Habitant:
                 self.caisse_au_coffre(st)
             if a.get("depot_coffre"):
                 self.depot_coffre(st)
+            if a.get("perimes"):
+                self.jeter_perimes(st)
         if a.get("service"):
             self.servir(st)
         objets = self.gestes(a, premier)
@@ -823,6 +826,22 @@ class Habitant:
             st["livraisons"] = [{"produit": p, "quantite": q} for p, q in livre.items()]
             self.decisions.append(f"{hm(self.i)} : livraisons : {len(livre)} produits"
                                   + (f", invendus repris : {', '.join(libelle(cat[x['produit']], x['quantite']) for x in repris)}" if repris else "") + ".")
+
+    def jeter_perimes(self, st):
+        """Au tri de fin de semaine, la part de chaque produit à date courte (commerce.perimes) part à la poubelle."""
+        C = self.magasin()
+        if not C:
+            return
+        cat = {c["produit"]: c for c in C["catalogue"]}
+        jetes = {}
+        for pid, taux in C.get("perimes", {}).items():
+            n = round(self.sim.boutique.get(pid, 0) * taux) if pid in cat else 0
+            if n:
+                jetes[pid] = n
+        st["reprises"] = st.get("reprises", []) + [{"produit": p, "quantite": q, "motif": "date dépassée ou abîmé, jeté"} for p, q in jetes.items()]
+        quoi = enumerer([libelle(cat[p], q) for p, q in jetes.items()]) if jetes else "rien"
+        st["action"] = f"Trie les produits frais : {quoi} partent à la poubelle."
+        self.decisions.append(f"{hm(self.i)} : périmés jetés : {quoi}.")
 
     def caisse_au_coffre(self, st):
         """À la fermeture, les espèces au-delà du fond de caisse rejoignent le coffre."""

@@ -440,6 +440,7 @@
       "pain": { "principe": "chaque jour d'ouverture à 06:35, par le livreur de la boulangerie de la place, qui reprend les invendus de la veille", "baguette": { "defaut": 70, "samedi": 80, "dimanche": 50 }, "pain_campagne": { "defaut": 6, "samedi": 10, "dimanche": 8 } },
       "grossiste": { "principe": "mardi et vendredi à 06:40, par la porte de la cour : le bon de commande écrit le dimanche à la fermeture (pour mardi) ou le jeudi soir (pour vendredi) ramène chaque produit à son stock cible", "jours": ["mardi", "vendredi"] }
     },
+    "perimes": { "principe": "Part du stock des produits à date courte jetée au tri de fin de semaine, le dimanche à la fermeture (arrondi).", "yaourts": 0.12, "salade": 0.2 },
     "affluence_clients_par_pas": {
       "principe": "Nombre moyen de clients anonymes par pas de 5 minutes, selon l'heure ; le nombre réel et le contenu des paniers sont tirés de façon déterministe (outils/clientele.py).",
       "07:00": 1.3, "08:30": 1.0, "09:30": 0.6, "10:30": 0.7, "11:15": 1.1,
@@ -875,7 +876,7 @@
         { "debut": "06:30", "fin": "07:00", "lieu": "boutique", "action": "Pain, lève le rideau", "activite": "ouverture_boutique" },
         { "debut": "07:00", "fin": "12:00", "lieu": "boutique", "action": "Sert les clients du dimanche", "activite": "tenir_boutique", "avec": ["caisse", "radio-boutique"] },
         { "debut": "12:00", "fin": "12:10", "lieu": "arriere-boutique", "action": "Ferme et compte la caisse", "activite": "fermeture_boutique", "approvisionne": true },
-        { "debut": "12:10", "fin": "12:45", "lieu": "boutique", "action": "Fin de semaine : tri des produits frais périmés, ménage, comptes de la semaine, bon de commande pour mardi", "activite": "travail_boutique" },
+        { "debut": "12:10", "fin": "12:45", "lieu": "boutique", "action": "Fin de semaine : tri des produits frais périmés, ménage, comptes de la semaine, bon de commande pour mardi", "activite": "travail_boutique", "perimes": true },
         { "debut": "12:45", "fin": "13:05", "lieu": "trajet-voiture", "action": "Rentre, le cabas rempli jusqu'au déjeuner de mardi", "activite": "conduire" },
         { "debut": "13:05", "fin": "14:15", "lieu": "sejour", "action": "Déjeuner du dimanche avec Josiane", "activite": "repas", "avec_personnes": ["josiane-chazal"] },
         { "debut": "14:15", "fin": "14:30", "lieu": "sejour", "action": "Courte sieste", "activite": "sieste" },

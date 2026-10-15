@@ -134,6 +134,6 @@ Seules les heures où un fait diffère.
 | henri-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
 | monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
-| robert-chazal | 0.31 | 0.0 | 0 | 12 | 1 |
+| robert-chazal | 0.31 | 0.0 | 0 | 11 | 1 |
 | simone-vial | 0.0 | 0.0 | 0 | 0 | 0 |
 | thomas-berthier | 0.0 | 0.0 | 0 | 0 | 0 |
