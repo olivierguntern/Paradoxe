@@ -28,6 +28,8 @@ from comparer_journees import positions_par_pas
 from fiches import MONDE, RACINE, lire
 from moteur import idx
 
+GESTES = lire(os.path.join(MONDE, "gestes.json"))["gestes"]
+
 sys.stdout.reconfigure(encoding="utf-8")
 
 
@@ -87,13 +89,14 @@ def faits_du_pas(a, b, pa, pb, ja, jb, infos=None):
         out.append(("appris", f"{'ne sait pas' if x in sa else 'apprend'} : {x[1]}"))
         infos[out[-1]] = {"de": x[0]}
     sa, sb = anomalies_au_pas(ja, a["heure"]), anomalies_au_pas(jb, b["heure"])
+    sources = {(x["objet"], x.get("par"), x["quoi"]): x.get("source") for x in (jb["etat_final"].get("habitant") or {}).get("anomalies", [])}
     for o, par, quoi in sorted(sa ^ sb, key=str):
         if (o, par, quoi) in sa:
             verbe = "ne remarque pas" if par is None else "n'entend pas parler de"
         else:
             verbe = "remarque" if par is None else "entend parler de"
         out.append(("anomalie", f"{verbe} : {quoi}"))
-        infos[out[-1]] = {"anomalie": o, "par": par}
+        infos[out[-1]] = {"anomalie": o, "par": par, "quoi": quoi, "source": sources.get((o, par, quoi))}
     return out
 
 
@@ -134,9 +137,11 @@ class Causes:
             texte = {"retenir": f"retient {prenoms.get(qui, qui)} {x.get('duree_minutes', 5)} minutes",
                      "deplacer": f"déplace {x.get('objet')} de {prenoms.get(qui, qui)} vers « {x.get('vers')} »",
                      "acheter": f"achète {x.get('quantite')} × {x.get('produit')} chez {prenoms.get(qui, qui)}",
-                     "parler": f"dit à {prenoms.get(qui, qui)} : « {x.get('quoi')} »"}.get(x["type"], x["type"])
+                     "parler": f"dit à {prenoms.get(qui, qui)} : « {x.get('quoi')} »",
+                     "geste": f"{GESTES.get(x.get('geste'), {}).get('nom', x.get('geste'))} ({x.get('_duree', x.get('duree_minutes', ''))} min)",
+                     "passer": f"passe dans {x.get('piece') or x.get('lieu') or prenoms.get(qui, qui)}"}.get(x["type"], x["type"])
             self.V.append({"id": f"V{n}", "date": x["date"], "heure": x["heure"], "pas": d,
-                           "fin": d + max(1, x.get("duree_minutes", 5) // 5) if x["type"] in ("retenir", "passer") else d + 1,
+                           "fin": d + max(1, x.get("duree_minutes", x.get("_duree", 5)) // 5) if x["type"] in ("retenir", "passer", "geste") else d + 1,
                            "type": x["type"], "habitant": qui, "x": x, "texte": texte})
         self.noeuds = []
         self.actifs = {}      # habitant -> {(genre, détail): épisode}
@@ -197,11 +202,15 @@ class Causes:
         # un anachronisme : vu pendant une intervention du voyageur, ou entendu de quelqu'un qui l'a vu ou entendu
         if g == "anomalie":
             if info.get("par") is None:
-                v = next((v for v in self.V if v["date"] == date and v["pas"] <= k < v["fin"]), None)                     or next((v for v in reversed(self.V) if (v["date"], v["pas"]) <= (date, k)), None)
+                v = (next((v for v in self.V if v["id"] == info.get("source")), None)
+                     or next((v for v in self.V if v["date"] == date and v["pas"] <= k < v["fin"]), None)
+                     or next((v for v in reversed(self.V) if (v["date"], v["pas"]) <= (date, k)), None))
                 if v:
                     return v["id"], False
             elif info["par"] in self.prenoms:
-                n = next((n for n in reversed(self.histoire.get(info["par"], [])) if n["genre"] == "anomalie"), None) or self.recent(info["par"])
+                # ce que le conteur a remarqué ou entendu de la même chose, sinon sa dernière anomalie, sinon son dernier fait
+                ns = [n for n in reversed(self.histoire.get(info["par"], [])) if n["genre"] == "anomalie"]
+                n = next((n for n in ns if n["detail"].endswith(info.get("quoi") or "\0")), None) or (ns[0] if ns else None) or self.recent(info["par"])
                 if n:
                     return n["id"], False
         # 2. rencontre
@@ -365,7 +374,15 @@ def ecrire_md(r, scenario, journal, chemin):
     L = [f"# Divergence : {scenario.get('description', '')}", ""]
     if scenario.get("attendu"):
         L += [f"**Attendu.** {scenario['attendu']}", ""]
-    L += [f"**Verdict : {r['verdict']}.**", "", "## Ce que le voyageur a fait", ""]
+    L += [f"**Verdict : {r['verdict']}.**", ""]
+    if r.get("mission"):
+        m = r["mission"]
+        L += [f"## Mission : {m['titre']} — {m['resultat']}", "", m["raison"], "",
+              "Avancement : " + (", ".join(f"{k} : {v}" for k, v in m["avancement"].items()) or "rien") + "."]
+        if m["echecs"]:
+            L += ["", "Gestes impossibles :", ""] + [f"- {e}" for e in m["echecs"]]
+        L += [""]
+    L += ["## Ce que le voyageur a fait", ""]
     L += [f"- {d} {h} : {t}" for d, h, t in journal] or ["- rien"]
     L += ["", "## Propagation", "", "Premier fait différent pour chaque habitant touché (habitants touchés directement, visés ou témoins : " + (", ".join(r["cibles"]) or "aucun") + ") :", ""]
     for p, x in sorted(r["premier_fait"].items(), key=lambda kv: (kv[1]["date"], kv[1]["heure"])):

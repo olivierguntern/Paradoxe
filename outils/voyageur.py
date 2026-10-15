@@ -10,7 +10,17 @@ date et une heure :
 - acheter : il achète dans le commerce d'un habitant, sur le stock du magasin ;
 - parler : il dit quelque chose à un habitant éveillé, qui le retient ;
 - passer : il se tient un moment dans un lieu (lieu et pièce, ou là où est un
-  habitant), sans rien faire d'autre que d'y être vu.
+  habitant), sans rien faire d'autre que d'y être vu ;
+- geste : il fait un geste du catalogue (data/monde/gestes.json) dans un lieu
+  et une pièce : crocheter une serrure, découper une dalle, creuser, brûler,
+  reboucher, couler du béton, recouvrir, nettoyer, aérer. Un geste a ses
+  conditions et fait avancer la mission (« avancement ») ; il peut être vu par
+  qui est dans la pièce, entendu dans tout le lieu, et laisse des traces que
+  les habitants peuvent remarquer ensuite, tant qu'elles restent.
+
+Tout ce qu'un habitant remarque (anachronisme, voyageur au travail, bruit,
+trace) suit la même règle et le même chemin : mémoire « anomalies »,
+événement vécu, bouche-à-oreille.
 
 Anachronismes : le voyageur porte des objets (« porte » du scénario) et peut
 s'en servir pendant une intervention (« utilise »). Ce qui est apparu après
@@ -25,6 +35,7 @@ appelle le voyageur à chaque pas : retenir() avant que chacun décide, agir()
 une fois les décisions prises, avant le calcul du pas. Le monde de référence
 est le même quartier sans voyageur.
 """
+import datetime
 import os
 import zlib
 
@@ -43,16 +54,27 @@ class Voyageur:
         self.journal = []   # ce que le voyageur a fait : (date, heure, texte)
         self.E = lire(os.path.join(MONDE, "epoque.json"))
         self.porte = scenario.get("porte", [])
-        self.temoins = set()   # habitants qui ont remarqué un anachronisme de leurs propres yeux
+        self.temoins = set()   # habitants qui ont remarqué quelque chose du voyageur de leurs propres yeux
         inconnus = [o for x in self.I for o in x.get("utilise", [])] + self.porte
         for o in inconnus:
             if o not in self.E["objets"]:
                 raise ValueError(f"objet inconnu de l'époque : {o}")
+        self.G = lire(os.path.join(MONDE, "gestes.json"))["gestes"]
+        self.avancement = {}   # avancement de la mission : accès, dalle, trou, profondeur, branche…
+        self.traces = []       # traces laissées par les gestes : où, visibilité, depuis, jusqu'à
+        self.echecs = []       # gestes impossibles (condition non remplie)
+        for n, x in enumerate(self.I, 1):
+            x["_n"] = n
+            if x["type"] == "geste":
+                if x["geste"] not in self.G:
+                    raise ValueError(f"geste inconnu : {x['geste']}")
+                if idx(x["heure"]) + self.duree(x) // 5 > 288:
+                    raise ValueError(f"le geste {x['geste']} du {x['date']} à {x['heure']} passe minuit : le couper en deux")
 
     def cibles(self):
         """Habitants touchés directement : visés par une intervention (le commerçant pour un achat), ou témoins d'un
         anachronisme (à appeler après la simulation)."""
-        return sorted({x.get("habitant") or x.get("commerce") for x in self.I if x["type"] != "passer" or x.get("habitant")} | self.temoins)
+        return sorted({x.get("habitant") or x.get("commerce") for x in self.I if x["type"] not in ("passer", "geste") or x.get("habitant")} | self.temoins)
 
     def objets(self, pid, date):
         """Déplacements d'objets de l'habitant ce jour-là, au format des perturbations du moteur."""
@@ -92,15 +114,20 @@ class Voyageur:
                 self.acheter(q, x, i)
             elif x["type"] == "parler":
                 self.parler(q, x, i)
+        self.gestes(q, i)
         self.etre_vu(q, i)
+        self.vu_entendu(q, i)
+        self.traces_remarquees(q, i)
 
     # ------------------------------------------------------------ anachronismes
     def ou_est_il(self, q, x, i):
         """Où est le voyageur pendant l'intervention x au pas i, et à qui fait-il face : (endroit, habitant) ou None."""
         d = idx(x["heure"])
-        f = d + max(1, x.get("duree_minutes", 5) // 5) if x["type"] in ("retenir", "passer") else d + 1
+        f = d + max(1, self.duree(x) // 5) if x["type"] in ("retenir", "passer", "geste") else d + 1
         if x["date"] != q.date or not d <= i < f or x["type"] == "deplacer":
             return None
+        if x["type"] == "geste":
+            return (x["lieu"], x["piece"]), None
         if x["type"] == "acheter":
             o = q.H.get(x["commerce"])
             C = o.magasin() if o else None
@@ -133,16 +160,96 @@ class Voyageur:
                     spec = E["objets"][o]
                     if spec["apparition"] <= E["annee"] or o in vus or not vis:
                         continue
-                    p = min(1.0, vis * attention * (1 - E["effet_concentration"] * h.sim.conc) * (E["face_a_face"] if pid == face else 1))
-                    if tirage(q.date, i, pid, o, "anachronisme") < p:
-                        st = h.attente[0]
-                        st["action"] = st["action"].rstrip() + f" Remarque {spec['remarque']}."
-                        if "anachronisme_remarque" in h.EV and "anachronisme_remarque" not in st.get("ev", []):
-                            st.setdefault("ev", []).append("anachronisme_remarque")
-                        h.mem.setdefault("anomalies", []).append({"date": q.date, "heure": hm(i), "objet": o, "quoi": spec["remarque"]})
-                        h.decisions.append(f"{hm(i)} : remarque {spec['remarque']}.")
-                        self.noter(q, i, f"{q.prenom(pid)} remarque : {spec['nom']}")
-                        self.temoins.add(pid)
+                    self.remarquer(q, pid, h, i, o, spec["remarque"], vis, pid == face, x["_n"], spec["nom"], "anachronisme_remarque")
+
+    def remarquer(self, q, pid, h, i, objet, quoi, vis, face=False, source=None, nom=None, ev="intrusion_remarquee"):
+        """L'habitant remarque-t-il ce qu'il voit, entend ou trouve ? Visibilité × attention relative × (1 − effet de la
+        concentration), plus en face-à-face ; tirage déterministe. Ce qu'il remarque reste en mémoire et se raconte."""
+        E = self.E
+        if objet in {a["objet"] for a in h.mem.get("anomalies", [])}:
+            return
+        attention = (q.fiches[pid].get("perception") or {}).get("attention", {}).get("piece", E["attention_ordinaire"]) / E["attention_ordinaire"]
+        p = min(1.0, vis * attention * (1 - E["effet_concentration"] * h.sim.conc) * (E["face_a_face"] if face else 1))
+        if tirage(q.date, i, pid, objet, "anachronisme") < p:
+            st = h.attente[0]
+            st["action"] = st["action"].rstrip() + f" Remarque {quoi}."
+            if ev in h.EV and ev not in st.get("ev", []):
+                st.setdefault("ev", []).append(ev)
+            h.mem.setdefault("anomalies", []).append({"date": q.date, "heure": hm(i), "objet": objet, "quoi": quoi, "source": f"V{source}"})
+            h.decisions.append(f"{hm(i)} : remarque {quoi}.")
+            self.noter(q, i, f"{q.prenom(pid)} remarque : {nom or quoi}")
+            self.temoins.add(pid)
+
+    # ------------------------------------------------------------ gestes et traces
+    def duree(self, x):
+        return x.get("duree_minutes", self.G[x["geste"]]["duree"] if x["type"] == "geste" else 5)
+
+    @staticmethod
+    def instant(date, i):
+        """Un repère de temps continu d'un jour à l'autre (pas de 5 minutes)."""
+        return datetime.date.fromisoformat(date).toordinal() * 288 + i
+
+    def gestes(self, q, i):
+        """Début d'un geste : ses conditions, ses traces ; fin : ce qu'il fait avancer, efface ou atténue."""
+        maintenant = self.instant(q.date, i)
+        for x in self.I:
+            if x["type"] != "geste" or x["date"] != q.date:
+                continue
+            g, d = self.G[x["geste"]], idx(x["heure"])
+            f = d + max(1, self.duree(x) // 5)
+            if i == d:
+                manque = {k: v for k, v in g.get("si", {}).items() if self.avancement.get(k) != v}
+                x["_ok"] = not manque
+                if manque:
+                    self.echecs.append(f"{q.date} {x['heure']} : impossible de {g['nom']} ({', '.join(f'{k} {v}' for k, v in manque.items())} : condition non remplie)")
+                    self.noter(q, i, f"ne peut pas {g['nom']} : il faut d'abord {', '.join(f'{k} {v}' for k, v in manque.items())}")
+                    continue
+                self.noter(q, i, f"{g['nom']} ({self.duree(x)} min)")
+                for tr in g.get("traces", []):
+                    self.traces = [t_ for t_ in self.traces if t_["id"] != tr["id"]]
+                    self.traces.append(dict(tr, lieu=x["lieu"], piece=x["piece"], depuis=maintenant, source=x["_n"],
+                                            jusqu=maintenant + tr["heures"] * 12 if tr.get("heures") else None))
+            if i == f - 1 and x.get("_ok"):
+                self.avancement.update(g.get("fait", {}))
+                if "creuse_m_par_heure" in g:
+                    self.avancement["profondeur_m"] = round(self.avancement.get("profondeur_m", 0) + self.duree(x) / 60 * g["creuse_m_par_heure"], 2)
+                    if self.avancement["profondeur_m"] >= g["trouve_a_m"] and self.avancement.get("branche") is None:
+                        self.avancement.update(g["trouve"])
+                        self.noter(q, i, f"trouve la branche fossilisée, à {self.avancement['profondeur_m']} m")
+                for t_ in self.traces:
+                    if t_["id"] in g.get("efface", []) and (t_["jusqu"] is None or t_["jusqu"] > maintenant):
+                        t_["jusqu"] = maintenant
+                    if t_["id"] in g.get("attenue", {}):
+                        t_["visibilite"] = round(t_["visibilite"] * g["attenue"][t_["id"]], 3)
+
+    def vu_entendu(self, q, i):
+        """Pendant un geste : qui est dans la pièce voit le voyageur au travail, qui est ailleurs dans le lieu l'entend."""
+        for x in self.I:
+            place = self.ou_est_il(q, x, i) if x["type"] == "geste" and x.get("_ok") else None
+            if not place:
+                continue
+            g, (endroit, _) = self.G[x["geste"]], place
+            for pid, h in q.H.items():
+                if h.attente[1]["mode"] == "sommeil":
+                    continue
+                ici = q.ou(pid, h)
+                if ici == endroit and g.get("vu"):
+                    self.remarquer(q, pid, h, i, f"vu:{x['geste']}", g["vu"]["remarque"], g["vu"]["visibilite"], True, x["_n"])
+                elif ici[0] == endroit[0] and g.get("bruit"):
+                    self.remarquer(q, pid, h, i, f"bruit:{x['geste']}", g["bruit"]["remarque"], g["bruit"]["visibilite"], False, x["_n"])
+
+    def traces_remarquees(self, q, i):
+        """Les traces qui restent : qui est dans la pièce (ou dans le lieu, pour une odeur, une poussière) peut les remarquer."""
+        maintenant = self.instant(q.date, i)
+        for tr in self.traces:
+            if tr["depuis"] > maintenant or (tr["jusqu"] is not None and tr["jusqu"] <= maintenant) or not tr["visibilite"]:
+                continue
+            for pid, h in q.H.items():
+                if h.attente[1]["mode"] == "sommeil":
+                    continue
+                ici = q.ou(pid, h)
+                if ici == (tr["lieu"], tr["piece"]) or (tr["portee"] == "lieu" and ici[0] == tr["lieu"]):
+                    self.remarquer(q, pid, h, i, f"trace:{tr['id']}", tr["remarque"], tr["visibilite"], False, tr["source"])
 
     def acheter(self, q, x, i):
         o = q.H.get(x["commerce"])

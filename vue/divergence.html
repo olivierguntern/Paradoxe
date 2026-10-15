@@ -53,6 +53,11 @@ button { font: inherit; color: inherit; }
 .resume .attendu { font-family: var(--f-pensee); font-style: italic; color: var(--trait); }
 .resume ul { margin: 2px 0 0; padding-left: 18px; font-size: .9rem; }
 .porte { font-size: .85rem; color: var(--trait); }
+.mission { grid-column: 1 / -1; border-left: 3px solid var(--etat, var(--trait)); padding: 4px 0 4px 10px; }
+.mission .titre { font-family: var(--f-titre); font-weight: 600; font-size: 1rem; }
+.mission .titre b { color: var(--etat); }
+.mission p { font-size: .9rem; }
+.mission .avancement { font-size: .82rem; color: var(--trait); }
 
 .frise-tete { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; margin-bottom: 6px; }
 .legende { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .8rem; color: var(--trait); }
@@ -109,7 +114,7 @@ button { font: inherit; color: inherit; }
 <body>
 <div class="app">
   <header class="bandeau">
-    <h1>Le voyageur <span>— deux mondes, un écart</span></h1>
+    <h1>John, le voyageur <span>— deux mondes, un écart</span></h1>
     <a href="index.html">La semaine en fil de fer</a>
   </header>
   <nav class="groupe" id="scenarios" aria-label="Scénario du voyageur"><span class="etiq">Scénario</span></nav>
@@ -137,7 +142,7 @@ const GENRES = [
   { id: "rencontre", nom: "rencontres", g: ["rencontre"], c: "var(--verre)" },
   { id: "chose", nom: "objets, achats", g: ["objet", "achat"], c: "var(--laiton)" },
   { id: "savoir", nom: "ce qu'on a appris", g: ["appris"], c: "var(--mousse)" },
-  { id: "anomalie", nom: "anachronismes", g: ["anomalie"], c: "var(--violet)" },
+  { id: "anomalie", nom: "ce qu'on a remarqué (anachronisme, intrus, trace)", g: ["anomalie"], c: "var(--violet)" },
 ];
 const voie = g => GENRES.findIndex(x => x.g.includes(g));
 const couleurVerdict = v => v.startsWith("paradoxe") ? "var(--alerte)" : v.startsWith("en cascade") ? "var(--brique)" :
@@ -168,7 +173,8 @@ function choisir(s) {
   S = s; choisi = null;
   for (const x of D.scenarios) x.bouton.setAttribute("aria-pressed", x === s ? "true" : "false");
   try { history.replaceState(null, "", "#scenario=" + s.id); } catch (e) {}
-  const premier = s.racines.length ? s.racines[0].pas : 0;
+  // l'instant de départ : le premier fait différent, sinon la première intervention
+  const premier = s.faits.length ? Math.min(...s.faits.map(f => f.debut)) : s.racines.length ? s.racines[0].pas : 0;
   curseur = premier;
   periode(s.racines.length ? "6h" : -1);
   resume(); zooms(); causes(); dessiner(); instant();
@@ -178,6 +184,15 @@ function resume() {
   const R = document.getElementById("resume"); R.textContent = "";
   const v = el("div", { class: "verdict" }); const p = el("span", { class: "pastille" }); p.style.background = couleurVerdict(S.verdict);
   v.append(p, el("span", {}, S.verdict.charAt(0).toUpperCase() + S.verdict.slice(1) + "."));
+  if (S.mission) {
+    const m = S.mission, box = el("div", { class: "mission" });
+    box.style.setProperty("--etat", m.reussie ? "var(--mousse)" : "var(--alerte)");
+    const ti = el("div", { class: "titre" }); ti.append(document.createTextNode(`Mission « ${m.titre} » : `), el("b", {}, m.resultat));
+    box.append(ti, el("p", {}, m.raison),
+      el("p", { class: "avancement" }, "Avancement : " + (Object.entries(m.avancement).map(([k, v]) => `${k.replace("_m", " (m)")} ${String(v).replace("_", " ")}`).join(" · ") || "rien")));
+    for (const e of m.echecs) box.append(el("p", { class: "avancement" }, "Geste impossible : " + e));
+    R.append(box);
+  }
   const g = el("div"); g.append(el("p", {}, S.description));
   if (S.attendu) g.append(el("p", { class: "attendu" }, S.attendu));
   if (S.porte.length) g.append(el("p", { class: "porte" }, "Le voyageur porte : " + S.porte.join(", ").replaceAll("_", " ") + "."));

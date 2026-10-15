@@ -7,7 +7,9 @@ Le monde joué est écrit dans data/voyageur/<nom>/ (une journée par habitant
 et par jour, comme le quartier), avec DIVERGENCE.md et divergence.json : le
 verdict, ce que le voyageur a fait, la propagation habitant par habitant,
 la chaîne des causes (de l'intervention au dernier fait),
-les faits heure par heure et les détails tolérés. Les habitants et la
+les faits heure par heure et les détails tolérés ; si le scénario porte une
+mission (data/missions/<id>.json), son résultat : objectif atteint ou non,
+avec ou sans paradoxe. Les habitants et la
 période sont ceux du monde de référence.
 """
 import argparse
@@ -21,6 +23,25 @@ from simuler_quartier import simuler
 from voyageur import Voyageur
 
 sys.stdout.reconfigure(encoding="utf-8")
+RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def evaluer_mission(mid, v, verdict):
+    """La mission (data/missions/<id>.json) : objectif atteint dans le monde joué (avancement du voyageur), sans verdict
+    interdit. Parfaite si aucun fait de la vie des habitants n'a changé."""
+    M = json.load(open(os.path.join(RACINE, "data", "missions", f"{mid}.json"), encoding="utf-8"))
+    manque = {k: val for k, val in M["objectif"].items() if v.avancement.get(k) != val}
+    interdit = next((x for x in M.get("contraintes", {}).get("verdicts_interdits", []) if verdict.startswith(x)), None)
+    if manque:
+        resultat, raison = "échouée", "Objectif non atteint : " + ", ".join(f"{k} doit être « {val} » (est « {v.avancement.get(k, 'rien')} »)" for k, val in manque.items()) + "."
+    elif interdit:
+        resultat, raison = "échouée", f"L'objectif est atteint, mais au prix d'un {interdit} : {verdict}."
+    elif verdict.startswith("aucune divergence"):
+        resultat, raison = "réussie, parfaitement", M.get("reussite_parfaite", "Objectif atteint sans aucun fait changé.")
+    else:
+        resultat, raison = "réussie", f"Objectif atteint ; la divergence reste sous le seuil du paradoxe : {verdict}."
+    return {"id": mid, "titre": M["titre"], "resultat": resultat, "reussie": resultat.startswith("réussie"), "raison": raison,
+            "avancement": v.avancement, "echecs": v.echecs}
 
 
 def main():
@@ -34,11 +55,18 @@ def main():
     dates = sorted(f[:-5] for f in os.listdir(os.path.join(a.reference, personnages[0])) if f.endswith(".json"))
     v = Voyageur(scenario)
     simuler(personnages, dates[0], dates[-1], dossier, v, bavard=False)
+    for x in scenario["interventions"]:
+        if x["type"] == "geste":
+            x["_duree"] = v.duree(x)
     r = comparer_mondes(a.reference, dossier, v.cibles(), scenario["interventions"])
+    if scenario.get("mission"):
+        r["mission"] = evaluer_mission(scenario["mission"], v, r["verdict"])
     r["voyageur"] = [{"date": d, "heure": h, "action": t} for d, h, t in v.journal]
     json.dump(r, open(os.path.join(dossier, "divergence.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     ecrire_md(r, scenario, v.journal, os.path.join(dossier, "DIVERGENCE.md"))
     print(f"{os.path.basename(dossier)} : {r['verdict']}")
+    if r.get("mission"):
+        print(f"  mission « {r['mission']['titre']} » : {r['mission']['resultat']} — {r['mission']['raison']}")
     for d, h, t in v.journal:
         print(f"  voyageur {d} {h} : {t}")
     for p, x in sorted(r["premier_fait"].items(), key=lambda kv: (kv[1]["date"], kv[1]["heure"])):

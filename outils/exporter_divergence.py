@@ -81,7 +81,7 @@ def exporter(reference, sortie):
             "id": nom, "description": sc.get("description", ""), "attendu": sc.get("attendu", ""), "porte": sc.get("porte", []),
             "verdict": r["verdict"], "touches": r["touches"], "cascade": r["cascade"], "cibles": r["cibles"],
             "voyageur": r.get("voyageur", []), "racines": racines, "faits": faits, "joue": joue,
-            "heures": [h["faits"] for h in r["heures"]]})
+            "heures": [h["faits"] for h in r["heures"]], "mission": r.get("mission")})
         print(f"{nom} : {len(faits)} faits, {sum(len(v) for v in joue.values())} pas différents — {r['verdict']}")
     donnees["textes"] = T.liste
     with open(sortie, "w", encoding="utf-8") as f:
