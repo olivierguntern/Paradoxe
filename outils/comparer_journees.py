@@ -10,7 +10,7 @@ sont pas comparés.
 
 Pour les objets et le stock, la concordance compte les pas où tout est
 identique ; « concordance_un_par_un » compte chaque objet et chaque produit
-séparément, pas par pas.
+(de la maison et du magasin) séparément, pas par pas.
 """
 import json
 import sys
@@ -107,7 +107,8 @@ def comparer(ref, sim):
     return {
         "pas": n,
         "concordance": {c: round(100 * (n - len(v)) / n, 1) for c, v in criteres.items()},
-        "concordance_un_par_un": {"objets": un_par_un(0), "stock": un_par_un(1)},
+        "concordance_un_par_un": {"objets": un_par_un(0), "stock": un_par_un(1)}
+                                 | ({"magasin": un_par_un(2)} if "magasin" in criteres else {}),
         "differences": {c: plages(v) for c, v in criteres.items() if v},
         "objets_en_ecart": {o: plages(v) for o, v in objets_diff.items()},
         "ecart_moyen_besoins": mae("besoins"),

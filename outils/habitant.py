@@ -42,6 +42,7 @@ import datetime
 import math
 
 from agent import JOURS, phase_sommeil
+from clientele import Comptoir, libelle
 from moteur import PAS_PAR_JOUR, Journee, Simulation, hm, idx, position_initiale
 
 COMMERCES = {}   # commerces des autres habitants, lus une fois
@@ -89,6 +90,7 @@ class Habitant:
         self.APPRO = fiche.get("approvisionnement") or {}
         self.COMMERCE = self.commerce(self.APPRO["commerce"]) if self.APPRO else {}
         self.listes = {}         # début d'une étape de courses -> liste établie en partant (None : il n'y va pas)
+        self.comptoir = None     # service au comptoir de son propre commerce, créé au premier client
 
     def commerce(self, pid):
         """Le commerce où il s'approvisionne : celui de sa propre fiche (il prélève), ou celui d'un autre habitant (il achète)."""
@@ -328,9 +330,10 @@ class Habitant:
             spec = P.get(pid)
             c = cat.get(spec.get("magasin", pid)) if spec else None
             return (c, spec.get("par_unite") or c["quantite"]) if c else (None, None)
+        de_cote = {x["produit"] for x in A.get("mis_de_cote", [])}   # ceux-là, il les met de côté à la livraison
         def ajouter(pid, n):
             c, u = unite(pid)
-            if c and n > 0:
+            if c and n > 0 and pid not in de_cote:
                 x = lignes.setdefault(pid, {"maison": pid, "c": c, "u": u, "n": 0})
                 x["n"] += n
         stock = lambda pid: self.sim.stock.get(pid, 0) + (lignes[pid]["n"] * lignes[pid]["u"] if pid in lignes else 0)
@@ -431,6 +434,14 @@ class Habitant:
             self.provisions(a, st)
             if a.get("approvisionne"):
                 self.approvisionner(st)
+            if a.get("livraison"):
+                self.livrer(st)
+            if a.get("caisse_au_coffre"):
+                self.caisse_au_coffre(st)
+            if a.get("depot_coffre"):
+                self.depot_coffre(st)
+        if a.get("service"):
+            self.servir(st)
         objets = self.gestes(a, premier)
         if objets:
             st["objets"] = objets
@@ -624,6 +635,97 @@ class Habitant:
             self.coucher = (entree["pas"], entree["pas"] + latence // 5)
             self.mem["endormi_a"] = self.coucher[1] - PAS_PAR_JOUR
         self.pousser(st, e["action"], r, suite=apres_extinction)
+
+    # ------------------------------------------------------------ son commerce
+    def magasin(self):
+        """Son propre commerce (section commerce de sa fiche), ou None."""
+        return self.fiche.get("commerce")
+
+    def servir(self, st):
+        """Un pas au comptoir : les clients du flux déterministe (clientele.py) achètent ce que le stock du magasin permet ;
+        la recette va en caisse (espèces), sur le compte (carte) ou sur l'ardoise."""
+        if not self.magasin():
+            return
+        if self.comptoir is None:
+            ardoises = self.mem.setdefault("ardoises", dict(self.fiche.get("economie", {}).get("ardoises_au_debut", {})))
+            self.comptoir = Comptoir(self.fiche, self.date, self.jour, {}, ardoises)
+        self.comptoir.stock = dict(self.sim.boutique)
+        r = self.comptoir.pas(self.i)
+        if r["texte"]:
+            st["action"] = r["texte"]
+        if r["ventes"]:
+            st["ventes"] = r["ventes"]
+        if r["clients"]:
+            st["clients"] = r["clients"]
+        evs = [e for e in r["ev"] if e in self.EV and e not in st.get("ev", [])]
+        if evs:
+            st["ev"] = st.get("ev", []) + evs
+        for b, v in r.get("effets", {}).items():
+            st.setdefault("effets", {})[b] = round(st.get("effets", {}).get(b, 0) + v, 2)
+        for compte, v in r.get("argent", {}).items():
+            st.setdefault("argent", {})[compte] = round(st.get("argent", {}).get(compte, 0) + v, 2)
+        if r.get("ruptures"):
+            self.decisions.append(f"{hm(self.i)} : rupture : {', '.join(r['ruptures'])}.")
+
+    def livrer(self, st):
+        """Les livraisons du matin, une fois par jour d'ouverture (commerce.livraisons) : une livraison quotidienne
+        (le pain) apporte ses quantités du jour et reprend les invendus de la veille ; une livraison des jours prévus
+        (le grossiste) ramène chaque produit non frais à son stock cible."""
+        C = self.magasin()
+        if not C or not C.get("horaires", {}).get(self.jour) or self.mem.get("livre") == self.date:
+            return
+        self.mem["livre"] = self.date
+        cat = {c["produit"]: c for c in C["catalogue"]}
+        livre, repris = {}, []
+        for nom, L in C.get("livraisons", {}).items():
+            if not isinstance(L, dict):
+                continue
+            if "jours" in L:
+                if self.jour in L["jours"]:
+                    for pid, c in cat.items():
+                        manque = c.get("cible", 0) - self.sim.boutique.get(pid, 0)
+                        if not c.get("frais") and manque > 0:
+                            livre[pid] = livre.get(pid, 0) + manque
+                continue
+            for pid, q in L.items():
+                if pid in cat and isinstance(q, dict):
+                    if self.sim.boutique.get(pid, 0):
+                        repris.append({"produit": pid, "quantite": self.sim.boutique[pid], "motif": f"invendus de la veille repris ({nom})"})
+                    n = q.get(self.jour, q.get("defaut", 0))
+                    if n:
+                        livre[pid] = livre.get(pid, 0) + n
+        if repris:
+            st["reprises"] = repris
+        # ce qu'il met de côté pour la maison dès la livraison (approvisionnement.mis_de_cote)
+        P = self.sim.PRODUITS
+        for x in self.APPRO.get("mis_de_cote", []) if self.COMMERCE is C else []:
+            spec = P.get(x["produit"])
+            n = x["unites"].get(self.jour, x["unites"].get("defaut", 0))
+            cid = spec.get("magasin") if spec else None
+            if n and cid in cat:
+                st.setdefault("prelevements", []).append({"produit": cid, "quantite": n, "maison": x["produit"],
+                                                          "quantite_maison": n * (spec.get("par_unite") or cat[cid]["quantite"])})
+        if livre:
+            st["livraisons"] = [{"produit": p, "quantite": q} for p, q in livre.items()]
+            self.decisions.append(f"{hm(self.i)} : livraisons : {len(livre)} produits"
+                                  + (f", invendus repris : {', '.join(libelle(cat[x['produit']], x['quantite']) for x in repris)}" if repris else "") + ".")
+
+    def caisse_au_coffre(self, st):
+        """À la fermeture, les espèces au-delà du fond de caisse rejoignent le coffre."""
+        E = self.fiche.get("economie", {})
+        fond = E.get("fond_de_caisse", E.get("caisse_au_debut"))
+        if fond is None:
+            return
+        especes = round(self.sim.argent.get("caisse", 0) - fond, 2)
+        if especes > 0:
+            st["argent"] = {**st.get("argent", {}), "caisse": -especes, "coffre": especes}
+
+    def depot_coffre(self, st):
+        """À la banque, il dépose la recette du coffre sur son compte."""
+        m = self.sim.argent.get("coffre", 0)
+        if m > 0:
+            st["argent"] = {**st.get("argent", {}), "coffre": -m, "compte": m}
+            self.decisions.append(f"{hm(self.i)} : dépose la recette du coffre à la banque : {f'{m:.2f}'.replace('.', ',')} €.")
 
     def terminer(self):
         etat_final, stats = self.sim.terminer(self.j.extinction, self.j.endormissement)

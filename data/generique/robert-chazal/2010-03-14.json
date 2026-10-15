@@ -38,11 +38,16 @@
   },
   "evenements_vecus": {
    "plaisir_simple": 3,
+   "client_habitue": 8,
+   "affluence": 5,
+   "client_presse": 3,
+   "boutique_vide": 1,
    "repas_seul": 2
   },
   "objets_deplaces_position_finale": {},
   "provisions_consommees": {
    "café moulu": "14 g",
+   "pain (baguettes mises de côté à la boutique)": "4 quarts de baguette",
    "beurre": "90 g",
    "confiture d'abricots de Josiane": "2 cuillères",
    "comprimés pour la tension": "1 comprimé",
@@ -57,76 +62,80 @@
   "plats_prepares": {},
   "achats": {},
   "argent": {
-   "mouvements_du_jour": {},
+   "mouvements_du_jour": {
+    "caisse": 0.0,
+    "compte": 21.1,
+    "coffre": 151.0
+   },
    "soldes_en_fin_de_journee": {
     "especes": 60,
-    "compte": 2300,
-    "caisse": 150,
-    "coffre": 1184.6,
+    "compte": 3688.65,
+    "caisse": 150.0,
+    "coffre": 1561.8,
     "ardoises": 46.3
    }
   },
   "magasin": {
-   "clients": 0,
-   "recette": 0.0,
-   "recette_especes": 0.0,
-   "recette_carte": 0.0,
+   "clients": 63,
+   "recette": 172.1,
+   "recette_especes": 151.0,
+   "recette_carte": 21.1,
    "a_credit": 0.0,
    "ruptures": [],
    "produits": {
     "baguette": {
      "nom": "baguette",
-     "vendu": 0,
-     "livre": 0,
-     "repris": 0,
-     "preleve": 0,
-     "recette": 0.0,
-     "stock": 0
+     "vendu": 45,
+     "livre": 50,
+     "repris": 7,
+     "preleve": 2,
+     "recette": 40.5,
+     "stock": 3
     },
     "pain_campagne": {
      "nom": "pain de campagne (500 g)",
-     "vendu": 0,
-     "livre": 0,
-     "repris": 0,
+     "vendu": 8,
+     "livre": 8,
+     "repris": 4,
      "preleve": 0,
-     "recette": 0.0,
+     "recette": 16.8,
      "stock": 0
     },
     "lait_uht": {
      "nom": "lait UHT (brique d'un litre)",
-     "vendu": 0,
+     "vendu": 15,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 30
+     "recette": 14.25,
+     "stock": 10
     },
     "yaourts": {
      "nom": "yaourts nature (pack de 4)",
-     "vendu": 0,
+     "vendu": 4,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 14
+     "recette": 6.4,
+     "stock": 20
     },
     "oeufs": {
      "nom": "œufs (boîte de 6)",
-     "vendu": 0,
+     "vendu": 4,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 13
+     "recette": 7.6,
+     "stock": 17
     },
     "beurre": {
      "nom": "beurre (plaquette de 250 g)",
-     "vendu": 0,
+     "vendu": 7,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 9
+     "recette": 13.65,
+     "stock": 4
     },
     "comte": {
      "nom": "comté (morceau de 250 g)",
@@ -135,34 +144,34 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 8
+     "stock": 7
     },
     "fromage_rape": {
      "nom": "emmental râpé (sachet de 200 g)",
-     "vendu": 0,
+     "vendu": 1,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 7
+     "recette": 1.7,
+     "stock": 10
     },
     "jambon": {
      "nom": "jambon blanc (4 tranches)",
-     "vendu": 0,
+     "vendu": 5,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 10
+     "recette": 13.0,
+     "stock": 5
     },
     "cafe_moulu": {
      "nom": "café moulu (paquet de 250 g)",
-     "vendu": 0,
+     "vendu": 3,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 20
+     "recette": 8.7,
+     "stock": 11
     },
     "chocolat_noir": {
      "nom": "chocolat noir (tablette de 20 carrés)",
@@ -171,7 +180,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 15
+     "stock": 9
     },
     "pates": {
      "nom": "pâtes (paquet de 500 g)",
@@ -180,7 +189,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 30
+     "stock": 24
     },
     "riz": {
      "nom": "riz (paquet d'un kilo)",
@@ -189,16 +198,16 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 14
+     "stock": 12
     },
     "thon": {
      "nom": "thon (boîte)",
-     "vendu": 0,
+     "vendu": 2,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 20
+     "recette": 3.0,
+     "stock": 15
     },
     "haricots_verts": {
      "nom": "haricots verts (boîte)",
@@ -207,16 +216,16 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 17
+     "stock": 23
     },
     "sucre": {
      "nom": "sucre (paquet d'un kilo)",
-     "vendu": 0,
+     "vendu": 2,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 10
+     "recette": 2.4,
+     "stock": 7
     },
     "farine": {
      "nom": "farine (paquet d'un kilo)",
@@ -225,7 +234,7 @@
      "repris": 0,
      "preleve": 1,
      "recette": 0.0,
-     "stock": 7
+     "stock": 9
     },
     "huile": {
      "nom": "huile de tournesol (bouteille d'un litre)",
@@ -234,16 +243,16 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 8
+     "stock": 9
     },
     "biere": {
      "nom": "bière (bouteille de 33 cl)",
-     "vendu": 0,
+     "vendu": 3,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 36
+     "recette": 3.3,
+     "stock": 44
     },
     "vin_rouge": {
      "nom": "vin rouge, côtes-du-rhône (bouteille de 75 cl)",
@@ -252,34 +261,34 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 18
+     "stock": 13
     },
     "eau": {
      "nom": "eau minérale (bouteille de 1,5 l)",
-     "vendu": 0,
+     "vendu": 10,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 30
+     "recette": 6.0,
+     "stock": 26
     },
     "jus_orange": {
      "nom": "jus d'orange (brique d'un litre)",
-     "vendu": 0,
+     "vendu": 3,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 12
+     "recette": 5.4,
+     "stock": 11
     },
     "pommes": {
      "nom": "pommes",
-     "vendu": 0,
+     "vendu": 22,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 51
+     "recette": 8.8,
+     "stock": 44
     },
     "oranges": {
      "nom": "oranges",
@@ -288,25 +297,25 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 44
+     "stock": 45
     },
     "bananes": {
      "nom": "bananes",
-     "vendu": 0,
+     "vendu": 6,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 40
+     "recette": 1.8,
+     "stock": 22
     },
     "tomates": {
      "nom": "tomates (barquette de 500 g)",
-     "vendu": 0,
+     "vendu": 5,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 8
+     "recette": 8.0,
+     "stock": 3
     },
     "pommes_de_terre": {
      "nom": "pommes de terre (sac de 2,5 kg)",
@@ -315,7 +324,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 7
+     "stock": 5
     },
     "carottes": {
      "nom": "carottes (sachet d'un kilo)",
@@ -324,7 +333,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 9
+     "stock": 7
     },
     "oignons": {
      "nom": "oignons",
@@ -337,21 +346,21 @@
     },
     "salade": {
      "nom": "laitue",
-     "vendu": 0,
+     "vendu": 1,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 3
+     "recette": 1.1,
+     "stock": 2
     },
     "papier_toilette": {
      "nom": "papier toilette (paquet de 6)",
-     "vendu": 0,
+     "vendu": 3,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 8
+     "recette": 8.7,
+     "stock": 5
     },
     "lessive": {
      "nom": "lessive liquide (bidon)",
@@ -364,19 +373,19 @@
     },
     "bonbons": {
      "nom": "bonbons (sachet)",
-     "vendu": 0,
+     "vendu": 1,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 20
+     "recette": 1.0,
+     "stock": 19
     }
    }
   },
   "stock_en_fin_de_journee": {
    "café moulu": "302 g",
    "café moulu de l'arrière-boutique": "150 g",
-   "pain (baguettes mises de côté à la boutique)": "0 quarts de baguette",
+   "pain (baguettes mises de côté à la boutique)": "6 quarts de baguette",
    "beurre": "240 g",
    "confiture d'abricots de Josiane": "16 cuillères",
    "fromage (comté)": "230 g",
@@ -399,189 +408,73 @@
    "sucre": "200 g"
   },
   "besoins_sous_le_seuil_d_alerte": [
-   "13:05 social = 29.9 (seuil 30)",
-   "13:10 social = 29.9 (seuil 30)",
-   "13:15 social = 29.8 (seuil 30)",
-   "13:20 social = 29.7 (seuil 30)",
-   "13:25 social = 29.7 (seuil 30)",
-   "13:30 social = 29.6 (seuil 30)",
-   "13:35 social = 29.6 (seuil 30)",
-   "13:40 social = 29.5 (seuil 30)",
-   "13:45 social = 29.4 (seuil 30)",
-   "13:50 social = 29.4 (seuil 30)",
-   "13:55 social = 29.3 (seuil 30)",
-   "14:00 social = 29.3 (seuil 30)",
-   "14:05 social = 29.2 (seuil 30)",
-   "14:10 social = 29.1 (seuil 30)",
-   "14:15 social = 29.1 (seuil 30)",
-   "14:20 social = 29.1 (seuil 30)",
-   "14:25 social = 29.1 (seuil 30)",
-   "14:30 social = 29.1 (seuil 30)",
-   "14:35 social = 29.0 (seuil 30)",
-   "14:40 social = 29.0 (seuil 30)",
-   "14:45 social = 28.9 (seuil 30)",
-   "14:50 social = 28.8 (seuil 30)",
-   "14:55 social = 28.8 (seuil 30)",
-   "15:00 social = 28.7 (seuil 30)",
-   "15:05 social = 28.7 (seuil 30)",
-   "15:10 social = 28.6 (seuil 30)",
-   "15:15 social = 28.5 (seuil 30)",
-   "15:20 social = 28.5 (seuil 30)",
-   "15:25 social = 28.4 (seuil 30)",
-   "15:30 social = 28.4 (seuil 30)",
-   "15:35 social = 28.3 (seuil 30)",
-   "15:40 social = 28.2 (seuil 30)",
-   "15:45 social = 28.2 (seuil 30)",
-   "15:50 social = 28.1 (seuil 30)",
-   "15:55 social = 28.1 (seuil 30)",
-   "16:00 social = 28.0 (seuil 30)",
-   "16:05 social = 27.9 (seuil 30)",
-   "16:10 social = 27.9 (seuil 30)",
-   "16:15 social = 27.8 (seuil 30)",
-   "16:20 social = 27.8 (seuil 30)",
-   "16:25 social = 27.7 (seuil 30)",
-   "16:30 social = 27.6 (seuil 30)",
-   "16:35 social = 27.6 (seuil 30)",
-   "16:40 social = 27.5 (seuil 30)",
-   "16:45 social = 27.5 (seuil 30)",
-   "16:50 social = 27.4 (seuil 30)",
-   "16:55 social = 27.3 (seuil 30)",
-   "17:00 social = 27.3 (seuil 30)",
-   "17:05 social = 27.2 (seuil 30)",
-   "17:10 social = 27.2 (seuil 30)",
-   "17:15 social = 27.1 (seuil 30)",
-   "17:20 social = 27.0 (seuil 30)",
-   "17:25 social = 27.0 (seuil 30)",
-   "17:30 social = 26.9 (seuil 30)",
-   "17:35 social = 26.9 (seuil 30)",
-   "17:40 social = 26.8 (seuil 30)",
-   "17:45 social = 26.7 (seuil 30)",
-   "17:50 social = 26.7 (seuil 30)",
    "17:55 soif = 39.9 (seuil 40)",
-   "17:55 social = 26.6 (seuil 30)",
    "18:00 soif = 39.2 (seuil 40)",
    "18:00 toilettes = 24.1 (seuil 25)",
-   "18:00 social = 26.6 (seuil 30)",
    "18:05 soif = 38.5 (seuil 40)",
    "18:05 toilettes = 23.0 (seuil 25)",
-   "18:05 social = 26.5 (seuil 30)",
    "18:10 soif = 37.8 (seuil 40)",
    "18:10 toilettes = 21.9 (seuil 25)",
-   "18:10 social = 26.4 (seuil 30)",
    "18:15 soif = 37.1 (seuil 40)",
    "18:15 toilettes = 20.8 (seuil 25)",
-   "18:15 social = 26.4 (seuil 30)",
    "18:20 soif = 36.4 (seuil 40)",
-   "18:20 social = 26.3 (seuil 30)",
-   "18:25 social = 26.3 (seuil 30)",
-   "18:30 social = 26.2 (seuil 30)",
    "18:35 energie = 24.8 (seuil 25)",
-   "18:35 social = 26.1 (seuil 30)",
    "18:40 energie = 24.4 (seuil 25)",
-   "18:40 social = 26.1 (seuil 30)",
    "18:45 energie = 24.0 (seuil 25)",
-   "18:45 social = 26.0 (seuil 30)",
    "18:50 energie = 23.6 (seuil 25)",
-   "18:50 social = 26.0 (seuil 30)",
    "18:55 energie = 23.2 (seuil 25)",
-   "18:55 social = 25.9 (seuil 30)",
    "19:00 energie = 22.8 (seuil 25)",
-   "19:00 social = 25.8 (seuil 30)",
    "19:05 energie = 22.4 (seuil 25)",
-   "19:05 social = 25.8 (seuil 30)",
    "19:10 energie = 22.0 (seuil 25)",
-   "19:10 social = 25.7 (seuil 30)",
    "19:15 energie = 21.6 (seuil 25)",
-   "19:15 social = 25.7 (seuil 30)",
    "19:20 energie = 21.2 (seuil 25)",
-   "19:20 social = 25.6 (seuil 30)",
    "19:25 energie = 20.8 (seuil 25)",
-   "19:25 social = 25.5 (seuil 30)",
    "19:30 energie = 20.4 (seuil 25)",
-   "19:30 social = 25.5 (seuil 30)",
    "19:35 energie = 20.0 (seuil 25)",
-   "19:35 social = 25.4 (seuil 30)",
    "19:40 energie = 19.6 (seuil 25)",
-   "19:40 social = 25.4 (seuil 30)",
    "19:45 energie = 19.2 (seuil 25)",
-   "19:45 social = 25.3 (seuil 30)",
    "19:50 energie = 18.8 (seuil 25)",
-   "19:50 social = 25.2 (seuil 30)",
    "19:55 energie = 18.4 (seuil 25)",
-   "19:55 social = 25.2 (seuil 30)",
    "20:00 energie = 18.0 (seuil 25)",
-   "20:00 social = 25.1 (seuil 30)",
    "20:05 energie = 17.6 (seuil 25)",
-   "20:05 social = 25.1 (seuil 30)",
    "20:10 energie = 17.2 (seuil 25)",
-   "20:10 social = 25.0 (seuil 30)",
    "20:15 energie = 16.8 (seuil 25)",
-   "20:15 social = 24.9 (seuil 30)",
    "20:20 energie = 16.4 (seuil 25)",
-   "20:20 social = 25.1 (seuil 30)",
    "20:25 energie = 16.0 (seuil 25)",
-   "20:25 social = 25.2 (seuil 30)",
    "20:30 energie = 15.6 (seuil 25)",
-   "20:30 social = 25.4 (seuil 30)",
    "20:35 energie = 15.2 (seuil 25)",
-   "20:35 social = 25.5 (seuil 30)",
    "20:40 energie = 14.8 (seuil 25)",
-   "20:40 social = 25.6 (seuil 30)",
    "20:45 energie = 14.4 (seuil 25)",
-   "20:45 social = 25.8 (seuil 30)",
    "20:50 energie = 14.0 (seuil 25)",
-   "20:50 social = 25.9 (seuil 30)",
    "20:55 energie = 13.6 (seuil 25)",
-   "20:55 social = 26.1 (seuil 30)",
    "21:00 energie = 13.2 (seuil 25)",
-   "21:00 social = 26.2 (seuil 30)",
    "21:05 energie = 12.8 (seuil 25)",
-   "21:05 social = 26.3 (seuil 30)",
    "21:10 energie = 12.4 (seuil 25)",
-   "21:10 social = 26.5 (seuil 30)",
    "21:15 energie = 12.0 (seuil 25)",
-   "21:15 social = 26.6 (seuil 30)",
    "21:20 energie = 11.6 (seuil 25)",
-   "21:20 social = 26.8 (seuil 30)",
    "21:25 energie = 11.2 (seuil 25)",
-   "21:25 social = 26.9 (seuil 30)",
    "21:30 energie = 10.8 (seuil 25)",
-   "21:30 social = 27.0 (seuil 30)",
    "21:35 energie = 10.4 (seuil 25)",
-   "21:35 social = 27.2 (seuil 30)",
    "21:40 energie = 10.0 (seuil 25)",
-   "21:40 social = 27.3 (seuil 30)",
    "21:45 energie = 9.6 (seuil 25)",
-   "21:45 social = 27.5 (seuil 30)",
    "21:50 energie = 9.2 (seuil 25)",
-   "21:50 social = 27.6 (seuil 30)",
    "21:55 energie = 8.8 (seuil 25)",
-   "21:55 social = 27.7 (seuil 30)",
    "22:00 energie = 8.4 (seuil 25)",
-   "22:00 social = 27.9 (seuil 30)",
    "22:05 energie = 7.7 (seuil 25)",
-   "22:05 social = 27.8 (seuil 30)",
    "22:10 energie = 7.3 (seuil 25)",
-   "22:10 social = 27.8 (seuil 30)",
    "22:15 energie = 6.9 (seuil 25)",
-   "22:15 social = 27.7 (seuil 30)",
    "22:20 energie = 6.5 (seuil 25)",
-   "22:20 social = 27.6 (seuil 30)",
-   "22:25 energie = 6.1 (seuil 25)",
-   "22:25 social = 27.6 (seuil 30)"
+   "22:25 energie = 6.1 (seuil 25)"
   ],
   "besoins_sous_le_seuil_pendant_le_sommeil_pas": {
-   "energie": 18,
-   "social": 18
+   "energie": 18
   },
   "endormissement": "extinction à 22:15 ; anxiété 0.251 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
   "ecarts_a_la_routine": [
-   "05:30 : café, deux tartines beurre-confiture, comprimé pour la tension sans pain (baguettes mises de côté à la boutique) (plus en stock).",
-   "12:00 : prend au magasin pour la maison : farine ; plus de baguette en rayon.",
-   "13:05 : rôti de bœuf, gratin dauphinois, tarte aux pommes ; pas de vin, il conduit l'après-midi sans pain (baguettes mises de côté à la boutique) (plus en stock).",
+   "06:30 : livraisons : 2 produits, invendus repris : sept baguettes, quatre pains de campagne.",
+   "12:00 : prend au magasin pour la maison : farine.",
    "18:20 : toilettes sous le seuil d'alerte (20.8, score 1.17) ; interrompt « Le Progrès, radio, mots croisés ».",
-   "18:25 : soif sous le seuil d'alerte (36.4, score 1.09) ; interrompt « Le Progrès, radio, mots croisés ».",
-   "19:30 : restes du midi, comté sans pain (baguettes mises de côté à la boutique) (plus en stock)."
+   "18:25 : soif sous le seuil d'alerte (36.4, score 1.09) ; interrompt « Le Progrès, radio, mots croisés »."
   ]
  },
  "etat_initial": {
@@ -592,15 +485,15 @@
    "energie": 22.1,
    "hygiene": 84.14,
    "toilettes": 92.4,
-   "social": 35.44,
+   "social": 98.08,
    "detente": 97.8
   },
   "emotions": {
-   "joie": 0.439,
+   "joie": 0.4391,
    "tristesse": 0.1808,
    "anxiete": 0.25,
    "colere": 0.0539,
-   "solitude": 0.6538,
+   "solitude": 0.2506,
    "fierte": 0.4,
    "excitation": 0.2
   },
@@ -636,7 +529,7 @@
   "stock": {
    "cafe_moulu": 316,
    "cafe_boutique": 150,
-   "pain": 0,
+   "pain": 2,
    "beurre": 330,
    "confiture": 18,
    "fromage": 280,
@@ -660,40 +553,40 @@
   },
   "argent": {
    "especes": 60,
-   "compte": 2300,
-   "caisse": 150,
-   "coffre": 1184.6,
+   "compte": 3667.55,
+   "caisse": 150.0,
+   "coffre": 1410.8,
    "ardoises": 46.3
   },
   "boutique": {
-   "baguette": 0,
-   "pain_campagne": 0,
-   "lait_uht": 30,
-   "yaourts": 14,
-   "oeufs": 13,
-   "beurre": 9,
-   "comte": 8,
-   "fromage_rape": 7,
+   "baguette": 7,
+   "pain_campagne": 4,
+   "lait_uht": 25,
+   "yaourts": 24,
+   "oeufs": 21,
+   "beurre": 11,
+   "comte": 7,
+   "fromage_rape": 11,
    "jambon": 10,
-   "cafe_moulu": 20,
-   "chocolat_noir": 15,
-   "pates": 30,
-   "riz": 14,
-   "thon": 20,
-   "haricots_verts": 17,
-   "sucre": 10,
-   "farine": 8,
-   "huile": 8,
-   "biere": 36,
-   "vin_rouge": 18,
-   "eau": 30,
-   "jus_orange": 12,
-   "pommes": 51,
-   "oranges": 44,
-   "bananes": 40,
+   "cafe_moulu": 14,
+   "chocolat_noir": 9,
+   "pates": 24,
+   "riz": 12,
+   "thon": 17,
+   "haricots_verts": 23,
+   "sucre": 9,
+   "farine": 10,
+   "huile": 9,
+   "biere": 47,
+   "vin_rouge": 13,
+   "eau": 36,
+   "jus_orange": 14,
+   "pommes": 66,
+   "oranges": 45,
+   "bananes": 28,
    "tomates": 8,
-   "pommes_de_terre": 7,
-   "carottes": 9,
+   "pommes_de_terre": 5,
+   "carottes": 7,
    "oignons": 29,
    "salade": 3,
    "papier_toilette": 8,
@@ -701,7 +594,12 @@
    "bonbons": 20
   },
   "habitant": {
-   "endormi_a": -6
+   "endormi_a": -6,
+   "livre": "2010-03-13",
+   "ardoises": {
+    "M. Rey, parti du quartier sans régler": 38.0,
+    "Mme Ferrand": 8.3
+   }
   }
  },
  "etat_final": {
@@ -712,7 +610,7 @@
    "energie": 26.8,
    "hygiene": 55.2,
    "toilettes": 39.8,
-   "social": 27.58,
+   "social": 96.76,
    "detente": 99.7
   },
   "emotions": {
@@ -720,7 +618,7 @@
    "tristesse": 0.1804,
    "anxiete": 0.2501,
    "colere": 0.0501,
-   "solitude": 0.7261,
+   "solitude": 0.2509,
    "fierte": 0.4,
    "excitation": 0.2
   },
@@ -756,7 +654,7 @@
   "stock": {
    "cafe_moulu": 302,
    "cafe_boutique": 150,
-   "pain": 0,
+   "pain": 6,
    "beurre": 240,
    "confiture": 16,
    "fromage": 230,
@@ -780,48 +678,53 @@
   },
   "argent": {
    "especes": 60,
-   "compte": 2300,
-   "caisse": 150,
-   "coffre": 1184.6,
+   "compte": 3688.65,
+   "caisse": 150.0,
+   "coffre": 1561.8,
    "ardoises": 46.3
   },
   "boutique": {
-   "baguette": 0,
+   "baguette": 3,
    "pain_campagne": 0,
-   "lait_uht": 30,
-   "yaourts": 14,
-   "oeufs": 13,
-   "beurre": 9,
-   "comte": 8,
-   "fromage_rape": 7,
-   "jambon": 10,
-   "cafe_moulu": 20,
-   "chocolat_noir": 15,
-   "pates": 30,
-   "riz": 14,
-   "thon": 20,
-   "haricots_verts": 17,
-   "sucre": 10,
-   "farine": 7,
-   "huile": 8,
-   "biere": 36,
-   "vin_rouge": 18,
-   "eau": 30,
-   "jus_orange": 12,
-   "pommes": 51,
-   "oranges": 44,
-   "bananes": 40,
-   "tomates": 8,
-   "pommes_de_terre": 7,
-   "carottes": 9,
+   "lait_uht": 10,
+   "yaourts": 20,
+   "oeufs": 17,
+   "beurre": 4,
+   "comte": 7,
+   "fromage_rape": 10,
+   "jambon": 5,
+   "cafe_moulu": 11,
+   "chocolat_noir": 9,
+   "pates": 24,
+   "riz": 12,
+   "thon": 15,
+   "haricots_verts": 23,
+   "sucre": 7,
+   "farine": 9,
+   "huile": 9,
+   "biere": 44,
+   "vin_rouge": 13,
+   "eau": 26,
+   "jus_orange": 11,
+   "pommes": 44,
+   "oranges": 45,
+   "bananes": 22,
+   "tomates": 3,
+   "pommes_de_terre": 5,
+   "carottes": 7,
    "oignons": 29,
-   "salade": 3,
-   "papier_toilette": 8,
+   "salade": 2,
+   "papier_toilette": 5,
    "lessive": 4,
-   "bonbons": 20
+   "bonbons": 19
   },
   "habitant": {
-   "endormi_a": -18
+   "endormi_a": -18,
+   "livre": "2010-03-14",
+   "ardoises": {
+    "M. Rey, parti du quartier sans régler": 38.0,
+    "Mme Ferrand": 8.3
+   }
   }
  },
  "pas": [
@@ -843,7 +746,7 @@
     "energie": 23.2,
     "hygiene": 84.1,
     "toilettes": 92.1,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 23.2
    },
@@ -852,7 +755,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.053,
-    "solitude": 0.653,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.001
@@ -876,7 +779,7 @@
     "energie": 24.4,
     "hygiene": 84.0,
     "toilettes": 91.7,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 24.4
    },
@@ -885,7 +788,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.052,
-    "solitude": 0.652,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.001
@@ -909,7 +812,7 @@
     "energie": 25.5,
     "hygiene": 84.0,
     "toilettes": 91.4,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 25.5
    },
@@ -918,7 +821,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.651,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -942,7 +845,7 @@
     "energie": 26.7,
     "hygiene": 83.9,
     "toilettes": 91.0,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 26.7
    },
@@ -951,7 +854,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.651,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -975,7 +878,7 @@
     "energie": 27.8,
     "hygiene": 83.9,
     "toilettes": 90.7,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 27.8
    },
@@ -984,7 +887,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.65,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1008,7 +911,7 @@
     "energie": 29.0,
     "hygiene": 83.8,
     "toilettes": 90.3,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 29.0
    },
@@ -1017,7 +920,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.65,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1041,7 +944,7 @@
     "energie": 30.1,
     "hygiene": 83.8,
     "toilettes": 90.0,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 30.1
    },
@@ -1050,7 +953,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.649,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1074,7 +977,7 @@
     "energie": 31.3,
     "hygiene": 83.7,
     "toilettes": 89.6,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 31.3
    },
@@ -1083,7 +986,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.649,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1107,7 +1010,7 @@
     "energie": 32.4,
     "hygiene": 83.7,
     "toilettes": 89.3,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 32.4
    },
@@ -1116,7 +1019,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.648,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1140,7 +1043,7 @@
     "energie": 33.6,
     "hygiene": 83.6,
     "toilettes": 88.9,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 33.6
    },
@@ -1149,7 +1052,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.648,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1173,7 +1076,7 @@
     "energie": 34.7,
     "hygiene": 83.6,
     "toilettes": 88.6,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 34.7
    },
@@ -1182,7 +1085,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.648,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1206,7 +1109,7 @@
     "energie": 35.9,
     "hygiene": 83.5,
     "toilettes": 88.2,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 35.9
    },
@@ -1215,7 +1118,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.648,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1239,7 +1142,7 @@
     "energie": 37.0,
     "hygiene": 83.5,
     "toilettes": 87.9,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 37.0
    },
@@ -1248,7 +1151,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.647,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1272,7 +1175,7 @@
     "energie": 38.2,
     "hygiene": 83.4,
     "toilettes": 87.5,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 38.2
    },
@@ -1281,7 +1184,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.647,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1305,7 +1208,7 @@
     "energie": 39.3,
     "hygiene": 83.4,
     "toilettes": 87.2,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 39.3
    },
@@ -1314,7 +1217,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.647,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1338,7 +1241,7 @@
     "energie": 40.5,
     "hygiene": 83.3,
     "toilettes": 86.8,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 40.5
    },
@@ -1347,7 +1250,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.647,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1371,7 +1274,7 @@
     "energie": 41.6,
     "hygiene": 83.3,
     "toilettes": 86.5,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 41.6
    },
@@ -1380,7 +1283,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.647,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1404,7 +1307,7 @@
     "energie": 42.8,
     "hygiene": 83.2,
     "toilettes": 86.1,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 42.8
    },
@@ -1413,7 +1316,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.647,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1437,7 +1340,7 @@
     "energie": 43.9,
     "hygiene": 83.2,
     "toilettes": 85.8,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 43.9
    },
@@ -1446,7 +1349,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.647,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1470,7 +1373,7 @@
     "energie": 45.1,
     "hygiene": 83.1,
     "toilettes": 85.4,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 45.1
    },
@@ -1479,7 +1382,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1503,7 +1406,7 @@
     "energie": 46.2,
     "hygiene": 83.1,
     "toilettes": 85.1,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 46.2
    },
@@ -1512,7 +1415,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1536,7 +1439,7 @@
     "energie": 47.4,
     "hygiene": 83.0,
     "toilettes": 84.7,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 47.4
    },
@@ -1545,7 +1448,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1569,7 +1472,7 @@
     "energie": 48.5,
     "hygiene": 83.0,
     "toilettes": 84.4,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 48.5
    },
@@ -1578,7 +1481,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1602,7 +1505,7 @@
     "energie": 49.7,
     "hygiene": 82.9,
     "toilettes": 84.0,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 49.7
    },
@@ -1611,7 +1514,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1635,7 +1538,7 @@
     "energie": 50.8,
     "hygiene": 82.9,
     "toilettes": 83.7,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 50.8
    },
@@ -1644,7 +1547,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1668,7 +1571,7 @@
     "energie": 52.0,
     "hygiene": 82.8,
     "toilettes": 83.3,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 52.0
    },
@@ -1677,7 +1580,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1701,7 +1604,7 @@
     "energie": 53.1,
     "hygiene": 82.8,
     "toilettes": 83.0,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 53.1
    },
@@ -1710,7 +1613,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1734,7 +1637,7 @@
     "energie": 54.3,
     "hygiene": 82.7,
     "toilettes": 82.6,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 54.3
    },
@@ -1743,7 +1646,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1767,7 +1670,7 @@
     "energie": 55.4,
     "hygiene": 82.7,
     "toilettes": 82.3,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 55.4
    },
@@ -1776,7 +1679,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1800,7 +1703,7 @@
     "energie": 56.6,
     "hygiene": 82.6,
     "toilettes": 81.9,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 56.6
    },
@@ -1809,7 +1712,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1833,7 +1736,7 @@
     "energie": 57.7,
     "hygiene": 82.6,
     "toilettes": 81.6,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 57.7
    },
@@ -1842,7 +1745,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1866,7 +1769,7 @@
     "energie": 58.9,
     "hygiene": 82.5,
     "toilettes": 81.2,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 58.9
    },
@@ -1875,7 +1778,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1899,7 +1802,7 @@
     "energie": 60.0,
     "hygiene": 82.5,
     "toilettes": 80.9,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 60.0
    },
@@ -1908,7 +1811,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1932,7 +1835,7 @@
     "energie": 61.2,
     "hygiene": 82.4,
     "toilettes": 80.5,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 61.2
    },
@@ -1941,7 +1844,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1965,7 +1868,7 @@
     "energie": 62.3,
     "hygiene": 82.4,
     "toilettes": 80.2,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 62.3
    },
@@ -1974,7 +1877,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1998,7 +1901,7 @@
     "energie": 63.5,
     "hygiene": 82.3,
     "toilettes": 79.8,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 63.5
    },
@@ -2007,7 +1910,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2031,7 +1934,7 @@
     "energie": 64.6,
     "hygiene": 82.3,
     "toilettes": 79.5,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 64.6
    },
@@ -2040,7 +1943,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2064,7 +1967,7 @@
     "energie": 65.8,
     "hygiene": 82.2,
     "toilettes": 79.1,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 65.8
    },
@@ -2073,7 +1976,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2097,7 +2000,7 @@
     "energie": 66.9,
     "hygiene": 82.2,
     "toilettes": 78.8,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 66.9
    },
@@ -2106,7 +2009,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2130,7 +2033,7 @@
     "energie": 68.1,
     "hygiene": 82.1,
     "toilettes": 78.4,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 68.1
    },
@@ -2139,7 +2042,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2163,7 +2066,7 @@
     "energie": 69.2,
     "hygiene": 82.1,
     "toilettes": 78.1,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 69.2
    },
@@ -2172,7 +2075,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2196,7 +2099,7 @@
     "energie": 70.4,
     "hygiene": 82.0,
     "toilettes": 77.7,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 70.4
    },
@@ -2205,7 +2108,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2229,7 +2132,7 @@
     "energie": 71.5,
     "hygiene": 82.0,
     "toilettes": 77.4,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 71.5
    },
@@ -2238,7 +2141,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2262,7 +2165,7 @@
     "energie": 72.7,
     "hygiene": 81.9,
     "toilettes": 77.0,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 72.7
    },
@@ -2271,7 +2174,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2295,7 +2198,7 @@
     "energie": 73.8,
     "hygiene": 81.9,
     "toilettes": 76.7,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 73.8
    },
@@ -2304,7 +2207,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2328,7 +2231,7 @@
     "energie": 75.0,
     "hygiene": 81.8,
     "toilettes": 76.3,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 75.0
    },
@@ -2337,7 +2240,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2361,7 +2264,7 @@
     "energie": 76.2,
     "hygiene": 81.8,
     "toilettes": 76.0,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 76.2
    },
@@ -2370,7 +2273,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2394,7 +2297,7 @@
     "energie": 77.3,
     "hygiene": 81.7,
     "toilettes": 75.6,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 77.3
    },
@@ -2403,7 +2306,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2427,7 +2330,7 @@
     "energie": 78.5,
     "hygiene": 81.7,
     "toilettes": 75.3,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 78.5
    },
@@ -2436,7 +2339,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2460,7 +2363,7 @@
     "energie": 79.6,
     "hygiene": 81.6,
     "toilettes": 74.9,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 79.6
    },
@@ -2469,7 +2372,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2493,7 +2396,7 @@
     "energie": 80.8,
     "hygiene": 81.6,
     "toilettes": 74.6,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 80.8
    },
@@ -2502,7 +2405,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2526,7 +2429,7 @@
     "energie": 81.9,
     "hygiene": 81.5,
     "toilettes": 74.2,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 81.9
    },
@@ -2535,7 +2438,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2559,7 +2462,7 @@
     "energie": 83.1,
     "hygiene": 81.5,
     "toilettes": 73.9,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 83.1
    },
@@ -2568,7 +2471,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2592,7 +2495,7 @@
     "energie": 84.2,
     "hygiene": 81.4,
     "toilettes": 73.5,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 84.2
    },
@@ -2601,7 +2504,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2625,7 +2528,7 @@
     "energie": 85.4,
     "hygiene": 81.4,
     "toilettes": 73.2,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 85.4
    },
@@ -2634,7 +2537,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2658,7 +2561,7 @@
     "energie": 86.5,
     "hygiene": 81.3,
     "toilettes": 72.8,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 86.5
    },
@@ -2667,7 +2570,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2691,7 +2594,7 @@
     "energie": 87.7,
     "hygiene": 81.3,
     "toilettes": 72.5,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 87.7
    },
@@ -2700,7 +2603,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2724,7 +2627,7 @@
     "energie": 88.8,
     "hygiene": 81.2,
     "toilettes": 72.1,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 88.8
    },
@@ -2733,7 +2636,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2757,7 +2660,7 @@
     "energie": 90.0,
     "hygiene": 81.2,
     "toilettes": 71.8,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 90.0
    },
@@ -2766,7 +2669,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2790,7 +2693,7 @@
     "energie": 91.1,
     "hygiene": 81.1,
     "toilettes": 71.4,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 91.1
    },
@@ -2799,7 +2702,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2823,7 +2726,7 @@
     "energie": 92.3,
     "hygiene": 81.1,
     "toilettes": 71.1,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 92.3
    },
@@ -2832,7 +2735,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2856,7 +2759,7 @@
     "energie": 93.4,
     "hygiene": 81.0,
     "toilettes": 70.7,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 93.4
    },
@@ -2865,7 +2768,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2889,7 +2792,7 @@
     "energie": 94.6,
     "hygiene": 81.0,
     "toilettes": 70.4,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 94.6
    },
@@ -2898,7 +2801,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2922,7 +2825,7 @@
     "energie": 95.7,
     "hygiene": 80.9,
     "toilettes": 70.0,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 95.7
    },
@@ -2931,7 +2834,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2955,7 +2858,7 @@
     "energie": 96.9,
     "hygiene": 80.9,
     "toilettes": 69.7,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 96.9
    },
@@ -2964,7 +2867,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -2988,7 +2891,7 @@
     "energie": 98.0,
     "hygiene": 80.8,
     "toilettes": 69.3,
-    "social": 35.4,
+    "social": 98.1,
     "detente": 97.8,
     "energie_ressentie": 98.0
    },
@@ -2997,7 +2900,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3039,6 +2942,13 @@
      "quantite": 14,
      "unite": "g",
      "reste": 302
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 1,
+     "unite": "quarts de baguette",
+     "reste": 1
     },
     {
      "produit": "beurre",
@@ -3089,7 +2999,7 @@
     "energie": 97.5,
     "hygiene": 80.7,
     "toilettes": 68.2,
-    "social": 35.4,
+    "social": 98.0,
     "detente": 97.8,
     "energie_ressentie": 100.0
    },
@@ -3098,7 +3008,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.225
@@ -3124,7 +3034,7 @@
     "energie": 97.1,
     "hygiene": 80.6,
     "toilettes": 67.1,
-    "social": 35.3,
+    "social": 98.0,
     "detente": 97.7,
     "energie_ressentie": 100.0
    },
@@ -3133,7 +3043,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.338
@@ -3159,7 +3069,7 @@
     "energie": 96.7,
     "hygiene": 80.5,
     "toilettes": 66.0,
-    "social": 35.3,
+    "social": 97.9,
     "detente": 97.7,
     "energie_ressentie": 100.0
    },
@@ -3168,7 +3078,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.394
@@ -3194,7 +3104,7 @@
     "energie": 96.3,
     "hygiene": 80.4,
     "toilettes": 64.9,
-    "social": 35.2,
+    "social": 97.8,
     "detente": 97.6,
     "energie_ressentie": 100.0
    },
@@ -3203,7 +3113,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.422
@@ -3229,7 +3139,7 @@
     "energie": 95.9,
     "hygiene": 80.2,
     "toilettes": 63.8,
-    "social": 35.1,
+    "social": 97.8,
     "detente": 97.6,
     "energie_ressentie": 100.0
    },
@@ -3238,7 +3148,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.436
@@ -3264,7 +3174,7 @@
     "energie": 95.5,
     "hygiene": 80.1,
     "toilettes": 62.7,
-    "social": 35.1,
+    "social": 97.7,
     "detente": 97.5,
     "energie_ressentie": 100.0
    },
@@ -3273,7 +3183,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.443
@@ -3299,7 +3209,7 @@
     "energie": 95.1,
     "hygiene": 80.0,
     "toilettes": 61.6,
-    "social": 35.0,
+    "social": 97.7,
     "detente": 97.5,
     "energie_ressentie": 100.0
    },
@@ -3308,7 +3218,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.646,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.446
@@ -3334,7 +3244,7 @@
     "energie": 94.7,
     "hygiene": 79.9,
     "toilettes": 60.5,
-    "social": 35.0,
+    "social": 97.6,
     "detente": 97.4,
     "energie_ressentie": 100.0
    },
@@ -3343,7 +3253,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.647,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.448
@@ -3369,7 +3279,7 @@
     "energie": 94.3,
     "hygiene": 79.8,
     "toilettes": 59.4,
-    "social": 34.9,
+    "social": 97.5,
     "detente": 97.4,
     "energie_ressentie": 100.0
    },
@@ -3378,7 +3288,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.647,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.449
@@ -3413,7 +3323,7 @@
     "energie": 93.9,
     "hygiene": 79.6,
     "toilettes": 58.3,
-    "social": 34.8,
+    "social": 97.5,
     "detente": 97.3,
     "energie_ressentie": 100.0
    },
@@ -3422,7 +3332,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.647,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.575
@@ -3454,7 +3364,7 @@
     "energie": 93.5,
     "hygiene": 79.5,
     "toilettes": 57.2,
-    "social": 34.8,
+    "social": 97.4,
     "detente": 97.3,
     "energie_ressentie": 100.0
    },
@@ -3463,7 +3373,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.647,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.637
@@ -3495,7 +3405,7 @@
     "energie": 93.1,
     "hygiene": 79.4,
     "toilettes": 56.1,
-    "social": 34.7,
+    "social": 97.4,
     "detente": 97.2,
     "energie_ressentie": 100.0
    },
@@ -3504,7 +3414,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.648,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.669
@@ -3530,6 +3440,47 @@
     "duree_s": 10,
     "foulees": 15
    },
+   "reprises": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 7,
+     "reste": 0,
+     "motif": "invendus de la veille repris (pain)"
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 4,
+     "reste": 0,
+     "motif": "invendus de la veille repris (pain)"
+    }
+   ],
+   "livraisons": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 50,
+     "reste": 50
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 8,
+     "reste": 8
+    }
+   ],
+   "prelevements": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 2,
+     "reste": 48,
+     "maison": "pain",
+     "quantite_maison": 8,
+     "reste_maison": 9
+    }
+   ],
    "lumiere": [
     "allume la lumière (reserve)",
     "éteint la lumière (reserve)",
@@ -3544,7 +3495,7 @@
     "energie": 92.7,
     "hygiene": 79.3,
     "toilettes": 55.0,
-    "social": 34.7,
+    "social": 97.3,
     "detente": 97.2,
     "energie_ressentie": 100.0
    },
@@ -3553,7 +3504,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.648,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.609
@@ -3578,7 +3529,7 @@
     "energie": 92.3,
     "hygiene": 79.2,
     "toilettes": 53.9,
-    "social": 34.6,
+    "social": 97.2,
     "detente": 97.1,
     "energie_ressentie": 100.0
    },
@@ -3587,7 +3538,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.648,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.58
@@ -3612,7 +3563,7 @@
     "energie": 91.9,
     "hygiene": 79.0,
     "toilettes": 52.8,
-    "social": 34.5,
+    "social": 97.2,
     "detente": 97.1,
     "energie_ressentie": 99.9
    },
@@ -3621,7 +3572,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.649,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.565
@@ -3646,7 +3597,7 @@
     "energie": 91.5,
     "hygiene": 78.9,
     "toilettes": 51.7,
-    "social": 34.5,
+    "social": 97.1,
     "detente": 97.0,
     "energie_ressentie": 99.5
    },
@@ -3655,7 +3606,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.649,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.557
@@ -3680,7 +3631,7 @@
     "energie": 91.1,
     "hygiene": 78.8,
     "toilettes": 50.6,
-    "social": 34.4,
+    "social": 97.1,
     "detente": 97.0,
     "energie_ressentie": 99.1
    },
@@ -3689,7 +3640,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.649,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.554
@@ -3714,7 +3665,7 @@
     "energie": 90.7,
     "hygiene": 78.7,
     "toilettes": 49.5,
-    "social": 34.4,
+    "social": 97.0,
     "detente": 96.9,
     "energie_ressentie": 98.7
    },
@@ -3723,7 +3674,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.65,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.552
@@ -3761,7 +3712,7 @@
     "energie": 90.3,
     "hygiene": 78.6,
     "toilettes": 48.4,
-    "social": 34.3,
+    "social": 96.9,
     "detente": 96.9,
     "energie_ressentie": 98.3
    },
@@ -3770,7 +3721,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.65,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.551
@@ -3809,7 +3760,7 @@
     "energie": 89.9,
     "hygiene": 78.4,
     "toilettes": 100.0,
-    "social": 34.2,
+    "social": 96.9,
     "detente": 96.8,
     "energie_ressentie": 97.9
    },
@@ -3818,7 +3769,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.651,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -3860,7 +3811,7 @@
     "energie": 89.5,
     "hygiene": 78.3,
     "toilettes": 98.9,
-    "social": 34.2,
+    "social": 96.8,
     "detente": 96.6,
     "energie_ressentie": 97.5
    },
@@ -3869,7 +3820,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.651,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.575
@@ -3883,12 +3834,60 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une employée de la mairie : une baguette (0,90 €), avec quelques mots sur le quartier. Une dame âgée : une brique de lait UHT et une baguette (1,85 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 47
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 24
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 46
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 2.75
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3667.55,
+     "caisse": 152.75,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 89.5,
@@ -3896,16 +3895,16 @@
     "energie": 89.1,
     "hygiene": 78.2,
     "toilettes": 97.8,
-    "social": 34.1,
+    "social": 98.4,
     "detente": 96.4,
     "energie_ressentie": 97.1
    },
    "emotions": {
-    "joie": 0.454,
+    "joie": 0.494,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.652,
+    "solitude": 0.22,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.588
@@ -3919,12 +3918,68 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un vieux monsieur à canne : une baguette et une bouteille d'eau minérale (1,50 €), avec quelques mots sur le quartier. Un ouvrier du chantier de la place : une brique de lait UHT et une baguette (1,85 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 45
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "especes",
+     "reste": 35
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 23
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 44
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.35
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3667.55,
+     "caisse": 156.1,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 89.0,
@@ -3932,16 +3987,16 @@
     "energie": 88.7,
     "hygiene": 78.1,
     "toilettes": 96.7,
-    "social": 34.1,
+    "social": 99.9,
     "detente": 96.2,
     "energie_ressentie": 96.7
    },
    "emotions": {
-    "joie": 0.453,
+    "joie": 0.529,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.652,
+    "solitude": 0.192,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.594
@@ -3955,8 +4010,39 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une dame âgée : une baguette (0,90 €). Une employée de la mairie : une brique de lait UHT (0,95 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 43
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 22
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.85
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3667.55,
+     "caisse": 157.95,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -3968,16 +4054,16 @@
     "energie": 88.3,
     "hygiene": 78.0,
     "toilettes": 95.6,
-    "social": 34.0,
+    "social": 100.0,
     "detente": 96.0,
     "energie_ressentie": 96.3
    },
    "emotions": {
-    "joie": 0.453,
+    "joie": 0.52,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.652,
+    "solitude": 0.195,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.597
@@ -3991,8 +4077,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un retraité en casquette : une baguette (0,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 42
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 0.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3667.55,
+     "caisse": 158.85,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4004,16 +4113,16 @@
     "energie": 87.9,
     "hygiene": 77.8,
     "toilettes": 94.5,
-    "social": 33.9,
+    "social": 100.0,
     "detente": 95.8,
     "energie_ressentie": 83.9
    },
    "emotions": {
-    "joie": 0.452,
+    "joie": 0.513,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.653,
+    "solitude": 0.198,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.598
@@ -4027,12 +4136,156 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert quatre clients à la suite. Un peintre du quartier : une brique de lait UHT, une baguette et une bouteille d'eau minérale (2,45 €). Une infirmière qui sort de garde : une baguette, deux bouteilles d'eau minérale et une barquette de jambon blanc (4,70 €). Un monsieur en costume : une brique de lait UHT, une baguette, une plaquette de beurre et un paquet de sucre (5,00 €), avec quelques mots sur le quartier. Un livreur : une baguette, un pain de campagne, une bouteille d'eau minérale et une brique de jus d'orange (5,40 €, par carte).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 21
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 41
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "especes",
+     "reste": 34
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 40
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 2,
+     "prix": 1.2,
+     "paiement": "especes",
+     "reste": 32
+    },
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "prix": 2.6,
+     "paiement": "especes",
+     "reste": 9
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 20
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 39
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 10
+    },
+    {
+     "produit": "sucre",
+     "nom": "sucre (paquet d'un kilo)",
+     "quantite": 1,
+     "prix": 1.2,
+     "paiement": "especes",
+     "reste": 8
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "carte",
+     "reste": 38
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "carte",
+     "reste": 7
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "carte",
+     "reste": 31
+    },
+    {
+     "produit": "jus_orange",
+     "nom": "jus d'orange (brique d'un litre)",
+     "quantite": 1,
+     "prix": 1.8,
+     "paiement": "carte",
+     "reste": 13
+    }
+   ],
+   "clients": 4,
+   "argent": {
+    "mouvements": {
+     "caisse": 12.15,
+     "compte": 5.4
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3672.95,
+     "caisse": 171.0,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "affluence",
+     "effets": {
+      "excitation": 0.03,
+      "joie": 0.02
+     }
+    },
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 87.5,
@@ -4040,18 +4293,18 @@
     "energie": 87.5,
     "hygiene": 77.7,
     "toilettes": 93.4,
-    "social": 33.9,
+    "social": 100.0,
     "detente": 95.6,
     "energie_ressentie": 83.5
    },
    "emotions": {
-    "joie": 0.452,
+    "joie": 0.566,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.653,
+    "solitude": 0.171,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.23,
     "concentration": 0.599
    }
   },
@@ -4063,12 +4316,113 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert quatre clients à la suite. Un peintre du quartier : une brique de lait UHT et une baguette (1,85 €). Une infirmière qui sort de garde : deux pommes et une baguette (1,70 €), en regardant sa montre. Un monsieur en costume : une barquette de jambon blanc, une baguette et une brique de lait UHT (4,45 €). Un livreur : un pack de yaourts nature (1,60 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 19
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 37
+    },
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 2,
+     "prix": 0.8,
+     "paiement": "especes",
+     "reste": 64
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 36
+    },
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "prix": 2.6,
+     "paiement": "especes",
+     "reste": 8
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 35
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 18
+    },
+    {
+     "produit": "yaourts",
+     "nom": "yaourts nature (pack de 4)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 23
+    }
+   ],
+   "clients": 4,
+   "argent": {
+    "mouvements": {
+     "caisse": 9.6
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3672.95,
+     "caisse": 180.6,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "affluence",
+     "effets": {
+      "excitation": 0.03,
+      "joie": 0.02
+     }
+    },
+    {
+     "id": "client_presse",
+     "effets": {
+      "colere": 0.044
+     }
+    },
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 87.0,
@@ -4076,18 +4430,18 @@
     "energie": 87.1,
     "hygiene": 77.6,
     "toilettes": 92.3,
-    "social": 33.8,
+    "social": 100.0,
     "detente": 95.4,
     "energie_ressentie": 83.1
    },
    "emotions": {
-    "joie": 0.452,
+    "joie": 0.613,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.654,
+    "colere": 0.094,
+    "solitude": 0.145,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.257,
     "concentration": 0.6
    }
   },
@@ -4099,8 +4453,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un retraité en casquette : un paquet de café moulu (2,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu (paquet de 250 g)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "especes",
+     "reste": 13
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 2.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3672.95,
+     "caisse": 183.5,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4112,18 +4489,18 @@
     "energie": 86.7,
     "hygiene": 77.5,
     "toilettes": 91.2,
-    "social": 33.8,
+    "social": 100.0,
     "detente": 95.2,
     "energie_ressentie": 82.7
    },
    "emotions": {
-    "joie": 0.452,
+    "joie": 0.595,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.654,
+    "colere": 0.087,
+    "solitude": 0.151,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.251,
     "concentration": 0.6
    }
   },
@@ -4135,12 +4512,101 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert trois clients à la suite. Un peintre du quartier : une barquette de jambon blanc, une baguette et une brique de jus d'orange (5,30 €, par carte). Une infirmière qui sort de garde : un paquet de café moulu et une plaquette de beurre (4,85 €). Un monsieur en costume : une baguette, une brique de lait UHT et un pain de campagne (3,95 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "prix": 2.6,
+     "paiement": "carte",
+     "reste": 7
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "carte",
+     "reste": 34
+    },
+    {
+     "produit": "jus_orange",
+     "nom": "jus d'orange (brique d'un litre)",
+     "quantite": 1,
+     "prix": 1.8,
+     "paiement": "carte",
+     "reste": 12
+    },
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu (paquet de 250 g)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "especes",
+     "reste": 12
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 9
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 33
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 17
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 6
+    }
+   ],
+   "clients": 3,
+   "argent": {
+    "mouvements": {
+     "compte": 5.3,
+     "caisse": 8.8
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3678.25,
+     "caisse": 192.3,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "affluence",
+     "effets": {
+      "excitation": 0.03,
+      "joie": 0.02
+     }
+    }
    ],
    "besoins": {
     "faim": 86.0,
@@ -4148,18 +4614,18 @@
     "energie": 86.3,
     "hygiene": 77.4,
     "toilettes": 90.1,
-    "social": 33.7,
+    "social": 100.0,
     "detente": 95.0,
     "energie_ressentie": 82.3
    },
    "emotions": {
-    "joie": 0.452,
+    "joie": 0.599,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.655,
+    "colere": 0.081,
+    "solitude": 0.157,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.275,
     "concentration": 0.6
    }
   },
@@ -4184,18 +4650,18 @@
     "energie": 85.9,
     "hygiene": 77.2,
     "toilettes": 89.0,
-    "social": 33.6,
+    "social": 99.9,
     "detente": 94.8,
     "energie_ressentie": 81.9
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.583,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.655,
+    "colere": 0.076,
+    "solitude": 0.162,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.267,
     "concentration": 0.6
    }
   },
@@ -4220,18 +4686,18 @@
     "energie": 85.5,
     "hygiene": 77.1,
     "toilettes": 87.9,
-    "social": 33.6,
+    "social": 99.9,
     "detente": 94.6,
     "energie_ressentie": 81.5
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.569,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.656,
+    "colere": 0.072,
+    "solitude": 0.167,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.26,
     "concentration": 0.6
    }
   },
@@ -4243,8 +4709,55 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un peintre du quartier : une plaquette de beurre, une brique de lait UHT et une baguette (3,80 €). Une infirmière qui sort de garde : une brique de lait UHT (0,95 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 8
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 16
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 32
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 15
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 4.75
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3678.25,
+     "caisse": 197.05,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4256,18 +4769,18 @@
     "energie": 85.1,
     "hygiene": 77.0,
     "toilettes": 86.8,
-    "social": 33.5,
+    "social": 100.0,
     "detente": 94.4,
     "energie_ressentie": 81.1
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.556,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.656,
+    "colere": 0.068,
+    "solitude": 0.172,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.253,
     "concentration": 0.6
    }
   },
@@ -4279,8 +4792,56 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un couple de touristes : une baguette, un pack de yaourts nature et un paquet de papier toilette (5,40 €, par carte). Un retraité en casquette : un pain de campagne (2,10 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "carte",
+     "reste": 31
+    },
+    {
+     "produit": "yaourts",
+     "nom": "yaourts nature (pack de 4)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "carte",
+     "reste": 22
+    },
+    {
+     "produit": "papier_toilette",
+     "nom": "papier toilette (paquet de 6)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "carte",
+     "reste": 7
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 5
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "compte": 5.4,
+     "caisse": 2.1
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 199.15,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4292,18 +4853,18 @@
     "energie": 84.7,
     "hygiene": 76.9,
     "toilettes": 85.7,
-    "social": 33.5,
+    "social": 100.0,
     "detente": 94.2,
     "energie_ressentie": 80.7
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.544,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.657,
+    "colere": 0.066,
+    "solitude": 0.176,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.247,
     "concentration": 0.6
    }
   },
@@ -4315,8 +4876,39 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une infirmière qui sort de garde : une baguette et un pain de campagne (3,00 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 30
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 4
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.0
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 202.15,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4328,18 +4920,18 @@
     "energie": 84.3,
     "hygiene": 76.8,
     "toilettes": 84.6,
-    "social": 33.4,
+    "social": 100.0,
     "detente": 94.0,
     "energie_ressentie": 80.3
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.534,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.657,
+    "colere": 0.063,
+    "solitude": 0.18,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.242,
     "concentration": 0.6
    }
   },
@@ -4351,12 +4943,81 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert trois clients à la suite. Une jeune mère avec sa poussette : une baguette (0,90 €). Une dame avec son chien : un paquet de café moulu (2,90 €), avec quelques mots sur le quartier. Un vieux monsieur à canne : une boîte d'œufs et une plaquette de beurre (3,85 €), en regardant sa montre.",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 29
+    },
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu (paquet de 250 g)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "especes",
+     "reste": 11
+    },
+    {
+     "produit": "oeufs",
+     "nom": "œufs (boîte de 6)",
+     "quantite": 1,
+     "prix": 1.9,
+     "paiement": "especes",
+     "reste": 20
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 7
+    }
+   ],
+   "clients": 3,
+   "argent": {
+    "mouvements": {
+     "caisse": 7.65
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 209.8,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "affluence",
+     "effets": {
+      "excitation": 0.03,
+      "joie": 0.02
+     }
+    },
+    {
+     "id": "client_presse",
+     "effets": {
+      "colere": 0.044
+     }
+    },
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 83.0,
@@ -4364,18 +5025,18 @@
     "energie": 83.9,
     "hygiene": 76.6,
     "toilettes": 83.5,
-    "social": 33.3,
+    "social": 100.0,
     "detente": 93.8,
     "energie_ressentie": 79.9
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.585,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.658,
+    "colere": 0.105,
+    "solitude": 0.154,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.268,
     "concentration": 0.6
    }
   },
@@ -4387,8 +5048,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un jeune homme pressé : une baguette (0,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 28
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 0.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 210.7,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4400,18 +5084,18 @@
     "energie": 83.5,
     "hygiene": 76.5,
     "toilettes": 82.4,
-    "social": 33.3,
+    "social": 100.0,
     "detente": 93.6,
     "energie_ressentie": 79.5
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.57,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.658,
+    "colere": 0.096,
+    "solitude": 0.159,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.26,
     "concentration": 0.6
    }
   },
@@ -4436,18 +5120,18 @@
     "energie": 83.1,
     "hygiene": 76.4,
     "toilettes": 81.3,
-    "social": 33.2,
+    "social": 99.9,
     "detente": 93.4,
     "energie_ressentie": 83.1
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.557,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.659,
+    "colere": 0.089,
+    "solitude": 0.165,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.254,
     "concentration": 0.6
    }
   },
@@ -4472,18 +5156,18 @@
     "energie": 82.7,
     "hygiene": 76.3,
     "toilettes": 80.2,
-    "social": 33.2,
+    "social": 99.9,
     "detente": 93.2,
     "energie_ressentie": 82.7
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.545,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.659,
+    "colere": 0.083,
+    "solitude": 0.169,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.248,
     "concentration": 0.6
    }
   },
@@ -4495,8 +5179,63 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un jeune homme pressé : une baguette et trois bananes (1,80 €). Un étudiant : une baguette, un pain de campagne et une brique de lait UHT (3,95 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 27
+    },
+    {
+     "produit": "bananes",
+     "nom": "bananes",
+     "quantite": 3,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 25
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 26
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 3
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 14
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 5.75
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 216.45,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4508,18 +5247,18 @@
     "energie": 82.3,
     "hygiene": 76.2,
     "toilettes": 79.1,
-    "social": 33.1,
+    "social": 100.0,
     "detente": 93.0,
     "energie_ressentie": 82.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.535,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.66,
+    "colere": 0.078,
+    "solitude": 0.174,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.243,
     "concentration": 0.6
    }
   },
@@ -4531,8 +5270,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une jeune mère avec sa poussette : une baguette (0,90 €). Une dame avec son chien : une baguette et une boîte d'œufs (2,80 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 25
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 24
+    },
+    {
+     "produit": "oeufs",
+     "nom": "œufs (boîte de 6)",
+     "quantite": 1,
+     "prix": 1.9,
+     "paiement": "especes",
+     "reste": 19
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.7
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 220.15,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4544,18 +5322,18 @@
     "energie": 81.9,
     "hygiene": 76.0,
     "toilettes": 78.0,
-    "social": 33.0,
+    "social": 100.0,
     "detente": 92.8,
     "energie_ressentie": 81.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.526,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.661,
+    "colere": 0.073,
+    "solitude": 0.178,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.238,
     "concentration": 0.6
    }
   },
@@ -4567,8 +5345,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une jeune mère avec sa poussette : une baguette (0,90 €). Une dame avec son chien : une baguette et une barquette de jambon blanc (3,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 23
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 22
+    },
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "prix": 2.6,
+     "paiement": "especes",
+     "reste": 6
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 4.4
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 224.55,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4580,18 +5397,18 @@
     "energie": 81.5,
     "hygiene": 75.9,
     "toilettes": 76.9,
-    "social": 33.0,
+    "social": 100.0,
     "detente": 92.6,
     "energie_ressentie": 81.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.517,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.661,
+    "colere": 0.069,
+    "solitude": 0.182,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.234,
     "concentration": 0.6
    }
   },
@@ -4616,18 +5433,18 @@
     "energie": 81.1,
     "hygiene": 75.8,
     "toilettes": 75.8,
-    "social": 32.9,
+    "social": 99.9,
     "detente": 92.4,
     "energie_ressentie": 81.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.51,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.662,
+    "colere": 0.066,
+    "solitude": 0.186,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.23,
     "concentration": 0.6
    }
   },
@@ -4639,8 +5456,55 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une dame avec son chien : une bouteille d'eau minérale, une baguette et une plaquette de beurre (3,45 €). Une jeune mère avec sa poussette : une baguette (0,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "especes",
+     "reste": 30
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 21
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 6
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 20
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 4.35
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 228.9,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4652,18 +5516,18 @@
     "energie": 80.7,
     "hygiene": 75.7,
     "toilettes": 74.7,
-    "social": 32.9,
+    "social": 100.0,
     "detente": 92.2,
     "energie_ressentie": 80.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.503,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.662,
+    "colere": 0.064,
+    "solitude": 0.19,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.227,
     "concentration": 0.6
    }
   },
@@ -4688,18 +5552,18 @@
     "energie": 80.3,
     "hygiene": 75.6,
     "toilettes": 73.6,
-    "social": 32.8,
+    "social": 99.9,
     "detente": 92.0,
     "energie_ressentie": 80.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.498,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.663,
+    "colere": 0.062,
+    "solitude": 0.193,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.224,
     "concentration": 0.6
    }
   },
@@ -4724,18 +5588,18 @@
     "energie": 79.9,
     "hygiene": 75.4,
     "toilettes": 72.5,
-    "social": 32.7,
+    "social": 99.9,
     "detente": 91.8,
     "energie_ressentie": 79.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.492,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.663,
+    "colere": 0.06,
+    "solitude": 0.196,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.221,
     "concentration": 0.6
    }
   },
@@ -4747,8 +5611,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un livreur : une baguette, six pommes et un paquet de sucre (4,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 19
+    },
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 6,
+     "prix": 2.4,
+     "paiement": "especes",
+     "reste": 58
+    },
+    {
+     "produit": "sucre",
+     "nom": "sucre (paquet d'un kilo)",
+     "quantite": 1,
+     "prix": 1.2,
+     "paiement": "especes",
+     "reste": 7
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 4.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 233.4,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4760,18 +5663,18 @@
     "energie": 79.5,
     "hygiene": 75.3,
     "toilettes": 71.4,
-    "social": 32.7,
+    "social": 100.0,
     "detente": 91.6,
     "energie_ressentie": 79.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.488,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.664,
+    "colere": 0.058,
+    "solitude": 0.199,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.219,
     "concentration": 0.6
    }
   },
@@ -4783,8 +5686,39 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un livreur : un pain de campagne et une baguette (3,00 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 2
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 18
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.0
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 236.4,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4796,18 +5730,18 @@
     "energie": 79.1,
     "hygiene": 75.2,
     "toilettes": 70.3,
-    "social": 32.6,
+    "social": 100.0,
     "detente": 91.4,
     "energie_ressentie": 79.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.484,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.664,
+    "colere": 0.057,
+    "solitude": 0.202,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.217,
     "concentration": 0.6
    }
   },
@@ -4819,8 +5753,39 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une adolescente : une baguette et une bouteille d'eau minérale (1,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 17
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "especes",
+     "reste": 29
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 237.9,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4832,18 +5797,18 @@
     "energie": 78.7,
     "hygiene": 75.1,
     "toilettes": 69.2,
-    "social": 32.6,
+    "social": 100.0,
     "detente": 91.2,
     "energie_ressentie": 78.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.48,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.665,
+    "colere": 0.056,
+    "solitude": 0.205,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.215,
     "concentration": 0.6
    }
   },
@@ -4868,18 +5833,18 @@
     "energie": 78.3,
     "hygiene": 75.0,
     "toilettes": 68.1,
-    "social": 32.5,
+    "social": 99.9,
     "detente": 91.0,
     "energie_ressentie": 78.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.477,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.666,
+    "colere": 0.055,
+    "solitude": 0.207,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.213,
     "concentration": 0.6
    }
   },
@@ -4904,18 +5869,18 @@
     "energie": 77.9,
     "hygiene": 74.8,
     "toilettes": 67.0,
-    "social": 32.4,
+    "social": 99.9,
     "detente": 90.8,
     "energie_ressentie": 77.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.474,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.666,
+    "colere": 0.054,
+    "solitude": 0.21,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.212,
     "concentration": 0.6
    }
   },
@@ -4940,18 +5905,18 @@
     "energie": 77.5,
     "hygiene": 74.7,
     "toilettes": 65.9,
-    "social": 32.4,
+    "social": 99.8,
     "detente": 90.6,
     "energie_ressentie": 77.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.471,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.667,
+    "colere": 0.053,
+    "solitude": 0.212,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.211,
     "concentration": 0.6
    }
   },
@@ -4970,24 +5935,32 @@
     "radio-boutique",
     "lumiere-boutique"
    ],
+   "evenements": [
+    {
+     "id": "boutique_vide",
+     "effets": {
+      "anxiete": 0.035
+     }
+    }
+   ],
    "besoins": {
     "faim": 74.5,
     "soif": 62.4,
     "energie": 77.1,
     "hygiene": 74.6,
     "toilettes": 64.8,
-    "social": 32.3,
+    "social": 99.8,
     "detente": 90.4,
     "energie_ressentie": 77.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.469,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.667,
+    "anxiete": 0.285,
+    "colere": 0.053,
+    "solitude": 0.214,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.209,
     "concentration": 0.6
    }
   },
@@ -5012,18 +5985,18 @@
     "energie": 76.7,
     "hygiene": 74.5,
     "toilettes": 63.7,
-    "social": 32.3,
+    "social": 99.7,
     "detente": 90.2,
     "energie_ressentie": 76.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.467,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.668,
+    "anxiete": 0.283,
+    "colere": 0.052,
+    "solitude": 0.216,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.208,
     "concentration": 0.6
    }
   },
@@ -5035,12 +6008,68 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un monsieur en costume : une baguette et un pack de yaourts nature (2,50 €), en regardant sa montre. Un livreur : un paquet de papier toilette et un pain de campagne (5,00 €, par carte).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 16
+    },
+    {
+     "produit": "yaourts",
+     "nom": "yaourts nature (pack de 4)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 21
+    },
+    {
+     "produit": "papier_toilette",
+     "nom": "papier toilette (paquet de 6)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "carte",
+     "reste": 6
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "carte",
+     "reste": 1
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 2.5,
+     "compte": 5.0
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 240.4,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_presse",
+     "effets": {
+      "colere": 0.044
+     }
+    }
    ],
    "besoins": {
     "faim": 73.5,
@@ -5048,18 +6077,18 @@
     "energie": 76.3,
     "hygiene": 74.4,
     "toilettes": 62.6,
-    "social": 32.2,
+    "social": 100.0,
     "detente": 90.0,
     "energie_ressentie": 76.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.465,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.668,
+    "anxiete": 0.281,
+    "colere": 0.096,
+    "solitude": 0.218,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.208,
     "concentration": 0.6
    }
   },
@@ -5071,12 +6100,52 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une voisine de la rue d'Ivry : une baguette et une brique de lait UHT (1,85 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 15
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 13
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.85
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 242.25,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 73.0,
@@ -5084,18 +6153,18 @@
     "energie": 75.9,
     "hygiene": 74.2,
     "toilettes": 61.5,
-    "social": 32.1,
+    "social": 100.0,
     "detente": 89.8,
     "energie_ressentie": 75.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.503,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.669,
+    "anxiete": 0.279,
+    "colere": 0.089,
+    "solitude": 0.19,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.207,
     "concentration": 0.6
    }
   },
@@ -5120,18 +6189,18 @@
     "energie": 75.5,
     "hygiene": 74.1,
     "toilettes": 60.4,
-    "social": 32.1,
+    "social": 99.9,
     "detente": 89.6,
     "energie_ressentie": 75.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.498,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.67,
+    "anxiete": 0.277,
+    "colere": 0.083,
+    "solitude": 0.193,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.206,
     "concentration": 0.6
    }
   },
@@ -5156,18 +6225,18 @@
     "energie": 75.1,
     "hygiene": 74.0,
     "toilettes": 59.3,
-    "social": 32.0,
+    "social": 99.9,
     "detente": 89.4,
     "energie_ressentie": 75.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.492,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.67,
+    "anxiete": 0.275,
+    "colere": 0.077,
+    "solitude": 0.196,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.205,
     "concentration": 0.6
    }
   },
@@ -5179,8 +6248,55 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une voisine de la rue d'Ivry : une baguette, un paquet de papier toilette, un pain de campagne et une barquette de jambon blanc (8,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 14
+    },
+    {
+     "produit": "papier_toilette",
+     "nom": "papier toilette (paquet de 6)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "especes",
+     "reste": 5
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 0
+    },
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "prix": 2.6,
+     "paiement": "especes",
+     "reste": 5
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 8.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 250.75,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5192,18 +6308,18 @@
     "energie": 74.7,
     "hygiene": 73.9,
     "toilettes": 58.2,
-    "social": 32.0,
+    "social": 100.0,
     "detente": 89.2,
     "energie_ressentie": 74.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.488,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.671,
+    "anxiete": 0.273,
+    "colere": 0.073,
+    "solitude": 0.199,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.205,
     "concentration": 0.6
    }
   },
@@ -5228,18 +6344,18 @@
     "energie": 74.3,
     "hygiene": 73.8,
     "toilettes": 57.1,
-    "social": 31.9,
+    "social": 99.9,
     "detente": 89.0,
     "energie_ressentie": 74.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.484,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.671,
+    "anxiete": 0.272,
+    "colere": 0.069,
+    "solitude": 0.202,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.204,
     "concentration": 0.6
    }
   },
@@ -5251,12 +6367,60 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une voisine de la rue d'Ivry : une baguette, six pommes et une plaquette de beurre (5,25 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 13
+    },
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 6,
+     "prix": 2.4,
+     "paiement": "especes",
+     "reste": 52
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 5
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 5.25
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 256.0,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 70.5,
@@ -5264,18 +6428,18 @@
     "energie": 73.9,
     "hygiene": 73.6,
     "toilettes": 56.0,
-    "social": 31.8,
+    "social": 100.0,
     "detente": 88.8,
     "energie_ressentie": 73.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.52,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.672,
+    "anxiete": 0.27,
+    "colere": 0.066,
+    "solitude": 0.175,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.204,
     "concentration": 0.6
    }
   },
@@ -5300,18 +6464,18 @@
     "energie": 73.5,
     "hygiene": 73.5,
     "toilettes": 54.9,
-    "social": 31.8,
+    "social": 99.9,
     "detente": 88.6,
     "energie_ressentie": 73.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.512,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.672,
+    "anxiete": 0.269,
+    "colere": 0.064,
+    "solitude": 0.179,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.6
    }
   },
@@ -5323,8 +6487,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un monsieur en costume : une boîte d'œufs (1,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "oeufs",
+     "nom": "œufs (boîte de 6)",
+     "quantite": 1,
+     "prix": 1.9,
+     "paiement": "especes",
+     "reste": 18
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 257.9,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5336,18 +6523,18 @@
     "energie": 73.1,
     "hygiene": 73.4,
     "toilettes": 53.8,
-    "social": 31.7,
+    "social": 100.0,
     "detente": 88.4,
     "energie_ressentie": 73.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.506,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.673,
+    "anxiete": 0.268,
+    "colere": 0.062,
+    "solitude": 0.183,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.6
    }
   },
@@ -5372,18 +6559,18 @@
     "energie": 72.7,
     "hygiene": 73.3,
     "toilettes": 52.7,
-    "social": 31.7,
+    "social": 99.9,
     "detente": 88.2,
     "energie_ressentie": 72.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.499,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.674,
+    "anxiete": 0.266,
+    "colere": 0.06,
+    "solitude": 0.187,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.6
    }
   },
@@ -5395,8 +6582,79 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un livreur : une boîte d'œufs, une brique de lait UHT et trois bananes (3,75 €). Un monsieur en costume : deux bouteilles d'eau minérale, une brique de lait UHT, une brique de jus d'orange et un pack de yaourts nature (5,55 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "oeufs",
+     "nom": "œufs (boîte de 6)",
+     "quantite": 1,
+     "prix": 1.9,
+     "paiement": "especes",
+     "reste": 17
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 12
+    },
+    {
+     "produit": "bananes",
+     "nom": "bananes",
+     "quantite": 3,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 22
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 2,
+     "prix": 1.2,
+     "paiement": "especes",
+     "reste": 27
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 11
+    },
+    {
+     "produit": "jus_orange",
+     "nom": "jus d'orange (brique d'un litre)",
+     "quantite": 1,
+     "prix": 1.8,
+     "paiement": "especes",
+     "reste": 11
+    },
+    {
+     "produit": "yaourts",
+     "nom": "yaourts nature (pack de 4)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 20
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 9.3
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 267.2,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5408,18 +6666,18 @@
     "energie": 72.3,
     "hygiene": 73.2,
     "toilettes": 51.6,
-    "social": 31.6,
+    "social": 100.0,
     "detente": 88.0,
     "energie_ressentie": 72.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.494,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.674,
+    "anxiete": 0.265,
+    "colere": 0.058,
+    "solitude": 0.19,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.6
    }
   },
@@ -5431,8 +6689,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une dame avec son chien : une baguette et un sachet de bonbons (1,90 €). Une jeune mère avec sa poussette : une brique de lait UHT (0,95 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 12
+    },
+    {
+     "produit": "bonbons",
+     "nom": "bonbons (sachet)",
+     "quantite": 1,
+     "prix": 1.0,
+     "paiement": "especes",
+     "reste": 19
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 10
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 2.85
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 270.05,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5444,18 +6741,18 @@
     "energie": 71.9,
     "hygiene": 73.0,
     "toilettes": 50.5,
-    "social": 31.5,
+    "social": 100.0,
     "detente": 87.8,
     "energie_ressentie": 71.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.489,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.675,
+    "anxiete": 0.264,
+    "colere": 0.057,
+    "solitude": 0.194,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.6
    }
   },
@@ -5467,12 +6764,60 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un étudiant : une baguette, une bouteille d'eau minérale et une plaquette de beurre (3,45 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 11
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "especes",
+     "reste": 26
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 4
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.45
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 273.5,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 67.5,
@@ -5480,18 +6825,18 @@
     "energie": 71.5,
     "hygiene": 72.9,
     "toilettes": 49.4,
-    "social": 31.5,
+    "social": 100.0,
     "detente": 87.6,
     "energie_ressentie": 71.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.525,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.675,
+    "anxiete": 0.263,
+    "colere": 0.056,
+    "solitude": 0.167,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.6
    }
   },
@@ -5503,8 +6848,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un étudiant : une boîte de thon (1,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "thon",
+     "nom": "thon (boîte)",
+     "quantite": 1,
+     "prix": 1.5,
+     "paiement": "especes",
+     "reste": 16
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 275.0,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5516,18 +6884,18 @@
     "energie": 71.1,
     "hygiene": 72.8,
     "toilettes": 48.3,
-    "social": 31.4,
+    "social": 100.0,
     "detente": 87.4,
     "energie_ressentie": 71.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.517,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.676,
+    "anxiete": 0.262,
+    "colere": 0.055,
+    "solitude": 0.172,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.6
    }
   },
@@ -5539,8 +6907,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une dame avec son chien : une baguette (0,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 10
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 0.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 275.9,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5552,18 +6943,18 @@
     "energie": 70.7,
     "hygiene": 72.7,
     "toilettes": 47.2,
-    "social": 31.4,
+    "social": 100.0,
     "detente": 87.2,
     "energie_ressentie": 70.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.51,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.677,
+    "anxiete": 0.262,
+    "colere": 0.054,
+    "solitude": 0.176,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.6
    }
   },
@@ -5575,8 +6966,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un étudiant : une baguette (0,90 €). Un jeune homme pressé : trois pommes et une barquette de tomates (2,80 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 9
+    },
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 3,
+     "prix": 1.2,
+     "paiement": "especes",
+     "reste": 49
+    },
+    {
+     "produit": "tomates",
+     "nom": "tomates (barquette de 500 g)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 7
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.7
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 279.6,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5588,18 +7018,18 @@
     "energie": 70.3,
     "hygiene": 72.6,
     "toilettes": 46.1,
-    "social": 31.3,
+    "social": 100.0,
     "detente": 87.0,
     "energie_ressentie": 70.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.503,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.677,
+    "anxiete": 0.261,
+    "colere": 0.053,
+    "solitude": 0.18,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.6
    }
   },
@@ -5611,8 +7041,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une dame avec son chien : une boîte de thon (1,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "thon",
+     "nom": "thon (boîte)",
+     "quantite": 1,
+     "prix": 1.5,
+     "paiement": "especes",
+     "reste": 15
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 281.1,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5624,18 +7077,18 @@
     "energie": 69.9,
     "hygiene": 72.4,
     "toilettes": 45.0,
-    "social": 31.2,
+    "social": 100.0,
     "detente": 86.8,
     "energie_ressentie": 69.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.497,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.678,
+    "anxiete": 0.26,
+    "colere": 0.053,
+    "solitude": 0.184,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.6
    }
   },
@@ -5660,18 +7113,18 @@
     "energie": 69.5,
     "hygiene": 72.3,
     "toilettes": 43.9,
-    "social": 31.2,
+    "social": 99.9,
     "detente": 86.6,
     "energie_ressentie": 69.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.492,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.678,
+    "anxiete": 0.259,
+    "colere": 0.052,
+    "solitude": 0.188,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.6
    }
   },
@@ -5683,8 +7136,39 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un étudiant : une baguette et une barquette de tomates (2,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 8
+    },
+    {
+     "produit": "tomates",
+     "nom": "tomates (barquette de 500 g)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 6
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 2.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 283.6,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5696,18 +7180,18 @@
     "energie": 69.1,
     "hygiene": 72.2,
     "toilettes": 42.8,
-    "social": 31.1,
+    "social": 100.0,
     "detente": 86.4,
     "energie_ressentie": 69.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.487,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.679,
+    "anxiete": 0.259,
+    "colere": 0.052,
+    "solitude": 0.191,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.6
    }
   },
@@ -5719,12 +7203,84 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert trois clients à la suite. Une jeune mère avec sa poussette : une baguette, une barquette de tomates et cinq pommes (4,50 €). Une dame avec son chien : une baguette (0,90 €). Un vieux monsieur à canne : trois bouteilles de bière et une baguette (4,20 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 7
+    },
+    {
+     "produit": "tomates",
+     "nom": "tomates (barquette de 500 g)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 5
+    },
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 5,
+     "prix": 2.0,
+     "paiement": "especes",
+     "reste": 44
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 6
+    },
+    {
+     "produit": "biere",
+     "nom": "bière (bouteille de 33 cl)",
+     "quantite": 3,
+     "prix": 3.3,
+     "paiement": "especes",
+     "reste": 44
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 5
+    }
+   ],
+   "clients": 3,
+   "argent": {
+    "mouvements": {
+     "caisse": 9.6
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 293.2,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "affluence",
+     "effets": {
+      "excitation": 0.03,
+      "joie": 0.02
+     }
+    }
    ],
    "besoins": {
     "faim": 64.0,
@@ -5732,18 +7288,18 @@
     "energie": 68.7,
     "hygiene": 72.1,
     "toilettes": 41.7,
-    "social": 31.1,
+    "social": 100.0,
     "detente": 86.2,
     "energie_ressentie": 68.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.503,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.679,
+    "anxiete": 0.258,
+    "colere": 0.052,
+    "solitude": 0.195,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.231,
     "concentration": 0.6
    }
   },
@@ -5755,8 +7311,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un jeune homme pressé : une laitue (1,10 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "salade",
+     "nom": "laitue",
+     "quantite": 1,
+     "prix": 1.1,
+     "paiement": "especes",
+     "reste": 2
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.1
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 294.3,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5768,18 +7347,18 @@
     "energie": 68.3,
     "hygiene": 72.0,
     "toilettes": 40.6,
-    "social": 31.0,
+    "social": 100.0,
     "detente": 86.0,
     "energie_ressentie": 68.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.498,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.68,
+    "anxiete": 0.258,
+    "colere": 0.051,
+    "solitude": 0.198,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.227,
     "concentration": 0.6
    }
   },
@@ -5791,8 +7370,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un retraité en casquette : une baguette (0,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 4
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 0.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 295.2,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5804,18 +7406,18 @@
     "energie": 67.9,
     "hygiene": 71.8,
     "toilettes": 39.5,
-    "social": 30.9,
+    "social": 100.0,
     "detente": 85.8,
     "energie_ressentie": 67.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.492,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.681,
+    "anxiete": 0.257,
+    "colere": 0.051,
+    "solitude": 0.201,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.224,
     "concentration": 0.6
    }
   },
@@ -5827,8 +7429,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un peintre du quartier : une barquette de tomates, une baguette et un sachet d'emmental râpé (4,20 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "tomates",
+     "nom": "tomates (barquette de 500 g)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 4
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 3
+    },
+    {
+     "produit": "fromage_rape",
+     "nom": "emmental râpé (sachet de 200 g)",
+     "quantite": 1,
+     "prix": 1.7,
+     "paiement": "especes",
+     "reste": 10
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 4.2
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 299.4,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5840,18 +7481,18 @@
     "energie": 67.5,
     "hygiene": 71.7,
     "toilettes": 38.4,
-    "social": 30.9,
+    "social": 100.0,
     "detente": 85.6,
     "energie_ressentie": 67.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.488,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.681,
+    "anxiete": 0.257,
+    "colere": 0.051,
+    "solitude": 0.203,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.222,
     "concentration": 0.6
    }
   },
@@ -5863,8 +7504,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un peintre du quartier : une barquette de tomates (1,60 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "tomates",
+     "nom": "tomates (barquette de 500 g)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 3
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.6
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 301.0,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5876,18 +7540,18 @@
     "energie": 67.1,
     "hygiene": 71.6,
     "toilettes": 37.3,
-    "social": 30.8,
+    "social": 100.0,
     "detente": 85.4,
     "energie_ressentie": 67.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.484,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.682,
+    "anxiete": 0.256,
+    "colere": 0.051,
+    "solitude": 0.206,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.219,
     "concentration": 0.6
    }
   },
@@ -5912,18 +7576,18 @@
     "energie": 66.7,
     "hygiene": 71.5,
     "toilettes": 36.2,
-    "social": 30.8,
+    "social": 99.9,
     "detente": 85.2,
     "energie_ressentie": 66.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.48,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.682,
+    "anxiete": 0.256,
+    "colere": 0.051,
+    "solitude": 0.208,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.217,
     "concentration": 0.6
    }
   },
@@ -5951,12 +7615,25 @@
      "produit": "farine",
      "nom": "farine (paquet d'un kilo)",
      "quantite": 1,
-     "reste": 7,
+     "reste": 9,
      "maison": "farine",
      "quantite_maison": 1000,
      "reste_maison": 1150
     }
    ],
+   "argent": {
+    "mouvements": {
+     "caisse": -151.0,
+     "coffre": 151.0
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 150.0,
+     "coffre": 1561.8,
+     "ardoises": 46.3
+    }
+   },
    "lumiere": [
     "allume la lumière (arriere-boutique)",
     "éteint la lumière (boutique)"
@@ -5970,18 +7647,18 @@
     "energie": 66.3,
     "hygiene": 71.4,
     "toilettes": 35.1,
-    "social": 30.7,
+    "social": 99.9,
     "detente": 85.1,
     "energie_ressentie": 66.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.477,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.683,
+    "anxiete": 0.255,
+    "colere": 0.051,
+    "solitude": 0.211,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.215,
     "concentration": 0.575
    }
   },
@@ -6004,18 +7681,18 @@
     "energie": 65.9,
     "hygiene": 71.2,
     "toilettes": 34.0,
-    "social": 30.6,
+    "social": 99.8,
     "detente": 85.1,
     "energie_ressentie": 65.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.474,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.684,
+    "anxiete": 0.255,
+    "colere": 0.051,
+    "solitude": 0.213,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.214,
     "concentration": 0.562
    }
   },
@@ -6038,18 +7715,18 @@
     "energie": 65.5,
     "hygiene": 71.1,
     "toilettes": 32.9,
-    "social": 30.6,
+    "social": 99.8,
     "detente": 85.0,
     "energie_ressentie": 65.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.471,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.255,
     "colere": 0.05,
-    "solitude": 0.684,
+    "solitude": 0.215,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.212,
     "concentration": 0.556
    }
   },
@@ -6085,18 +7762,18 @@
     "energie": 65.1,
     "hygiene": 71.0,
     "toilettes": 100.0,
-    "social": 30.5,
+    "social": 99.7,
     "detente": 85.0,
     "energie_ressentie": 65.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.469,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.685,
+    "solitude": 0.217,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.211,
     "concentration": 0.553
    }
   },
@@ -6132,18 +7809,18 @@
     "energie": 64.7,
     "hygiene": 70.9,
     "toilettes": 98.9,
-    "social": 30.5,
+    "social": 99.6,
     "detente": 84.9,
     "energie_ressentie": 64.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.467,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.685,
+    "solitude": 0.219,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.21,
     "concentration": 0.552
    }
   },
@@ -6166,18 +7843,18 @@
     "energie": 64.3,
     "hygiene": 70.8,
     "toilettes": 97.8,
-    "social": 30.4,
+    "social": 99.6,
     "detente": 84.9,
     "energie_ressentie": 64.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.465,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.686,
+    "solitude": 0.221,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.209,
     "concentration": 0.551
    }
   },
@@ -6210,18 +7887,18 @@
     "energie": 63.9,
     "hygiene": 70.6,
     "toilettes": 96.7,
-    "social": 30.3,
+    "social": 99.5,
     "detente": 84.7,
     "energie_ressentie": 63.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.463,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.687,
+    "solitude": 0.222,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.208,
     "concentration": 0.55
    }
   },
@@ -6242,18 +7919,18 @@
     "energie": 63.5,
     "hygiene": 70.5,
     "toilettes": 95.6,
-    "social": 30.3,
+    "social": 99.5,
     "detente": 84.5,
     "energie_ressentie": 63.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.462,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.687,
+    "solitude": 0.224,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.207,
     "concentration": 0.55
    }
   },
@@ -6274,18 +7951,18 @@
     "energie": 63.1,
     "hygiene": 70.4,
     "toilettes": 94.5,
-    "social": 30.2,
+    "social": 99.4,
     "detente": 84.3,
     "energie_ressentie": 63.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.461,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.688,
+    "solitude": 0.225,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.206,
     "concentration": 0.55
    }
   },
@@ -6327,18 +8004,18 @@
     "energie": 62.7,
     "hygiene": 70.3,
     "toilettes": 93.4,
-    "social": 30.2,
+    "social": 99.3,
     "detente": 84.2,
     "energie_ressentie": 62.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.459,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.688,
+    "solitude": 0.227,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.205,
     "concentration": 0.625
    }
   },
@@ -6368,18 +8045,18 @@
     "energie": 62.3,
     "hygiene": 70.2,
     "toilettes": 92.3,
-    "social": 30.1,
+    "social": 99.3,
     "detente": 84.2,
     "energie_ressentie": 62.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.458,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.689,
+    "solitude": 0.228,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.205,
     "concentration": 0.663
    }
   },
@@ -6409,18 +8086,18 @@
     "energie": 61.9,
     "hygiene": 70.0,
     "toilettes": 91.2,
-    "social": 30.0,
+    "social": 99.2,
     "detente": 84.1,
     "energie_ressentie": 61.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.457,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.69,
+    "solitude": 0.229,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.204,
     "concentration": 0.681
    }
   },
@@ -6450,18 +8127,18 @@
     "energie": 61.5,
     "hygiene": 69.9,
     "toilettes": 90.1,
-    "social": 30.0,
+    "social": 99.2,
     "detente": 84.1,
     "energie_ressentie": 61.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.457,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.69,
+    "solitude": 0.23,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.204,
     "concentration": 0.691
    }
   },
@@ -6522,6 +8199,13 @@
      "reste": 200
     },
     {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 2,
+     "unite": "quarts de baguette",
+     "reste": 7
+    },
+    {
      "produit": "repas_josiane",
      "nom": "viande, poisson et ingrédients achetés par Josiane à Cusset",
      "quantite": 1,
@@ -6539,18 +8223,18 @@
     "energie": 61.1,
     "hygiene": 69.8,
     "toilettes": 89.0,
-    "social": 29.9,
+    "social": 99.1,
     "detente": 84.0,
     "energie_ressentie": 61.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.456,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.691,
+    "solitude": 0.231,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.57
    }
   },
@@ -6571,18 +8255,18 @@
     "energie": 60.7,
     "hygiene": 69.7,
     "toilettes": 87.9,
-    "social": 29.9,
+    "social": 99.0,
     "detente": 84.0,
     "energie_ressentie": 60.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.455,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.691,
+    "solitude": 0.233,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.51
    }
   },
@@ -6603,18 +8287,18 @@
     "energie": 60.3,
     "hygiene": 69.6,
     "toilettes": 86.8,
-    "social": 29.8,
+    "social": 99.0,
     "detente": 83.9,
     "energie_ressentie": 60.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.455,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.692,
+    "solitude": 0.234,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.48
    }
   },
@@ -6635,18 +8319,18 @@
     "energie": 59.9,
     "hygiene": 69.4,
     "toilettes": 85.7,
-    "social": 29.7,
+    "social": 98.9,
     "detente": 83.9,
     "energie_ressentie": 59.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.454,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.693,
+    "solitude": 0.234,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.465
    }
   },
@@ -6667,18 +8351,18 @@
     "energie": 59.5,
     "hygiene": 69.3,
     "toilettes": 84.6,
-    "social": 29.7,
+    "social": 98.9,
     "detente": 83.8,
     "energie_ressentie": 59.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.454,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.693,
+    "solitude": 0.235,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.458
    }
   },
@@ -6699,18 +8383,18 @@
     "energie": 59.1,
     "hygiene": 69.2,
     "toilettes": 83.5,
-    "social": 29.6,
+    "social": 98.8,
     "detente": 83.8,
     "energie_ressentie": 59.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.453,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.694,
+    "solitude": 0.236,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.454
    }
   },
@@ -6746,18 +8430,18 @@
     "energie": 58.7,
     "hygiene": 69.1,
     "toilettes": 82.4,
-    "social": 29.6,
+    "social": 98.7,
     "detente": 83.7,
     "energie_ressentie": 58.7
    },
    "emotions": {
-    "joie": 0.49,
+    "joie": 0.493,
     "tristesse": 0.198,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.738,
+    "solitude": 0.281,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.352
    }
   },
@@ -6778,18 +8462,18 @@
     "energie": 58.3,
     "hygiene": 69.0,
     "toilettes": 81.3,
-    "social": 29.5,
+    "social": 98.7,
     "detente": 83.7,
     "energie_ressentie": 58.3
    },
    "emotions": {
-    "joie": 0.486,
+    "joie": 0.488,
     "tristesse": 0.197,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.736,
+    "solitude": 0.279,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.301
    }
   },
@@ -6810,18 +8494,18 @@
     "energie": 57.9,
     "hygiene": 68.8,
     "toilettes": 80.2,
-    "social": 29.4,
+    "social": 98.6,
     "detente": 83.6,
     "energie_ressentie": 57.9
    },
    "emotions": {
-    "joie": 0.482,
+    "joie": 0.484,
     "tristesse": 0.196,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.735,
+    "solitude": 0.278,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.275
    }
   },
@@ -6842,18 +8526,18 @@
     "energie": 57.5,
     "hygiene": 68.7,
     "toilettes": 79.1,
-    "social": 29.4,
+    "social": 98.6,
     "detente": 83.6,
     "energie_ressentie": 57.5
    },
    "emotions": {
-    "joie": 0.478,
+    "joie": 0.48,
     "tristesse": 0.195,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.733,
+    "solitude": 0.276,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.263
    }
   },
@@ -6874,18 +8558,18 @@
     "energie": 57.1,
     "hygiene": 68.6,
     "toilettes": 78.0,
-    "social": 29.3,
+    "social": 98.5,
     "detente": 83.5,
     "energie_ressentie": 57.1
    },
    "emotions": {
-    "joie": 0.475,
+    "joie": 0.477,
     "tristesse": 0.194,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.732,
+    "solitude": 0.275,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.256
    }
   },
@@ -6906,18 +8590,18 @@
     "energie": 56.7,
     "hygiene": 68.5,
     "toilettes": 76.9,
-    "social": 29.3,
+    "social": 98.4,
     "detente": 83.5,
     "energie_ressentie": 56.7
    },
    "emotions": {
-    "joie": 0.472,
+    "joie": 0.474,
     "tristesse": 0.193,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.73,
+    "solitude": 0.273,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.253
    }
   },
@@ -6938,18 +8622,18 @@
     "energie": 56.3,
     "hygiene": 68.4,
     "toilettes": 75.8,
-    "social": 29.2,
+    "social": 98.4,
     "detente": 83.4,
     "energie_ressentie": 56.3
    },
    "emotions": {
-    "joie": 0.47,
+    "joie": 0.471,
     "tristesse": 0.192,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.729,
+    "solitude": 0.272,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.252
    }
   },
@@ -6970,18 +8654,18 @@
     "energie": 55.9,
     "hygiene": 68.2,
     "toilettes": 74.7,
-    "social": 29.1,
+    "social": 98.3,
     "detente": 83.4,
     "energie_ressentie": 55.9
    },
    "emotions": {
-    "joie": 0.468,
+    "joie": 0.469,
     "tristesse": 0.192,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.728,
+    "solitude": 0.271,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.251
    }
   },
@@ -7002,18 +8686,18 @@
     "energie": 56.7,
     "hygiene": 68.1,
     "toilettes": 73.6,
-    "social": 29.1,
+    "social": 98.3,
     "detente": 83.4,
     "energie_ressentie": 56.7
    },
    "emotions": {
-    "joie": 0.466,
+    "joie": 0.467,
     "tristesse": 0.191,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.727,
+    "solitude": 0.269,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.25
    }
   },
@@ -7034,18 +8718,18 @@
     "energie": 57.5,
     "hygiene": 68.0,
     "toilettes": 72.5,
-    "social": 29.1,
+    "social": 98.3,
     "detente": 83.4,
     "energie_ressentie": 57.5
    },
    "emotions": {
-    "joie": 0.464,
+    "joie": 0.465,
     "tristesse": 0.19,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.726,
+    "solitude": 0.268,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.25
    }
   },
@@ -7066,18 +8750,18 @@
     "energie": 58.3,
     "hygiene": 67.9,
     "toilettes": 71.4,
-    "social": 29.1,
+    "social": 98.3,
     "detente": 83.4,
     "energie_ressentie": 58.3
    },
    "emotions": {
-    "joie": 0.463,
+    "joie": 0.464,
     "tristesse": 0.19,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.725,
+    "solitude": 0.267,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.25
    }
   },
@@ -7112,16 +8796,16 @@
     "energie": 57.9,
     "hygiene": 67.8,
     "toilettes": 70.3,
-    "social": 29.1,
+    "social": 98.3,
     "detente": 83.3,
     "energie_ressentie": 57.9
    },
    "emotions": {
-    "joie": 0.461,
+    "joie": 0.462,
     "tristesse": 0.189,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.724,
+    "solitude": 0.266,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.4
@@ -7144,16 +8828,16 @@
     "energie": 57.5,
     "hygiene": 67.6,
     "toilettes": 69.2,
-    "social": 29.0,
+    "social": 98.2,
     "detente": 83.3,
     "energie_ressentie": 57.5
    },
    "emotions": {
-    "joie": 0.46,
+    "joie": 0.461,
     "tristesse": 0.189,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.723,
+    "solitude": 0.265,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.475
@@ -7176,16 +8860,16 @@
     "energie": 57.1,
     "hygiene": 67.5,
     "toilettes": 68.1,
-    "social": 29.0,
+    "social": 98.1,
     "detente": 83.2,
     "energie_ressentie": 57.1
    },
    "emotions": {
-    "joie": 0.459,
+    "joie": 0.46,
     "tristesse": 0.188,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.722,
+    "solitude": 0.265,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.513
@@ -7208,16 +8892,16 @@
     "energie": 56.7,
     "hygiene": 67.4,
     "toilettes": 67.0,
-    "social": 28.9,
+    "social": 98.1,
     "detente": 83.2,
     "energie_ressentie": 56.7
    },
    "emotions": {
-    "joie": 0.458,
+    "joie": 0.459,
     "tristesse": 0.188,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.722,
+    "solitude": 0.264,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.531
@@ -7254,16 +8938,16 @@
     "energie": 56.3,
     "hygiene": 67.3,
     "toilettes": 65.9,
-    "social": 28.8,
+    "social": 98.0,
     "detente": 83.1,
     "energie_ressentie": 56.3
    },
    "emotions": {
-    "joie": 0.457,
+    "joie": 0.458,
     "tristesse": 0.187,
-    "anxiete": 0.25,
+    "anxiete": 0.251,
     "colere": 0.05,
-    "solitude": 0.721,
+    "solitude": 0.263,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.541
@@ -7288,16 +8972,16 @@
     "energie": 55.9,
     "hygiene": 67.2,
     "toilettes": 64.8,
-    "social": 28.8,
+    "social": 98.0,
     "detente": 83.1,
     "energie_ressentie": 55.9
    },
    "emotions": {
-    "joie": 0.456,
+    "joie": 0.457,
     "tristesse": 0.187,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.721,
+    "solitude": 0.262,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.545
@@ -7323,7 +9007,7 @@
     "energie": 55.5,
     "hygiene": 67.0,
     "toilettes": 63.7,
-    "social": 28.7,
+    "social": 97.9,
     "detente": 83.0,
     "energie_ressentie": 55.5
    },
@@ -7332,7 +9016,7 @@
     "tristesse": 0.187,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.72,
+    "solitude": 0.262,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.623
@@ -7355,7 +9039,7 @@
     "energie": 55.1,
     "hygiene": 66.9,
     "toilettes": 62.6,
-    "social": 28.7,
+    "social": 97.8,
     "detente": 83.0,
     "energie_ressentie": 55.1
    },
@@ -7364,7 +9048,7 @@
     "tristesse": 0.186,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.72,
+    "solitude": 0.261,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.661
@@ -7387,16 +9071,16 @@
     "energie": 54.7,
     "hygiene": 66.8,
     "toilettes": 61.5,
-    "social": 28.6,
+    "social": 97.8,
     "detente": 82.9,
     "energie_ressentie": 54.7
    },
    "emotions": {
-    "joie": 0.454,
+    "joie": 0.455,
     "tristesse": 0.186,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.72,
+    "solitude": 0.26,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.681
@@ -7419,7 +9103,7 @@
     "energie": 54.3,
     "hygiene": 66.7,
     "toilettes": 60.4,
-    "social": 28.5,
+    "social": 97.7,
     "detente": 82.9,
     "energie_ressentie": 54.3
    },
@@ -7428,7 +9112,7 @@
     "tristesse": 0.186,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.26,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.69
@@ -7451,7 +9135,7 @@
     "energie": 53.9,
     "hygiene": 66.6,
     "toilettes": 59.3,
-    "social": 28.5,
+    "social": 97.7,
     "detente": 82.8,
     "energie_ressentie": 53.9
    },
@@ -7460,7 +9144,7 @@
     "tristesse": 0.185,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.259,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.695
@@ -7483,7 +9167,7 @@
     "energie": 53.5,
     "hygiene": 66.4,
     "toilettes": 58.2,
-    "social": 28.4,
+    "social": 97.6,
     "detente": 82.8,
     "energie_ressentie": 53.5
    },
@@ -7492,7 +9176,7 @@
     "tristesse": 0.185,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.259,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.698
@@ -7515,7 +9199,7 @@
     "energie": 52.6,
     "hygiene": 65.9,
     "toilettes": 57.1,
-    "social": 28.4,
+    "social": 97.5,
     "detente": 83.4,
     "energie_ressentie": 52.6
    },
@@ -7524,7 +9208,7 @@
     "tristesse": 0.185,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.258,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.624
@@ -7547,7 +9231,7 @@
     "energie": 51.7,
     "hygiene": 65.4,
     "toilettes": 56.0,
-    "social": 28.3,
+    "social": 97.5,
     "detente": 84.0,
     "energie_ressentie": 51.7
    },
@@ -7556,7 +9240,7 @@
     "tristesse": 0.184,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.258,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.587
@@ -7579,7 +9263,7 @@
     "energie": 50.8,
     "hygiene": 64.9,
     "toilettes": 54.9,
-    "social": 28.2,
+    "social": 97.4,
     "detente": 84.6,
     "energie_ressentie": 50.8
    },
@@ -7588,7 +9272,7 @@
     "tristesse": 0.184,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.257,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.568
@@ -7611,7 +9295,7 @@
     "energie": 49.9,
     "hygiene": 64.4,
     "toilettes": 53.8,
-    "social": 28.2,
+    "social": 97.4,
     "detente": 85.2,
     "energie_ressentie": 49.9
    },
@@ -7620,7 +9304,7 @@
     "tristesse": 0.184,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.257,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.559
@@ -7643,7 +9327,7 @@
     "energie": 49.0,
     "hygiene": 63.9,
     "toilettes": 52.7,
-    "social": 28.1,
+    "social": 97.3,
     "detente": 85.8,
     "energie_ressentie": 49.0
    },
@@ -7652,7 +9336,7 @@
     "tristesse": 0.184,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.256,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.555
@@ -7675,7 +9359,7 @@
     "energie": 48.1,
     "hygiene": 63.4,
     "toilettes": 51.6,
-    "social": 28.1,
+    "social": 97.2,
     "detente": 86.4,
     "energie_ressentie": 48.1
    },
@@ -7684,7 +9368,7 @@
     "tristesse": 0.183,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.256,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.552
@@ -7707,16 +9391,16 @@
     "energie": 47.2,
     "hygiene": 62.9,
     "toilettes": 50.5,
-    "social": 28.0,
+    "social": 97.2,
     "detente": 87.0,
     "energie_ressentie": 47.2
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.452,
     "tristesse": 0.183,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.256,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.551
@@ -7739,7 +9423,7 @@
     "energie": 46.3,
     "hygiene": 62.4,
     "toilettes": 49.4,
-    "social": 27.9,
+    "social": 97.1,
     "detente": 87.6,
     "energie_ressentie": 46.3
    },
@@ -7748,7 +9432,7 @@
     "tristesse": 0.183,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.255,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.551
@@ -7771,7 +9455,7 @@
     "energie": 45.4,
     "hygiene": 61.9,
     "toilettes": 48.3,
-    "social": 27.9,
+    "social": 97.1,
     "detente": 88.2,
     "energie_ressentie": 45.4
    },
@@ -7780,7 +9464,7 @@
     "tristesse": 0.183,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.255,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -7803,7 +9487,7 @@
     "energie": 44.5,
     "hygiene": 61.4,
     "toilettes": 47.2,
-    "social": 27.8,
+    "social": 97.0,
     "detente": 88.8,
     "energie_ressentie": 44.5
    },
@@ -7812,7 +9496,7 @@
     "tristesse": 0.183,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.255,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -7835,7 +9519,7 @@
     "energie": 43.6,
     "hygiene": 60.9,
     "toilettes": 46.1,
-    "social": 27.8,
+    "social": 96.9,
     "detente": 89.4,
     "energie_ressentie": 43.6
    },
@@ -7844,7 +9528,7 @@
     "tristesse": 0.183,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.255,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -7867,7 +9551,7 @@
     "energie": 42.7,
     "hygiene": 60.4,
     "toilettes": 45.0,
-    "social": 27.7,
+    "social": 96.9,
     "detente": 90.0,
     "energie_ressentie": 42.7
    },
@@ -7876,7 +9560,7 @@
     "tristesse": 0.182,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.719,
+    "solitude": 0.254,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -7899,7 +9583,7 @@
     "energie": 41.8,
     "hygiene": 59.9,
     "toilettes": 43.9,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 90.6,
     "energie_ressentie": 41.8
    },
@@ -7908,7 +9592,7 @@
     "tristesse": 0.182,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.72,
+    "solitude": 0.254,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -7931,7 +9615,7 @@
     "energie": 40.9,
     "hygiene": 59.4,
     "toilettes": 42.8,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 91.2,
     "energie_ressentie": 40.9
    },
@@ -7940,7 +9624,7 @@
     "tristesse": 0.182,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.72,
+    "solitude": 0.254,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -7963,7 +9647,7 @@
     "energie": 40.0,
     "hygiene": 58.9,
     "toilettes": 41.7,
-    "social": 27.5,
+    "social": 96.7,
     "detente": 91.8,
     "energie_ressentie": 40.0
    },
@@ -7972,7 +9656,7 @@
     "tristesse": 0.182,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.72,
+    "solitude": 0.254,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -7995,16 +9679,16 @@
     "energie": 39.1,
     "hygiene": 58.4,
     "toilettes": 40.6,
-    "social": 27.5,
+    "social": 96.6,
     "detente": 92.4,
     "energie_ressentie": 39.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.451,
     "tristesse": 0.182,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.721,
+    "solitude": 0.253,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8027,7 +9711,7 @@
     "energie": 38.2,
     "hygiene": 57.9,
     "toilettes": 39.5,
-    "social": 27.4,
+    "social": 96.6,
     "detente": 93.0,
     "energie_ressentie": 38.2
    },
@@ -8036,7 +9720,7 @@
     "tristesse": 0.182,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.721,
+    "solitude": 0.253,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8059,7 +9743,7 @@
     "energie": 37.3,
     "hygiene": 57.4,
     "toilettes": 38.4,
-    "social": 27.3,
+    "social": 96.5,
     "detente": 93.6,
     "energie_ressentie": 37.3
    },
@@ -8068,7 +9752,7 @@
     "tristesse": 0.182,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.721,
+    "solitude": 0.253,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8091,7 +9775,7 @@
     "energie": 36.4,
     "hygiene": 56.9,
     "toilettes": 37.3,
-    "social": 27.3,
+    "social": 96.5,
     "detente": 94.2,
     "energie_ressentie": 36.4
    },
@@ -8100,7 +9784,7 @@
     "tristesse": 0.182,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.722,
+    "solitude": 0.253,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8123,7 +9807,7 @@
     "energie": 35.5,
     "hygiene": 56.4,
     "toilettes": 36.2,
-    "social": 27.2,
+    "social": 96.4,
     "detente": 94.8,
     "energie_ressentie": 35.5
    },
@@ -8132,7 +9816,7 @@
     "tristesse": 0.182,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.722,
+    "solitude": 0.253,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8155,7 +9839,7 @@
     "energie": 34.6,
     "hygiene": 55.9,
     "toilettes": 35.1,
-    "social": 27.2,
+    "social": 96.3,
     "detente": 95.4,
     "energie_ressentie": 34.6
    },
@@ -8164,7 +9848,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.722,
+    "solitude": 0.253,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8187,7 +9871,7 @@
     "energie": 33.7,
     "hygiene": 55.4,
     "toilettes": 34.0,
-    "social": 27.1,
+    "social": 96.3,
     "detente": 96.0,
     "energie_ressentie": 33.7
    },
@@ -8196,7 +9880,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.723,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8219,7 +9903,7 @@
     "energie": 32.8,
     "hygiene": 54.9,
     "toilettes": 32.9,
-    "social": 27.0,
+    "social": 96.2,
     "detente": 96.6,
     "energie_ressentie": 32.8
    },
@@ -8228,7 +9912,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.723,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8251,7 +9935,7 @@
     "energie": 31.9,
     "hygiene": 54.4,
     "toilettes": 31.8,
-    "social": 27.0,
+    "social": 96.2,
     "detente": 97.2,
     "energie_ressentie": 31.9
    },
@@ -8260,7 +9944,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.723,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8283,7 +9967,7 @@
     "energie": 31.0,
     "hygiene": 53.9,
     "toilettes": 30.7,
-    "social": 26.9,
+    "social": 96.1,
     "detente": 97.8,
     "energie_ressentie": 31.0
    },
@@ -8292,7 +9976,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.724,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8315,7 +9999,7 @@
     "energie": 30.1,
     "hygiene": 53.4,
     "toilettes": 29.6,
-    "social": 26.9,
+    "social": 96.0,
     "detente": 98.4,
     "energie_ressentie": 30.1
    },
@@ -8324,7 +10008,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.724,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8347,7 +10031,7 @@
     "energie": 29.2,
     "hygiene": 52.9,
     "toilettes": 28.5,
-    "social": 26.8,
+    "social": 96.0,
     "detente": 99.0,
     "energie_ressentie": 29.2
    },
@@ -8356,7 +10040,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.055,
-    "solitude": 0.725,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.475
@@ -8379,7 +10063,7 @@
     "energie": 28.8,
     "hygiene": 52.8,
     "toilettes": 27.4,
-    "social": 26.7,
+    "social": 95.9,
     "detente": 98.9,
     "energie_ressentie": 28.8
    },
@@ -8388,7 +10072,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.059,
-    "solitude": 0.725,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.513
@@ -8411,7 +10095,7 @@
     "energie": 28.4,
     "hygiene": 52.7,
     "toilettes": 26.3,
-    "social": 26.7,
+    "social": 95.9,
     "detente": 98.9,
     "energie_ressentie": 28.4
    },
@@ -8420,7 +10104,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.063,
-    "solitude": 0.726,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.531
@@ -8443,7 +10127,7 @@
     "energie": 28.0,
     "hygiene": 52.6,
     "toilettes": 25.2,
-    "social": 26.6,
+    "social": 95.8,
     "detente": 98.8,
     "energie_ressentie": 28.0
    },
@@ -8452,7 +10136,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.066,
-    "solitude": 0.726,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.541
@@ -8475,7 +10159,7 @@
     "energie": 27.6,
     "hygiene": 52.5,
     "toilettes": 24.1,
-    "social": 26.6,
+    "social": 95.7,
     "detente": 98.8,
     "energie_ressentie": 27.6
    },
@@ -8484,7 +10168,7 @@
     "tristesse": 0.181,
     "anxiete": 0.26,
     "colere": 0.068,
-    "solitude": 0.727,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.495
@@ -8507,7 +10191,7 @@
     "energie": 27.2,
     "hygiene": 52.3,
     "toilettes": 23.0,
-    "social": 26.5,
+    "social": 95.7,
     "detente": 98.7,
     "energie_ressentie": 27.2
    },
@@ -8516,7 +10200,7 @@
     "tristesse": 0.181,
     "anxiete": 0.269,
     "colere": 0.07,
-    "solitude": 0.727,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.473
@@ -8539,7 +10223,7 @@
     "energie": 26.8,
     "hygiene": 52.2,
     "toilettes": 21.9,
-    "social": 26.4,
+    "social": 95.6,
     "detente": 98.7,
     "energie_ressentie": 26.8
    },
@@ -8548,7 +10232,7 @@
     "tristesse": 0.181,
     "anxiete": 0.278,
     "colere": 0.072,
-    "solitude": 0.727,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.461
@@ -8587,7 +10271,7 @@
     "energie": 26.4,
     "hygiene": 52.1,
     "toilettes": 20.8,
-    "social": 26.4,
+    "social": 95.6,
     "detente": 99.9,
     "energie_ressentie": 26.4
    },
@@ -8596,7 +10280,7 @@
     "tristesse": 0.181,
     "anxiete": 0.286,
     "colere": 0.074,
-    "solitude": 0.728,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.231
@@ -8637,7 +10321,7 @@
     "energie": 26.0,
     "hygiene": 52.0,
     "toilettes": 100.0,
-    "social": 26.3,
+    "social": 95.5,
     "detente": 99.8,
     "energie_ressentie": 26.0
    },
@@ -8646,7 +10330,7 @@
     "tristesse": 0.181,
     "anxiete": 0.284,
     "colere": 0.075,
-    "solitude": 0.728,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.315
@@ -8686,16 +10370,16 @@
     "energie": 25.6,
     "hygiene": 51.9,
     "toilettes": 98.9,
-    "social": 26.3,
+    "social": 95.4,
     "detente": 99.8,
     "energie_ressentie": 25.6
    },
    "emotions": {
     "joie": 0.419,
     "tristesse": 0.181,
-    "anxiete": 0.281,
+    "anxiete": 0.282,
     "colere": 0.076,
-    "solitude": 0.729,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.358
@@ -8734,7 +10418,7 @@
     "energie": 25.2,
     "hygiene": 51.7,
     "toilettes": 97.8,
-    "social": 26.2,
+    "social": 95.4,
     "detente": 100.0,
     "energie_ressentie": 25.2
    },
@@ -8743,7 +10427,7 @@
     "tristesse": 0.181,
     "anxiete": 0.279,
     "colere": 0.077,
-    "solitude": 0.729,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.229
@@ -8768,7 +10452,7 @@
     "energie": 24.8,
     "hygiene": 51.6,
     "toilettes": 96.7,
-    "social": 26.1,
+    "social": 95.3,
     "detente": 100.0,
     "energie_ressentie": 24.8
    },
@@ -8777,7 +10461,7 @@
     "tristesse": 0.181,
     "anxiete": 0.277,
     "colere": 0.077,
-    "solitude": 0.73,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.164
@@ -8802,7 +10486,7 @@
     "energie": 24.4,
     "hygiene": 51.5,
     "toilettes": 95.6,
-    "social": 26.1,
+    "social": 95.3,
     "detente": 100.0,
     "energie_ressentie": 24.4
    },
@@ -8811,7 +10495,7 @@
     "tristesse": 0.181,
     "anxiete": 0.276,
     "colere": 0.078,
-    "solitude": 0.73,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.132
@@ -8836,7 +10520,7 @@
     "energie": 24.0,
     "hygiene": 51.4,
     "toilettes": 94.5,
-    "social": 26.0,
+    "social": 95.2,
     "detente": 100.0,
     "energie_ressentie": 24.0
    },
@@ -8845,7 +10529,7 @@
     "tristesse": 0.18,
     "anxiete": 0.274,
     "colere": 0.079,
-    "solitude": 0.731,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.116
@@ -8874,7 +10558,7 @@
     "energie": 23.6,
     "hygiene": 51.3,
     "toilettes": 93.4,
-    "social": 26.0,
+    "social": 95.1,
     "detente": 100.0,
     "energie_ressentie": 23.6
    },
@@ -8883,7 +10567,7 @@
     "tristesse": 0.18,
     "anxiete": 0.272,
     "colere": 0.079,
-    "solitude": 0.732,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.108
@@ -8909,7 +10593,7 @@
     "energie": 23.2,
     "hygiene": 51.1,
     "toilettes": 92.3,
-    "social": 25.9,
+    "social": 95.1,
     "detente": 100.0,
     "energie_ressentie": 23.2
    },
@@ -8918,7 +10602,7 @@
     "tristesse": 0.18,
     "anxiete": 0.271,
     "colere": 0.079,
-    "solitude": 0.732,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.104
@@ -8944,7 +10628,7 @@
     "energie": 22.8,
     "hygiene": 51.0,
     "toilettes": 91.2,
-    "social": 25.8,
+    "social": 95.0,
     "detente": 100.0,
     "energie_ressentie": 22.8
    },
@@ -8953,7 +10637,7 @@
     "tristesse": 0.18,
     "anxiete": 0.269,
     "colere": 0.08,
-    "solitude": 0.733,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.102
@@ -8979,7 +10663,7 @@
     "energie": 22.4,
     "hygiene": 50.9,
     "toilettes": 90.1,
-    "social": 25.8,
+    "social": 95.0,
     "detente": 100.0,
     "energie_ressentie": 22.4
    },
@@ -8988,7 +10672,7 @@
     "tristesse": 0.18,
     "anxiete": 0.268,
     "colere": 0.08,
-    "solitude": 0.733,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.101
@@ -9014,7 +10698,7 @@
     "energie": 22.0,
     "hygiene": 50.8,
     "toilettes": 89.0,
-    "social": 25.7,
+    "social": 94.9,
     "detente": 100.0,
     "energie_ressentie": 22.0
    },
@@ -9023,7 +10707,7 @@
     "tristesse": 0.18,
     "anxiete": 0.267,
     "colere": 0.08,
-    "solitude": 0.734,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.101
@@ -9049,7 +10733,7 @@
     "energie": 21.6,
     "hygiene": 50.7,
     "toilettes": 87.9,
-    "social": 25.7,
+    "social": 94.8,
     "detente": 100.0,
     "energie_ressentie": 21.6
    },
@@ -9058,7 +10742,7 @@
     "tristesse": 0.18,
     "anxiete": 0.266,
     "colere": 0.08,
-    "solitude": 0.734,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -9084,7 +10768,7 @@
     "energie": 21.2,
     "hygiene": 50.5,
     "toilettes": 86.8,
-    "social": 25.6,
+    "social": 94.8,
     "detente": 100.0,
     "energie_ressentie": 21.2
    },
@@ -9093,7 +10777,7 @@
     "tristesse": 0.18,
     "anxiete": 0.265,
     "colere": 0.081,
-    "solitude": 0.735,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -9119,7 +10803,7 @@
     "energie": 20.8,
     "hygiene": 50.4,
     "toilettes": 85.7,
-    "social": 25.5,
+    "social": 94.7,
     "detente": 100.0,
     "energie_ressentie": 20.8
    },
@@ -9128,7 +10812,7 @@
     "tristesse": 0.18,
     "anxiete": 0.264,
     "colere": 0.081,
-    "solitude": 0.735,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -9163,6 +10847,13 @@
      "reste": 230
     },
     {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 1,
+     "unite": "quarts de baguette",
+     "reste": 6
+    },
+    {
      "produit": "vin_rouge",
      "nom": "vin rouge (côtes-du-rhône)",
      "quantite": 12,
@@ -9185,7 +10876,7 @@
     "energie": 20.4,
     "hygiene": 50.3,
     "toilettes": 84.6,
-    "social": 25.5,
+    "social": 94.7,
     "detente": 100.0,
     "energie_ressentie": 20.4
    },
@@ -9194,7 +10885,7 @@
     "tristesse": 0.18,
     "anxiete": 0.263,
     "colere": 0.081,
-    "solitude": 0.736,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.2
@@ -9219,7 +10910,7 @@
     "energie": 20.0,
     "hygiene": 50.2,
     "toilettes": 83.5,
-    "social": 25.4,
+    "social": 94.6,
     "detente": 99.9,
     "energie_ressentie": 20.0
    },
@@ -9228,7 +10919,7 @@
     "tristesse": 0.18,
     "anxiete": 0.262,
     "colere": 0.081,
-    "solitude": 0.736,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.25
@@ -9253,7 +10944,7 @@
     "energie": 19.6,
     "hygiene": 50.1,
     "toilettes": 82.4,
-    "social": 25.4,
+    "social": 94.5,
     "detente": 99.9,
     "energie_ressentie": 19.6
    },
@@ -9262,7 +10953,7 @@
     "tristesse": 0.18,
     "anxiete": 0.261,
     "colere": 0.081,
-    "solitude": 0.737,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.275
@@ -9287,7 +10978,7 @@
     "energie": 19.2,
     "hygiene": 49.9,
     "toilettes": 81.3,
-    "social": 25.3,
+    "social": 94.5,
     "detente": 99.8,
     "energie_ressentie": 19.2
    },
@@ -9296,7 +10987,7 @@
     "tristesse": 0.18,
     "anxiete": 0.26,
     "colere": 0.081,
-    "solitude": 0.738,
+    "solitude": 0.25,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.288
@@ -9336,7 +11027,7 @@
     "energie": 18.8,
     "hygiene": 49.8,
     "toilettes": 80.2,
-    "social": 25.2,
+    "social": 94.4,
     "detente": 99.8,
     "energie_ressentie": 18.8
    },
@@ -9345,7 +11036,7 @@
     "tristesse": 0.198,
     "anxiete": 0.26,
     "colere": 0.081,
-    "solitude": 0.782,
+    "solitude": 0.294,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.194
@@ -9370,7 +11061,7 @@
     "energie": 18.4,
     "hygiene": 49.7,
     "toilettes": 79.1,
-    "social": 25.2,
+    "social": 94.4,
     "detente": 99.7,
     "energie_ressentie": 18.4
    },
@@ -9379,7 +11070,7 @@
     "tristesse": 0.197,
     "anxiete": 0.259,
     "colere": 0.081,
-    "solitude": 0.78,
+    "solitude": 0.292,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.147
@@ -9404,7 +11095,7 @@
     "energie": 18.0,
     "hygiene": 49.6,
     "toilettes": 78.0,
-    "social": 25.1,
+    "social": 94.3,
     "detente": 99.7,
     "energie_ressentie": 18.0
    },
@@ -9413,7 +11104,7 @@
     "tristesse": 0.196,
     "anxiete": 0.258,
     "colere": 0.081,
-    "solitude": 0.778,
+    "solitude": 0.29,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.123
@@ -9438,7 +11129,7 @@
     "energie": 17.6,
     "hygiene": 49.5,
     "toilettes": 76.9,
-    "social": 25.1,
+    "social": 94.2,
     "detente": 99.6,
     "energie_ressentie": 17.6
    },
@@ -9447,7 +11138,7 @@
     "tristesse": 0.195,
     "anxiete": 0.258,
     "colere": 0.081,
-    "solitude": 0.777,
+    "solitude": 0.287,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.112
@@ -9472,7 +11163,7 @@
     "energie": 17.2,
     "hygiene": 49.3,
     "toilettes": 75.8,
-    "social": 25.0,
+    "social": 94.2,
     "detente": 99.6,
     "energie_ressentie": 17.2
    },
@@ -9481,7 +11172,7 @@
     "tristesse": 0.194,
     "anxiete": 0.257,
     "colere": 0.081,
-    "solitude": 0.775,
+    "solitude": 0.285,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.106
@@ -9506,7 +11197,7 @@
     "energie": 16.8,
     "hygiene": 49.2,
     "toilettes": 74.7,
-    "social": 24.9,
+    "social": 94.1,
     "detente": 99.5,
     "energie_ressentie": 16.8
    },
@@ -9515,7 +11206,7 @@
     "tristesse": 0.193,
     "anxiete": 0.257,
     "colere": 0.081,
-    "solitude": 0.774,
+    "solitude": 0.283,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.253
@@ -9557,7 +11248,7 @@
     "energie": 16.4,
     "hygiene": 49.1,
     "toilettes": 73.6,
-    "social": 25.1,
+    "social": 94.3,
     "detente": 100.0,
     "energie_ressentie": 16.4
    },
@@ -9566,7 +11257,7 @@
     "tristesse": 0.193,
     "anxiete": 0.256,
     "colere": 0.081,
-    "solitude": 0.773,
+    "solitude": 0.281,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.176
@@ -9592,7 +11283,7 @@
     "energie": 16.0,
     "hygiene": 49.0,
     "toilettes": 72.5,
-    "social": 25.2,
+    "social": 94.4,
     "detente": 100.0,
     "energie_ressentie": 16.0
    },
@@ -9601,7 +11292,7 @@
     "tristesse": 0.192,
     "anxiete": 0.256,
     "colere": 0.081,
-    "solitude": 0.771,
+    "solitude": 0.28,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.138
@@ -9627,7 +11318,7 @@
     "energie": 15.6,
     "hygiene": 48.9,
     "toilettes": 71.4,
-    "social": 25.4,
+    "social": 94.5,
     "detente": 100.0,
     "energie_ressentie": 15.6
    },
@@ -9636,7 +11327,7 @@
     "tristesse": 0.191,
     "anxiete": 0.256,
     "colere": 0.081,
-    "solitude": 0.77,
+    "solitude": 0.278,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.119
@@ -9662,7 +11353,7 @@
     "energie": 15.2,
     "hygiene": 48.7,
     "toilettes": 70.3,
-    "social": 25.5,
+    "social": 94.7,
     "detente": 100.0,
     "energie_ressentie": 15.2
    },
@@ -9671,7 +11362,7 @@
     "tristesse": 0.191,
     "anxiete": 0.255,
     "colere": 0.081,
-    "solitude": 0.768,
+    "solitude": 0.276,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.11
@@ -9697,7 +11388,7 @@
     "energie": 14.8,
     "hygiene": 48.6,
     "toilettes": 69.2,
-    "social": 25.6,
+    "social": 94.8,
     "detente": 100.0,
     "energie_ressentie": 14.8
    },
@@ -9706,7 +11397,7 @@
     "tristesse": 0.19,
     "anxiete": 0.255,
     "colere": 0.081,
-    "solitude": 0.767,
+    "solitude": 0.275,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.105
@@ -9732,7 +11423,7 @@
     "energie": 14.4,
     "hygiene": 48.5,
     "toilettes": 68.1,
-    "social": 25.8,
+    "social": 95.0,
     "detente": 100.0,
     "energie_ressentie": 14.4
    },
@@ -9741,7 +11432,7 @@
     "tristesse": 0.189,
     "anxiete": 0.255,
     "colere": 0.081,
-    "solitude": 0.766,
+    "solitude": 0.274,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.102
@@ -9767,7 +11458,7 @@
     "energie": 14.0,
     "hygiene": 48.4,
     "toilettes": 67.0,
-    "social": 25.9,
+    "social": 95.1,
     "detente": 100.0,
     "energie_ressentie": 14.0
    },
@@ -9776,7 +11467,7 @@
     "tristesse": 0.189,
     "anxiete": 0.254,
     "colere": 0.081,
-    "solitude": 0.764,
+    "solitude": 0.272,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.101
@@ -9802,7 +11493,7 @@
     "energie": 13.6,
     "hygiene": 48.3,
     "toilettes": 65.9,
-    "social": 26.1,
+    "social": 95.2,
     "detente": 100.0,
     "energie_ressentie": 13.6
    },
@@ -9811,7 +11502,7 @@
     "tristesse": 0.188,
     "anxiete": 0.254,
     "colere": 0.081,
-    "solitude": 0.763,
+    "solitude": 0.271,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.101
@@ -9837,7 +11528,7 @@
     "energie": 13.2,
     "hygiene": 48.1,
     "toilettes": 64.8,
-    "social": 26.2,
+    "social": 95.4,
     "detente": 100.0,
     "energie_ressentie": 13.2
    },
@@ -9846,7 +11537,7 @@
     "tristesse": 0.188,
     "anxiete": 0.254,
     "colere": 0.081,
-    "solitude": 0.761,
+    "solitude": 0.27,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -9872,7 +11563,7 @@
     "energie": 12.8,
     "hygiene": 48.0,
     "toilettes": 63.7,
-    "social": 26.3,
+    "social": 95.5,
     "detente": 100.0,
     "energie_ressentie": 12.8
    },
@@ -9881,7 +11572,7 @@
     "tristesse": 0.187,
     "anxiete": 0.253,
     "colere": 0.081,
-    "solitude": 0.76,
+    "solitude": 0.269,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -9907,7 +11598,7 @@
     "energie": 12.4,
     "hygiene": 47.9,
     "toilettes": 62.6,
-    "social": 26.5,
+    "social": 95.7,
     "detente": 100.0,
     "energie_ressentie": 12.4
    },
@@ -9916,7 +11607,7 @@
     "tristesse": 0.187,
     "anxiete": 0.253,
     "colere": 0.081,
-    "solitude": 0.759,
+    "solitude": 0.268,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -9942,7 +11633,7 @@
     "energie": 12.0,
     "hygiene": 47.8,
     "toilettes": 61.5,
-    "social": 26.6,
+    "social": 95.8,
     "detente": 100.0,
     "energie_ressentie": 12.0
    },
@@ -9951,7 +11642,7 @@
     "tristesse": 0.187,
     "anxiete": 0.253,
     "colere": 0.081,
-    "solitude": 0.757,
+    "solitude": 0.267,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -9977,7 +11668,7 @@
     "energie": 11.6,
     "hygiene": 47.7,
     "toilettes": 60.4,
-    "social": 26.8,
+    "social": 95.9,
     "detente": 100.0,
     "energie_ressentie": 11.6
    },
@@ -9986,7 +11677,7 @@
     "tristesse": 0.186,
     "anxiete": 0.253,
     "colere": 0.081,
-    "solitude": 0.756,
+    "solitude": 0.266,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -10012,7 +11703,7 @@
     "energie": 11.2,
     "hygiene": 47.5,
     "toilettes": 59.3,
-    "social": 26.9,
+    "social": 96.1,
     "detente": 100.0,
     "energie_ressentie": 11.2
    },
@@ -10021,7 +11712,7 @@
     "tristesse": 0.186,
     "anxiete": 0.253,
     "colere": 0.081,
-    "solitude": 0.754,
+    "solitude": 0.265,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -10047,7 +11738,7 @@
     "energie": 10.8,
     "hygiene": 47.4,
     "toilettes": 58.2,
-    "social": 27.0,
+    "social": 96.2,
     "detente": 100.0,
     "energie_ressentie": 10.8
    },
@@ -10056,7 +11747,7 @@
     "tristesse": 0.186,
     "anxiete": 0.252,
     "colere": 0.081,
-    "solitude": 0.753,
+    "solitude": 0.264,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -10082,7 +11773,7 @@
     "energie": 10.4,
     "hygiene": 47.3,
     "toilettes": 57.1,
-    "social": 27.2,
+    "social": 96.4,
     "detente": 100.0,
     "energie_ressentie": 10.4
    },
@@ -10091,7 +11782,7 @@
     "tristesse": 0.185,
     "anxiete": 0.252,
     "colere": 0.081,
-    "solitude": 0.752,
+    "solitude": 0.263,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -10117,7 +11808,7 @@
     "energie": 10.0,
     "hygiene": 47.2,
     "toilettes": 56.0,
-    "social": 27.3,
+    "social": 96.5,
     "detente": 100.0,
     "energie_ressentie": 10.0
    },
@@ -10126,7 +11817,7 @@
     "tristesse": 0.185,
     "anxiete": 0.252,
     "colere": 0.081,
-    "solitude": 0.75,
+    "solitude": 0.262,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -10152,7 +11843,7 @@
     "energie": 9.6,
     "hygiene": 47.1,
     "toilettes": 54.9,
-    "social": 27.5,
+    "social": 96.6,
     "detente": 100.0,
     "energie_ressentie": 9.6
    },
@@ -10161,7 +11852,7 @@
     "tristesse": 0.185,
     "anxiete": 0.252,
     "colere": 0.081,
-    "solitude": 0.749,
+    "solitude": 0.262,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -10187,7 +11878,7 @@
     "energie": 9.2,
     "hygiene": 46.9,
     "toilettes": 53.8,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 100.0,
     "energie_ressentie": 9.2
    },
@@ -10196,7 +11887,7 @@
     "tristesse": 0.184,
     "anxiete": 0.252,
     "colere": 0.081,
-    "solitude": 0.747,
+    "solitude": 0.261,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -10222,7 +11913,7 @@
     "energie": 8.8,
     "hygiene": 46.8,
     "toilettes": 52.7,
-    "social": 27.7,
+    "social": 96.9,
     "detente": 100.0,
     "energie_ressentie": 8.8
    },
@@ -10231,7 +11922,7 @@
     "tristesse": 0.184,
     "anxiete": 0.252,
     "colere": 0.081,
-    "solitude": 0.746,
+    "solitude": 0.26,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.1
@@ -10273,7 +11964,7 @@
     "energie": 8.4,
     "hygiene": 46.7,
     "toilettes": 51.6,
-    "social": 27.9,
+    "social": 97.1,
     "detente": 100.0,
     "energie_ressentie": 8.4
    },
@@ -10282,7 +11973,7 @@
     "tristesse": 0.184,
     "anxiete": 0.252,
     "colere": 0.081,
-    "solitude": 0.745,
+    "solitude": 0.26,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.25
@@ -10336,7 +12027,7 @@
     "energie": 7.7,
     "hygiene": 56.6,
     "toilettes": 50.5,
-    "social": 27.8,
+    "social": 97.0,
     "detente": 99.9,
     "energie_ressentie": 7.7
    },
@@ -10345,7 +12036,7 @@
     "tristesse": 0.184,
     "anxiete": 0.251,
     "colere": 0.081,
-    "solitude": 0.743,
+    "solitude": 0.259,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.325
@@ -10370,7 +12061,7 @@
     "energie": 7.3,
     "hygiene": 56.5,
     "toilettes": 49.4,
-    "social": 27.8,
+    "social": 96.9,
     "detente": 99.9,
     "energie_ressentie": 7.3
    },
@@ -10379,7 +12070,7 @@
     "tristesse": 0.184,
     "anxiete": 0.251,
     "colere": 0.081,
-    "solitude": 0.742,
+    "solitude": 0.259,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.363
@@ -10419,7 +12110,7 @@
     "energie": 6.9,
     "hygiene": 56.3,
     "toilettes": 48.3,
-    "social": 27.7,
+    "social": 96.9,
     "detente": 99.8,
     "energie_ressentie": 6.9
    },
@@ -10428,7 +12119,7 @@
     "tristesse": 0.183,
     "anxiete": 0.251,
     "colere": 0.081,
-    "solitude": 0.741,
+    "solitude": 0.258,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.231
@@ -10451,7 +12142,7 @@
     "energie": 6.5,
     "hygiene": 56.2,
     "toilettes": 47.2,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.8,
     "energie_ressentie": 6.5
    },
@@ -10460,7 +12151,7 @@
     "tristesse": 0.183,
     "anxiete": 0.251,
     "colere": 0.081,
-    "solitude": 0.74,
+    "solitude": 0.258,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.166
@@ -10483,7 +12174,7 @@
     "energie": 6.1,
     "hygiene": 56.1,
     "toilettes": 46.1,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 6.1
    },
@@ -10492,7 +12183,7 @@
     "tristesse": 0.183,
     "anxiete": 0.251,
     "colere": 0.081,
-    "solitude": 0.739,
+    "solitude": 0.257,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.133
@@ -10516,7 +12207,7 @@
     "energie": 7.2,
     "hygiene": 56.0,
     "toilettes": 45.8,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 7.2
    },
@@ -10525,7 +12216,7 @@
     "tristesse": 0.183,
     "anxiete": 0.251,
     "colere": 0.072,
-    "solitude": 0.738,
+    "solitude": 0.257,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.066
@@ -10549,7 +12240,7 @@
     "energie": 8.4,
     "hygiene": 56.0,
     "toilettes": 45.4,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 8.4
    },
@@ -10558,7 +12249,7 @@
     "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.066,
-    "solitude": 0.736,
+    "solitude": 0.256,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.033
@@ -10582,7 +12273,7 @@
     "energie": 9.5,
     "hygiene": 55.9,
     "toilettes": 45.1,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 9.5
    },
@@ -10591,7 +12282,7 @@
     "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.061,
-    "solitude": 0.735,
+    "solitude": 0.255,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.017
@@ -10615,7 +12306,7 @@
     "energie": 10.7,
     "hygiene": 55.9,
     "toilettes": 44.7,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 10.7
    },
@@ -10624,7 +12315,7 @@
     "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.058,
-    "solitude": 0.734,
+    "solitude": 0.255,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.008
@@ -10648,7 +12339,7 @@
     "energie": 11.8,
     "hygiene": 55.8,
     "toilettes": 44.4,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 11.8
    },
@@ -10657,7 +12348,7 @@
     "tristesse": 0.182,
     "anxiete": 0.251,
     "colere": 0.056,
-    "solitude": 0.733,
+    "solitude": 0.254,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.004
@@ -10681,7 +12372,7 @@
     "energie": 13.0,
     "hygiene": 55.8,
     "toilettes": 44.0,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 13.0
    },
@@ -10690,7 +12381,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.054,
-    "solitude": 0.732,
+    "solitude": 0.254,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.002
@@ -10714,7 +12405,7 @@
     "energie": 14.1,
     "hygiene": 55.7,
     "toilettes": 43.7,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 14.1
    },
@@ -10723,7 +12414,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.053,
-    "solitude": 0.731,
+    "solitude": 0.253,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.001
@@ -10747,7 +12438,7 @@
     "energie": 15.3,
     "hygiene": 55.7,
     "toilettes": 43.3,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 15.3
    },
@@ -10756,7 +12447,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.052,
-    "solitude": 0.73,
+    "solitude": 0.253,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.001
@@ -10780,7 +12471,7 @@
     "energie": 16.4,
     "hygiene": 55.6,
     "toilettes": 43.0,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 16.4
    },
@@ -10789,7 +12480,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.73,
+    "solitude": 0.253,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -10813,7 +12504,7 @@
     "energie": 17.6,
     "hygiene": 55.6,
     "toilettes": 42.6,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 17.6
    },
@@ -10822,7 +12513,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.729,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -10846,7 +12537,7 @@
     "energie": 18.7,
     "hygiene": 55.5,
     "toilettes": 42.3,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 18.7
    },
@@ -10855,7 +12546,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.051,
-    "solitude": 0.728,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -10879,7 +12570,7 @@
     "energie": 19.9,
     "hygiene": 55.5,
     "toilettes": 41.9,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 19.9
    },
@@ -10888,7 +12579,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.728,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -10912,7 +12603,7 @@
     "energie": 21.0,
     "hygiene": 55.4,
     "toilettes": 41.6,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 21.0
    },
@@ -10921,7 +12612,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.728,
+    "solitude": 0.252,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -10945,7 +12636,7 @@
     "energie": 22.2,
     "hygiene": 55.4,
     "toilettes": 41.2,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 22.2
    },
@@ -10954,7 +12645,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.727,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -10978,7 +12669,7 @@
     "energie": 23.3,
     "hygiene": 55.3,
     "toilettes": 40.9,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 23.3
    },
@@ -10987,7 +12678,7 @@
     "tristesse": 0.181,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.727,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -11011,7 +12702,7 @@
     "energie": 24.5,
     "hygiene": 55.3,
     "toilettes": 40.5,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 24.5
    },
@@ -11020,7 +12711,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.727,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -11044,7 +12735,7 @@
     "energie": 25.6,
     "hygiene": 55.2,
     "toilettes": 40.2,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 25.6
    },
@@ -11053,7 +12744,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.726,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -11077,7 +12768,7 @@
     "energie": 26.8,
     "hygiene": 55.2,
     "toilettes": 39.8,
-    "social": 27.6,
+    "social": 96.8,
     "detente": 99.7,
     "energie_ressentie": 26.8
    },
@@ -11086,7 +12777,7 @@
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.726,
+    "solitude": 0.251,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0

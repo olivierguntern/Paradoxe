@@ -38,6 +38,10 @@
   },
   "evenements_vecus": {
    "plaisir_simple": 3,
+   "client_habitue": 8,
+   "affluence": 5,
+   "client_presse": 3,
+   "boutique_vide": 1,
    "moment_josiane": 5,
    "conversation_agreable": 10,
    "rencontre_ami": 1
@@ -45,6 +49,7 @@
   "objets_deplaces_position_finale": {},
   "provisions_consommees": {
    "café moulu": "14 g",
+   "pain (baguettes mises de côté à la boutique)": "4 quarts de baguette",
    "beurre": "90 g",
    "confiture d'abricots de Josiane": "2 cuillères",
    "comprimés pour la tension": "1 comprimé",
@@ -59,76 +64,80 @@
   "plats_prepares": {},
   "achats": {},
   "argent": {
-   "mouvements_du_jour": {},
+   "mouvements_du_jour": {
+    "caisse": 0.0,
+    "compte": 21.1,
+    "coffre": 151.0
+   },
    "soldes_en_fin_de_journee": {
     "especes": 60,
-    "compte": 2300,
-    "caisse": 150,
-    "coffre": 1184.6,
+    "compte": 3688.65,
+    "caisse": 150.0,
+    "coffre": 1561.8,
     "ardoises": 46.3
    }
   },
   "magasin": {
-   "clients": 0,
-   "recette": 0.0,
-   "recette_especes": 0.0,
-   "recette_carte": 0.0,
+   "clients": 63,
+   "recette": 172.1,
+   "recette_especes": 151.0,
+   "recette_carte": 21.1,
    "a_credit": 0.0,
    "ruptures": [],
    "produits": {
     "baguette": {
      "nom": "baguette",
-     "vendu": 0,
-     "livre": 0,
-     "repris": 0,
-     "preleve": 0,
-     "recette": 0.0,
-     "stock": 0
+     "vendu": 45,
+     "livre": 50,
+     "repris": 7,
+     "preleve": 2,
+     "recette": 40.5,
+     "stock": 3
     },
     "pain_campagne": {
      "nom": "pain de campagne (500 g)",
-     "vendu": 0,
-     "livre": 0,
-     "repris": 0,
+     "vendu": 8,
+     "livre": 8,
+     "repris": 4,
      "preleve": 0,
-     "recette": 0.0,
+     "recette": 16.8,
      "stock": 0
     },
     "lait_uht": {
      "nom": "lait UHT (brique d'un litre)",
-     "vendu": 0,
+     "vendu": 15,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 30
+     "recette": 14.25,
+     "stock": 10
     },
     "yaourts": {
      "nom": "yaourts nature (pack de 4)",
-     "vendu": 0,
+     "vendu": 4,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 14
+     "recette": 6.4,
+     "stock": 20
     },
     "oeufs": {
      "nom": "œufs (boîte de 6)",
-     "vendu": 0,
+     "vendu": 4,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 13
+     "recette": 7.6,
+     "stock": 17
     },
     "beurre": {
      "nom": "beurre (plaquette de 250 g)",
-     "vendu": 0,
+     "vendu": 7,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 9
+     "recette": 13.65,
+     "stock": 4
     },
     "comte": {
      "nom": "comté (morceau de 250 g)",
@@ -137,34 +146,34 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 8
+     "stock": 7
     },
     "fromage_rape": {
      "nom": "emmental râpé (sachet de 200 g)",
-     "vendu": 0,
+     "vendu": 1,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 7
+     "recette": 1.7,
+     "stock": 10
     },
     "jambon": {
      "nom": "jambon blanc (4 tranches)",
-     "vendu": 0,
+     "vendu": 5,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 10
+     "recette": 13.0,
+     "stock": 5
     },
     "cafe_moulu": {
      "nom": "café moulu (paquet de 250 g)",
-     "vendu": 0,
+     "vendu": 3,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 20
+     "recette": 8.7,
+     "stock": 11
     },
     "chocolat_noir": {
      "nom": "chocolat noir (tablette de 20 carrés)",
@@ -173,7 +182,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 15
+     "stock": 9
     },
     "pates": {
      "nom": "pâtes (paquet de 500 g)",
@@ -182,7 +191,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 30
+     "stock": 24
     },
     "riz": {
      "nom": "riz (paquet d'un kilo)",
@@ -191,16 +200,16 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 14
+     "stock": 12
     },
     "thon": {
      "nom": "thon (boîte)",
-     "vendu": 0,
+     "vendu": 2,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 20
+     "recette": 3.0,
+     "stock": 15
     },
     "haricots_verts": {
      "nom": "haricots verts (boîte)",
@@ -209,16 +218,16 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 17
+     "stock": 23
     },
     "sucre": {
      "nom": "sucre (paquet d'un kilo)",
-     "vendu": 0,
+     "vendu": 2,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 10
+     "recette": 2.4,
+     "stock": 7
     },
     "farine": {
      "nom": "farine (paquet d'un kilo)",
@@ -227,7 +236,7 @@
      "repris": 0,
      "preleve": 1,
      "recette": 0.0,
-     "stock": 7
+     "stock": 9
     },
     "huile": {
      "nom": "huile de tournesol (bouteille d'un litre)",
@@ -236,16 +245,16 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 8
+     "stock": 9
     },
     "biere": {
      "nom": "bière (bouteille de 33 cl)",
-     "vendu": 0,
+     "vendu": 3,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 36
+     "recette": 3.3,
+     "stock": 44
     },
     "vin_rouge": {
      "nom": "vin rouge, côtes-du-rhône (bouteille de 75 cl)",
@@ -254,34 +263,34 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 18
+     "stock": 13
     },
     "eau": {
      "nom": "eau minérale (bouteille de 1,5 l)",
-     "vendu": 0,
+     "vendu": 10,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 30
+     "recette": 6.0,
+     "stock": 26
     },
     "jus_orange": {
      "nom": "jus d'orange (brique d'un litre)",
-     "vendu": 0,
+     "vendu": 3,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 12
+     "recette": 5.4,
+     "stock": 11
     },
     "pommes": {
      "nom": "pommes",
-     "vendu": 0,
+     "vendu": 22,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 51
+     "recette": 8.8,
+     "stock": 44
     },
     "oranges": {
      "nom": "oranges",
@@ -290,25 +299,25 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 44
+     "stock": 45
     },
     "bananes": {
      "nom": "bananes",
-     "vendu": 0,
+     "vendu": 6,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 40
+     "recette": 1.8,
+     "stock": 22
     },
     "tomates": {
      "nom": "tomates (barquette de 500 g)",
-     "vendu": 0,
+     "vendu": 5,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 8
+     "recette": 8.0,
+     "stock": 3
     },
     "pommes_de_terre": {
      "nom": "pommes de terre (sac de 2,5 kg)",
@@ -317,7 +326,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 7
+     "stock": 5
     },
     "carottes": {
      "nom": "carottes (sachet d'un kilo)",
@@ -326,7 +335,7 @@
      "repris": 0,
      "preleve": 0,
      "recette": 0.0,
-     "stock": 9
+     "stock": 7
     },
     "oignons": {
      "nom": "oignons",
@@ -339,21 +348,21 @@
     },
     "salade": {
      "nom": "laitue",
-     "vendu": 0,
+     "vendu": 1,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 3
+     "recette": 1.1,
+     "stock": 2
     },
     "papier_toilette": {
      "nom": "papier toilette (paquet de 6)",
-     "vendu": 0,
+     "vendu": 3,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 8
+     "recette": 8.7,
+     "stock": 5
     },
     "lessive": {
      "nom": "lessive liquide (bidon)",
@@ -366,19 +375,19 @@
     },
     "bonbons": {
      "nom": "bonbons (sachet)",
-     "vendu": 0,
+     "vendu": 1,
      "livre": 0,
      "repris": 0,
      "preleve": 0,
-     "recette": 0.0,
-     "stock": 20
+     "recette": 1.0,
+     "stock": 19
     }
    }
   },
   "stock_en_fin_de_journee": {
    "café moulu": "302 g",
    "café moulu de l'arrière-boutique": "150 g",
-   "pain (baguettes mises de côté à la boutique)": "0 quarts de baguette",
+   "pain (baguettes mises de côté à la boutique)": "6 quarts de baguette",
    "beurre": "240 g",
    "confiture d'abricots de Josiane": "16 cuillères",
    "fromage (comté)": "230 g",
@@ -464,12 +473,10 @@
   },
   "endormissement": "extinction à 22:15 ; anxiété 0.244 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
   "ecarts_a_la_routine": [
-   "05:30 : café, deux tartines beurre-confiture, comprimé pour la tension sans pain (baguettes mises de côté à la boutique) (plus en stock).",
-   "12:00 : prend au magasin pour la maison : farine ; plus de baguette en rayon.",
-   "13:05 : rôti de bœuf, gratin dauphinois, tarte aux pommes ; pas de vin, il conduit l'après-midi sans pain (baguettes mises de côté à la boutique) (plus en stock).",
+   "06:30 : livraisons : 2 produits, invendus repris : sept baguettes, quatre pains de campagne.",
+   "12:00 : prend au magasin pour la maison : farine.",
    "18:20 : toilettes sous le seuil d'alerte (20.8, score 1.17) ; interrompt « Le Progrès, radio, mots croisés ».",
-   "18:25 : soif sous le seuil d'alerte (36.4, score 1.09) ; interrompt « Le Progrès, radio, mots croisés ».",
-   "19:30 : restes du midi, comté sans pain (baguettes mises de côté à la boutique) (plus en stock)."
+   "18:25 : soif sous le seuil d'alerte (36.4, score 1.09) ; interrompt « Le Progrès, radio, mots croisés »."
   ]
  },
  "etat_initial": {
@@ -484,11 +491,11 @@
    "detente": 97.8
   },
   "emotions": {
-   "joie": 0.4714,
+   "joie": 0.4715,
    "tristesse": 0.1821,
    "anxiete": 0.2262,
    "colere": 0.0539,
-   "solitude": 0.1414,
+   "solitude": 0.1399,
    "fierte": 0.4,
    "excitation": 0.2
   },
@@ -524,7 +531,7 @@
   "stock": {
    "cafe_moulu": 316,
    "cafe_boutique": 150,
-   "pain": 0,
+   "pain": 2,
    "beurre": 330,
    "confiture": 18,
    "fromage": 280,
@@ -548,40 +555,40 @@
   },
   "argent": {
    "especes": 60,
-   "compte": 2300,
-   "caisse": 150,
-   "coffre": 1184.6,
+   "compte": 3667.55,
+   "caisse": 150.0,
+   "coffre": 1410.8,
    "ardoises": 46.3
   },
   "boutique": {
-   "baguette": 0,
-   "pain_campagne": 0,
-   "lait_uht": 30,
-   "yaourts": 14,
-   "oeufs": 13,
-   "beurre": 9,
-   "comte": 8,
-   "fromage_rape": 7,
+   "baguette": 7,
+   "pain_campagne": 4,
+   "lait_uht": 25,
+   "yaourts": 24,
+   "oeufs": 21,
+   "beurre": 11,
+   "comte": 7,
+   "fromage_rape": 11,
    "jambon": 10,
-   "cafe_moulu": 20,
-   "chocolat_noir": 15,
-   "pates": 30,
-   "riz": 14,
-   "thon": 20,
-   "haricots_verts": 17,
-   "sucre": 10,
-   "farine": 8,
-   "huile": 8,
-   "biere": 36,
-   "vin_rouge": 18,
-   "eau": 30,
-   "jus_orange": 12,
-   "pommes": 51,
-   "oranges": 44,
-   "bananes": 40,
+   "cafe_moulu": 14,
+   "chocolat_noir": 9,
+   "pates": 24,
+   "riz": 12,
+   "thon": 17,
+   "haricots_verts": 23,
+   "sucre": 9,
+   "farine": 10,
+   "huile": 9,
+   "biere": 47,
+   "vin_rouge": 13,
+   "eau": 36,
+   "jus_orange": 14,
+   "pommes": 66,
+   "oranges": 45,
+   "bananes": 28,
    "tomates": 8,
-   "pommes_de_terre": 7,
-   "carottes": 9,
+   "pommes_de_terre": 5,
+   "carottes": 7,
    "oignons": 29,
    "salade": 3,
    "papier_toilette": 8,
@@ -739,7 +746,12 @@
      "sujet": "journee",
      "quoi": "lecture, mots croisés"
     }
-   ]
+   ],
+   "livre": "2010-03-13",
+   "ardoises": {
+    "M. Rey, parti du quartier sans régler": 38.0,
+    "Mme Ferrand": 8.3
+   }
   }
  },
  "etat_final": {
@@ -794,7 +806,7 @@
   "stock": {
    "cafe_moulu": 302,
    "cafe_boutique": 150,
-   "pain": 0,
+   "pain": 6,
    "beurre": 240,
    "confiture": 16,
    "fromage": 230,
@@ -818,45 +830,45 @@
   },
   "argent": {
    "especes": 60,
-   "compte": 2300,
-   "caisse": 150,
-   "coffre": 1184.6,
+   "compte": 3688.65,
+   "caisse": 150.0,
+   "coffre": 1561.8,
    "ardoises": 46.3
   },
   "boutique": {
-   "baguette": 0,
+   "baguette": 3,
    "pain_campagne": 0,
-   "lait_uht": 30,
-   "yaourts": 14,
-   "oeufs": 13,
-   "beurre": 9,
-   "comte": 8,
-   "fromage_rape": 7,
-   "jambon": 10,
-   "cafe_moulu": 20,
-   "chocolat_noir": 15,
-   "pates": 30,
-   "riz": 14,
-   "thon": 20,
-   "haricots_verts": 17,
-   "sucre": 10,
-   "farine": 7,
-   "huile": 8,
-   "biere": 36,
-   "vin_rouge": 18,
-   "eau": 30,
-   "jus_orange": 12,
-   "pommes": 51,
-   "oranges": 44,
-   "bananes": 40,
-   "tomates": 8,
-   "pommes_de_terre": 7,
-   "carottes": 9,
+   "lait_uht": 10,
+   "yaourts": 20,
+   "oeufs": 17,
+   "beurre": 4,
+   "comte": 7,
+   "fromage_rape": 10,
+   "jambon": 5,
+   "cafe_moulu": 11,
+   "chocolat_noir": 9,
+   "pates": 24,
+   "riz": 12,
+   "thon": 15,
+   "haricots_verts": 23,
+   "sucre": 7,
+   "farine": 9,
+   "huile": 9,
+   "biere": 44,
+   "vin_rouge": 13,
+   "eau": 26,
+   "jus_orange": 11,
+   "pommes": 44,
+   "oranges": 45,
+   "bananes": 22,
+   "tomates": 3,
+   "pommes_de_terre": 5,
+   "carottes": 7,
    "oignons": 29,
-   "salade": 3,
-   "papier_toilette": 8,
+   "salade": 2,
+   "papier_toilette": 5,
    "lessive": 4,
-   "bonbons": 20
+   "bonbons": 19
   },
   "habitant": {
    "endormi_a": -18,
@@ -1009,7 +1021,12 @@
      "sujet": "journee",
      "quoi": "lecture, mots croisés"
     }
-   ]
+   ],
+   "livre": "2010-03-14",
+   "ardoises": {
+    "M. Rey, parti du quartier sans régler": 38.0,
+    "Mme Ferrand": 8.3
+   }
   }
  },
  "pas": [
@@ -1040,7 +1057,7 @@
     "tristesse": 0.182,
     "anxiete": 0.229,
     "colere": 0.053,
-    "solitude": 0.153,
+    "solitude": 0.152,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.001
@@ -1069,11 +1086,11 @@
     "energie_ressentie": 24.4
    },
    "emotions": {
-    "joie": 0.463,
+    "joie": 0.464,
     "tristesse": 0.182,
     "anxiete": 0.232,
     "colere": 0.052,
-    "solitude": 0.164,
+    "solitude": 0.163,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.001
@@ -1106,7 +1123,7 @@
     "tristesse": 0.181,
     "anxiete": 0.234,
     "colere": 0.051,
-    "solitude": 0.173,
+    "solitude": 0.172,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1135,11 +1152,11 @@
     "energie_ressentie": 26.7
    },
    "emotions": {
-    "joie": 0.458,
+    "joie": 0.459,
     "tristesse": 0.181,
     "anxiete": 0.236,
     "colere": 0.051,
-    "solitude": 0.182,
+    "solitude": 0.181,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1172,7 +1189,7 @@
     "tristesse": 0.181,
     "anxiete": 0.238,
     "colere": 0.051,
-    "solitude": 0.189,
+    "solitude": 0.188,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1205,7 +1222,7 @@
     "tristesse": 0.181,
     "anxiete": 0.24,
     "colere": 0.05,
-    "solitude": 0.196,
+    "solitude": 0.195,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1238,7 +1255,7 @@
     "tristesse": 0.181,
     "anxiete": 0.241,
     "colere": 0.05,
-    "solitude": 0.202,
+    "solitude": 0.201,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1271,7 +1288,7 @@
     "tristesse": 0.181,
     "anxiete": 0.242,
     "colere": 0.05,
-    "solitude": 0.207,
+    "solitude": 0.206,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1304,7 +1321,7 @@
     "tristesse": 0.181,
     "anxiete": 0.243,
     "colere": 0.05,
-    "solitude": 0.212,
+    "solitude": 0.211,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1337,7 +1354,7 @@
     "tristesse": 0.181,
     "anxiete": 0.244,
     "colere": 0.05,
-    "solitude": 0.216,
+    "solitude": 0.215,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1370,7 +1387,7 @@
     "tristesse": 0.181,
     "anxiete": 0.245,
     "colere": 0.05,
-    "solitude": 0.22,
+    "solitude": 0.219,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1403,7 +1420,7 @@
     "tristesse": 0.181,
     "anxiete": 0.245,
     "colere": 0.05,
-    "solitude": 0.223,
+    "solitude": 0.222,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -1436,7 +1453,7 @@
     "tristesse": 0.18,
     "anxiete": 0.246,
     "colere": 0.05,
-    "solitude": 0.226,
+    "solitude": 0.225,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.0
@@ -3229,6 +3246,13 @@
      "reste": 302
     },
     {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 1,
+     "unite": "quarts de baguette",
+     "reste": 1
+    },
+    {
      "produit": "beurre",
      "nom": "beurre",
      "quantite": 10,
@@ -3718,6 +3742,47 @@
     "duree_s": 10,
     "foulees": 15
    },
+   "reprises": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 7,
+     "reste": 0,
+     "motif": "invendus de la veille repris (pain)"
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 4,
+     "reste": 0,
+     "motif": "invendus de la veille repris (pain)"
+    }
+   ],
+   "livraisons": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 50,
+     "reste": 50
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 8,
+     "reste": 8
+    }
+   ],
+   "prelevements": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 2,
+     "reste": 48,
+     "maison": "pain",
+     "quantite_maison": 8,
+     "reste_maison": 9
+    }
+   ],
    "lumiere": [
     "allume la lumière (reserve)",
     "éteint la lumière (reserve)",
@@ -4071,12 +4136,60 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une employée de la mairie : une baguette (0,90 €), avec quelques mots sur le quartier. Une dame âgée : une brique de lait UHT et une baguette (1,85 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 47
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 24
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 46
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 2.75
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3667.55,
+     "caisse": 152.75,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 89.5,
@@ -4084,16 +4197,16 @@
     "energie": 89.1,
     "hygiene": 78.2,
     "toilettes": 97.8,
-    "social": 98.7,
+    "social": 100.0,
     "detente": 96.4,
     "energie_ressentie": 97.1
    },
    "emotions": {
-    "joie": 0.454,
+    "joie": 0.494,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.22,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.588
@@ -4107,12 +4220,68 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un vieux monsieur à canne : une baguette et une bouteille d'eau minérale (1,50 €), avec quelques mots sur le quartier. Un ouvrier du chantier de la place : une brique de lait UHT et une baguette (1,85 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 45
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "especes",
+     "reste": 35
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 23
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 44
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.35
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3667.55,
+     "caisse": 156.1,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 89.0,
@@ -4120,16 +4289,16 @@
     "energie": 88.7,
     "hygiene": 78.1,
     "toilettes": 96.7,
-    "social": 98.6,
+    "social": 100.0,
     "detente": 96.2,
     "energie_ressentie": 96.7
    },
    "emotions": {
-    "joie": 0.453,
+    "joie": 0.529,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.192,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.594
@@ -4143,8 +4312,39 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une dame âgée : une baguette (0,90 €). Une employée de la mairie : une brique de lait UHT (0,95 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 43
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 22
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.85
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3667.55,
+     "caisse": 157.95,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4156,16 +4356,16 @@
     "energie": 88.3,
     "hygiene": 78.0,
     "toilettes": 95.6,
-    "social": 98.6,
+    "social": 100.0,
     "detente": 96.0,
     "energie_ressentie": 96.3
    },
    "emotions": {
-    "joie": 0.453,
+    "joie": 0.52,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.195,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.597
@@ -4179,8 +4379,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un retraité en casquette : une baguette (0,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 42
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 0.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3667.55,
+     "caisse": 158.85,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4192,16 +4415,16 @@
     "energie": 87.9,
     "hygiene": 77.8,
     "toilettes": 94.5,
-    "social": 98.5,
+    "social": 100.0,
     "detente": 95.8,
     "energie_ressentie": 83.9
    },
    "emotions": {
-    "joie": 0.453,
+    "joie": 0.513,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.198,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.598
@@ -4215,12 +4438,156 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert quatre clients à la suite. Un peintre du quartier : une brique de lait UHT, une baguette et une bouteille d'eau minérale (2,45 €). Une infirmière qui sort de garde : une baguette, deux bouteilles d'eau minérale et une barquette de jambon blanc (4,70 €). Un monsieur en costume : une brique de lait UHT, une baguette, une plaquette de beurre et un paquet de sucre (5,00 €), avec quelques mots sur le quartier. Un livreur : une baguette, un pain de campagne, une bouteille d'eau minérale et une brique de jus d'orange (5,40 €, par carte).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 21
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 41
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "especes",
+     "reste": 34
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 40
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 2,
+     "prix": 1.2,
+     "paiement": "especes",
+     "reste": 32
+    },
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "prix": 2.6,
+     "paiement": "especes",
+     "reste": 9
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 20
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 39
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 10
+    },
+    {
+     "produit": "sucre",
+     "nom": "sucre (paquet d'un kilo)",
+     "quantite": 1,
+     "prix": 1.2,
+     "paiement": "especes",
+     "reste": 8
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "carte",
+     "reste": 38
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "carte",
+     "reste": 7
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "carte",
+     "reste": 31
+    },
+    {
+     "produit": "jus_orange",
+     "nom": "jus d'orange (brique d'un litre)",
+     "quantite": 1,
+     "prix": 1.8,
+     "paiement": "carte",
+     "reste": 13
+    }
+   ],
+   "clients": 4,
+   "argent": {
+    "mouvements": {
+     "caisse": 12.15,
+     "compte": 5.4
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3672.95,
+     "caisse": 171.0,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "affluence",
+     "effets": {
+      "excitation": 0.03,
+      "joie": 0.02
+     }
+    },
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 87.5,
@@ -4228,18 +4595,18 @@
     "energie": 87.5,
     "hygiene": 77.7,
     "toilettes": 93.4,
-    "social": 98.4,
+    "social": 100.0,
     "detente": 95.6,
     "energie_ressentie": 83.5
    },
    "emotions": {
-    "joie": 0.452,
+    "joie": 0.566,
     "tristesse": 0.18,
     "anxiete": 0.25,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.171,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.23,
     "concentration": 0.599
    }
   },
@@ -4251,12 +4618,113 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert quatre clients à la suite. Un peintre du quartier : une brique de lait UHT et une baguette (1,85 €). Une infirmière qui sort de garde : deux pommes et une baguette (1,70 €), en regardant sa montre. Un monsieur en costume : une barquette de jambon blanc, une baguette et une brique de lait UHT (4,45 €). Un livreur : un pack de yaourts nature (1,60 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 19
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 37
+    },
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 2,
+     "prix": 0.8,
+     "paiement": "especes",
+     "reste": 64
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 36
+    },
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "prix": 2.6,
+     "paiement": "especes",
+     "reste": 8
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 35
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 18
+    },
+    {
+     "produit": "yaourts",
+     "nom": "yaourts nature (pack de 4)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 23
+    }
+   ],
+   "clients": 4,
+   "argent": {
+    "mouvements": {
+     "caisse": 9.6
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3672.95,
+     "caisse": 180.6,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "affluence",
+     "effets": {
+      "excitation": 0.03,
+      "joie": 0.02
+     }
+    },
+    {
+     "id": "client_presse",
+     "effets": {
+      "colere": 0.044
+     }
+    },
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 87.0,
@@ -4264,18 +4732,18 @@
     "energie": 87.1,
     "hygiene": 77.6,
     "toilettes": 92.3,
-    "social": 98.4,
+    "social": 100.0,
     "detente": 95.4,
     "energie_ressentie": 83.1
    },
    "emotions": {
-    "joie": 0.452,
+    "joie": 0.613,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.094,
+    "solitude": 0.145,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.257,
     "concentration": 0.6
    }
   },
@@ -4287,8 +4755,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un retraité en casquette : un paquet de café moulu (2,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu (paquet de 250 g)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "especes",
+     "reste": 13
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 2.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3672.95,
+     "caisse": 183.5,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4300,18 +4791,18 @@
     "energie": 86.7,
     "hygiene": 77.5,
     "toilettes": 91.2,
-    "social": 98.3,
+    "social": 100.0,
     "detente": 95.2,
     "energie_ressentie": 82.7
    },
    "emotions": {
-    "joie": 0.452,
+    "joie": 0.595,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.087,
+    "solitude": 0.151,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.251,
     "concentration": 0.6
    }
   },
@@ -4323,12 +4814,101 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert trois clients à la suite. Un peintre du quartier : une barquette de jambon blanc, une baguette et une brique de jus d'orange (5,30 €, par carte). Une infirmière qui sort de garde : un paquet de café moulu et une plaquette de beurre (4,85 €). Un monsieur en costume : une baguette, une brique de lait UHT et un pain de campagne (3,95 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "prix": 2.6,
+     "paiement": "carte",
+     "reste": 7
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "carte",
+     "reste": 34
+    },
+    {
+     "produit": "jus_orange",
+     "nom": "jus d'orange (brique d'un litre)",
+     "quantite": 1,
+     "prix": 1.8,
+     "paiement": "carte",
+     "reste": 12
+    },
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu (paquet de 250 g)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "especes",
+     "reste": 12
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 9
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 33
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 17
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 6
+    }
+   ],
+   "clients": 3,
+   "argent": {
+    "mouvements": {
+     "compte": 5.3,
+     "caisse": 8.8
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3678.25,
+     "caisse": 192.3,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "affluence",
+     "effets": {
+      "excitation": 0.03,
+      "joie": 0.02
+     }
+    }
    ],
    "besoins": {
     "faim": 86.0,
@@ -4336,18 +4916,18 @@
     "energie": 86.3,
     "hygiene": 77.4,
     "toilettes": 90.1,
-    "social": 98.3,
+    "social": 100.0,
     "detente": 95.0,
     "energie_ressentie": 82.3
    },
    "emotions": {
-    "joie": 0.452,
+    "joie": 0.599,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.081,
+    "solitude": 0.157,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.275,
     "concentration": 0.6
    }
   },
@@ -4372,18 +4952,18 @@
     "energie": 85.9,
     "hygiene": 77.2,
     "toilettes": 89.0,
-    "social": 98.2,
+    "social": 99.9,
     "detente": 94.8,
     "energie_ressentie": 81.9
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.583,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.076,
+    "solitude": 0.162,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.267,
     "concentration": 0.6
    }
   },
@@ -4408,18 +4988,18 @@
     "energie": 85.5,
     "hygiene": 77.1,
     "toilettes": 87.9,
-    "social": 98.1,
+    "social": 99.9,
     "detente": 94.6,
     "energie_ressentie": 81.5
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.569,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.072,
+    "solitude": 0.167,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.26,
     "concentration": 0.6
    }
   },
@@ -4431,8 +5011,55 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un peintre du quartier : une plaquette de beurre, une brique de lait UHT et une baguette (3,80 €). Une infirmière qui sort de garde : une brique de lait UHT (0,95 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 8
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 16
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 32
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 15
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 4.75
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3678.25,
+     "caisse": 197.05,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4444,18 +5071,18 @@
     "energie": 85.1,
     "hygiene": 77.0,
     "toilettes": 86.8,
-    "social": 98.1,
+    "social": 100.0,
     "detente": 94.4,
     "energie_ressentie": 81.1
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.556,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.068,
+    "solitude": 0.172,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.253,
     "concentration": 0.6
    }
   },
@@ -4467,8 +5094,56 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un couple de touristes : une baguette, un pack de yaourts nature et un paquet de papier toilette (5,40 €, par carte). Un retraité en casquette : un pain de campagne (2,10 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "carte",
+     "reste": 31
+    },
+    {
+     "produit": "yaourts",
+     "nom": "yaourts nature (pack de 4)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "carte",
+     "reste": 22
+    },
+    {
+     "produit": "papier_toilette",
+     "nom": "papier toilette (paquet de 6)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "carte",
+     "reste": 7
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 5
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "compte": 5.4,
+     "caisse": 2.1
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 199.15,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4480,18 +5155,18 @@
     "energie": 84.7,
     "hygiene": 76.9,
     "toilettes": 85.7,
-    "social": 98.0,
+    "social": 100.0,
     "detente": 94.2,
     "energie_ressentie": 80.7
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.544,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.066,
+    "solitude": 0.176,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.247,
     "concentration": 0.6
    }
   },
@@ -4503,8 +5178,39 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une infirmière qui sort de garde : une baguette et un pain de campagne (3,00 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 30
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 4
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.0
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 202.15,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4516,18 +5222,18 @@
     "energie": 84.3,
     "hygiene": 76.8,
     "toilettes": 84.6,
-    "social": 98.0,
+    "social": 100.0,
     "detente": 94.0,
     "energie_ressentie": 80.3
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.534,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.063,
+    "solitude": 0.18,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.242,
     "concentration": 0.6
    }
   },
@@ -4539,12 +5245,81 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert trois clients à la suite. Une jeune mère avec sa poussette : une baguette (0,90 €). Une dame avec son chien : un paquet de café moulu (2,90 €), avec quelques mots sur le quartier. Un vieux monsieur à canne : une boîte d'œufs et une plaquette de beurre (3,85 €), en regardant sa montre.",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 29
+    },
+    {
+     "produit": "cafe_moulu",
+     "nom": "café moulu (paquet de 250 g)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "especes",
+     "reste": 11
+    },
+    {
+     "produit": "oeufs",
+     "nom": "œufs (boîte de 6)",
+     "quantite": 1,
+     "prix": 1.9,
+     "paiement": "especes",
+     "reste": 20
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 7
+    }
+   ],
+   "clients": 3,
+   "argent": {
+    "mouvements": {
+     "caisse": 7.65
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 209.8,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "affluence",
+     "effets": {
+      "excitation": 0.03,
+      "joie": 0.02
+     }
+    },
+    {
+     "id": "client_presse",
+     "effets": {
+      "colere": 0.044
+     }
+    },
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 83.0,
@@ -4552,18 +5327,18 @@
     "energie": 83.9,
     "hygiene": 76.6,
     "toilettes": 83.5,
-    "social": 97.9,
+    "social": 100.0,
     "detente": 93.8,
     "energie_ressentie": 79.9
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.585,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.105,
+    "solitude": 0.154,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.268,
     "concentration": 0.6
    }
   },
@@ -4575,8 +5350,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un jeune homme pressé : une baguette (0,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 28
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 0.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 210.7,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4588,18 +5386,18 @@
     "energie": 83.5,
     "hygiene": 76.5,
     "toilettes": 82.4,
-    "social": 97.8,
+    "social": 100.0,
     "detente": 93.6,
     "energie_ressentie": 79.5
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.57,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.096,
+    "solitude": 0.159,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.26,
     "concentration": 0.6
    }
   },
@@ -4624,18 +5422,18 @@
     "energie": 83.1,
     "hygiene": 76.4,
     "toilettes": 81.3,
-    "social": 97.8,
+    "social": 99.9,
     "detente": 93.4,
     "energie_ressentie": 83.1
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.557,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.089,
+    "solitude": 0.165,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.254,
     "concentration": 0.6
    }
   },
@@ -4660,18 +5458,18 @@
     "energie": 82.7,
     "hygiene": 76.3,
     "toilettes": 80.2,
-    "social": 97.7,
+    "social": 99.9,
     "detente": 93.2,
     "energie_ressentie": 82.7
    },
    "emotions": {
-    "joie": 0.451,
+    "joie": 0.545,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.083,
+    "solitude": 0.169,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.248,
     "concentration": 0.6
    }
   },
@@ -4683,8 +5481,63 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un jeune homme pressé : une baguette et trois bananes (1,80 €). Un étudiant : une baguette, un pain de campagne et une brique de lait UHT (3,95 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 27
+    },
+    {
+     "produit": "bananes",
+     "nom": "bananes",
+     "quantite": 3,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 25
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 26
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 3
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 14
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 5.75
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 216.45,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4696,18 +5549,18 @@
     "energie": 82.3,
     "hygiene": 76.2,
     "toilettes": 79.1,
-    "social": 97.7,
+    "social": 100.0,
     "detente": 93.0,
     "energie_ressentie": 82.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.535,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.078,
+    "solitude": 0.174,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.243,
     "concentration": 0.6
    }
   },
@@ -4719,8 +5572,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une jeune mère avec sa poussette : une baguette (0,90 €). Une dame avec son chien : une baguette et une boîte d'œufs (2,80 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 25
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 24
+    },
+    {
+     "produit": "oeufs",
+     "nom": "œufs (boîte de 6)",
+     "quantite": 1,
+     "prix": 1.9,
+     "paiement": "especes",
+     "reste": 19
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.7
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 220.15,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4732,18 +5624,18 @@
     "energie": 81.9,
     "hygiene": 76.0,
     "toilettes": 78.0,
-    "social": 97.6,
+    "social": 100.0,
     "detente": 92.8,
     "energie_ressentie": 81.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.526,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.073,
+    "solitude": 0.178,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.238,
     "concentration": 0.6
    }
   },
@@ -4755,8 +5647,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une jeune mère avec sa poussette : une baguette (0,90 €). Une dame avec son chien : une baguette et une barquette de jambon blanc (3,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 23
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 22
+    },
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "prix": 2.6,
+     "paiement": "especes",
+     "reste": 6
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 4.4
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 224.55,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4768,18 +5699,18 @@
     "energie": 81.5,
     "hygiene": 75.9,
     "toilettes": 76.9,
-    "social": 97.5,
+    "social": 100.0,
     "detente": 92.6,
     "energie_ressentie": 81.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.517,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.069,
+    "solitude": 0.182,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.234,
     "concentration": 0.6
    }
   },
@@ -4804,18 +5735,18 @@
     "energie": 81.1,
     "hygiene": 75.8,
     "toilettes": 75.8,
-    "social": 97.5,
+    "social": 99.9,
     "detente": 92.4,
     "energie_ressentie": 81.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.51,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.066,
+    "solitude": 0.186,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.23,
     "concentration": 0.6
    }
   },
@@ -4827,8 +5758,55 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une dame avec son chien : une bouteille d'eau minérale, une baguette et une plaquette de beurre (3,45 €). Une jeune mère avec sa poussette : une baguette (0,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "especes",
+     "reste": 30
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 21
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 6
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 20
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 4.35
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 228.9,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4840,18 +5818,18 @@
     "energie": 80.7,
     "hygiene": 75.7,
     "toilettes": 74.7,
-    "social": 97.4,
+    "social": 100.0,
     "detente": 92.2,
     "energie_ressentie": 80.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.503,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.064,
+    "solitude": 0.19,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.227,
     "concentration": 0.6
    }
   },
@@ -4876,18 +5854,18 @@
     "energie": 80.3,
     "hygiene": 75.6,
     "toilettes": 73.6,
-    "social": 97.4,
+    "social": 99.9,
     "detente": 92.0,
     "energie_ressentie": 80.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.498,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.062,
+    "solitude": 0.193,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.224,
     "concentration": 0.6
    }
   },
@@ -4912,18 +5890,18 @@
     "energie": 79.9,
     "hygiene": 75.4,
     "toilettes": 72.5,
-    "social": 97.3,
+    "social": 99.9,
     "detente": 91.8,
     "energie_ressentie": 79.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.492,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.06,
+    "solitude": 0.196,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.221,
     "concentration": 0.6
    }
   },
@@ -4935,8 +5913,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un livreur : une baguette, six pommes et un paquet de sucre (4,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 19
+    },
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 6,
+     "prix": 2.4,
+     "paiement": "especes",
+     "reste": 58
+    },
+    {
+     "produit": "sucre",
+     "nom": "sucre (paquet d'un kilo)",
+     "quantite": 1,
+     "prix": 1.2,
+     "paiement": "especes",
+     "reste": 7
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 4.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 233.4,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4948,18 +5965,18 @@
     "energie": 79.5,
     "hygiene": 75.3,
     "toilettes": 71.4,
-    "social": 97.2,
+    "social": 100.0,
     "detente": 91.6,
     "energie_ressentie": 79.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.488,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.058,
+    "solitude": 0.199,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.219,
     "concentration": 0.6
    }
   },
@@ -4971,8 +5988,39 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un livreur : un pain de campagne et une baguette (3,00 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 2
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 18
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.0
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 236.4,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -4984,18 +6032,18 @@
     "energie": 79.1,
     "hygiene": 75.2,
     "toilettes": 70.3,
-    "social": 97.2,
+    "social": 100.0,
     "detente": 91.4,
     "energie_ressentie": 79.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.484,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.057,
+    "solitude": 0.202,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.217,
     "concentration": 0.6
    }
   },
@@ -5007,8 +6055,39 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une adolescente : une baguette et une bouteille d'eau minérale (1,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 17
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "especes",
+     "reste": 29
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3683.65,
+     "caisse": 237.9,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5020,18 +6099,18 @@
     "energie": 78.7,
     "hygiene": 75.1,
     "toilettes": 69.2,
-    "social": 97.1,
+    "social": 100.0,
     "detente": 91.2,
     "energie_ressentie": 78.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.48,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.056,
+    "solitude": 0.205,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.215,
     "concentration": 0.6
    }
   },
@@ -5056,18 +6135,18 @@
     "energie": 78.3,
     "hygiene": 75.0,
     "toilettes": 68.1,
-    "social": 97.1,
+    "social": 99.9,
     "detente": 91.0,
     "energie_ressentie": 78.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.477,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.055,
+    "solitude": 0.207,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.213,
     "concentration": 0.6
    }
   },
@@ -5092,18 +6171,18 @@
     "energie": 77.9,
     "hygiene": 74.8,
     "toilettes": 67.0,
-    "social": 97.0,
+    "social": 99.9,
     "detente": 90.8,
     "energie_ressentie": 77.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.474,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.054,
+    "solitude": 0.21,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.212,
     "concentration": 0.6
    }
   },
@@ -5128,18 +6207,18 @@
     "energie": 77.5,
     "hygiene": 74.7,
     "toilettes": 65.9,
-    "social": 96.9,
+    "social": 99.8,
     "detente": 90.6,
     "energie_ressentie": 77.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.471,
     "tristesse": 0.18,
     "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "colere": 0.053,
+    "solitude": 0.212,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.211,
     "concentration": 0.6
    }
   },
@@ -5158,24 +6237,32 @@
     "radio-boutique",
     "lumiere-boutique"
    ],
+   "evenements": [
+    {
+     "id": "boutique_vide",
+     "effets": {
+      "anxiete": 0.035
+     }
+    }
+   ],
    "besoins": {
     "faim": 74.5,
     "soif": 62.4,
     "energie": 77.1,
     "hygiene": 74.6,
     "toilettes": 64.8,
-    "social": 96.9,
+    "social": 99.8,
     "detente": 90.4,
     "energie_ressentie": 77.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.469,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.285,
+    "colere": 0.053,
+    "solitude": 0.214,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.209,
     "concentration": 0.6
    }
   },
@@ -5200,18 +6287,18 @@
     "energie": 76.7,
     "hygiene": 74.5,
     "toilettes": 63.7,
-    "social": 96.8,
+    "social": 99.7,
     "detente": 90.2,
     "energie_ressentie": 76.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.467,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.283,
+    "colere": 0.052,
+    "solitude": 0.216,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.208,
     "concentration": 0.6
    }
   },
@@ -5223,12 +6310,68 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un monsieur en costume : une baguette et un pack de yaourts nature (2,50 €), en regardant sa montre. Un livreur : un paquet de papier toilette et un pain de campagne (5,00 €, par carte).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 16
+    },
+    {
+     "produit": "yaourts",
+     "nom": "yaourts nature (pack de 4)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 21
+    },
+    {
+     "produit": "papier_toilette",
+     "nom": "papier toilette (paquet de 6)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "carte",
+     "reste": 6
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "carte",
+     "reste": 1
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 2.5,
+     "compte": 5.0
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 240.4,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_presse",
+     "effets": {
+      "colere": 0.044
+     }
+    }
    ],
    "besoins": {
     "faim": 73.5,
@@ -5236,18 +6379,18 @@
     "energie": 76.3,
     "hygiene": 74.4,
     "toilettes": 62.6,
-    "social": 96.8,
+    "social": 100.0,
     "detente": 90.0,
     "energie_ressentie": 76.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.465,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.281,
+    "colere": 0.096,
+    "solitude": 0.218,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.208,
     "concentration": 0.6
    }
   },
@@ -5259,12 +6402,52 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une voisine de la rue d'Ivry : une baguette et une brique de lait UHT (1,85 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 15
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 13
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.85
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 242.25,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 73.0,
@@ -5272,18 +6455,18 @@
     "energie": 75.9,
     "hygiene": 74.2,
     "toilettes": 61.5,
-    "social": 96.7,
+    "social": 100.0,
     "detente": 89.8,
     "energie_ressentie": 75.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.503,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.279,
+    "colere": 0.089,
+    "solitude": 0.19,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.207,
     "concentration": 0.6
    }
   },
@@ -5308,18 +6491,18 @@
     "energie": 75.5,
     "hygiene": 74.1,
     "toilettes": 60.4,
-    "social": 96.6,
+    "social": 99.9,
     "detente": 89.6,
     "energie_ressentie": 75.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.498,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.277,
+    "colere": 0.083,
+    "solitude": 0.193,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.206,
     "concentration": 0.6
    }
   },
@@ -5344,18 +6527,18 @@
     "energie": 75.1,
     "hygiene": 74.0,
     "toilettes": 59.3,
-    "social": 96.6,
+    "social": 99.9,
     "detente": 89.4,
     "energie_ressentie": 75.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.492,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.275,
+    "colere": 0.077,
+    "solitude": 0.196,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.205,
     "concentration": 0.6
    }
   },
@@ -5367,8 +6550,55 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une voisine de la rue d'Ivry : une baguette, un paquet de papier toilette, un pain de campagne et une barquette de jambon blanc (8,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 14
+    },
+    {
+     "produit": "papier_toilette",
+     "nom": "papier toilette (paquet de 6)",
+     "quantite": 1,
+     "prix": 2.9,
+     "paiement": "especes",
+     "reste": 5
+    },
+    {
+     "produit": "pain_campagne",
+     "nom": "pain de campagne (500 g)",
+     "quantite": 1,
+     "prix": 2.1,
+     "paiement": "especes",
+     "reste": 0
+    },
+    {
+     "produit": "jambon",
+     "nom": "jambon blanc (4 tranches)",
+     "quantite": 1,
+     "prix": 2.6,
+     "paiement": "especes",
+     "reste": 5
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 8.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 250.75,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5380,18 +6610,18 @@
     "energie": 74.7,
     "hygiene": 73.9,
     "toilettes": 58.2,
-    "social": 96.5,
+    "social": 100.0,
     "detente": 89.2,
     "energie_ressentie": 74.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.488,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.273,
+    "colere": 0.073,
+    "solitude": 0.199,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.205,
     "concentration": 0.6
    }
   },
@@ -5416,18 +6646,18 @@
     "energie": 74.3,
     "hygiene": 73.8,
     "toilettes": 57.1,
-    "social": 96.5,
+    "social": 99.9,
     "detente": 89.0,
     "energie_ressentie": 74.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.484,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.272,
+    "colere": 0.069,
+    "solitude": 0.202,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.204,
     "concentration": 0.6
    }
   },
@@ -5439,12 +6669,60 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une voisine de la rue d'Ivry : une baguette, six pommes et une plaquette de beurre (5,25 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 13
+    },
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 6,
+     "prix": 2.4,
+     "paiement": "especes",
+     "reste": 52
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 5
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 5.25
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 256.0,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 70.5,
@@ -5452,18 +6730,18 @@
     "energie": 73.9,
     "hygiene": 73.6,
     "toilettes": 56.0,
-    "social": 96.4,
+    "social": 100.0,
     "detente": 88.8,
     "energie_ressentie": 73.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.52,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.27,
+    "colere": 0.066,
+    "solitude": 0.175,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.204,
     "concentration": 0.6
    }
   },
@@ -5488,18 +6766,18 @@
     "energie": 73.5,
     "hygiene": 73.5,
     "toilettes": 54.9,
-    "social": 96.3,
+    "social": 99.9,
     "detente": 88.6,
     "energie_ressentie": 73.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.512,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.269,
+    "colere": 0.064,
+    "solitude": 0.179,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.6
    }
   },
@@ -5511,8 +6789,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un monsieur en costume : une boîte d'œufs (1,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "oeufs",
+     "nom": "œufs (boîte de 6)",
+     "quantite": 1,
+     "prix": 1.9,
+     "paiement": "especes",
+     "reste": 18
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 257.9,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5524,18 +6825,18 @@
     "energie": 73.1,
     "hygiene": 73.4,
     "toilettes": 53.8,
-    "social": 96.3,
+    "social": 100.0,
     "detente": 88.4,
     "energie_ressentie": 73.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.506,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.268,
+    "colere": 0.062,
+    "solitude": 0.183,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.6
    }
   },
@@ -5560,18 +6861,18 @@
     "energie": 72.7,
     "hygiene": 73.3,
     "toilettes": 52.7,
-    "social": 96.2,
+    "social": 99.9,
     "detente": 88.2,
     "energie_ressentie": 72.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.499,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.266,
+    "colere": 0.06,
+    "solitude": 0.187,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.6
    }
   },
@@ -5583,8 +6884,79 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un livreur : une boîte d'œufs, une brique de lait UHT et trois bananes (3,75 €). Un monsieur en costume : deux bouteilles d'eau minérale, une brique de lait UHT, une brique de jus d'orange et un pack de yaourts nature (5,55 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "oeufs",
+     "nom": "œufs (boîte de 6)",
+     "quantite": 1,
+     "prix": 1.9,
+     "paiement": "especes",
+     "reste": 17
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 12
+    },
+    {
+     "produit": "bananes",
+     "nom": "bananes",
+     "quantite": 3,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 22
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 2,
+     "prix": 1.2,
+     "paiement": "especes",
+     "reste": 27
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 11
+    },
+    {
+     "produit": "jus_orange",
+     "nom": "jus d'orange (brique d'un litre)",
+     "quantite": 1,
+     "prix": 1.8,
+     "paiement": "especes",
+     "reste": 11
+    },
+    {
+     "produit": "yaourts",
+     "nom": "yaourts nature (pack de 4)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 20
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 9.3
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 267.2,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5596,18 +6968,18 @@
     "energie": 72.3,
     "hygiene": 73.2,
     "toilettes": 51.6,
-    "social": 96.2,
+    "social": 100.0,
     "detente": 88.0,
     "energie_ressentie": 72.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.494,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.265,
+    "colere": 0.058,
+    "solitude": 0.19,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.6
    }
   },
@@ -5619,8 +6991,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Une dame avec son chien : une baguette et un sachet de bonbons (1,90 €). Une jeune mère avec sa poussette : une brique de lait UHT (0,95 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 12
+    },
+    {
+     "produit": "bonbons",
+     "nom": "bonbons (sachet)",
+     "quantite": 1,
+     "prix": 1.0,
+     "paiement": "especes",
+     "reste": 19
+    },
+    {
+     "produit": "lait_uht",
+     "nom": "lait UHT (brique d'un litre)",
+     "quantite": 1,
+     "prix": 0.95,
+     "paiement": "especes",
+     "reste": 10
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 2.85
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 270.05,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5632,18 +7043,18 @@
     "energie": 71.9,
     "hygiene": 73.0,
     "toilettes": 50.5,
-    "social": 96.1,
+    "social": 100.0,
     "detente": 87.8,
     "energie_ressentie": 71.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.489,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.264,
+    "colere": 0.057,
+    "solitude": 0.194,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.6
    }
   },
@@ -5655,12 +7066,60 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un étudiant : une baguette, une bouteille d'eau minérale et une plaquette de beurre (3,45 €), avec quelques mots sur le quartier.",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 11
+    },
+    {
+     "produit": "eau",
+     "nom": "eau minérale (bouteille de 1,5 l)",
+     "quantite": 1,
+     "prix": 0.6,
+     "paiement": "especes",
+     "reste": 26
+    },
+    {
+     "produit": "beurre",
+     "nom": "beurre (plaquette de 250 g)",
+     "quantite": 1,
+     "prix": 1.95,
+     "paiement": "especes",
+     "reste": 4
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.45
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 273.5,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "client_habitue",
+     "effets": {
+      "joie": 0.04,
+      "solitude": -0.03
+     }
+    }
    ],
    "besoins": {
     "faim": 67.5,
@@ -5668,18 +7127,18 @@
     "energie": 71.5,
     "hygiene": 72.9,
     "toilettes": 49.4,
-    "social": 96.0,
+    "social": 100.0,
     "detente": 87.6,
     "energie_ressentie": 71.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.525,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.263,
+    "colere": 0.056,
+    "solitude": 0.167,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.6
    }
   },
@@ -5691,8 +7150,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un étudiant : une boîte de thon (1,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "thon",
+     "nom": "thon (boîte)",
+     "quantite": 1,
+     "prix": 1.5,
+     "paiement": "especes",
+     "reste": 16
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 275.0,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5704,18 +7186,18 @@
     "energie": 71.1,
     "hygiene": 72.8,
     "toilettes": 48.3,
-    "social": 96.0,
+    "social": 100.0,
     "detente": 87.4,
     "energie_ressentie": 71.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.517,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.262,
+    "colere": 0.055,
+    "solitude": 0.172,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.6
    }
   },
@@ -5727,8 +7209,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une dame avec son chien : une baguette (0,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 10
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 0.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 275.9,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5740,18 +7245,18 @@
     "energie": 70.7,
     "hygiene": 72.7,
     "toilettes": 47.2,
-    "social": 95.9,
+    "social": 100.0,
     "detente": 87.2,
     "energie_ressentie": 70.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.51,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.262,
+    "colere": 0.054,
+    "solitude": 0.176,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.6
    }
   },
@@ -5763,8 +7268,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert deux clients à la suite. Un étudiant : une baguette (0,90 €). Un jeune homme pressé : trois pommes et une barquette de tomates (2,80 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 9
+    },
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 3,
+     "prix": 1.2,
+     "paiement": "especes",
+     "reste": 49
+    },
+    {
+     "produit": "tomates",
+     "nom": "tomates (barquette de 500 g)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 7
+    }
+   ],
+   "clients": 2,
+   "argent": {
+    "mouvements": {
+     "caisse": 3.7
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 279.6,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5776,18 +7320,18 @@
     "energie": 70.3,
     "hygiene": 72.6,
     "toilettes": 46.1,
-    "social": 95.9,
+    "social": 100.0,
     "detente": 87.0,
     "energie_ressentie": 70.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.503,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.261,
+    "colere": 0.053,
+    "solitude": 0.18,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.6
    }
   },
@@ -5799,8 +7343,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert une dame avec son chien : une boîte de thon (1,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "thon",
+     "nom": "thon (boîte)",
+     "quantite": 1,
+     "prix": 1.5,
+     "paiement": "especes",
+     "reste": 15
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 281.1,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5812,18 +7379,18 @@
     "energie": 69.9,
     "hygiene": 72.4,
     "toilettes": 45.0,
-    "social": 95.8,
+    "social": 100.0,
     "detente": 86.8,
     "energie_ressentie": 69.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.497,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.26,
+    "colere": 0.053,
+    "solitude": 0.184,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.6
    }
   },
@@ -5848,18 +7415,18 @@
     "energie": 69.5,
     "hygiene": 72.3,
     "toilettes": 43.9,
-    "social": 95.7,
+    "social": 99.9,
     "detente": 86.6,
     "energie_ressentie": 69.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.492,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.259,
+    "colere": 0.052,
+    "solitude": 0.188,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.6
    }
   },
@@ -5871,8 +7438,39 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un étudiant : une baguette et une barquette de tomates (2,50 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 8
+    },
+    {
+     "produit": "tomates",
+     "nom": "tomates (barquette de 500 g)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 6
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 2.5
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 283.6,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5884,18 +7482,18 @@
     "energie": 69.1,
     "hygiene": 72.2,
     "toilettes": 42.8,
-    "social": 95.7,
+    "social": 100.0,
     "detente": 86.4,
     "energie_ressentie": 69.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.487,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.259,
+    "colere": 0.052,
+    "solitude": 0.191,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.6
    }
   },
@@ -5907,12 +7505,84 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert trois clients à la suite. Une jeune mère avec sa poussette : une baguette, une barquette de tomates et cinq pommes (4,50 €). Une dame avec son chien : une baguette (0,90 €). Un vieux monsieur à canne : trois bouteilles de bière et une baguette (4,20 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 7
+    },
+    {
+     "produit": "tomates",
+     "nom": "tomates (barquette de 500 g)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 5
+    },
+    {
+     "produit": "pommes",
+     "nom": "pommes",
+     "quantite": 5,
+     "prix": 2.0,
+     "paiement": "especes",
+     "reste": 44
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 6
+    },
+    {
+     "produit": "biere",
+     "nom": "bière (bouteille de 33 cl)",
+     "quantite": 3,
+     "prix": 3.3,
+     "paiement": "especes",
+     "reste": 44
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 5
+    }
+   ],
+   "clients": 3,
+   "argent": {
+    "mouvements": {
+     "caisse": 9.6
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 293.2,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
     "lumiere-boutique"
+   ],
+   "evenements": [
+    {
+     "id": "affluence",
+     "effets": {
+      "excitation": 0.03,
+      "joie": 0.02
+     }
+    }
    ],
    "besoins": {
     "faim": 64.0,
@@ -5920,18 +7590,18 @@
     "energie": 68.7,
     "hygiene": 72.1,
     "toilettes": 41.7,
-    "social": 95.6,
+    "social": 100.0,
     "detente": 86.2,
     "energie_ressentie": 68.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.503,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.258,
+    "colere": 0.052,
+    "solitude": 0.195,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.231,
     "concentration": 0.6
    }
   },
@@ -5943,8 +7613,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un jeune homme pressé : une laitue (1,10 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "salade",
+     "nom": "laitue",
+     "quantite": 1,
+     "prix": 1.1,
+     "paiement": "especes",
+     "reste": 2
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.1
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 294.3,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5956,18 +7649,18 @@
     "energie": 68.3,
     "hygiene": 72.0,
     "toilettes": 40.6,
-    "social": 95.6,
+    "social": 100.0,
     "detente": 86.0,
     "energie_ressentie": 68.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.498,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.258,
+    "colere": 0.051,
+    "solitude": 0.198,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.227,
     "concentration": 0.6
    }
   },
@@ -5979,8 +7672,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un retraité en casquette : une baguette (0,90 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 4
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 0.9
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 295.2,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -5992,18 +7708,18 @@
     "energie": 67.9,
     "hygiene": 71.8,
     "toilettes": 39.5,
-    "social": 95.5,
+    "social": 100.0,
     "detente": 85.8,
     "energie_ressentie": 67.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.492,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.257,
+    "colere": 0.051,
+    "solitude": 0.201,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.224,
     "concentration": 0.6
    }
   },
@@ -6015,8 +7731,47 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un peintre du quartier : une barquette de tomates, une baguette et un sachet d'emmental râpé (4,20 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "tomates",
+     "nom": "tomates (barquette de 500 g)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 4
+    },
+    {
+     "produit": "baguette",
+     "nom": "baguette",
+     "quantite": 1,
+     "prix": 0.9,
+     "paiement": "especes",
+     "reste": 3
+    },
+    {
+     "produit": "fromage_rape",
+     "nom": "emmental râpé (sachet de 200 g)",
+     "quantite": 1,
+     "prix": 1.7,
+     "paiement": "especes",
+     "reste": 10
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 4.2
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 299.4,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -6028,18 +7783,18 @@
     "energie": 67.5,
     "hygiene": 71.7,
     "toilettes": 38.4,
-    "social": 95.4,
+    "social": 100.0,
     "detente": 85.6,
     "energie_ressentie": 67.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.488,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.257,
+    "colere": 0.051,
+    "solitude": 0.203,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.222,
     "concentration": 0.6
    }
   },
@@ -6051,8 +7806,31 @@
    "posture": "debout",
    "routine": "rt-dimanche",
    "activite": "Sert les clients du dimanche",
-   "action": "Tient la boutique et sert les clients.",
+   "action": "Sert un peintre du quartier : une barquette de tomates (1,60 €).",
    "pensee": null,
+   "ventes": [
+    {
+     "produit": "tomates",
+     "nom": "tomates (barquette de 500 g)",
+     "quantite": 1,
+     "prix": 1.6,
+     "paiement": "especes",
+     "reste": 3
+    }
+   ],
+   "clients": 1,
+   "argent": {
+    "mouvements": {
+     "caisse": 1.6
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 301.0,
+     "coffre": 1410.8,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [
     "caisse",
     "radio-boutique",
@@ -6064,18 +7842,18 @@
     "energie": 67.1,
     "hygiene": 71.6,
     "toilettes": 37.3,
-    "social": 95.4,
+    "social": 100.0,
     "detente": 85.4,
     "energie_ressentie": 67.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.484,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.256,
+    "colere": 0.051,
+    "solitude": 0.206,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.219,
     "concentration": 0.6
    }
   },
@@ -6100,18 +7878,18 @@
     "energie": 66.7,
     "hygiene": 71.5,
     "toilettes": 36.2,
-    "social": 95.3,
+    "social": 99.9,
     "detente": 85.2,
     "energie_ressentie": 66.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.48,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.256,
+    "colere": 0.051,
+    "solitude": 0.208,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.217,
     "concentration": 0.6
    }
   },
@@ -6139,12 +7917,25 @@
      "produit": "farine",
      "nom": "farine (paquet d'un kilo)",
      "quantite": 1,
-     "reste": 7,
+     "reste": 9,
      "maison": "farine",
      "quantite_maison": 1000,
      "reste_maison": 1150
     }
    ],
+   "argent": {
+    "mouvements": {
+     "caisse": -151.0,
+     "coffre": 151.0
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3688.65,
+     "caisse": 150.0,
+     "coffre": 1561.8,
+     "ardoises": 46.3
+    }
+   },
    "lumiere": [
     "allume la lumière (arriere-boutique)",
     "éteint la lumière (boutique)"
@@ -6158,18 +7949,18 @@
     "energie": 66.3,
     "hygiene": 71.4,
     "toilettes": 35.1,
-    "social": 95.3,
+    "social": 99.9,
     "detente": 85.1,
     "energie_ressentie": 66.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.477,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.255,
+    "colere": 0.051,
+    "solitude": 0.211,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.215,
     "concentration": 0.575
    }
   },
@@ -6192,18 +7983,18 @@
     "energie": 65.9,
     "hygiene": 71.2,
     "toilettes": 34.0,
-    "social": 95.2,
+    "social": 99.8,
     "detente": 85.1,
     "energie_ressentie": 65.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.474,
     "tristesse": 0.18,
-    "anxiete": 0.25,
-    "colere": 0.05,
-    "solitude": 0.25,
+    "anxiete": 0.255,
+    "colere": 0.051,
+    "solitude": 0.213,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.214,
     "concentration": 0.562
    }
   },
@@ -6226,18 +8017,18 @@
     "energie": 65.5,
     "hygiene": 71.1,
     "toilettes": 32.9,
-    "social": 95.1,
+    "social": 99.8,
     "detente": 85.0,
     "energie_ressentie": 65.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.471,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.255,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.215,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.212,
     "concentration": 0.556
    }
   },
@@ -6273,18 +8064,18 @@
     "energie": 65.1,
     "hygiene": 71.0,
     "toilettes": 100.0,
-    "social": 95.1,
+    "social": 99.7,
     "detente": 85.0,
     "energie_ressentie": 65.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.469,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.217,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.211,
     "concentration": 0.553
    }
   },
@@ -6320,18 +8111,18 @@
     "energie": 64.7,
     "hygiene": 70.9,
     "toilettes": 98.9,
-    "social": 95.0,
+    "social": 99.6,
     "detente": 84.9,
     "energie_ressentie": 64.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.467,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.219,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.21,
     "concentration": 0.552
    }
   },
@@ -6354,18 +8145,18 @@
     "energie": 64.3,
     "hygiene": 70.8,
     "toilettes": 97.8,
-    "social": 95.0,
+    "social": 99.6,
     "detente": 84.9,
     "energie_ressentie": 64.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.465,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.221,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.209,
     "concentration": 0.551
    }
   },
@@ -6398,18 +8189,18 @@
     "energie": 63.9,
     "hygiene": 70.6,
     "toilettes": 96.7,
-    "social": 94.9,
+    "social": 99.5,
     "detente": 84.7,
     "energie_ressentie": 63.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.463,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.254,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.222,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.208,
     "concentration": 0.55
    }
   },
@@ -6430,18 +8221,18 @@
     "energie": 63.5,
     "hygiene": 70.5,
     "toilettes": 95.6,
-    "social": 94.8,
+    "social": 99.5,
     "detente": 84.5,
     "energie_ressentie": 63.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.462,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.224,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.207,
     "concentration": 0.55
    }
   },
@@ -6462,18 +8253,18 @@
     "energie": 63.1,
     "hygiene": 70.4,
     "toilettes": 94.5,
-    "social": 94.8,
+    "social": 99.4,
     "detente": 84.3,
     "energie_ressentie": 63.1
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.461,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.225,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.206,
     "concentration": 0.55
    }
   },
@@ -6515,18 +8306,18 @@
     "energie": 62.7,
     "hygiene": 70.3,
     "toilettes": 93.4,
-    "social": 94.7,
+    "social": 99.3,
     "detente": 84.2,
     "energie_ressentie": 62.7
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.459,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.227,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.205,
     "concentration": 0.625
    }
   },
@@ -6556,18 +8347,18 @@
     "energie": 62.3,
     "hygiene": 70.2,
     "toilettes": 92.3,
-    "social": 94.7,
+    "social": 99.3,
     "detente": 84.2,
     "energie_ressentie": 62.3
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.458,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.228,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.205,
     "concentration": 0.663
    }
   },
@@ -6597,18 +8388,18 @@
     "energie": 61.9,
     "hygiene": 70.0,
     "toilettes": 91.2,
-    "social": 94.6,
+    "social": 99.2,
     "detente": 84.1,
     "energie_ressentie": 61.9
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.457,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.253,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.229,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.204,
     "concentration": 0.681
    }
   },
@@ -6638,18 +8429,18 @@
     "energie": 61.5,
     "hygiene": 69.9,
     "toilettes": 90.1,
-    "social": 94.5,
+    "social": 99.2,
     "detente": 84.1,
     "energie_ressentie": 61.5
    },
    "emotions": {
-    "joie": 0.45,
+    "joie": 0.457,
     "tristesse": 0.18,
-    "anxiete": 0.25,
+    "anxiete": 0.252,
     "colere": 0.05,
-    "solitude": 0.25,
+    "solitude": 0.23,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.204,
     "concentration": 0.691
    }
   },
@@ -6713,6 +8504,13 @@
      "reste": 200
     },
     {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 2,
+     "unite": "quarts de baguette",
+     "reste": 7
+    },
+    {
      "produit": "repas_josiane",
      "nom": "viande, poisson et ingrédients achetés par Josiane à Cusset",
      "quantite": 1,
@@ -6740,18 +8538,18 @@
     "energie": 61.1,
     "hygiene": 69.8,
     "toilettes": 89.0,
-    "social": 95.5,
+    "social": 100.0,
     "detente": 84.0,
     "energie_ressentie": 61.1
    },
    "emotions": {
-    "joie": 0.5,
+    "joie": 0.506,
     "tristesse": 0.18,
-    "anxiete": 0.23,
+    "anxiete": 0.232,
     "colere": 0.05,
-    "solitude": 0.2,
+    "solitude": 0.181,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.57
    }
   },
@@ -6790,18 +8588,18 @@
     "energie": 60.7,
     "hygiene": 69.7,
     "toilettes": 87.9,
-    "social": 96.4,
+    "social": 100.0,
     "detente": 84.0,
     "energie_ressentie": 60.7
    },
    "emotions": {
-    "joie": 0.525,
+    "joie": 0.53,
     "tristesse": 0.18,
-    "anxiete": 0.231,
+    "anxiete": 0.233,
     "colere": 0.05,
-    "solitude": 0.173,
+    "solitude": 0.155,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.51
    }
   },
@@ -6825,18 +8623,18 @@
     "energie": 60.3,
     "hygiene": 69.6,
     "toilettes": 86.8,
-    "social": 97.4,
+    "social": 100.0,
     "detente": 83.9,
     "energie_ressentie": 60.3
    },
    "emotions": {
-    "joie": 0.516,
+    "joie": 0.521,
     "tristesse": 0.18,
-    "anxiete": 0.233,
+    "anxiete": 0.235,
     "colere": 0.05,
-    "solitude": 0.177,
+    "solitude": 0.161,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.203,
     "concentration": 0.48
    }
   },
@@ -6860,18 +8658,18 @@
     "energie": 59.9,
     "hygiene": 69.4,
     "toilettes": 85.7,
-    "social": 98.3,
+    "social": 100.0,
     "detente": 83.9,
     "energie_ressentie": 59.9
    },
    "emotions": {
-    "joie": 0.509,
+    "joie": 0.513,
     "tristesse": 0.18,
-    "anxiete": 0.234,
+    "anxiete": 0.236,
     "colere": 0.05,
-    "solitude": 0.181,
+    "solitude": 0.166,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.465
    }
   },
@@ -6895,18 +8693,18 @@
     "energie": 59.5,
     "hygiene": 69.3,
     "toilettes": 84.6,
-    "social": 99.2,
+    "social": 100.0,
     "detente": 83.8,
     "energie_ressentie": 59.5
    },
    "emotions": {
-    "joie": 0.503,
+    "joie": 0.506,
     "tristesse": 0.18,
-    "anxiete": 0.235,
+    "anxiete": 0.237,
     "colere": 0.05,
-    "solitude": 0.185,
+    "solitude": 0.17,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.458
    }
   },
@@ -6935,13 +8733,13 @@
     "energie_ressentie": 59.1
    },
    "emotions": {
-    "joie": 0.497,
+    "joie": 0.5,
     "tristesse": 0.18,
-    "anxiete": 0.236,
+    "anxiete": 0.237,
     "colere": 0.05,
-    "solitude": 0.189,
+    "solitude": 0.175,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.454
    }
   },
@@ -6978,13 +8776,13 @@
     "energie_ressentie": 58.7
    },
    "emotions": {
-    "joie": 0.532,
+    "joie": 0.535,
     "tristesse": 0.18,
-    "anxiete": 0.237,
+    "anxiete": 0.238,
     "colere": 0.05,
-    "solitude": 0.192,
+    "solitude": 0.179,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.352
    }
   },
@@ -7013,13 +8811,13 @@
     "energie_ressentie": 58.3
    },
    "emotions": {
-    "joie": 0.523,
+    "joie": 0.526,
     "tristesse": 0.18,
-    "anxiete": 0.238,
+    "anxiete": 0.239,
     "colere": 0.05,
-    "solitude": 0.195,
+    "solitude": 0.183,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.202,
     "concentration": 0.301
    }
   },
@@ -7063,13 +8861,13 @@
     "energie_ressentie": 57.9
    },
    "emotions": {
-    "joie": 0.545,
+    "joie": 0.547,
     "tristesse": 0.18,
-    "anxiete": 0.239,
+    "anxiete": 0.24,
     "colere": 0.05,
-    "solitude": 0.168,
+    "solitude": 0.157,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.275
    }
   },
@@ -7098,13 +8896,13 @@
     "energie_ressentie": 57.5
    },
    "emotions": {
-    "joie": 0.535,
+    "joie": 0.537,
     "tristesse": 0.18,
-    "anxiete": 0.239,
+    "anxiete": 0.24,
     "colere": 0.05,
-    "solitude": 0.173,
+    "solitude": 0.162,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.263
    }
   },
@@ -7133,13 +8931,13 @@
     "energie_ressentie": 57.1
    },
    "emotions": {
-    "joie": 0.525,
+    "joie": 0.527,
     "tristesse": 0.18,
-    "anxiete": 0.24,
+    "anxiete": 0.241,
     "colere": 0.05,
-    "solitude": 0.177,
+    "solitude": 0.167,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.256
    }
   },
@@ -7168,13 +8966,13 @@
     "energie_ressentie": 56.7
    },
    "emotions": {
-    "joie": 0.517,
+    "joie": 0.519,
     "tristesse": 0.18,
-    "anxiete": 0.241,
+    "anxiete": 0.242,
     "colere": 0.05,
-    "solitude": 0.181,
+    "solitude": 0.172,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.253
    }
   },
@@ -7203,13 +9001,13 @@
     "energie_ressentie": 56.3
    },
    "emotions": {
-    "joie": 0.51,
+    "joie": 0.511,
     "tristesse": 0.18,
-    "anxiete": 0.241,
+    "anxiete": 0.242,
     "colere": 0.05,
-    "solitude": 0.185,
+    "solitude": 0.176,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.252
    }
   },
@@ -7238,13 +9036,13 @@
     "energie_ressentie": 55.9
    },
    "emotions": {
-    "joie": 0.503,
+    "joie": 0.505,
     "tristesse": 0.18,
-    "anxiete": 0.242,
+    "anxiete": 0.243,
     "colere": 0.05,
-    "solitude": 0.189,
+    "solitude": 0.18,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.251
    }
   },
@@ -7270,13 +9068,13 @@
     "energie_ressentie": 56.7
    },
    "emotions": {
-    "joie": 0.497,
+    "joie": 0.499,
     "tristesse": 0.18,
-    "anxiete": 0.242,
+    "anxiete": 0.243,
     "colere": 0.05,
-    "solitude": 0.192,
+    "solitude": 0.184,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.25
    }
   },
@@ -7302,13 +9100,13 @@
     "energie_ressentie": 57.5
    },
    "emotions": {
-    "joie": 0.492,
+    "joie": 0.493,
     "tristesse": 0.18,
-    "anxiete": 0.243,
+    "anxiete": 0.244,
     "colere": 0.05,
-    "solitude": 0.196,
+    "solitude": 0.188,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.25
    }
   },
@@ -7334,13 +9132,13 @@
     "energie_ressentie": 58.3
    },
    "emotions": {
-    "joie": 0.488,
+    "joie": 0.489,
     "tristesse": 0.18,
-    "anxiete": 0.243,
+    "anxiete": 0.244,
     "colere": 0.05,
-    "solitude": 0.199,
+    "solitude": 0.191,
     "fierte": 0.4,
-    "excitation": 0.2,
+    "excitation": 0.201,
     "concentration": 0.25
    }
   },
@@ -7395,9 +9193,9 @@
    "emotions": {
     "joie": 0.534,
     "tristesse": 0.18,
-    "anxiete": 0.224,
+    "anxiete": 0.225,
     "colere": 0.05,
-    "solitude": 0.152,
+    "solitude": 0.145,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.4
@@ -7452,11 +9250,11 @@
     "energie_ressentie": 57.5
    },
    "emotions": {
-    "joie": 0.604,
+    "joie": 0.605,
     "tristesse": 0.18,
     "anxiete": 0.226,
     "colere": 0.05,
-    "solitude": 0.087,
+    "solitude": 0.081,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.475
@@ -7506,9 +9304,9 @@
    "emotions": {
     "joie": 0.618,
     "tristesse": 0.18,
-    "anxiete": 0.227,
+    "anxiete": 0.228,
     "colere": 0.05,
-    "solitude": 0.066,
+    "solitude": 0.06,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.513
@@ -7541,11 +9339,11 @@
     "energie_ressentie": 56.7
    },
    "emotions": {
-    "joie": 0.599,
+    "joie": 0.6,
     "tristesse": 0.18,
     "anxiete": 0.229,
     "colere": 0.05,
-    "solitude": 0.077,
+    "solitude": 0.071,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.531
@@ -7590,11 +9388,11 @@
     "energie_ressentie": 56.3
    },
    "emotions": {
-    "joie": 0.583,
+    "joie": 0.584,
     "tristesse": 0.18,
-    "anxiete": 0.23,
+    "anxiete": 0.231,
     "colere": 0.05,
-    "solitude": 0.086,
+    "solitude": 0.081,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.541
@@ -7631,7 +9429,7 @@
     "tristesse": 0.18,
     "anxiete": 0.232,
     "colere": 0.05,
-    "solitude": 0.095,
+    "solitude": 0.09,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.545
@@ -7669,7 +9467,7 @@
     "tristesse": 0.18,
     "anxiete": 0.233,
     "colere": 0.05,
-    "solitude": 0.104,
+    "solitude": 0.099,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.623
@@ -7704,7 +9502,7 @@
     "tristesse": 0.18,
     "anxiete": 0.234,
     "colere": 0.05,
-    "solitude": 0.112,
+    "solitude": 0.108,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.661
@@ -7739,7 +9537,7 @@
     "tristesse": 0.18,
     "anxiete": 0.235,
     "colere": 0.05,
-    "solitude": 0.12,
+    "solitude": 0.116,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.681
@@ -7774,7 +9572,7 @@
     "tristesse": 0.18,
     "anxiete": 0.236,
     "colere": 0.05,
-    "solitude": 0.127,
+    "solitude": 0.123,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.69
@@ -7809,7 +9607,7 @@
     "tristesse": 0.18,
     "anxiete": 0.237,
     "colere": 0.05,
-    "solitude": 0.134,
+    "solitude": 0.13,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.695
@@ -7844,7 +9642,7 @@
     "tristesse": 0.18,
     "anxiete": 0.238,
     "colere": 0.05,
-    "solitude": 0.141,
+    "solitude": 0.137,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.698
@@ -7879,7 +9677,7 @@
     "tristesse": 0.18,
     "anxiete": 0.239,
     "colere": 0.05,
-    "solitude": 0.147,
+    "solitude": 0.143,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.624
@@ -7912,9 +9710,9 @@
    "emotions": {
     "joie": 0.497,
     "tristesse": 0.18,
-    "anxiete": 0.239,
+    "anxiete": 0.24,
     "colere": 0.05,
-    "solitude": 0.153,
+    "solitude": 0.149,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.587
@@ -7964,7 +9762,7 @@
     "tristesse": 0.18,
     "anxiete": 0.24,
     "colere": 0.05,
-    "solitude": 0.128,
+    "solitude": 0.125,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.568
@@ -7999,7 +9797,7 @@
     "tristesse": 0.18,
     "anxiete": 0.241,
     "colere": 0.05,
-    "solitude": 0.135,
+    "solitude": 0.132,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.559
@@ -8032,9 +9830,9 @@
    "emotions": {
     "joie": 0.507,
     "tristesse": 0.18,
-    "anxiete": 0.241,
+    "anxiete": 0.242,
     "colere": 0.05,
-    "solitude": 0.141,
+    "solitude": 0.139,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.555
@@ -8069,7 +9867,7 @@
     "tristesse": 0.18,
     "anxiete": 0.242,
     "colere": 0.05,
-    "solitude": 0.147,
+    "solitude": 0.145,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.552
@@ -8102,9 +9900,9 @@
    "emotions": {
     "joie": 0.495,
     "tristesse": 0.18,
-    "anxiete": 0.242,
+    "anxiete": 0.243,
     "colere": 0.05,
-    "solitude": 0.153,
+    "solitude": 0.151,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.551
@@ -8139,7 +9937,7 @@
     "tristesse": 0.18,
     "anxiete": 0.243,
     "colere": 0.05,
-    "solitude": 0.159,
+    "solitude": 0.156,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.551
@@ -8172,9 +9970,9 @@
    "emotions": {
     "joie": 0.486,
     "tristesse": 0.18,
-    "anxiete": 0.243,
+    "anxiete": 0.244,
     "colere": 0.05,
-    "solitude": 0.164,
+    "solitude": 0.162,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8209,7 +10007,7 @@
     "tristesse": 0.18,
     "anxiete": 0.244,
     "colere": 0.05,
-    "solitude": 0.169,
+    "solitude": 0.167,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8244,7 +10042,7 @@
     "tristesse": 0.18,
     "anxiete": 0.244,
     "colere": 0.05,
-    "solitude": 0.173,
+    "solitude": 0.171,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8279,7 +10077,7 @@
     "tristesse": 0.18,
     "anxiete": 0.245,
     "colere": 0.05,
-    "solitude": 0.178,
+    "solitude": 0.176,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8314,7 +10112,7 @@
     "tristesse": 0.18,
     "anxiete": 0.245,
     "colere": 0.05,
-    "solitude": 0.182,
+    "solitude": 0.18,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8349,7 +10147,7 @@
     "tristesse": 0.18,
     "anxiete": 0.245,
     "colere": 0.05,
-    "solitude": 0.185,
+    "solitude": 0.184,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8384,7 +10182,7 @@
     "tristesse": 0.18,
     "anxiete": 0.246,
     "colere": 0.05,
-    "solitude": 0.189,
+    "solitude": 0.188,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8419,7 +10217,7 @@
     "tristesse": 0.18,
     "anxiete": 0.246,
     "colere": 0.05,
-    "solitude": 0.192,
+    "solitude": 0.191,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8454,7 +10252,7 @@
     "tristesse": 0.18,
     "anxiete": 0.246,
     "colere": 0.05,
-    "solitude": 0.196,
+    "solitude": 0.194,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8487,9 +10285,9 @@
    "emotions": {
     "joie": 0.463,
     "tristesse": 0.18,
-    "anxiete": 0.246,
+    "anxiete": 0.247,
     "colere": 0.05,
-    "solitude": 0.199,
+    "solitude": 0.197,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8524,7 +10322,7 @@
     "tristesse": 0.18,
     "anxiete": 0.247,
     "colere": 0.05,
-    "solitude": 0.202,
+    "solitude": 0.2,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8574,7 +10372,7 @@
     "tristesse": 0.18,
     "anxiete": 0.247,
     "colere": 0.05,
-    "solitude": 0.174,
+    "solitude": 0.173,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8609,7 +10407,7 @@
     "tristesse": 0.18,
     "anxiete": 0.247,
     "colere": 0.05,
-    "solitude": 0.179,
+    "solitude": 0.177,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8644,7 +10442,7 @@
     "tristesse": 0.18,
     "anxiete": 0.247,
     "colere": 0.05,
-    "solitude": 0.183,
+    "solitude": 0.182,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8679,7 +10477,7 @@
     "tristesse": 0.18,
     "anxiete": 0.248,
     "colere": 0.05,
-    "solitude": 0.186,
+    "solitude": 0.185,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8714,7 +10512,7 @@
     "tristesse": 0.18,
     "anxiete": 0.248,
     "colere": 0.05,
-    "solitude": 0.19,
+    "solitude": 0.189,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8745,11 +10543,11 @@
     "energie_ressentie": 31.0
    },
    "emotions": {
-    "joie": 0.472,
+    "joie": 0.473,
     "tristesse": 0.18,
     "anxiete": 0.248,
     "colere": 0.05,
-    "solitude": 0.193,
+    "solitude": 0.192,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.55
@@ -8819,7 +10617,7 @@
     "tristesse": 0.18,
     "anxiete": 0.248,
     "colere": 0.055,
-    "solitude": 0.2,
+    "solitude": 0.199,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.475
@@ -8889,7 +10687,7 @@
     "tristesse": 0.18,
     "anxiete": 0.248,
     "colere": 0.063,
-    "solitude": 0.205,
+    "solitude": 0.204,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.531
@@ -8922,9 +10720,9 @@
    "emotions": {
     "joie": 0.446,
     "tristesse": 0.18,
-    "anxiete": 0.248,
+    "anxiete": 0.249,
     "colere": 0.066,
-    "solitude": 0.208,
+    "solitude": 0.207,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.541
@@ -8959,7 +10757,7 @@
     "tristesse": 0.18,
     "anxiete": 0.259,
     "colere": 0.068,
-    "solitude": 0.21,
+    "solitude": 0.209,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.495
@@ -9145,7 +10943,7 @@
     "tristesse": 0.18,
     "anxiete": 0.283,
     "colere": 0.075,
-    "solitude": 0.19,
+    "solitude": 0.189,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.315
@@ -9329,7 +11127,7 @@
     "tristesse": 0.18,
     "anxiete": 0.257,
     "colere": 0.078,
-    "solitude": 0.158,
+    "solitude": 0.157,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.132
@@ -9401,7 +11199,7 @@
     "tristesse": 0.18,
     "anxiete": 0.256,
     "colere": 0.079,
-    "solitude": 0.168,
+    "solitude": 0.167,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.108
@@ -9471,7 +11269,7 @@
     "tristesse": 0.18,
     "anxiete": 0.256,
     "colere": 0.08,
-    "solitude": 0.177,
+    "solitude": 0.176,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.102
@@ -9541,7 +11339,7 @@
     "tristesse": 0.18,
     "anxiete": 0.255,
     "colere": 0.08,
-    "solitude": 0.185,
+    "solitude": 0.184,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.101
@@ -9682,6 +11480,13 @@
      "quantite": 50,
      "unite": "g",
      "reste": 230
+    },
+    {
+     "produit": "pain",
+     "nom": "pain (baguettes mises de côté à la boutique)",
+     "quantite": 1,
+     "unite": "quarts de baguette",
+     "reste": 6
     },
     {
      "produit": "vin_rouge",
@@ -10997,7 +12802,7 @@
     "tristesse": 0.18,
     "anxiete": 0.243,
     "colere": 0.081,
-    "solitude": 0.187,
+    "solitude": 0.186,
     "fierte": 0.4,
     "excitation": 0.2,
     "concentration": 0.325

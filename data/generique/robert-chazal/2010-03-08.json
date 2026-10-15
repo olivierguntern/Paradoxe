@@ -56,12 +56,15 @@
   "plats_prepares": {},
   "achats": {},
   "argent": {
-   "mouvements_du_jour": {},
+   "mouvements_du_jour": {
+    "coffre": -1184.6,
+    "compte": 1184.6
+   },
    "soldes_en_fin_de_journee": {
     "especes": 60,
-    "compte": 2300,
+    "compte": 3484.6,
     "caisse": 150,
-    "coffre": 1184.6,
+    "coffre": 0.0,
     "ardoises": 46.3
    }
   },
@@ -417,7 +420,9 @@
    "toilettes": 6
   },
   "endormissement": "extinction à 23:15 ; anxiété 0.334 (seuil 0.65), excitation 0.2 (seuil 0.5) : endormissement en 15 minutes",
-  "ecarts_a_la_routine": []
+  "ecarts_a_la_routine": [
+   "09:10 : dépose la recette du coffre à la banque : 1184,60 €."
+  ]
  },
  "etat_initial": {
   "piece": "chambre",
@@ -612,9 +617,9 @@
   },
   "argent": {
    "especes": 60,
-   "compte": 2300,
+   "compte": 3484.6,
    "caisse": 150,
-   "coffre": 1184.6,
+   "coffre": 0.0,
    "ardoises": 46.3
   },
   "boutique": {
@@ -4397,6 +4402,19 @@
    "activite": "Prend la recette au coffre de l'arrière-boutique, rideau baissé, la dépose au coffre de la banque ; quelques mots avec M. Garnier",
    "action": "Dépose la recette à la banque.",
    "pensee": null,
+   "argent": {
+    "mouvements": {
+     "coffre": -1184.6,
+     "compte": 1184.6
+    },
+    "soldes": {
+     "especes": 60,
+     "compte": 3484.6,
+     "caisse": 150,
+     "coffre": 0.0,
+     "ardoises": 46.3
+    }
+   },
    "appareils_allumes": [],
    "besoins": {
     "faim": 72.6,
