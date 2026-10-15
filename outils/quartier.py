@@ -65,7 +65,7 @@ class Quartier:
         while any(h.i < PAS_PAR_JOUR for h in self.H.values()):
             for pid, h in self.H.items():
                 h.sim.changements_du_monde()   # objets déplacés à son insu, avant qu'il décide
-                if not (self.V and self.V.retenir(self, pid, h)):
+                if not (h.impose() or (self.V and self.V.retenir(self, pid, h))):
                     h.decider()
             self.rencontres()
             self.commerces()

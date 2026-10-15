@@ -138,8 +138,9 @@ Un scénario du voyageur (`data/voyageur/<nom>.json`) liste ses interventions da
 | `confidence` | Mercredi 10:00, glisse à Robert le score du match du soir | Persistante : Robert le sait désormais, sans cascade |
 | `belote` | Samedi 20:35, garde Robert une demi-heure au téléphone à l'heure de la belote | Paradoxe : Josiane, Gérard et Monique remarquent son absence ; quatre habitants touchés |
 | `telephone` | Samedi 11:40, achète une bouteille d'eau chez Robert et paie en posant son téléphone sur le terminal | Paradoxe : Robert remarque le paiement ; il le raconte à Thomas, puis à Josiane, qui le répète à Monique, qui le répète à Gérard ; cinq habitants touchés |
-| `mission-plein-jour` | Mission de la branche fossilisée, le samedi après-midi pendant que Robert tient la boutique | Mission échouée : Robert entend la scie à béton à 15:00, voit John creuser à 19:00 ; la rumeur gagne Josiane et les Morel ; paradoxe |
-| `mission-baclee` | La même mission le lundi, porte forcée, sans rien effacer | Mission échouée : la branche est brûlée, mais mardi à 06:30 Robert trouve la serrure forcée et la poussière ; Thomas, Josiane et les Morel l'apprennent ; paradoxe |
+| `mission-plein-jour` | Mission de la branche fossilisée, le samedi après-midi pendant que Robert tient la boutique | Mission échouée : Robert entend la scie à béton à 15:00, va voir, surprend John qui s'enfuit ; la police vient, la serrure est changée ; la branche n'est pas brûlée ; la rumeur gagne Josiane et les Morel ; paradoxe |
+| `mission-retour` | Surpris le samedi, John revient le dimanche après-midi, pendant la randonnée de Robert | Mission échouée : la serrure a été changée, elle ne se crochète plus |
+| `mission-baclee` | La même mission le lundi, porte forcée, sans rien effacer | Mission échouée : la branche est brûlée, mais mardi à 06:30 Robert trouve la serrure forcée et la poussière, porte plainte et ouvre la boutique en retard ; Thomas, Josiane et les Morel l'apprennent ; paradoxe |
 | `mission-soignee` | Le lundi, serrure crochetée, puis palettes remises, poussière nettoyée, boutique aérée | Mission réussie, parfaitement : Robert ne remarque rien, aucun fait ne change |
 | `compatible` | Le même achat, avec un téléphone à clapet et un billet de la première série | Aucune divergence : seuls des détails changent (une bouteille d'eau, la caisse de Robert) |
 
@@ -151,6 +152,7 @@ Un scénario du voyageur (`data/voyageur/<nom>.json`) liste ses interventions da
 | `monde/croix-rousse.json` (boutique) | Places précises de la boutique (rayons et caisse pour un client, places de travail de Robert) et allées (`circulation`) que suit un client entre deux rayons |
 | `monde/echanges.json` | Répliques partagées par deux personnages qui se rencontrent (Thomas et Robert au comptoir, dont le conseil de film du samedi qui décide la soirée de Thomas) |
 | `monde/gestes.json` | Gestes du voyageur : durée, conditions, avancement de la mission, ce qui se voit, s'entend, et les traces qui restent (portée, visibilité, durée), ce qui les efface ou les atténue |
+| `monde/reactions.json` | Ce que fait un habitant qui remarque une intrusion chez lui : aller voir, surprendre l'intrus (qui s'enfuit), porter plainte ; leurs pas, la vigilance et le verrou changé qui suivent |
 | `missions/<id>.json` | Missions du voyageur : histoire, lieu, objectif, verdicts interdits (`branche-fossile` : brûler la branche fossilisée de l'arrière-boutique sans paradoxe) |
 | `monde/epoque.json` | Ce qui existe ou non en 2010 : objets et gestes du voyageur, année d'apparition, visibilité (porté, utilisé), et règle de la probabilité qu'un habitant les remarque |
 | `monde/paradoxe.json` | Seuils de la mesure du paradoxe : habitants touchés, faits différents dans une heure |

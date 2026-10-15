@@ -93,6 +93,7 @@ class Habitant:
         self.comptoir = None     # service au comptoir de son propre commerce, créé au premier client
         self.achat = None        # achat du pas décidé dans le commerce d'un autre habitant
         self.retenues = []       # plages (début, fin) où quelqu'un l'a retenu (voyageur.py)
+        self.imposes = {}        # pas -> (texte, pièce, titre) : ce qu'une réaction lui fait faire (voyageur.py)
 
     def commerce(self, pid):
         """Le commerce où il s'approvisionne : celui de sa propre fiche (il prélève), ou celui d'un autre habitant (il achète)."""
@@ -430,6 +431,8 @@ class Habitant:
     # ------------------------------------------------------------ émission
     def emettre(self, a, titre, routine, piece, premier, avec=(), garder_appareils=False, lieu="domicile", extra=None):
         self.action_courante = a
+        if lieu == "domicile":
+            lieu = self.LIEU_DU_SITE.get(self.SITE.get(piece), "domicile")   # une interruption à la boutique est à la boutique
         st = {"action": a["texte"], "pensee": None, "piece": piece, "lieu": lieu, "mode": a.get("mode", "eveille"),
               "charge": a.get("charge", "simple"), "posture": a.get("posture", "debout")}
         st.update(extra or {})
@@ -610,6 +613,36 @@ class Habitant:
             lignes = self.listes.get(d) or []
             a["texte"] = a["texte"].replace("{liste}", ", ".join(self.libelle(x) for x in lignes) or "rien")
         self.emettre(a, e["action"], r, piece, premier, avec=e.get("avec", ()), lieu=lieu, extra=extra)
+
+    def imposer(self, debut, pas, piece, titre, remplace=False):
+        """Une réaction : à partir du pas debut, ses pas (minutes, texte) remplacent ce qu'il devait faire, dans la pièce ;
+        une réaction urgente (remplace) remplace aussi les réactions déjà prévues."""
+        if remplace:
+            self.imposes = {k: v for k, v in self.imposes.items() if k < debut}
+        i = debut
+        for x in pas:
+            for k in range(max(1, x["minutes"] // 5)):
+                if i < PAS_PAR_JOUR and i not in self.imposes:
+                    self.imposes[i] = (x["texte"] if k == 0 else x.get("suite", x["texte"]), piece, titre)
+                i += 1
+
+    def impose(self):
+        """Vrai si une réaction lui impose ce pas (le pas est alors décidé ici)."""
+        x = self.imposes.get(self.i)
+        if not x or self.coucher:
+            return False
+        texte, piece, titre = x
+        self.etape_courante, self.achat = None, None
+        self.action_courante = {"texte": texte}
+        if piece not in self.sim.graph:
+            piece = self.sim.piece
+        if self.SITE.get(piece):
+            self.site = self.SITE[piece]
+        lieu = self.LIEU_DU_SITE.get(self.SITE.get(piece), "domicile") if self.SITE.get(piece) else (
+            self.sim.steps[-1]["lieu"] if self.sim.steps else "domicile")
+        self.pousser({"action": texte, "pensee": None, "piece": piece, "lieu": lieu, "mode": "eveille",
+                      "charge": "simple", "posture": "debout"}, titre, "reaction")
+        return True
 
     def retenu(self, texte):
         """Quelqu'un le retient (voyageur.py) : il reste où il est, debout, le temps du pas ; ce qu'il devait faire

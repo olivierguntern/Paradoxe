@@ -67,6 +67,7 @@ def faits_du_pas(a, b, pa, pb, ja, jb, infos=None):
     pour chaque fait ce qui sert à en trouver la cause : personnes concernées, objet, produits, qui a dit quoi."""
     out = []
     infos = {} if infos is None else infos
+    infos["_routine"] = b.get("routine")
     if (a["lieu"], a["piece"]) != (b["lieu"], b["piece"]):
         out.append(("lieu", f"{a['piece']} → {b['piece']}"))
     if a["activite"] != b["activite"]:
@@ -161,6 +162,7 @@ class Causes:
             n = {"id": f"F{len(self.noeuds) + 1}", "habitant": p, "genre": g, "detail": d, "date": date, "heure": heure,
                  "fin_date": date, "fin_heure": heure, "cause": None, "supposee": False}
             self.via = None
+            self.reaction = infos.get(p, {}).get("_routine") == "reaction"
             n["cause"], n["supposee"] = self.cause(p, g, infos.get(p, {}).get((g, d), {}), date, k)
             if self.via:
                 n["via"] = self.via
@@ -250,6 +252,10 @@ class Causes:
         # 5. la suite de ce qui a déjà changé pour lui : un endroit ou une activité se rattache au premier changement
         #    de sa journée dont il découle (par ses besoins décalés, si c'est le cas) ; sinon son dernier fait ;
         #    à défaut, le dernier fait du quartier (lien supposé)
+        if g in ("lieu", "activité") and self.reaction:
+            n = self.recent(p, ("anomalie",))   # une réaction : ce qu'il vient de remarquer
+            if n:
+                return n["id"], False
         if g in ("lieu", "activité"):
             n = self.recent(p, ("lieu", "activité"))
             while n and n["cause"] and n["cause"].startswith("F") and self.noeud(n["cause"])["habitant"] == p                     and self.noeud(n["cause"])["genre"] in ("lieu", "activité"):

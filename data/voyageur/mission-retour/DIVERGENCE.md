@@ -1,0 +1,119 @@
+# Divergence : John est surpris par Robert le samedi après-midi en découpant la dalle, s'enfuit, et revient le dimanche après-midi, pendant que Robert randonne dans les monts d'Or, pour tout recommencer : il veut crocheter la porte de la cour comme la première fois.
+
+**Attendu.** Mais Robert a porté plainte et fait changer la serrure : elle ne se crochète plus. Sans accès, la mission échoue. Il aurait fallu forcer la porte, au risque d'une nouvelle trace, ou trouver un autre moyen.
+
+**Verdict : paradoxe : 4 habitants touchés, jusqu'à 10 faits différents dans une heure.**
+
+## Mission : La branche fossilisée — échouée
+
+Objectif non atteint : branche doit être « brulee » (est « rien »).
+
+Avancement : acces : ouvert.
+
+Gestes impossibles :
+
+- 2010-03-13 15:10 : découper la dalle de béton à la scie interrompu, le voyageur s'enfuit
+- 2010-03-14 15:30 : crocheter la serrure de la porte de la cour n'a pas lieu (la serrure a été changée : elle ne se crochète plus)
+
+## Ce que le voyageur a fait
+
+- 2010-03-13 14:30 : crocheter la serrure de la porte de la cour (30 min)
+- 2010-03-13 15:00 : découper la dalle de béton à la scie (120 min)
+- 2010-03-13 15:00 : Robert remarque : le hurlement d'une scie à béton dans l'arrière-boutique
+- 2010-03-13 15:00 : Robert réagit : aller voir
+- 2010-03-13 15:00 : Robert remarque : une fine poussière de béton sur les rayons et le comptoir
+- 2010-03-13 15:00 : Robert réagit : plainte
+- 2010-03-13 15:05 : Robert remarque : un inconnu en train de découper le sol de l'arrière-boutique à la scie
+- 2010-03-13 15:05 : Robert réagit : surprendre
+- 2010-03-13 15:05 : surpris, le voyageur s'enfuit ; il ne revient pas dans ce lieu aujourd'hui
+- 2010-03-14 15:30 : ne peut pas crocheter la serrure de la porte de la cour : la serrure a été changée : elle ne se crochète plus
+
+## Propagation
+
+Premier fait différent pour chaque habitant touché (habitants touchés directement, visés ou témoins : robert-chazal) :
+
+- **robert-chazal** : le samedi 13 mars à 15:00, anomalie (remarque : le hurlement d'une scie à béton dans l'arrière-boutique)
+- **josiane-chazal** (cascade) : le samedi 13 mars à 20:35, anomalie (entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique)
+- **monique-morel** (cascade) : le dimanche 14 mars à 14:35, appris (ne sait pas : prépare le déjeuner du dimanche)
+- **gerard-morel** (cascade) : le dimanche 14 mars à 15:50, anomalie (entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique)
+
+## Chaîne des causes
+
+Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué : l'intervention du voyageur, le changement chez l'autre pour une rencontre, la dernière rencontre pour ce qu'on apprend, sinon la suite de ce qui a déjà changé pour lui.
+
+- **Le voyageur**, samedi 13 14:30 — crocheter la serrure de la porte de la cour (30 min)
+- **Le voyageur**, samedi 13 15:00 — découper la dalle de béton à la scie (120 min)
+  - **Robert**, samedi 13 15:00, jusqu'au dimanche 14 23:55 — anomalie : remarque : le hurlement d'une scie à béton dans l'arrière-boutique
+    - **Josiane**, samedi 13 20:35, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique
+      - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — anomalie : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique
+        - **Gérard**, dimanche 14 15:50, jusqu'à 23:55 — anomalie : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique
+  - **Robert**, samedi 13 15:00, jusqu'au dimanche 14 23:55 — anomalie : remarque : une fine poussière de béton sur les rayons et le comptoir
+    - **Robert**, samedi 13 15:05, jusqu'à 16:25 — lieu : boutique → arriere-boutique
+    - **Robert**, samedi 13 15:05 — activité : Sert les clients ; café à 16:30 → Va voir d'où vient le bruit
+    - **Josiane**, samedi 13 21:40, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : une fine poussière de béton sur les rayons et le comptoir
+  - **Robert**, samedi 13 15:05, jusqu'au dimanche 14 23:55 — anomalie : remarque : un inconnu en train de découper le sol de l'arrière-boutique à la scie
+    - **Robert**, samedi 13 15:10, jusqu'à 16:25 — activité : Sert les clients ; café à 16:30 → Un cambrioleur dans l'arrière-boutique
+      - **Josiane**, samedi 13 23:15, jusqu'au dimanche 14 23:55 — appris : apprend : un cambrioleur dans l'arrière-boutique
+        - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — appris : ne sait pas : prépare le déjeuner du dimanche
+    - **Josiane**, samedi 13 22:25, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : un inconnu en train de découper le sol de l'arrière-boutique à la scie
+- **Le voyageur**, dimanche 14 15:30 — crocheter la serrure de la porte de la cour (30 min)
+
+## Faits par habitant
+
+| Habitant | Pas où un fait diffère | Faits différents | Premier exemple de chaque genre |
+|---|---|---|---|
+| gerard-morel | 98 | 1 | anomalie 2010-03-14 15:50 : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique |
+| josiane-chazal | 329 | 4 | anomalie 2010-03-13 20:35 : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique ; appris 2010-03-13 23:15 : apprend : un cambrioleur dans l'arrière-boutique |
+| monique-morel | 113 | 2 | appris 2010-03-14 14:35 : ne sait pas : prépare le déjeuner du dimanche ; anomalie 2010-03-14 14:35 : entend parler de : le hurlement d'une scie à béton dans l'arrière-boutique |
+| robert-chazal | 396 | 6 | anomalie 2010-03-13 15:00 : remarque : le hurlement d'une scie à béton dans l'arrière-boutique ; lieu 2010-03-13 15:05 : boutique → arriere-boutique ; activité 2010-03-13 15:05 : Sert les clients ; café à 16:30 → Va voir d'où vient le bruit |
+| thomas-berthier | 0 | 0 |  |
+
+## Heure par heure
+
+Seules les heures où un fait diffère.
+
+| Date | Heure | Faits | Habitants touchés |
+|---|---|---|---|
+| 2010-03-13 | 15:00 | 6 | robert-chazal |
+| 2010-03-13 | 16:00 | 5 | robert-chazal |
+| 2010-03-13 | 17:00 | 3 | robert-chazal |
+| 2010-03-13 | 18:00 | 3 | robert-chazal |
+| 2010-03-13 | 19:00 | 3 | robert-chazal |
+| 2010-03-13 | 20:00 | 4 | josiane-chazal, robert-chazal |
+| 2010-03-13 | 21:00 | 5 | josiane-chazal, robert-chazal |
+| 2010-03-13 | 22:00 | 6 | josiane-chazal, robert-chazal |
+| 2010-03-13 | 23:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 00:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 01:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 02:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 03:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 04:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 05:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 06:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 07:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 08:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 09:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 10:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 11:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 12:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 13:00 | 7 | josiane-chazal, robert-chazal |
+| 2010-03-14 | 14:00 | 9 | josiane-chazal, monique-morel, robert-chazal |
+| 2010-03-14 | 15:00 | 10 | gerard-morel, josiane-chazal, monique-morel, robert-chazal |
+| 2010-03-14 | 16:00 | 10 | gerard-morel, josiane-chazal, monique-morel, robert-chazal |
+| 2010-03-14 | 17:00 | 10 | gerard-morel, josiane-chazal, monique-morel, robert-chazal |
+| 2010-03-14 | 18:00 | 10 | gerard-morel, josiane-chazal, monique-morel, robert-chazal |
+| 2010-03-14 | 19:00 | 10 | gerard-morel, josiane-chazal, monique-morel, robert-chazal |
+| 2010-03-14 | 20:00 | 10 | gerard-morel, josiane-chazal, monique-morel, robert-chazal |
+| 2010-03-14 | 21:00 | 10 | gerard-morel, josiane-chazal, monique-morel, robert-chazal |
+| 2010-03-14 | 22:00 | 10 | gerard-morel, josiane-chazal, monique-morel, robert-chazal |
+| 2010-03-14 | 23:00 | 10 | gerard-morel, josiane-chazal, monique-morel, robert-chazal |
+
+## Détails tolérés à la fin de la période
+
+| Habitant | Besoins (écart moyen) | Émotions (écart moyen) | Provisions différentes | Produits du magasin différents | Comptes différents |
+|---|---|---|---|---|---|
+| gerard-morel | 0.0 | 0.0 | 0 | 0 | 0 |
+| josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
+| monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
+| robert-chazal | 0.0 | 0.0 | 0 | 12 | 1 |
+| thomas-berthier | 0.0 | 0.0 | 0 | 0 | 0 |

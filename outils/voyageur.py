@@ -22,6 +22,14 @@ Tout ce qu'un habitant remarque (anachronisme, voyageur au travail, bruit,
 trace) suit la même règle et le même chemin : mémoire « anomalies »,
 événement vécu, bouche-à-oreille.
 
+Réactions (data/monde/reactions.json) : chez lui (sa boutique, son
+logement), un habitant ne se contente pas de remarquer. Un bruit : il va voir.
+Le voyageur au travail : il le surprend, le voyageur s'enfuit et ses gestes
+suivants dans ce lieu, ce jour-là, n'ont pas lieu ; il appelle la police. Une trace
+d'effraction : il porte plainte et fait changer la serrure. Ces pas
+remplacent ce qu'il devait faire ; ensuite il est plus vigilant dans ce lieu
+et sa nouvelle serrure ne se crochète plus.
+
 Anachronismes : le voyageur porte des objets (« porte » du scénario) et peut
 s'en servir pendant une intervention (« utilise »). Ce qui est apparu après
 l'époque (data/monde/epoque.json) est une anomalie : chaque habitant éveillé
@@ -63,6 +71,9 @@ class Voyageur:
         self.avancement = {}   # avancement de la mission : accès, dalle, trou, profondeur, branche…
         self.traces = []       # traces laissées par les gestes : où, visibilité, depuis, jusqu'à
         self.echecs = []       # gestes impossibles (condition non remplie)
+        self.R = lire(os.path.join(MONDE, "reactions.json"))
+        self.verrous_changes = set()   # lieux dont l'habitant a fait changer la serrure
+        self.fuite = {}                # lieu -> (date, instant) où le voyageur, surpris, s'est enfui : il ne revient pas ce jour-là
         for n, x in enumerate(self.I, 1):
             x["_n"] = n
             if x["type"] == "geste":
@@ -162,13 +173,15 @@ class Voyageur:
                         continue
                     self.remarquer(q, pid, h, i, o, spec["remarque"], vis, pid == face, x["_n"], spec["nom"], "anachronisme_remarque")
 
-    def remarquer(self, q, pid, h, i, objet, quoi, vis, face=False, source=None, nom=None, ev="intrusion_remarquee"):
+    def remarquer(self, q, pid, h, i, objet, quoi, vis, face=False, source=None, nom=None, ev="intrusion_remarquee", genre=None, lieu=None, piece=None):
         """L'habitant remarque-t-il ce qu'il voit, entend ou trouve ? Visibilité × attention relative × (1 − effet de la
         concentration), plus en face-à-face ; tirage déterministe. Ce qu'il remarque reste en mémoire et se raconte."""
         E = self.E
         if objet in {a["objet"] for a in h.mem.get("anomalies", [])}:
             return
         attention = (q.fiches[pid].get("perception") or {}).get("attention", {}).get("piece", E["attention_ordinaire"]) / E["attention_ordinaire"]
+        if lieu:
+            attention *= h.mem.get("vigilance", {}).get(lieu, 1.0)   # plus vigilant là où il a déjà été cambriolé
         p = min(1.0, vis * attention * (1 - E["effet_concentration"] * h.sim.conc) * (E["face_a_face"] if face else 1))
         if tirage(q.date, i, pid, objet, "anachronisme") < p:
             st = h.attente[0]
@@ -179,6 +192,41 @@ class Voyageur:
             h.decisions.append(f"{hm(i)} : remarque {quoi}.")
             self.noter(q, i, f"{q.prenom(pid)} remarque : {nom or quoi}")
             self.temoins.add(pid)
+            if genre and lieu:
+                self.reagir(q, pid, h, i, genre, objet, lieu, piece)
+
+    # ------------------------------------------------------------ réactions
+    @staticmethod
+    def chez_lui(fiche, lieu):
+        """Le lieu est-il à lui : sa boutique, ou un de ses logements ?"""
+        return (fiche.get("commerce") or {}).get("id") == lieu or lieu in fiche["domicile"]["plan"].get("lieux_des_sites", {}).values()
+
+    def reagir(self, q, pid, h, i, genre, objet, lieu, piece):
+        """Chez lui, ce qu'il remarque le fait agir (data/monde/reactions.json), une fois par réaction et par lieu."""
+        if not self.chez_lui(q.fiches[pid], lieu):
+            return
+        trace = objet.split(":", 1)[1] if ":" in objet else objet
+        regle = next((r for r in self.R["regles"] if r["quand"] == genre and (not r.get("traces") or trace in r["traces"])), None)
+        if not regle:
+            return
+        faites = h.mem.setdefault("reactions", [])
+        if f"{regle['reaction']}:{lieu}" in faites:
+            return
+        if regle["reaction"] == "plainte" and f"surprendre:{lieu}" in faites:
+            return   # il a surpris l'intrus : la police est déjà venue
+        faites.append(f"{regle['reaction']}:{lieu}")
+        R = self.R["reactions"][regle["reaction"]]
+        h.imposer(i + 1, R["pas"], piece, R.get("titre", "Réaction à une intrusion"), remplace=bool(R.get("interrompt")))
+        h.decisions.append(f"{hm(i)} : réagit ({regle['reaction'].replace('_', ' ')}).")
+        self.noter(q, i, f"{q.prenom(pid)} réagit : {regle['reaction'].replace('_', ' ')}")
+        if R.get("interrompt") and self.fuite.get(lieu, (None,))[0] != q.date:
+            self.fuite[lieu] = (q.date, self.instant(q.date, i))
+            self.noter(q, i, "surpris, le voyageur s'enfuit ; il ne revient pas dans ce lieu aujourd'hui")
+        ensuite = R.get("ensuite", {})
+        if ensuite.get("vigilance"):
+            h.mem.setdefault("vigilance", {})[lieu] = ensuite["vigilance"]
+        if ensuite.get("verrou_change"):
+            self.verrous_changes.add(lieu)
 
     # ------------------------------------------------------------ gestes et traces
     def duree(self, x):
@@ -199,16 +247,26 @@ class Voyageur:
             f = d + max(1, self.duree(x) // 5)
             if i == d:
                 manque = {k: v for k, v in g.get("si", {}).items() if self.avancement.get(k) != v}
-                x["_ok"] = not manque
-                if manque:
-                    self.echecs.append(f"{q.date} {x['heure']} : impossible de {g['nom']} ({', '.join(f'{k} {v}' for k, v in manque.items())} : condition non remplie)")
-                    self.noter(q, i, f"ne peut pas {g['nom']} : il faut d'abord {', '.join(f'{k} {v}' for k, v in manque.items())}")
+                raison = ("il faut d'abord " + ", ".join(f"{k} {v.replace('_', ' ')}" for k, v in manque.items())) if manque else None
+                if self.fuite.get(x["lieu"], (None,))[0] == q.date:
+                    raison = "il a été surpris ici aujourd'hui et s'est enfui"
+                elif g.get("impossible_si_verrou_change") and x["lieu"] in self.verrous_changes:
+                    raison = "la serrure a été changée : elle ne se crochète plus"
+                x["_ok"] = raison is None
+                if raison:
+                    self.echecs.append(f"{q.date} {x['heure']} : {g['nom']} n'a pas lieu ({raison})")
+                    self.noter(q, i, f"ne peut pas {g['nom']} : {raison}")
                     continue
                 self.noter(q, i, f"{g['nom']} ({self.duree(x)} min)")
                 for tr in g.get("traces", []):
                     self.traces = [t_ for t_ in self.traces if t_["id"] != tr["id"]]
                     self.traces.append(dict(tr, lieu=x["lieu"], piece=x["piece"], depuis=maintenant, source=x["_n"],
                                             jusqu=maintenant + tr["heures"] * 12 if tr.get("heures") else None))
+            fuite = self.fuite.get(x["lieu"])
+            if x.get("_ok") and fuite and fuite[0] == q.date and d <= i < f and fuite[1] < maintenant:
+                x["_ok"] = False
+                self.echecs.append(f"{q.date} {hm(i)} : {g['nom']} interrompu, le voyageur s'enfuit")
+                continue
             if i == f - 1 and x.get("_ok"):
                 self.avancement.update(g.get("fait", {}))
                 if "creuse_m_par_heure" in g:
@@ -234,9 +292,11 @@ class Voyageur:
                     continue
                 ici = q.ou(pid, h)
                 if ici == endroit and g.get("vu"):
-                    self.remarquer(q, pid, h, i, f"vu:{x['geste']}", g["vu"]["remarque"], g["vu"]["visibilite"], True, x["_n"])
+                    self.remarquer(q, pid, h, i, f"vu:{x['geste']}", g["vu"]["remarque"], g["vu"]["visibilite"], True, x["_n"],
+                                   genre="vu", lieu=x["lieu"], piece=x["piece"])
                 elif ici[0] == endroit[0] and g.get("bruit"):
-                    self.remarquer(q, pid, h, i, f"bruit:{x['geste']}", g["bruit"]["remarque"], g["bruit"]["visibilite"], False, x["_n"])
+                    self.remarquer(q, pid, h, i, f"bruit:{x['geste']}", g["bruit"]["remarque"], g["bruit"]["visibilite"], False, x["_n"],
+                                   genre="bruit", lieu=x["lieu"], piece=x["piece"])
 
     def traces_remarquees(self, q, i):
         """Les traces qui restent : qui est dans la pièce (ou dans le lieu, pour une odeur, une poussière) peut les remarquer."""
@@ -249,7 +309,8 @@ class Voyageur:
                     continue
                 ici = q.ou(pid, h)
                 if ici == (tr["lieu"], tr["piece"]) or (tr["portee"] == "lieu" and ici[0] == tr["lieu"]):
-                    self.remarquer(q, pid, h, i, f"trace:{tr['id']}", tr["remarque"], tr["visibilite"], False, tr["source"])
+                    self.remarquer(q, pid, h, i, f"trace:{tr['id']}", tr["remarque"], tr["visibilite"], False, tr["source"],
+                                   genre="trace", lieu=tr["lieu"], piece=tr["piece"])
 
     def acheter(self, q, x, i):
         o = q.H.get(x["commerce"])

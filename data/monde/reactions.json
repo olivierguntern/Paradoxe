@@ -1,0 +1,81 @@
+{
+  "principe": "Ce que fait un habitant quand il remarque une intrusion chez lui (outils/voyageur.py) : dans sa boutique (commerce de sa fiche) ou dans un logement à lui. Ailleurs, il se contente de le remarquer et de le raconter. Chaque réaction (son titre devient l'activité du moment, et un sujet de conversation) impose ses pas, à partir du pas suivant, à la place de ce qu'il devait faire ; elle a lieu une fois par lieu. Ensuite : vigilance (il remarque les intrusions plus facilement dans ce lieu, d'un jour à l'autre), verrou changé (la serrure ne se crochète plus), et une réaction « interrompt » le voyageur : il s'enfuit, ses gestes suivants dans ce lieu n'ont pas lieu ce jour-là ; il peut revenir un autre jour.",
+  "regles": [
+    {
+      "quand": "vu",
+      "reaction": "surprendre"
+    },
+    {
+      "quand": "bruit",
+      "reaction": "aller_voir"
+    },
+    {
+      "quand": "trace",
+      "traces": [
+        "serrure_forcee",
+        "terre",
+        "beton_frais",
+        "poussiere"
+      ],
+      "reaction": "plainte"
+    }
+  ],
+  "reactions": {
+    "aller_voir": {
+      "titre": "Va voir d'où vient le bruit",
+      "pas": [
+        {
+          "minutes": 5,
+          "texte": "Entend un bruit du côté de l'arrière-boutique et va voir ce qui se passe."
+        }
+      ]
+    },
+    "surprendre": {
+      "titre": "Un cambrioleur dans l'arrière-boutique",
+      "interrompt": true,
+      "pas": [
+        {
+          "minutes": 5,
+          "texte": "Surprend un inconnu en plein travail : il crie, l'homme lâche ses outils et s'enfuit par la cour."
+        },
+        {
+          "minutes": 15,
+          "texte": "Téléphone à la police, la voix encore tremblante, et décrit l'homme comme il peut."
+        },
+        {
+          "minutes": 60,
+          "texte": "Les policiers arrivent, constatent les dégâts, prennent sa déposition et des photos."
+        }
+      ],
+      "ensuite": {
+        "vigilance": 2.0,
+        "verrou_change": true
+      }
+    },
+    "plainte": {
+      "titre": "Effraction à la boutique : la police, le serrurier",
+      "pas": [
+        {
+          "minutes": 10,
+          "texte": "Comprend que quelqu'un est entré : fait le tour de la boutique, vérifie la caisse et le coffre."
+        },
+        {
+          "minutes": 15,
+          "texte": "Appelle la police pour signaler l'effraction."
+        },
+        {
+          "minutes": 45,
+          "texte": "Un policier passe constater ; il enregistre la plainte."
+        },
+        {
+          "minutes": 30,
+          "texte": "Le serrurier vient changer la serrure de la porte de la cour."
+        }
+      ],
+      "ensuite": {
+        "vigilance": 2.0,
+        "verrou_change": true
+      }
+    }
+  }
+}

@@ -20,8 +20,9 @@ Avancement : acces : ouvert, dalle : refaite, trou : rebouche, profondeur_m : 2.
 - 2010-03-08 16:35 : reboucher le trou (90 min)
 - 2010-03-08 18:05 : couler une chape de béton (60 min)
 - 2010-03-09 06:30 : Robert remarque : la serrure de la porte de la cour forcée, le bois éclaté
+- 2010-03-09 06:30 : Robert réagit : plainte
 - 2010-03-09 06:30 : Robert remarque : une fine poussière de béton sur les rayons et le comptoir
-- 2010-03-09 12:05 : Robert remarque : une plaque de béton neuf au sol de l'arrière-boutique
+- 2010-03-09 06:35 : Robert remarque : une plaque de béton neuf au sol de l'arrière-boutique
 
 ## Propagation
 
@@ -39,6 +40,8 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 
 - **Le voyageur**, lundi 8 10:00 — forcer la porte de la cour au pied-de-biche (5 min)
   - **Robert**, mardi 9 06:30, jusqu'au dimanche 14 23:55 — anomalie : remarque : la serrure de la porte de la cour forcée, le bois éclaté
+    - **Robert**, mardi 9 06:35, jusqu'à 06:55 — lieu : boutique → arriere-boutique
+    - **Robert**, mardi 9 06:35, jusqu'à 06:55 — activité : Entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau → Effraction à la boutique : la police, le serrurier
     - **Thomas**, mardi 9 18:25, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : la serrure de la porte de la cour forcée, le bois éclaté
     - **Josiane**, mardi 9 19:35, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : la serrure de la porte de la cour forcée, le bois éclaté
       - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — anomalie : entend parler de : la serrure de la porte de la cour forcée, le bois éclaté
@@ -51,13 +54,16 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 - **Le voyageur**, lundi 8 16:05 — brûler la branche fossilisée (30 min)
 - **Le voyageur**, lundi 8 16:35 — reboucher le trou (90 min)
 - **Le voyageur**, lundi 8 18:05 — couler une chape de béton (60 min)
-  - **Robert**, mardi 9 12:05, jusqu'au dimanche 14 23:55 — anomalie : remarque : une plaque de béton neuf au sol de l'arrière-boutique
-    - **Josiane**, mardi 9 19:35, jusqu'à 21:35 — appris : ne sait pas : sert les clients ; café à 16:30
-    - **Josiane**, mardi 9 20:25, jusqu'au jeudi 11 12:25 — appris : ne sait pas : sert les clients ; café à 09:30
+  - **Robert**, mardi 9 06:35, jusqu'au dimanche 14 23:55 — anomalie : remarque : une plaque de béton neuf au sol de l'arrière-boutique
+    - **Robert**, mardi 9 07:00, jusqu'à 08:10 — activité : Sert les clients ; café à 09:30 → Effraction à la boutique : la police, le serrurier
+    - **Robert**, mardi 9 07:05, jusqu'à 08:10 — lieu : boutique → arriere-boutique
+      - **Robert**, mardi 9 09:20 — lieu : boutique → arriere-boutique
+        - **Josiane**, mardi 9 19:35, jusqu'à 21:35 — appris : ne sait pas : sert les clients ; café à 16:30
+        - **Josiane**, mardi 9 20:25, jusqu'au jeudi 11 12:25 — appris : ne sait pas : sert les clients ; café à 09:30
+        - **Josiane**, mardi 9 21:00, jusqu'au jeudi 11 13:05 — appris : ne sait pas : entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau
+        - **Josiane**, mardi 9 21:40, jusqu'au jeudi 11 19:30 — appris : ne sait pas : prépare la réouverture
+          - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — appris : ne sait pas : prépare le déjeuner du dimanche
     - **Josiane**, mardi 9 21:00, jusqu'au dimanche 14 23:55 — anomalie : entend parler de : une plaque de béton neuf au sol de l'arrière-boutique
-    - **Josiane**, mardi 9 21:00, jusqu'au jeudi 11 13:05 — appris : ne sait pas : entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau
-    - **Josiane**, mardi 9 21:40, jusqu'au jeudi 11 19:30 — appris : ne sait pas : prépare la réouverture
-      - **Monique**, dimanche 14 14:35, jusqu'à 23:55 — appris : ne sait pas : prépare le déjeuner du dimanche
 
 ## Faits par habitant
 
@@ -66,7 +72,7 @@ Chaque fait différent (un épisode, tant qu'il dure) sous ce qui l'a provoqué 
 | gerard-morel | 98 | 1 | anomalie 2010-03-14 15:50 : entend parler de : la serrure de la porte de la cour forcée, le bois éclaté |
 | josiane-chazal | 1493 | 7 | appris 2010-03-09 19:35 : ne sait pas : sert les clients ; café à 16:30 ; anomalie 2010-03-09 19:35 : entend parler de : la serrure de la porte de la cour forcée, le bois éclaté |
 | monique-morel | 113 | 2 | appris 2010-03-14 14:35 : ne sait pas : prépare le déjeuner du dimanche ; anomalie 2010-03-14 14:35 : entend parler de : la serrure de la porte de la cour forcée, le bois éclaté |
-| robert-chazal | 1650 | 3 | anomalie 2010-03-09 06:30 : remarque : une fine poussière de béton sur les rayons et le comptoir |
+| robert-chazal | 1650 | 6 | anomalie 2010-03-09 06:30 : remarque : une fine poussière de béton sur les rayons et le comptoir ; lieu 2010-03-09 06:35 : boutique → arriere-boutique ; activité 2010-03-09 06:35 : Entre par la cour, blouse, reçoit le pain et la livraison (mardi, vendredi), lève le rideau → Effraction à la boutique : la police, le serrurier |
 | thomas-berthier | 1507 | 2 | anomalie 2010-03-09 18:25 : entend parler de : la serrure de la porte de la cour forcée, le bois éclaté |
 
 ## Heure par heure
@@ -75,12 +81,12 @@ Seules les heures où un fait diffère.
 
 | Date | Heure | Faits | Habitants touchés |
 |---|---|---|---|
-| 2010-03-09 | 06:00 | 2 | robert-chazal |
-| 2010-03-09 | 07:00 | 2 | robert-chazal |
-| 2010-03-09 | 08:00 | 2 | robert-chazal |
-| 2010-03-09 | 09:00 | 2 | robert-chazal |
-| 2010-03-09 | 10:00 | 2 | robert-chazal |
-| 2010-03-09 | 11:00 | 2 | robert-chazal |
+| 2010-03-09 | 06:00 | 5 | robert-chazal |
+| 2010-03-09 | 07:00 | 5 | robert-chazal |
+| 2010-03-09 | 08:00 | 5 | robert-chazal |
+| 2010-03-09 | 09:00 | 4 | robert-chazal |
+| 2010-03-09 | 10:00 | 3 | robert-chazal |
+| 2010-03-09 | 11:00 | 3 | robert-chazal |
 | 2010-03-09 | 12:00 | 3 | robert-chazal |
 | 2010-03-09 | 13:00 | 3 | robert-chazal |
 | 2010-03-09 | 14:00 | 3 | robert-chazal |
@@ -221,5 +227,5 @@ Seules les heures où un fait diffère.
 | gerard-morel | 0.0 | 0.0 | 0 | 0 | 0 |
 | josiane-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
 | monique-morel | 0.0 | 0.0 | 0 | 0 | 0 |
-| robert-chazal | 0.0 | 0.0 | 0 | 0 | 0 |
+| robert-chazal | 0.0 | 0.0 | 0 | 0 | 2 |
 | thomas-berthier | 0.0 | 0.0 | 0 | 0 | 0 |
